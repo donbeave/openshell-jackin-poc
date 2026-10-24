@@ -1,0 +1,27 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--workdir",
+    "/sandbox/ojp-project/rust-project",
+    "--no-login-shell",
+    "--",
+    "find",
+    "/home/agent/.cache/mbx",
+    "/sandbox/ojp-project/rust-project/target",
+    "-type",
+    "f",
+    "-name",
+    "*.rlib",
+    "-o",
+    "-name",
+    "runtime_probe-*"
+  ],
+  "utc": "2026-10-23T22:44:25.794559+00:00",
+  "exit_status": 0,
+  "stdout": "/home/agent/.cache/mbx/targets/v1/d167bd1a083f076a8dba9c49ccaa197fb82621cb96bd71f30b6340cfa14fb499/debug/deps/runtime_probe-b55f96b184f70919.d\n/home/agent/.cache/mbx/targets/v1/d167bd1a083f076a8dba9c49ccaa197fb82621cb96bd71f30b6340cfa14fb499/debug/deps/libruntime_probe-b55f96b184f70919.rlib\n/home/agent/.cache/mbx/targets/v1/d167bd1a083f076a8dba9c49ccaa197fb82621cb96bd71f30b6340cfa14fb499/debug/libruntime_probe.rlib\n",
+  "stderr": "",
+  "seconds": 0.039237250020960346
+}

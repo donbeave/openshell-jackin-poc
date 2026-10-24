@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-alt",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "claude --version; cat /workspace/hook.log; id"
+  ],
+  "utc": "2026-10-23T22:27:18.779226+00:00",
+  "exit_status": 0,
+  "stdout": "2.1.309 (Claude Code)\nalternate-agent\nuid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)\n",
+  "stderr": "",
+  "seconds": 0.0930497910012491
+}

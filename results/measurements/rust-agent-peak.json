@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "cat /sys/fs/cgroup/memory.current /sys/fs/cgroup/memory.peak /sys/fs/cgroup/memory.max; cat /sys/fs/cgroup/cpu.stat"
+  ],
+  "utc": "2026-10-23T22:40:54.151841+00:00",
+  "exit_status": 0,
+  "stdout": "175132672\n1915482112\n4294967296\nusage_usec 8028285\nuser_usec 5450578\nsystem_usec 2577706\nnice_usec 0\nnr_periods 1176\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0\n",
+  "stderr": "",
+  "seconds": 0.0704459999979008
+}

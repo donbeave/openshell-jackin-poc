@@ -1,0 +1,12 @@
+{
+  "command": [
+    "sh",
+    "-c",
+    "command -v kubectl && kubectl config current-context"
+  ],
+  "utc": "2026-10-23T22:40:28.194753+00:00",
+  "exit_status": 1,
+  "stdout": "/opt/homebrew/bin/kubectl\n",
+  "stderr": "error: current-context is not set\n",
+  "seconds": 0.4323476249992382
+}

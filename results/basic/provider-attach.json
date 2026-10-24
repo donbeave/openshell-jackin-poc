@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "provider",
+    "attach",
+    "ojp-20261024-basic",
+    "ojp-test-key",
+    "--wait"
+  ],
+  "utc": "2026-10-23T22:21:41.601829+00:00",
+  "exit_status": 0,
+  "stdout": "ojp-20261024-basic / ojp-test-key: ready (unspecified)\n  Receipt: 294b65c9-4d1c-48ad-8dbb-8b17f265622c\n  Persisted: 2026-10-23T22:21:41.637816Z\n  Installed: credentials=true, policy=true, future process environment=true\n  Wait: complete\n",
+  "stderr": "",
+  "seconds": 0.8018471669929568
+}

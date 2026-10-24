@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "--no-git-ignore",
+    "ojp-20261024-main",
+    "experiments/compose",
+    "/sandbox/ojp-project"
+  ],
+  "utc": "2026-10-23T22:30:31.240945+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Uploading experiments/compose -> sandbox:/sandbox/ojp-project\n\u2713 Upload complete: /sandbox/ojp-project/compose\n",
+  "seconds": 0.1583370830048807
+}

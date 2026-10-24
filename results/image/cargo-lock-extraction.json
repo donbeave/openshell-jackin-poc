@@ -1,0 +1,42 @@
+[
+  {
+    "command": [
+      "docker",
+      "create",
+      "--name",
+      "ojp-20261024-lock-extract",
+      "-e",
+      "OJP_VALUE=lock-extract",
+      "ojp-20261024-agent:2.1.310-poc-v3",
+      "sleep",
+      "infinity"
+    ],
+    "exit_status": 0,
+    "stdout": "fa73983380aecf546c75507e904bf2cc7d3203e668e943599888c788c51bbf02\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "cp",
+      "ojp-20261024-lock-extract:/home/agent/ojp-project/Cargo.lock",
+      "/Users/example/openshell-jackin-poc/experiments/rust-project/Cargo.lock"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "rm",
+      "ojp-20261024-lock-extract"
+    ],
+    "exit_status": 0,
+    "stdout": "ojp-20261024-lock-extract\n",
+    "stderr": ""
+  },
+  {
+    "cargo_lock_bytes": 61733
+  }
+]

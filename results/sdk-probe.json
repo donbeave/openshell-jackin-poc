@@ -1,0 +1,44 @@
+[
+  {
+    "operation": "health",
+    "result": "PASS",
+    "seconds": 0.007538624980952591,
+    "value": "status: SERVICE_STATUS_HEALTHY\nversion: \"0.1.5\"\n"
+  },
+  {
+    "operation": "list",
+    "result": "PASS",
+    "seconds": 0.0005214170087128878,
+    "value": "[Page(items=[SandboxRef(id='c400f7d7-4955-4359-8def-c362900e3f18', name='ojp-20261024-basic', workspace='default', status=SandboxStatusRef(phase=2, current_policy_version=1, exit_code=None, restart_count=0, next_restart_at_ms=None, main_process_started_at_ms=1792793871590, conditions=(SandboxConditionRef(type='Ready', status='True', reason='DependenciesReady', message='Supervisor session connected', transition_time_ms=None), SandboxConditionRef(type='ConfigurationReady', status='True', reason='ConfigurationAccepted', message='', transition_time_ms=None))), labels={}, created_from_workload_template=None, service_urls={}, host_key_fingerprint='SHA256:qx2fXGdEI/wr+xojaqmUgWY7O2onbuKn57lAcC2CwPk')], next_page_token='')]"
+  },
+  {
+    "operation": "get",
+    "result": "PASS",
+    "seconds": 0.0002714580041356385,
+    "value": "SandboxRef(id='c400f7d7-4955-4359-8def-c362900e3f18', name='ojp-20261024-basic', workspace='default', status=SandboxStatusRef(phase=2, current_policy_version=1, exit_code=None, restart_count=0, next_restart_at_ms=None, main_process_started_at_ms=1792793871590, conditions=(SandboxConditionRef(type='Ready', status='True', reason='DependenciesReady', message='Supervisor session connected', transition_time_ms=None), SandboxConditionRef(type='ConfigurationReady', status='True', reason='ConfigurationAccepted', message='', transition_time_ms=None))), labels={}, created_from_workload_template=None, service_urls={}, host_key_fingerprint='SHA256:qx2fXGdEI/wr+xojaqmUgWY7O2onbuKn57lAcC2CwPk')"
+  },
+  {
+    "operation": "exec",
+    "result": "PASS",
+    "seconds": 0.006780291994800791,
+    "value": "ExecResult(exit_code=7, stdout='sdk-stdout', stderr='sdk-stderr')"
+  },
+  {
+    "operation": "stop",
+    "result": "PASS",
+    "seconds": 5.213430208998034,
+    "value": "SandboxRef(id='c400f7d7-4955-4359-8def-c362900e3f18', name='ojp-20261024-basic', workspace='default', status=SandboxStatusRef(phase=7, current_policy_version=1, exit_code=None, restart_count=0, next_restart_at_ms=None, main_process_started_at_ms=None, conditions=(SandboxConditionRef(type='Ready', status='False', reason='Stopped', message='Sandbox compute is stopped', transition_time_ms=None), SandboxConditionRef(type='ConfigurationReady', status='True', reason='ConfigurationAccepted', message='', transition_time_ms=None))), labels={}, created_from_workload_template=None, service_urls={}, host_key_fingerprint='SHA256:qx2fXGdEI/wr+xojaqmUgWY7O2onbuKn57lAcC2CwPk')"
+  },
+  {
+    "operation": "start",
+    "result": "PASS",
+    "seconds": 0.70004841600894,
+    "value": "SandboxRef(id='c400f7d7-4955-4359-8def-c362900e3f18', name='ojp-20261024-basic', workspace='default', status=SandboxStatusRef(phase=2, current_policy_version=1, exit_code=None, restart_count=0, next_restart_at_ms=None, main_process_started_at_ms=1792793892134, conditions=(SandboxConditionRef(type='Ready', status='True', reason='DependenciesReady', message='Supervisor session connected', transition_time_ms=None), SandboxConditionRef(type='ConfigurationReady', status='True', reason='ConfigurationAccepted', message='', transition_time_ms=None))), labels={}, created_from_workload_template=None, service_urls={}, host_key_fingerprint='SHA256:qx2fXGdEI/wr+xojaqmUgWY7O2onbuKn57lAcC2CwPk')"
+  },
+  {
+    "operation": "wait_ready",
+    "result": "PASS",
+    "seconds": 0.000697459006914869,
+    "value": "SandboxRef(id='c400f7d7-4955-4359-8def-c362900e3f18', name='ojp-20261024-basic', workspace='default', status=SandboxStatusRef(phase=2, current_policy_version=1, exit_code=None, restart_count=0, next_restart_at_ms=None, main_process_started_at_ms=1792793892134, conditions=(SandboxConditionRef(type='Ready', status='True', reason='DependenciesReady', message='Supervisor session connected', transition_time_ms=None), SandboxConditionRef(type='ConfigurationReady', status='True', reason='ConfigurationAccepted', message='', transition_time_ms=None))), labels={}, created_from_workload_template=None, service_urls={}, host_key_fingerprint='SHA256:qx2fXGdEI/wr+xojaqmUgWY7O2onbuKn57lAcC2CwPk')"
+  }
+]

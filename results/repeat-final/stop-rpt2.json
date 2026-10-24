@@ -1,0 +1,14 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "stop",
+    "ojp-20261024-rpt2"
+  ],
+  "utc": "2026-10-23T22:40:22.355603+00:00",
+  "exit_status": 0,
+  "stdout": "\u2713 Stopped sandbox ojp-20261024-rpt2\n",
+  "stderr": "",
+  "seconds": 0.27235016698250547
+}

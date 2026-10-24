@@ -1,0 +1,5 @@
+/certs/
+/config/
+/state/
+/gateway.toml
+/gateway-vm.log

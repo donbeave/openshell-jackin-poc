@@ -1,0 +1,7 @@
+{
+  "original_path": "results/repeat-final/sandbox-list-after-delete.json",
+  "retained_path": "results/repeat-final/sandbox-list-after-delete.empty.stdout",
+  "bytes": 0,
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "reason": "The independent repeat left an empty raw stdout capture with a .json extension. Retained bytes unchanged; this capture is not counted as JSON or as deletion evidence. Other SDK wait-deleted and not-found records prove deletion."
+}

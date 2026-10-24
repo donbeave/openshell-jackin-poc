@@ -1,0 +1,15 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "profile",
+    "import",
+    "-f",
+    "experiments/anthropic.yaml"
+  ],
+  "utc": "2026-10-23T22:21:41.462262+00:00",
+  "exit_status": 0,
+  "stdout": "Imported 1 provider profile.\n",
+  "stderr": "",
+  "seconds": 0.04245508398162201
+}

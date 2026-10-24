@@ -1,0 +1,18 @@
+# Extract: `jackin-project/jackin-the-architect/jackin-toolchain/mise.toml`
+
+Source: `jackin-project/jackin-the-architect` @ `7b72b38fe1d66e35c0931899c53bf3719592bbcc`.
+
+Relevant lines 1–20:
+
+```toml
+[tools]
+cargo-binstall = "1.23.0"
+cargo-audit = "0.22.2"
+cargo-deny = "0.20.2"
+cargo-hack = "0.6.45"
+"aqua:nextest-rs/nextest/cargo-nextest" = "0.9.140"
+cargo-shear = "1.13.4"
+cargo-zigbuild = "0.23.0"
+```
+
+The normal Cargo/nextest workflow uses tools installed into the environment and ordinary Cargo target paths; it is not a user-visible contract to change executable identity after every edit.

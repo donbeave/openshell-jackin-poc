@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "ojp-20261024-rpt2",
+    "experiments/repeat-final/native_tcp.rs",
+    "/sandbox/ojp-project/clean-repeat/rust-project/tests"
+  ],
+  "utc": "2026-10-23T22:37:12.608035+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Warning: experiments/repeat-final/native_tcp.rs is outside a Git work tree; uploading without Git filtering (.gitignore rules are not applied).\nUploading experiments/repeat-final/native_tcp.rs -> sandbox:/sandbox/ojp-project/clean-repeat/rust-project/tests\n\u2713 Upload complete: /sandbox/ojp-project/clean-repeat/rust-project/tests/native_tcp.rs\n",
+  "seconds": 0.15255774999968708
+}

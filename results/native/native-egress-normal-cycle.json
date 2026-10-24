@@ -1,0 +1,90 @@
+[
+  {
+    "label": "normal-mbx-build-source-v2",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--timeout",
+      "300",
+      "--",
+      "mise",
+      "exec",
+      "--",
+      "cargo",
+      "build",
+      "--bin",
+      "native-egress",
+      "--offline"
+    ],
+    "exit_status": 0,
+    "seconds": 0.941,
+    "stdout": "",
+    "stderr": "   Compiling runtime-probe v0.1.0 (/workspace/rust-project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.62s\nmbx[cache]: 0 hits, 1 misses; 0 B downloaded, 0 B uploaded, 4.6 MiB stored locally\n",
+    "captured_utc": "2026-10-23T22:34:19.998911+00:00"
+  },
+  {
+    "label": "normal-mbx-canonical-path",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "readlink",
+      "-f",
+      "/workspace/rust-project/target/debug/native-egress"
+    ],
+    "exit_status": 0,
+    "seconds": 0.084,
+    "stdout": "/workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/native-egress\n",
+    "stderr": "",
+    "captured_utc": "2026-10-23T22:34:20.083758+00:00"
+  },
+  {
+    "label": "normal-mbx-hash-source-v2",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "sha256sum",
+      "/workspace/rust-project/target/debug/native-egress"
+    ],
+    "exit_status": 0,
+    "seconds": 0.104,
+    "stdout": "11208898061778019a05e599ca7e1d818b773c3ae221843c7387741c4e50d2f4  /workspace/rust-project/target/debug/native-egress\n",
+    "stderr": "",
+    "captured_utc": "2026-10-23T22:34:20.187514+00:00"
+  },
+  {
+    "label": "normal-mbx-run-source-v2",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--timeout",
+      "20",
+      "--",
+      "/workspace/rust-project/target/debug/native-egress"
+    ],
+    "exit_status": 1,
+    "seconds": 0.117,
+    "stdout": "",
+    "stderr": "Error: Os { code: 13, kind: PermissionDenied, message: \"Permission denied\" }\n",
+    "captured_utc": "2026-10-23T22:34:20.304181+00:00"
+  }
+]

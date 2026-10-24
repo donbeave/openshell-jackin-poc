@@ -1,0 +1,16 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "ojp-20261024-engine-a",
+    "chown",
+    "-R",
+    "1000:1000",
+    "/sandbox/ojp-project"
+  ],
+  "utc": "2026-10-23T22:30:02.977759+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.05019850001554005
+}

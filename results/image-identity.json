@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "image",
+    "inspect",
+    "ojp-20261024-agent:2.1.310",
+    "--format",
+    "{{.Id}} {{.Os}}/{{.Architecture}}"
+  ],
+  "utc": "2026-10-23T22:25:39.489343+00:00",
+  "exit_status": 0,
+  "stdout": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8 linux/arm64\n",
+  "stderr": "",
+  "seconds": 0.04522495801211335
+}

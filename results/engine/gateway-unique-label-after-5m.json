@@ -1,0 +1,14 @@
+{
+  "command": [
+    "bash",
+    "experiments/os.sh",
+    "sandbox",
+    "get",
+    "ojp-20261024-gwl"
+  ],
+  "utc": "2026-10-23T22:39:23.160978+00:00",
+  "exit_status": 0,
+  "stdout": "Sandbox:\n\n  Id: 57bac7d3-5c2b-46ff-a7e8-2fbce16d6422\n  Name: ojp-20261024-gwl\n  Phase: Ready\n  Resource version: 25\n  Restart policy: never\n  Main process instance: 0097880e-dde1-4a73-9002-d2039655c40c\n  Last exit code: -\n  Restart count: 0\n  Next restart: -\n  Annotations: \n    internal.openshell.ai/auth-epoch: 1\n    internal.openshell.ai/gateway-token-id: 00000000-0000-4000-8000-000000000000\n    internal.openshell.ai/isolation-backend: openshell-sandbox\n    internal.openshell.ai/runtime-generation: c3cd5922-8d69-4361-b0f3-c7764b37096f\n  Conditions:\n    - Ready: True (DependenciesReady) - Supervisor session connected\n    - ConfigurationReady: True (ConfigurationAccepted)\n  Policy source: sandbox\n  Revision: 1\n\nPolicy:\n\n  version: 1\n  filesystem_policy:\n    include_workdir: true\n    read_only:\n      - /bin\n      - /usr\n      - /lib\n      - /proc\n      - /dev/urandom\n      - /etc\n      - /var/log\n    read_write:\n      - /tmp\n      - /dev/null\n  landlock:\n    compatibility: best_effort\n",
+  "stderr": "",
+  "seconds": 0.08746174999396317
+}

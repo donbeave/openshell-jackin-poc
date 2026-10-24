@@ -1,0 +1,18 @@
+{
+  "checked_utc": "2026-10-23T23:17:42.211998+00:00",
+  "python_scripts_parsed": 23,
+  "json_records_parsed": 398,
+  "failures": [],
+  "required_deliverables": {
+    "README.md": true,
+    "experiments": true,
+    "results": true,
+    "CAPABILITY_MATRIX.md": true,
+    "DECISION.md": true,
+    "cleanup.sh": true
+  },
+  "independent_acceptance_audit": "results/review/acceptance-audit.md",
+  "cleanup_and_preservation_audit": "results/disk-audit/final-verification.md",
+  "collateral_restoration": "Approved; same three sandbox IDs Ready; harmless exec checks passed; initiating stop actor remains unproven.",
+  "scope": "Artifact validation only; runtime findings are separately supported by primary execution records and independent review."
+}

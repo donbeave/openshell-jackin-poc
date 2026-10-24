@@ -1,0 +1,17 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--",
+    "bash",
+    "-lc",
+    "mise exec -- cargo --version; mise exec -- codex --version"
+  ],
+  "utc": "2026-10-23T22:43:33.333207+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "mise ERROR \"cargo\" couldn't exec process: No such file or directory\nmise ERROR Version: 2026.10.18 linux-arm64 (2026-10-23)\nmise ERROR Run with --verbose or MISE_VERBOSE=1 for more information\nmise ERROR \"codex\" couldn't exec process: No such file or directory\nmise ERROR Version: 2026.10.18 linux-arm64 (2026-10-23)\nmise ERROR Run with --verbose or MISE_VERBOSE=1 for more information\n",
+  "seconds": 0.08435024999198504
+}

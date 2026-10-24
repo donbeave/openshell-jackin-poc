@@ -1,0 +1,19 @@
+{
+  "command": [
+    "docker",
+    "events",
+    "--since",
+    "2026-10-23T22:22:40Z",
+    "--until",
+    "2026-10-23T22:23:00Z",
+    "--filter",
+    "container=openshell-default--ojp-20261024-ah-0810ba53-94b8-462d-9e1e-bb2a30b8d47a",
+    "--format",
+    "{{json .}}"
+  ],
+  "utc": "2026-10-23T22:23:38.839518+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.018691625009523705
+}

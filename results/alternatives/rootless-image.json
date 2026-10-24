@@ -1,0 +1,12 @@
+{
+  "command": [
+    "docker",
+    "pull",
+    "docker:29.8.2-dind-rootless"
+  ],
+  "utc": "2026-10-23T22:28:21.579364+00:00",
+  "exit_status": 0,
+  "stdout": "29.8.2-dind-rootless: Pulling from library/docker\ne65d99b0058b: Pulling fs layer\n64bd69f137cf: Pulling fs layer\n198ca2693652: Pulling fs layer\n64599dd0d71d: Pulling fs layer\n807de6580111: Pulling fs layer\ne05b4e265f30: Download complete\n64599dd0d71d: Download complete\ne65d99b0058b: Download complete\n198ca2693652: Download complete\n198ca2693652: Pull complete\n807de6580111: Download complete\n64bd69f137cf: Download complete\n64bd69f137cf: Pull complete\n64599dd0d71d: Pull complete\n807de6580111: Pull complete\ne65d99b0058b: Pull complete\nDigest: sha256:c652fa9cebdaa3d655c33c6389c3c409f9a0fea6449c7d7c56c486fe71af0591\nStatus: Downloaded newer image for docker:29.8.2-dind-rootless\ndocker.io/library/docker:29.8.2-dind-rootless\n",
+  "stderr": "",
+  "seconds": 9.150237583002308
+}

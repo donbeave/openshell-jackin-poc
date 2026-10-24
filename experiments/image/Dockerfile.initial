@@ -1,0 +1,19 @@
+ARG RUST_IMAGE=rust:1.99.1-bookworm
+ARG NODE_IMAGE=node:26.12.0-bookworm-slim
+ARG DOCKER_CLI_IMAGE=docker:29.9.2-cli
+FROM ${NODE_IMAGE} AS node
+FROM ${DOCKER_CLI_IMAGE} AS docker
+FROM ${RUST_IMAGE}
+ARG CLAUDE_VERSION=2.1.310
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/bin/npm /usr/local/bin/npm
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=docker /usr/local/bin/docker /usr/local/bin/docker
+COPY --from=docker /usr/local/libexec/docker/cli-plugins/docker-compose /usr/local/libexec/docker/cli-plugins/docker-compose
+RUN node /usr/local/lib/node_modules/npm/bin/npm-cli.js install --global @anthropic-ai/claude-code@${CLAUDE_VERSION} && \
+    apt-get update && apt-get install -y --no-install-recommends ca-certificates git curl openssh-client pkg-config libssl-dev && \
+    rm -rf /var/lib/apt/lists/* && \
+    useradd --create-home --shell /bin/bash agent
+USER agent
+WORKDIR /workspace
+CMD ["sleep", "infinity"]

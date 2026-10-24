@@ -1,0 +1,24 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-v2",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "ojp-native-http",
+    "-p",
+    "15432:80",
+    "nginx:1.29.3-alpine"
+  ],
+  "utc": "2026-10-23T22:26:28.555160+00:00",
+  "exit_status": 0,
+  "stdout": "611b5f9c956c89d566094210ae68475f785ec5485d2f4e1f34860ab73b6519f0\n",
+  "stderr": "",
+  "seconds": 0.21372754199546762
+}

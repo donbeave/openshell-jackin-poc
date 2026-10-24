@@ -1,0 +1,16 @@
+[
+  {
+    "attempt": 1,
+    "detached": false,
+    "exit_status": 143,
+    "seconds": 20.126789958012523,
+    "output": "\u001b[?2004hbash-5.2$ \r\u001b[K\rbash-5.2$ echo OJP_RECONNECT_0\r\n\u001b[?2004l\rOJP_RECONNECT_0\r\n\u001b[?2004h\r\r\n\u001b[?2004l\rOJP_RECONNECT_1\r\n\u001b[?2004h\r\r\n\u001b[?2004l\rOJP_RECONNECT_0\r\n\u001b[?2004h\r"
+  },
+  {
+    "attempt": 2,
+    "detached": false,
+    "exit_status": 143,
+    "seconds": 20.10231937500066,
+    "output": "\u001b[?2004hbash-5.2$ \r\u001b[K\rbash-5.2$ echo OJP_RECONNECT_0\r\n\u001b[?2004l\rOJP_RECONNECT_0\r\n\u001b[?2004h\r\r\n\u001b[?2004l\rOJP_RECONNECT_1\r\n\u001b[?2004h\r\r\n\u001b[?2004l\rOJP_RECONNECT_0\r\n\u001b[?2004h\r\r\n\u001b[?2004l\rOJP_RECONNECT_1\r\n\u001b[?2004h\r"
+  }
+]

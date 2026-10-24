@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "--no-git-ignore",
+    "ojp-20261024-rust",
+    "/Users/example/openshell-jackin-poc/experiments/rust-project",
+    "/workspace"
+  ],
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Uploading /Users/example/openshell-jackin-poc/experiments/rust-project -> sandbox:/workspace\n\u2713 Upload complete: /workspace/rust-project\n",
+  "uploaded_utc": "2026-10-23T22:31:13.574486+00:00",
+  "lock_sha256": "dba7be639bce45841d7aa4450ad131f835fe56c1ce7d02d853624de1daaaa2e7"
+}

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "version"
+  ],
+  "utc": "2026-10-23T22:42:02.690988+00:00",
+  "exit_status": 2,
+  "stdout": "",
+  "stderr": "error: unrecognized subcommand 'version'\n\nUsage: openshell [OPTIONS] [COMMAND]\n\nFor more information, try '--help'.\n",
+  "seconds": 0.013130291976267472
+}

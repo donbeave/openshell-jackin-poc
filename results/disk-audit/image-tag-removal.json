@@ -1,0 +1,29 @@
+{
+  "script_owned_cleanup": true,
+  "timestamp_utc": "2026-10-23T22:37:05.405979+00:00",
+  "action": "docker image rm with exact tags after all-container reference check",
+  "exit_status": 0,
+  "stdout": "Untagged: ojp-20261024-agent:2.1.309-final-tools\nDeleted: sha256:791d44dbe1d6e99b02f6b4b8aa9016ca4e82ec9a94dc7cf360a87779419b2e66\nUntagged: ojp-20261024-agent:2.1.309-tools\nDeleted: sha256:4ab1ec92e08aacc0bb331c93f21ecb7be6f2a102f73fac137a21077680b2081e\nUntagged: ojp-20261024-agent:2.1.310-final-forced\nDeleted: sha256:7dfcb7b929575803916ec9790be94b4e020e6699e9295170bd0ec5c92148683d\nUntagged: ojp-20261024-agent:2.1.310-final-hardened\nDeleted: sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28\nUntagged: ojp-20261024-agent:2.1.310-final-tools\nDeleted: sha256:80e997102a8c32701ea92c04a665e91daf73db139251dd4de59b77e780390486\nUntagged: ojp-20261024-agent:2.1.310-final-warm\nDeleted: sha256:24f91a2565b4a638c228ad2edddb5623a58d4e4c2bd4ed171a86b72444202d01\nUntagged: ojp-20261024-agent:2.1.310-poc-final\nDeleted: sha256:6c642b9c2847baf49a4b420f8cb5378facb9ddf2bb90c095f8b92bc2c2bf98c6\nUntagged: ojp-20261024-agent:2.1.310-poc-forced\nDeleted: sha256:5887b574540db1f1eb82bae9a827cf4baa685144f2f2bf5d55d790f67de3404e\nUntagged: ojp-20261024-agent:2.1.310-poc-warm\nDeleted: sha256:157daf4a9831f4a56a4105c154f5282bc91e3a49137e5946bc23988e079d546b\nUntagged: ojp-20261024-agent:2.1.310-tools\nDeleted: sha256:60f4469769db713f35b2a529cf305a26383d62fd65764bbbc9829f32c8a42554\n",
+  "stderr": "",
+  "removed_tags": [
+    "ojp-20261024-agent:2.1.309-final-tools",
+    "ojp-20261024-agent:2.1.309-tools",
+    "ojp-20261024-agent:2.1.310-final-forced",
+    "ojp-20261024-agent:2.1.310-final-hardened",
+    "ojp-20261024-agent:2.1.310-final-tools",
+    "ojp-20261024-agent:2.1.310-final-warm",
+    "ojp-20261024-agent:2.1.310-poc-final",
+    "ojp-20261024-agent:2.1.310-poc-forced",
+    "ojp-20261024-agent:2.1.310-poc-warm",
+    "ojp-20261024-agent:2.1.310-tools"
+  ],
+  "tags_still_present": [],
+  "protected_tags_present": [
+    "ojp-20261024-agent:2.1.309-poc-final",
+    "ojp-20261024-agent:2.1.310",
+    "ojp-20261024-agent:2.1.310-poc-final-v2",
+    "ojp-20261024-agent:2.1.310-poc-v3"
+  ],
+  "free_bytes_before": 2017232650240,
+  "free_bytes_after": 2017228230656
+}

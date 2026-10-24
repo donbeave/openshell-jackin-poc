@@ -1,0 +1,106 @@
+[
+  {
+    "label": "upload-source-v3",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "upload",
+      "--no-git-ignore",
+      "ojp-20261024-rust",
+      "/Users/example/openshell-jackin-poc/experiments/rust-project/src/bin/native-egress.rs",
+      "/workspace/rust-project/src/bin/native-egress.rs"
+    ],
+    "exit_status": 0,
+    "seconds": 0.282,
+    "stdout": "",
+    "stderr": "Uploading /Users/example/openshell-jackin-poc/experiments/rust-project/src/bin/native-egress.rs -> sandbox:/workspace/rust-project/src/bin/native-egress.rs\n\u2713 Upload complete: /workspace/rust-project/src/bin/native-egress.rs\n",
+    "captured_utc": "2026-10-23T22:34:48.341342+00:00"
+  },
+  {
+    "label": "normal-mbx-rebuild-same-path-v3",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--timeout",
+      "300",
+      "--",
+      "mise",
+      "exec",
+      "--",
+      "cargo",
+      "build",
+      "--bin",
+      "native-egress",
+      "--offline"
+    ],
+    "exit_status": 0,
+    "seconds": 0.455,
+    "stdout": "",
+    "stderr": "   Compiling runtime-probe v0.1.0 (/workspace/rust-project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s\nmbx[cache]: 0 hits, 1 misses, 1 incremental; 0 B downloaded, 0 B uploaded, 0 B stored locally\n",
+    "captured_utc": "2026-10-23T22:34:48.796338+00:00"
+  },
+  {
+    "label": "normal-mbx-hash-source-v3",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "sha256sum",
+      "/workspace/rust-project/target/debug/native-egress"
+    ],
+    "exit_status": 0,
+    "seconds": 0.103,
+    "stdout": "cd4d91b28d0f5989d4c2c527b4a62e04b5a3ead90d017ad36afbefd5a9726fae  /workspace/rust-project/target/debug/native-egress\n",
+    "stderr": "",
+    "captured_utc": "2026-10-23T22:34:48.899193+00:00"
+  },
+  {
+    "label": "normal-mbx-run-same-path-v3",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--timeout",
+      "20",
+      "--",
+      "/workspace/rust-project/target/debug/native-egress"
+    ],
+    "exit_status": 1,
+    "seconds": 0.153,
+    "stdout": "",
+    "stderr": "Error: Os { code: 13, kind: PermissionDenied, message: \"Permission denied\" }\n",
+    "captured_utc": "2026-10-23T22:34:49.052402+00:00"
+  },
+  {
+    "label": "identity-denial-logs",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "logs",
+      "ojp-20261024-rust",
+      "--since",
+      "1m",
+      "--level",
+      "debug"
+    ],
+    "exit_status": 0,
+    "seconds": 0.057,
+    "stdout": "[1792794836.039] [gateway] [INFO ] [openshell_server::grpc::policy] UpdateConfig: new policy version persisted\n[1792794840.249] [gateway] [INFO ] [openshell_server::grpc::policy] GetSandboxProviderEnvironment request completed successfully\n[1792794840.253] [gateway] [INFO ] [openshell_server::grpc::policy] sandbox reported policy load result\n[1792794840.247] [sandbox] [OCSF ] [ocsf] CONFIG:DETECTED [INFO] Settings poll: config change detected [old_revision:13608157044897524798 new_revision:9630707589823593126 policy_changed:true provider_env_changed:true]\n[1792794840.249] [sandbox] [INFO ] [openshell_supervisor_network::opa] Configured OPA runtime binary identity mode require_binary_identity=true source=proto\n[1792794840.249] [sandbox] [OCSF ] [ocsf] CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\n[1792794840.251] [sandbox] [OCSF ] [ocsf] CONFIG:LOADED [INFO] Policy reloaded successfully [policy_hash:79ebe33147adcc12864646253465f7725434b61b930039dadf8dc5a5af16e51b] [hash:79ebe33147adcc12864646253465f7725434b61b930039dadf8dc5a5af16e51b]\n[1792794840.252] [sandbox] [WARN ] [openshell_supervisor::endpoint_status] Endpoint status report failed transiently; retaining immutable snapshot attempt=1 error=code: 'The system is not in a state required for the operation's execution', message: \"tool server endpoint status revisions do not match the current sandbox configuration\"\n[1792794859.128] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794859.128] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794859.128] [gateway] [INFO ] [openshell_server::grpc::sandbox] ExecSandbox (relay): command started\n[1792794859.127] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=862ba9b2-f610-4e83-801b-91d0eb81c208, target=unix:/run/openshell/ssh.sock)\n[1792794859.127] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794860.070] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794860.071] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794860.071] [gateway] [INFO ] [openshell_server::grpc::sandbox] ExecSandbox (relay): command started\n[1792794859.990] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=862ba9b2-f610-4e83-801b-91d0eb81c208, target=unix:/run/openshell/ssh.sock)\n[1792794860.070] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=e7196fce-b450-4d91-bebe-ca9c05144bbd, target=unix:/run/openshell/ssh.sock)\n[1792794860.070] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794860.081] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=e7196fce-b450-4d91-bebe-ca9c05144bbd, target=unix:/run/openshell/ssh.sock)\n[1792794860.168] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794860.168] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794860.168] [gateway] [INFO ] [openshell_server::grpc::sandbox] ExecSandbox (relay): command started\n[1792794860.277] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794860.280] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794860.280] [gateway] [INFO ] [openshell_server::grpc::sandbox] ExecSandbox (relay): command started\n[1792794860.167] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=8ca0b98e-4923-4ae0-9e58-2c8f9f62d022, target=unix:/run/openshell/ssh.sock)\n[1792794860.167] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794860.184] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=8ca0b98e-4923-4ae0-9e58-2c8f9f62d022, target=unix:/run/openshell/ssh.sock)\n[1792794860.269] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=f39ef09a-cc2a-47eb-b521-a58e82aea8d0, target=unix:/run/openshell/ssh.sock)\n[1792794860.269] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794860.295] [sandbox] [OCSF ] [ocsf] CONFIG:PUBLISHED [INFO] Policy DNS mapped host.docker.internal resolved=127.0.0.1 synthetic=198.18.0.3 ports=15432,18080,18081,18082,18083,18084,18776,18777 mapping_id=a48e68a1-319b-4424-a21e-cabf3cf2a39e\n[1792794860.299] [sandbox] [WARN ] [openshell_supervisor_network::proxy] Denied staged transparent connection destination=198.18.0.3:15432 reason=Binary integrity violation: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/native-egress executable changed\n[1792794860.299] [sandbox] [OCSF ] [ocsf] NET:OPEN [MED] DENIED /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/native-egress(0) -> host.docker.internal:15432 [reason:transparent_tcp_identity_unavailable]\n[1792794860.301] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=f39ef09a-cc2a-47eb-b521-a58e82aea8d0, target=unix:/run/openshell/ssh.sock)\n[1792794888.177] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794888.177] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794888.269] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794888.270] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794888.397] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794888.397] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794888.397] [gateway] [INFO ] [openshell_server::grpc::sandbox] ExecSandbox (relay): command started\n[1792794888.172] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=fbde8dac-bfd4-4f6a-8a25-e1710116374d, target=unix:/run/openshell/ssh.sock)\n[1792794888.172] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794888.212] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=fbde8dac-bfd4-4f6a-8a25-e1710116374d, target=unix:/run/openshell/ssh.sock)\n[1792794888.268] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=1b2467bc-1941-49d2-8368-043aa070059a, target=unix:/run/openshell/ssh.sock)\n[1792794888.268] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794888.334] [sandbox] [OCSF ] [ocsf] SSH:FAIL [LOW]\n[1792794888.334] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=1b2467bc-1941-49d2-8368-043aa070059a, target=unix:/run/openshell/ssh.sock)\n[1792794888.397] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=0049ef87-9bd9-4efe-94d6-8a6c158318ff, target=unix:/run/openshell/ssh.sock)\n[1792794888.397] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794888.851] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794888.851] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794888.851] [gateway] [INFO ] [openshell_server::grpc::sandbox] ExecSandbox (relay): command started\n[1792794888.972] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: relay opened successfully\n[1792794888.973] [gateway] [INFO ] [openshell_server::supervisor_session] relay stream: claimed pending relay, bridging\n[1792794888.973] [gateway] [INFO ] [openshell_server::grpc::sandbox] ExecSandbox (relay): command started\n[1792794888.793] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=0049ef87-9bd9-4efe-94d6-8a6c158318ff, target=unix:/run/openshell/ssh.sock)\n[1792794888.850] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=43b616dc-fb99-4312-859a-1ef9168c668f, target=unix:/run/openshell/ssh.sock)\n[1792794888.850] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794888.885] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=43b616dc-fb99-4312-859a-1ef9168c668f, target=unix:/run/openshell/ssh.sock)\n[1792794888.970] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay open (channel_id=86f1901a-c2ca-4c15-b0e9-238ba8cf610f, target=unix:/run/openshell/ssh.sock)\n[1792794888.970] [sandbox] [OCSF ] [ocsf] SSH:OPEN [INFO] ALLOWED\n[1792794889.023] [sandbox] [OCSF ] [ocsf] CONFIG:PUBLISHED [INFO] Policy DNS mapped host.docker.internal resolved=127.0.0.1 synthetic=198.18.0.3 ports=15432,18080,18081,18082,18083,18084,18776,18777 mapping_id=433bc19a-8159-4b2c-b337-9c4bc268bee1\n[1792794889.031] [sandbox] [WARN ] [openshell_supervisor_network::proxy] Denied staged transparent connection destination=198.18.0.3:15432 reason=Binary integrity violation: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/native-egress executable changed\n[1792794889.031] [sandbox] [OCSF ] [ocsf] NET:OPEN [MED] DENIED /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/native-egress(0) -> host.docker.internal:15432 [reason:transparent_tcp_identity_unavailable]\n[1792794889.046] [sandbox] [OCSF ] [ocsf] EVENT [INFO] ssh relay closed (channel_id=86f1901a-c2ca-4c15-b0e9-238ba8cf610f, target=unix:/run/openshell/ssh.sock)\n",
+    "stderr": "Warning: log buffer contains only the last 200 lines; --since results may be incomplete.\n",
+    "captured_utc": "2026-10-23T22:34:49.109898+00:00"
+  }
+]

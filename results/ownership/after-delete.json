@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "ojp-20261024-engine-a",
+    "sh",
+    "-c",
+    "docker info --format \"{{.ID}}\"; docker ps -a --format \"{{.ID}} {{.Names}} {{.Status}}\"; docker volume ls --format \"{{.Name}}\""
+  ],
+  "utc": "2026-10-23T22:39:44.466666+00:00",
+  "exit_status": 0,
+  "stdout": "bc083e72-354a-4215-930d-ba3924c32028\n89198e22a8fe ojp-h-owned-child Up 3 seconds\n611b5f9c956c ojp-native-http Up 13 minutes\n81e5a71174542935475926a6ada7a87f0dcbddf72707547deb00cdda3ff4f93c\n84afec3f3ab32f9c49b8164bfe7c0bd9a12354364933677884e874226427c58d\n89e8d09886279e317481f92d83ff47a228f9f19153a6b680a85c3d7e505dd56e\n99b20769af7acb110499d82a72c1e07afb41652c975e967247236d9ada317070\nc93fdca39564a651b63a5ee0bf3aad04a11e8d4d015c86557a16e2fecc3850b9\nf6d2a3cfc6947f9fbdbd1878fbbb0aed0056addd6b78e17b6ebb14282da26d6f\nojp-20261024-engine-a-inner-volume\nojp-h-owned-volume\n",
+  "stderr": "",
+  "seconds": 0.13884391699684784
+}

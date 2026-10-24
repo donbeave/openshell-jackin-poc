@@ -1,0 +1,65 @@
+[
+  {
+    "command": "date -u",
+    "exit_status": 0,
+    "stdout": "Fri Oct 23 22:14:03 UTC 2026\n",
+    "stderr": "",
+    "seconds": 0.0068833340192213655
+  },
+  {
+    "command": "sw_vers",
+    "exit_status": 0,
+    "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+    "stderr": "",
+    "seconds": 0.012165916996309534
+  },
+  {
+    "command": "uname -a",
+    "exit_status": 0,
+    "stdout": "Darwin example-host.local 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050 arm64\n",
+    "stderr": "",
+    "seconds": 0.005695375002687797
+  },
+  {
+    "command": "sysctl -n machdep.cpu.brand_string hw.memsize hw.ncpu",
+    "exit_status": 0,
+    "stdout": "Apple M5 Max\n137438953472\n18\n",
+    "stderr": "",
+    "seconds": 0.00544645800255239
+  },
+  {
+    "command": "df -h .",
+    "exit_status": 0,
+    "stdout": "Filesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk3s5   3.6Ti   1.8Ti   1.8Ti    50%     21M   20G    0%   /System/Volumes/Data\n",
+    "stderr": "",
+    "seconds": 0.005753833975177258
+  },
+  {
+    "command": "docker version",
+    "exit_status": 0,
+    "stdout": "Client: Docker Engine - Community\n Version:           29.9.2\n API version:       1.56\n Go version:        go1.27.3\n Git commit:        a82e528901\n Built:             Tue Oct 20 11:24:07 2026\n OS/Arch:           darwin/arm64\n Context:           orbstack\n\nServer: Docker Engine - Community\n Engine:\n  Version:          29.8.2\n  API version:      1.56 (minimum version 1.40)\n  Go version:       go1.26.8\n  Git commit:       8af9fe3\n  Built:            Wed Sep 30 19:32:49 2026\n  OS/Arch:          linux/arm64\n  Experimental:     true\n containerd:\n  Version:          v2.3.6\n  GitCommit:        ee2735368117d2eb259779949d5e75cdafec9761\n runc:\n  Version:          1.5.2\n  GitCommit:        29dd3dc2b13b4123162e5fe132504bb4b15569f1\n docker-init:\n  Version:          0.19.0\n  GitCommit:        de40ad0\n",
+    "stderr": "",
+    "seconds": 0.10108508300618269
+  },
+  {
+    "command": "docker context inspect orbstack",
+    "exit_status": 0,
+    "stdout": "[\n    {\n        \"Name\": \"orbstack\",\n        \"Metadata\": {\n            \"Description\": \"OrbStack\"\n        },\n        \"Endpoints\": {\n            \"docker\": {\n                \"Host\": \"unix:///Users/example/.orbstack/run/docker.sock\",\n                \"SkipTLSVerify\": false\n            }\n        },\n        \"TLSMaterial\": {},\n        \"Storage\": {\n            \"MetadataPath\": \"/Users/example/.docker/contexts/meta/2d89b732b01a00a2d1675ed3cee9fd0f965daadf90603c989dd3afd4569c6896\",\n            \"TLSPath\": \"/Users/example/.docker/contexts/tls/2d89b732b01a00a2d1675ed3cee9fd0f965daadf90603c989dd3afd4569c6896\"\n        }\n    }\n]\n",
+    "stderr": "",
+    "seconds": 0.014801291981711984
+  },
+  {
+    "command": "docker compose version",
+    "exit_status": 0,
+    "stdout": "Docker Compose version v5.5.0\n",
+    "stderr": "",
+    "seconds": 0.13635395900928415
+  },
+  {
+    "command": "openshell --version",
+    "exit_status": 0,
+    "stdout": "openshell 0.1.5\n",
+    "stderr": "",
+    "seconds": 0.02138620801270008
+  }
+]

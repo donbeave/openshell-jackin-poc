@@ -1,0 +1,28 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/compose",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "compose",
+    "-p",
+    "ojp-rpt2",
+    "-f",
+    "compose.yaml",
+    "ps",
+    "--all",
+    "--format",
+    "json"
+  ],
+  "utc": "2026-10-23T22:38:15.432619+00:00",
+  "exit_status": 0,
+  "stdout": "{\"Command\":\"\\\"/docker-entrypoint.\u2026\\\"\",\"CreatedAt\":\"2026-10-23 22:38:13 +0000 UTC\",\"Engine\":\"\",\"ExitCode\":0,\"Health\":\"\",\"ID\":\"4cdc69e4252d\",\"Image\":\"ojp-20261024-rpt2-compose:local\",\"Labels\":\"com.docker.compose.container-number=1,com.docker.compose.depends_on=database:service_healthy:false,com.docker.compose.image=sha256:8731eb5b12fbfa01a3536e06cb5ef2eb9b7f5e7132723d7be617aa4b01457ce6,com.docker.compose.oneoff=False,com.docker.compose.project.working_dir=/sandbox/ojp-project/clean-repeat/compose,com.docker.compose.service=app,maintainer=NGINX Docker Maintainers \\u003cdocker-maint@nginx.com\\u003e,com.docker.compose.config-hash=bc50fbd2955c6f3ad0ae639bd531a4d07f6c1748d297b3cee603f785ad47f66b,com.docker.compose.project=ojp-rpt2,com.docker.compose.project.config_files=/sandbox/ojp-project/clean-repeat/compose/compose.yaml,com.docker.compose.version=5.6.1\",\"LocalVolumes\":\"0\",\"Mounts\":\"/sandbox/ojp-p\u2026\",\"Name\":\"ojp-rpt2-app-1\",\"Names\":\"ojp-rpt2-app-1\",\"Networks\":\"ojp-rpt2_default\",\"Ports\":\"0.0.0.0:15433-\\u003e80/tcp, 0.0.0.0:18087-\\u003e80/tcp, 0.0.0.0:18088-\\u003e80/tcp, [::]:15433-\\u003e80/tcp, [::]:18087-\\u003e80/tcp, [::]:18088-\\u003e80/tcp\",\"Project\":\"ojp-rpt2\",\"Publishers\":[{\"URL\":\"0.0.0.0\",\"TargetPort\":80,\"PublishedPort\":15433,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":80,\"PublishedPort\":15433,\"Protocol\":\"tcp\"},{\"URL\":\"0.0.0.0\",\"TargetPort\":80,\"PublishedPort\":18087,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":80,\"PublishedPort\":18087,\"Protocol\":\"tcp\"},{\"URL\":\"0.0.0.0\",\"TargetPort\":80,\"PublishedPort\":18088,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":80,\"PublishedPort\":18088,\"Protocol\":\"tcp\"}],\"RunningFor\":\"2 seconds ago\",\"Service\":\"app\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up Less than a second\"}\n{\"Command\":\"\\\"docker-entrypoint.s\u2026\\\"\",\"CreatedAt\":\"2026-10-23 22:38:13 +0000 UTC\",\"Engine\":\"\",\"ExitCode\":0,\"Health\":\"healthy\",\"ID\":\"c2bd63459adf\",\"Image\":\"redis:7.4-alpine\",\"Labels\":\"com.docker.compose.project.working_dir=/sandbox/ojp-project/clean-repeat/compose,com.docker.compose.config-hash=39c71a34768302526a96952afa87f0e8ee2c5b39472bd28e3fb97f4b583ca83c,com.docker.compose.depends_on=,com.docker.compose.oneoff=False,com.docker.compose.service=database,com.docker.compose.version=5.6.1,com.docker.compose.container-number=1,com.docker.compose.image=sha256:12bd99f4555ce357cbe0c950ad42c7a86f76e807244995f0ad0a6b8949c3518a,com.docker.compose.project=ojp-rpt2,com.docker.compose.project.config_files=/sandbox/ojp-project/clean-repeat/compose/compose.yaml\",\"LocalVolumes\":\"1\",\"Mounts\":\"37b4c738ce2b7e\u2026\",\"Name\":\"ojp-rpt2-database-1\",\"Names\":\"ojp-rpt2-database-1\",\"Networks\":\"ojp-rpt2_default\",\"Ports\":\"0.0.0.0:18086-\\u003e6379/tcp, [::]:18086-\\u003e6379/tcp\",\"Project\":\"ojp-rpt2\",\"Publishers\":[{\"URL\":\"0.0.0.0\",\"TargetPort\":6379,\"PublishedPort\":18086,\"Protocol\":\"tcp\"},{\"URL\":\"::\",\"TargetPort\":6379,\"PublishedPort\":18086,\"Protocol\":\"tcp\"}],\"RunningFor\":\"2 seconds ago\",\"Service\":\"database\",\"Size\":\"0B\",\"State\":\"running\",\"Status\":\"Up 2 seconds (healthy)\"}\n",
+  "stderr": "",
+  "seconds": 0.1384387500002049
+}

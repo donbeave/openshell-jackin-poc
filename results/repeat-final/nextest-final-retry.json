@@ -1,0 +1,26 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/rust-project",
+    "--timeout",
+    "600",
+    "--no-login-shell",
+    "--",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "nextest",
+    "run"
+  ],
+  "utc": "2026-10-23T22:36:09.280184+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "   Compiling runtime-probe v0.1.0 (/sandbox/ojp-project/clean-repeat/rust-project)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.88s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n Nextest run ID e1bc00d1-7516-41a7-9f37-f6035a7312b1 with nextest profile: default\n    Starting 2 tests across 4 binaries\n        PASS [   0.002s] (1/2) runtime-probe::native_tcp executable_can_open_a_local_tcp_connection\n        PASS [   0.686s] (2/2) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n     Summary [   0.688s] 2 tests run: 2 passed, 0 skipped\nmbx[cache]: 0 hits, 1 misses, 1 not looked up; 0 B downloaded, 0 B uploaded, 141.1 MiB stored locally\n",
+  "seconds": 3.7356827500043437
+}

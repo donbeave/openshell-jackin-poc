@@ -1,0 +1,93 @@
+{
+  "utc": "2026-10-23T22:26:46.842250+00:00",
+  "result": "External fixture only; nested Docker children attempted a connection to an experiment-owned host endpoint; no OpenShell network policy was in effect.",
+  "endpoint": "nginx:1.29.3-alpine, host TCP 15434, response body ojp-harmless-local-endpoint",
+  "endpoint_owner": "outer OrbStack Docker daemon; exact resource ojp-20261024-network-endpoint",
+  "checks": [
+    {
+      "name": "endpoint-owner-container",
+      "command": [
+        "docker",
+        "inspect",
+        "ojp-20261024-network-endpoint",
+        "--format",
+        "{{.Name}} {{.Id}} image={{.Image}} ports={{json .HostConfig.PortBindings}} labels={{json .Config.Labels}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "/ojp-20261024-network-endpoint ec28dce7c0abcda8ae5a7017ca8a499aebaea7f1dbb5d4dea2cfb977195f8325 image=sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14 ports={\"80/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"15434\"}]} labels={\"maintainer\":\"NGINX Docker Maintainers <docker-maint@nginx.com>\",\"ojp.owner\":\"experiments/engines/network-endpoint\",\"ojp.test-id\":\"ojp-20261024\"}\n",
+      "stderr": "",
+      "seconds": 0.014712791016791016
+    },
+    {
+      "name": "host-endpoint-response",
+      "command": [
+        "curl",
+        "--silent",
+        "--show-error",
+        "--max-time",
+        "5",
+        "http://127.0.0.1:15434/"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "ojp-harmless-local-endpoint\n",
+      "stderr": "",
+      "seconds": 0.011393207998480648
+    },
+    {
+      "name": "engine-a-child-egress-to-controlled-host",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "run",
+        "--rm",
+        "--entrypoint",
+        "sh",
+        "alpine:3.22",
+        "-c",
+        "wget -qO- -T 5 http://host.docker.internal:15434/"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "ojp-harmless-local-endpoint\n",
+      "stderr": "Unable to find image 'alpine:3.22' locally\n3.22: Pulling from library/alpine\n281d5a96263b: Pulling fs layer\n281d5a96263b: Download complete\n281d5a96263b: Pull complete\n98e3b1322cb3: Download complete\n6f734c24b502: Download complete\nDigest: sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f\nStatus: Downloaded newer image for alpine:3.22\n",
+      "seconds": 4.091079459001776
+    },
+    {
+      "name": "engine-b-child-egress-to-controlled-host",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18777",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/key.pem",
+        "run",
+        "--rm",
+        "--entrypoint",
+        "sh",
+        "alpine:3.22",
+        "-c",
+        "wget -qO- -T 5 http://host.docker.internal:15434/"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "ojp-harmless-local-endpoint\n",
+      "stderr": "Unable to find image 'alpine:3.22' locally\n3.22: Pulling from library/alpine\n281d5a96263b: Pulling fs layer\n281d5a96263b: Download complete\n281d5a96263b: Pull complete\n6f734c24b502: Download complete\n98e3b1322cb3: Download complete\nDigest: sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f\nStatus: Downloaded newer image for alpine:3.22\n",
+      "seconds": 4.182194042019546
+    }
+  ]
+}

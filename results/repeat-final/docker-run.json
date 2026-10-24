@@ -1,0 +1,27 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "--host",
+    "tcp://host.docker.internal:18777",
+    "run",
+    "--rm",
+    "--mount",
+    "type=bind,src=/sandbox/ojp-project/clean-repeat,dst=/src",
+    "alpine:3.22",
+    "sh",
+    "-c",
+    "printf child-write > /src/child-to-agent.txt; cat /src/rust-project/Cargo.toml"
+  ],
+  "utc": "2026-10-23T22:34:05.753219+00:00",
+  "exit_status": 0,
+  "stdout": "[package]\nname = \"runtime-probe\"\nversion = \"0.1.0\"\nedition = \"2024\"\n\n[dependencies]\n\n[dev-dependencies]\ntestcontainers = \"=0.28.0\"\ntokio = { version = \"=1.47.1\", features = [\"macros\", \"rt-multi-thread\", \"time\"] }\nredis = { version = \"=0.32.7\", features = [\"tokio-comp\"] }\n",
+  "stderr": "",
+  "seconds": 0.2871244999987539
+}

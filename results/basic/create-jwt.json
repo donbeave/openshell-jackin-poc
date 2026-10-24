@@ -1,0 +1,32 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-basic",
+    "--from",
+    "ojp-20261024-agent:2.1.310",
+    "--policy",
+    "experiments/denied.yaml",
+    "--env",
+    "OJP_VALUE=harmless-value",
+    "--cpu",
+    "1",
+    "--memory",
+    "1Gi",
+    "--no-auto-providers",
+    "--detach",
+    "--",
+    "bash",
+    "--noprofile",
+    "--norc",
+    "-i"
+  ],
+  "utc": "2026-10-23T22:17:50.827159+00:00",
+  "exit_status": 0,
+  "stdout": "\nCreated sandbox: ojp-20261024-basic\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image ojp-20261024-agent:2.1.310\n[0.0s] Image already present\n[0.3s] Starting sandbox Container created\n",
+  "stderr": "",
+  "seconds": 0.7651685829914641
+}

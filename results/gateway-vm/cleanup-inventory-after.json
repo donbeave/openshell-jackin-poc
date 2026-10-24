@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "experiments/gateway-vm/inspect-state.py"
+  ],
+  "utc": "2026-10-23T22:48:39.673100+00:00",
+  "exit_status": 0,
+  "stdout": "{\n  \"driver_socket_exists\": false,\n  \"live_process_matches\": [],\n  \"overlay_exists\": false,\n  \"prepared_and_bootstrap_image_disks\": [],\n  \"sandbox_id\": \"c87a19b1-d941-4e22-a9cc-68d00be18b0f\",\n  \"sandbox_state_exists\": false\n}\n",
+  "stderr": "",
+  "seconds": 0.053702584002166986
+}

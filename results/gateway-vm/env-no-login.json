@@ -1,0 +1,18 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--no-login-shell",
+    "--",
+    "bash",
+    "-c",
+    "echo PATH=$PATH HOME=$HOME MISE_DATA_DIR=$MISE_DATA_DIR CARGO_HOME=$CARGO_HOME; command -v cargo || true; cargo --version || true; command -v claude; find /home/agent/.local/share/mise -maxdepth 4 -type f | head"
+  ],
+  "utc": "2026-10-23T22:43:53.299416+00:00",
+  "exit_status": 0,
+  "stdout": "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin HOME=/sandbox MISE_DATA_DIR= CARGO_HOME=\n/usr/local/bin/claude\n/home/agent/.local/share/mise/installs/.mise-installs.toml\n/home/agent/.local/share/mise/installs/mr-boxington/.mise.backend.toml\n/home/agent/.local/share/mise/installs/mr-boxington/1.27.0/mbx\n/home/agent/.local/share/mise/installs/mr-boxington/1.27.0/LICENSE\n/home/agent/.local/share/mise/installs/mr-boxington/1.27.0/.mise-packslip-artifact\n/home/agent/.local/share/mise/installs/mr-boxington/1.27.0/.mise-packslip.json\n/home/agent/.local/share/mise/installs/mr-boxington/1.27.0/NOTICE\n/home/agent/.local/share/mise/installs/rust/.mise.backend.toml\n",
+  "stderr": "bash: line 1: cargo: command not found\n",
+  "seconds": 0.045129665988497436
+}

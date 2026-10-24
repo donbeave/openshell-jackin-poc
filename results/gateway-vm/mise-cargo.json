@@ -1,0 +1,22 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--workdir",
+    "/sandbox/ojp-project/rust-project",
+    "--no-login-shell",
+    "--",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "--version"
+  ],
+  "utc": "2026-10-23T22:43:45.047821+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "mise by @jdx \u2013 installing 2 tools\nmise WARN  HTTP GET https://sh.rustup.rs/ attempt 1 failed after 96.9ms (transient): error sending request; retrying in 134.897006ms\nmise \u2717 mr-boxington@1.27.0  105ms \u00b7 failed: fetching the release list of packslip:github.com/jdx/mr-boxington\nmise \u2717 rust@1.99.1          239ms \u00b7 failed: HTTP host https://sh.rustup.rs:443 is unavailable after an earlier connection failure: error sending request\nmise \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 2/2 \u00b7 installed 0 tools \u00b7 2 failed in 240ms\nmise ERROR Failed to install tools: core:rust@1.99.1, packslip:github.com/jdx/mr-boxington@1.27.0\n\ncore:rust@1.99.1: HTTP host https://sh.rustup.rs:443 is unavailable after an earlier connection failure: error sending request\n\npackslip:github.com/jdx/mr-boxington@1.27.0: fetching the release list of packslip:github.com/jdx/mr-boxington: error sending request: client error (Connect): tcp connect error: Permission denied (os error 13)\nmise ERROR Version: 2026.10.18 linux-arm64 (2026-10-23)\nmise ERROR Run with --verbose or MISE_VERBOSE=1 for more information\n",
+  "seconds": 0.29940137499943376
+}

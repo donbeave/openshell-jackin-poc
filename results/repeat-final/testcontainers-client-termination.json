@@ -1,0 +1,31 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/rust-project",
+    "--timeout",
+    "6",
+    "--no-login-shell",
+    "--env",
+    "OJP_HOLD=1",
+    "--",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "nextest",
+    "run",
+    "--test",
+    "redis_container",
+    "--no-capture"
+  ],
+  "utc": "2026-10-23T22:39:35.912093+00:00",
+  "exit_status": 124,
+  "stdout": "\nrunning 1 test\ntest testcontainers_starts_redis_and_exchanges_data ... Docker reported host=host.docker.internal port=18085; test endpoint=host.docker.internal:18085\n",
+  "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n Nextest run ID abfaed5d-774a-44c5-8a51-816b13994d5c with nextest profile: default\n    Starting 1 test across 1 binary\n       START [         ] (1/1) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data\n",
+  "seconds": 6.05442875000881
+}

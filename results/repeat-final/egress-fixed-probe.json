@@ -1,0 +1,21 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "curl",
+    "--max-time",
+    "5",
+    "-fsS",
+    "http://host.docker.internal:15433/"
+  ],
+  "utc": "2026-10-23T22:36:37.771739+00:00",
+  "exit_status": 0,
+  "stdout": "repeat-source-v1\n",
+  "stderr": "",
+  "seconds": 0.05134854099014774
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "experiments/sdk-venv/bin/python",
+    "experiments/sdk-probe.py",
+    "ojp-20261024-basic"
+  ],
+  "utc": "2026-10-23T22:18:06.281558+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 6.100293583003804
+}

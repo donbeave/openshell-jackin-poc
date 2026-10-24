@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "get",
+    "ojp-20261024-repeat",
+    "-o",
+    "json"
+  ],
+  "utc": "2026-10-23T22:23:13.405238+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n",
+  "seconds": 0.03916420799214393
+}

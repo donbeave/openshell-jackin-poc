@@ -1,0 +1,53 @@
+[
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--",
+      "sh",
+      "-c",
+      "printf \"%s\\n\" ojp-retention-check-v1 > persistence.probe"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "sha256sum",
+      "/workspace/rust-project/persistence.probe"
+    ],
+    "exit_status": 0,
+    "stdout": "393c83f6607372a274c50b05223688f703455618970218c3aaf24a3dd21a4e12  /workspace/rust-project/persistence.probe\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "cat",
+      "/workspace/hook.log"
+    ],
+    "exit_status": 0,
+    "stdout": "hook-20261024\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,147 @@
+{
+  "utc": "2026-10-23T22:34:20.540097+00:00",
+  "fixture": "external dedicated Docker daemon over Unix socket; approved project named volume shared with OpenShell at the same path",
+  "sandbox_target": "/sandbox/ojp-project",
+  "socket_sandbox_target": "/sandbox/docker/docker.sock",
+  "child_service_port_forward": "host 18090 -> outer DinD 18090; inner allocator range is only 18090",
+  "owner": "outer OrbStack Docker daemon owns DinD container and approved socket/project volumes; sandbox deletion does not imply fixture cleanup",
+  "checks": [
+    {
+      "name": "project-volume-labels",
+      "command": [
+        "docker",
+        "volume",
+        "inspect",
+        "ojp-20261024-sock-project",
+        "--format",
+        "{{.Name}} {{json .Labels}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "ojp-20261024-sock-project {\"ojp.test-id\":\"ojp-20261024\",\"openshell.ai/sandbox-attachable\":\"true\",\"openshell.ai/sandbox-attachable-workspace\":\"default\"}\n",
+      "stderr": "",
+      "seconds": 0.03794666699832305
+    },
+    {
+      "name": "fixture-mounts-and-port",
+      "command": [
+        "docker",
+        "inspect",
+        "ojp-20261024-sock",
+        "--format",
+        "{{.Id}} {{json .Mounts}} {{json .HostConfig.PortBindings}} {{json .HostConfig.Sysctls}} {{.HostConfig.NanoCpus}} {{.HostConfig.Memory}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "9baf406ffddd4e66d83db4fb607a5ae49b77f46873a4d97cf3d272353d99574e [{\"Destination\":\"/sandbox/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-sock-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-sock-project/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"5afe15cb966747be278630b8ebaf31813bfa6f771a1cfba30be3f13578a50755\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/5afe15cb966747be278630b8ebaf31813bfa6f771a1cfba30be3f13578a50755/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/run/ojp-docker-socket\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-sock-dockersock\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-sock-dockersock/_data\",\"Type\":\"volume\"}] {\"18090/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18090\"}]} {\"net.ipv4.ip_local_port_range\":\"18090 18090\"} 2000000000 4294967296\n",
+      "stderr": "",
+      "seconds": 0.025458416988840327
+    },
+    {
+      "name": "uid1000-project-root-and-source",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-sock",
+        "sh",
+        "-c",
+        "stat -c \"%a %u:%g\" /sandbox/ojp-project; sha256sum /sandbox/ojp-project/Cargo.toml; find /sandbox/ojp-project -maxdepth 2 -type f | sort"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "755 1000:1000\nea3f8b22f608e82fb73f6f6c40e29dbec7f01bb03fef1517fb3ac8d011f617c6  /sandbox/ojp-project/Cargo.toml\n/sandbox/ojp-project/Cargo.lock\n/sandbox/ojp-project/Cargo.toml\n/sandbox/ojp-project/compose.yaml\n/sandbox/ojp-project/mise.toml\n/sandbox/ojp-project/role-hook.sh\n/sandbox/ojp-project/rust-toolchain.toml\n/sandbox/ojp-project/src/lib.rs\n/sandbox/ojp-project/tests/native_tcp.rs\n/sandbox/ojp-project/tests/redis_container.rs\n",
+      "stderr": "",
+      "seconds": 0.05707829099264927
+    },
+    {
+      "name": "uid1000-project-write",
+      "command": [
+        "docker",
+        "exec",
+        "--user",
+        "1000:1000",
+        "ojp-20261024-sock",
+        "sh",
+        "-c",
+        "printf \"uid1000-write\\n\" > /sandbox/ojp-project/from-sandbox-user.txt"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.0460141250223387
+    },
+    {
+      "name": "uid1000-project-write-owner",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-sock",
+        "stat",
+        "-c",
+        "%a %u:%g",
+        "/sandbox/ojp-project/from-sandbox-user.txt"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "666 1000:1000\n",
+      "stderr": "",
+      "seconds": 0.07099045801442116
+    },
+    {
+      "name": "uid1000-unix-docker-api",
+      "command": [
+        "docker",
+        "exec",
+        "--user",
+        "1000:1000",
+        "--env",
+        "DOCKER_HOST=unix:///var/run/ojp-docker-socket/docker.sock",
+        "ojp-20261024-sock",
+        "docker",
+        "info",
+        "--format",
+        "{{.ID}} {{.ServerVersion}} {{.DockerRootDir}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "ff010c7a-4bd6-45d7-b7d0-8c85b9758f2c 29.8.2 /var/lib/docker\n",
+      "stderr": "",
+      "seconds": 0.11985566699877381
+    },
+    {
+      "name": "redis-image-identity",
+      "command": [
+        "docker",
+        "exec",
+        "--env",
+        "DOCKER_HOST=unix:///var/run/ojp-docker-socket/docker.sock",
+        "ojp-20261024-sock",
+        "docker",
+        "image",
+        "inspect",
+        "redis:7.4-alpine",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541 [\"redis@sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\"]\n",
+      "stderr": "",
+      "seconds": 0.09174683300079778
+    },
+    {
+      "name": "unix-only-listener",
+      "command": [
+        "docker",
+        "logs",
+        "ojp-20261024-sock"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "iptables v1.8.13 (nf_tables)\n",
+      "stderr": "time=\"2026-10-23T22:33:33.890931718Z\" level=info msg=\"Starting up\"\ntime=\"2026-10-23T22:33:33.891311470Z\" level=info msg=\"containerd not running, starting managed containerd\"\ntime=\"2026-10-23T22:33:33.892115766Z\" level=info msg=\"started new containerd process\" address=/var/run/docker/containerd/containerd.sock binary=/usr/local/bin/containerd module=supervisor pid=48\ntime=\"2026-10-23T22:33:33Z\" level=warning msg=\"Configuration migrated from version 2, use `containerd config migrate` to avoid migration\" t=\"5.916\u00b5s\"\ntime=\"2026-10-23T22:33:33.900994270Z\" level=info msg=\"starting containerd\" revision=ee2735368117d2eb259779949d5e75cdafec9761 version=v2.3.6\ntime=\"2026-10-23T22:33:33.901053478Z\" level=info msg=\"loading plugin\" id=io.containerd.content.v1.content type=io.containerd.content.v1\ntime=\"2026-10-23T22:33:33.901130687Z\" level=info msg=\"loading plugin\" id=io.containerd.image-verifier.v1.bindir type=io.containerd.image-verifier.v1\ntime=\"2026-10-23T22:33:33.901134812Z\" level=info msg=\"loading plugin\" id=io.containerd.internal.v1.opt type=io.containerd.internal.v1\ntime=\"2026-10-23T22:33:33.901215896Z\" level=info msg=\"loading plugin\" id=io.containerd.warning.v1.deprecations type=io.containerd.warning.v1\ntime=\"2026-10-23T22:33:33.901227521Z\" level=info msg=\"loading plugin\" id=io.containerd.event.v1.exchange type=io.containerd.event.v1\ntime=\"2026-10-23T22:33:33.901267354Z\" level=info msg=\"loading plugin\" id=io.containerd.mount-handler.v1.erofs type=io.containerd.mount-handler.v1\ntime=\"2026-10-23T22:33:33.901277063Z\" level=info msg=\"loading plugin\" id=io.containerd.snapshotter.v1.blockfile type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901303396Z\" level=info msg=\"skip loading plugin\" error=\"no scratch file generator: skip plugin\" id=io.containerd.snapshotter.v1.blockfile type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901311855Z\" level=info msg=\"loading plugin\" id=io.containerd.snapshotter.v1.devmapper type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901318188Z\" level=info msg=\"skip loading plugin\" error=\"devmapper not configured: skip plugin\" id=io.containerd.snapshotter.v1.devmapper type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901323355Z\" level=info msg=\"loading plugin\" id=io.containerd.snapshotter.v1.erofs type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901375772Z\" level=info msg=\"loading plugin\" id=io.containerd.snapshotter.v1.native type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901398980Z\" level=info msg=\"loading plugin\" id=io.containerd.snapshotter.v1.overlayfs type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901465439Z\" level=info msg=\"loading plugin\" id=io.containerd.snapshotter.v1.zfs type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901489647Z\" level=info msg=\"skip loading plugin\" error=\"lstat /var/lib/docker/containerd/daemon/io.containerd.snapshotter.v1.zfs: no such file or directory: skip plugin\" id=io.containerd.snapshotter.v1.zfs type=io.containerd.snapshotter.v1\ntime=\"2026-10-23T22:33:33.901497064Z\" level=info msg=\"loading plugin\" id=io.containerd.monitor.task.v1.cgroups type=io.containerd.monitor.task.v1\ntime=\"2026-10-23T22:33:33.902350860Z\" level=info msg=\"loading plugin\" id=io.containerd.metadata.v1.bolt type=io.containerd.metadata.v1\ntime=\"2026-10-23T22:33:33.902416027Z\" level=info msg=\"metadata content store policy set\" policy=shared\ntime=\"2026-10-23T22:33:33.909544313Z\" level=info msg=\"loading plugin\" id=io.containerd.gc.v1.scheduler type=io.containerd.gc.v1\ntime=\"2026-10-23T22:33:33.909658897Z\" level=info msg=\"loading plugin\" id=io.containerd.server.v1.metrics type=io.containerd.server.v1\ntime=\"2026-10-23T22:33:33.909687522Z\" level=info msg=\"skip loading plugin\" error=\"skip plugin\" id=io.containerd.server.v1.metrics type=io.containerd.server.v1\ntime=\"2026-10-23T22:33:33.909695856Z\" level=info msg=\"loading plugin\" id=io.containerd.tracing.processor.v1.otlp type=io.containerd.tracing.processor.v1\ntime=\"2026-10-23T22:33:33.909707022Z\" level=info msg=\"skip loading plugin\" error=\"skip plugin: tracing endpoint not configured\" id=io.containerd.tracing.processor.v1.otlp type=io.containerd.tracing.processor.v1\ntime=\"2026-10-23T22:33:33.909713147Z\" level=info msg=\"loading plugin\" id=io.containerd.internal.v1.tracing type=io.containerd.internal.v1\ntime=\"2026-10-23T22:33:33.909719564Z\" level=info msg=\"skip loading plugin\" error=\"skip plugin: tracing endpoint not configured\" id=io.containerd.internal.v1.tracing type=io.containerd.internal.v1\ntime=\"2026-10-23T22:33:33.909724522Z\" level=info msg=\"loading plugin\" id=io.containerd.nri.v1.nri type=io.containerd.nri.v1\ntime=\"2026-10-23T22:33:33.909837356Z\" level=info msg=\"built-in NRI default validator is disabled\"\ntime=\"2026-10-23T22:33:33.909846565Z\" level=info msg=\"runtime interface created\"\ntime=\"2026-10-23T22:33:33.909850606Z\" level=info msg=\"created NRI interface\"\ntime=\"2026-10-23T22:33:33.909855106Z\" level=info msg=\"loading plugin\" id=io.containerd.ttrpc.v1.otelttrpc type=io.containerd.ttrpc.v1\ntime=\"2026-10-23T22:33:33.909860773Z\" level=info msg=\"loading plugin\" id=io.containerd.service.v1.containers-service type=io.containerd.service.v1\ntime=\"2026-10-23T22:33:33.909868231Z\" level=info msg=\"loading plugin\" id=io.containerd.service.v1.content-service type=io.containerd.service.v1\ntime=\"2026-10-23T22:33:33.909873731Z\" level=info msg=\"loading plugin\" id=io.containerd.differ.v1.erofs type=io.containerd.differ.v1\ntime=\"2026-10-23T22:33:33.909942357Z\" level=info msg=\"skip loading plugin\" error=\"failed to check mkfs.erofs availability: failed to run mkfs.erofs --help: exec: \\\"mkfs.erofs\\\": executable file not found in $PATH: skip plugin\" id=io.containerd.differ.v1.erofs type=io.containerd.differ.v1\ntime=\"2026-10-23T22:33:33.910045899Z\" level=info msg=\"loading plugin\" id=io.containerd.mount-manager.v1.bolt type=io.containerd.mount-manager.v1\ntime=\"2026-10-23T22:33:33.912428411Z\" level=info msg=\"loading plugin\" id=io.containerd.differ.v1.walking type=io.containerd.differ.v1\ntime=\"2026-10-23T22:33:33.912450786Z\" level=info msg=\"loading plugin\" id=io.containerd.service.v1.diff-service type=io.containerd.service.v1\ntime=\"2026-10-23T22:33:33.912457620Z\" level=info msg=\"loading plugin\" id=io.containerd.service.v1.images-service type=io.containerd.service.v1\ntime=\"2026-10-23T22:33:33.912462911Z\" level=info msg=\"loading plugin\" id=io.containerd.service.v1.introspection-service type=io.containerd.service.v1\ntime=\"2026-10-23T22:33:33.912467786Z\" level=info msg=\"loading plugin\" id=io.containerd.service.v1.namespaces-service type=io.containerd.service.v1\ntime=\"2026-10-23T22:33:33.912471620Z\" level=info msg=\"loading plugin\" id=io.containerd.service.v1.snapshots-service type=io.containerd.service.v1\ntime=\"2026-10-23T22:33:33.912475661Z\" level=info msg=\"loading plugin\" id=io.containerd.shim.v1.manager type=io.containerd.shim.v1\ntime=\"2026-10-23T22:33:33.912480578Z\" level=info msg=\"loading plugin\" id=io.containerd.runtime.v2.task type=io.containerd.runtime.v2\ntime=\"2026-10-23T22:33:33.912538787Z\" level=info msg=\"loading plugin\" id=io.containerd.service.v1.tasks-service type=io.containerd.service.v1\ntime=\"2026-10-23T22:33:33.912547203Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.containers type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912552162Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.content type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912555078Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.diff type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912560162Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.events type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912564620Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.images type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912567745Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.introspection type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912570745Z\" level=info msg=\"loading plugin\" id=io.containerd.lease.v1.manager type=io.containerd.lease.v1\ntime=\"2026-10-23T22:33:33.912574079Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.leases type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912577495Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.mounts type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912580162Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.namespaces type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912583912Z\" level=info msg=\"loading plugin\" id=io.containerd.sandbox.controller.v1.shim type=io.containerd.sandbox.controller.v1\ntime=\"2026-10-23T22:33:33.912615745Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.sandbox-controllers type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912625162Z\" level=info msg=\"loading plugin\" id=io.containerd.sandbox.store.v1.local type=io.containerd.sandbox.store.v1\ntime=\"2026-10-23T22:33:33.912627912Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.sandboxes type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912630746Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.snapshots type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912643954Z\" level=info msg=\"loading plugin\" id=io.containerd.streaming.v1.manager type=io.containerd.streaming.v1\ntime=\"2026-10-23T22:33:33.912647412Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.streaming type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912650371Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.tasks type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912654371Z\" level=info msg=\"loading plugin\" id=io.containerd.transfer.v1.local type=io.containerd.transfer.v1\ntime=\"2026-10-23T22:33:33.912672829Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.transfer type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912677579Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.version type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912680162Z\" level=info msg=\"loading plugin\" id=io.containerd.grpc.v1.healthcheck type=io.containerd.grpc.v1\ntime=\"2026-10-23T22:33:33.912683412Z\" level=info msg=\"loading plugin\" id=io.containerd.server.v1.ttrpc type=io.containerd.server.v1\ntime=\"2026-10-23T22:33:33.912723246Z\" level=info msg=\"loading plugin\" id=io.containerd.monitor.container.v1.restart type=io.containerd.monitor.container.v1\ntime=\"2026-10-23T22:33:33.912740538Z\" level=info msg=\"loading plugin\" id=io.containerd.metrics.v1.grpc-prometheus type=io.containerd.metrics.v1\ntime=\"2026-10-23T22:33:33.912758663Z\" level=info msg=\"loading plugin\" id=io.containerd.metrics.v1.grpc-otel type=io.containerd.metrics.v1\ntime=\"2026-10-23T22:33:33.912765955Z\" level=info msg=\"loading plugin\" id=io.containerd.server.v1.grpc type=io.containerd.server.v1\ntime=\"2026-10-23T22:33:33.914148212Z\" level=info msg=\"loading plugin\" id=io.containerd.server.v1.grpc-tcp type=io.containerd.server.v1\ntime=\"2026-10-23T22:33:33.914164712Z\" level=info msg=\"skip loading plugin\" error=\"skip plugin\" id=io.containerd.server.v1.grpc-tcp type=io.containerd.server.v1\ntime=\"2026-10-23T22:33:33.914168587Z\" level=info msg=\"loading plugin\" id=io.containerd.http.v1.pprof type=io.containerd.http.v1\ntime=\"2026-10-23T22:33:33.914225629Z\" level=info msg=\"loading plugin\" id=io.containerd.server.v1.debug type=io.containerd.server.v1\ntime=\"2026-10-23T22:33:33.914518880Z\" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock.ttrpc\ntime=\"2026-10-23T22:33:33.914542130Z\" level=info msg=\"starting GRPC server\" address=/var/run/docker/containerd/containerd.sock gid=0 uid=0\ntime=\"2026-10-23T22:33:33.914569714Z\" level=info msg=serving... address=/var/run/docker/containerd/containerd.sock\ntime=\"2026-10-23T22:33:33.916702308Z\" level=info msg=serving... address=/var/run/docker/containerd/containerd-debug.sock\ntime=\"2026-10-23T22:33:33.917696146Z\" level=info msg=\"started managed containerd\" binary=/usr/local/bin/containerd module=supervisor pid=48\ntime=\"2026-10-23T22:33:33.917928022Z\" level=info msg=\"OTEL tracing is not configured, using no-op tracer provider\"\ntime=\"2026-10-23T22:33:33.918043565Z\" level=info msg=\"CDI directory does not exist, skipping\" dir=/etc/cdi\ntime=\"2026-10-23T22:33:33.918059106Z\" level=info msg=\"CDI directory does not exist, skipping\" dir=/var/run/cdi\ntime=\"2026-10-23T22:33:33.918346775Z\" level=info msg=\"containerd successfully booted in 0.017812s\"\ntime=\"2026-10-23T22:33:33.928381909Z\" level=info msg=\"loaded extension\" extension=org.mobyproject.namesgenerator.legacy.v1 origin=builtin providers=\"[org.mobyproject.extension.containernamegenerator.v0 org.mobyproject.extension.servicenamegenerator.v0]\"\ntime=\"2026-10-23T22:33:33.928703744Z\" level=info msg=\"Creating a containerd client\" address=/var/run/docker/containerd/containerd.sock timeout=1m0s\ntime=\"2026-10-23T22:33:33.938192917Z\" level=info msg=\"Loading containers: start.\"\ntime=\"2026-10-23T22:33:33.938247459Z\" level=info msg=\"NRI is disabled\"\ntime=\"2026-10-23T22:33:33.938273918Z\" level=info msg=\"Starting daemon with containerd snapshotter integration enabled\"\ntime=\"2026-10-23T22:33:33.946459418Z\" level=info msg=\"Restoring containers: start.\"\ntime=\"2026-10-23T22:33:33.949585809Z\" level=warning msg=\"Failed to find nft tool\" error=\"exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:33:33.949603184Z\" level=info msg=\"Deleting nftables IPv4 rules\" error=\"failed to find nft tool: exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:33:33.949606434Z\" level=info msg=\"Deleting nftables IPv6 rules\" error=\"failed to find nft tool: exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:33:34.057351274Z\" level=info msg=\"Loading containers: done.\"\ntime=\"2026-10-23T22:33:34.061242835Z\" level=info msg=\"Docker daemon\" commit=8af9fe3 containerd-snapshotter=true storage-driver=overlayfs version=29.8.2\ntime=\"2026-10-23T22:33:34.061468545Z\" level=info msg=\"Initializing buildkit\"\ntime=\"2026-10-23T22:33:34.167852794Z\" level=info msg=\"Completed buildkit initialization\"\ntime=\"2026-10-23T22:33:34.172521860Z\" level=info msg=\"Daemon has completed initialization\"\ntime=\"2026-10-23T22:33:34.172632360Z\" level=info msg=\"API listen on /var/run/ojp-docker-socket/docker.sock\"\n",
+      "seconds": 0.03595933399628848
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-23T22:16:29.035142+00:00",
+  "image": "docker:29.8.2-dind@sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced",
+  "limits": "2 CPUs, 4 GiB each",
+  "published_ports": {
+    "engine-a": "18776/tcp",
+    "engine-b": "18777/tcp"
+  },
+  "endpoint": "host.docker.internal (server cert SAN), tested from host via 127.0.0.1",
+  "owner": "experiments/engines/setup.sh; outer OrbStack Docker daemon owns both containers and named volumes",
+  "checks": [
+    {
+      "name": "outer-docker-containers",
+      "command": [
+        "docker",
+        "inspect",
+        "ojp-20261024-engine-a",
+        "ojp-20261024-engine-b",
+        "--format",
+        "{{.Name}} id={{.Id}} image={{.Image}} ports={{json .HostConfig.PortBindings}} mounts={{json .Mounts}} labels={{json .Config.Labels}}"
+      ],
+      "exit_status": 0,
+      "stdout": "/ojp-20261024-engine-a id=32716375b9becca7895385c4dbb02e81145afbb836b79acaacb4bf4dca1ce3f6 image=sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced ports={\"2376/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18776\"}]} mounts=[{\"Destination\":\"/certs\",\"Mode\":\"\",\"Propagation\":\"rprivate\",\"RW\":false,\"Source\":\"/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a\",\"Type\":\"bind\"},{\"Destination\":\"/workspace/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-a-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"26014279b9042abde31781693aef3cccdea2e96843e62c53fc64ed01c7c7c082\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/26014279b9042abde31781693aef3cccdea2e96843e62c53fc64ed01c7c7c082/_data\",\"Type\":\"volume\"}] labels={\"ojp.owner\":\"experiments/engines/setup.sh\",\"ojp.test-id\":\"ojp-20261024\"}\n/ojp-20261024-engine-b id=bec1122704d600365ed885daffc9a15064c1556ddd2de238fb1359397e6ef380 image=sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced ports={\"2376/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18777\"}]} mounts=[{\"Destination\":\"/certs\",\"Mode\":\"\",\"Propagation\":\"rprivate\",\"RW\":false,\"Source\":\"/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b\",\"Type\":\"bind\"},{\"Destination\":\"/workspace/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-b-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-b-project/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"7ff280f541ffc9f0c50999e2ab0e74b855b928f1c6616db5c2f8c93ca9415b24\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/7ff280f541ffc9f0c50999e2ab0e74b855b928f1c6616db5c2f8c93ca9415b24/_data\",\"Type\":\"volume\"}] labels={\"ojp.owner\":\"experiments/engines/setup.sh\",\"ojp.test-id\":\"ojp-20261024\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "named-volume-labels",
+      "command": [
+        "docker",
+        "volume",
+        "inspect",
+        "ojp-20261024-engine-a-project",
+        "ojp-20261024-engine-b-project",
+        "--format",
+        "{{.Name}} id={{.Mountpoint}} labels={{json .Labels}}"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-engine-a-project id=/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data labels={\"openshell.ai/sandbox-attachable\":\"true\",\"openshell.ai/sandbox-attachable-workspace\":\"default\"}\nojp-20261024-engine-b-project id=/var/lib/docker/volumes/ojp-20261024-engine-b-project/_data labels={\"openshell.ai/sandbox-attachable\":\"true\",\"openshell.ai/sandbox-attachable-workspace\":\"default\"}\n",
+      "stderr": ""
+    },
+    {
+      "name": "idle-resource-use",
+      "command": [
+        "docker",
+        "stats",
+        "--no-stream",
+        "ojp-20261024-engine-a",
+        "ojp-20261024-engine-b",
+        "--format",
+        "{{.Name}} {{.CPUPerc}} {{.MemUsage}}"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-engine-a 0.09% 26.92MiB / 4GiB\nojp-20261024-engine-b 0.06% 27.65MiB / 4GiB\n",
+      "stderr": ""
+    },
+    {
+      "name": "engine-a-daemon-logs-tail",
+      "command": [
+        "docker",
+        "logs",
+        "--tail",
+        "20",
+        "ojp-20261024-engine-a"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "time=\"2026-10-23T22:15:51.237594579Z\" level=info msg=\"Creating a containerd client\" address=/var/run/docker/containerd/containerd.sock timeout=1m0s\ntime=\"2026-10-23T22:15:51.248658847Z\" level=info msg=\"Loading containers: start.\"\ntime=\"2026-10-23T22:15:51.248686306Z\" level=info msg=\"NRI is disabled\"\ntime=\"2026-10-23T22:15:51.248688681Z\" level=info msg=\"Starting daemon with containerd snapshotter integration enabled\"\ntime=\"2026-10-23T22:15:51.255584051Z\" level=info msg=\"Restoring containers: start.\"\ntime=\"2026-10-23T22:15:51.257720313Z\" level=warning msg=\"Failed to find nft tool\" error=\"exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:15:51.257731146Z\" level=info msg=\"Deleting nftables IPv4 rules\" error=\"failed to find nft tool: exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:15:51.257735521Z\" level=info msg=\"Deleting nftables IPv6 rules\" error=\"failed to find nft tool: exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:15:51.349329434Z\" level=info msg=\"Loading containers: done.\"\ntime=\"2026-10-23T22:15:51.352285492Z\" level=info msg=\"Docker daemon\" commit=8af9fe3 containerd-snapshotter=true storage-driver=overlayfs version=29.8.2\ntime=\"2026-10-23T22:15:51.352385159Z\" level=info msg=\"Initializing buildkit\"\ntime=\"2026-10-23T22:15:51.440665429Z\" level=info msg=\"Completed buildkit initialization\"\ntime=\"2026-10-23T22:15:51.442768649Z\" level=info msg=\"Daemon has completed initialization\"\ntime=\"2026-10-23T22:15:51.442804691Z\" level=info msg=\"API listen on /var/run/docker.sock\"\ntime=\"2026-10-23T22:15:51.442830733Z\" level=info msg=\"API listen on [::]:2376\"\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:25387: tls: client didn't provide a certificate\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:21035: tls: client didn't provide a certificate\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:41063: tls: client didn't provide a certificate\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:30079: tls: client didn't provide a certificate\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:38250: tls: client didn't provide a certificate\n"
+    },
+    {
+      "name": "engine-b-daemon-logs-tail",
+      "command": [
+        "docker",
+        "logs",
+        "--tail",
+        "20",
+        "ojp-20261024-engine-b"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "time=\"2026-10-23T22:15:51.587110848Z\" level=info msg=\"Creating a containerd client\" address=/var/run/docker/containerd/containerd.sock timeout=1m0s\ntime=\"2026-10-23T22:15:51.601167632Z\" level=info msg=\"Loading containers: start.\"\ntime=\"2026-10-23T22:15:51.601212549Z\" level=info msg=\"NRI is disabled\"\ntime=\"2026-10-23T22:15:51.601222299Z\" level=info msg=\"Starting daemon with containerd snapshotter integration enabled\"\ntime=\"2026-10-23T22:15:51.611024436Z\" level=info msg=\"Restoring containers: start.\"\ntime=\"2026-10-23T22:15:51.613168031Z\" level=warning msg=\"Failed to find nft tool\" error=\"exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:15:51.613179322Z\" level=info msg=\"Deleting nftables IPv4 rules\" error=\"failed to find nft tool: exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:15:51.613181781Z\" level=info msg=\"Deleting nftables IPv6 rules\" error=\"failed to find nft tool: exec: \\\"nft\\\": executable file not found in $PATH\"\ntime=\"2026-10-23T22:15:51.686929555Z\" level=info msg=\"Loading containers: done.\"\ntime=\"2026-10-23T22:15:51.690473116Z\" level=info msg=\"Docker daemon\" commit=8af9fe3 containerd-snapshotter=true storage-driver=overlayfs version=29.8.2\ntime=\"2026-10-23T22:15:51.690534283Z\" level=info msg=\"Initializing buildkit\"\ntime=\"2026-10-23T22:15:51.850848777Z\" level=info msg=\"Completed buildkit initialization\"\ntime=\"2026-10-23T22:15:51.855202926Z\" level=info msg=\"Daemon has completed initialization\"\ntime=\"2026-10-23T22:15:51.855267384Z\" level=info msg=\"API listen on /var/run/docker.sock\"\ntime=\"2026-10-23T22:15:51.855297468Z\" level=info msg=\"API listen on [::]:2376\"\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:39704: tls: client didn't provide a certificate\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:43933: tls: client didn't provide a certificate\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:50567: tls: client didn't provide a certificate\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:18256: tls: client didn't provide a certificate\n2026/10/23 22:16:01 http: TLS handshake error from 192.168.215.1:45588: tls: client didn't provide a certificate\n"
+    }
+  ]
+}

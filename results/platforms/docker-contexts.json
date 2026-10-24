@@ -1,0 +1,12 @@
+{
+  "command": [
+    "docker",
+    "context",
+    "ls"
+  ],
+  "utc": "2026-10-23T22:40:28.110702+00:00",
+  "exit_status": 0,
+  "stdout": "NAME         DESCRIPTION                               DOCKER ENDPOINT                                    ERROR\ndefault      Current DOCKER_HOST based configuration   unix:///var/run/docker.sock                        \norbstack *   OrbStack                                  unix:///Users/example/.orbstack/run/docker.sock   \n",
+  "stderr": "",
+  "seconds": 0.013993041997309774
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "mkdir -p /workspace/ojp-ca-only; cp /workspace/ojp-tls/client/ca.pem /workspace/ojp-ca-only/ca.pem; DOCKER_CERT_PATH=/workspace/ojp-ca-only docker version"
+  ],
+  "utc": "2026-10-23T22:34:42.352844+00:00",
+  "exit_status": 1,
+  "stdout": "Client:\n Version:           29.9.2\n API version:       1.56\n Go version:        go1.26.10\n Git commit:        a82e528\n Built:             Tue Oct 20 18:43:37 2026\n OS/Arch:           linux/arm64\n Context:           default\n",
+  "stderr": "error during connect: Get \"https://host.docker.internal:18776/v1.56/version\": remote error: tls: certificate required\n",
+  "seconds": 0.11641766701359302
+}

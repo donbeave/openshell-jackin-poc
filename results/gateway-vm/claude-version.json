@@ -1,0 +1,19 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--workdir",
+    "/sandbox/ojp-project/rust-project",
+    "--no-login-shell",
+    "--",
+    "claude",
+    "--version"
+  ],
+  "utc": "2026-10-23T22:43:44.815257+00:00",
+  "exit_status": 0,
+  "stdout": "2.1.310 (Claude Code)\n",
+  "stderr": "",
+  "seconds": 0.1968488749989774
+}

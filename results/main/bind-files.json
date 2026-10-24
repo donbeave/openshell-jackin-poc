@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "printf from-agent-live > /sandbox/ojp-project/from-agent-live; docker run --rm --mount type=bind,src=/sandbox/ojp-project,dst=/project nginx:1.29.3-alpine sh -ec \"cat /project/from-agent-live; printf from-child-live > /project/from-child-live\"; cat /sandbox/ojp-project/from-child-live"
+  ],
+  "utc": "2026-10-23T22:29:28.969184+00:00",
+  "exit_status": 2,
+  "stdout": "",
+  "stderr": "sh: 1: cannot create /sandbox/ojp-project/from-agent-live: Permission denied\n",
+  "seconds": 0.08199499998590909
+}

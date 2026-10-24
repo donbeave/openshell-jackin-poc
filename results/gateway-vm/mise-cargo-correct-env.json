@@ -1,0 +1,27 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--no-login-shell",
+    "--",
+    "env",
+    "HOME=/home/agent",
+    "MISE_DATA_DIR=/home/agent/.local/share/mise",
+    "CARGO_HOME=/home/agent/.cargo",
+    "RUSTUP_HOME=/usr/local/rustup",
+    "MISE_TRUSTED_CONFIG_PATHS=/home/agent/ojp-toolchain:/workspace:/sandbox/ojp-project/rust-project",
+    "PATH=/usr/local/cargo/bin:/usr/local/bin:/home/agent/.local/share/mise/shims:/home/agent/.local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "--version"
+  ],
+  "utc": "2026-10-23T22:44:03.244479+00:00",
+  "exit_status": 0,
+  "stdout": "cargo 1.99.1 (5f94df478 2026-08-27)\n",
+  "stderr": "",
+  "seconds": 0.051332333008758724
+}

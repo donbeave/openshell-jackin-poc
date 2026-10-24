@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-23T23:50:36.239472+00:00",
+  "research_only": true,
+  "new_runtime_tests": false,
+  "jackin_head": "41bad147b5ba9db09be99b07248531ce1bd867be",
+  "jackin_worktree_status": "",
+  "jackin_status_exit": 0,
+  "local_markdown_links_missing": [],
+  "subagent_reports": [
+    "evidence-audit.md",
+    "product-contract.md",
+    "final-review.md",
+    "gap-relevance.md"
+  ],
+  "source_pins": "results/rewrite-readiness/source-pins.json",
+  "primary_execution_evidence": "Original results preserved; source research is not runtime compatibility proof."
+}

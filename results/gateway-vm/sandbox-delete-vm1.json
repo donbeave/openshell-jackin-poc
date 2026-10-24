@@ -1,0 +1,13 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "delete",
+    "ojp-20261024-vm1"
+  ],
+  "utc": "2026-10-23T22:47:00.345160+00:00",
+  "exit_status": 0,
+  "stdout": "\u2713 Deleted sandbox ojp-20261024-vm1\n",
+  "stderr": "",
+  "seconds": 5.075241041980917
+}

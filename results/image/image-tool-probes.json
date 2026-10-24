@@ -1,0 +1,81 @@
+[
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "ojp-20261024-agent:2.1.310",
+      "claude",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "2.1.310 (Claude Code)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "ojp-20261024-agent:2.1.310",
+      "rustc",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "ojp-20261024-agent:2.1.310",
+      "cargo",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "cargo 1.99.1 (5f94df478 2026-08-27)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "ojp-20261024-agent:2.1.310",
+      "docker",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "Docker version 29.9.2, build a82e528\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "ojp-20261024-agent:2.1.310",
+      "docker",
+      "compose",
+      "version"
+    ],
+    "exit_status": 0,
+    "stdout": "Docker Compose version v5.6.1\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "ojp-20261024-agent:2.1.310",
+      "python3",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "Python 3.11.2\n",
+    "stderr": ""
+  }
+]

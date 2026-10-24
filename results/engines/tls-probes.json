@@ -1,0 +1,89 @@
+{
+  "utc": "2026-10-23T22:25:32.744756+00:00",
+  "checks": [
+    {
+      "name": "engine-a-valid-mtls",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "info",
+        "--format",
+        "{{.ID}} {{.ServerVersion}} {{.OperatingSystem}}"
+      ],
+      "exit_status": 0,
+      "stdout": "bc083e72-354a-4215-930d-ba3924c32028 29.8.2 Alpine Linux v3.24 (containerized)\n",
+      "stderr": "",
+      "seconds": 0.05483958299737424
+    },
+    {
+      "name": "engine-b-valid-mtls",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18777",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/key.pem",
+        "info",
+        "--format",
+        "{{.ID}} {{.ServerVersion}} {{.OperatingSystem}}"
+      ],
+      "exit_status": 0,
+      "stdout": "4df6e146-0c07-4336-9dfe-67584e608854 29.8.2 Alpine Linux v3.24 (containerized)\n",
+      "stderr": "",
+      "seconds": 0.03379629200208001
+    },
+    {
+      "name": "engine-a-no-client-certificate",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "info",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_status": 1,
+      "stdout": "\n",
+      "stderr": "error during connect: Get \"https://127.0.0.1:18776/v1.56/info\": remote error: tls: certificate required\n",
+      "seconds": 0.03320308300317265
+    },
+    {
+      "name": "engine-b-rejects-engine-a-client",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18777",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "info",
+        "--format",
+        "{{.ID}}"
+      ],
+      "exit_status": 1,
+      "stdout": "\n",
+      "stderr": "error during connect: Get \"https://127.0.0.1:18777/v1.56/info\": remote error: tls: certificate required\n",
+      "seconds": 0.034262999979546294
+    }
+  ]
+}

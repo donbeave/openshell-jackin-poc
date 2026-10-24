@@ -1,0 +1,115 @@
+{
+  "source_file": "experiments/native/native-egress-v3.rs",
+  "source_sha256": "89e5bbad71d4cc78f56967aa09b948b99b3ffec61ac6cf538325e8f85ea466ef",
+  "resolved_executable": "/workspace/.cache/mbx/targets/v1/4cfb011f5c6e6761c876ec13dd07babbf58eedb258718c9d3906a2bc1f8be767/debug/native-egress",
+  "operations": [
+    {
+      "label": "upload-native-source",
+      "command": [
+        "sh",
+        "experiments/os.sh",
+        "sandbox",
+        "upload",
+        "--no-git-ignore",
+        "ojp-20261024-rust",
+        "experiments/native/native-egress-v3.rs",
+        "/workspace/rust-project-identity/src/bin/native-egress.rs"
+      ],
+      "exit_status": 0,
+      "seconds": 0.169,
+      "stdout": "",
+      "stderr": "Uploading experiments/native/native-egress-v3.rs -> sandbox:/workspace/rust-project-identity/src/bin/native-egress.rs\n\u2713 Upload complete: /workspace/rust-project-identity/src/bin/native-egress.rs\n",
+      "captured_utc": "2026-10-23T22:43:20.369301+00:00"
+    },
+    {
+      "label": "mbx-build-same-managed-target",
+      "command": [
+        "sh",
+        "experiments/os.sh",
+        "sandbox",
+        "exec",
+        "ojp-20261024-rust",
+        "--no-login-shell",
+        "--workdir",
+        "/workspace/rust-project-identity",
+        "--timeout",
+        "300",
+        "--",
+        "mise",
+        "exec",
+        "--",
+        "cargo",
+        "build",
+        "--bin",
+        "native-egress",
+        "--offline"
+      ],
+      "exit_status": 0,
+      "seconds": 0.329,
+      "stdout": "",
+      "stderr": "   Compiling runtime-probe v0.1.0 (/workspace/rust-project-identity)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.22s\nmbx[cache]: 0 hits, 1 misses, 1 incremental; 0 B downloaded, 0 B uploaded, 0 B stored locally\n",
+      "captured_utc": "2026-10-23T22:43:20.698177+00:00"
+    },
+    {
+      "label": "same-path-binary-hash",
+      "command": [
+        "sh",
+        "experiments/os.sh",
+        "sandbox",
+        "exec",
+        "ojp-20261024-rust",
+        "--no-login-shell",
+        "--",
+        "sha256sum",
+        "/workspace/.cache/mbx/targets/v1/4cfb011f5c6e6761c876ec13dd07babbf58eedb258718c9d3906a2bc1f8be767/debug/native-egress"
+      ],
+      "exit_status": 0,
+      "seconds": 0.048,
+      "stdout": "f96ccd56b02705c1b23f651700171021924c097e96f8cd3325f535d828e98cf5  /workspace/.cache/mbx/targets/v1/4cfb011f5c6e6761c876ec13dd07babbf58eedb258718c9d3906a2bc1f8be767/debug/native-egress\n",
+      "stderr": "",
+      "captured_utc": "2026-10-23T22:43:20.746298+00:00"
+    },
+    {
+      "label": "native-egress-same-managed-path",
+      "command": [
+        "sh",
+        "experiments/os.sh",
+        "sandbox",
+        "exec",
+        "ojp-20261024-rust",
+        "--no-login-shell",
+        "--timeout",
+        "20",
+        "--",
+        "/workspace/.cache/mbx/targets/v1/4cfb011f5c6e6761c876ec13dd07babbf58eedb258718c9d3906a2bc1f8be767/debug/native-egress"
+      ],
+      "exit_status": 1,
+      "seconds": 0.046,
+      "stdout": "",
+      "stderr": "Error: Os { code: 13, kind: PermissionDenied, message: \"Permission denied\" }\n",
+      "captured_utc": "2026-10-23T22:43:20.791946+00:00"
+    },
+    {
+      "label": "policy-denial-log",
+      "command": [
+        "sh",
+        "experiments/os.sh",
+        "sandbox",
+        "exec",
+        "logs",
+        "ojp-20261024-rust",
+        "--since",
+        "2m",
+        "--level",
+        "debug"
+      ],
+      "exit_status": 2,
+      "seconds": 0.012,
+      "stdout": "",
+      "stderr": "error: unexpected argument 'ojp-20261024-rust' found\n\nUsage: openshell sandbox exec [OPTIONS] [SANDBOX] -- <COMMAND>...\n\nFor more information, try '--help'.\n",
+      "captured_utc": "2026-10-23T22:43:20.804091+00:00"
+    }
+  ],
+  "result": "built same canonical path; execution expected to expose whether in-place binary content mutation invalidates network identity",
+  "captured_utc": "2026-10-23T22:43:20.804166+00:00"
+}

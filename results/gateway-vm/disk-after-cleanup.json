@@ -1,0 +1,12 @@
+{
+  "command": [
+    "sh",
+    "-c",
+    "du -sh experiments/gateway-vm results/gateway-vm; df -h /Users/example/openshell-jackin-poc; test ! -e experiments/gateway-vm/certs && echo ephemeral_certs=absent; test ! -e experiments/gateway-vm/state && echo experiment_state=absent"
+  ],
+  "utc": "2026-10-23T22:49:09.268497+00:00",
+  "exit_status": 0,
+  "stdout": " 40K\texperiments/gateway-vm\n132K\tresults/gateway-vm\nFilesystem      Size    Used   Avail Capacity iused ifree %iused  Mounted on\n/dev/disk3s5   3.6Ti   1.8Ti   1.8Ti    50%     21M   20G    0%   /System/Volumes/Data\nephemeral_certs=absent\nexperiment_state=absent\n",
+  "stderr": "",
+  "seconds": 0.007851208007195964
+}

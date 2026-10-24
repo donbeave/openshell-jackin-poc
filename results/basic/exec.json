@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-basic",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "id; printf \"env=%s\\n\" \"$OJP_VALUE\"; claude --version; rustc --version; cargo --version; docker --version; mkdir -p /workspace/ojp-project; printf retained-bytes > /workspace/result.bin; printf hook-ran > /workspace/hook.txt; cat /workspace/hook.txt"
+  ],
+  "utc": "2026-10-23T22:17:57.949216+00:00",
+  "exit_status": 0,
+  "stdout": "uid=1000(agent) gid=1000(agent) groups=1000(agent)\nenv=harmless-value\n2.1.310 (Claude Code)\nDocker version 29.9.2, build a82e528\nhook-ran",
+  "stderr": "error: rustup could not choose a version of rustc to run, because one wasn't specified explicitly, and no default is configured.\nhelp: run 'rustup default stable' to download the latest stable release of Rust and set it as your default toolchain.\nerror: rustup could not choose a version of cargo to run, because one wasn't specified explicitly, and no default is configured.\nhelp: run 'rustup default stable' to download the latest stable release of Rust and set it as your default toolchain.\n",
+  "seconds": 0.07139599998481572
+}

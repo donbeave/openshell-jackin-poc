@@ -1,0 +1,26 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-gwn",
+    "--from",
+    "ojp-20261024-agent:2.1.310",
+    "--cpu",
+    "1",
+    "--memory",
+    "2Gi",
+    "--no-auto-providers",
+    "--detach",
+    "--",
+    "sleep",
+    "infinity"
+  ],
+  "utc": "2026-10-23T22:22:15.580622+00:00",
+  "exit_status": 0,
+  "stdout": "\nCreated sandbox: ojp-20261024-gwn\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image ojp-20261024-agent:2.1.310\n[0.0s] Image already present\n[1.1s] Starting sandbox Container created\n",
+  "stderr": "",
+  "seconds": 1.5337215839826968
+}

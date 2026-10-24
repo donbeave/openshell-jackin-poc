@@ -1,0 +1,31 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-tty",
+    "--from",
+    "ojp-20261024-agent:2.1.310-poc-final-v2",
+    "--policy",
+    "experiments/denied.yaml",
+    "--cpu",
+    "1",
+    "--memory",
+    "1Gi",
+    "--no-auto-providers",
+    "--tty",
+    "--detach",
+    "--",
+    "bash",
+    "--noprofile",
+    "--norc",
+    "-i"
+  ],
+  "utc": "2026-10-23T22:38:34.538780+00:00",
+  "exit_status": 0,
+  "stdout": "\nCreated sandbox: ojp-20261024-tty\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image ojp-20261024-agent:2.1.310-poc-final-v2\n[0.0s] Image already present\n[0.3s] Starting sandbox Container created\n",
+  "stderr": "",
+  "seconds": 0.8224206670129206
+}

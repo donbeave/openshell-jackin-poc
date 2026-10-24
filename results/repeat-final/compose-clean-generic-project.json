@@ -1,0 +1,29 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/compose",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "compose",
+    "-p",
+    "compose",
+    "-f",
+    "compose.yaml",
+    "down",
+    "--remove-orphans",
+    "--rmi",
+    "local",
+    "--volumes"
+  ],
+  "utc": "2026-10-23T22:37:57.983001+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": " Container compose-app-1 Stopping \n Container compose-app-1 Stopped \n Container compose-app-1 Removing \n Container compose-app-1 Removed \n Container compose-database-1 Stopping \n Container compose-database-1 Stopped \n Container compose-database-1 Removing \n Container compose-database-1 Removed \n Network compose_default Removing \n Image ojp-20261024-rpt2-compose:local Removing \n Image ojp-20261024-rpt2-compose:local Resource is still in use \n Network compose_default Removed \n",
+  "seconds": 0.7404236669826787
+}

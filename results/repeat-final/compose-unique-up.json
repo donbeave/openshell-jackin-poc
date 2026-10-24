@@ -1,0 +1,32 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/compose",
+    "--timeout",
+    "180",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "compose",
+    "-p",
+    "ojp-rpt2",
+    "-f",
+    "compose.yaml",
+    "up",
+    "-d",
+    "--build",
+    "--wait",
+    "--timeout",
+    "90"
+  ],
+  "utc": "2026-10-23T22:38:12.269048+00:00",
+  "exit_status": 0,
+  "stdout": "#1 [internal] load local bake definitions\n#1 reading from stdin 543B done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile: 116B done\n#2 DONE 0.0s\n\n#3 [internal] load metadata for docker.io/library/nginx:1.29.3-alpine\n#3 DONE 0.0s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.0s\n\n#5 [internal] load build context\n#5 transferring context: 60B done\n#5 DONE 0.0s\n\n#6 [1/2] FROM docker.io/library/nginx:1.29.3-alpine@sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14\n#6 resolve docker.io/library/nginx:1.29.3-alpine@sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14 0.0s done\n#6 DONE 0.0s\n\n#7 [2/2] COPY html/index.html /usr/share/nginx/html/index.html\n#7 CACHED\n\n#8 exporting to image\n#8 exporting layers done\n#8 exporting manifest sha256:8731eb5b12fbfa01a3536e06cb5ef2eb9b7f5e7132723d7be617aa4b01457ce6 0.0s done\n#8 exporting config sha256:31a7ef8d7a430ba19985141049b7f0be1f2c409d7b076ea15e3d9c31c846a925 0.0s done\n#8 exporting attestation manifest sha256:acac3134cd5bfb2140a47c5e9f7d585f43ec3bd34ae2cf4ee1558b438cf555a9 0.0s done\n#8 exporting manifest list sha256:82d855d3bb47f005a74c02235bb3d1baae06fcc362a6eb0f8110eb137aa8a151 done\n#8 naming to docker.io/library/ojp-20261024-rpt2-compose:local done\n#8 unpacking to docker.io/library/ojp-20261024-rpt2-compose:local done\n#8 DONE 0.1s\n\n#9 resolving provenance for metadata file\n#9 DONE 0.0s\n",
+  "stderr": " Image ojp-20261024-rpt2-compose:local Building \n Image ojp-20261024-rpt2-compose:local Built \n Network ojp-rpt2_default Creating \n Network ojp-rpt2_default Creating \n Network ojp-rpt2_default Created \n Network ojp-rpt2_default Created \n Container ojp-rpt2-database-1 Creating \n Container ojp-rpt2-database-1 Created \n Container ojp-rpt2-app-1 Creating \n Container ojp-rpt2-app-1 Created \n Container ojp-rpt2-database-1 Starting \n Container ojp-rpt2-database-1 Started \n Container ojp-rpt2-database-1 Waiting \n Container ojp-rpt2-database-1 Healthy \n Container ojp-rpt2-app-1 Starting \n Container ojp-rpt2-app-1 Started \n Container ojp-rpt2-app-1 Waiting \n Container ojp-rpt2-database-1 Waiting \n Container ojp-rpt2-database-1 Healthy \n Container ojp-rpt2-app-1 Healthy \n",
+  "seconds": 3.109264208993409
+}

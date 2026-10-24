@@ -1,0 +1,12 @@
+{
+  "command": [
+    "sh",
+    "-c",
+    "lsof -nP -iTCP:18771 -sTCP:LISTEN || true"
+  ],
+  "utc": "2026-10-23T22:48:39.751902+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.029238332994282246
+}

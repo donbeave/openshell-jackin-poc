@@ -1,0 +1,26 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--",
+    "docker",
+    "--host",
+    "tcp://host.docker.internal:18777",
+    "run",
+    "--rm",
+    "--mount",
+    "type=bind,src=/sandbox/ojp-project/clean-repeat,dst=/src",
+    "alpine:3.22",
+    "sh",
+    "-c",
+    "cat /src/agent-to-child.txt; printf child-write > /src/child-to-agent-2.txt"
+  ],
+  "utc": "2026-10-23T22:34:06.155394+00:00",
+  "exit_status": 0,
+  "stdout": "agent-write",
+  "stderr": "",
+  "seconds": 0.32240120801725425
+}

@@ -1,0 +1,16 @@
+{
+  "time_utc": "2026-10-23T22:26:24.695168+00:00",
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "--no-git-ignore",
+    "ojp-20261024-v2",
+    "/Users/example/openshell-jackin-poc/experiments/rust-project",
+    "/workspace"
+  ],
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Uploading /Users/example/openshell-jackin-poc/experiments/rust-project -> sandbox:/workspace\n\u2713 Upload complete: /workspace/rust-project\n"
+}

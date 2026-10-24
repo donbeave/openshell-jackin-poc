@@ -1,0 +1,16 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "gateway",
+    "add",
+    "https://localhost:18771",
+    "--local",
+    "--name",
+    "ojp-20261024-vm"
+  ],
+  "utc": "2026-10-23T22:42:02.065655+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "\u2713 Gateway 'ojp-20261024-vm' added and set as active\n  Endpoint: https://localhost:18771\n  Type: local\n\u2713 TLS certificates present\n",
+  "seconds": 0.4685016250004992
+}

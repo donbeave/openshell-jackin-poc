@@ -1,0 +1,21 @@
+{
+  "label": "testcontainers-post-panic-daemon-inspection",
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "ps",
+    "-a",
+    "--no-trunc"
+  ],
+  "exit_status": 0,
+  "seconds": 0.078,
+  "stdout": "CONTAINER ID                                                       IMAGE                 COMMAND                                          CREATED          STATUS          PORTS                                       NAMES\n611b5f9c956c89d566094210ae68475f785ec5485d2f4e1f34860ab73b6519f0   nginx:1.29.3-alpine   \"/docker-entrypoint.sh nginx -g 'daemon off;'\"   11 minutes ago   Up 11 minutes   0.0.0.0:15432->80/tcp, [::]:15432->80/tcp   ojp-native-http\n",
+  "stderr": "",
+  "captured_utc": "2026-10-23T22:37:50.053255+00:00"
+}

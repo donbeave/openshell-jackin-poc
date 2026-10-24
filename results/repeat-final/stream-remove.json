@@ -1,0 +1,20 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "rm",
+    "-f",
+    "ojp-rpt2-stream"
+  ],
+  "utc": "2026-10-23T22:39:24.063043+00:00",
+  "exit_status": 0,
+  "stdout": "ojp-rpt2-stream\n",
+  "stderr": "",
+  "seconds": 0.5056987500283867
+}

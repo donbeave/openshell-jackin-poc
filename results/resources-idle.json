@@ -1,0 +1,18 @@
+{
+  "command": [
+    "docker",
+    "stats",
+    "--no-stream",
+    "--format",
+    "{{json .}}",
+    "ojp-20261024-sock",
+    "openshell-default--ojp-20261024-gwm-cb33e5c3-bea5-4848-9585-022041f0ec86-supervisor",
+    "openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18-supervisor",
+    "openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18",
+    "ojp-20261024-engine-b",
+    "ojp-20261024-engine-a"
+  ],
+  "exit_status": 0,
+  "stdout": "{\"BlockIO\":\"178MB / 590kB\",\"CPUPerc\":\"6.61%\",\"Container\":\"ojp-20261024-sock\",\"ID\":\"4820db703c07\",\"MemPerc\":\"0.81%\",\"MemUsage\":\"33.33MiB / 4GiB\",\"Name\":\"ojp-20261024-sock\",\"NetIO\":\"1.54kB / 126B\",\"PIDs\":\"32\"}\n{\"BlockIO\":\"9.8MB / 0B\",\"CPUPerc\":\"2.93%\",\"Container\":\"openshell-default--ojp-20261024-gwm-cb33e5c3-bea5-4848-9585-022041f0ec86-supervisor\",\"ID\":\"2294e08edb60\",\"MemPerc\":\"0.01%\",\"MemUsage\":\"17.13MiB / 121.7GiB\",\"Name\":\"openshell-default--ojp-20261024-gwm-cb33e5c3-bea5-4848-9585-022041f0ec86-supervisor\",\"NetIO\":\"0B / 0B\",\"PIDs\":\"22\"}\n{\"BlockIO\":\"24MB / 0B\",\"CPUPerc\":\"2.89%\",\"Container\":\"openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18-supervisor\",\"ID\":\"a4b3c220648d\",\"MemPerc\":\"0.02%\",\"MemUsage\":\"18.81MiB / 121.7GiB\",\"Name\":\"openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18-supervisor\",\"NetIO\":\"0B / 0B\",\"PIDs\":\"22\"}\n{\"BlockIO\":\"365MB / 7.42MB\",\"CPUPerc\":\"0.11%\",\"Container\":\"openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18\",\"ID\":\"625659b88624\",\"MemPerc\":\"0.58%\",\"MemUsage\":\"5.926MiB / 1GiB\",\"Name\":\"openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18\",\"NetIO\":\"0B / 0B\",\"PIDs\":\"45\"}\n{\"BlockIO\":\"47MB / 171MB\",\"CPUPerc\":\"0.02%\",\"Container\":\"ojp-20261024-engine-b\",\"ID\":\"3baba97ca487\",\"MemPerc\":\"1.57%\",\"MemUsage\":\"64.25MiB / 4GiB\",\"Name\":\"ojp-20261024-engine-b\",\"NetIO\":\"28.7MB / 504kB\",\"PIDs\":\"35\"}\n{\"BlockIO\":\"273MB / 172MB\",\"CPUPerc\":\"0.01%\",\"Container\":\"ojp-20261024-engine-a\",\"ID\":\"2ed5adfbc42f\",\"MemPerc\":\"1.59%\",\"MemUsage\":\"65.2MiB / 4GiB\",\"Name\":\"ojp-20261024-engine-a\",\"NetIO\":\"28.7MB / 529kB\",\"PIDs\":\"39\"}\n",
+  "stderr": ""
+}

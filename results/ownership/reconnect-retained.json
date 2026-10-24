@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "cat /sandbox/ojp-project/retained-a; docker info --format \"{{.ID}}\"; docker inspect --format \"{{.Id}} {{.State.Status}}\" ojp-h-owned-child; sha256sum /workspace/result.bin"
+  ],
+  "utc": "2026-10-23T22:39:42.880811+00:00",
+  "exit_status": 0,
+  "stdout": "retained-instance-abc083e72-354a-4215-930d-ba3924c32028\n89198e22a8fe066f4339d4d1e45e08093d0ed331d4aa63f22767238bcdb4c1f7 running\n40aff2e9d2d8922e47afd4648e6967497158785fbd1da870e7110266bf944880  /workspace/result.bin\n",
+  "stderr": "",
+  "seconds": 0.1835632500005886
+}

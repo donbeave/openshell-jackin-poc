@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-lim",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "cat /sys/fs/cgroup/memory.max /sys/fs/cgroup/cpu.max /sys/fs/cgroup/memory.events"
+  ],
+  "utc": "2026-10-23T22:35:10.520546+00:00",
+  "exit_status": 0,
+  "stdout": "67108864\n50000 100000\nlow 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+  "stderr": "",
+  "seconds": 0.05035854197922163
+}

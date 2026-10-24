@@ -1,0 +1,13 @@
+{
+  "command": [
+    "shasum",
+    "-a",
+    "256",
+    "results/repeat/export.bin"
+  ],
+  "utc": "2026-10-23T22:23:19.815634+00:00",
+  "exit_status": 0,
+  "stdout": "8e338be649868e7c9e053212037e4bb0965ba7653e81b974bab76578bd59c80a  results/repeat/export.bin\n",
+  "stderr": "",
+  "seconds": 0.011324499995680526
+}

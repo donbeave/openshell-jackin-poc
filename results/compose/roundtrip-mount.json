@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "import urllib.request,socket; print(\"fixed\",urllib.request.urlopen(\"http://host.docker.internal:18081\").read()); print(\"auto\",urllib.request.urlopen(\"http://host.docker.internal:18083\").read()); s=socket.create_connection((\"host.docker.internal\",18082)); s.sendall(b\"SET compose-key value\\r\\n\"); print(s.recv(128)); s.sendall(b\"GET compose-key\\r\\n\"); print(s.recv(128)); s.close(); open(\"/sandbox/ojp-project/compose/html/index.html\",\"w\").write(\"live-source-v2\\n\"); print(\"updated\",urllib.request.urlopen(\"http://host.docker.internal:18081\").read())"
+  ],
+  "utc": "2026-10-23T22:31:07.097572+00:00",
+  "exit_status": 0,
+  "stdout": "fixed b'compose-source-v1\\n'\nauto b'compose-source-v1\\n'\nb'+OK\\r\\n'\nb'$5\\r\\nvalue\\r\\n'\nupdated b'live-source-v2\\n'\n",
+  "stderr": "",
+  "seconds": 0.16084729199064896
+}

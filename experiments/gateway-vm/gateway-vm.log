@@ -1,0 +1,23 @@
+2026-10-23T22:48:04.984326Z  INFO openshell_server::cli: TLS enabled — listening on encrypted HTTPS
+2026-10-23T22:48:04.984394Z  INFO openshell_server::cli: TLS client certificate verification enabled
+2026-10-23T22:48:04.984400Z  INFO openshell_server::cli: mTLS user authentication enabled
+2026-10-23T22:48:04.984405Z  INFO openshell_server::cli: Starting OpenShell server bind=127.0.0.1:18771
+2026-10-23T22:48:04.990647Z  INFO openshell_server: gateway-minted sandbox JWT enabled gateway_id=ojp-20261024-vm
+2026-10-23T22:48:04.990738Z  INFO openshell_server::persistence::sqlite: sizing SQLite connection pool max_connections=5
+2026-10-23T22:48:05.001234Z  INFO openshell_server: Using compute driver driver=vm
+2026-10-23T22:48:05.026417Z  INFO openshell_driver_vm: Starting vm compute driver socket=/Users/example/openshell-jackin-poc/experiments/gateway-vm/state/runtime/run/compute-driver.sock
+2026-10-23T22:48:05.104600Z  INFO driver.initialize{otel.name="driver.initialize" driver.name=vm}: openshell_server::compute: Compute driver connected configured_driver=vm advertised_driver=openshell-driver-vm
+2026-10-23T22:48:05.104715Z  INFO openshell_server: provider profile sources configured sources=["user"]
+2026-10-23T22:48:05.111688Z  INFO openshell_server::gateway_listener: Gateway listener bound address=127.0.0.1:18771
+2026-10-23T22:48:05.111715Z  INFO openshell_server: Health server disabled
+2026-10-23T22:48:05.111720Z  INFO openshell_server: Metrics server disabled
+2026-10-23T22:48:05.112772Z  INFO openshell_server::provider_refresh: provider credential refresh worker started interval_seconds=60
+2026-10-23T22:48:05.114392Z  INFO openshell_server::provider_refresh: provider credential refresh worker sweep watched_count=0 due_count=0 rotation_requested_count=0
+2026-10-23T22:48:05.114926Z  INFO openshell_server::tls: TLS certificate file watcher started dirs=["/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs/server", "/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs"]
+2026-10-23T22:48:07.776757Z  INFO request{method=POST path="/openshell.v1.OpenShell/GetGatewayInfo" request_id="8a338241-825a-4b73-9cbf-3dd741e90b48" otel.name=openshell.v1.OpenShell/GetGatewayInfo otel.kind="server" rpc.system="grpc" rpc.service="openshell.v1.OpenShell" rpc.method="GetGatewayInfo" http.response.status_code=200}: openshell_server::multiplex: response status=200 latency_ms=0
+2026-10-23T22:48:34.237434Z  INFO request{method=POST path="/openshell.v1.OpenShell/GetGatewayInfo" request_id="002609ae-22b9-4ba3-aa2a-b25d0ec800d0" otel.name=openshell.v1.OpenShell/GetGatewayInfo otel.kind="server" rpc.system="grpc" rpc.service="openshell.v1.OpenShell" rpc.method="GetGatewayInfo" http.response.status_code=200}: openshell_server::multiplex: response status=200 latency_ms=0
+2026-10-23T22:48:34.267316Z  INFO request{method=POST path="/openshell.v1.OpenShell/DeleteSandbox" request_id="f1d5f36f-6702-4e35-9e7c-f8d8c7aeb9dc" otel.name=openshell.v1.OpenShell/DeleteSandbox otel.kind="server" rpc.system="grpc" rpc.service="openshell.v1.OpenShell" rpc.method="DeleteSandbox"}: openshell_server::grpc::sandbox: DeleteSandbox request completed successfully sandbox_name=ojp-20261024-vm1
+2026-10-23T22:48:34.267410Z  INFO request{method=POST path="/openshell.v1.OpenShell/DeleteSandbox" request_id="f1d5f36f-6702-4e35-9e7c-f8d8c7aeb9dc" otel.name=openshell.v1.OpenShell/DeleteSandbox otel.kind="server" rpc.system="grpc" rpc.service="openshell.v1.OpenShell" rpc.method="DeleteSandbox" http.response.status_code=200}: openshell_server::multiplex: response status=200 latency_ms=0
+2026-10-23T22:48:34.295715Z  INFO request{method=POST path="/openshell.v1.OpenShell/GetSandbox" request_id="66f307d2-f379-4361-9c7f-2b907282c234" otel.name=openshell.v1.OpenShell/GetSandbox otel.kind="server" rpc.system="grpc" rpc.service="openshell.v1.OpenShell" rpc.method="GetSandbox" http.response.status_code=200 rpc.grpc.status_code=5 otel.status_code="ERROR"}: openshell_server::multiplex: response status=200 latency_ms=0
+2026-10-23T22:48:34.351362Z  INFO openshell_server: Shutdown signal received; stopping gateway
+2026-10-23T22:48:34.351701Z  INFO openshell_driver_vm: Shutdown signal received; stopping vm compute driver

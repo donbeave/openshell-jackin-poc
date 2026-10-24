@@ -1,0 +1,15 @@
+# Extract: docs/content/roadmap/(agent-orchestration)/(containment-egress-recovery)/network-egress-policy.mdx
+
+Source: `jackin-project/jackin` @ `41bad147b5ba9db09be99b07248531ce1bd867be`.
+
+Status: **Partially implemented**.
+
+> Current state: Docker grant-based allowlists, launch-contract enforcement-quality reporting, fail-closed Capsule guest firewall for the role container, and DinD-inner residual-risk coverage are documented and tested; inner-container enforcement parity, rule editing, connection decision logs, service-port policy, and non-Docker backend parity remain open.
+
+> The `firewall-apply` Capsule subcommand installs a fail-closed iptables OUTPUT allowlist ... This firewall only applies inside the role container.
+
+> When allowlist networking and DinD are both active, the debug session contract reports `partial (DinD inner containers bypass host iptables)` and the role container receives the same enforcement label through `JACKIN_NETWORK_ENFORCEMENT`.
+
+Remaining work explicitly lists DinD guest enforcement parity: the firewall only applies to the role container; the DinD sidecar and agent-created inner containers have no enforcement coverage today.
+
+The document also says the rule allowlist can only be hand-edited in config/role manifests; no CLI or console live editing flow exists. Connection-decision telemetry is future work. Therefore unrelated live policy-update behavior is not a current Jackin interactive user promise.

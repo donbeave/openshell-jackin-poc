@@ -1,0 +1,14 @@
+{
+  "command": [
+    "docker",
+    "inspect",
+    "--format",
+    "{{json .State}} {{json .HostConfig.Memory}}",
+    "openshell-default--ojp-20261024-ah-0810ba53-94b8-462d-9e1e-bb2a30b8d47a"
+  ],
+  "utc": "2026-10-23T22:23:25.886938+00:00",
+  "exit_status": 0,
+  "stdout": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":137,\"Error\":\"\",\"StartedAt\":\"2026-10-23T22:22:42.641451499Z\",\"FinishedAt\":\"2026-10-23T22:22:54.585750354Z\"} 4294967296\n",
+  "stderr": "",
+  "seconds": 0.0236436249979306
+}

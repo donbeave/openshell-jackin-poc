@@ -1,0 +1,20 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--",
+    "curl",
+    "--max-time",
+    "5",
+    "http://host.docker.internal:15434"
+  ],
+  "utc": "2026-10-23T22:51:13.523464+00:00",
+  "exit_status": 7,
+  "stdout": "",
+  "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\ncurl: (7) Failed to connect to host.docker.internal port 15434 after 1 ms: Could not connect to server\n",
+  "seconds": 0.11909779199049808
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-repeat",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "printf retained-bytes > /workspace/retained.txt; sha256sum /workspace/retained.txt"
+  ],
+  "utc": "2026-10-23T22:23:36.075736+00:00",
+  "exit_status": 0,
+  "stdout": "2d0186aa298403c0138bfcb0c009efe43a8255d6d2c610a2a65a2dc61d96222b  /workspace/retained.txt\n",
+  "stderr": "",
+  "seconds": 0.06631316599668935
+}

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/rust-project",
+    "--timeout",
+    "180",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "mise exec -- cargo build --bin native-egress && sha256sum target/debug/native-egress && OJP_EGRESS_PORT=15433 mise exec -- cargo run --quiet --bin native-egress"
+  ],
+  "utc": "2026-10-23T22:36:37.851310+00:00",
+  "exit_status": 0,
+  "stdout": "bd53dcea59721f560b8b3ccaa8b47da5cb4109aa95ff8b67158cc6e504b56d76  target/debug/native-egress\nendpoint=host.docker.internal:15433 marker=ojp-egress-v1\nHTTP/1.1 404 Not Found\r\nServer: nginx/1.29.3\r\nDate: Fri, 23 Oct 2026 22:36:38 GMT\r\nContent-Type: text/html\r\nContent-Length: 153\r\nConnection: close\r\n\r\n<html>\r\n<head><title>404 Not Found</title></head>\r\n<body>\r\n<center><h1>404 Not Found</h1></center>\r\n<hr><center>nginx/1.29.3</center>\r\n</body>\r\n</html>\r\n",
+  "stderr": "    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s\n",
+  "seconds": 0.16343395799049176
+}

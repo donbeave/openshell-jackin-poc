@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-basic",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "command -v docker; test ! -S /var/run/docker.sock; echo socket_absent=$?; test ! -e \"$HOME/.docker/config.json\"; echo credentials_absent=$?; test -z \"$DOCKER_HOST\"; echo endpoint_env_absent=$?; timeout 8 docker --host tcp://host.docker.internal:18776 version"
+  ],
+  "utc": "2026-10-23T22:17:58.053897+00:00",
+  "exit_status": 1,
+  "stdout": "/usr/local/bin/docker\nsocket_absent=0\ncredentials_absent=0\nendpoint_env_absent=0\nClient:\n Version:           29.9.2\n API version:       1.56\n Go version:        go1.26.10\n Git commit:        a82e528\n Built:             Tue Oct 20 18:43:37 2026\n OS/Arch:           linux/arm64\n Context:           default\n",
+  "stderr": "failed to connect to the docker API at tcp://host.docker.internal:18776: lookup host.docker.internal on 127.0.0.53:53: server misbehaving\n",
+  "seconds": 0.07182587499846704
+}

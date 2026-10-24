@@ -1,0 +1,18 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-ah",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "version"
+  ],
+  "utc": "2026-10-23T22:23:16.634899+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 sandbox 'ojp-20261024-ah' is not ready (phase: Error); wait for it to\n  \u2502 reach Ready state\n\n",
+  "seconds": 0.03838562499731779
+}

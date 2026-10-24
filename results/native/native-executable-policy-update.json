@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "policy",
+    "set",
+    "ojp-20261024-rust",
+    "--policy",
+    "/Users/example/openshell-jackin-poc/experiments/native/policy.yaml",
+    "--wait"
+  ],
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "\u2713 Policy version 3 submitted (hash: 79ebe33147ad)\n\u2713 Policy version 3 loaded (active version: 3)\n",
+  "updated_utc": "2026-10-23T22:34:01.053850+00:00",
+  "policy_path": "experiments/native/policy.yaml"
+}

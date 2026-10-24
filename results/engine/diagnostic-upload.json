@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "ojp-20261024-gws",
+    "/tmp/ojp-20261024-upload.txt",
+    "/workspace/ojp-diagnostic-upload.txt",
+    "--no-git-ignore"
+  ],
+  "utc": "2026-10-23T22:24:41.404589+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Uploading /tmp/ojp-20261024-upload.txt -> sandbox:/workspace/ojp-diagnostic-upload.txt\nError:   \u00d7 code: 'The system is not in a state required for the operation's\n  \u2502 execution', message: \"sandbox is not ready\"\n\n",
+  "seconds": 0.04205633301171474
+}

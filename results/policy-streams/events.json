@@ -1,0 +1,228 @@
+[
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-main",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "run",
+      "-d",
+      "--name",
+      "ojp-policy-db",
+      "-p",
+      "18084:6379",
+      "redis:7.4-alpine"
+    ],
+    "exit_status": 0,
+    "stdout": "8070f6e69b051e185e456b7701887f464649cdd8146ae55ade4779687191b3d8\n",
+    "stderr": "",
+    "seconds": 0.2983995840186253
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "policy",
+      "set",
+      "ojp-20261024-main",
+      "--policy",
+      "experiments/engine.yaml",
+      "--wait"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "\u2713 Policy version 3 submitted (hash: fb35897cd904)\n\u2713 Policy version 3 loaded (active version: 3)\n",
+    "seconds": 6.089566792012192
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "policy",
+      "set",
+      "ojp-20261024-main",
+      "--policy",
+      "experiments/engine-unrelated.yaml",
+      "--wait"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "\u2713 Policy version 4 submitted (hash: 7107e5c9aa85)\n\u2713 Policy version 4 loaded (active version: 4)\n",
+    "seconds": 7.101863624993712
+  },
+  {
+    "phase": "unrelated",
+    "before": {
+      "docker": null,
+      "database": null
+    },
+    "after": {
+      "docker": 0,
+      "database": 1
+    },
+    "policy_exit_status": 0,
+    "observation_seconds": 6,
+    "no_reconnect": true
+  },
+  {
+    "phase": "unrelated",
+    "stream": "docker",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-main",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "exec",
+      "ojp-policy-db",
+      "sh",
+      "-c",
+      "i=0; while [ \"$i\" -lt 30 ]; do echo stream-$i; i=$((i+1)); sleep 1; done"
+    ],
+    "exit_status": 0
+  },
+  {
+    "phase": "unrelated",
+    "stream": "database",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-main",
+      "--no-login-shell",
+      "--",
+      "python3",
+      "-u",
+      "-c",
+      "import socket,time\ns=socket.create_connection((\"host.docker.internal\",18084),timeout=5)\nprint(\"CONNECTED\",flush=True)\nfor i in range(30):\n s.sendall(b\"PING\\r\\n\")\n data=s.recv(128)\n print(i,repr(data),flush=True)\n if not data: raise RuntimeError(\"connection closed\")\n time.sleep(1)\n"
+    ],
+    "exit_status": 1
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "policy",
+      "set",
+      "ojp-20261024-main",
+      "--policy",
+      "experiments/engine.yaml",
+      "--wait"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "\u2713 Policy version 5 submitted (hash: fb35897cd904)\n\u2713 Policy version 5 loaded (active version: 5)\n",
+    "seconds": 4.069395833008457
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "policy",
+      "set",
+      "ojp-20261024-main",
+      "--policy",
+      "experiments/denied.yaml",
+      "--wait"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "\u2713 Policy version 6 submitted (hash: d54fe3e6f7f6)\n\u2713 Policy version 6 loaded (active version: 6)\n",
+    "seconds": 7.06855062500108
+  },
+  {
+    "phase": "revoke",
+    "before": {
+      "docker": null,
+      "database": null
+    },
+    "after": {
+      "docker": 255,
+      "database": 1
+    },
+    "policy_exit_status": 0,
+    "observation_seconds": 6,
+    "no_reconnect": true
+  },
+  {
+    "phase": "revoke",
+    "stream": "docker",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-main",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "exec",
+      "ojp-policy-db",
+      "sh",
+      "-c",
+      "i=0; while [ \"$i\" -lt 30 ]; do echo stream-$i; i=$((i+1)); sleep 1; done"
+    ],
+    "exit_status": 255
+  },
+  {
+    "phase": "revoke",
+    "stream": "database",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-main",
+      "--no-login-shell",
+      "--",
+      "python3",
+      "-u",
+      "-c",
+      "import socket,time\ns=socket.create_connection((\"host.docker.internal\",18084),timeout=5)\nprint(\"CONNECTED\",flush=True)\nfor i in range(30):\n s.sendall(b\"PING\\r\\n\")\n data=s.recv(128)\n print(i,repr(data),flush=True)\n if not data: raise RuntimeError(\"connection closed\")\n time.sleep(1)\n"
+    ],
+    "exit_status": 1
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "policy",
+      "set",
+      "ojp-20261024-main",
+      "--policy",
+      "experiments/engine.yaml",
+      "--wait"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "\u2713 Policy version 7 submitted (hash: fb35897cd904)\n\u2713 Policy version 7 loaded (active version: 7)\n",
+    "seconds": 4.049018124991562
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-main",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "rm",
+      "-f",
+      "ojp-policy-db"
+    ],
+    "exit_status": 0,
+    "stdout": "ojp-policy-db\n",
+    "stderr": "",
+    "seconds": 0.23205204101395793
+  }
+]

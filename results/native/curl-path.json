@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--",
+    "command",
+    "-v",
+    "curl"
+  ],
+  "exit_status": 0,
+  "stdout": "/usr/bin/curl\n",
+  "stderr": ""
+}

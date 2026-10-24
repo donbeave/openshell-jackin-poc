@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "experiments/gateway-vm/inspect-state.py"
+  ],
+  "utc": "2026-10-23T22:48:30.212223+00:00",
+  "exit_status": 0,
+  "stdout": "{\n  \"driver_socket_exists\": true,\n  \"live_process_matches\": [],\n  \"overlay_exists\": false,\n  \"prepared_and_bootstrap_image_disks\": [\n    {\n      \"logical_bytes\": 13633177600,\n      \"path\": \"experiments/gateway-vm/state/runtime/images/sandbox-prepared-rootfs-ext4-umoci-v4-openshell-0.1.5-image-account-25511d481a47262ec7ee05d37ee22489984014370d8909ed1f9775986d81de2f/rootfs.ext4\"\n    },\n    {\n      \"logical_bytes\": 536870912,\n      \"path\": \"experiments/gateway-vm/state/runtime/images/sandbox-bootstrap-rootfs-ext4-v6-openshell-0.1.5-guest-26aeb0159deea18e0835b1b5d88294bd00a451bbefa88a176d87eb6291207149-1518fd5a2ed9dc31bb6e0c81db1c62f8b56e4557c1d9fb253aacbf67cee29ebd/rootfs.ext4\"\n    }\n  ],\n  \"sandbox_id\": \"c87a19b1-d941-4e22-a9cc-68d00be18b0f\",\n  \"sandbox_state_exists\": false\n}\n",
+  "stderr": "",
+  "seconds": 0.05591054100659676
+}

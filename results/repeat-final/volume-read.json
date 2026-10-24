@@ -1,0 +1,24 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "run",
+    "--rm",
+    "--mount",
+    "type=volume,src=ojp-rpt2-data,dst=/data",
+    "alpine:3.22",
+    "cat",
+    "/data/probe.txt"
+  ],
+  "utc": "2026-10-23T22:39:18.913204+00:00",
+  "exit_status": 0,
+  "stdout": "volume-roundtrip",
+  "stderr": "",
+  "seconds": 0.366751583002042
+}

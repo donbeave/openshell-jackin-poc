@@ -1,0 +1,14 @@
+{
+  "command": [
+    "docker",
+    "inspect",
+    "--format",
+    "{{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}}",
+    "openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18"
+  ],
+  "utc": "2026-10-23T22:19:38.839904+00:00",
+  "exit_status": 0,
+  "stdout": "[{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-52b902bb43e40d1ea2e691b0a39c674b\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-52b902bb43e40d1ea2e691b0a39c674b/_data\",\"Type\":\"volume\"}] 1073741824 1000000000\n",
+  "stderr": "",
+  "seconds": 0.015681165998103097
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "printf from-agent-live > /sandbox/ojp-project/from-agent-live; docker run --rm --mount type=bind,src=/sandbox/ojp-project,dst=/project nginx:1.29.3-alpine sh -ec \"cat /project/from-agent-live; printf from-child-live > /project/from-child-live\"; cat /sandbox/ojp-project/from-child-live"
+  ],
+  "utc": "2026-10-23T22:30:03.099987+00:00",
+  "exit_status": 0,
+  "stdout": "from-agent-livefrom-child-live",
+  "stderr": "",
+  "seconds": 0.756138083001133
+}

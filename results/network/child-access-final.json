@@ -1,0 +1,23 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "run",
+    "--rm",
+    "nginx:1.29.3-alpine",
+    "wget",
+    "-qO-",
+    "http://host.docker.internal:15434"
+  ],
+  "utc": "2026-10-23T22:51:13.673152+00:00",
+  "exit_status": 0,
+  "stdout": "ojp-harmless-local-endpoint\n",
+  "stderr": "",
+  "seconds": 0.328156541014323
+}

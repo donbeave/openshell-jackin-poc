@@ -1,0 +1,13 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "start",
+    "ojp-20261024-vm1"
+  ],
+  "utc": "2026-10-23T22:44:42.126574+00:00",
+  "exit_status": 0,
+  "stdout": "\u2713 Started sandbox ojp-20261024-vm1\n",
+  "stderr": "",
+  "seconds": 5.5328176250041
+}

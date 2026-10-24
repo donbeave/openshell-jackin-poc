@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-repeat",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "printf expected-out; printf expected-err >&2; exit 9"
+  ],
+  "utc": "2026-10-23T22:23:26.352821+00:00",
+  "exit_status": 9,
+  "stdout": "expected-out",
+  "stderr": "expected-err",
+  "seconds": 0.04083270899718627
+}

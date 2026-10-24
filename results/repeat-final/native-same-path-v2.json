@@ -1,0 +1,31 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/rust-project",
+    "--timeout",
+    "180",
+    "--no-login-shell",
+    "--env",
+    "CARGO_TARGET_DIR=/sandbox/ojp-project/clean-repeat/target-native-cycle",
+    "--",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "nextest",
+    "run",
+    "--test",
+    "native_tcp",
+    "--no-capture"
+  ],
+  "utc": "2026-10-23T22:37:31.274628+00:00",
+  "exit_status": 100,
+  "stdout": "\nrunning 1 test\ntest executable_can_open_a_local_tcp_connection ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest executable_can_open_the_allowed_engine_service ... FAILED\n\nfailures:\n\nfailures:\n    executable_can_open_the_allowed_engine_service\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.01s\n\n",
+  "stderr": "   Compiling runtime-probe v0.1.0 (/sandbox/ojp-project/clean-repeat/rust-project)\n    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.30s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n Nextest run ID c8d2e1dd-759b-4165-9be4-0ca4fea28a23 with nextest profile: default\n    Starting 2 tests across 1 binary\n       START [         ] (1/2) runtime-probe::native_tcp executable_can_open_a_local_tcp_connection\n        PASS [   0.003s] (1/2) runtime-probe::native_tcp executable_can_open_a_local_tcp_connection\n       START [         ] (2/2) runtime-probe::native_tcp executable_can_open_the_allowed_engine_service\n\nthread 'executable_can_open_the_allowed_engine_service' (4755) panicked at tests/native_tcp.rs:30:52:\nconnect to allowed Docker child service: Os { code: 13, kind: PermissionDenied, message: \"Permission denied\" }\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n        FAIL [   0.011s] (2/2) runtime-probe::native_tcp executable_can_open_the_allowed_engine_service\n  Cancelling due to test failure\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n     Summary [   0.015s] 2 tests run: 1 passed, 1 failed, 0 skipped\n        FAIL [   0.011s] (2/2) runtime-probe::native_tcp executable_can_open_the_allowed_engine_service\nerror: test run failed\nmbx[cache]: 0 hits, 1 misses, 1 incremental; 0 B downloaded, 0 B uploaded, 0 B stored locally\n",
+  "seconds": 0.5039459590043407
+}

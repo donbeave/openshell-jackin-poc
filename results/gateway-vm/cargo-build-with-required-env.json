@@ -1,0 +1,31 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--workdir",
+    "/sandbox/ojp-project/rust-project",
+    "--no-login-shell",
+    "--",
+    "env",
+    "HOME=/home/agent",
+    "MISE_DATA_DIR=/home/agent/.local/share/mise",
+    "CARGO_HOME=/home/agent/.cargo",
+    "RUSTUP_HOME=/usr/local/rustup",
+    "MISE_TRUSTED_CONFIG_PATHS=/home/agent/ojp-toolchain:/workspace:/sandbox/ojp-project/rust-project",
+    "PATH=/usr/local/cargo/bin:/usr/local/bin:/home/agent/.local/share/mise/shims:/home/agent/.local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "build",
+    "--locked",
+    "--offline"
+  ],
+  "utc": "2026-10-23T22:44:08.894459+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "mbx[setup]: first build on this machine\nmbx[setup]:   cache is /home/agent/.cache/mbx, shared by every checkout and worktree, pruned to 5.0 GiB\nmbx[setup]:   target/ is managed: deleted when its checkout is gone, unused for 30 days, over 10.0 GiB total, or the disk runs low\nmbx[setup]:   `mbx gc --dry-run` previews cleanup; `mbx settings ls gc` shows every limit\n   Compiling runtime-probe v0.1.0 (/sandbox/ojp-project/rust-project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.29s\nmbx[cache]: 0 hits, 0 misses, 2 not looked up; 0 B downloaded, 0 B uploaded, 4.7 MiB stored locally\nmbx[gc]: kept 1 target directories in use by running commands\nmbx[gc]: kept 1 target directories in use by running commands\nmbx[gc]: evicted 8 shared cache objects and 1 action results below gc.max_size because the disk was under gc.min_free_size (11.7 KiB logical freed)\n",
+  "seconds": 0.42219029198167846
+}

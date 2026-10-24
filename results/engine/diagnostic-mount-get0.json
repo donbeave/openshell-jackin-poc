@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "get",
+    "ojp-20261024-gwm",
+    "-o",
+    "json"
+  ],
+  "utc": "2026-10-23T22:21:37.550595+00:00",
+  "exit_status": 0,
+  "stdout": "{\n  \"annotations\": {\n    \"internal.openshell.ai/auth-epoch\": \"1\",\n    \"internal.openshell.ai/gateway-token-id\": \"00000000-0000-4000-8000-000000000000\",\n    \"internal.openshell.ai/isolation-backend\": \"openshell-sandbox\",\n    \"internal.openshell.ai/runtime-generation\": \"4579e9ec-1d2c-4182-bf9e-294a2906c19c\"\n  },\n  \"conditions\": [\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"Supervisor session connected\",\n      \"reason\": \"DependenciesReady\",\n      \"status\": \"True\",\n      \"type\": \"Ready\"\n    },\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"\",\n      \"reason\": \"ConfigurationAccepted\",\n      \"status\": \"True\",\n      \"type\": \"ConfigurationReady\"\n    }\n  ],\n  \"configuration_admission\": {\n    \"config_revision\": 16709790733110020355,\n    \"error\": \"\",\n    \"policy_hash\": \"a45a8ff3564f00ae26cbd66f1131f37eedd8b54a66fbfec103d65a204c19c6e8\",\n    \"policy_version\": 1,\n    \"provider_env_revision\": 3176606324465211593,\n    \"state\": \"accepted\"\n  },\n  \"created_at\": \"2026-10-23 22:21:36\",\n  \"created_from_workload_template\": null,\n  \"current_policy_version\": 1,\n  \"endpoint_statuses\": [],\n  \"exit_code\": null,\n  \"host_key_fingerprint\": \"SHA256:gZwf6O7qLKhZooiYKZ+hHPBuKvJ0wX1h3xK2wt5ij9U\",\n  \"id\": \"cb33e5c3-bea5-4848-9585-022041f0ec86\",\n  \"labels\": {},\n  \"last_token_grant_failure\": null,\n  \"main_process_instance_id\": \"3adc6832-18a1-4fc2-ac30-2a84e57f33c8\",\n  \"main_process_started_at_ms\": 1792794097481,\n  \"name\": \"ojp-20261024-gwm\",\n  \"next_restart_at_ms\": 0,\n  \"phase\": \"Ready\",\n  \"policy\": {\n    \"filesystem_policy\": {\n      \"include_workdir\": true,\n      \"read_only\": [\n        \"/bin\",\n        \"/usr\",\n        \"/lib\",\n        \"/proc\",\n        \"/dev/urandom\",\n        \"/etc\",\n        \"/var/log\"\n      ],\n      \"read_write\": [\n        \"/tmp\",\n        \"/dev/null\"\n      ]\n    },\n    \"landlock\": {\n      \"compatibility\": \"best_effort\"\n    },\n    \"version\": 1\n  },\n  \"policy_source\": \"sandbox\",\n  \"provisioning\": {\n    \"admission_start_time\": \"2026-10-23T22:21:37.455Z\",\n    \"attempt_id\": \"9158d426-36af-49e8-9d73-a2858d014c5b\",\n    \"cleanup_completed_time\": null,\n    \"cleanup_error\": \"\",\n    \"cleanup_retry_time\": null,\n    \"configuration_change_id\": \"aac38bec6d921248b546901450130641b8101bd1535ed36dc455bf28f5771c3f\",\n    \"configuration_change_time\": \"2026-10-23T22:21:37.459Z\",\n    \"deadline\": null,\n    \"driver_operation_id\": \"fc656cdf-8e22-4b90-88e8-6c514f7303b5\",\n    \"driver_operation_pending\": false,\n    \"first_rejection_time\": null,\n    \"phase\": \"ready\",\n    \"preparation_deadline\": \"2026-10-23T22:51:36.854Z\",\n    \"timeout_time\": null\n  },\n  \"resource_version\": 11,\n  \"restart_count\": 0,\n  \"restart_policy\": \"never\",\n  \"revision\": 1,\n  \"workspace\": \"default\"\n}\n",
+  "stderr": "",
+  "seconds": 0.0444199170160573
+}

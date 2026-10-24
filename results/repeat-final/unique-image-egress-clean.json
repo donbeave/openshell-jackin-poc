@@ -1,0 +1,12 @@
+{
+  "command": [
+    "sh",
+    "-c",
+    "docker exec ojp-20261024-engine-b docker rm -f ojp-rpt2-egress; docker exec ojp-20261024-engine-b docker image rm ojp-20261024-rpt2-compose:local"
+  ],
+  "utc": "2026-10-23T22:38:11.742771+00:00",
+  "exit_status": 0,
+  "stdout": "ojp-rpt2-egress\nUntagged: ojp-20261024-rpt2-compose:local\nDeleted: sha256:a05cc84f97c2929692c2098a6141c9faccc2cb4f2ee4d8abd2aa7f9e963a729c\n",
+  "stderr": "",
+  "seconds": 0.29472433298360556
+}

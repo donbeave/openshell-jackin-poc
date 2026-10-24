@@ -1,0 +1,12 @@
+{
+  "label": "testcontainers-fixture-first-compile-attempt",
+  "command": "sh experiments/os.sh sandbox exec ojp-20261024-rust --no-login-shell --workdir /workspace/rust-project --timeout 300 -- mise exec -- cargo nextest list --test redis_container --offline",
+  "exit_status": 101,
+  "stdout": "",
+  "stderr": "warning: unused import ImageExt; error[E0689]: cannot call method tcp on ambiguous numeric type at tests/redis_container.rs:8; compiler suggested explicit numeric type",
+  "fix": "typed literal as 6379_u16 and imported testcontainers::core::IntoContainerPort; removed unused ImageExt",
+  "retest": "PASS; cargo nextest list --test redis_container --offline compiled test harness",
+  "result": "FAIL (first attempt retained); corrected fixture subsequently PASS",
+  "mechanism": "EXTERNAL FIXTURE",
+  "captured_utc": "2026-10-23T22:36:30+00:00"
+}

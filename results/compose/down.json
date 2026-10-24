@@ -1,0 +1,26 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "compose",
+    "-p",
+    "ojp-compose",
+    "-f",
+    "/sandbox/ojp-project/compose/compose.yaml",
+    "down",
+    "-v",
+    "--rmi",
+    "local"
+  ],
+  "utc": "2026-10-23T22:31:07.303459+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": " Container ojp-compose-app-1 Stopping \n Container ojp-compose-app-1 Stopped \n Container ojp-compose-app-1 Removing \n Container ojp-compose-app-1 Removed \n Container ojp-compose-database-1 Stopping \n Container ojp-compose-database-1 Stopped \n Container ojp-compose-database-1 Removing \n Container ojp-compose-database-1 Removed \n Network ojp-compose_default Removing \n Network ojp-compose_default Removed \n Image ojp-compose-app:latest Removing \n Image ojp-compose-app:latest Removed \n",
+  "seconds": 0.4741410409915261
+}

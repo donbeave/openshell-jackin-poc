@@ -1,0 +1,21 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/rust-project",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "mise --version; mbx --version; rustc --version; cargo --version; cargo-nextest --version"
+  ],
+  "utc": "2026-10-23T22:34:43.490533+00:00",
+  "exit_status": 0,
+  "stdout": "2026.10.18 linux-arm64 (2026-10-23)\nmbx 1.27.0\nrustc 1.99.1 (58cf8f9c3 2026-10-13)\ncargo 1.99.1 (5f94df478 2026-08-27)\ncargo-nextest 0.9.149 (3fe4ef319 2026-10-20)\nrelease: 0.9.149\ncommit-hash: 3fe4ef31972f24e0c94cfe291718eab0fe678260\ncommit-date: 2026-10-20\nhost: aarch64-unknown-linux-gnu\n",
+  "stderr": "mise WARN  HTTP GET https://mise.jdx.dev/releases.tsv attempt 1 failed after 107.2ms (transient): error sending request; retrying in 177.231923ms\nmise WARN  HTTP GET https://mise.jdx.dev/releases.tsv attempt 2 failed after 3.8ms (transient): error sending request; retrying in 712.355568ms\nmise WARN  HTTP GET https://mise.jdx.dev/releases.tsv attempt 3 failed after 3.5ms (transient): error sending request; retrying in 2.820268585s\n",
+  "seconds": 3.9572622909909114
+}

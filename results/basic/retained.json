@@ -1,0 +1,18 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-basic",
+    "--no-login-shell",
+    "--",
+    "cat",
+    "/workspace/result.bin"
+  ],
+  "utc": "2026-10-23T22:18:12.415492+00:00",
+  "exit_status": 0,
+  "stdout": "retained-bytes",
+  "stderr": "",
+  "seconds": 0.04291062499396503
+}

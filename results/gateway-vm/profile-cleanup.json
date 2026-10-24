@@ -1,0 +1,11 @@
+{
+  "command": [
+    "sh",
+    "experiments/gateway-vm/cleanup.sh"
+  ],
+  "utc": "2026-10-23T22:48:34.168657+00:00",
+  "exit_status": 0,
+  "stdout": "Removed this experiment VM runtime, client config, and ephemeral certificates. Preserved gateway.toml and logs.\n",
+  "stderr": "",
+  "seconds": 0.36118337500374764
+}

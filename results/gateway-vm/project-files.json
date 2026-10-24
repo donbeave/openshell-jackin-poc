@@ -1,0 +1,20 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--workdir",
+    "/sandbox/ojp-project/rust-project",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "ls -l target/debug/runtime-probe; file target/debug/runtime-probe"
+  ],
+  "utc": "2026-10-23T22:44:09.349365+00:00",
+  "exit_status": 127,
+  "stdout": "",
+  "stderr": "ls: cannot access 'target/debug/runtime-probe': No such file or directory\nsh: 1: file: not found\n",
+  "seconds": 0.03717525000683963
+}

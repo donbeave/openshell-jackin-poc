@@ -1,0 +1,92 @@
+[
+  {
+    "label": "distinct-path-build-v3",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--timeout",
+      "300",
+      "--",
+      "mise",
+      "exec",
+      "--",
+      "cargo",
+      "build",
+      "--bin",
+      "native-egress",
+      "--offline",
+      "--target-dir",
+      "/workspace/rust-project/native-target-v3"
+    ],
+    "exit_status": 0,
+    "seconds": 0.518,
+    "stdout": "",
+    "stderr": "   Compiling runtime-probe v0.1.0 (/workspace/rust-project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.31s\nmbx[cache]: 1 hits, 1 misses; 0 B downloaded, 0 B uploaded, 4.6 MiB stored locally\n",
+    "captured_utc": "2026-10-23T22:34:55.245401+00:00"
+  },
+  {
+    "label": "distinct-path-realpath-v3",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "readlink",
+      "-f",
+      "/workspace/rust-project/native-target-v3/debug/native-egress"
+    ],
+    "exit_status": 0,
+    "seconds": 0.066,
+    "stdout": "/workspace/rust-project/native-target-v3/debug/native-egress\n",
+    "stderr": "",
+    "captured_utc": "2026-10-23T22:34:55.312174+00:00"
+  },
+  {
+    "label": "distinct-path-hash-v3",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "sha256sum",
+      "/workspace/rust-project/native-target-v3/debug/native-egress"
+    ],
+    "exit_status": 0,
+    "seconds": 0.086,
+    "stdout": "9c5c1c39dbb0ed8877189d8633d9b19679c0e62f4828976ee2f9f3379b8e5db4  /workspace/rust-project/native-target-v3/debug/native-egress\n",
+    "stderr": "",
+    "captured_utc": "2026-10-23T22:34:55.397777+00:00"
+  },
+  {
+    "label": "distinct-path-run-v3",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--timeout",
+      "20",
+      "--",
+      "/workspace/rust-project/native-target-v3/debug/native-egress"
+    ],
+    "exit_status": 0,
+    "seconds": 0.078,
+    "stdout": "endpoint=host.docker.internal:15432 marker=ojp-egress-v2\nHTTP/1.1 404 Not Found\nServer: nginx/1.29.3\nDate: Fri, 23 Oct 2026 22:34:55 GMT\nContent-Type: text/html\nContent-Length: 153\nConnection: close\n\n<html>\n<head><title>404 Not Found</title></head>\n<body>\n<center><h1>404 Not Found</h1></center>\n<hr><center>nginx/1.29.3</center>\n</body>\n</html>\n",
+    "stderr": "",
+    "captured_utc": "2026-10-23T22:34:55.475798+00:00"
+  }
+]

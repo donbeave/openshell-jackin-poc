@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "sed -i '2s/core::WaitFor/core::{WaitFor, IntoContainerPort}/' /sandbox/ojp-project/clean-repeat/rust-project/tests/redis_container.rs; sed -n '1,10p' /sandbox/ojp-project/clean-repeat/rust-project/tests/redis_container.rs"
+  ],
+  "utc": "2026-10-23T22:36:09.216121+00:00",
+  "exit_status": 0,
+  "stdout": "use redis::AsyncCommands;\nuse testcontainers::{runners::AsyncRunner, GenericImage, core::{WaitFor, IntoContainerPort}};\nuse std::time::Duration;\n\n#[tokio::test]\nasync fn testcontainers_starts_redis_and_exchanges_data() {\n    let container = GenericImage::new(\"redis\", \"7.4-alpine\")\n        .with_exposed_port(6379_u16.tcp())\n        .with_wait_for(WaitFor::message_on_stdout(\"Ready to accept connections\"))\n        .start()\n",
+  "stderr": "",
+  "seconds": 0.03849120798986405
+}

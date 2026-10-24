@@ -1,0 +1,279 @@
+[
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "info",
+      "--format",
+      "{{.ID}} {{.Name}}"
+    ],
+    "exit_status": 0,
+    "stdout": "bc083e72-354a-4215-930d-ba3924c32028 engine-a\n",
+    "stderr": "",
+    "seconds": 0.07917524999356829
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "--host",
+      "tcp://host.docker.internal:18777",
+      "version"
+    ],
+    "exit_status": 1,
+    "stdout": "Client:\n Version:           29.9.2\n API version:       1.56\n Go version:        go1.26.10\n Git commit:        a82e528\n Built:             Tue Oct 20 18:43:37 2026\n OS/Arch:           linux/arm64\n Context:           default\n",
+    "stderr": "error during connect: Get \"https://host.docker.internal:18777/v1.56/version\": tls: failed to verify certificate: x509: certificate signed by unknown authority\n",
+    "seconds": 0.06804362501134165
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "--tlscert",
+      "/dev/null",
+      "--tlskey",
+      "/dev/null",
+      "version"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "Failed to initialize: no valid private key found\n",
+    "seconds": 0.0471028329920955
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "sh",
+      "-ec",
+      "mkdir -p /workspace/ojp-project; printf \"FROM scratch\\nCOPY result.txt /result.txt\\n\" > /workspace/ojp-project/Dockerfile; printf build-context-bytes > /workspace/ojp-project/result.txt; docker build -t ojp-d-context /workspace/ojp-project"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "#0 building with \"default\" instance using docker driver\n\n#1 [internal] load build definition from Dockerfile\n#1 transferring dockerfile: 78B done\n#1 DONE 0.0s\n\n#2 [internal] load .dockerignore\n#2 transferring context: 2B done\n#2 DONE 0.0s\n\n#3 [internal] load build context\n#3 transferring context: 56B done\n#3 DONE 0.0s\n\n#4 [1/1] COPY result.txt /result.txt\n#4 DONE 0.0s\n\n#5 exporting to image\n#5 exporting layers 0.0s done\n#5 exporting manifest sha256:2de4a44c8ec22c355ab8b274cb9a7b1f487000ceb2412ae81097c6d5dc831aa1 done\n#5 exporting config sha256:9ea9b0ed19806f3ffd0ef50f3ef058bd2da84823f26b832631b1fd64f0474025 done\n#5 exporting attestation manifest sha256:e453cdf92bfdc002d05de04d63e47d98adfcccd1cda59c3eda84ee737322d972 done\n#5 exporting manifest list sha256:a973f07ce149867eb3427f659f065bb9b33cfd46120424487fabc9692f1d413b done\n#5 naming to docker.io/library/ojp-d-context:latest done\n#5 unpacking to docker.io/library/ojp-d-context:latest 0.0s done\n#5 DONE 0.1s\n",
+    "seconds": 0.43847362499218434
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "run",
+      "-d",
+      "--name",
+      "ojp-d-child",
+      "nginx:1.29.3-alpine"
+    ],
+    "exit_status": 0,
+    "stdout": "aee6229f796cb536012cfcff34fcbf864b54366d5f54800edcfe1d8692f0a936\n",
+    "stderr": "",
+    "seconds": 0.16456674999790266
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "logs",
+      "ojp-d-child"
+    ],
+    "exit_status": 0,
+    "stdout": "/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\n/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/\n/docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh\n10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf\n10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf\n/docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh\n/docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh\n/docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh\n/docker-entrypoint.sh: Configuration complete; ready for start up\n",
+    "stderr": "2026/10/23 22:25:29 [notice] 1#1: using the \"epoll\" event method\n2026/10/23 22:25:29 [notice] 1#1: nginx/1.29.3\n2026/10/23 22:25:29 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) \n2026/10/23 22:25:29 [notice] 1#1: OS: Linux 7.2.9-orbstack-00391-g2b298d05fbd4\n2026/10/23 22:25:29 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576\n2026/10/23 22:25:29 [notice] 1#1: start worker processes\n2026/10/23 22:25:29 [notice] 1#1: start worker process 30\n2026/10/23 22:25:29 [notice] 1#1: start worker process 31\n2026/10/23 22:25:29 [notice] 1#1: start worker process 32\n2026/10/23 22:25:29 [notice] 1#1: start worker process 33\n2026/10/23 22:25:29 [notice] 1#1: start worker process 34\n2026/10/23 22:25:29 [notice] 1#1: start worker process 35\n2026/10/23 22:25:29 [notice] 1#1: start worker process 36\n2026/10/23 22:25:29 [notice] 1#1: start worker process 37\n2026/10/23 22:25:29 [notice] 1#1: start worker process 38\n2026/10/23 22:25:29 [notice] 1#1: start worker process 39\n2026/10/23 22:25:29 [notice] 1#1: start worker process 40\n2026/10/23 22:25:29 [notice] 1#1: start worker process 41\n2026/10/23 22:25:29 [notice] 1#1: start worker process 42\n2026/10/23 22:25:29 [notice] 1#1: start worker process 43\n2026/10/23 22:25:29 [notice] 1#1: start worker process 44\n2026/10/23 22:25:29 [notice] 1#1: start worker process 45\n2026/10/23 22:25:29 [notice] 1#1: start worker process 46\n2026/10/23 22:25:29 [notice] 1#1: start worker process 47\n",
+    "seconds": 0.06630654100445099
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "exec",
+      "ojp-d-child",
+      "sh",
+      "-c",
+      "echo child-exec-ok"
+    ],
+    "exit_status": 0,
+    "stdout": "child-exec-ok\n",
+    "stderr": "",
+    "seconds": 0.07846699998481199
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "sh",
+      "-c",
+      "timeout 2 docker exec ojp-d-child sh -c \"echo stream-start; sleep 20; echo stream-end\"; code=$?; echo client_cancel_status=$code; docker exec ojp-d-child ps"
+    ],
+    "exit_status": 0,
+    "stdout": "stream-start\nclient_cancel_status=124\nPID   USER     TIME  COMMAND\n    1 root      0:00 nginx: master process nginx -g daemon off;\n   30 nginx     0:00 nginx: worker process\n   31 nginx     0:00 nginx: worker process\n   32 nginx     0:00 nginx: worker process\n   33 nginx     0:00 nginx: worker process\n   34 nginx     0:00 nginx: worker process\n   35 nginx     0:00 nginx: worker process\n   36 nginx     0:00 nginx: worker process\n   37 nginx     0:00 nginx: worker process\n   38 nginx     0:00 nginx: worker process\n   39 nginx     0:00 nginx: worker process\n   40 nginx     0:00 nginx: worker process\n   41 nginx     0:00 nginx: worker process\n   42 nginx     0:00 nginx: worker process\n   43 nginx     0:00 nginx: worker process\n   44 nginx     0:00 nginx: worker process\n   45 nginx     0:00 nginx: worker process\n   46 nginx     0:00 nginx: worker process\n   47 nginx     0:00 nginx: worker process\n   54 root      0:00 sh -c echo stream-start; sleep 20; echo stream-end\n   60 root      0:00 sleep 20\n   61 root      0:00 ps\n",
+    "stderr": "",
+    "seconds": 2.128266582993092
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "volume",
+      "create",
+      "ojp-d-volume"
+    ],
+    "exit_status": 0,
+    "stdout": "ojp-d-volume\n",
+    "stderr": "",
+    "seconds": 0.09265195898478851
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "run",
+      "--rm",
+      "-v",
+      "ojp-d-volume:/data",
+      "nginx:1.29.3-alpine",
+      "sh",
+      "-ec",
+      "echo volume-data > /data/value; cat /data/value"
+    ],
+    "exit_status": 0,
+    "stdout": "volume-data\n",
+    "stderr": "",
+    "seconds": 0.2677315839973744
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "run",
+      "--rm",
+      "-v",
+      "ojp-d-volume:/data",
+      "nginx:1.29.3-alpine",
+      "cat",
+      "/data/value"
+    ],
+    "exit_status": 0,
+    "stdout": "volume-data\n",
+    "stderr": "",
+    "seconds": 0.33036383299622685
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "rm",
+      "-f",
+      "ojp-d-child"
+    ],
+    "exit_status": 0,
+    "stdout": "ojp-d-child\n",
+    "stderr": "",
+    "seconds": 0.21105125002213754
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "rmi",
+      "ojp-d-context"
+    ],
+    "exit_status": 0,
+    "stdout": "Untagged: ojp-d-context:latest\nDeleted: sha256:a973f07ce149867eb3427f659f065bb9b33cfd46120424487fabc9692f1d413b\n",
+    "stderr": "",
+    "seconds": 0.060431124991737306
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--",
+      "docker",
+      "volume",
+      "rm",
+      "ojp-d-volume"
+    ],
+    "exit_status": 0,
+    "stdout": "ojp-d-volume\n",
+    "stderr": "",
+    "seconds": 0.052112999983364716
+  }
+]

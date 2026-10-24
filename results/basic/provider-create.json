@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "provider",
+    "create",
+    "--name",
+    "ojp-test-key",
+    "--type",
+    "anthropic",
+    "--credential",
+    "ANTHROPIC_API_KEY=harmless-test-value"
+  ],
+  "utc": "2026-10-23T22:19:38.888594+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 provider profile 'anthropic' not found; import a matching profile before\n  \u2502 using this provider type\n\n",
+  "seconds": 0.0636056249786634
+}

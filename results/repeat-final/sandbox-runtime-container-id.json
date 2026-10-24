@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "ps",
+    "--filter",
+    "name=ojp-20261024-rpt2",
+    "--format",
+    "{{.ID}} {{.Names}} {{.Image}}"
+  ],
+  "utc": "2026-10-23T22:38:29.938069+00:00",
+  "exit_status": 0,
+  "stdout": "8ea79b5598c9 openshell-default--ojp-20261024-rpt2-89d7ea10-0acc-4b86-b24b-53097a3accd9-supervisor fabcd01f656e\n07e57ed7db80 openshell-default--ojp-20261024-rpt2-89d7ea10-0acc-4b86-b24b-53097a3accd9 88b9118075fe\n",
+  "stderr": "",
+  "seconds": 0.022715667000738904
+}

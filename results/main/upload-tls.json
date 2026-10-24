@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "ojp-20261024-main",
+    "experiments/engines/private/engine-a/client",
+    "/workspace/ojp-tls"
+  ],
+  "utc": "2026-10-23T22:29:28.706828+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Warning: experiments/engines/private/engine-a/client is outside a Git work tree; uploading without Git filtering (.gitignore rules are not applied).\nUploading experiments/engines/private/engine-a/client -> sandbox:/workspace/ojp-tls\n\u2713 Upload complete: /workspace/ojp-tls/client\n",
+  "seconds": 0.1965998329978902
+}

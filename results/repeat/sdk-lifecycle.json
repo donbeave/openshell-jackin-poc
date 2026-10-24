@@ -1,0 +1,38 @@
+[
+  {
+    "operation": "SDK create",
+    "result": "PASS",
+    "seconds": 0.010866458993405104,
+    "output": "SandboxRef(id='203dc789-0e46-4d9a-b5e1-28b84bbd3eb4', name='ojp-20261024-sdk', workspace='default', status=SandboxStatusRef(phase=1, current_policy_version=0, exit_code=None, restart_count=0, next_restart_at_ms=None, main_process_started_at_ms=None, conditions=(SandboxConditionRef(type='ConfigurationReady', status='False', reason='ConfigurationPending', message='Waiting for effective configuration validation before workload activation', transition_time_ms=None), SandboxConditionRef(type='Ready', status='False', reason='ConfigurationPending', message='Waiting for effective configuration validation before workload activation', transition_time_ms=None))), labels={}, created_from_workload_template=None, service_urls={}, host_key_fingerprint='SHA256:7AgU1QD6PO0zAcPJyH6XfBEFOFXPk6pBhFK4zZU+e44')"
+  },
+  {
+    "operation": "SDK wait_ready",
+    "result": "PASS",
+    "seconds": 1.0038006670074537,
+    "output": "SandboxRef(id='203dc789-0e46-4d9a-b5e1-28b84bbd3eb4', name='ojp-20261024-sdk', workspace='default', status=SandboxStatusRef(phase=2, current_policy_version=1, exit_code=None, restart_count=0, next_restart_at_ms=None, main_process_started_at_ms=1792794170568, conditions=(SandboxConditionRef(type='Ready', status='True', reason='DependenciesReady', message='Supervisor session connected', transition_time_ms=None), SandboxConditionRef(type='ConfigurationReady', status='True', reason='ConfigurationAccepted', message='', transition_time_ms=None))), labels={}, created_from_workload_template=None, service_urls={}, host_key_fingerprint='SHA256:7AgU1QD6PO0zAcPJyH6XfBEFOFXPk6pBhFK4zZU+e44')"
+  },
+  {
+    "operation": "SDK exec",
+    "result": "PASS",
+    "seconds": 0.011268208007095382,
+    "output": "ExecResult(exit_code=0, stdout='sdk-created', stderr='')"
+  },
+  {
+    "operation": "SDK get",
+    "result": "PASS",
+    "seconds": 0.0007253749936353415,
+    "output": "SandboxRef(id='203dc789-0e46-4d9a-b5e1-28b84bbd3eb4', name='ojp-20261024-sdk', workspace='default', status=SandboxStatusRef(phase=2, current_policy_version=1, exit_code=None, restart_count=0, next_restart_at_ms=None, main_process_started_at_ms=1792794170568, conditions=(SandboxConditionRef(type='Ready', status='True', reason='DependenciesReady', message='Supervisor session connected', transition_time_ms=None), SandboxConditionRef(type='ConfigurationReady', status='True', reason='ConfigurationAccepted', message='', transition_time_ms=None))), labels={}, created_from_workload_template=None, service_urls={}, host_key_fingerprint='SHA256:7AgU1QD6PO0zAcPJyH6XfBEFOFXPk6pBhFK4zZU+e44')"
+  },
+  {
+    "operation": "SDK delete",
+    "result": "PASS",
+    "seconds": 5.214767875004327,
+    "output": "DeletionResult(outcome=<DeletionOutcome.ACCEPTED: 2>, sandbox_id='203dc789-0e46-4d9a-b5e1-28b84bbd3eb4')"
+  },
+  {
+    "operation": "SDK wait_deleted",
+    "result": "PASS",
+    "seconds": 1.0037652500031982,
+    "output": "None"
+  }
+]

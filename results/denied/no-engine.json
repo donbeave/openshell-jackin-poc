@@ -1,0 +1,16 @@
+{
+  "command": [
+    "docker",
+    "ps",
+    "-a",
+    "--filter",
+    "name=ojp-20261024",
+    "--format",
+    "{{.Names}} {{.Status}}"
+  ],
+  "utc": "2026-10-23T22:22:36.266366+00:00",
+  "exit_status": 0,
+  "stdout": "openshell-default--ojp-20261024-repeat-36e0140e-56c7-40e7-9bd7-d6723f013c33-supervisor Up Less than a second (healthy)\nopenshell-default--ojp-20261024-repeat-36e0140e-56c7-40e7-9bd7-d6723f013c33 Up Less than a second\nopenshell-default--ojp-20261024-gwn-1cb3d98b-8a41-4901-9e61-6747ff0b9e02-supervisor Up 19 seconds (healthy)\nopenshell-default--ojp-20261024-gwn-1cb3d98b-8a41-4901-9e61-6747ff0b9e02 Up 19 seconds\nojp-20261024-sock Up 41 seconds\nopenshell-default--ojp-20261024-gwm-cb33e5c3-bea5-4848-9585-022041f0ec86-supervisor Up 58 seconds (healthy)\nopenshell-default--ojp-20261024-gwm-cb33e5c3-bea5-4848-9585-022041f0ec86 Exited (137) 48 seconds ago\nopenshell-default--ojp-20261024-gwd-7931df0b-f18d-44c6-880c-43968f3b769c Exited (137) 2 minutes ago\nopenshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18-supervisor Up 4 minutes (healthy)\nopenshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18 Up 4 minutes\nojp-20261024-engine-b Up 5 minutes\nojp-20261024-engine-a Up 5 minutes\n",
+  "stderr": "",
+  "seconds": 0.01969483299762942
+}

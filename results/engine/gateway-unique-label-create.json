@@ -1,0 +1,28 @@
+{
+  "command": [
+    "bash",
+    "experiments/os.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-gwl",
+    "--from",
+    "ojp-20261024-agent:2.1.310",
+    "--driver-config-json",
+    "{\"docker\":{\"mounts\":[{\"type\":\"volume\",\"source\":\"ojp-20261024-gwlabel-vol\",\"target\":\"/workspace/ojp-project\",\"read_only\":false}]}}",
+    "--cpu",
+    "1",
+    "--memory",
+    "2Gi",
+    "--no-auto-providers",
+    "--detach",
+    "--",
+    "sleep",
+    "infinity"
+  ],
+  "utc": "2026-10-23T22:28:24.020072+00:00",
+  "exit_status": 0,
+  "stdout": "\nCreated sandbox: ojp-20261024-gwl\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image ojp-20261024-agent:2.1.310\n[0.0s] Image already present\n[0.6s] Starting sandbox Container created\n",
+  "stderr": "",
+  "seconds": 1.7720468749757856
+}

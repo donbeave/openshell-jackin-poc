@@ -1,0 +1,15 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "upload",
+    "ojp-20261024-vm1",
+    "experiments/rust-project",
+    "/sandbox/ojp-project"
+  ],
+  "utc": "2026-10-23T22:43:25.508666+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Warning: experiments/rust-project is outside a Git work tree; uploading without Git filtering (.gitignore rules are not applied).\nUploading experiments/rust-project -> sandbox:/sandbox/ojp-project\n\u2713 Upload complete: /sandbox/ojp-project/rust-project\n",
+  "seconds": 0.09432291600387543
+}

@@ -1,0 +1,20 @@
+{
+  "exit_status": 0,
+  "phase": "Ready",
+  "revision": 2,
+  "policy_version": 2,
+  "policy_hash": "40ba1502a01875464620595e261915d22c44318a7344d5ab4c6746f8c390c2c2",
+  "read_write": [
+    "/workspace",
+    "/sandbox",
+    "/tmp",
+    "/home",
+    "/dev/null"
+  ],
+  "network_policies": [
+    "allocated_services",
+    "crates",
+    "engine",
+    "service"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-lim",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "a=bytearray(128*1024*1024); print(\"allocation-survived\",len(a))"
+  ],
+  "utc": "2026-10-23T22:35:10.609116+00:00",
+  "exit_status": 137,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.1322768329991959
+}

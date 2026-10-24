@@ -1,0 +1,50 @@
+[
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "id"
+    ],
+    "exit_status": 0,
+    "stdout": "uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "cat",
+      "/workspace/hook.log"
+    ],
+    "exit_status": 0,
+    "stdout": "hook-20261024\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "sh",
+      "-c",
+      "printf \"HOME=%s\nCARGO_HOME=%s\nRUSTUP_HOME=%s\nMISE_DATA_DIR=%s\nDOCKER_HOST=%s\nDOCKER_TLS_VERIFY=%s\nDOCKER_CERT_PATH=%s\n\" \"$HOME\" \"$CARGO_HOME\" \"$RUSTUP_HOME\" \"$MISE_DATA_DIR\" \"$DOCKER_HOST\" \"$DOCKER_TLS_VERIFY\" \"$DOCKER_CERT_PATH\"; find /workspace/ojp-tls/client -maxdepth 1 -type f -printf \"%f\n\" 2>&1"
+    ],
+    "exit_status": 1,
+    "stdout": "HOME=/workspace\nCARGO_HOME=/home/agent/.cargo\nRUSTUP_HOME=/usr/local/rustup\nMISE_DATA_DIR=/home/agent/.local/share/mise\nDOCKER_HOST=tcp://host.docker.internal:18776\nDOCKER_TLS_VERIFY=1\nDOCKER_CERT_PATH=/workspace/ojp-tls/client\nfind: '/workspace/ojp-tls/client': No such file or directory\n",
+    "stderr": ""
+  }
+]

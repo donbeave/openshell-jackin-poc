@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--timeout",
+    "20",
+    "--",
+    "/workspace/rust-project/target/debug/native-egress"
+  ],
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error: Os { code: 13, kind: PermissionDenied, message: \"Permission denied\" }\n",
+  "executable_path": "/workspace/rust-project/target/debug/native-egress",
+  "captured_utc": "2026-10-23T22:32:27.508564+00:00"
+}

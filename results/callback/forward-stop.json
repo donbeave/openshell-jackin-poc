@@ -1,0 +1,14 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "forward",
+    "stop",
+    "18100"
+  ],
+  "utc": "2026-10-23T22:37:43.566029+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "\u2192 Found forward on sandbox 'ojp-20261024-main' in workspace 'default'\n\u2713 Stopped forward of port 18100 for sandbox ojp-20261024-main\n",
+  "seconds": 0.22570812501362525
+}

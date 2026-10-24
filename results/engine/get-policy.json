@@ -1,0 +1,14 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "policy",
+    "get",
+    "ojp-20261024-a"
+  ],
+  "utc": "2026-10-23T22:18:51.220970+00:00",
+  "exit_status": 0,
+  "stdout": "Version:      1\nHash:         9dd8a6954b1644f6e15a78c762a362c23c2c3316012580087756783a805da90c\nStatus:       Effective\nSource:       sandbox\nConfig rev:   7614858930514211018\n",
+  "stderr": "",
+  "seconds": 0.03373724999255501
+}

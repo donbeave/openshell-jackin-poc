@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "sed -i 's/6379\\.tcp()/6379_u16.tcp()/; s/, ImageExt,/,/' /sandbox/ojp-project/clean-repeat/rust-project/tests/redis_container.rs; sed -n '1,18p' /sandbox/ojp-project/clean-repeat/rust-project/tests/redis_container.rs"
+  ],
+  "utc": "2026-10-23T22:36:06.174321+00:00",
+  "exit_status": 0,
+  "stdout": "use redis::AsyncCommands;\nuse testcontainers::{runners::AsyncRunner, GenericImage, core::WaitFor};\nuse std::time::Duration;\n\n#[tokio::test]\nasync fn testcontainers_starts_redis_and_exchanges_data() {\n    let container = GenericImage::new(\"redis\", \"7.4-alpine\")\n        .with_exposed_port(6379_u16.tcp())\n        .with_wait_for(WaitFor::message_on_stdout(\"Ready to accept connections\"))\n        .start()\n        .await\n        .expect(\"start Redis container\");\n    let host = container.get_host().await.expect(\"Docker host\");\n    let port = container.get_host_port_ipv4(6379).await.expect(\"mapped port\");\n    let endpoint = format!(\"{host}:{port}\");\n    println!(\"Docker reported host={host} port={port}; test endpoint={endpoint}\");\n    let client = redis::Client::open(format!(\"redis://{endpoint}/\")).unwrap();\n    let mut connection = client.get_multiplexed_async_connection().await.unwrap();\n",
+  "stderr": "",
+  "seconds": 0.049385332997189835
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "name": "openshell-default--coding-agents-00000000-0000-4000-8000-000000000001",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{json .State}}",
+      "openshell-default--coding-agents-00000000-0000-4000-8000-000000000001"
+    ],
+    "exit_status": 0,
+    "stdout": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":137,\"Error\":\"\",\"StartedAt\":\"2026-10-23T20:46:16.715823025Z\",\"FinishedAt\":\"2026-10-23T22:14:39.212323112Z\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--preview-openrouter-00000000-0000-4000-8000-000000000003",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{json .State}}",
+      "openshell-default--preview-openrouter-00000000-0000-4000-8000-000000000003"
+    ],
+    "exit_status": 0,
+    "stdout": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":137,\"Error\":\"\",\"StartedAt\":\"2026-10-23T20:04:28.482657109Z\",\"FinishedAt\":\"2026-10-23T22:14:39.430047836Z\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--preview-docker-00000000-0000-4000-8000-000000000002",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{json .State}}",
+      "openshell-default--preview-docker-00000000-0000-4000-8000-000000000002"
+    ],
+    "exit_status": 0,
+    "stdout": "{\"Status\":\"exited\",\"Running\":false,\"Paused\":false,\"Restarting\":false,\"OOMKilled\":false,\"Dead\":false,\"Pid\":0,\"ExitCode\":137,\"Error\":\"\",\"StartedAt\":\"2026-10-23T20:05:44.217930564Z\",\"FinishedAt\":\"2026-10-23T22:14:39.305476094Z\"}\n",
+    "stderr": ""
+  }
+]

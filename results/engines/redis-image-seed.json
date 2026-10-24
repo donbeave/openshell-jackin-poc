@@ -1,0 +1,265 @@
+{
+  "utc": "2026-10-23T22:34:02.179635+00:00",
+  "image": "redis:7.4-alpine",
+  "host_credentials": "DOCKER_CONFIG pointed to an empty temporary directory for the public pull",
+  "transport": "docker save stream through docker exec stdin; not a registry pull by the dedicated daemon",
+  "targets": {
+    "A": "ojp-20261024-engine-a",
+    "B": "ojp-20261024-engine-b",
+    "Unix socket": "ojp-20261024-sock"
+  },
+  "checks": [
+    {
+      "name": "pull-public-image-with-empty-docker-config",
+      "command": [
+        "docker",
+        "pull",
+        "redis:7.4-alpine"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "7.4-alpine: Pulling from library/redis\nDigest: sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\nStatus: Image is up to date for redis:7.4-alpine\ndocker.io/library/redis:7.4-alpine\n",
+      "stderr": "",
+      "seconds": 2.0619412079977337
+    },
+    {
+      "name": "host-image-identity",
+      "command": [
+        "docker",
+        "image",
+        "inspect",
+        "redis:7.4-alpine",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541 [\"redis@sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\"]\n",
+      "stderr": "",
+      "seconds": 0.26222837500972673
+    },
+    {
+      "name": "host-image-save",
+      "command": [
+        "docker",
+        "save",
+        "--output",
+        "<temporary>/redis.image.tar",
+        "redis:7.4-alpine"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 1.202609416010091,
+      "byte_size": 17280512,
+      "sha256": "7cd578a61261a1ce7531e7cb5f6185dc8bd5c68b58027cc7d2b5b9d145aa0adb"
+    },
+    {
+      "name": "ojp-20261024-engine-a-image-tar-transfer",
+      "command": [
+        "docker",
+        "exec",
+        "-i",
+        "ojp-20261024-engine-a",
+        "sh",
+        "-c",
+        "cat > /tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.08213470899499953
+    },
+    {
+      "name": "ojp-20261024-engine-a-docker-image-load",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-engine-a",
+        "docker",
+        "load",
+        "--input",
+        "/tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "Loaded image: redis:7.4-alpine\n",
+      "stderr": "",
+      "seconds": 0.3228448750160169
+    },
+    {
+      "name": "ojp-20261024-engine-a-remove-transfer-tar",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-engine-a",
+        "rm",
+        "/tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.028910499997437
+    },
+    {
+      "name": "ojp-20261024-engine-a-redis-image-identity",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-engine-a",
+        "docker",
+        "image",
+        "inspect",
+        "redis:7.4-alpine",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541 [\"redis@sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\"]\n",
+      "stderr": "",
+      "seconds": 0.050783790997229517
+    },
+    {
+      "name": "ojp-20261024-engine-b-image-tar-transfer",
+      "command": [
+        "docker",
+        "exec",
+        "-i",
+        "ojp-20261024-engine-b",
+        "sh",
+        "-c",
+        "cat > /tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.06752133299596608
+    },
+    {
+      "name": "ojp-20261024-engine-b-docker-image-load",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-engine-b",
+        "docker",
+        "load",
+        "--input",
+        "/tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "Loaded image: redis:7.4-alpine\n",
+      "stderr": "",
+      "seconds": 0.33584341598907486
+    },
+    {
+      "name": "ojp-20261024-engine-b-remove-transfer-tar",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-engine-b",
+        "rm",
+        "/tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.028422667004633695
+    },
+    {
+      "name": "ojp-20261024-engine-b-redis-image-identity",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-engine-b",
+        "docker",
+        "image",
+        "inspect",
+        "redis:7.4-alpine",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541 [\"redis@sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\"]\n",
+      "stderr": "",
+      "seconds": 0.05231683299643919
+    },
+    {
+      "name": "ojp-20261024-sock-image-tar-transfer",
+      "command": [
+        "docker",
+        "exec",
+        "-i",
+        "--env",
+        "DOCKER_HOST=unix:///var/run/ojp-docker-socket/docker.sock",
+        "ojp-20261024-sock",
+        "sh",
+        "-c",
+        "cat > /tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.06399250001413748
+    },
+    {
+      "name": "ojp-20261024-sock-docker-image-load",
+      "command": [
+        "docker",
+        "exec",
+        "--env",
+        "DOCKER_HOST=unix:///var/run/ojp-docker-socket/docker.sock",
+        "ojp-20261024-sock",
+        "docker",
+        "load",
+        "--input",
+        "/tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "Loaded image: redis:7.4-alpine\n",
+      "stderr": "",
+      "seconds": 0.654126167006325
+    },
+    {
+      "name": "ojp-20261024-sock-remove-transfer-tar",
+      "command": [
+        "docker",
+        "exec",
+        "ojp-20261024-sock",
+        "rm",
+        "/tmp/ojp-redis-7.4-alpine.tar"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "seconds": 0.028443959017749876
+    },
+    {
+      "name": "ojp-20261024-sock-redis-image-identity",
+      "command": [
+        "docker",
+        "exec",
+        "--env",
+        "DOCKER_HOST=unix:///var/run/ojp-docker-socket/docker.sock",
+        "ojp-20261024-sock",
+        "docker",
+        "image",
+        "inspect",
+        "redis:7.4-alpine",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541 [\"redis@sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\"]\n",
+      "stderr": "",
+      "seconds": 0.04745916600222699
+    }
+  ]
+}

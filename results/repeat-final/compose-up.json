@@ -1,0 +1,30 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/compose",
+    "--timeout",
+    "180",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "compose",
+    "-f",
+    "compose.yaml",
+    "up",
+    "-d",
+    "--build",
+    "--wait",
+    "--timeout",
+    "90"
+  ],
+  "utc": "2026-10-23T22:34:11.248038+00:00",
+  "exit_status": 0,
+  "stdout": "#1 [internal] load local bake definitions\n#1 reading from stdin 542B done\n#1 DONE 0.0s\n\n#2 [internal] load build definition from Dockerfile\n#2 transferring dockerfile:\n#2 transferring dockerfile: 116B done\n#2 DONE 0.3s\n\n#3 [internal] load metadata for docker.io/library/nginx:1.29.3-alpine\n#3 DONE 0.2s\n\n#4 [internal] load .dockerignore\n#4 transferring context: 2B done\n#4 DONE 0.1s\n\n#5 [internal] load build context\n#5 transferring context: 60B done\n#5 DONE 0.0s\n\n#6 [1/2] FROM docker.io/library/nginx:1.29.3-alpine@sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14\n#6 resolve docker.io/library/nginx:1.29.3-alpine@sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14 0.1s done\n#6 DONE 0.1s\n\n#7 [2/2] COPY html/index.html /usr/share/nginx/html/index.html\n#7 CACHED\n\n#8 exporting to image\n#8 exporting layers done\n#8 exporting manifest sha256:6fada55190a07c81b2d28a199290e78834f49306f38c47431c71ab176ac92fa7\n#8 exporting manifest sha256:6fada55190a07c81b2d28a199290e78834f49306f38c47431c71ab176ac92fa7 0.2s done\n#8 exporting config sha256:d03adbb8c038a8953cc9db465b20e197bc3e6d7e475d5892799900658434f2b1\n#8 exporting config sha256:d03adbb8c038a8953cc9db465b20e197bc3e6d7e475d5892799900658434f2b1 0.1s done\n#8 exporting attestation manifest sha256:9bc0924775e3fb8542debbe4b3b66594cf8164f778ddf27918eddc5f6eb3158f\n#8 exporting attestation manifest sha256:9bc0924775e3fb8542debbe4b3b66594cf8164f778ddf27918eddc5f6eb3158f 0.0s done\n#8 exporting manifest list sha256:a05cc84f97c2929692c2098a6141c9faccc2cb4f2ee4d8abd2aa7f9e963a729c 0.1s done\n#8 naming to docker.io/library/ojp-20261024-rpt2-compose:local\n#8 naming to docker.io/library/ojp-20261024-rpt2-compose:local 0.0s done\n#8 unpacking to docker.io/library/ojp-20261024-rpt2-compose:local\n#8 unpacking to docker.io/library/ojp-20261024-rpt2-compose:local 0.2s done\n#8 DONE 0.7s\n\n#9 resolving provenance for metadata file\n#9 DONE 0.0s\n",
+  "stderr": " Image ojp-20261024-rpt2-compose:local Building \n Image ojp-20261024-rpt2-compose:local Built \n Network compose_default Creating \n Network compose_default Creating \n Network compose_default Created \n Network compose_default Created \n Container compose-database-1 Creating \n Container compose-database-1 Created \n Container compose-app-1 Creating \n Container compose-app-1 Created \n Container compose-database-1 Starting \n Container compose-database-1 Started \n Container compose-database-1 Waiting \n Container compose-database-1 Healthy \n Container compose-app-1 Starting \n Container compose-app-1 Started \n Container compose-app-1 Waiting \n Container compose-database-1 Waiting \n Container compose-database-1 Healthy \n Container compose-app-1 Healthy \n",
+  "seconds": 7.380778791004559
+}

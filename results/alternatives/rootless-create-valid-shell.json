@@ -1,0 +1,31 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-root2",
+    "--from",
+    "docker:29.8.2-dind-rootless",
+    "--policy",
+    "experiments/rootless.yaml",
+    "--cpu",
+    "1",
+    "--memory",
+    "1Gi",
+    "--env",
+    "XDG_RUNTIME_DIR=/tmp/ojp-rootless",
+    "--no-auto-providers",
+    "--detach",
+    "--",
+    "sh",
+    "-c",
+    "mkdir -p /tmp/ojp-rootless; dockerd-rootless.sh > /workspace/rootless.log 2>&1; printf \"daemon_exit=%s\\n\" \"$?\" >> /workspace/rootless.log; sleep infinity"
+  ],
+  "utc": "2026-10-23T22:31:05.894061+00:00",
+  "exit_status": 0,
+  "stdout": "\nCreated sandbox: ojp-20261024-root2\n\n  [0.0s] Requesting compute...\n",
+  "stderr": "",
+  "seconds": 1.0515503330098
+}

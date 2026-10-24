@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "mkdir -p /workspace/callback; printf callback-bytes > /workspace/callback/index.html; python3 -m http.server 18100 --bind 127.0.0.1 --directory /workspace/callback > /workspace/callback/server.log 2>&1 & echo $! > /workspace/callback/pid"
+  ],
+  "utc": "2026-10-23T22:36:39.181764+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.041435499995714054
+}

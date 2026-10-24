@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "ojp-20261024-ah",
+    "experiments/engines/private/engine-a/client",
+    "/workspace/ojp-tls"
+  ],
+  "utc": "2026-10-23T22:22:47.485025+00:00",
+  "exit_status": 1,
+  "stdout": "2026-10-23T22:23:02.546138Z  WARN openshell_cli::ssh: sandbox sync operation failed; retrying operation=\"upload\" attempt=1 max_attempts=4 error=upload SSH transport failed: upload negotiation timed out: \n2026-10-23T22:23:14.582020Z  WARN openshell_cli::ssh: sandbox sync operation failed; retrying operation=\"upload\" attempt=2 max_attempts=4 error=upload SSH transport failed: upload negotiation timed out: \n",
+  "stderr": "Warning: experiments/engines/private/engine-a/client is outside a Git work tree; uploading without Git filtering (.gitignore rules are not applied).\nUploading experiments/engines/private/engine-a/client -> sandbox:/workspace/ojp-tls\nError:   \u00d7 code: 'The system is not in a state required for the operation's\n  \u2502 execution', message: \"sandbox is not ready\"\n\n",
+  "seconds": 29.10285887500504
+}

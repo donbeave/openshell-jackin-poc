@@ -1,0 +1,12 @@
+{
+  "command": [
+    "sh",
+    "-c",
+    "sh experiments/os.sh sandbox stop ojp-20261024-repeat && sh experiments/os.sh sandbox start ojp-20261024-repeat"
+  ],
+  "utc": "2026-10-23T22:23:36.170062+00:00",
+  "exit_status": 0,
+  "stdout": "\u2713 Stopped sandbox ojp-20261024-repeat\n\u2713 Started sandbox ojp-20261024-repeat\n",
+  "stderr": "",
+  "seconds": 5.920154541992815
+}

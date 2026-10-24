@@ -1,0 +1,13 @@
+{
+  "command": [
+    "curl",
+    "--max-time",
+    "5",
+    "http://127.0.0.1:18100"
+  ],
+  "utc": "2026-10-23T22:37:43.175352+00:00",
+  "exit_status": 0,
+  "stdout": "callback-bytes",
+  "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100    14  100    14    0     0   3898      0 --:--:-- --:--:-- --:--:--  4666\n",
+  "seconds": 0.014744958985829726
+}

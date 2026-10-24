@@ -1,0 +1,25 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "run",
+    "--rm",
+    "nginx:1.29.3-alpine",
+    "wget",
+    "-T",
+    "5",
+    "-qO-",
+    "http://host.docker.internal:18100"
+  ],
+  "utc": "2026-10-23T22:37:43.662645+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "wget: can't connect to remote host (0.250.250.254): Connection refused\n",
+  "seconds": 0.2500177499896381
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "status",
+    "-o",
+    "json"
+  ],
+  "utc": "2026-10-23T22:33:10.836532+00:00",
+  "exit_status": 0,
+  "stdout": "{\n  \"authentication\": {\n    \"provider\": \"mTLS transport\",\n    \"status\": \"authenticated\"\n  },\n  \"gateway\": \"ojp-20261024-gw\",\n  \"server\": \"https://127.0.0.1:18770\",\n  \"status\": \"connected\",\n  \"version\": \"0.1.5\"\n}\n",
+  "stderr": "",
+  "seconds": 0.054238708020420745
+}

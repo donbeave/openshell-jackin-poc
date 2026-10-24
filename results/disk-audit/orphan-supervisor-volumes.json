@@ -1,0 +1,188 @@
+{
+  "captured_at": "2026-10-23T23:00:36.247594+00:00",
+  "result": "NOT REMOVED; evidence for review",
+  "source": "old default-namespace exited sandbox snapshot; Docker volume inspect; all-container mount references",
+  "count": 12,
+  "volumes": [
+    {
+      "name": "openshell-supervisor-01969ff45e45c154680cfe2c4715046b",
+      "paired_channel_volume": "openshell-channel-01969ff45e45c154680cfe2c4715046b",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-01969ff45e45c154680cfe2c4715046b/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "4e6b4b01-3e35-4044-af23-e327a210f20f",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-3db5fcf5d2db1c33352259606caca652",
+      "paired_channel_volume": "openshell-channel-3db5fcf5d2db1c33352259606caca652",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-3db5fcf5d2db1c33352259606caca652/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "ec1a3948-711a-4a02-83ef-7e2b996c39c5",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-465fd3f518993ae5a0de379b13f3a31c",
+      "paired_channel_volume": "openshell-channel-465fd3f518993ae5a0de379b13f3a31c",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-465fd3f518993ae5a0de379b13f3a31c/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "ff9df7a5-025f-4930-a459-6a2e5dfb1dcb",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-4b3aba91b96dc3a726f41b90d57ad770",
+      "paired_channel_volume": "openshell-channel-4b3aba91b96dc3a726f41b90d57ad770",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-4b3aba91b96dc3a726f41b90d57ad770/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "80f84ae5-4051-458e-be3e-ac245df83f41",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-4ee2ca3a92cab70743bb62d4356bad32",
+      "paired_channel_volume": "openshell-channel-4ee2ca3a92cab70743bb62d4356bad32",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-4ee2ca3a92cab70743bb62d4356bad32/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "7931df0b-f18d-44c6-880c-43968f3b769c",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-52b902bb43e40d1ea2e691b0a39c674b",
+      "paired_channel_volume": "openshell-channel-52b902bb43e40d1ea2e691b0a39c674b",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-52b902bb43e40d1ea2e691b0a39c674b/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "c400f7d7-4955-4359-8def-c362900e3f18",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-7fd3fdb149e57de5702d70c3106ddc01",
+      "paired_channel_volume": "openshell-channel-7fd3fdb149e57de5702d70c3106ddc01",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-7fd3fdb149e57de5702d70c3106ddc01/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "74a977b6-02da-4736-b223-9035240ad02e",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-82268a40c5ee215f6a0d3a6858b64f22",
+      "paired_channel_volume": "openshell-channel-82268a40c5ee215f6a0d3a6858b64f22",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-82268a40c5ee215f6a0d3a6858b64f22/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "1cb3d98b-8a41-4901-9e61-6747ff0b9e02",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-8881e38c027845f5294c58333d7aee9c",
+      "paired_channel_volume": "openshell-channel-8881e38c027845f5294c58333d7aee9c",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-8881e38c027845f5294c58333d7aee9c/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "0810ba53-94b8-462d-9e1e-bb2a30b8d47a",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-91fc1757500ffd8e6f7f65273431dc7e",
+      "paired_channel_volume": "openshell-channel-91fc1757500ffd8e6f7f65273431dc7e",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-91fc1757500ffd8e6f7f65273431dc7e/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "2c4b1a14-4fa5-4c93-a08d-3be5c205070c",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-9851eac564b3cdf83f22445033a6c415",
+      "paired_channel_volume": "openshell-channel-9851eac564b3cdf83f22445033a6c415",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-9851eac564b3cdf83f22445033a6c415/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "d55e79be-fce0-4578-9b05-b4dcee479e46",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    },
+    {
+      "name": "openshell-supervisor-dda36185be225b7acc9ba89f37f284b0",
+      "paired_channel_volume": "openshell-channel-dda36185be225b7acc9ba89f37f284b0",
+      "paired_channel_volume_exists": false,
+      "driver": "local",
+      "mountpoint": "/var/lib/docker/volumes/openshell-supervisor-dda36185be225b7acc9ba89f37f284b0/_data",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "cb33e5c3-bea5-4848-9585-022041f0ec86",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "exact_old_sandbox_match": true
+    }
+  ]
+}

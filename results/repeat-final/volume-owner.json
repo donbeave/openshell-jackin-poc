@@ -1,0 +1,16 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "ojp-20261024-engine-b",
+    "stat",
+    "-c",
+    "%u:%g %a %n",
+    "/sandbox/ojp-project/clean-repeat"
+  ],
+  "utc": "2026-10-23T22:33:10.750015+00:00",
+  "exit_status": 0,
+  "stdout": "1000:1000 755 /sandbox/ojp-project/clean-repeat\n",
+  "stderr": "",
+  "seconds": 0.032524833019124344
+}

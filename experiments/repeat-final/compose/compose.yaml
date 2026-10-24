@@ -1,0 +1,23 @@
+services:
+  database:
+    image: redis:7.4-alpine
+    ports:
+      - "18086:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 2s
+      retries: 20
+  app:
+    image: ojp-20261024-rpt2-compose:local
+    build: .
+    depends_on:
+      database:
+        condition: service_healthy
+    command: ["sh", "-ec", "nc -z database 6379; echo COMPOSE_DEPENDENCY_OK; exec nginx -g 'daemon off;'"]
+    ports:
+      - "15433:80"
+      - "18087:80"
+      - "80"
+    volumes:
+      - /sandbox/ojp-project/clean-repeat/compose/html:/usr/share/nginx/html

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "logs",
+    "ojp-20261024-gwd",
+    "-n",
+    "100"
+  ],
+  "utc": "2026-10-23T22:20:43.487603+00:00",
+  "exit_status": 0,
+  "stdout": "[1792794019.455] [gateway] [INFO ] [openshell_server::grpc::sandbox] CreateSandbox request completed successfully\n[1792794019.748] [gateway] [INFO ] [openshell_driver_docker] Selected Docker supervisor networking\n[1792794019.985] [sandbox] [INFO ] [openshell_supervisor] Starting sandbox supervision command=[\"sleep\", \"infinity\"]\n[1792794020.048] [gateway] [INFO ] [openshell_server::grpc::policy] UpdateConfig: new policy version persisted\n[1792794020.050] [gateway] [INFO ] [openshell_server::grpc::policy] GetSandboxProviderEnvironment request completed successfully\n[1792794020.072] [gateway] [INFO ] [openshell_server::grpc::policy] sandbox reported policy load result\n[1792794020.072] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: accepted\n[1792794020.038] [sandbox] [INFO ] [openshell_supervisor] Fetching sandbox policy via gRPC endpoint=https://127.0.0.1:18770 sandbox=ojp-20261024-gwd sandbox_id=7931df0b-f18d-44c6-880c-43968f3b769c\n[1792794020.045] [sandbox] [OCSF ] [ocsf] CONFIG:ENRICHED [INFO] Enriched policy with baseline filesystem paths for proxy mode\n[1792794020.051] [sandbox] [INFO ] [openshell_supervisor_network::opa] Configured OPA runtime binary identity mode require_binary_identity=true source=proto\n[1792794020.051] [sandbox] [OCSF ] [ocsf] CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\n[1792794020.058] [sandbox] [INFO ] [openshell_supervisor] Isolation boundary attached backend=openshell-sandbox\n[1792794020.059] [sandbox] [INFO ] [openshell_supervisor] Isolation boundary enforcement confirmed backend=openshell-sandbox\n[1792794020.060] [sandbox] [OCSF ] [ocsf] CONFIG:ENABLED [INFO] TLS termination enabled: ephemeral CA generated\n[1792794020.060] [sandbox] [OCSF ] [ocsf] CONFIG:READY [INFO] Policy DNS connected to isolation boundary\n[1792794020.060] [sandbox] [OCSF ] [ocsf] NET:LISTEN [INFO] 127.0.0.1:3128\n[1792794020.060] [sandbox] [WARN ] [openshell_supervisor_network::proxy] host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF exemption disabled ip=127.0.0.1\n[1792794020.067] [sandbox] [INFO ] [openshell_supervisor] Isolation boundary agent started backend=openshell-sandbox\n[1792794020.067] [sandbox] [OCSF ] [ocsf] SSH:LISTEN [INFO]\n[1792794020.067] [sandbox] [INFO ] [openshell_supervisor] Control-mode access plane started backend=openshell-sandbox\n[1792794020.072] [sandbox] [OCSF ] [ocsf] NET:OPEN [INFO] 127.0.0.1:18770\n[1792794020.072] [sandbox] [OCSF ] [ocsf] CONFIG:LOADED [INFO] Acknowledged initial policy revision as loaded [version:2] [hash:d3f10423568db41ed0e99a981f65e88134062f48247f4c24adfc32202dbdacdf]\n[1792794031.906] [gateway] [INFO ] [openshell_server::compute] Sandbox phase changed\n[1792794031.906] [gateway] [WARN ] [openshell_server::compute] Container exited\n",
+  "stderr": "",
+  "seconds": 0.038908832997549325
+}

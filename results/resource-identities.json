@@ -1,0 +1,288 @@
+[
+  {
+    "name": "openshell-default--ojp-20261024-rpt2-89d7ea10-0acc-4b86-b24b-53097a3accd9-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-rpt2-89d7ea10-0acc-4b86-b24b-53097a3accd9-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "d814dffb25b08a6539562d5ee74013d4a5f2dd370daa346699db1b489700f52b sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.576760477+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.562393699+07:00\"},{\"End\":\"2026-10-24T05:40:27.844194414+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.828339586+07:00\"},{\"End\":\"2026-10-24T05:40:28.10767779+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.094402058+07:00\"},{\"End\":\"2026-10-24T05:40:28.389546668+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.358609538+07:00\"},{\"End\":\"2026-10-24T05:40:28.67256176+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.641670463+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1808296,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:40:27.27048735Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-afc13bb3346071568568c308baf2175c\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-afc13bb3346071568568c308baf2175c/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-afc13bb3346071568568c308baf2175c\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-afc13bb3346071568568c308baf2175c/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"89d7ea10-0acc-4b86-b24b-53097a3accd9\",\"openshell.ai/sandbox-name\":\"ojp-20261024-rpt2\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-hook-e5cd1045-7f35-49b5-920d-db9743b4fe42-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-hook-e5cd1045-7f35-49b5-920d-db9743b4fe42-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "5dc9f12a7eaa47d1db8e8a118a4d9a635a5169b02775beed0867c666ea06d7ae sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.598610376+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.581202624+07:00\"},{\"End\":\"2026-10-24T05:40:27.863110299+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.84882027+07:00\"},{\"End\":\"2026-10-24T05:40:28.128927519+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.113401068+07:00\"},{\"End\":\"2026-10-24T05:40:28.404351648+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.379871986+07:00\"},{\"End\":\"2026-10-24T05:40:28.680771689+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.654515149+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1758270,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:38:59.247721939Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-437978911a4f71ed3bacfccfe41c83aa\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-437978911a4f71ed3bacfccfe41c83aa/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-437978911a4f71ed3bacfccfe41c83aa\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-437978911a4f71ed3bacfccfe41c83aa/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"e5cd1045-7f35-49b5-920d-db9743b4fe42\",\"openshell.ai/sandbox-name\":\"ojp-20261024-hook\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-hook-e5cd1045-7f35-49b5-920d-db9743b4fe42",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-hook-e5cd1045-7f35-49b5-920d-db9743b4fe42"
+    ],
+    "exit_status": 0,
+    "stdout": "4f35336aaec87e50549e5ed71f0a220a6d37b46b14ba86e566df8e176fc28301 sha256:88b9118075feb284f28b34bb8baa4568aff8ab75c22022441e52a37079049ba4 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1757628,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:38:58.035638717Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-437978911a4f71ed3bacfccfe41c83aa\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-437978911a4f71ed3bacfccfe41c83aa/_data\",\"Type\":\"volume\"},{\"Destination\":\"/sandbox/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-b-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-b-project/_data\",\"Type\":\"volume\"}] 1073741824 1000000000 {\"openshell.ai/caller-driver-config-used\":\"true\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[]\",\"openshell.ai/resource-admission-identities\":\"{\\\"ojp-20261024-engine-b-project\\\":{\\\"created_at\\\":\\\"2026-10-24T05:15:51+07:00\\\",\\\"driver\\\":\\\"local\\\",\\\"mountpoint\\\":\\\"/var/lib/docker/volumes/ojp-20261024-engine-b-project/_data\\\",\\\"name\\\":\\\"ojp-20261024-engine-b-project\\\",\\\"options\\\":{}}}\",\"openshell.ai/sandbox-id\":\"e5cd1045-7f35-49b5-920d-db9743b4fe42\",\"openshell.ai/sandbox-name\":\"ojp-20261024-hook\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\",\"org.opencontainers.image.description\":\"Shared base image for jackin agents\",\"org.opencontainers.image.revision\":\"1fced1f9d66c\",\"org.opencontainers.image.source\":\"https://github.com/jackin-project/jackin\",\"org.opencontainers.image.title\":\"jackin construct\",\"org.opencontainers.image.url\":\"https://jackin.tailrocks.com/developing/construct-image/\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-tty-3ee7570f-a9ba-4e39-b029-489b96644cd6-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-tty-3ee7570f-a9ba-4e39-b029-489b96644cd6-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "054acc1cd6fab3955b1877b0584fd3a93e69b80a32410dd07c5b0368604af37b sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.59726012+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.5763441+07:00\"},{\"End\":\"2026-10-24T05:40:27.861075289+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.847725723+07:00\"},{\"End\":\"2026-10-24T05:40:28.123597868+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.112038353+07:00\"},{\"End\":\"2026-10-24T05:40:28.403463897+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.375660355+07:00\"},{\"End\":\"2026-10-24T05:40:28.679001603+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.653786273+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1745751,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:38:35.245849812Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-f83b61bac703ddc66c70e5e1d3225ad1\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-f83b61bac703ddc66c70e5e1d3225ad1/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-f83b61bac703ddc66c70e5e1d3225ad1\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-f83b61bac703ddc66c70e5e1d3225ad1/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"3ee7570f-a9ba-4e39-b029-489b96644cd6\",\"openshell.ai/sandbox-name\":\"ojp-20261024-tty\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-tty-3ee7570f-a9ba-4e39-b029-489b96644cd6",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-tty-3ee7570f-a9ba-4e39-b029-489b96644cd6"
+    ],
+    "exit_status": 0,
+    "stdout": "d6d0e529b3e941286321224442666e0718e792f4cdbabe12ba9c2d43d19f5314 sha256:00dcc0484704bc58cd1771ea3fc34011df9e3c500c1b5496670661ac82ac5133 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1745577,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:38:34.985390348Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-f83b61bac703ddc66c70e5e1d3225ad1\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-f83b61bac703ddc66c70e5e1d3225ad1/_data\",\"Type\":\"volume\"}] 1073741824 1000000000 {\"openshell.ai/caller-driver-config-used\":\"false\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[]\",\"openshell.ai/resource-admission-identities\":\"{}\",\"openshell.ai/sandbox-id\":\"3ee7570f-a9ba-4e39-b029-489b96644cd6\",\"openshell.ai/sandbox-name\":\"ojp-20261024-tty\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\",\"org.opencontainers.image.description\":\"Shared base image for jackin agents\",\"org.opencontainers.image.revision\":\"1fced1f9d66c\",\"org.opencontainers.image.source\":\"https://github.com/jackin-project/jackin\",\"org.opencontainers.image.title\":\"jackin construct\",\"org.opencontainers.image.url\":\"https://jackin.tailrocks.com/developing/construct-image/\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-soc2-01153f0d-8565-45ad-81f8-14bee595667a-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-soc2-01153f0d-8565-45ad-81f8-14bee595667a-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "efe971a1cd1e8f326d9e94142f1ba3ee0aeeb29c81dd279cb645d7c22b918b80 sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.598006165+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.583321718+07:00\"},{\"End\":\"2026-10-24T05:40:27.862670796+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.848159767+07:00\"},{\"End\":\"2026-10-24T05:40:28.127242803+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.113035899+07:00\"},{\"End\":\"2026-10-24T05:40:28.401581311+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.377877817+07:00\"},{\"End\":\"2026-10-24T05:40:28.677714267+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.651909312+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1697824,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:36:58.420174032Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-35baba1a691860b8e29c89efb31c09d4\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-35baba1a691860b8e29c89efb31c09d4/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-35baba1a691860b8e29c89efb31c09d4\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-35baba1a691860b8e29c89efb31c09d4/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"01153f0d-8565-45ad-81f8-14bee595667a\",\"openshell.ai/sandbox-name\":\"ojp-20261024-soc2\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-soc2-01153f0d-8565-45ad-81f8-14bee595667a",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-soc2-01153f0d-8565-45ad-81f8-14bee595667a"
+    ],
+    "exit_status": 0,
+    "stdout": "350ba6475faa5a5ae2b5e253650de7b99f3984c3765d28e7dba973d4d1ab0e66 sha256:00dcc0484704bc58cd1771ea3fc34011df9e3c500c1b5496670661ac82ac5133 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1697658,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:36:58.187040729Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-35baba1a691860b8e29c89efb31c09d4\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-35baba1a691860b8e29c89efb31c09d4/_data\",\"Type\":\"volume\"},{\"Destination\":\"/sandbox/docker\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-sock-dockersock\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-sock-dockersock/_data\",\"Type\":\"volume\"},{\"Destination\":\"/sandbox/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-sock-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-sock-project/_data\",\"Type\":\"volume\"}] 1073741824 1000000000 {\"openshell.ai/caller-driver-config-used\":\"true\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[]\",\"openshell.ai/resource-admission-identities\":\"{\\\"ojp-20261024-sock-dockersock\\\":{\\\"created_at\\\":\\\"2026-10-24T05:21:54+07:00\\\",\\\"driver\\\":\\\"local\\\",\\\"mountpoint\\\":\\\"/var/lib/docker/volumes/ojp-20261024-sock-dockersock/_data\\\",\\\"name\\\":\\\"ojp-20261024-sock-dockersock\\\",\\\"options\\\":{}},\\\"ojp-20261024-sock-project\\\":{\\\"created_at\\\":\\\"2026-10-24T05:33:33+07:00\\\",\\\"driver\\\":\\\"local\\\",\\\"mountpoint\\\":\\\"/var/lib/docker/volumes/ojp-20261024-sock-project/_data\\\",\\\"name\\\":\\\"ojp-20261024-sock-project\\\",\\\"options\\\":{}}}\",\"openshell.ai/sandbox-id\":\"01153f0d-8565-45ad-81f8-14bee595667a\",\"openshell.ai/sandbox-name\":\"ojp-20261024-soc2\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\",\"org.opencontainers.image.description\":\"Shared base image for jackin agents\",\"org.opencontainers.image.revision\":\"1fced1f9d66c\",\"org.opencontainers.image.source\":\"https://github.com/jackin-project/jackin\",\"org.opencontainers.image.title\":\"jackin construct\",\"org.opencontainers.image.url\":\"https://jackin.tailrocks.com/developing/construct-image/\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-rust-842ab947-a177-4caf-bc70-996f1278378d-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-rust-842ab947-a177-4caf-bc70-996f1278378d-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "1f1b49d254028f905d8f00ad158ce4dc58e064943bb815cddb1c04bb176f8de8 sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.595700237+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.580629996+07:00\"},{\"End\":\"2026-10-24T05:40:27.862663713+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.846569509+07:00\"},{\"End\":\"2026-10-24T05:40:28.126258964+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.112982274+07:00\"},{\"End\":\"2026-10-24T05:40:28.401070102+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.376611773+07:00\"},{\"End\":\"2026-10-24T05:40:28.679041978+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.651805562+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1669607,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:35:54.834632519Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-1db65350124c1c2f2c1d7c95cfe11391\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-1db65350124c1c2f2c1d7c95cfe11391/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-1db65350124c1c2f2c1d7c95cfe11391\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-1db65350124c1c2f2c1d7c95cfe11391/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"842ab947-a177-4caf-bc70-996f1278378d\",\"openshell.ai/sandbox-name\":\"ojp-20261024-rust\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-lim-da4ab97c-6d79-465f-87d3-12c1785445ce-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-lim-da4ab97c-6d79-465f-87d3-12c1785445ce-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "1d4d19765d5a536f39722585a7b5f76dfeeb76051b2244316c1161e8d930639e sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.601484265+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.581438334+07:00\"},{\"End\":\"2026-10-24T05:40:27.866857984+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.853332667+07:00\"},{\"End\":\"2026-10-24T05:40:28.131482032+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.117869257+07:00\"},{\"End\":\"2026-10-24T05:40:28.404062023+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.383851617+07:00\"},{\"End\":\"2026-10-24T05:40:28.67980002+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.65430094+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1649039,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:35:10.317663626Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-d6a6a7872ff6867d9ab1d6bcbc5832e9\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-d6a6a7872ff6867d9ab1d6bcbc5832e9/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-d6a6a7872ff6867d9ab1d6bcbc5832e9\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-d6a6a7872ff6867d9ab1d6bcbc5832e9/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"da4ab97c-6d79-465f-87d3-12c1785445ce\",\"openshell.ai/sandbox-name\":\"ojp-20261024-lim\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-lim-da4ab97c-6d79-465f-87d3-12c1785445ce",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-lim-da4ab97c-6d79-465f-87d3-12c1785445ce"
+    ],
+    "exit_status": 0,
+    "stdout": "af151c70cef0f36be1c44c8e1bda914faf6c2f49f2147f1a184ad1c491d903bf sha256:00dcc0484704bc58cd1771ea3fc34011df9e3c500c1b5496670661ac82ac5133 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":true,\"Paused\":false,\"Pid\":1648873,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:35:09.991844566Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-d6a6a7872ff6867d9ab1d6bcbc5832e9\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-d6a6a7872ff6867d9ab1d6bcbc5832e9/_data\",\"Type\":\"volume\"}] 67108864 500000000 {\"openshell.ai/caller-driver-config-used\":\"false\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[]\",\"openshell.ai/resource-admission-identities\":\"{}\",\"openshell.ai/sandbox-id\":\"da4ab97c-6d79-465f-87d3-12c1785445ce\",\"openshell.ai/sandbox-name\":\"ojp-20261024-lim\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\",\"org.opencontainers.image.description\":\"Shared base image for jackin agents\",\"org.opencontainers.image.revision\":\"1fced1f9d66c\",\"org.opencontainers.image.source\":\"https://github.com/jackin-project/jackin\",\"org.opencontainers.image.title\":\"jackin construct\",\"org.opencontainers.image.url\":\"https://jackin.tailrocks.com/developing/construct-image/\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "ojp-20261024-sock",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "ojp-20261024-sock"
+    ],
+    "exit_status": 0,
+    "stdout": "9baf406ffddd4e66d83db4fb607a5ae49b77f46873a4d97cf3d272353d99574e sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1613611,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:33:33.785502973Z\",\"Status\":\"running\"} [{\"Destination\":\"/sandbox/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-sock-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-sock-project/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"5afe15cb966747be278630b8ebaf31813bfa6f771a1cfba30be3f13578a50755\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/5afe15cb966747be278630b8ebaf31813bfa6f771a1cfba30be3f13578a50755/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/run/ojp-docker-socket\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-sock-dockersock\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-sock-dockersock/_data\",\"Type\":\"volume\"}] 4294967296 2000000000 {\"ojp.owner\":\"experiments/engines/unix-socket.sh\",\"ojp.test-id\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-rpt2-89d7ea10-0acc-4b86-b24b-53097a3accd9",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-rpt2-89d7ea10-0acc-4b86-b24b-53097a3accd9"
+    ],
+    "exit_status": 0,
+    "stdout": "07e57ed7db80c5e3fbde9adbbb662f81111d7279f02603e430a6cd0c9e8fd653 sha256:88b9118075feb284f28b34bb8baa4568aff8ab75c22022441e52a37079049ba4 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"2026-10-23T22:40:22.596567508Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1808093,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:40:27.018890283Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-afc13bb3346071568568c308baf2175c\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-afc13bb3346071568568c308baf2175c/_data\",\"Type\":\"volume\"},{\"Destination\":\"/sandbox/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-b-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-b-project/_data\",\"Type\":\"volume\"}] 4294967296 1000000000 {\"openshell.ai/caller-driver-config-used\":\"true\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[]\",\"openshell.ai/resource-admission-identities\":\"{\\\"ojp-20261024-engine-b-project\\\":{\\\"created_at\\\":\\\"2026-10-24T05:15:51+07:00\\\",\\\"driver\\\":\\\"local\\\",\\\"mountpoint\\\":\\\"/var/lib/docker/volumes/ojp-20261024-engine-b-project/_data\\\",\\\"name\\\":\\\"ojp-20261024-engine-b-project\\\",\\\"options\\\":{}}}\",\"openshell.ai/sandbox-id\":\"89d7ea10-0acc-4b86-b24b-53097a3accd9\",\"openshell.ai/sandbox-name\":\"ojp-20261024-rpt2\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\",\"org.opencontainers.image.description\":\"Shared base image for jackin agents\",\"org.opencontainers.image.revision\":\"1fced1f9d66c\",\"org.opencontainers.image.source\":\"https://github.com/jackin-project/jackin\",\"org.opencontainers.image.title\":\"jackin construct\",\"org.opencontainers.image.url\":\"https://jackin.tailrocks.com/developing/construct-image/\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-soc-68f5d7c1-d2e5-427d-b931-a3079ae1d432-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-soc-68f5d7c1-d2e5-427d-b931-a3079ae1d432-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "ec7e059d711309e7f1f500ae70a924cecdb7b9d6f73baab57f512b457869824c sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.606993709+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.585328269+07:00\"},{\"End\":\"2026-10-24T05:40:27.871480798+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.857136394+07:00\"},{\"End\":\"2026-10-24T05:40:28.133489458+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.121802192+07:00\"},{\"End\":\"2026-10-24T05:40:28.405171233+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.383616867+07:00\"},{\"End\":\"2026-10-24T05:40:28.680569272+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.655507109+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1589061,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:32:12.623058549Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-c8f79fa9f6c23b049de56b8fcac8f69f\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-c8f79fa9f6c23b049de56b8fcac8f69f/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-c8f79fa9f6c23b049de56b8fcac8f69f\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-c8f79fa9f6c23b049de56b8fcac8f69f/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"68f5d7c1-d2e5-427d-b931-a3079ae1d432\",\"openshell.ai/sandbox-name\":\"ojp-20261024-soc\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-soc-68f5d7c1-d2e5-427d-b931-a3079ae1d432",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-soc-68f5d7c1-d2e5-427d-b931-a3079ae1d432"
+    ],
+    "exit_status": 0,
+    "stdout": "07af9a6431747bd629bbebddbc22187c35276acbd4c8cceeb778a6f718061c6e sha256:00dcc0484704bc58cd1771ea3fc34011df9e3c500c1b5496670661ac82ac5133 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1588938,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:32:12.213013795Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-c8f79fa9f6c23b049de56b8fcac8f69f\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-c8f79fa9f6c23b049de56b8fcac8f69f/_data\",\"Type\":\"volume\"},{\"Destination\":\"/sandbox/docker\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-sock-dockersock\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-sock-dockersock/_data\",\"Type\":\"volume\"},{\"Destination\":\"/sandbox/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-a-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data\",\"Type\":\"volume\"}] 1073741824 1000000000 {\"openshell.ai/caller-driver-config-used\":\"true\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[]\",\"openshell.ai/resource-admission-identities\":\"{\\\"ojp-20261024-engine-a-project\\\":{\\\"created_at\\\":\\\"2026-10-24T05:15:50+07:00\\\",\\\"driver\\\":\\\"local\\\",\\\"mountpoint\\\":\\\"/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data\\\",\\\"name\\\":\\\"ojp-20261024-engine-a-project\\\",\\\"options\\\":{}},\\\"ojp-20261024-sock-dockersock\\\":{\\\"created_at\\\":\\\"2026-10-24T05:21:54+07:00\\\",\\\"driver\\\":\\\"local\\\",\\\"mountpoint\\\":\\\"/var/lib/docker/volumes/ojp-20261024-sock-dockersock/_data\\\",\\\"name\\\":\\\"ojp-20261024-sock-dockersock\\\",\\\"options\\\":{}}}\",\"openshell.ai/sandbox-id\":\"68f5d7c1-d2e5-427d-b931-a3079ae1d432\",\"openshell.ai/sandbox-name\":\"ojp-20261024-soc\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\",\"org.opencontainers.image.description\":\"Shared base image for jackin agents\",\"org.opencontainers.image.revision\":\"1fced1f9d66c\",\"org.opencontainers.image.source\":\"https://github.com/jackin-project/jackin\",\"org.opencontainers.image.title\":\"jackin construct\",\"org.opencontainers.image.url\":\"https://jackin.tailrocks.com/developing/construct-image/\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-root2-fa8fafb8-bcdc-422e-85e0-45aad6872038-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-root2-fa8fafb8-bcdc-422e-85e0-45aad6872038-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "b3027e6210974fc091b4a2b691e4b8313776b70e13feaf4e7a61a3fb934c59fb sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.605659869+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.583321551+07:00\"},{\"End\":\"2026-10-24T05:40:27.870635669+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.856107639+07:00\"},{\"End\":\"2026-10-24T05:40:28.133746084+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.120787021+07:00\"},{\"End\":\"2026-10-24T05:40:28.40309948+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.384121493+07:00\"},{\"End\":\"2026-10-24T05:40:28.678465518+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.653320897+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1570840,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:31:06.472642136Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-f124603ae934dd783fcc764ef1cfc11b\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-f124603ae934dd783fcc764ef1cfc11b/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-f124603ae934dd783fcc764ef1cfc11b\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-f124603ae934dd783fcc764ef1cfc11b/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"fa8fafb8-bcdc-422e-85e0-45aad6872038\",\"openshell.ai/sandbox-name\":\"ojp-20261024-root2\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-root2-fa8fafb8-bcdc-422e-85e0-45aad6872038",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-root2-fa8fafb8-bcdc-422e-85e0-45aad6872038"
+    ],
+    "exit_status": 0,
+    "stdout": "5294d5646d010baddb17e6bd3a17012711a3c172ea3640ad462fca7330caa5e7 sha256:c652fa9cebdaa3d655c33c6389c3c409f9a0fea6449c7d7c56c486fe71af0591 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1570757,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:31:06.220570131Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-f124603ae934dd783fcc764ef1cfc11b\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-f124603ae934dd783fcc764ef1cfc11b/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"e2e35492bbc6c3a63bd4142276bab3d7575b6fc5c882c51b83acfbb8ba0ac997\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/e2e35492bbc6c3a63bd4142276bab3d7575b6fc5c882c51b83acfbb8ba0ac997/_data\",\"Type\":\"volume\"},{\"Destination\":\"/home/rootless/.local/share/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"ccf65a26071e14b0e2d18f7a25618fc7238185b680efde05aa5edd35fda20e0e\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ccf65a26071e14b0e2d18f7a25618fc7238185b680efde05aa5edd35fda20e0e/_data\",\"Type\":\"volume\"}] 1073741824 1000000000 {\"openshell.ai/caller-driver-config-used\":\"false\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[\\\"/home/rootless/.local/share/docker\\\",\\\"/var/lib/docker\\\"]\",\"openshell.ai/resource-admission-identities\":\"{}\",\"openshell.ai/sandbox-id\":\"fa8fafb8-bcdc-422e-85e0-45aad6872038\",\"openshell.ai/sandbox-name\":\"ojp-20261024-root2\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-rust-842ab947-a177-4caf-bc70-996f1278378d",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-rust-842ab947-a177-4caf-bc70-996f1278378d"
+    ],
+    "exit_status": 0,
+    "stdout": "e08c6ea88f5c41e5c502c6add1c175d276f2606d4047da56d6b27293da2074fc sha256:88b9118075feb284f28b34bb8baa4568aff8ab75c22022441e52a37079049ba4 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"2026-10-23T22:35:54.390472461Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1669424,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:35:54.548122153Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-1db65350124c1c2f2c1d7c95cfe11391\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-1db65350124c1c2f2c1d7c95cfe11391/_data\",\"Type\":\"volume\"}] 4294967296 2000000000 {\"openshell.ai/caller-driver-config-used\":\"false\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[]\",\"openshell.ai/resource-admission-identities\":\"{}\",\"openshell.ai/sandbox-id\":\"842ab947-a177-4caf-bc70-996f1278378d\",\"openshell.ai/sandbox-name\":\"ojp-20261024-rust\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\",\"org.opencontainers.image.description\":\"Shared base image for jackin agents\",\"org.opencontainers.image.revision\":\"1fced1f9d66c\",\"org.opencontainers.image.source\":\"https://github.com/jackin-project/jackin\",\"org.opencontainers.image.title\":\"jackin construct\",\"org.opencontainers.image.url\":\"https://jackin.tailrocks.com/developing/construct-image/\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-gwl-57bac7d3-5c2b-46ff-a7e8-2fbce16d6422-supervisor",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-gwl-57bac7d3-5c2b-46ff-a7e8-2fbce16d6422-supervisor"
+    ],
+    "exit_status": 0,
+    "stdout": "086beac7a0a2da6fa660030371043c9db9e9f7a7475a1745270d32db1e0a55b9 sha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"Health\":{\"FailingStreak\":0,\"Log\":[{\"End\":\"2026-10-24T05:40:27.599505589+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.581911544+07:00\"},{\"End\":\"2026-10-24T05:40:27.863646426+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:27.850254361+07:00\"},{\"End\":\"2026-10-24T05:40:28.128063682+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.113756986+07:00\"},{\"End\":\"2026-10-24T05:40:28.402142687+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.378290901+07:00\"},{\"End\":\"2026-10-24T05:40:28.6771731+07:00\",\"ExitCode\":0,\"Output\":\"\",\"Start\":\"2026-10-24T05:40:28.652695605+07:00\"}],\"Status\":\"healthy\"},\"OOMKilled\":false,\"Paused\":false,\"Pid\":1549322,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:28:25.587532603Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-29f4d5569fa253677c5a8e30d8b65d6e\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-channel-29f4d5569fa253677c5a8e30d8b65d6e/_data\",\"Type\":\"volume\"},{\"Destination\":\"/.openshell/supervisor\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-supervisor-29f4d5569fa253677c5a8e30d8b65d6e\",\"Propagation\":\"\",\"RW\":false,\"Source\":\"/var/lib/docker/volumes/openshell-supervisor-29f4d5569fa253677c5a8e30d8b65d6e/_data\",\"Type\":\"volume\"}] 0 0 {\"openshell.ai/isolation-role\":\"supervisor\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/sandbox-id\":\"57bac7d3-5c2b-46ff-a7e8-2fbce16d6422\",\"openshell.ai/sandbox-name\":\"ojp-20261024-gwl\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "openshell-default--ojp-20261024-gwl-57bac7d3-5c2b-46ff-a7e8-2fbce16d6422",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "openshell-default--ojp-20261024-gwl-57bac7d3-5c2b-46ff-a7e8-2fbce16d6422"
+    ],
+    "exit_status": 0,
+    "stdout": "f08d684fe513e9e4e8faac437505794864fd22ca08fbe00d740eaf303ea9ee41 sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1549268,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:28:24.952231382Z\",\"Status\":\"running\"} [{\"Destination\":\"/.openshell/channel\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"openshell-channel-29f4d5569fa253677c5a8e30d8b65d6e\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/openshell-channel-29f4d5569fa253677c5a8e30d8b65d6e/_data\",\"Type\":\"volume\"},{\"Destination\":\"/workspace/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-gwlabel-vol\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-gwlabel-vol/_data\",\"Type\":\"volume\"}] 2147483648 1000000000 {\"openshell.ai/caller-driver-config-used\":\"true\",\"openshell.ai/isolation-backend\":\"openshell-sandbox\",\"openshell.ai/isolation-role\":\"sandbox\",\"openshell.ai/managed-by\":\"openshell\",\"openshell.ai/private-image-volume-targets\":\"[]\",\"openshell.ai/resource-admission-identities\":\"{\\\"ojp-20261024-gwlabel-vol\\\":{\\\"created_at\\\":\\\"2026-10-24T05:28:23+07:00\\\",\\\"driver\\\":\\\"local\\\",\\\"mountpoint\\\":\\\"/var/lib/docker/volumes/ojp-20261024-gwlabel-vol/_data\\\",\\\"name\\\":\\\"ojp-20261024-gwlabel-vol\\\",\\\"options\\\":{}}}\",\"openshell.ai/sandbox-id\":\"57bac7d3-5c2b-46ff-a7e8-2fbce16d6422\",\"openshell.ai/sandbox-name\":\"ojp-20261024-gwl\",\"openshell.ai/sandbox-namespace\":\"ojp-20261024\",\"openshell.ai/sandbox-workspace\":\"default\",\"org.opencontainers.image.source\":\"https://github.com/rust-lang/docker-rust\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "ojp-20261024-engine-b",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "ojp-20261024-engine-b"
+    ],
+    "exit_status": 0,
+    "stdout": "3c2c95d7c2140ff06f9941018250a8798e3bfa79ce9fc04bdc79c41ec4bbac46 sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1470710,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:24:15.148541402Z\",\"Status\":\"running\"} [{\"Destination\":\"/certs\",\"Mode\":\"\",\"Propagation\":\"rprivate\",\"RW\":false,\"Source\":\"/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b\",\"Type\":\"bind\"},{\"Destination\":\"/sandbox/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-b-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-b-project/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"a7cf7a753e212c6606f964b37c6b830eaf12ba262db73e693e5ef5ef0a9e7d4d\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/a7cf7a753e212c6606f964b37c6b830eaf12ba262db73e693e5ef5ef0a9e7d4d/_data\",\"Type\":\"volume\"}] 4294967296 2000000000 {\"ojp.owner\":\"experiments/engines/setup.sh\",\"ojp.test-id\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "ojp-20261024-engine-a",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "ojp-20261024-engine-a"
+    ],
+    "exit_status": 0,
+    "stdout": "61afbb648399712924b635278f193883a419afff4c0d7b111037dabcf44a12ac sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1470394,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:24:14.971707935Z\",\"Status\":\"running\"} [{\"Destination\":\"/certs\",\"Mode\":\"\",\"Propagation\":\"rprivate\",\"RW\":false,\"Source\":\"/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a\",\"Type\":\"bind\"},{\"Destination\":\"/sandbox/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-a-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"797d2c222ebdec42ab4401e0d5937c12fa7fcdef31adc6dce742f7fc0b3c2423\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/797d2c222ebdec42ab4401e0d5937c12fa7fcdef31adc6dce742f7fc0b3c2423/_data\",\"Type\":\"volume\"}] 4294967296 2000000000 {\"ojp.owner\":\"experiments/engines/setup.sh\",\"ojp.test-id\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  },
+  {
+    "name": "ojp-20261024-network-endpoint",
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{.Image}} {{json .State}} {{json .Mounts}} {{json .HostConfig.Memory}} {{json .HostConfig.NanoCpus}} {{json .Config.Labels}}",
+      "ojp-20261024-network-endpoint"
+    ],
+    "exit_status": 0,
+    "stdout": "ec28dce7c0abcda8ae5a7017ca8a499aebaea7f1dbb5d4dea2cfb977195f8325 sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14 {\"Dead\":false,\"Error\":\"\",\"ExitCode\":0,\"FinishedAt\":\"0001-01-01T00:00:00Z\",\"OOMKilled\":false,\"Paused\":false,\"Pid\":1456872,\"Restarting\":false,\"Running\":true,\"StartedAt\":\"2026-10-23T22:23:32.418911606Z\",\"Status\":\"running\"} [] 0 0 {\"maintainer\":\"NGINX Docker Maintainers <docker-maint@nginx.com>\",\"ojp.owner\":\"experiments/engines/network-endpoint\",\"ojp.test-id\":\"ojp-20261024\"}\n",
+    "stderr": ""
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-vm1",
+    "--from",
+    "ojp-20261024-agent:2.1.310-poc-v3",
+    "--policy",
+    "experiments/denied.yaml",
+    "--cpu",
+    "1",
+    "--memory",
+    "2Gi",
+    "--no-auto-providers",
+    "--detach",
+    "--",
+    "bash",
+    "--noprofile",
+    "--norc",
+    "-i"
+  ],
+  "utc": "2026-10-23T22:42:11.962764+00:00",
+  "exit_status": 0,
+  "stdout": "\nCreated sandbox: ojp-20261024-vm1\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Resolving image\n[0.0s] Pulling image nvcr.io/nvidia/base/ubuntu:24.04\n[0.0s] Preparing image cache\n[0.0s] Waiting for image cache lock\n[0.0s] Exporting local image rootfs\n[2.5s] Preparing rootfs\n[6.9s] Formatting root disk\n[7.6s] Image pulled (512 MB)\n[7.6s] Preparing image cache\n[7.6s] Exporting local image rootfs\n[19.5s] Formatting root disk\n[40.5s] Preparing rootfs\n[43.3s] Preparing overlay disk\n[43.7s] Waiting for VM supervisor\n",
+  "stderr": "",
+  "seconds": 44.499657750013284
+}

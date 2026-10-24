@@ -1,0 +1,27 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/rust-project",
+    "--timeout",
+    "600",
+    "--no-login-shell",
+    "--",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "nextest",
+    "run",
+    "--no-capture"
+  ],
+  "utc": "2026-10-23T22:36:17.318609+00:00",
+  "exit_status": 0,
+  "stdout": "\nrunning 1 test\ntest executable_can_open_a_local_tcp_connection ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest testcontainers_starts_redis_and_exchanges_data ... Docker reported host=host.docker.internal port=18085; test endpoint=host.docker.internal:18085\nok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.52s\n\n",
+  "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.04s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n Nextest run ID 2d9cc6d5-9ae4-4904-9848-da0df7a1c239 with nextest profile: default\n    Starting 2 tests across 4 binaries\n       START [         ] (1/2) runtime-probe::native_tcp executable_can_open_a_local_tcp_connection\n        PASS [   0.002s] (1/2) runtime-probe::native_tcp executable_can_open_a_local_tcp_connection\n       START [         ] (2/2) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data\n        PASS [   0.519s] (2/2) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n     Summary [   0.522s] 2 tests run: 2 passed, 0 skipped\n",
+  "seconds": 0.7357893750013318
+}

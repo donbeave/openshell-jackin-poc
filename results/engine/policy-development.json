@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "policy",
+    "set",
+    "ojp-20261024-v2",
+    "--policy",
+    "experiments/engine.yaml",
+    "--wait"
+  ],
+  "utc": "2026-10-23T22:26:26.448908+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "\u2713 Policy version 3 submitted (hash: fb35897cd904)\n\u2713 Policy version 3 loaded (active version: 3)\n",
+  "seconds": 2.047313499992015
+}

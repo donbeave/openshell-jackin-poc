@@ -1,0 +1,28 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--workdir",
+    "/workspace/rust-project",
+    "--timeout",
+    "300",
+    "--",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "build",
+    "--bin",
+    "native-egress",
+    "--offline"
+  ],
+  "exit_status": 0,
+  "seconds": 1.077,
+  "started_utc": "2026-10-23T22:31:22.676149+00:00",
+  "stdout": "",
+  "stderr": "mbx[setup]: first build on this machine\nmbx[setup]:   cache is /workspace/.cache/mbx, shared by every checkout and worktree, pruned to 90.0 GiB\nmbx[setup]:   this filesystem supports reflinks, so target/ shares disk with the cache instead of copying\nmbx[setup]:   target/ is managed: deleted when its checkout is gone, unused for 30 days, over 100.0 GiB total, or the disk runs low\nmbx[setup]:   `mbx gc --dry-run` previews cleanup; `mbx settings ls gc` shows every limit\n   Compiling runtime-probe v0.1.0 (/workspace/rust-project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.66s\nmbx[cache]: 0 hits, 0 misses, 2 not looked up; 0 B downloaded, 0 B uploaded, 4.7 MiB stored locally\n"
+}

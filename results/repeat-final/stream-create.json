@@ -1,0 +1,25 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "ojp-rpt2-stream",
+    "alpine:3.22",
+    "sh",
+    "-c",
+    "while :; do echo OJP_STREAM; sleep 1; done"
+  ],
+  "utc": "2026-10-23T22:39:19.465886+00:00",
+  "exit_status": 0,
+  "stdout": "05e9f2e3c4093c58ce1cf2b7871f54fec446ece00f0300482e01032367e25e18\n",
+  "stderr": "",
+  "seconds": 0.2446470420109108
+}

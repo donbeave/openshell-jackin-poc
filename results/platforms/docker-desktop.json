@@ -1,0 +1,13 @@
+{
+  "command": [
+    "docker",
+    "--context",
+    "desktop-linux",
+    "version"
+  ],
+  "utc": "2026-10-23T22:40:28.154473+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Failed to initialize: unable to resolve docker endpoint: context \"desktop-linux\": context not found: open /Users/example/.docker/contexts/meta/fe9c6bd7a66301f49ca9b6a70b217107cd1284598bfc254700c989b916da791e/meta.json: no such file or directory\n",
+  "seconds": 0.011595249990932643
+}

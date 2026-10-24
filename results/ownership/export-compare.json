@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import hashlib; b=Path(\"results/ownership/export.bin\").read_bytes(); assert b==bytes(range(256));print(len(b),hashlib.sha256(b).hexdigest())"
+  ],
+  "utc": "2026-10-23T22:39:44.719883+00:00",
+  "exit_status": 0,
+  "stdout": "256 40aff2e9d2d8922e47afd4648e6967497158785fbd1da870e7110266bf944880\n",
+  "stderr": "",
+  "seconds": 0.051429832994472235
+}

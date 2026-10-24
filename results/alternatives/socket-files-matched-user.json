@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-soc2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "rm /sandbox/ojp-project/unix-child; docker run --rm --user 1000:1000 --mount type=bind,src=/sandbox/ojp-project,dst=/project redis:7.4-alpine sh -ec \"cat /project/unix-file; printf unix-child > /project/unix-child\"; cat /sandbox/ojp-project/unix-child; docker run -d --name ojp-unix-db -p 18090:6379 redis:7.4-alpine"
+  ],
+  "utc": "2026-10-23T22:37:09.450330+00:00",
+  "exit_status": 0,
+  "stdout": "unix-agentunix-child0dd38df5c87d1c2a6acfa26d9c540aa7205d6d7e528708df877d397d112148bf\n",
+  "stderr": "",
+  "seconds": 0.3965306669997517
+}

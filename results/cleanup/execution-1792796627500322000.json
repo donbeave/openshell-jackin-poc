@@ -1,0 +1,367 @@
+[
+  {
+    "command": [
+      "docker",
+      "ps",
+      "-a",
+      "--format",
+      "{{.Names}}"
+    ],
+    "exit_status": 0,
+    "stdout": "openshell-default--coding-agents-00000000-0000-4000-8000-000000000001\nopenshell-default--preview-openrouter-00000000-0000-4000-8000-000000000003\nopenshell-default--preview-docker-00000000-0000-4000-8000-000000000002\nunrelated-project-cache-production-hostconfig-proof\nunrelated-project-cache-sudo-full14\nunrelated-project-cache-sudo-candidate\nunrelated-project-cache-sudo-baseline\nunrelated-project-cache-tmpfs-api-proof\nunrelated-project-cache-proof-runner\nunrelated-project-cache-proof-dind\nunrelated-project-cache-recovery-linux-20261022\n",
+    "stderr": "",
+    "seconds": 0.049527916009537876
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "list",
+      "-o",
+      "json"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "Error:   \u00d7 Unknown gateway 'ojp-20261024-gw'.\n  \u2502 Register it first: openshell gateway add <endpoint> --name ojp-20261024-gw\n  \u2502 Or list available gateways: openshell gateway select\n\n",
+    "seconds": 0.03004383298684843
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/gateway-vm/cleanup.sh"
+    ],
+    "exit_status": 0,
+    "stdout": "Removed this experiment VM runtime, client config, and ephemeral certificates. Preserved gateway.toml and logs.\n",
+    "stderr": "",
+    "seconds": 0.10563308300334029
+  },
+  {
+    "command": [
+      "docker",
+      "ps",
+      "-a",
+      "--format",
+      "{{.Names}}"
+    ],
+    "exit_status": 0,
+    "stdout": "openshell-default--coding-agents-00000000-0000-4000-8000-000000000001\nopenshell-default--preview-openrouter-00000000-0000-4000-8000-000000000003\nopenshell-default--preview-docker-00000000-0000-4000-8000-000000000002\nunrelated-project-cache-production-hostconfig-proof\nunrelated-project-cache-sudo-full14\nunrelated-project-cache-sudo-candidate\nunrelated-project-cache-sudo-baseline\nunrelated-project-cache-tmpfs-api-proof\nunrelated-project-cache-proof-runner\nunrelated-project-cache-proof-dind\nunrelated-project-cache-recovery-linux-20261022\n",
+    "stderr": "",
+    "seconds": 0.04422525002155453
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/engines/cleanup.sh"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.17663454098510556
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "ls",
+      "--format",
+      "{{.Name}}"
+    ],
+    "exit_status": 0,
+    "stdout": "0a005eaff6a09ab9b3e7849f3c8b3be1b0abf52833fc6f5650f45488c9a3edc7\n0bbb6f2d2e47b6f860d1c117d448ac2b2b0a0015919541e6a64befb9515ba3f6\n00ac1fa902b9b178823f397098e2271fd4a974d3aa9e40f3349256dcbcbfbcc7\n4d90c279595590e1db09219bc6a47ed872b3b4ee948a4e5b066724181ef5e01a\n5b12d02b39df3c13a5ad169c8a06fffe42c1c8d4e9296a585a49eefbb81a186e\n6cf0bbe035d87aca9ba54c164168654814795c175d9c9c92220157697b7f7cdb\n7ec9d33a19c17f4e10ec0d610dbc298c730326060c2f06e173a1500c8e6ed954\n7ff280f541ffc9f0c50999e2ab0e74b855b928f1c6616db5c2f8c93ca9415b24\n14ba6e74c576feea50f802fe86e4e07ba37ae557b4fc54e11c62c586766c73b4\n16b71f1fa77266115a1c1b713283f57db928209e3aa7002290f4f338f81698d9\n28f978ef484e9da8f53402802194206e6ad440fda11045f08ea32d685302a899\n99d455704691b290c8417aacc0321efef86b79b9ff1ffc3eb2f44c9ce8d93533\n152e749da3bddcca015d8869c79d4348551ac2032b2384154cb1f37d60e2a23d\n232c796bd389b2c7c1df11ea12820b056d7f65b63e765ad9a515ccb6351b8b9c\n0274a7a368335d02496ac9e6fce05b520ab6836cf838ceb561132a11f024717a\n366e1818fbd50a4c03a446589de7b5cb2e839f63e7c21aae227797a9aa67f1b9\n497f0bfff47301eac08aee57b6cd0487f4c56dc84046eac475c724b77f5f4bbd\n792f2ed617889a56e27cfeec761c8ffb48c36c42b5ead720ce6b0ce503f0c865\n834b9b69626b996a4a16ac57064277ff3b3b79e6f63c6355d0b6c31cfac8c5e9\n947be06b2d009e13e1b7398cf4cfe484a59bcece0e6be8df9a0755633a7cc02b\n2502b1c778406a7914c6d9ef93500252bc2d67cc6bdbdba27d98bfc4a28587a1\n3644c082675990808eb3763ac001976daeab3c9aeeeee1cccd8e3f95f59f62a2\n9051b58e371b0382da44baa10634a004bf41a83b310d00dee5f2d3eb0110af98\n47582a57255be0c5036a66e3c66d9879311e227d1ae452db3d5fa3d13e88ffe3\n73598c5f253b4056262a36b932c77ab62890115ed6c165b1095e90b85f8e439f\n91800c3994a2c7fc9f8cd6c8a6eb8a39ee40d4c6efca219445c5965e10dd847e\n191882b33212472c1acfe4191343f51c1d23c5baec6a0870d165958d0aa91387\n26014279b9042abde31781693aef3cccdea2e96843e62c53fc64ed01c7c7c082\n565111465a3cac0fbba5aa84e321eab0344820304aad760ed8ae2760d8be1baa\n3347357645aaaf1ec000939ac810fe8d60c4652fd6a3512f914480434f6e1af2\na4e0783f629dfc6da2b6883e8310401c79bb97f90cf51327d3cec28bdea98034\na341fb24b368b265ac4491eef22943e5f758dbb0f7f7e6e0d0e21fe6190a3e0d\nabdb2ce51237886ad425f8ddca7480c8886bf30ccbffe7ce67c8d3adf7810cda\nad29c0cbc1b64bf28baede71afc5b640f071ab592c03854273e2c9e63dc210e5\nafd660799428e8d04400ad87d1d840e24d53ba04d06f63ca2aa246a5851cbe3e\nb534caba74669704f00d52f1a53358c3f4bf44e48cbb24af832f930a4b7fa78e\nc3b20e4a51fd9ba4aa6d304ab62ac0c63585954efb3e5225074556ffbe3ea2fb\nd7f7c56acf28e0a15df7de4cf101b45eedb9fbc8247cb8b79406b94fb57d9eef\nd8be4721e40f42983c7fde8c6156b0616a08aac2644ddfc7f347b8dd4d4ebaac\ne421a894555e0a10a799a7c4c38328931cbe8e5c0a2c0f7d98132e61076f43fc\ne3096d257a4d113b29fc6ece537406ca3de9d769bc5134ebc19809d3657a2c9e\neb9cd206e5dbebc6c17a267b3acb2c2d03821192871a0e19c2e52f362eef0941\neb19e88a63faa47317ae79f0ac3422c4caeba494b160e30f877aee454fc2870d\nef01410ce629186893f39cb5794ff90ad9a57745b9b861f43dd2524ad0e3d10f\nfc44b9065761f24850f138798ca7ee19687cd09a8fde82801ff6b6957181f0c2\nopenshell-channel-69e39fe2d13ce611e31709bec6e1d7a6\nopenshell-channel-862baee44814da023c7b5d04e2cbbea6\nopenshell-channel-dcbc4eda0d622572948395ec63120f3c\nopenshell-supervisor-69e39fe2d13ce611e31709bec6e1d7a6\nopenshell-supervisor-862baee44814da023c7b5d04e2cbbea6\nopenshell-supervisor-dcbc4eda0d622572948395ec63120f3c\nunrelated-project-cache-proof-dind-data\nunrelated-project-cache-proof-home\nunrelated-project-cache-proof-metadata\nunrelated-project-cache-proof-run\nunrelated-project-cache-proof-work\nunrelated-project-cache-sudo-compat-home\nunrelated-project-cache-sudo-compat-work\nunrelated-project-cache-tmpfs-proof-work\n",
+    "stderr": "",
+    "seconds": 0.01212008300353773
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "ojp-20261024-engine-a-project"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get ojp-20261024-engine-a-project: no such volume\n",
+    "seconds": 0.01288845797535032
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "ojp-20261024-gwvol"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get ojp-20261024-gwvol: no such volume\n",
+    "seconds": 0.01320549999945797
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-01969ff45e45c154680cfe2c4715046b"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-01969ff45e45c154680cfe2c4715046b: no such volume\n",
+    "seconds": 0.012016833003144711
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-3db5fcf5d2db1c33352259606caca652"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-3db5fcf5d2db1c33352259606caca652: no such volume\n",
+    "seconds": 0.011475084000267088
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-465fd3f518993ae5a0de379b13f3a31c"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-465fd3f518993ae5a0de379b13f3a31c: no such volume\n",
+    "seconds": 0.012556958012282848
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-4b3aba91b96dc3a726f41b90d57ad770"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-4b3aba91b96dc3a726f41b90d57ad770: no such volume\n",
+    "seconds": 0.012073166988557205
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-4ee2ca3a92cab70743bb62d4356bad32"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-4ee2ca3a92cab70743bb62d4356bad32: no such volume\n",
+    "seconds": 0.011468042008345947
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-52b902bb43e40d1ea2e691b0a39c674b"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-52b902bb43e40d1ea2e691b0a39c674b: no such volume\n",
+    "seconds": 0.012315166997723281
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-7fd3fdb149e57de5702d70c3106ddc01"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-7fd3fdb149e57de5702d70c3106ddc01: no such volume\n",
+    "seconds": 0.012060250010108575
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-82268a40c5ee215f6a0d3a6858b64f22"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-82268a40c5ee215f6a0d3a6858b64f22: no such volume\n",
+    "seconds": 0.012075167003786191
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-8881e38c027845f5294c58333d7aee9c"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-8881e38c027845f5294c58333d7aee9c: no such volume\n",
+    "seconds": 0.011735750013031065
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-91fc1757500ffd8e6f7f65273431dc7e"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-91fc1757500ffd8e6f7f65273431dc7e: no such volume\n",
+    "seconds": 0.012130041985074058
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-9851eac564b3cdf83f22445033a6c415"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-9851eac564b3cdf83f22445033a6c415: no such volume\n",
+    "seconds": 0.011701708019245416
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "inspect",
+      "--format",
+      "{{.Name}}",
+      "openshell-channel-dda36185be225b7acc9ba89f37f284b0"
+    ],
+    "exit_status": 1,
+    "stdout": "\n",
+    "stderr": "Error response from daemon: get openshell-channel-dda36185be225b7acc9ba89f37f284b0: no such volume\n",
+    "seconds": 0.011529916984727606
+  },
+  {
+    "command": [
+      "docker",
+      "image",
+      "ls",
+      "--format",
+      "{{.Repository}}:{{.Tag}}"
+    ],
+    "exit_status": 0,
+    "stdout": "openshell-agent-preview:20261024\njk_jackin-e2e_session-send:40b0b9f\njk_jackin-e2e_s3-multi:21bf36f\njk_load-options-e2e:a7556af\njk_jackin-e2e_sentinel:f48eab6\njk_jackin-e2e_agent-smith:230603c\njk_jackin-e2e_agent-smith:5abfe83\njk_jackin-e2e_agent-smith:0d69df5\njk_jackin-e2e_agent-smith:d384170\njk_jackin-e2e_session-send:41d4b8e\njk_jackin-e2e_s3-multi:f5d4857\njk_load-options-e2e:2946dc5\njk_jackin-e2e_sentinel:9400340\njk_jackin-e2e_agent-smith:b72a0b1\njk_jackin-e2e_agent-smith:f056954\njk_jackin-e2e_agent-smith:8a925ed\njk_jackin-e2e_agent-smith:c10b5b8\njk_load-options-e2e:f5484e0\njk_jackin-e2e_session-send:3df58a6\njk_jackin-e2e_s3-multi:680b55d\njk_load-options-e2e:8141fd8\njk_jackin-e2e_sentinel:b3d5c0b\njk_jackin-e2e_agent-smith:0c628fb\njk_jackin-e2e_agent-smith:919819c\njk_jackin-e2e_agent-smith:2f0845f\njk_jackin-e2e_agent-smith:c1ed22a\njk_jackin-e2e_sentinel__base:f48eab6\njk_jackin-e2e_sentinel__base:d1c0313\njk_jackin-e2e_sentinel__base:9400340\njk_jackin-e2e_sentinel__base:b3d5c0b\njk_jackin-e2e_agent-smith:f13d387\njk_jackin-e2e_agent-smith:db4af2b\njk_jackin-e2e_agent-smith:a3a1183\njk_jackin-e2e_agent-smith:47673d9\njk_jackin-e2e_agent-smith:6519760\njk_jackin-e2e_agent-smith:04f76b7\njk_jackin-e2e_agent-smith:fb963de\njk_jackin-e2e_agent-smith:f82cdb3\njk_jackin-e2e_agent-smith:185255e\njk_jackin-e2e_agent-smith:7695251\njk_jackin-e2e_agent-smith:b7848f8\njk_jackin-e2e_agent-smith:34ff726\njk_jackin-e2e_agent-smith:1b91764\njk_jackin-e2e_agent-smith:e97e6d6\njk_jackin-e2e_agent-smith:a41ee4c\njk_jackin-e2e_agent-smith:a93d2a5\njk_jackin-e2e_agent-smith:34e25f2\njk_jackin-e2e_agent-smith:6821a25\njk_jackin-e2e_agent-smith:d6df295\njk_jackin-e2e_agent-smith:8054cc5\njk_jackin-e2e_agent-smith:2e47579\njk_jackin-e2e_agent-smith:b4ffe19\njk_jackin-e2e_agent-smith:0b9ff7f\njk_jackin-e2e_agent-smith:32a150d\njk_jackin-e2e_agent-smith:de59cb1\njk_jackin-e2e_agent-smith__base:f13d387\njk_jackin-e2e_agent-smith__base:6519760\njk_jackin-e2e_agent-smith__base:b72a0b1\njk_jackin-e2e_agent-smith__base:32a150d\njk_jackin-e2e_agent-smith__base:f82cdb3\njk_jackin-e2e_agent-smith__base:de59cb1\njk_jackin-e2e_agent-smith__base:185255e\njk_jackin-e2e_agent-smith__base:04f76b7\njk_jackin-e2e_agent-smith__base:b7848f8\njk_jackin-e2e_agent-smith__base:0c628fb\njk_jackin-e2e_agent-smith__base:230603c\njk_jackin-e2e_agent-smith__base:0b9ff7f\njk_jackin-e2e_agent-smith__base:b4ffe19\njk_jackin-e2e_agent-smith__base:7695251\njk_jackin-e2e_agent-smith__base:fb963de\nunrelated-project-runner:cache-recovery-proof\nghcr.io/anomalyco/opencode:latest\nunrelated-project-dind:cache-recovery-proof\ndocker:29-dind\npython:3.14-alpine\ndocker:29.9.2-cli\nredis:7.4-alpine\nnode:26.12.0-bookworm-slim\ndebian:bookworm-slim\nghcr.io/nvidia/openshell/supervisor:0.1.5\nghcr.io/nvidia/openshell/sandbox:0.1.5\nnvcr.io/nvidia/base/ubuntu:24.04\ndocker:29.8.2-dind-rootless\ndocker:29.8.2-dind\nubuntu:<none>\npython:<none>\njk_jackin-e2e_agent-smith__base:0d69df5\njk_jackin-e2e_agent-smith__base:8a925ed\njk_jackin-e2e_s3-multi__base:21bf36f\njk_jackin-e2e_agent-smith__base:34e25f2\njk_jackin-e2e_agent-smith__base:47673d9\njk_jackin-e2e_agent-smith__base:2e47579\njk_jackin-e2e_agent-smith__base:a93d2a5\nprojectjackin/construct:<none>\njk_jackin-e2e_agent-smith__base:2f0845f\njk_jackin-e2e_agent-smith__base:e97e6d6\njk_jackin-e2e_session-send__base:40b0b9f\njk_jackin-e2e_agent-smith__base:c10b5b8\njk_jackin-e2e_session-send__base:41d4b8e\njk_jackin-e2e_s3-multi__base:680b55d\njk_load-options-e2e__base:2946dc5\njk_jackin-e2e_agent-smith__base:919819c\njk_load-options-e2e__base:8141fd8\njk_load-options-e2e__base:a7556af\njk_jackin-e2e_s3-multi__base:f5d4857\njk_load-options-e2e__base:f5484e0\njk_jackin-e2e_agent-smith__base:8054cc5\njk_jackin-e2e_agent-smith__base:a3a1183\njk_jackin-e2e_agent-smith__base:6821a25\njk_jackin-e2e_agent-smith__base:34ff726\njk_jackin-e2e_agent-smith__base:a41ee4c\njk_jackin-e2e_agent-smith__base:f056954\njk_jackin-e2e_session-send__base:3df58a6\njk_jackin-e2e_agent-smith__base:db4af2b\njk_jackin-e2e_agent-smith__base:d6df295\njk_jackin-e2e_agent-smith__base:d384170\njk_jackin-e2e_agent-smith__base:c1ed22a\njk_jackin-e2e_agent-smith__base:5abfe83\njk_jackin-e2e_agent-smith__base:1b91764\nnginx:1.29.3-alpine\nbusybox:1.36\nubuntu:26.04\n",
+    "stderr": "",
+    "seconds": 0.5904462079924997
+  },
+  {
+    "command": [
+      "lsof",
+      "-tiTCP:18770",
+      "-sTCP:LISTEN"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.028351749991998076
+  },
+  {
+    "command": [
+      "lsof",
+      "-tiTCP:18770",
+      "-sTCP:LISTEN"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.0274495420162566
+  },
+  {
+    "command": [
+      "docker",
+      "ps",
+      "-a",
+      "--filter",
+      "name=ojp-20261024",
+      "--format",
+      "{{.ID}} {{.Names}} {{.Status}}"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.011855582997668535
+  },
+  {
+    "command": [
+      "docker",
+      "volume",
+      "ls",
+      "--format",
+      "{{.Name}}"
+    ],
+    "exit_status": 0,
+    "stdout": "0a005eaff6a09ab9b3e7849f3c8b3be1b0abf52833fc6f5650f45488c9a3edc7\n0bbb6f2d2e47b6f860d1c117d448ac2b2b0a0015919541e6a64befb9515ba3f6\n00ac1fa902b9b178823f397098e2271fd4a974d3aa9e40f3349256dcbcbfbcc7\n4d90c279595590e1db09219bc6a47ed872b3b4ee948a4e5b066724181ef5e01a\n5b12d02b39df3c13a5ad169c8a06fffe42c1c8d4e9296a585a49eefbb81a186e\n6cf0bbe035d87aca9ba54c164168654814795c175d9c9c92220157697b7f7cdb\n7ec9d33a19c17f4e10ec0d610dbc298c730326060c2f06e173a1500c8e6ed954\n7ff280f541ffc9f0c50999e2ab0e74b855b928f1c6616db5c2f8c93ca9415b24\n14ba6e74c576feea50f802fe86e4e07ba37ae557b4fc54e11c62c586766c73b4\n16b71f1fa77266115a1c1b713283f57db928209e3aa7002290f4f338f81698d9\n28f978ef484e9da8f53402802194206e6ad440fda11045f08ea32d685302a899\n99d455704691b290c8417aacc0321efef86b79b9ff1ffc3eb2f44c9ce8d93533\n152e749da3bddcca015d8869c79d4348551ac2032b2384154cb1f37d60e2a23d\n232c796bd389b2c7c1df11ea12820b056d7f65b63e765ad9a515ccb6351b8b9c\n0274a7a368335d02496ac9e6fce05b520ab6836cf838ceb561132a11f024717a\n366e1818fbd50a4c03a446589de7b5cb2e839f63e7c21aae227797a9aa67f1b9\n497f0bfff47301eac08aee57b6cd0487f4c56dc84046eac475c724b77f5f4bbd\n792f2ed617889a56e27cfeec761c8ffb48c36c42b5ead720ce6b0ce503f0c865\n834b9b69626b996a4a16ac57064277ff3b3b79e6f63c6355d0b6c31cfac8c5e9\n947be06b2d009e13e1b7398cf4cfe484a59bcece0e6be8df9a0755633a7cc02b\n2502b1c778406a7914c6d9ef93500252bc2d67cc6bdbdba27d98bfc4a28587a1\n3644c082675990808eb3763ac001976daeab3c9aeeeee1cccd8e3f95f59f62a2\n9051b58e371b0382da44baa10634a004bf41a83b310d00dee5f2d3eb0110af98\n47582a57255be0c5036a66e3c66d9879311e227d1ae452db3d5fa3d13e88ffe3\n73598c5f253b4056262a36b932c77ab62890115ed6c165b1095e90b85f8e439f\n91800c3994a2c7fc9f8cd6c8a6eb8a39ee40d4c6efca219445c5965e10dd847e\n191882b33212472c1acfe4191343f51c1d23c5baec6a0870d165958d0aa91387\n26014279b9042abde31781693aef3cccdea2e96843e62c53fc64ed01c7c7c082\n565111465a3cac0fbba5aa84e321eab0344820304aad760ed8ae2760d8be1baa\n3347357645aaaf1ec000939ac810fe8d60c4652fd6a3512f914480434f6e1af2\na4e0783f629dfc6da2b6883e8310401c79bb97f90cf51327d3cec28bdea98034\na341fb24b368b265ac4491eef22943e5f758dbb0f7f7e6e0d0e21fe6190a3e0d\nabdb2ce51237886ad425f8ddca7480c8886bf30ccbffe7ce67c8d3adf7810cda\nad29c0cbc1b64bf28baede71afc5b640f071ab592c03854273e2c9e63dc210e5\nafd660799428e8d04400ad87d1d840e24d53ba04d06f63ca2aa246a5851cbe3e\nb534caba74669704f00d52f1a53358c3f4bf44e48cbb24af832f930a4b7fa78e\nc3b20e4a51fd9ba4aa6d304ab62ac0c63585954efb3e5225074556ffbe3ea2fb\nd7f7c56acf28e0a15df7de4cf101b45eedb9fbc8247cb8b79406b94fb57d9eef\nd8be4721e40f42983c7fde8c6156b0616a08aac2644ddfc7f347b8dd4d4ebaac\ne421a894555e0a10a799a7c4c38328931cbe8e5c0a2c0f7d98132e61076f43fc\ne3096d257a4d113b29fc6ece537406ca3de9d769bc5134ebc19809d3657a2c9e\neb9cd206e5dbebc6c17a267b3acb2c2d03821192871a0e19c2e52f362eef0941\neb19e88a63faa47317ae79f0ac3422c4caeba494b160e30f877aee454fc2870d\nef01410ce629186893f39cb5794ff90ad9a57745b9b861f43dd2524ad0e3d10f\nfc44b9065761f24850f138798ca7ee19687cd09a8fde82801ff6b6957181f0c2\nopenshell-channel-69e39fe2d13ce611e31709bec6e1d7a6\nopenshell-channel-862baee44814da023c7b5d04e2cbbea6\nopenshell-channel-dcbc4eda0d622572948395ec63120f3c\nopenshell-supervisor-69e39fe2d13ce611e31709bec6e1d7a6\nopenshell-supervisor-862baee44814da023c7b5d04e2cbbea6\nopenshell-supervisor-dcbc4eda0d622572948395ec63120f3c\nunrelated-project-cache-proof-dind-data\nunrelated-project-cache-proof-home\nunrelated-project-cache-proof-metadata\nunrelated-project-cache-proof-run\nunrelated-project-cache-proof-work\nunrelated-project-cache-sudo-compat-home\nunrelated-project-cache-sudo-compat-work\nunrelated-project-cache-tmpfs-proof-work\n",
+    "stderr": "",
+    "seconds": 0.011686666985042393
+  },
+  {
+    "command": [
+      "lsof",
+      "-tiTCP:18770",
+      "-sTCP:LISTEN"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.02765941701363772
+  },
+  {
+    "command": [
+      "lsof",
+      "-tiTCP:18771",
+      "-sTCP:LISTEN"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.02662633400177583
+  },
+  {
+    "operation": "cleanup owner",
+    "owner": "experiment scripts",
+    "note": "External fixture cleanup is not OpenShell-owned cleanup. Shared caches and unrelated resources were preserved."
+  },
+  {
+    "operation": "disk space",
+    "free_before": 2099545296896,
+    "free_after": 2099529838592,
+    "note": "Concurrent activity prevents attributing this difference solely to cleanup."
+  }
+]

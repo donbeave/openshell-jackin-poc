@@ -1,0 +1,13 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "get",
+    "ojp-20261024-vm1"
+  ],
+  "utc": "2026-10-23T22:43:18.973870+00:00",
+  "exit_status": 0,
+  "stdout": "Sandbox:\n\n  Id: c87a19b1-d941-4e22-a9cc-68d00be18b0f\n  Name: ojp-20261024-vm1\n  Phase: Ready\n  Resource version: 12\n  Restart policy: never\n  Main process instance: 066ef11e-2a8a-473a-a775-964f6c6caeb4\n  Last exit code: -\n  Restart count: 0\n  Next restart: -\n  Annotations: \n    internal.openshell.ai/auth-epoch: 1\n    internal.openshell.ai/gateway-token-id: 00000000-0000-4000-8000-000000000000\n    internal.openshell.ai/isolation-backend: openshell-sandbox\n    internal.openshell.ai/runtime-generation: 9545fe69-2b3f-4e8e-87e6-846460396302\n  Conditions:\n    - Ready: True (DependenciesReady) - Supervisor session connected\n    - WorkloadIdentity: True (DriverResolved) - Resolved workload UID:GID is 1000:1000\n    - ConfigurationReady: True (ConfigurationAccepted)\n  Policy source: sandbox\n  Revision: 1\n\nPolicy:\n\n  version: 1\n  filesystem_policy:\n    include_workdir: true\n    read_only:\n      - /usr\n      - /usr/local\n      - /lib\n      - /lib64\n      - /etc\n      - /proc\n      - /sys\n      - /dev/urandom\n      - /opt\n    read_write:\n      - /workspace\n      - /sandbox\n      - /tmp\n      - /home\n      - /dev/null\n  landlock:\n    compatibility: best_effort\n",
+  "stderr": "",
+  "seconds": 0.035447333997581154
+}

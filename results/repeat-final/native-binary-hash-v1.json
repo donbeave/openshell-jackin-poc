@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "sha256sum /workspace/.cache/mbx/targets/v1/c89935ce5b0c2e796110300d150841445c0c805c46a4657c2a9a5475f215e387/debug/deps/native_tcp-7cfef93da7443122"
+  ],
+  "utc": "2026-10-23T22:37:13.205368+00:00",
+  "exit_status": 0,
+  "stdout": "a5a6b3fcda5e46d2e6069edcd5525dc0efb787f98a6c47672458f935470a9655  /workspace/.cache/mbx/targets/v1/c89935ce5b0c2e796110300d150841445c0c805c46a4657c2a9a5475f215e387/debug/deps/native_tcp-7cfef93da7443122\n",
+  "stderr": "",
+  "seconds": 0.049038999975891784
+}

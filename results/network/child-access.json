@@ -1,0 +1,23 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "run",
+    "--rm",
+    "nginx:1.29.3-alpine",
+    "wget",
+    "-qO-",
+    "http://host.docker.internal:15434"
+  ],
+  "utc": "2026-10-23T22:36:38.872613+00:00",
+  "exit_status": 0,
+  "stdout": "ojp-harmless-local-endpoint\n",
+  "stderr": "",
+  "seconds": 0.27721883298363537
+}

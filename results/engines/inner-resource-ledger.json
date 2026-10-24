@@ -1,0 +1,198 @@
+{
+  "utc": "2026-10-23T22:28:50.148635+00:00",
+  "owner": "inner resources live in each DinD container data-root anonymous volume; outer OrbStack daemon owns/removes that data-root with its DinD container",
+  "checks": [
+    {
+      "name": "engine-a-containers",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "ps",
+        "-a",
+        "--no-trunc",
+        "--format",
+        "{{.ID}} {{.Names}} {{.Image}} {{.Status}}"
+      ],
+      "exit_status": 0,
+      "stdout": "611b5f9c956c89d566094210ae68475f785ec5485d2f4e1f34860ab73b6519f0 ojp-native-http nginx:1.29.3-alpine Up 2 minutes\n",
+      "stderr": ""
+    },
+    {
+      "name": "engine-a-volumes",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}} {{.Driver}} {{.Scope}}"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-engine-a-inner-volume local local\n",
+      "stderr": ""
+    },
+    {
+      "name": "engine-a-images",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "image",
+        "ls",
+        "--digests",
+        "--format",
+        "{{.ID}} {{.Repository}}:{{.Tag}} {{.Digest}}"
+      ],
+      "exit_status": 0,
+      "stdout": "f3f3712d8c46 ojp-20261024-engine-a-project:context-control sha256:f3f3712d8c4697009712e3a1d2e9869f1ace51b5101c46237dd9d814ebb963a5\n57e4255cc971 redis:7.4-alpine sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\n2e0b81d60597 alpine:3.22 sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f\nb3c656d55d7a nginx:1.29.3-alpine sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14\n",
+      "stderr": ""
+    },
+    {
+      "name": "engine-b-containers",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18777",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/key.pem",
+        "ps",
+        "-a",
+        "--no-trunc",
+        "--format",
+        "{{.ID}} {{.Names}} {{.Image}} {{.Status}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "engine-b-volumes",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18777",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/key.pem",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}} {{.Driver}} {{.Scope}}"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-engine-b-inner-volume local local\n",
+      "stderr": ""
+    },
+    {
+      "name": "engine-b-images",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18777",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/key.pem",
+        "image",
+        "ls",
+        "--digests",
+        "--format",
+        "{{.ID}} {{.Repository}}:{{.Tag}} {{.Digest}}"
+      ],
+      "exit_status": 0,
+      "stdout": "65b8310280dc ojp-20261024-engine-b-project:context-control sha256:65b8310280dc4ba2baf41e9a7574cb57856dbd411040b6c893fba4536a166bb0\n57e4255cc971 redis:7.4-alpine sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\n2e0b81d60597 alpine:3.22 sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f\nb3c656d55d7a nginx:1.29.3-alpine sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14\n",
+      "stderr": ""
+    },
+    {
+      "name": "socket-containers",
+      "command": [
+        "docker",
+        "exec",
+        "--env",
+        "DOCKER_HOST=unix:///var/run/ojp-docker-socket/docker.sock",
+        "ojp-20261024-sock",
+        "docker",
+        "ps",
+        "-a",
+        "--no-trunc",
+        "--format",
+        "{{.ID}} {{.Names}} {{.Image}} {{.Status}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "socket-volumes",
+      "command": [
+        "docker",
+        "exec",
+        "--env",
+        "DOCKER_HOST=unix:///var/run/ojp-docker-socket/docker.sock",
+        "ojp-20261024-sock",
+        "docker",
+        "volume",
+        "ls",
+        "--format",
+        "{{.Name}} {{.Driver}} {{.Scope}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "socket-images",
+      "command": [
+        "docker",
+        "exec",
+        "--env",
+        "DOCKER_HOST=unix:///var/run/ojp-docker-socket/docker.sock",
+        "ojp-20261024-sock",
+        "docker",
+        "image",
+        "ls",
+        "--digests",
+        "--format",
+        "{{.ID}} {{.Repository}}:{{.Tag}} {{.Digest}}"
+      ],
+      "exit_status": 0,
+      "stdout": "57e4255cc971 redis:7.4-alpine sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541\n",
+      "stderr": ""
+    }
+  ]
+}

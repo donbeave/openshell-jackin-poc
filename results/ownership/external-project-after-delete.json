@@ -1,0 +1,13 @@
+{
+  "command": [
+    "docker",
+    "volume",
+    "inspect",
+    "ojp-20261024-engine-a-project"
+  ],
+  "utc": "2026-10-23T22:39:44.654961+00:00",
+  "exit_status": 0,
+  "stdout": "[\n    {\n        \"CreatedAt\": \"2026-10-24T05:15:50+07:00\",\n        \"Driver\": \"local\",\n        \"Labels\": {\n            \"openshell.ai/sandbox-attachable\": \"true\",\n            \"openshell.ai/sandbox-attachable-workspace\": \"default\"\n        },\n        \"Mountpoint\": \"/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data\",\n        \"Name\": \"ojp-20261024-engine-a-project\",\n        \"Options\": null,\n        \"Scope\": \"local\"\n    }\n]\n",
+  "stderr": "",
+  "seconds": 0.016801208985270932
+}

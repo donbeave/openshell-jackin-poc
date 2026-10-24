@@ -1,0 +1,444 @@
+{
+  "script_owned_cleanup": true,
+  "captured_at_utc": "2026-10-23T23:01:08.752998+00:00",
+  "status": "complete; all 12 exact OpenShell-owned orphan volumes absent",
+  "safety": "No volume contents were read. Names, labels, Docker references, and source container IDs only.",
+  "free_bytes_before": 2049317593088,
+  "volumes": [
+    {
+      "name": "openshell-supervisor-01969ff45e45c154680cfe2c4715046b",
+      "sandbox_id": "4e6b4b01-3e35-4044-af23-e327a210f20f",
+      "old_container_id": "d16f82ff7dfca13b79d2230ad0df7318ea482e666fce1a8b55529fc2d7bd3abb",
+      "old_container_name": "openshell-default--ojp-20261024-v2-4e6b4b01-3e35-4044-af23-e327a210f20f",
+      "driver": "local",
+      "created_at": "2026-10-24T05:24:37+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "4e6b4b01-3e35-4044-af23-e327a210f20f",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-01969ff45e45c154680cfe2c4715046b"
+      ],
+      "paired_channel_volume": "openshell-channel-01969ff45e45c154680cfe2c4715046b",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-01969ff45e45c154680cfe2c4715046b"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-01969ff45e45c154680cfe2c4715046b\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049317564416,
+      "free_bytes_after": 2049317535744,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-3db5fcf5d2db1c33352259606caca652",
+      "sandbox_id": "ec1a3948-711a-4a02-83ef-7e2b996c39c5",
+      "old_container_id": "c1ff8bdc9771359b10d725e021971471f8d7c8a3e35e02226a224d545fe721ab",
+      "old_container_name": "openshell-default--ojp-20261024-gwi-ec1a3948-711a-4a02-83ef-7e2b996c39c5",
+      "driver": "local",
+      "created_at": "2026-10-24T05:24:16+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "ec1a3948-711a-4a02-83ef-7e2b996c39c5",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-3db5fcf5d2db1c33352259606caca652"
+      ],
+      "paired_channel_volume": "openshell-channel-3db5fcf5d2db1c33352259606caca652",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-3db5fcf5d2db1c33352259606caca652"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-3db5fcf5d2db1c33352259606caca652\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049316274176,
+      "free_bytes_after": 2049316225024,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-465fd3f518993ae5a0de379b13f3a31c",
+      "sandbox_id": "ff9df7a5-025f-4930-a459-6a2e5dfb1dcb",
+      "old_container_id": "5beba59ce8d2327124ea56eeb77200a54bc97ccb0db5e01987236f5de37b0ee6",
+      "old_container_name": "openshell-default--ojp-20261024-gwe-ff9df7a5-025f-4930-a459-6a2e5dfb1dcb",
+      "driver": "local",
+      "created_at": "2026-10-24T05:25:05+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "ff9df7a5-025f-4930-a459-6a2e5dfb1dcb",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-465fd3f518993ae5a0de379b13f3a31c"
+      ],
+      "paired_channel_volume": "openshell-channel-465fd3f518993ae5a0de379b13f3a31c",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-465fd3f518993ae5a0de379b13f3a31c"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-465fd3f518993ae5a0de379b13f3a31c\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049316212736,
+      "free_bytes_after": 2049316028416,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-4b3aba91b96dc3a726f41b90d57ad770",
+      "sandbox_id": "80f84ae5-4051-458e-be3e-ac245df83f41",
+      "old_container_id": "187b8f89c6e3e22b9a564ecceb0ff668f2959c903eac79ba8e564ca243cb19a1",
+      "old_container_name": "openshell-default--ojp-20261024-as-80f84ae5-4051-458e-be3e-ac245df83f41",
+      "driver": "local",
+      "created_at": "2026-10-24T05:24:00+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "80f84ae5-4051-458e-be3e-ac245df83f41",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-4b3aba91b96dc3a726f41b90d57ad770"
+      ],
+      "paired_channel_volume": "openshell-channel-4b3aba91b96dc3a726f41b90d57ad770",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-4b3aba91b96dc3a726f41b90d57ad770"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-4b3aba91b96dc3a726f41b90d57ad770\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049316012032,
+      "free_bytes_after": 2049315962880,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-4ee2ca3a92cab70743bb62d4356bad32",
+      "sandbox_id": "7931df0b-f18d-44c6-880c-43968f3b769c",
+      "old_container_id": "3dea180fbcea7f9eb0220c68b1ded8a0d7b0490a7912ee0f85a0249e276b9907",
+      "old_container_name": "openshell-default--ojp-20261024-gwd-7931df0b-f18d-44c6-880c-43968f3b769c",
+      "driver": "local",
+      "created_at": "2026-10-24T05:20:19+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "7931df0b-f18d-44c6-880c-43968f3b769c",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-4ee2ca3a92cab70743bb62d4356bad32"
+      ],
+      "paired_channel_volume": "openshell-channel-4ee2ca3a92cab70743bb62d4356bad32",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-4ee2ca3a92cab70743bb62d4356bad32"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-4ee2ca3a92cab70743bb62d4356bad32\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049315934208,
+      "free_bytes_after": 2049315901440,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-52b902bb43e40d1ea2e691b0a39c674b",
+      "sandbox_id": "c400f7d7-4955-4359-8def-c362900e3f18",
+      "old_container_id": "625659b88624a0f6c3a52cbcc33e76d8c78ea486f5a5e5a5cf50a2c600842b48",
+      "old_container_name": "openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18",
+      "driver": "local",
+      "created_at": "2026-10-24T05:17:51+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "c400f7d7-4955-4359-8def-c362900e3f18",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-52b902bb43e40d1ea2e691b0a39c674b"
+      ],
+      "paired_channel_volume": "openshell-channel-52b902bb43e40d1ea2e691b0a39c674b",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-52b902bb43e40d1ea2e691b0a39c674b"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-52b902bb43e40d1ea2e691b0a39c674b\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049315889152,
+      "free_bytes_after": 2049315835904,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-7fd3fdb149e57de5702d70c3106ddc01",
+      "sandbox_id": "74a977b6-02da-4736-b223-9035240ad02e",
+      "old_container_id": "a3b81d87c1cf23d0311cec13a5c9a80fcfe7178afc0adb3f0ecbe206b9474323",
+      "old_container_name": "openshell-default--ojp-20261024-gws-74a977b6-02da-4736-b223-9035240ad02e",
+      "driver": "local",
+      "created_at": "2026-10-24T05:22:47+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "74a977b6-02da-4736-b223-9035240ad02e",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-7fd3fdb149e57de5702d70c3106ddc01"
+      ],
+      "paired_channel_volume": "openshell-channel-7fd3fdb149e57de5702d70c3106ddc01",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-7fd3fdb149e57de5702d70c3106ddc01"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-7fd3fdb149e57de5702d70c3106ddc01\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049315819520,
+      "free_bytes_after": 2049315758080,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-82268a40c5ee215f6a0d3a6858b64f22",
+      "sandbox_id": "1cb3d98b-8a41-4901-9e61-6747ff0b9e02",
+      "old_container_id": "448c496d66b62a97474f2d522e11759e353b863072de5dd7e785aaf0e716adbd",
+      "old_container_name": "openshell-default--ojp-20261024-gwn-1cb3d98b-8a41-4901-9e61-6747ff0b9e02",
+      "driver": "local",
+      "created_at": "2026-10-24T05:22:16+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "1cb3d98b-8a41-4901-9e61-6747ff0b9e02",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-82268a40c5ee215f6a0d3a6858b64f22"
+      ],
+      "paired_channel_volume": "openshell-channel-82268a40c5ee215f6a0d3a6858b64f22",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-82268a40c5ee215f6a0d3a6858b64f22"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-82268a40c5ee215f6a0d3a6858b64f22\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049315676160,
+      "free_bytes_after": 2049315672064,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-8881e38c027845f5294c58333d7aee9c",
+      "sandbox_id": "0810ba53-94b8-462d-9e1e-bb2a30b8d47a",
+      "old_container_id": "4d4c5c732d46b1b26ce8ead8d857654536352976082a197fe1043175b8b136aa",
+      "old_container_name": "openshell-default--ojp-20261024-ah-0810ba53-94b8-462d-9e1e-bb2a30b8d47a",
+      "driver": "local",
+      "created_at": "2026-10-24T05:22:42+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "0810ba53-94b8-462d-9e1e-bb2a30b8d47a",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-8881e38c027845f5294c58333d7aee9c"
+      ],
+      "paired_channel_volume": "openshell-channel-8881e38c027845f5294c58333d7aee9c",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-8881e38c027845f5294c58333d7aee9c"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-8881e38c027845f5294c58333d7aee9c\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049315635200,
+      "free_bytes_after": 2049315606528,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-91fc1757500ffd8e6f7f65273431dc7e",
+      "sandbox_id": "2c4b1a14-4fa5-4c93-a08d-3be5c205070c",
+      "old_container_id": "7eba7e0616dfeace385685c081ba3794ab4222c30ac0eb59c4f085097d181b71",
+      "old_container_name": "openshell-default--ojp-20261024-alt-2c4b1a14-4fa5-4c93-a08d-3be5c205070c",
+      "driver": "local",
+      "created_at": "2026-10-24T05:27:18+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "2c4b1a14-4fa5-4c93-a08d-3be5c205070c",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-91fc1757500ffd8e6f7f65273431dc7e"
+      ],
+      "paired_channel_volume": "openshell-channel-91fc1757500ffd8e6f7f65273431dc7e",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-91fc1757500ffd8e6f7f65273431dc7e"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-91fc1757500ffd8e6f7f65273431dc7e\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049315565568,
+      "free_bytes_after": 2049315540992,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-9851eac564b3cdf83f22445033a6c415",
+      "sandbox_id": "d55e79be-fce0-4578-9b05-b4dcee479e46",
+      "old_container_id": "7401f86f5b35ec428267904e729e53edb01aecfba598c438631c1aeed80b657e",
+      "old_container_name": "openshell-default--ojp-20261024-gwp-d55e79be-fce0-4578-9b05-b4dcee479e46",
+      "driver": "local",
+      "created_at": "2026-10-24T05:23:10+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "d55e79be-fce0-4578-9b05-b4dcee479e46",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-9851eac564b3cdf83f22445033a6c415"
+      ],
+      "paired_channel_volume": "openshell-channel-9851eac564b3cdf83f22445033a6c415",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-9851eac564b3cdf83f22445033a6c415"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-9851eac564b3cdf83f22445033a6c415\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049315442688,
+      "free_bytes_after": 2049319596032,
+      "absent_after": true
+    },
+    {
+      "name": "openshell-supervisor-dda36185be225b7acc9ba89f37f284b0",
+      "sandbox_id": "cb33e5c3-bea5-4848-9585-022041f0ec86",
+      "old_container_id": "a2ad300c01d86096987bb6d177e254f83bb0de70ac7441a3de2340daa6c7342b",
+      "old_container_name": "openshell-default--ojp-20261024-gwm-cb33e5c3-bea5-4848-9585-022041f0ec86",
+      "driver": "local",
+      "created_at": "2026-10-24T05:21:37+07:00",
+      "labels": {
+        "openshell.ai/isolation-backend": "openshell-sandbox",
+        "openshell.ai/managed-by": "openshell",
+        "openshell.ai/sandbox-id": "cb33e5c3-bea5-4848-9585-022041f0ec86",
+        "openshell.ai/sandbox-namespace": "default"
+      },
+      "container_references": [],
+      "reference_check_command": [
+        "docker",
+        "ps",
+        "-aq",
+        "--filter",
+        "volume=openshell-supervisor-dda36185be225b7acc9ba89f37f284b0"
+      ],
+      "paired_channel_volume": "openshell-channel-dda36185be225b7acc9ba89f37f284b0",
+      "paired_channel_exists": false,
+      "remove_command": [
+        "docker",
+        "volume",
+        "rm",
+        "openshell-supervisor-dda36185be225b7acc9ba89f37f284b0"
+      ],
+      "remove_exit_status": 0,
+      "remove_stdout": "openshell-supervisor-dda36185be225b7acc9ba89f37f284b0\n",
+      "remove_stderr": "",
+      "free_bytes_before": 2049319567360,
+      "free_bytes_after": 2049319534592,
+      "absent_after": true
+    }
+  ],
+  "completed_at_utc": "2026-10-23T23:01:09.530690+00:00",
+  "free_bytes_after": 2049319514112,
+  "removed_count": 12
+}

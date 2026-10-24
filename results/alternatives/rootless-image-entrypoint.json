@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-root2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "command -v rootlesskit dockerd dockerd-entrypoint.sh; head -n 12 /usr/local/bin/dockerd-entrypoint.sh"
+  ],
+  "utc": "2026-10-23T22:32:28.430569+00:00",
+  "exit_status": 0,
+  "stdout": "/usr/local/bin/rootlesskit\n#!/bin/sh\nset -eu\n\n_tls_ensure_private() {\n\tlocal f=\"$1\"; shift\n\t[ -s \"$f\" ] || openssl genrsa -out \"$f\" 4096\n}\n_tls_san() {\n\t{\n\t\tip -oneline address | awk '{ gsub(/\\/.+$/, \"\", $4); print \"IP:\" $4 }'\n\t\t{\n\t\t\tcat /etc/hostname\n",
+  "stderr": "",
+  "seconds": 0.056550500012235716
+}

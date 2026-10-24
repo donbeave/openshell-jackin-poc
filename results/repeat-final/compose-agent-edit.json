@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "printf agent-source-v2 > /sandbox/ojp-project/clean-repeat/compose/html/index.html"
+  ],
+  "utc": "2026-10-23T22:35:14.086896+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.05726274999324232
+}

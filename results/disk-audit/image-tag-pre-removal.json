@@ -1,0 +1,163 @@
+{
+  "captured_at": "2026-10-23T22:36:56.194041+00:00",
+  "script_owned_cleanup": true,
+  "selection": "repo ojp-20261024-agent; all-container inspect references; protected exact tags excluded",
+  "images": [
+    {
+      "tag": "ojp-20261024-agent:2.1.309-final-tools",
+      "image_id": "sha256:791d44dbe1d6e99b02f6b4b8aa9016ca4e82ec9a94dc7cf360a87779419b2e66",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:791d44dbe1d6e99b02f6b4b8aa9016ca4e82ec9a94dc7cf360a87779419b2e66"
+      ],
+      "size_bytes": 2880065199,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": null,
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.309-tools",
+      "image_id": "sha256:4ab1ec92e08aacc0bb331c93f21ecb7be6f2a102f73fac137a21077680b2081e",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:4ab1ec92e08aacc0bb331c93f21ecb7be6f2a102f73fac137a21077680b2081e"
+      ],
+      "size_bytes": 3088842020,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": null,
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.310-final-forced",
+      "image_id": "sha256:7dfcb7b929575803916ec9790be94b4e020e6699e9295170bd0ec5c92148683d",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:7dfcb7b929575803916ec9790be94b4e020e6699e9295170bd0ec5c92148683d"
+      ],
+      "size_bytes": 2876272002,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": null,
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.310-final-hardened",
+      "image_id": "sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28"
+      ],
+      "size_bytes": 3713150485,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": null,
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.310-final-tools",
+      "image_id": "sha256:80e997102a8c32701ea92c04a665e91daf73db139251dd4de59b77e780390486",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:80e997102a8c32701ea92c04a665e91daf73db139251dd4de59b77e780390486"
+      ],
+      "size_bytes": 2876271616,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": null,
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.310-final-warm",
+      "image_id": "sha256:24f91a2565b4a638c228ad2edddb5623a58d4e4c2bd4ed171a86b72444202d01",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:24f91a2565b4a638c228ad2edddb5623a58d4e4c2bd4ed171a86b72444202d01"
+      ],
+      "size_bytes": 2876271616,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": null,
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.310-poc-final",
+      "image_id": "sha256:6c642b9c2847baf49a4b420f8cb5378facb9ddf2bb90c095f8b92bc2c2bf98c6",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:6c642b9c2847baf49a4b420f8cb5378facb9ddf2bb90c095f8b92bc2c2bf98c6"
+      ],
+      "size_bytes": 3713156058,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": [
+        "/opt/ojp-role-hook.sh"
+      ],
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.310-poc-forced",
+      "image_id": "sha256:5887b574540db1f1eb82bae9a827cf4baa685144f2f2bf5d55d790f67de3404e",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:5887b574540db1f1eb82bae9a827cf4baa685144f2f2bf5d55d790f67de3404e"
+      ],
+      "size_bytes": 3798501159,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": [
+        "/opt/ojp-role-hook.sh"
+      ],
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.310-poc-warm",
+      "image_id": "sha256:157daf4a9831f4a56a4105c154f5282bc91e3a49137e5946bc23988e079d546b",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:157daf4a9831f4a56a4105c154f5282bc91e3a49137e5946bc23988e079d546b"
+      ],
+      "size_bytes": 3798501165,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": [
+        "/opt/ojp-role-hook.sh"
+      ],
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    },
+    {
+      "tag": "ojp-20261024-agent:2.1.310-tools",
+      "image_id": "sha256:60f4469769db713f35b2a529cf305a26383d62fd65764bbbc9829f32c8a42554",
+      "repo_digests": [
+        "ojp-20261024-agent@sha256:60f4469769db713f35b2a529cf305a26383d62fd65764bbbc9829f32c8a42554"
+      ],
+      "size_bytes": 3085046403,
+      "command": [
+        "sleep",
+        "infinity"
+      ],
+      "entrypoint": null,
+      "container_references": [],
+      "container_exit_status": "NOT APPLICABLE (no container references)"
+    }
+  ]
+}

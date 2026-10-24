@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--",
+    "cat",
+    "/workspace/hook.log"
+  ],
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "cat: /workspace/hook.log: No such file or directory\n",
+  "captured_utc": "2026-10-23T22:30:32.085304+00:00"
+}

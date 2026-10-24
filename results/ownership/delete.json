@@ -1,0 +1,14 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "delete",
+    "ojp-20261024-main"
+  ],
+  "utc": "2026-10-23T22:39:43.511293+00:00",
+  "exit_status": 0,
+  "stdout": "\u2713 Sandbox ojp-20261024-main deletion accepted; cleanup is pending\n",
+  "stderr": "",
+  "seconds": 0.9014607919962145
+}

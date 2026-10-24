@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-as",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "docker --host tcp://host.docker.internal:18777 version; echo cross_exit=$?; docker --tlsverify=false --tls --tlscert /dev/null --tlskey /dev/null version; echo invalid_exit=$?"
+  ],
+  "utc": "2026-10-23T22:24:15.155480+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 sandbox 'ojp-20261024-as' is not ready (phase: Error); wait for it to\n  \u2502 reach Ready state\n\n",
+  "seconds": 0.050623999995877966
+}

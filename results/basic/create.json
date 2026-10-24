@@ -1,0 +1,30 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-basic",
+    "--from",
+    "ojp-20261024-agent:2.1.310",
+    "--policy",
+    "experiments/denied.yaml",
+    "--env",
+    "OJP_VALUE=harmless-value",
+    "--cpu",
+    "1",
+    "--memory",
+    "1Gi",
+    "--no-auto-providers",
+    "--detach",
+    "--",
+    "sleep",
+    "infinity"
+  ],
+  "utc": "2026-10-23T22:16:57.813281+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 code: 'The system is not in a state required for the operation's\n  \u2502 execution', message: \"docker sandboxes require launch-scoped gateway\n  \u2502 authentication\"\n\n",
+  "seconds": 0.0765558340062853
+}

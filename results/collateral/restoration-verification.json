@@ -1,0 +1,83 @@
+{
+  "utc": "2026-10-23T23:12:26.551642+00:00",
+  "result": "PASS",
+  "tls_verification": "enabled",
+  "private_credentials_copied": false,
+  "observations": [
+    {
+      "name": "coding-agents",
+      "id": "00000000-0000-4000-8000-000000000001",
+      "phase": 2,
+      "conditions": [
+        {
+          "type": "Ready",
+          "status": "True",
+          "reason": "DependenciesReady"
+        },
+        {
+          "type": "ConfigurationReady",
+          "status": "True",
+          "reason": "ConfigurationAccepted"
+        }
+      ],
+      "command": [
+        "/bin/sh",
+        "-c",
+        "printf restoration-exec-ok"
+      ],
+      "exit_status": 0,
+      "stdout": "restoration-exec-ok",
+      "stderr": ""
+    },
+    {
+      "name": "preview-docker",
+      "id": "00000000-0000-4000-8000-000000000002",
+      "phase": 2,
+      "conditions": [
+        {
+          "type": "Ready",
+          "status": "True",
+          "reason": "DependenciesReady"
+        },
+        {
+          "type": "ConfigurationReady",
+          "status": "True",
+          "reason": "ConfigurationAccepted"
+        }
+      ],
+      "command": [
+        "/bin/sh",
+        "-c",
+        "printf restoration-exec-ok"
+      ],
+      "exit_status": 0,
+      "stdout": "restoration-exec-ok",
+      "stderr": ""
+    },
+    {
+      "name": "preview-openrouter",
+      "id": "00000000-0000-4000-8000-000000000003",
+      "phase": 2,
+      "conditions": [
+        {
+          "type": "Ready",
+          "status": "True",
+          "reason": "DependenciesReady"
+        },
+        {
+          "type": "ConfigurationReady",
+          "status": "True",
+          "reason": "ConfigurationAccepted"
+        }
+      ],
+      "command": [
+        "/bin/sh",
+        "-c",
+        "printf restoration-exec-ok"
+      ],
+      "exit_status": 0,
+      "stdout": "restoration-exec-ok",
+      "stderr": ""
+    }
+  ]
+}

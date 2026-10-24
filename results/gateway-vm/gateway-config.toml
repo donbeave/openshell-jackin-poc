@@ -1,0 +1,29 @@
+[openshell]
+version = 2
+
+[openshell.gateway]
+name = "ojp-20261024-vm"
+bind_address = "127.0.0.1:18771"
+compute_driver = "vm"
+guest_tls_ca = "/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs/ca.crt"
+
+[openshell.drivers.vm]
+driver_dir = "/opt/homebrew/opt/openshell/libexec"
+state_dir = "/Users/example/openshell-jackin-poc/experiments/gateway-vm/state/runtime"
+grpc_endpoint = "https://127.0.0.1:18771"
+default_image = "nvcr.io/nvidia/base/ubuntu:24.04"
+bootstrap_image = "nvcr.io/nvidia/base/ubuntu:24.04"
+vcpus = 2
+mem_mib = 2048
+overlay_disk_mib = 4096
+
+[openshell.gateway.tls]
+cert_path = "/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs/server/tls.crt"
+key_path = "/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs/server/tls.key"
+client_ca_path = "/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs/ca.crt"
+
+[openshell.gateway.gateway_jwt]
+signing_key_path = "/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs/jwt/signing.pem"
+public_key_path = "/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs/jwt/public.pem"
+kid_path = "/Users/example/openshell-jackin-poc/experiments/gateway-vm/certs/jwt/kid"
+gateway_id = "ojp-20261024-vm"

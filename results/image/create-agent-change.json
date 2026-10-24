@@ -1,0 +1,31 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-alt",
+    "--from",
+    "ojp-20261024-agent:2.1.309-poc-final",
+    "--policy",
+    "experiments/denied.yaml",
+    "--env",
+    "OJP_VALUE=alternate-agent",
+    "--cpu",
+    "1",
+    "--memory",
+    "1Gi",
+    "--no-auto-providers",
+    "--detach",
+    "--",
+    "/opt/ojp-role-hook.sh",
+    "sleep",
+    "infinity"
+  ],
+  "utc": "2026-10-23T22:27:18.030440+00:00",
+  "exit_status": 0,
+  "stdout": "\nCreated sandbox: ojp-20261024-alt\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image ojp-20261024-agent:2.1.309-poc-final\n[0.0s] Image already present\n[0.3s] Starting sandbox Container created\n",
+  "stderr": "",
+  "seconds": 0.7173605420102831
+}

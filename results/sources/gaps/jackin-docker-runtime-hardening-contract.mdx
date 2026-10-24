@@ -1,0 +1,13 @@
+# Extract: docs/content/roadmap/(isolation-security)/docker-runtime-hardening-contract.mdx
+
+Source: `jackin-project/jackin` @ `41bad147b5ba9db09be99b07248531ce1bd867be`.
+
+Status: **Partially implemented**. The document says the shipped baseline has Docker profile enforcement, standard default, and rootless DinD as a recommended explicit grant.
+
+> Egress allowlist enforcement is wired through `firewall-apply` and fails closed under hardened/locked if the firewall cannot install the policy.
+>
+> When DinD and allowlist networking are both active, the launch contract reports partial enforcement because inner containers bypass the role-container firewall.
+
+> `standard` is the compiled-in default. `compat` remains available through CLI/config/workspace selection for privileged DinD and resource-unlimited Docker workflows.
+
+This is evidence Jackin treats profile enforcement and honest partial-enforcement reporting as product responsibility. It is not evidence of child-egress enforcement parity.

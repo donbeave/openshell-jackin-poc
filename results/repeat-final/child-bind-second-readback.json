@@ -1,0 +1,18 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "cat",
+    "/sandbox/ojp-project/clean-repeat/child-to-agent-2.txt"
+  ],
+  "utc": "2026-10-23T22:34:06.510040+00:00",
+  "exit_status": 0,
+  "stdout": "child-write",
+  "stderr": "",
+  "seconds": 0.04555112498928793
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "id; cat /workspace/hook.log; stat -c \"%u:%g %a %n\" /sandbox/ojp-project/clean-repeat"
+  ],
+  "utc": "2026-10-23T22:33:29.625759+00:00",
+  "exit_status": 1,
+  "stdout": "uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)\n",
+  "stderr": "cat: /workspace/hook.log: No such file or directory\n",
+  "seconds": 0.0591050419898238
+}

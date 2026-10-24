@@ -1,0 +1,37 @@
+FROM rust:1.99.1-bookworm@sha256:48b7f435b8fc6378ce43b44f15e3a47fd8919b2825f835c39bd4bd3da50af5b8 AS rust
+FROM node:26.12.0-bookworm-slim@sha256:742a0fe7320e09e0321222b68165e6ac731d30470e7ea7f98f9bfc3a6e1034fe AS node
+FROM docker:29.9.2-cli@sha256:5e6baf67325a79f64ed3bed6863954d5e05d0f3d4e57cbdb14809346814bbfdb AS docker
+FROM projectjackin/construct:0.37-trixie@sha256:67fc093e1dd9a021e2af66beebbeddbb4d676839dcd0a5371ce8a5d7b2cdcab4
+USER root
+ARG CLAUDE_VERSION=2.1.310
+ADD --checksum=sha256:3a3c72376687ba21a588d0f5a2c88c76f483fb6cdece7b0fc43d5e3132b08a52 https://github.com/jdx/mise/releases/download/v2026.10.18/mise-v2026.10.18-linux-arm64 /usr/local/bin/mise
+ADD --checksum=sha256:8a1aaf0a495e455d2ea09430c92c59169eef6a29a140c6b21a6d1581fe252f86 https://github.com/jdx/mr-boxington/releases/download/v1.27.0/mbx-aarch64-unknown-linux-gnu.tar.gz /tmp/mbx.tar.gz
+ADD --checksum=sha256:6f82e375187cf3a1f3e336879a51940c315a5d0ce7253f7e517ad28295b74189 https://github.com/nextest-rs/nextest/releases/download/cargo-nextest-0.9.149/cargo-nextest-0.9.149-aarch64-unknown-linux-gnu.tar.gz /tmp/nextest.tar.gz
+COPY --from=rust /usr/local/cargo /usr/local/cargo
+COPY --from=rust /usr/local/rustup /usr/local/rustup
+COPY --from=node /usr/local/bin/node /usr/local/bin/node
+COPY --from=node /usr/local/bin/npm /usr/local/bin/npm
+COPY --from=node /usr/local/lib/node_modules /usr/local/lib/node_modules
+COPY --from=docker /usr/local/bin/docker /usr/local/bin/docker
+COPY --from=docker /usr/local/libexec/docker/cli-plugins/docker-buildx /usr/local/libexec/docker/cli-plugins/docker-buildx
+COPY --from=docker /usr/local/libexec/docker/cli-plugins/docker-compose /usr/local/libexec/docker/cli-plugins/docker-compose
+ENV CARGO_HOME=/home/agent/.cargo RUSTUP_HOME=/usr/local/rustup MISE_DATA_DIR=/home/agent/.local/share/mise PATH="/usr/local/cargo/bin:/usr/local/bin:/home/agent/.local/share/mise/shims:/home/agent/.local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+RUN apt-get update && apt-get install -y --no-install-recommends build-essential cmake libssl-dev pkg-config python3 libatomic1 && \
+    groupadd --gid 1000 sandbox && usermod --gid sandbox agent && \
+    tar -xzf /tmp/mbx.tar.gz -C /usr/local/bin mbx && \
+    tar -xzf /tmp/nextest.tar.gz -C /usr/local/bin cargo-nextest && \
+    chmod 0755 /usr/local/bin/mise /usr/local/bin/mbx /usr/local/bin/cargo-nextest && \
+    rm /tmp/mbx.tar.gz /tmp/nextest.tar.gz && \
+    mkdir -p /workspace /home/agent/.cargo && chown -R agent:1000 /workspace /home/agent/.cargo && \
+    node /usr/local/lib/node_modules/npm/bin/npm-cli.js install --global @anthropic-ai/claude-code@${CLAUDE_VERSION} && \
+    rm -rf /var/lib/apt/lists/*
+COPY --chown=agent:1000 mise.toml rust-toolchain.toml /home/agent/ojp-toolchain/
+COPY --chmod=0755 role-hook.sh /opt/ojp-role-hook.sh
+ENV MISE_TRUSTED_CONFIG_PATHS=/home/agent/ojp-toolchain:/workspace
+COPY --chown=agent:1000 . /home/agent/ojp-project/
+USER agent
+RUN cd /home/agent/ojp-toolchain && mise trust mise.toml && mise install
+RUN cd /home/agent/ojp-project && mise trust mise.toml && mise exec -- cargo generate-lockfile && mise exec -- cargo fetch
+WORKDIR /workspace
+ENTRYPOINT ["/opt/ojp-role-hook.sh"]
+CMD ["sleep", "infinity"]

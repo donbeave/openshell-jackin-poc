@@ -1,0 +1,26 @@
+[
+  {
+    "commit": "41bad147b5ba9db09be99b07248531ce1bd867be",
+    "path": "crates/apps/jackin-capsule/src/main.rs",
+    "snapshot": "results/rewrite-readiness/sources/integration/crates__apps__jackin-capsule__src__main.rs",
+    "url": "https://github.com/jackin-project/jackin/blob/41bad147b5ba9db09be99b07248531ce1bd867be/crates/apps/jackin-capsule/src/main.rs"
+  },
+  {
+    "commit": "41bad147b5ba9db09be99b07248531ce1bd867be",
+    "path": "crates/apps/jackin-capsule/src/argv.rs",
+    "snapshot": "results/rewrite-readiness/sources/integration/crates__apps__jackin-capsule__src__argv.rs",
+    "url": "https://github.com/jackin-project/jackin/blob/41bad147b5ba9db09be99b07248531ce1bd867be/crates/apps/jackin-capsule/src/argv.rs"
+  },
+  {
+    "commit": "41bad147b5ba9db09be99b07248531ce1bd867be",
+    "path": "crates/services/jackin-runtime-attach-transport/src/transport.rs",
+    "snapshot": "results/rewrite-readiness/sources/integration/crates__services__jackin-runtime-attach-transport__src__transport.rs",
+    "url": "https://github.com/jackin-project/jackin/blob/41bad147b5ba9db09be99b07248531ce1bd867be/crates/services/jackin-runtime-attach-transport/src/transport.rs"
+  },
+  {
+    "commit": "41bad147b5ba9db09be99b07248531ce1bd867be",
+    "path": "crates/services/jackin-runtime/src/runtime/backend.rs",
+    "snapshot": "results/rewrite-readiness/sources/integration/crates__services__jackin-runtime__src__runtime__backend.rs",
+    "url": "https://github.com/jackin-project/jackin/blob/41bad147b5ba9db09be99b07248531ce1bd867be/crates/services/jackin-runtime/src/runtime/backend.rs"
+  }
+]

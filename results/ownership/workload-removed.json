@@ -1,0 +1,16 @@
+{
+  "command": [
+    "docker",
+    "ps",
+    "-a",
+    "--filter",
+    "name=openshell-default--ojp-20261024-main",
+    "--format",
+    "{{.ID}} {{.Names}} {{.Status}}"
+  ],
+  "utc": "2026-10-23T22:40:54.854240+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.02224062499590218
+}

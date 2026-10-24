@@ -1,0 +1,18 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "find /home/agent/.local/share/mise/installs/rust -maxdepth 4 -type f | head -30; ls -l /usr/local/cargo/bin /home/agent/.local/share/mise/installs/rust/1.99.1/bin 2>&1"
+  ],
+  "utc": "2026-10-23T22:44:03.182291+00:00",
+  "exit_status": 2,
+  "stdout": "/home/agent/.local/share/mise/installs/rust/.mise.backend.toml\nls: cannot access '/home/agent/.local/share/mise/installs/rust/1.99.1/bin': No such file or directory\n/usr/local/cargo/bin:\ntotal 19464\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 cargo -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 cargo-clippy -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 cargo-fmt -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 cargo-miri -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 clippy-driver -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 rls -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 rust-analyzer -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 rust-gdb -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 rust-gdbgui -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 rust-lldb -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 rustc -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 rustdoc -> rustup\nlrwxrwxrwx 1 root root        6 Oct 21 22:42 rustfmt -> rustup\n-rwxrwxrwx 1 root root 19930504 Oct 21 22:42 rustup\n",
+  "stderr": "",
+  "seconds": 0.03586800000630319
+}

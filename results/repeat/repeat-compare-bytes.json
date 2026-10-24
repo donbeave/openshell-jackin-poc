@@ -1,0 +1,12 @@
+{
+  "command": [
+    "sh",
+    "-c",
+    "printf original-bytes | shasum -a 256"
+  ],
+  "utc": "2026-10-23T22:23:19.857470+00:00",
+  "exit_status": 0,
+  "stdout": "8e338be649868e7c9e053212037e4bb0965ba7653e81b974bab76578bd59c80a  -\n",
+  "stderr": "",
+  "seconds": 0.015516124985879287
+}

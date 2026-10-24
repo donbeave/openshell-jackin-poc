@@ -1,0 +1,12 @@
+{
+  "command": [
+    "docker",
+    "logs",
+    "openshell-default--ojp-20261024-ah-0810ba53-94b8-462d-9e1e-bb2a30b8d47a"
+  ],
+  "utc": "2026-10-23T22:23:38.793691+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "2026-10-23T22:22:42.678Z INFO openshell_sandbox::boundary_server::linux: Boundary control listener ready\n2026-10-23T22:22:42.988Z OCSF CONFIG:PROBED [INFO] Landlock filesystem sandbox available [abi:v10 compat:BestEffort ro:10 rw:5]\n2026-10-23T22:22:42.988Z OCSF CONFIG:APPLYING [INFO] Applying Landlock filesystem sandbox [abi:V3 compat:BestEffort ro:13 rw:5]\n2026-10-23T22:22:42.988Z OCSF CONFIG:BUILT [INFO] Landlock ruleset built [rules_applied:16 skipped:2]\n2026-10-23T22:22:42.992Z OCSF PROC:LAUNCH [INFO] bash(55)\n2026-10-23T22:22:42.992Z OCSF CONFIG:UNKNOWN [INFO] Provider file snapshot loaded [file_count:0]\n2026-10-23T22:22:42.999Z OCSF CONFIG:UNKNOWN [INFO] Provider file snapshot updated [file_count:0]\n2026-10-23T22:22:43.001Z OCSF CONFIG:UNKNOWN [INFO] Provider file snapshot updated [file_count:0]\n2026-10-23T22:22:44.579Z INFO openshell_sandbox::boundary_server::linux: Sandbox boundary received termination signal\n2026-10-23T22:22:44.579Z WARN openshell_sandbox::boundary_server::linux: Sandbox Protocol connection lost; workload frozen pending authenticated recovery\n2026-10-23T22:22:44.579Z OCSF FINDING:CREATE [MED] \"Sandbox Supervisor Connection Lost\" [type:sandbox-supervisor-connection-lost confidence:high]\n2026-10-23T22:22:44.579Z WARN openshell_sandbox::boundary_server::linux: Boundary gRPC exchange failed\n",
+  "seconds": 0.013490332989022136
+}

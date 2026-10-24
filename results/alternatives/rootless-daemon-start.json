@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-root2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "mkdir -p /tmp/ojp-rootless; timeout 15 dockerd-rootless.sh > /tmp/ojp-rootless.log 2>&1; status=$?; cat /tmp/ojp-rootless.log; exit \"$status\""
+  ],
+  "utc": "2026-10-23T22:32:20.858909+00:00",
+  "exit_status": 127,
+  "stdout": "timeout: can't execute 'dockerd-rootless.sh': No such file or directory\n",
+  "stderr": "",
+  "seconds": 0.10163533297600225
+}

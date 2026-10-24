@@ -1,0 +1,160 @@
+{
+  "utc": "2026-10-23T22:23:14.104738+00:00",
+  "result": "provision interrupted with SIGKILL before dockerd startup; container and approved socket volume were inspected before fixture-only cleanup",
+  "mechanism": "EXTERNAL FIXTURE",
+  "owner": "outer OrbStack Docker daemon; no OpenShell recovery or cleanup claim",
+  "checks": [
+    {
+      "name": "create-approved-socket-volume",
+      "command": [
+        "docker",
+        "volume",
+        "create",
+        "--label",
+        "openshell.ai/sandbox-attachable=true",
+        "--label",
+        "openshell.ai/sandbox-attachable-workspace=default",
+        "--label",
+        "ojp.test-id=ojp-20261024",
+        "ojp-20261024-interrupted-run"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-interrupted-run\n",
+      "stderr": "",
+      "seconds": 0.04074433399364352
+    },
+    {
+      "name": "start-delayed-daemon-provisioning",
+      "command": [
+        "docker",
+        "run",
+        "--detach",
+        "--name",
+        "ojp-20261024-interrupted",
+        "--privileged",
+        "--label",
+        "ojp.test-id=ojp-20261024",
+        "--label",
+        "ojp.owner=experiments/engines/interrupt-provision.py",
+        "--mount",
+        "type=volume,src=ojp-20261024-interrupted-run,dst=/var/run/ojp-docker-socket",
+        "--env",
+        "DOCKER_TLS_CERTDIR=",
+        "docker:29.8.2-dind@sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced",
+        "sh",
+        "-c",
+        "echo provisioning-start; sleep 30; exec dockerd --host=unix:///var/run/ojp-docker-socket/docker.sock"
+      ],
+      "exit_status": 0,
+      "stdout": "0062346f29c37eae8b60160d5a248f7ac9af9944483a9bb82f5fd6a9c7271090\n",
+      "stderr": "",
+      "seconds": 0.1334996250225231
+    },
+    {
+      "name": "interrupt-provisioning",
+      "command": [
+        "docker",
+        "kill",
+        "--signal=KILL",
+        "ojp-20261024-interrupted"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-interrupted\n",
+      "stderr": "",
+      "seconds": 0.1477223339898046
+    },
+    {
+      "name": "interrupted-container-remains",
+      "command": [
+        "docker",
+        "inspect",
+        "ojp-20261024-interrupted",
+        "--format",
+        "{{.Name}} {{.Id}} state={{.State.Status}} exit={{.State.ExitCode}} mounts={{json .Mounts}}"
+      ],
+      "exit_status": 0,
+      "stdout": "/ojp-20261024-interrupted 0062346f29c37eae8b60160d5a248f7ac9af9944483a9bb82f5fd6a9c7271090 state=exited exit=137 mounts=[{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"360d8d678a026d96d45957a5b1c4b522622527d93bcbbb91ba8e2e9df70a6ec1\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/360d8d678a026d96d45957a5b1c4b522622527d93bcbbb91ba8e2e9df70a6ec1/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/run/ojp-docker-socket\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-interrupted-run\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-interrupted-run/_data\",\"Type\":\"volume\"}]\n",
+      "stderr": "",
+      "seconds": 0.02361850001034327
+    },
+    {
+      "name": "interrupted-volume-remains",
+      "command": [
+        "docker",
+        "volume",
+        "inspect",
+        "ojp-20261024-interrupted-run",
+        "--format",
+        "{{.Name}} {{json .Labels}}"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-interrupted-run {\"ojp.test-id\":\"ojp-20261024\",\"openshell.ai/sandbox-attachable\":\"true\",\"openshell.ai/sandbox-attachable-workspace\":\"default\"}\n",
+      "stderr": "",
+      "seconds": 0.0177608749945648
+    },
+    {
+      "name": "interrupted-startup-logs",
+      "command": [
+        "docker",
+        "logs",
+        "ojp-20261024-interrupted"
+      ],
+      "exit_status": 0,
+      "stdout": "provisioning-start\n",
+      "stderr": "",
+      "seconds": 0.013898542005335912
+    },
+    {
+      "name": "cleanup-interrupted-container",
+      "command": [
+        "docker",
+        "rm",
+        "--force",
+        "--volumes",
+        "ojp-20261024-interrupted"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-interrupted\n",
+      "stderr": "",
+      "seconds": 0.06635537502006628
+    },
+    {
+      "name": "cleanup-interrupted-named-volume",
+      "command": [
+        "docker",
+        "volume",
+        "rm",
+        "ojp-20261024-interrupted-run"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-interrupted-run\n",
+      "stderr": "",
+      "seconds": 0.02140516697545536
+    },
+    {
+      "name": "post-cleanup-container-absence",
+      "command": [
+        "docker",
+        "inspect",
+        "ojp-20261024-interrupted"
+      ],
+      "exit_status": 1,
+      "stdout": "[]\n",
+      "stderr": "error: no such object: ojp-20261024-interrupted\n",
+      "seconds": 0.02082458298536949
+    },
+    {
+      "name": "post-cleanup-volume-absence",
+      "command": [
+        "docker",
+        "volume",
+        "inspect",
+        "ojp-20261024-interrupted-run"
+      ],
+      "exit_status": 1,
+      "stdout": "[]\n",
+      "stderr": "Error response from daemon: get ojp-20261024-interrupted-run: no such volume\n",
+      "seconds": 0.014357792009832337
+    }
+  ]
+}

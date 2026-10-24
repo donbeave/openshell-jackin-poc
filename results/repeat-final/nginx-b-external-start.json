@@ -1,0 +1,12 @@
+{
+  "command": [
+    "sh",
+    "-c",
+    "docker exec ojp-20261024-engine-b docker run -d --name ojp-rpt2-egress -p 15433:80 ojp-20261024-rpt2-compose:local"
+  ],
+  "utc": "2026-10-23T22:36:37.626830+00:00",
+  "exit_status": 0,
+  "stdout": "364ae6a05b14790905b4699e09cacceaf69c67b529d34c24f00a0442caaf8604\n",
+  "stderr": "",
+  "seconds": 0.11718645799555816
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/homebrew/opt/openshell/bin/openshell-gateway",
+    "config",
+    "preflight",
+    "--path",
+    "experiments/gateway-vm/gateway.toml"
+  ],
+  "utc": "2026-10-23T22:41:53.928272+00:00",
+  "exit_status": 0,
+  "stdout": "VM host tool mke2fs: /opt/homebrew/Cellar/e2fsprogs/1.47.4/sbin/mke2fs (1.47.4)\nVM host tool debugfs: /opt/homebrew/Cellar/e2fsprogs/1.47.4/sbin/debugfs (1.47.4)\nVM host tool e2fsck: /opt/homebrew/Cellar/e2fsprogs/1.47.4/sbin/e2fsck (1.47.4)\n",
+  "stderr": "",
+  "seconds": 0.043968374986434355
+}

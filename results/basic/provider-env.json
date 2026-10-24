@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-basic",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "test -n \"$ANTHROPIC_API_KEY\"; echo injected=$?; test \"$ANTHROPIC_API_KEY\" != harmless-test-value; echo actual_value_hidden=$?"
+  ],
+  "utc": "2026-10-23T22:21:42.433744+00:00",
+  "exit_status": 0,
+  "stdout": "injected=0\nactual_value_hidden=0\n",
+  "stderr": "",
+  "seconds": 0.041333708009915426
+}

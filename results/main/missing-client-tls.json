@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "import ssl,socket; c=ssl.create_default_context(cafile=\"/workspace/ojp-tls/client/ca.pem\"); s=c.wrap_socket(socket.create_connection((\"host.docker.internal\",18776),timeout=5),server_hostname=\"host.docker.internal\"); s.sendall(b\"GET /version HTTP/1.0\\r\\nHost: host.docker.internal:18776\\r\\n\\r\\n\"); print(s.recv(1024))"
+  ],
+  "utc": "2026-10-23T22:33:54.267517+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import ssl,socket; c=ssl.create_default_context(cafile=\"/workspace/ojp-tls/client/ca.pem\"); s=c.wrap_socket(socket.create_connection((\"host.docker.internal\",18776),timeout=5),server_hostname=\"host.docker.internal\"); s.sendall(b\"GET /version HTTP/1.0\\r\\nHost: host.docker.internal:18776\\r\\n\\r\\n\"); print(s.recv(1024))\n                                                                                                  ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/ssl.py\", line 455, in wrap_socket\n    return self.sslsocket_class._create(\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n        sock=sock,\n        ^^^^^^^^^^\n    ...<5 lines>...\n        session=session\n        ^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/usr/lib/python3.13/ssl.py\", line 1076, in _create\n    self.do_handshake()\n    ~~~~~~~~~~~~~~~~~^^\n  File \"/usr/lib/python3.13/ssl.py\", line 1372, in do_handshake\n    self._sslobj.do_handshake()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~^^\nssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Missing Authority Key Identifier (_ssl.c:1029)\n",
+  "seconds": 0.0821497089928016
+}

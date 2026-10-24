@@ -1,0 +1,12 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "gateway",
+    "info"
+  ],
+  "utc": "2026-10-23T22:46:58.283596+00:00",
+  "exit_status": 0,
+  "stdout": "Gateway Info\n\n  Gateway: ojp-20261024-vm\n  Server: https://localhost:18771\n  Status: healthy\n  Version: 0.1.5\n  Compute drivers:\n    vm\n      Driver name: openshell-driver-vm\n      Driver version: 0.1.5\n  Extensions:\n    vm (compute-driver)\n      Implementation: openshell/vm 0.1.5 (protocol 1.0)\n      Capabilities: openshell.compute.contract\n      Requires gateway: openshell.compute.contract, openshell.compute.launch-authentication\n    openshell-driver-db-credstore (credential-driver)\n      Implementation: openshell/openshell-driver-db-credstore 0.1.5 (protocol 1.0)\n      Capabilities: openshell.credentials.contract\n      Requires gateway: openshell.credentials.contract\n    openshell/regex (supervisor-middleware)\n      Implementation: openshell/regex 0.1.5 (protocol 1.0)\n      Capabilities: openshell.supervisor-middleware.contract\n      Requires gateway: openshell.supervisor-middleware.contract\n",
+  "stderr": "",
+  "seconds": 0.05969549997826107
+}

@@ -1,0 +1,13 @@
+{
+  "command": [
+    "curl",
+    "--max-time",
+    "5",
+    "http://127.0.0.1:18100"
+  ],
+  "utc": "2026-10-23T22:37:43.626407+00:00",
+  "exit_status": 7,
+  "stdout": "",
+  "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\ncurl: (7) Failed to connect to 127.0.0.1 port 18100 after 0 ms: Couldn't connect to server\n",
+  "seconds": 0.00812875002156943
+}

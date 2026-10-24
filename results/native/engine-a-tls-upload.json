@@ -1,0 +1,21 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "ojp-20261024-rust",
+    "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client",
+    "/workspace/ojp-tls"
+  ],
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Warning: /Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client is outside a Git work tree; uploading without Git filtering (.gitignore rules are not applied).\nUploading /Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client -> sandbox:/workspace/ojp-tls\n\u2713 Upload complete: /workspace/ojp-tls/client\n",
+  "uploaded_files": [
+    "ca.pem",
+    "cert.pem",
+    "key.pem"
+  ],
+  "secret_contents_recorded": false,
+  "uploaded_utc": "2026-10-23T22:31:36.205358+00:00"
+}

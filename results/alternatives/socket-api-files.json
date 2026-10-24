@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-soc",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "docker version; printf unix-agent > /sandbox/ojp-project/unix-file; docker run --rm --mount type=bind,src=/sandbox/ojp-project,dst=/project nginx:1.29.3-alpine cat /project/unix-file"
+  ],
+  "utc": "2026-10-23T22:32:12.882652+00:00",
+  "exit_status": 125,
+  "stdout": "Client:\n Version:           29.9.2\n API version:       1.56\n Go version:        go1.26.10\n Git commit:        a82e528\n Built:             Tue Oct 20 18:43:37 2026\n OS/Arch:           linux/arm64\n Context:           default\n\nServer: Docker Engine - Community\n Engine:\n  Version:          29.8.2\n  API version:      1.56 (minimum version 1.40)\n  Go version:       go1.26.8\n  Git commit:       8af9fe3\n  Built:            Wed Sep 30 19:32:49 2026\n  OS/Arch:          linux/arm64\n  Experimental:     false\n containerd:\n  Version:          v2.3.6\n  GitCommit:        ee2735368117d2eb259779949d5e75cdafec9761\n runc:\n  Version:          1.5.2\n  GitCommit:        v1.5.2-0-g29dd3dc\n docker-init:\n  Version:          0.19.0\n  GitCommit:        de40ad0\n",
+  "stderr": "docker: Error response from daemon: invalid mount config for type \"bind\": bind source path does not exist: /sandbox/ojp-project\n\nRun 'docker run --help' for more information\n",
+  "seconds": 0.12574458299786784
+}

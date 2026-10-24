@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-root2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "id; ls -l /workspace; cat /workspace/rootless.log; ps"
+  ],
+  "utc": "2026-10-23T22:32:11.435352+00:00",
+  "exit_status": 0,
+  "stdout": "uid=1000(rootless) gid=1000(rootless) groups=1000(rootless)\nPID   USER     TIME  COMMAND\n    1 rootless  0:00 /.openshell/runtime/openshell-sandbox --bootstrap /.openshell/channel/sandbox/bootstrap.json\n   55 rootless  0:00 sleep infinity\n   66 rootless  0:00 ps\n",
+  "stderr": "ls: /workspace: No such file or directory\ncat: can't open '/workspace/rootless.log': No such file or directory\n",
+  "seconds": 0.06462487499811687
+}

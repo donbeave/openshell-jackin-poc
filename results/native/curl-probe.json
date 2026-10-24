@@ -1,0 +1,22 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--timeout",
+    "10",
+    "--",
+    "/usr/bin/curl",
+    "-sS",
+    "-i",
+    "--max-time",
+    "5",
+    "http://host.docker.internal:15432/"
+  ],
+  "exit_status": 0,
+  "stdout": "HTTP/1.1 200 OK\nServer: nginx/1.29.3\nDate: Fri, 23 Oct 2026 22:32:40 GMT\nContent-Type: text/html\nContent-Length: 615\nLast-Modified: Tue, 28 Oct 2025 16:30:38 GMT\nConnection: keep-alive\nETag: \"6900efae-267\"\nAccept-Ranges: bytes\n\n<!DOCTYPE html>\n<html>\n<head>\n<title>Welcome to nginx!</title>\n<style>\nhtml { color-scheme: light dark; }\nbody { width: 35em; margin: 0 auto;\nfont-family: Tahoma, Verdana, Arial, sans-serif; }\n</style>\n</head>\n<body>\n<h1>Welcome to nginx!</h1>\n<p>If you see this page, the nginx web server is successfully installed and\nworking. Further configuration is required.</p>\n\n<p>For online documentation and support please refer to\n<a href=\"http://nginx.org/\">nginx.org</a>.<br/>\nCommercial support is available at\n<a href=\"http://nginx.com/\">nginx.com</a>.</p>\n\n<p><em>Thank you for using nginx.</em></p>\n</body>\n</html>\n",
+  "stderr": ""
+}

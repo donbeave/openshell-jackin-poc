@@ -1,0 +1,78 @@
+[
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--",
+      "pwd"
+    ],
+    "exit_status": 0,
+    "stdout": "/workspace/rust-project\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--",
+      "mise",
+      "exec",
+      "--",
+      "cargo",
+      "--version"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "mise by @jdx \u2013 installing 2 tools\nmise \u2717 mr-boxington@1.27.0  101ms \u00b7 failed: fetching the release list of packslip:github.com/jdx/mr-boxington\nmise rust@1.99.1 info: syncing channel updates for 1.99.1-aarch64-unknown-linux-gnu\nmise rust@1.99.1 error: could not download file from 'https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256' to '/workspace/.rustup/tmp/dat3g2cc845jwomn_file': error downloading file: error sending request for url (https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256): client error (Connect): tcp connect error: Permission denied (os error 13)\nmise ERROR /usr/local/cargo/bin/rustup failed\nmise \u2717 rust@1.99.1          114ms \u00b7 failed: /usr/local/cargo/bin/rustup exited with non-zero status: exit code 1; last stderr: error: could not download file from 'https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256' to '/workspace/.rustup/tmp/dat3g2cc845jwomn_file': error downloading file: error sending request for url (https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256): client error (Connect)\u2026\nmise \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 2/2 \u00b7 installed 0 tools \u00b7 2 failed in 115ms\nmise ERROR Failed to install tools: core:rust@1.99.1, packslip:github.com/jdx/mr-boxington@1.27.0\n\ncore:rust@1.99.1: /usr/local/cargo/bin/rustup exited with non-zero status: exit code 1; last stderr: error: could not download file from 'https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256' to '/workspace/.rustup/tmp/dat3g2cc845jwomn_file': error downloading file: error sending request for url (https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256): client error (Connect)\u2026\n\npackslip:github.com/jdx/mr-boxington@1.27.0: fetching the release list of packslip:github.com/jdx/mr-boxington: error sending request: client error (Connect): tcp connect error: Permission denied (os error 13)\nmise ERROR Version: 2026.10.18 linux-arm64 (2026-10-23)\nmise ERROR Run with --verbose or MISE_VERBOSE=1 for more information\n"
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--",
+      "mise",
+      "exec",
+      "--",
+      "cargo-nextest",
+      "--version"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "mise by @jdx \u2013 installing 2 tools\nmise \u2717 mr-boxington@1.27.0  8ms \u00b7 failed: fetching the release list of packslip:github.com/jdx/mr-boxington\nmise rust@1.99.1 info: syncing channel updates for 1.99.1-aarch64-unknown-linux-gnu\nmise rust@1.99.1 error: could not download file from 'https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256' to '/workspace/.rustup/tmp/ki2weasah9tc_gxw_file': error downloading file: error sending request for url (https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256): client error (Connect): tcp connect error: Permission denied (os error 13)\nmise ERROR /usr/local/cargo/bin/rustup failed\nmise \u2717 rust@1.99.1          18ms \u00b7 failed: /usr/local/cargo/bin/rustup exited with non-zero status: exit code 1; last stderr: error: could not download file from 'https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256' to '/workspace/.rustup/tmp/ki2weasah9tc_gxw_file': error downloading file: error sending request for url (https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256): client error (Connect)\u2026\nmise \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 2/2 \u00b7 installed 0 tools \u00b7 2 failed in 19ms\nmise ERROR Failed to install tools: core:rust@1.99.1, packslip:github.com/jdx/mr-boxington@1.27.0\n\ncore:rust@1.99.1: /usr/local/cargo/bin/rustup exited with non-zero status: exit code 1; last stderr: error: could not download file from 'https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256' to '/workspace/.rustup/tmp/ki2weasah9tc_gxw_file': error downloading file: error sending request for url (https://static.rust-lang.org/dist/channel-rust-1.99.1.toml.sha256): client error (Connect)\u2026\n\npackslip:github.com/jdx/mr-boxington@1.27.0: fetching the release list of packslip:github.com/jdx/mr-boxington: error sending request: client error (Connect): tcp connect error: Permission denied (os error 13)\nmise ERROR Version: 2026.10.18 linux-arm64 (2026-10-23)\nmise ERROR Run with --verbose or MISE_VERBOSE=1 for more information\n"
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-v2",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--",
+      "id"
+    ],
+    "exit_status": 0,
+    "stdout": "uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)\n",
+    "stderr": ""
+  }
+]

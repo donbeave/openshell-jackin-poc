@@ -1,0 +1,325 @@
+{
+  "captured_at": "2026-10-23T22:36:18.586427+00:00",
+  "gateway": "ojp-20261024 (sandbox_label=ojp-20261024)",
+  "query": "Docker containers whose name contains ojp-20261024 and label openshell.ai/sandbox-namespace=default; current gateway SQLite sandbox objects by sandbox_name",
+  "containers": [
+    {
+      "id": "7eba7e0616dfeace385685c081ba3794ab4222c30ac0eb59c4f085097d181b71",
+      "name": "openshell-default--ojp-20261024-alt-2c4b1a14-4fa5-4c93-a08d-3be5c205070c",
+      "status": "exited",
+      "exit_code": 1,
+      "image_id": "sha256:ca59185dab97df1dd2d5e3bc7019c4ccbc21b7761faab717892e0171894ca71d",
+      "image_tag": "sha256:ca59185dab97df1dd2d5e3bc7019c4ccbc21b7761faab717892e0171894ca71d",
+      "sandbox_name": "ojp-20261024-alt",
+      "sandbox_id": "2c4b1a14-4fa5-4c93-a08d-3be5c205070c",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-91fc1757500ffd8e6f7f65273431dc7e",
+          "source": "/var/lib/docker/volumes/openshell-channel-91fc1757500ffd8e6f7f65273431dc7e/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "5beba59ce8d2327124ea56eeb77200a54bc97ccb0db5e01987236f5de37b0ee6",
+      "name": "openshell-default--ojp-20261024-gwe-ff9df7a5-025f-4930-a459-6a2e5dfb1dcb",
+      "status": "exited",
+      "exit_code": 137,
+      "image_id": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "image_tag": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "sandbox_name": "ojp-20261024-gwe",
+      "sandbox_id": "ff9df7a5-025f-4930-a459-6a2e5dfb1dcb",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-465fd3f518993ae5a0de379b13f3a31c",
+          "source": "/var/lib/docker/volumes/openshell-channel-465fd3f518993ae5a0de379b13f3a31c/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        },
+        {
+          "type": "volume",
+          "name": "ojp-20261024-gwvol",
+          "source": "/var/lib/docker/volumes/ojp-20261024-gwvol/_data",
+          "destination": "/workspace/ojp-project",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "d16f82ff7dfca13b79d2230ad0df7318ea482e666fce1a8b55529fc2d7bd3abb",
+      "name": "openshell-default--ojp-20261024-v2-4e6b4b01-3e35-4044-af23-e327a210f20f",
+      "status": "exited",
+      "exit_code": 1,
+      "image_id": "sha256:00dcc0484704bc58cd1771ea3fc34011df9e3c500c1b5496670661ac82ac5133",
+      "image_tag": "sha256:00dcc0484704bc58cd1771ea3fc34011df9e3c500c1b5496670661ac82ac5133",
+      "sandbox_name": "ojp-20261024-v2",
+      "sandbox_id": "4e6b4b01-3e35-4044-af23-e327a210f20f",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-01969ff45e45c154680cfe2c4715046b",
+          "source": "/var/lib/docker/volumes/openshell-channel-01969ff45e45c154680cfe2c4715046b/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "c1ff8bdc9771359b10d725e021971471f8d7c8a3e35e02226a224d545fe721ab",
+      "name": "openshell-default--ojp-20261024-gwi-ec1a3948-711a-4a02-83ef-7e2b996c39c5",
+      "status": "exited",
+      "exit_code": 1,
+      "image_id": "sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28",
+      "image_tag": "sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28",
+      "sandbox_name": "ojp-20261024-gwi",
+      "sandbox_id": "ec1a3948-711a-4a02-83ef-7e2b996c39c5",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-3db5fcf5d2db1c33352259606caca652",
+          "source": "/var/lib/docker/volumes/openshell-channel-3db5fcf5d2db1c33352259606caca652/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "187b8f89c6e3e22b9a564ecceb0ff668f2959c903eac79ba8e564ca243cb19a1",
+      "name": "openshell-default--ojp-20261024-as-80f84ae5-4051-458e-be3e-ac245df83f41",
+      "status": "exited",
+      "exit_code": 137,
+      "image_id": "sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28",
+      "image_tag": "sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28",
+      "sandbox_name": "ojp-20261024-as",
+      "sandbox_id": "80f84ae5-4051-458e-be3e-ac245df83f41",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-4b3aba91b96dc3a726f41b90d57ad770",
+          "source": "/var/lib/docker/volumes/openshell-channel-4b3aba91b96dc3a726f41b90d57ad770/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        },
+        {
+          "type": "volume",
+          "name": "ojp-20261024-engine-a-project",
+          "source": "/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data",
+          "destination": "/sandbox/ojp-project",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "7401f86f5b35ec428267904e729e53edb01aecfba598c438631c1aeed80b657e",
+      "name": "openshell-default--ojp-20261024-gwp-d55e79be-fce0-4578-9b05-b4dcee479e46",
+      "status": "exited",
+      "exit_code": 1,
+      "image_id": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "image_tag": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "sandbox_name": "ojp-20261024-gwp",
+      "sandbox_id": "d55e79be-fce0-4578-9b05-b4dcee479e46",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-9851eac564b3cdf83f22445033a6c415",
+          "source": "/var/lib/docker/volumes/openshell-channel-9851eac564b3cdf83f22445033a6c415/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "a3b81d87c1cf23d0311cec13a5c9a80fcfe7178afc0adb3f0ecbe206b9474323",
+      "name": "openshell-default--ojp-20261024-gws-74a977b6-02da-4736-b223-9035240ad02e",
+      "status": "exited",
+      "exit_code": 137,
+      "image_id": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "image_tag": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "sandbox_name": "ojp-20261024-gws",
+      "sandbox_id": "74a977b6-02da-4736-b223-9035240ad02e",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-7fd3fdb149e57de5702d70c3106ddc01",
+          "source": "/var/lib/docker/volumes/openshell-channel-7fd3fdb149e57de5702d70c3106ddc01/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        },
+        {
+          "type": "volume",
+          "name": "ojp-20261024-engine-a-project",
+          "source": "/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data",
+          "destination": "/sandbox/ojp-project",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "4d4c5c732d46b1b26ce8ead8d857654536352976082a197fe1043175b8b136aa",
+      "name": "openshell-default--ojp-20261024-ah-0810ba53-94b8-462d-9e1e-bb2a30b8d47a",
+      "status": "exited",
+      "exit_code": 137,
+      "image_id": "sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28",
+      "image_tag": "sha256:3c8848ef8634309a7b42fd386756bf43c209bfb83c3cc0bc8a85434907b5eb28",
+      "sandbox_name": "ojp-20261024-ah",
+      "sandbox_id": "0810ba53-94b8-462d-9e1e-bb2a30b8d47a",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-8881e38c027845f5294c58333d7aee9c",
+          "source": "/var/lib/docker/volumes/openshell-channel-8881e38c027845f5294c58333d7aee9c/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        },
+        {
+          "type": "volume",
+          "name": "ojp-20261024-engine-a-project",
+          "source": "/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data",
+          "destination": "/workspace/ojp-project",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "448c496d66b62a97474f2d522e11759e353b863072de5dd7e785aaf0e716adbd",
+      "name": "openshell-default--ojp-20261024-gwn-1cb3d98b-8a41-4901-9e61-6747ff0b9e02",
+      "status": "exited",
+      "exit_code": 1,
+      "image_id": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "image_tag": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "sandbox_name": "ojp-20261024-gwn",
+      "sandbox_id": "1cb3d98b-8a41-4901-9e61-6747ff0b9e02",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-82268a40c5ee215f6a0d3a6858b64f22",
+          "source": "/var/lib/docker/volumes/openshell-channel-82268a40c5ee215f6a0d3a6858b64f22/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "a2ad300c01d86096987bb6d177e254f83bb0de70ac7441a3de2340daa6c7342b",
+      "name": "openshell-default--ojp-20261024-gwm-cb33e5c3-bea5-4848-9585-022041f0ec86",
+      "status": "exited",
+      "exit_code": 137,
+      "image_id": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "image_tag": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "sandbox_name": "ojp-20261024-gwm",
+      "sandbox_id": "cb33e5c3-bea5-4848-9585-022041f0ec86",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-dda36185be225b7acc9ba89f37f284b0",
+          "source": "/var/lib/docker/volumes/openshell-channel-dda36185be225b7acc9ba89f37f284b0/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        },
+        {
+          "type": "volume",
+          "name": "ojp-20261024-engine-a-project",
+          "source": "/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data",
+          "destination": "/workspace/ojp-project",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "3dea180fbcea7f9eb0220c68b1ded8a0d7b0490a7912ee0f85a0249e276b9907",
+      "name": "openshell-default--ojp-20261024-gwd-7931df0b-f18d-44c6-880c-43968f3b769c",
+      "status": "exited",
+      "exit_code": 137,
+      "image_id": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "image_tag": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "sandbox_name": "ojp-20261024-gwd",
+      "sandbox_id": "7931df0b-f18d-44c6-880c-43968f3b769c",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-4ee2ca3a92cab70743bb62d4356bad32",
+          "source": "/var/lib/docker/volumes/openshell-channel-4ee2ca3a92cab70743bb62d4356bad32/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        },
+        {
+          "type": "volume",
+          "name": "ojp-20261024-engine-a-project",
+          "source": "/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data",
+          "destination": "/workspace/ojp-project",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    },
+    {
+      "id": "625659b88624a0f6c3a52cbcc33e76d8c78ea486f5a5e5a5cf50a2c600842b48",
+      "name": "openshell-default--ojp-20261024-basic-c400f7d7-4955-4359-8def-c362900e3f18",
+      "status": "exited",
+      "exit_code": 1,
+      "image_id": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "image_tag": "sha256:e6da050ff5fec47de2c997ec10ea8f52b9a80af20594e5078d5131ec51f611d8",
+      "sandbox_name": "ojp-20261024-basic",
+      "sandbox_id": "c400f7d7-4955-4359-8def-c362900e3f18",
+      "isolation_role": "sandbox",
+      "managed_by": "openshell",
+      "namespace_label": "default",
+      "mounts": [
+        {
+          "type": "volume",
+          "name": "openshell-channel-52b902bb43e40d1ea2e691b0a39c674b",
+          "source": "/var/lib/docker/volumes/openshell-channel-52b902bb43e40d1ea2e691b0a39c674b/_data",
+          "destination": "/.openshell/channel",
+          "rw": true
+        }
+      ],
+      "api_record_present": false
+    }
+  ]
+}

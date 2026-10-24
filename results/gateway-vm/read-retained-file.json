@@ -1,0 +1,18 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "cat /sandbox/ojp-project/rust-project/vm-retained.txt; sha256sum /sandbox/ojp-project/rust-project/vm-retained.txt"
+  ],
+  "utc": "2026-10-23T22:44:47.693489+00:00",
+  "exit_status": 0,
+  "stdout": "vm-retained-proof3c181b2f9f8333addf46a991333a2e474fff87d8a32ae74943ce73160544e008  /sandbox/ojp-project/rust-project/vm-retained.txt\n",
+  "stderr": "",
+  "seconds": 0.03997591699589975
+}

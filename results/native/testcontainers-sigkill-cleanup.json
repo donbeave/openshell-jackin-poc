@@ -1,0 +1,61 @@
+{
+  "label": "testcontainers-remote-harness-sigkill-cleanup",
+  "result": "FAIL",
+  "mechanism": "EXTERNAL FIXTURE",
+  "resource_owner": "Engine A; cleanup by experiment operator",
+  "container_id": "3a62d4d0d966ba479b4ed21b6bd4c07306d3fd4e50955b160110c32a3010a764",
+  "records": [
+    {
+      "label": "hold-test-start",
+      "command": "sh experiments/os.sh sandbox exec ojp-20261024-rust --no-login-shell --tty --workdir /workspace/rust-project -- env TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal OJP_HOLD=1 mise exec -- cargo nextest run --test redis_container --offline --no-capture",
+      "exit_status": "interrupted after remote harness SIGKILL",
+      "stdout": "Nextest run ID fbb0c2e7-8947-4a8a-8ea7-40acbbfa5154; running 1 test; Docker reported host=host.docker.internal port=18081; test endpoint=host.docker.internal:18081",
+      "stderr": "",
+      "result": "test exchanged data and entered 600 second hold"
+    },
+    {
+      "label": "pre-kill-process-probe",
+      "command": "sh experiments/os.sh sandbox exec ojp-20261024-rust --no-login-shell -- sh -lc 'ps -eo pid,ppid,args | rg \"redis_container-bfe37d7068280b00 --exact\"'",
+      "exit_status": 0,
+      "stdout": "2711 2682 /workspace/rust-project/target/debug/deps/redis_container-bfe37d7068280b00 --exact testcontainers_starts_redis_and_exchanges_data --nocapture\n2735 1 sh -lc ps ...\n2742 2735 rg ...",
+      "stderr": ""
+    },
+    {
+      "label": "pre-kill-engine-a-inspection",
+      "command": "sh experiments/os.sh sandbox exec ojp-20261024-rust --no-login-shell -- docker ps -a --no-trunc",
+      "exit_status": 0,
+      "stdout": "3a62d4d0d966ba479b4ed21b6bd4c07306d3fd4e50955b160110c32a3010a764 redis:7.4-alpine Up 4 seconds 0.0.0.0:18081->6379/tcp affectionate_herschel\ne7bfd29ff469ff4c22819d9eb584f7a41512d80abb63962cc04a6348a9518d7e ojp-20261024-agent:2.1.310-poc-v3 Up 3 minutes ojp-20261024-rust-child\n89198e22a8fe066f4339d4d1e45e08093d0ed331d4aa63f22767238bcdb4c1f7 redis:7.4-alpine Up 4 minutes ojp-h-owned-child\n611b5f9c956c89d566094210ae68475f785ec5485d2f4e1f34860ab73b6519f0 nginx:1.29.3-alpine Up 17 minutes ojp-native-http",
+      "stderr": ""
+    },
+    {
+      "label": "kill-test-harness",
+      "command": "sh experiments/os.sh sandbox exec ojp-20261024-rust --no-login-shell -- sh -lc 'kill -KILL 2711; sleep 1; ps -p 2711 -o pid,ppid,stat,cmd || true'",
+      "exit_status": 0,
+      "stdout": "PID PPID STAT CMD\n",
+      "stderr": ""
+    },
+    {
+      "label": "test-client-result-after-sigkill",
+      "command": "local sandbox exec PTY session 57773; Ctrl-C closed stream after remote SIGKILL",
+      "exit_status": "1 (nextest SIGKILL)",
+      "stdout": "SIGKILL [6.983s] runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data\nCancelling due to test failure\nSummary: 1 test run: 0 passed, 1 failed, 0 skipped\nerror: test run failed",
+      "stderr": ""
+    },
+    {
+      "label": "post-kill-engine-a-inspection",
+      "command": "sh experiments/os.sh sandbox exec ojp-20261024-rust --no-login-shell -- docker ps -a --no-trunc",
+      "exit_status": 0,
+      "stdout": "3a62d4d0d966ba479b4ed21b6bd4c07306d3fd4e50955b160110c32a3010a764 redis:7.4-alpine Up 7 seconds 0.0.0.0:18081->6379/tcp affectionate_herschel\ne7bfd29ff469ff4c22819d9eb584f7a41512d80abb63962cc04a6348a9518d7e ojp-20261024-agent:2.1.310-poc-v3 Up 3 minutes ojp-20261024-rust-child\n89198e22a8fe066f4339d4d1e45e08093d0ed331d4aa63f22767238bcdb4c1f7 redis:7.4-alpine Up 4 minutes ojp-h-owned-child\n611b5f9c956c89d566094210ae68475f785ec5485d2f4e1f34860ab73b6519f0 nginx:1.29.3-alpine Up 17 minutes ojp-native-http",
+      "stderr": ""
+    },
+    {
+      "label": "fixture-only-cleanup",
+      "command": "sh experiments/os.sh sandbox exec ojp-20261024-rust --no-login-shell --timeout 30 -- docker rm -f 3a62d4d0d966ba479b4ed21b6bd4c07306d3fd4e50955b160110c32a3010a764",
+      "exit_status": 0,
+      "stdout": "3a62d4d0d966ba479b4ed21b6bd4c07306d3fd4e50955b160110c32a3010a764",
+      "stderr": ""
+    }
+  ],
+  "conclusion": "Killing the actual test harness bypassed Rust Drop. Testcontainers Redis remained running on Engine A at port 18081; no automatic daemon-side cleanup occurred. The outer sandbox exec client remained connected until nextest reported SIGKILL.",
+  "captured_utc": "2026-10-23T22:44:15.712676+00:00"
+}

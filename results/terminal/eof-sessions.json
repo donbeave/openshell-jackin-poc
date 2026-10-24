@@ -1,0 +1,92 @@
+[
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-tty",
+      "--tty",
+      "--no-login-shell",
+      "--",
+      "bash",
+      "--noprofile",
+      "--norc",
+      "-i"
+    ],
+    "steps": [
+      [
+        "input",
+        "b'echo OJP_INPUT_OK\\n'"
+      ],
+      [
+        "resize",
+        "(33, 101)"
+      ],
+      [
+        "input",
+        "b'stty size\\n'"
+      ],
+      [
+        "input",
+        "b'sleep 30\\n'"
+      ],
+      [
+        "input",
+        "b'\\x03'"
+      ],
+      [
+        "input",
+        "b'echo OJP_INTERRUPT_OK\\n'"
+      ],
+      [
+        "input",
+        "b'exit\\n'"
+      ]
+    ],
+    "exit_status": 0,
+    "output": "\u001b[?2004hbash-5.2$ echo OJP_INPUT_OK\r\n\u001b[?2004l\rOJP_INPUT_OK\r\n\u001b[?2004hbash-5.2$ \r\u001b[K\rbash-5.2$ stty size\r\n\u001b[?2004l\r33 101\r\n\u001b[?2004hbash-5.2$ sleep 30\r\n\u001b[?2004l\r^C\r\n\u001b[?2004hbash-5.2$ echo OJP_INTERRUPT_OK\r\n\u001b[?2004l\rOJP_INTERRUPT_OK\r\n\u001b[?2004hbash-5.2$ exit\r\n\u001b[?2004l\rexit\r\n"
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "connect",
+      "ojp-20261024-tty"
+    ],
+    "steps": [
+      [
+        "input",
+        "b'echo OJP_CONNECT_OK\\n'"
+      ],
+      [
+        "input",
+        "b'\\x04'"
+      ]
+    ],
+    "exit_status": 0,
+    "output": "\u001b[?2004hbash-5.2$ \r\u001b[K\rbash-5.2$ echo OJP_CONNECT_OK\r\n\u001b[?2004l\rOJP_CONNECT_OK\r\n\u001b[?2004h\r"
+  },
+  {
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "connect",
+      "ojp-20261024-tty"
+    ],
+    "steps": [
+      [
+        "input",
+        "b'echo OJP_CONNECT_OK\\n'"
+      ],
+      [
+        "input",
+        "b'\\x04'"
+      ]
+    ],
+    "exit_status": 0,
+    "output": "\u001b[?2004hbash-5.2$ \r\u001b[K\rbash-5.2$ echo OJP_CONNECT_OK\r\n\u001b[?2004l\rOJP_CONNECT_OK\r\n\u001b[?2004h\r\r\n\u001b[?2004l\rOJP_CONNECT_OK\r\n\u001b[?2004h\r"
+  }
+]

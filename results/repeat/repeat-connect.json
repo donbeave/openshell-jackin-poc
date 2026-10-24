@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "experiments/repeat/connect.py"
+  ],
+  "utc": "2026-10-23T22:23:42.419578+00:00",
+  "exit_status": 0,
+  "stdout": "[\n  {\n    \"attempt\": 1,\n    \"detached\": false,\n    \"exit_status\": 143,\n    \"seconds\": 20.076553874998353,\n    \"output\": \"\\u001b[?2004hbash-5.2$ \\r\\u001b[K\\rbash-5.2$ echo OJP_RECONNECT_0\\r\\n\\u001b[?2004l\\rOJP_RECONNECT_0\\r\\n\\u001b[?2004h\\r\"\n  },\n  {\n    \"attempt\": 2,\n    \"detached\": false,\n    \"exit_status\": 143,\n    \"seconds\": 20.10295195900835,\n    \"output\": \"\\u001b[?2004hbash-5.2$ \\r\\u001b[K\\rbash-5.2$ echo OJP_RECONNECT_0\\r\\n\\u001b[?2004l\\rOJP_RECONNECT_0\\r\\n\\u001b[?2004h\\r\\r\\n\\u001b[?2004l\\rOJP_RECONNECT_1\\r\\n\\u001b[?2004h\\r\"\n  }\n]\n",
+  "stderr": "",
+  "seconds": 40.20543249999173
+}

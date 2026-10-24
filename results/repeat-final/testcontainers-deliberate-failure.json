@@ -1,0 +1,31 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/rust-project",
+    "--timeout",
+    "60",
+    "--no-login-shell",
+    "--env",
+    "OJP_TEST_FAILURE=1",
+    "--",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "nextest",
+    "run",
+    "--test",
+    "redis_container",
+    "--no-capture"
+  ],
+  "utc": "2026-10-23T22:39:34.550443+00:00",
+  "exit_status": 100,
+  "stdout": "\nrunning 1 test\ntest testcontainers_starts_redis_and_exchanges_data ... Docker reported host=host.docker.internal port=18089; test endpoint=host.docker.internal:18089\nFAILED\n\nfailures:\n\nfailures:\n    testcontainers_starts_redis_and_exchanges_data\n\ntest result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.74s\n\n",
+  "stderr": "    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n Nextest run ID 6e496642-43c2-4f39-a1ca-83550e227679 with nextest profile: default\n    Starting 1 test across 1 binary\n       START [         ] (1/1) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data\n\nthread 'testcontainers_starts_redis_and_exchanges_data' (5751) panicked at tests/redis_container.rs:25:9:\nintentional Testcontainers cleanup probe failure\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n        FAIL [   0.740s] (1/1) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data\n  Cancelling due to test failure\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n     Summary [   0.741s] 1 test run: 0 passed, 1 failed, 0 skipped\n        FAIL [   0.740s] (1/1) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data\nerror: test run failed\n",
+  "seconds": 1.1829601249773987
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "label": "upload-source",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "upload",
+      "--no-git-ignore",
+      "ojp-20261024-rust",
+      "/Users/example/openshell-jackin-poc/experiments/rust-project/src/bin/native-egress.rs",
+      "/workspace/rust-project/src/bin/native-egress.rs"
+    ],
+    "exit_status": 0,
+    "seconds": 0.199,
+    "stdout": "",
+    "stderr": "Uploading /Users/example/openshell-jackin-poc/experiments/rust-project/src/bin/native-egress.rs -> sandbox:/workspace/rust-project/src/bin/native-egress.rs\n\u2713 Upload complete: /workspace/rust-project/src/bin/native-egress.rs\n",
+    "captured_utc": "2026-10-23T22:33:27.855190+00:00"
+  },
+  {
+    "label": "build-same-workaround-path",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--workdir",
+      "/workspace/rust-project",
+      "--timeout",
+      "300",
+      "--",
+      "mise",
+      "exec",
+      "--",
+      "cargo",
+      "build",
+      "--bin",
+      "native-egress",
+      "--offline",
+      "--target-dir",
+      "/workspace/rust-project/native-target"
+    ],
+    "exit_status": 0,
+    "seconds": 0.394,
+    "stdout": "",
+    "stderr": "   Compiling runtime-probe v0.1.0 (/workspace/rust-project)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.25s\nmbx[cache]: 0 hits, 1 misses, 1 incremental; 0 B downloaded, 0 B uploaded, 0 B stored locally\n",
+    "captured_utc": "2026-10-23T22:33:28.249536+00:00"
+  },
+  {
+    "label": "hash-after-source-change",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--",
+      "sha256sum",
+      "/workspace/rust-project/native-target/debug/native-egress"
+    ],
+    "exit_status": 0,
+    "seconds": 0.066,
+    "stdout": "9e93da75cd18490beef37e2bcf57d948e40d213f86955f89eec3e6d92131cade  /workspace/rust-project/native-target/debug/native-egress\n",
+    "stderr": "",
+    "captured_utc": "2026-10-23T22:33:28.315621+00:00"
+  },
+  {
+    "label": "run-after-source-change",
+    "command": [
+      "sh",
+      "experiments/os.sh",
+      "sandbox",
+      "exec",
+      "ojp-20261024-rust",
+      "--no-login-shell",
+      "--timeout",
+      "20",
+      "--",
+      "/workspace/rust-project/native-target/debug/native-egress"
+    ],
+    "exit_status": 1,
+    "seconds": 0.068,
+    "stdout": "",
+    "stderr": "Error: Os { code: 13, kind: PermissionDenied, message: \"Permission denied\" }\n",
+    "captured_utc": "2026-10-23T22:33:28.383816+00:00"
+  }
+]

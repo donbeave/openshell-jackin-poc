@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-main",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-ec",
+    "printf retained-instance-a > /sandbox/ojp-project/retained-a; docker run -d --name ojp-h-owned-child --label ojp.test-id=ojp-20261024 redis:7.4-alpine; docker volume create --label ojp.test-id=ojp-20261024 ojp-h-owned-volume; python3 -c \"open(\\\"/workspace/result.bin\\\",\\\"wb\\\").write(bytes(range(256)))\"; sha256sum /workspace/result.bin"
+  ],
+  "utc": "2026-10-23T22:39:40.530717+00:00",
+  "exit_status": 0,
+  "stdout": "89198e22a8fe066f4339d4d1e45e08093d0ed331d4aa63f22767238bcdb4c1f7\nojp-h-owned-volume\n40aff2e9d2d8922e47afd4648e6967497158785fbd1da870e7110266bf944880  /workspace/result.bin\n",
+  "stderr": "",
+  "seconds": 0.4409719159884844
+}

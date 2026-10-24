@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "ojp-20261024-engine-a",
+    "sh",
+    "-c",
+    "cat /sys/fs/cgroup/memory.current /sys/fs/cgroup/memory.peak /sys/fs/cgroup/memory.max; cat /sys/fs/cgroup/cpu.stat"
+  ],
+  "utc": "2026-10-23T22:40:54.269163+00:00",
+  "exit_status": 0,
+  "stdout": "2719264768\n4294967296\n4294967296\nusage_usec 89279134\nuser_usec 64865479\nsystem_usec 24413655\nnice_usec 0\nnr_periods 2883\nnr_throttled 293\nthrottled_usec 270012126\nnr_bursts 0\nburst_usec 0\n",
+  "stderr": "",
+  "seconds": 0.4390408750041388
+}

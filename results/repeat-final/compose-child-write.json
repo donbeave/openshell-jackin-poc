@@ -1,0 +1,21 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--workdir",
+    "/sandbox/ojp-project/clean-repeat/compose",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "docker compose -f compose.yaml exec -T app sh -c \"printf child-source-v3 > /usr/share/nginx/html/index.html\""
+  ],
+  "utc": "2026-10-23T22:35:14.424420+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "seconds": 0.18614458298543468
+}

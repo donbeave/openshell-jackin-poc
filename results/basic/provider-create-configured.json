@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "provider",
+    "create",
+    "--name",
+    "ojp-test-key",
+    "--type",
+    "anthropic",
+    "--credential",
+    "ANTHROPIC_API_KEY=harmless-test-value"
+  ],
+  "utc": "2026-10-23T22:21:41.535705+00:00",
+  "exit_status": 0,
+  "stdout": "\u2713 Created provider ojp-test-key\n",
+  "stderr": "",
+  "seconds": 0.03435341699514538
+}

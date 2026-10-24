@@ -1,0 +1,258 @@
+{
+  "utc": "2026-10-23T22:19:58.348874+00:00",
+  "host_platform": "macOS 27.0 arm64; OrbStack 29.8.2 Linux ARM64",
+  "base_image": "docker:29.8.2-dind@sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced",
+  "engine": "Docker 29.8.2, daemon commit 8af9fe3",
+  "mTLS": "unique CA, server cert, client cert per fixture; client private key files under experiments/engines/private and omitted from this output",
+  "endpoints": {
+    "engine-a": "https://host.docker.internal:18776 (host probe via 127.0.0.1)",
+    "engine-b": "https://host.docker.internal:18777 (host probe via 127.0.0.1)"
+  },
+  "service_ports": {
+    "engine-a": {
+      "fixed": 15432,
+      "auto_allocated": 18080,
+      "reserved_range": "18080-18084"
+    },
+    "engine-b": {
+      "fixed": 15433,
+      "auto_allocated": 18088,
+      "reserved_range": "18085-18089"
+    }
+  },
+  "limits": "2 CPUs and 4 GiB per DinD container; inner daemon ephemeral ranges set with container netns sysctls",
+  "volumes": {
+    "engine-a": "ojp-20261024-engine-a-project",
+    "engine-b": "ojp-20261024-engine-b-project",
+    "labels": {
+      "openshell.ai/sandbox-attachable": "true",
+      "openshell.ai/sandbox-attachable-workspace": "default"
+    },
+    "mount_inside_daemon": "/workspace/ojp-project"
+  },
+  "owner": "experiment script created outer DinD containers, outer named volumes and in-daemon resources; OpenShell has not yet attached or removed them",
+  "scope": "external fixture; host-side Docker API controls are not OpenShell sandbox results",
+  "checks": [
+    {
+      "command": [
+        "docker",
+        "inspect",
+        "ojp-20261024-engine-a",
+        "ojp-20261024-engine-b",
+        "--format",
+        "{{.Name}} id={{.Id}} image={{.Image}} state={{.State.Status}} started={{.State.StartedAt}} ports={{json .HostConfig.PortBindings}} mounts={{json .Mounts}} sysctls={{json .HostConfig.Sysctls}} resources={{.HostConfig.NanoCpus}} {{.HostConfig.Memory}} labels={{json .Config.Labels}}"
+      ],
+      "exit_status": 0,
+      "stdout": "/ojp-20261024-engine-a id=2ed5adfbc42fda933d62092102ea06ddf990cfc37fbab4b2dc4bd3fd784a689d image=sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced state=running started=2026-10-23T22:17:16.716380427Z ports={\"15432/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"15432\"}],\"18080/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18080\"}],\"18081/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18081\"}],\"18082/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18082\"}],\"18083/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18083\"}],\"18084/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18084\"}],\"2376/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18776\"}]} mounts=[{\"Destination\":\"/certs\",\"Mode\":\"\",\"Propagation\":\"rprivate\",\"RW\":false,\"Source\":\"/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a\",\"Type\":\"bind\"},{\"Destination\":\"/workspace/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-a-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-a-project/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"6ffd4c2129ac56975491ae1a5ca1cdac5383d1811c3d51b93508a9e67f3f10c1\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/6ffd4c2129ac56975491ae1a5ca1cdac5383d1811c3d51b93508a9e67f3f10c1/_data\",\"Type\":\"volume\"}] sysctls={\"net.ipv4.ip_local_port_range\":\"18080 18084\"} resources=2000000000 4294967296 labels={\"ojp.owner\":\"experiments/engines/setup.sh\",\"ojp.test-id\":\"ojp-20261024\"}\n/ojp-20261024-engine-b id=3baba97ca487333cac9084efd4897a458014d8a906b145cea371b66c2d4a0a86 image=sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced state=running started=2026-10-23T22:17:17.182582685Z ports={\"15433/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"15433\"}],\"18085/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18085\"}],\"18086/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18086\"}],\"18087/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18087\"}],\"18088/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18088\"}],\"18089/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18089\"}],\"2376/tcp\":[{\"HostIp\":\"\",\"HostPort\":\"18777\"}]} mounts=[{\"Destination\":\"/certs\",\"Mode\":\"\",\"Propagation\":\"rprivate\",\"RW\":false,\"Source\":\"/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b\",\"Type\":\"bind\"},{\"Destination\":\"/workspace/ojp-project\",\"Driver\":\"local\",\"Mode\":\"z\",\"Name\":\"ojp-20261024-engine-b-project\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/ojp-20261024-engine-b-project/_data\",\"Type\":\"volume\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"118ff0da8577fecc753db7b7d4b4a5e81ea2b8235cb03f8224cbc5337919f8b4\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/118ff0da8577fecc753db7b7d4b4a5e81ea2b8235cb03f8224cbc5337919f8b4/_data\",\"Type\":\"volume\"}] sysctls={\"net.ipv4.ip_local_port_range\":\"18085 18089\"} resources=2000000000 4294967296 labels={\"ojp.owner\":\"experiments/engines/setup.sh\",\"ojp.test-id\":\"ojp-20261024\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "inspect",
+        "ojp-20261024-engine-a-project",
+        "ojp-20261024-engine-b-project",
+        "--format",
+        "{{.Name}} labels={{json .Labels}}"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-engine-a-project labels={\"openshell.ai/sandbox-attachable\":\"true\",\"openshell.ai/sandbox-attachable-workspace\":\"default\"}\nojp-20261024-engine-b-project labels={\"openshell.ai/sandbox-attachable\":\"true\",\"openshell.ai/sandbox-attachable-workspace\":\"default\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "stats",
+        "--no-stream",
+        "ojp-20261024-engine-a",
+        "ojp-20261024-engine-b",
+        "--format",
+        "{{.Name}} {{.CPUPerc}} {{.MemUsage}}"
+      ],
+      "exit_status": 0,
+      "stdout": "ojp-20261024-engine-a 0.01% 106.7MiB / 4GiB\nojp-20261024-engine-b 0.02% 81.12MiB / 4GiB\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "openssl",
+        "x509",
+        "-in",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "-noout",
+        "-fingerprint",
+        "-sha256",
+        "-subject",
+        "-issuer",
+        "-dates"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256 Fingerprint=54:FA:94:97:4E:C8:0D:81:45:16:D0:0C:34:4D:B8:B0:BE:8B:28:D7:CD:C2:AC:5A:82:73:FA:4E:46:3B:44:CE\nsubject=CN=ojp-engine-a-client\nissuer=CN=ojp-engine-a-ca\nnotBefore=Oct 23 22:17:16 2026 GMT\nnotAfter=Oct 30 22:17:16 2026 GMT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "openssl",
+        "x509",
+        "-in",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/server/cert.pem",
+        "-noout",
+        "-fingerprint",
+        "-sha256",
+        "-subject",
+        "-issuer",
+        "-dates"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256 Fingerprint=E6:0A:F7:F6:A6:89:61:C7:7D:0F:91:4C:E1:3E:0B:3A:3D:9E:A3:BF:79:22:5C:60:78:27:7F:34:77:AF:B1:17\nsubject=CN=host.docker.internal\nissuer=CN=ojp-engine-a-ca\nnotBefore=Oct 23 22:17:16 2026 GMT\nnotAfter=Oct 30 22:17:16 2026 GMT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "image",
+        "inspect",
+        "nginx:1.29.3-alpine",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14 [\"nginx@sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14\"]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "image",
+        "inspect",
+        "ojp-20261024-engine-a-project:context-control",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256:8a6350a1986d8cbcf1ac5c8452ee1280938f0fac40c06e089814915b7d80c82c [\"ojp-20261024-engine-a-project@sha256:8a6350a1986d8cbcf1ac5c8452ee1280938f0fac40c06e089814915b7d80c82c\"]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "logs",
+        "--tail",
+        "30",
+        "ojp-20261024-engine-a"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "time=\"2026-10-23T22:19:12.737326982Z\" level=info msg=\"cleaning up dead shim\" id=74fd476f640739b3893af43f019b16df46300be59594b4f16744fe9c90d418e9 namespace=moby\ntime=\"2026-10-23T22:19:12.901327131Z\" level=info msg=\"connecting to shim 336ae8d7e357e3802ac072da9af3f0fa06b624ed522948a9eb5380230014988a\" address=\"unix:///run/containerd/s/f2deb9a63cbec80f204207f9f6e24a92c0cec855557bd4c3bbb72d2a359af5ae\" namespace=moby protocol=ttrpc version=3\ntime=\"2026-10-23T22:19:12.927132599Z\" level=info msg=\"sbJoin: gwep4 ''->'13fbd8586a72', gwep6 ''->''\" eid=13fbd8586a72 ep=ojp-20261024-engine-a-fixed net=bridge nid=376bff2fd426\ntime=\"2026-10-23T22:19:13.113669240Z\" level=info msg=\"connecting to shim 869e5eadf70f73165ac8ad6542bae63e8c0d9661da7d23658cf6f84224a7a138\" address=\"unix:///run/containerd/s/655ca07a47fda20c55fc2f918a2bd6064ebaa194b5c82f3c33c861d1ad53c073\" namespace=moby protocol=ttrpc version=3\ntime=\"2026-10-23T22:19:13.142931352Z\" level=info msg=\"sbJoin: gwep4 ''->'a9c153416386', gwep6 ''->''\" eid=a9c153416386 ep=nervous_northcutt net=bridge nid=376bff2fd426\ntime=\"2026-10-23T22:19:13.155892836Z\" level=info msg=\"received task-delete event from containerd\" container=869e5eadf70f73165ac8ad6542bae63e8c0d9661da7d23658cf6f84224a7a138 module=libcontainerd namespace=moby topic=/tasks/delete type=\"*events.TaskDelete\"\ntime=\"2026-10-23T22:19:13.155981462Z\" level=info msg=\"shim disconnected\" id=869e5eadf70f73165ac8ad6542bae63e8c0d9661da7d23658cf6f84224a7a138 namespace=moby\ntime=\"2026-10-23T22:19:13.155996420Z\" level=info msg=\"cleaning up after shim disconnected\" id=869e5eadf70f73165ac8ad6542bae63e8c0d9661da7d23658cf6f84224a7a138 namespace=moby\ntime=\"2026-10-23T22:19:13.156008378Z\" level=info msg=\"cleaning up dead shim\" id=869e5eadf70f73165ac8ad6542bae63e8c0d9661da7d23658cf6f84224a7a138 namespace=moby\ntime=\"2026-10-23T22:19:13.354142997Z\" level=info msg=\"connecting to shim e5f459c5f4902a02d292619563a0cfa0bd7221c0487229365ea6311cad9247b8\" address=\"unix:///run/containerd/s/0bee41d6b7b73e0adab54b700d8c83814879532106f4e0f609a94368cb04ed95\" namespace=moby protocol=ttrpc version=3\ntime=\"2026-10-23T22:19:13.385096034Z\" level=info msg=\"sbJoin: gwep4 ''->'f0dff876be82', gwep6 ''->''\" eid=f0dff876be82 ep=quizzical_tharp net=bridge nid=376bff2fd426\ntime=\"2026-10-23T22:19:13.397582016Z\" level=info msg=\"shim disconnected\" id=e5f459c5f4902a02d292619563a0cfa0bd7221c0487229365ea6311cad9247b8 namespace=moby\ntime=\"2026-10-23T22:19:13.397614474Z\" level=info msg=\"cleaning up after shim disconnected\" id=e5f459c5f4902a02d292619563a0cfa0bd7221c0487229365ea6311cad9247b8 namespace=moby\ntime=\"2026-10-23T22:19:13.397631141Z\" level=info msg=\"cleaning up dead shim\" id=e5f459c5f4902a02d292619563a0cfa0bd7221c0487229365ea6311cad9247b8 namespace=moby\ntime=\"2026-10-23T22:19:13.397798642Z\" level=info msg=\"received task-delete event from containerd\" container=e5f459c5f4902a02d292619563a0cfa0bd7221c0487229365ea6311cad9247b8 module=libcontainerd namespace=moby topic=/tasks/delete type=\"*events.TaskDelete\"\ntime=\"2026-10-23T22:19:13.583883531Z\" level=info msg=\"shim disconnected\" id=336ae8d7e357e3802ac072da9af3f0fa06b624ed522948a9eb5380230014988a namespace=moby\ntime=\"2026-10-23T22:19:13.583901990Z\" level=info msg=\"cleaning up after shim disconnected\" id=336ae8d7e357e3802ac072da9af3f0fa06b624ed522948a9eb5380230014988a namespace=moby\ntime=\"2026-10-23T22:19:13.583920698Z\" level=info msg=\"cleaning up dead shim\" id=336ae8d7e357e3802ac072da9af3f0fa06b624ed522948a9eb5380230014988a namespace=moby\ntime=\"2026-10-23T22:19:13.763479345Z\" level=info msg=\"connecting to shim 397983e69a6e024c401a125704b1b223b11fcc48aaaecf7b001820a77055c85e\" address=\"unix:///run/containerd/s/3991bc5ebf91d6f65b43caffef2e5d7b6cf57a616377ce4dcdc2ed7482b4a278\" namespace=moby protocol=ttrpc version=3\ntime=\"2026-10-23T22:19:13.786522632Z\" level=info msg=\"sbJoin: gwep4 ''->'848959e9dae8', gwep6 ''->''\" eid=848959e9dae8 ep=ojp-20261024-engine-a-auto net=bridge nid=376bff2fd426\ntime=\"2026-10-23T22:19:13.786640174Z\" level=warning msg=\"Failed to allocate port\" attempt=1 error=\"failed to bind host port 0.0.0.0:18082/tcp: address already in use\"\ntime=\"2026-10-23T22:19:13.786706549Z\" level=warning msg=\"Failed to allocate port\" attempt=2 error=\"failed to bind host port 0.0.0.0:18083/tcp: address already in use\"\ntime=\"2026-10-23T22:19:13.786776050Z\" level=warning msg=\"Failed to allocate port\" attempt=3 error=\"failed to bind host port 0.0.0.0:18084/tcp: address already in use\"\ntime=\"2026-10-23T22:19:13.965911653Z\" level=info msg=\"shim disconnected\" id=397983e69a6e024c401a125704b1b223b11fcc48aaaecf7b001820a77055c85e namespace=moby\ntime=\"2026-10-23T22:19:13.966034403Z\" level=info msg=\"cleaning up after shim disconnected\" id=397983e69a6e024c401a125704b1b223b11fcc48aaaecf7b001820a77055c85e namespace=moby\ntime=\"2026-10-23T22:19:13.966065445Z\" level=info msg=\"cleaning up dead shim\" id=397983e69a6e024c401a125704b1b223b11fcc48aaaecf7b001820a77055c85e namespace=moby\ntime=\"2026-10-23T22:19:16.028952434Z\" level=warning msg=\"healthcheck failed\" actualDuration=\"183.542\u00b5s\" error=\"Unavailable: connection error: desc = \\\"transport: Error while dialing: only one connection allowed\\\"\" timeout=15s\ntime=\"2026-10-23T22:19:16.106517590Z\" level=warning msg=\"healthcheck failed\" actualDuration=\"136.334\u00b5s\" error=\"Unavailable: connection error: desc = \\\"transport: Error while dialing: only one connection allowed\\\"\" timeout=15s\ntime=\"2026-10-23T22:19:21.027479932Z\" level=error msg=\"healthcheck failed fatally\" error=\"session healthcheck failed fatally: Unavailable: connection error: desc = \\\"transport: Error while dialing: only one connection allowed\\\"\"\ntime=\"2026-10-23T22:19:21.108993067Z\" level=error msg=\"healthcheck failed fatally\" error=\"session healthcheck failed fatally: Unavailable: connection error: desc = \\\"transport: Error while dialing: only one connection allowed\\\"\"\n"
+    },
+    {
+      "command": [
+        "openssl",
+        "x509",
+        "-in",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/cert.pem",
+        "-noout",
+        "-fingerprint",
+        "-sha256",
+        "-subject",
+        "-issuer",
+        "-dates"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256 Fingerprint=13:9B:47:59:F8:12:FC:DC:6D:54:27:DF:EC:16:A4:61:02:89:51:79:3C:62:E7:EA:19:D5:32:CE:E6:C7:09:3E\nsubject=CN=ojp-engine-b-client\nissuer=CN=ojp-engine-b-ca\nnotBefore=Oct 23 22:17:16 2026 GMT\nnotAfter=Oct 30 22:17:16 2026 GMT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "openssl",
+        "x509",
+        "-in",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/server/cert.pem",
+        "-noout",
+        "-fingerprint",
+        "-sha256",
+        "-subject",
+        "-issuer",
+        "-dates"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256 Fingerprint=B8:AC:39:A0:3B:ED:7D:B2:4F:98:35:8A:65:88:DA:D2:50:D6:E6:5D:81:62:65:1C:C8:E3:42:1A:81:D1:3A:84\nsubject=CN=host.docker.internal\nissuer=CN=ojp-engine-b-ca\nnotBefore=Oct 23 22:17:16 2026 GMT\nnotAfter=Oct 30 22:17:16 2026 GMT\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18777",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/key.pem",
+        "image",
+        "inspect",
+        "nginx:1.29.3-alpine",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14 [\"nginx@sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14\"]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18777",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-b/client/key.pem",
+        "image",
+        "inspect",
+        "ojp-20261024-engine-b-project:context-control",
+        "--format",
+        "{{.Id}} {{json .RepoDigests}}"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256:3f4b48e6219b9ca88bd6dc4d89dd02757b81831a66cc84cbe08a7ccbee29e2dd [\"ojp-20261024-engine-b-project@sha256:3f4b48e6219b9ca88bd6dc4d89dd02757b81831a66cc84cbe08a7ccbee29e2dd\"]\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "logs",
+        "--tail",
+        "30",
+        "ojp-20261024-engine-b"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "time=\"2026-10-23T22:19:20.246333267Z\" level=info msg=\"cleaning up after shim disconnected\" id=bf8f8fdd935d62c99f30d4fee5898201af43b49b321b81cd384f3f54e48ee7ee namespace=moby\ntime=\"2026-10-23T22:19:20.246354475Z\" level=info msg=\"cleaning up dead shim\" id=bf8f8fdd935d62c99f30d4fee5898201af43b49b321b81cd384f3f54e48ee7ee namespace=moby\ntime=\"2026-10-23T22:19:20.246580809Z\" level=info msg=\"received task-delete event from containerd\" container=bf8f8fdd935d62c99f30d4fee5898201af43b49b321b81cd384f3f54e48ee7ee module=libcontainerd namespace=moby topic=/tasks/delete type=\"*events.TaskDelete\"\ntime=\"2026-10-23T22:19:20.400080695Z\" level=info msg=\"connecting to shim a0375de4bc2cd6e71251a6a382c1d103e09517355a3c11979ed49112a6586daa\" address=\"unix:///run/containerd/s/40fb0a9ebb9331bd20b9c9083a1d3946625cb3abd891fd8fb877125e1de1c105\" namespace=moby protocol=ttrpc version=3\ntime=\"2026-10-23T22:19:20.424224821Z\" level=info msg=\"sbJoin: gwep4 ''->'baaf61a3090a', gwep6 ''->''\" eid=baaf61a3090a ep=ojp-20261024-engine-b-fixed net=bridge nid=00e4ad9b89a9\ntime=\"2026-10-23T22:19:20.590204314Z\" level=info msg=\"connecting to shim 57ede0a35bf5800d6abfbec7badbe490711280a013fbdd32372bf71c98a832fd\" address=\"unix:///run/containerd/s/bdf58a40a53d3f81c2cb47aa4999b901bd7ee23f8cad28f95bfff9f3bb38d8cd\" namespace=moby protocol=ttrpc version=3\ntime=\"2026-10-23T22:19:20.617166705Z\" level=info msg=\"sbJoin: gwep4 ''->'fbad5a4c31b8', gwep6 ''->''\" eid=fbad5a4c31b8 ep=bold_haslett net=bridge nid=00e4ad9b89a9\ntime=\"2026-10-23T22:19:20.634593712Z\" level=info msg=\"shim disconnected\" id=57ede0a35bf5800d6abfbec7badbe490711280a013fbdd32372bf71c98a832fd namespace=moby\ntime=\"2026-10-23T22:19:20.634609712Z\" level=info msg=\"cleaning up after shim disconnected\" id=57ede0a35bf5800d6abfbec7badbe490711280a013fbdd32372bf71c98a832fd namespace=moby\ntime=\"2026-10-23T22:19:20.634621504Z\" level=info msg=\"cleaning up dead shim\" id=57ede0a35bf5800d6abfbec7badbe490711280a013fbdd32372bf71c98a832fd namespace=moby\ntime=\"2026-10-23T22:19:20.826498715Z\" level=info msg=\"connecting to shim cb990c641b854b373605cdae29cf851ca306a634a8508994222638fa72f3a2cd\" address=\"unix:///run/containerd/s/ec302c9680f9057e2c5cbfb831765bf1a5acde315d8df14a69bf911251060a88\" namespace=moby protocol=ttrpc version=3\ntime=\"2026-10-23T22:19:20.850197631Z\" level=info msg=\"sbJoin: gwep4 ''->'3fe7423f022d', gwep6 ''->''\" eid=3fe7423f022d ep=condescending_carson net=bridge nid=00e4ad9b89a9\ntime=\"2026-10-23T22:19:20.865109709Z\" level=info msg=\"received task-delete event from containerd\" container=cb990c641b854b373605cdae29cf851ca306a634a8508994222638fa72f3a2cd module=libcontainerd namespace=moby topic=/tasks/delete type=\"*events.TaskDelete\"\ntime=\"2026-10-23T22:19:20.865222251Z\" level=info msg=\"shim disconnected\" id=cb990c641b854b373605cdae29cf851ca306a634a8508994222638fa72f3a2cd namespace=moby\ntime=\"2026-10-23T22:19:20.865238334Z\" level=info msg=\"cleaning up after shim disconnected\" id=cb990c641b854b373605cdae29cf851ca306a634a8508994222638fa72f3a2cd namespace=moby\ntime=\"2026-10-23T22:19:20.865250334Z\" level=info msg=\"cleaning up dead shim\" id=cb990c641b854b373605cdae29cf851ca306a634a8508994222638fa72f3a2cd namespace=moby\ntime=\"2026-10-23T22:19:21.053997112Z\" level=info msg=\"shim disconnected\" id=a0375de4bc2cd6e71251a6a382c1d103e09517355a3c11979ed49112a6586daa namespace=moby\ntime=\"2026-10-23T22:19:21.054011946Z\" level=info msg=\"cleaning up after shim disconnected\" id=a0375de4bc2cd6e71251a6a382c1d103e09517355a3c11979ed49112a6586daa namespace=moby\ntime=\"2026-10-23T22:19:21.054022863Z\" level=info msg=\"cleaning up dead shim\" id=a0375de4bc2cd6e71251a6a382c1d103e09517355a3c11979ed49112a6586daa namespace=moby\ntime=\"2026-10-23T22:19:21.054242822Z\" level=info msg=\"received task-delete event from containerd\" container=a0375de4bc2cd6e71251a6a382c1d103e09517355a3c11979ed49112a6586daa module=libcontainerd namespace=moby topic=/tasks/delete type=\"*events.TaskDelete\"\ntime=\"2026-10-23T22:19:21.204649650Z\" level=info msg=\"connecting to shim 64522147ad72d5f364dfd32845f677556db23c8824fe00d7f422bde8effb9765\" address=\"unix:///run/containerd/s/58b47df8b61a8af4288f1ddee49a59576f2b62804e7020309290f230794cdb14\" namespace=moby protocol=ttrpc version=3\ntime=\"2026-10-23T22:19:21.230437951Z\" level=info msg=\"sbJoin: gwep4 ''->'25cef90a77d2', gwep6 ''->''\" eid=25cef90a77d2 ep=ojp-20261024-engine-b-auto net=bridge nid=00e4ad9b89a9\ntime=\"2026-10-23T22:19:21.230547952Z\" level=warning msg=\"Failed to allocate port\" attempt=1 error=\"failed to bind host port 0.0.0.0:18087/tcp: address already in use\"\ntime=\"2026-10-23T22:19:21.385088301Z\" level=info msg=\"shim disconnected\" id=64522147ad72d5f364dfd32845f677556db23c8824fe00d7f422bde8effb9765 namespace=moby\ntime=\"2026-10-23T22:19:21.385105843Z\" level=info msg=\"cleaning up after shim disconnected\" id=64522147ad72d5f364dfd32845f677556db23c8824fe00d7f422bde8effb9765 namespace=moby\ntime=\"2026-10-23T22:19:21.385119593Z\" level=info msg=\"cleaning up dead shim\" id=64522147ad72d5f364dfd32845f677556db23c8824fe00d7f422bde8effb9765 namespace=moby\ntime=\"2026-10-23T22:19:23.898618312Z\" level=warning msg=\"healthcheck failed\" actualDuration=\"338.585\u00b5s\" error=\"Unavailable: connection error: desc = \\\"transport: Error while dialing: only one connection allowed\\\"\" timeout=15s\ntime=\"2026-10-23T22:19:23.923587651Z\" level=warning msg=\"healthcheck failed\" actualDuration=\"190.293\u00b5s\" error=\"Unavailable: connection error: desc = \\\"transport: Error while dialing: only one connection allowed\\\"\" timeout=15s\ntime=\"2026-10-23T22:19:28.902881965Z\" level=error msg=\"healthcheck failed fatally\" error=\"session healthcheck failed fatally: Unavailable: connection error: desc = \\\"transport: Error while dialing: only one connection allowed\\\"\"\ntime=\"2026-10-23T22:19:28.924428703Z\" level=error msg=\"healthcheck failed fatally\" error=\"session healthcheck failed fatally: Unavailable: connection error: desc = \\\"transport: Error while dialing: only one connection allowed\\\"\"\n"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-gws",
+    "--",
+    "cat",
+    "/workspace/ojp-diagnostic-upload.txt"
+  ],
+  "utc": "2026-10-23T22:24:41.477290+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 sandbox 'ojp-20261024-gws' is not ready (phase: Error); wait for it to\n  \u2502 reach Ready state\n\n",
+  "seconds": 0.038705292012309656
+}

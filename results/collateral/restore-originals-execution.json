@@ -1,0 +1,710 @@
+{
+  "release": "OpenShell 0.1.5",
+  "gateway_endpoint": "https://localhost:17670",
+  "workspace": "default",
+  "tls_verification": "enabled; installed gateway CA and mTLS client identity used directly",
+  "docker_cli_or_socket_used": false,
+  "targets": [
+    {
+      "name": "coding-agents",
+      "id": "00000000-0000-4000-8000-000000000001"
+    },
+    {
+      "name": "preview-docker",
+      "id": "00000000-0000-4000-8000-000000000002"
+    },
+    {
+      "name": "preview-openrouter",
+      "id": "00000000-0000-4000-8000-000000000003"
+    }
+  ],
+  "events": [
+    {
+      "at_utc": "2026-10-23T23:11:45.662674+00:00",
+      "action": "preflight_get",
+      "name": "coding-agents",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "coding-agents",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_ERROR",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ControlSupervisorExited",
+            "message": "Docker supervisor container exited with status 137: "
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:45.670859+00:00",
+      "action": "preflight_get",
+      "name": "preview-docker",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "name": "preview-docker",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_ERROR",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ControlSupervisorExited",
+            "message": "Docker supervisor container exited with status 137: "
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:45.671384+00:00",
+      "action": "preflight_get",
+      "name": "preview-openrouter",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "name": "preview-openrouter",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_ERROR",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ControlSupervisorExited",
+            "message": "Docker supervisor container exited with status 137: "
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:45.671941+00:00",
+      "action": "pre_stop_get",
+      "name": "coding-agents",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "coding-agents",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_ERROR",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ControlSupervisorExited",
+            "message": "Docker supervisor container exited with status 137: "
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:45.672469+00:00",
+      "action": "openshell_api_stop",
+      "name": "coding-agents",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "coding-agents",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "Stopped",
+            "message": "Sandbox compute is stopped"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:45.705031+00:00",
+      "action": "wait_stopped",
+      "name": "coding-agents",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "coding-agents",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainerExited",
+            "message": "Container exited"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:45.705466+00:00",
+      "action": "pre_start_get",
+      "name": "coding-agents",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "coding-agents",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainerExited",
+            "message": "Container exited"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:45.705765+00:00",
+      "action": "openshell_api_start",
+      "name": "coding-agents",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "coding-agents",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:47.525283+00:00",
+      "action": "wait_ready",
+      "name": "coding-agents",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "coding-agents",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:47.526295+00:00",
+      "action": "pre_stop_get",
+      "name": "preview-docker",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "name": "preview-docker",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_ERROR",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ControlSupervisorExited",
+            "message": "Docker supervisor container exited with status 137: "
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:47.527018+00:00",
+      "action": "openshell_api_stop",
+      "name": "preview-docker",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "name": "preview-docker",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "Stopped",
+            "message": "Sandbox compute is stopped"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:47.532742+00:00",
+      "action": "wait_stopped",
+      "name": "preview-docker",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "name": "preview-docker",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainerExited",
+            "message": "Container exited"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:47.533338+00:00",
+      "action": "pre_start_get",
+      "name": "preview-docker",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "name": "preview-docker",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainerExited",
+            "message": "Container exited"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:47.533811+00:00",
+      "action": "openshell_api_start",
+      "name": "preview-docker",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "name": "preview-docker",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.269230+00:00",
+      "action": "wait_ready",
+      "name": "preview-docker",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "name": "preview-docker",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.270145+00:00",
+      "action": "pre_stop_get",
+      "name": "preview-openrouter",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "name": "preview-openrouter",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_ERROR",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ControlSupervisorExited",
+            "message": "Docker supervisor container exited with status 137: "
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.270855+00:00",
+      "action": "openshell_api_stop",
+      "name": "preview-openrouter",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "name": "preview-openrouter",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "Stopped",
+            "message": "Sandbox compute is stopped"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.279751+00:00",
+      "action": "wait_stopped",
+      "name": "preview-openrouter",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "name": "preview-openrouter",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainerExited",
+            "message": "Container exited"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.280302+00:00",
+      "action": "pre_start_get",
+      "name": "preview-openrouter",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "name": "preview-openrouter",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_STOPPED",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "False",
+            "reason": "ContainerExited",
+            "message": "Container exited"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.280808+00:00",
+      "action": "openshell_api_start",
+      "name": "preview-openrouter",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "name": "preview-openrouter",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.975828+00:00",
+      "action": "wait_ready",
+      "name": "preview-openrouter",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "name": "preview-openrouter",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.976444+00:00",
+      "action": "final_get",
+      "name": "coding-agents",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "name": "coding-agents",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.977092+00:00",
+      "action": "final_get",
+      "name": "preview-docker",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000002",
+        "name": "preview-docker",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    },
+    {
+      "at_utc": "2026-10-23T23:11:49.977734+00:00",
+      "action": "final_get",
+      "name": "preview-openrouter",
+      "result": "PASS",
+      "state": {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "name": "preview-openrouter",
+        "workspace": "default",
+        "phase": "SANDBOX_PHASE_READY",
+        "conditions": [
+          {
+            "type": "Ready",
+            "status": "True",
+            "reason": "DependenciesReady",
+            "message": "Supervisor session connected"
+          },
+          {
+            "type": "ConfigurationReady",
+            "status": "True",
+            "reason": "ConfigurationAccepted",
+            "message": ""
+          }
+        ]
+      }
+    }
+  ],
+  "final": [
+    {
+      "id": "00000000-0000-4000-8000-000000000001",
+      "name": "coding-agents",
+      "workspace": "default",
+      "phase": "SANDBOX_PHASE_READY",
+      "conditions": [
+        {
+          "type": "Ready",
+          "status": "True",
+          "reason": "DependenciesReady",
+          "message": "Supervisor session connected"
+        },
+        {
+          "type": "ConfigurationReady",
+          "status": "True",
+          "reason": "ConfigurationAccepted",
+          "message": ""
+        }
+      ]
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "name": "preview-docker",
+      "workspace": "default",
+      "phase": "SANDBOX_PHASE_READY",
+      "conditions": [
+        {
+          "type": "Ready",
+          "status": "True",
+          "reason": "DependenciesReady",
+          "message": "Supervisor session connected"
+        },
+        {
+          "type": "ConfigurationReady",
+          "status": "True",
+          "reason": "ConfigurationAccepted",
+          "message": ""
+        }
+      ]
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000003",
+      "name": "preview-openrouter",
+      "workspace": "default",
+      "phase": "SANDBOX_PHASE_READY",
+      "conditions": [
+        {
+          "type": "Ready",
+          "status": "True",
+          "reason": "DependenciesReady",
+          "message": "Supervisor session connected"
+        },
+        {
+          "type": "ConfigurationReady",
+          "status": "True",
+          "reason": "ConfigurationAccepted",
+          "message": ""
+        }
+      ]
+    }
+  ],
+  "result": "PASS"
+}

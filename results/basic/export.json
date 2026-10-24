@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "download",
+    "ojp-20261024-basic",
+    "/workspace/result.bin",
+    "results/basic/export.bin"
+  ],
+  "utc": "2026-10-23T22:18:12.487427+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Downloading sandbox:/workspace/result.bin -> results/basic/export.bin\n\u2713 Download complete\n",
+  "seconds": 0.19224208302330226
+}

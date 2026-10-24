@@ -1,0 +1,18 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "docker",
+    "version"
+  ],
+  "utc": "2026-10-23T22:33:29.735764+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Failed to initialize: unable to resolve docker endpoint: open /workspace/ojp-tls/client/ca.pem: no such file or directory\n",
+  "seconds": 0.09668395802145824
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rpt2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "cat /sandbox/ojp-project/clean-repeat/compose/html/index.html; curl --max-time 5 -fsS http://host.docker.internal:18087/"
+  ],
+  "utc": "2026-10-23T22:35:14.651740+00:00",
+  "exit_status": 0,
+  "stdout": "child-source-v3child-source-v3",
+  "stderr": "",
+  "seconds": 0.06985916700796224
+}

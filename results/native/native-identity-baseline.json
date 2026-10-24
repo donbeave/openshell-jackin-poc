@@ -1,0 +1,23 @@
+{
+  "label": "native-egress-managed-mbx-baseline-http200",
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-rust",
+    "--no-login-shell",
+    "--timeout",
+    "20",
+    "--",
+    "/workspace/.cache/mbx/targets/v1/4cfb011f5c6e6761c876ec13dd07babbf58eedb258718c9d3906a2bc1f8be767/debug/native-egress"
+  ],
+  "exit_status": 0,
+  "seconds": 0.062,
+  "stdout": "endpoint=host.docker.internal:15432 marker=ojp-egress-v2\nHTTP/1.1 200 OK\nServer: nginx/1.29.3\nDate: Fri, 23 Oct 2026 22:43:13 GMT\nContent-Type: text/html\nContent-Length: 615\nLast-Modified: Tue, 28 Oct 2025 16:30:38 GMT\nConnection: close\nETag: \"6900efae-267\"\nAccept-Ranges: bytes\n\n<!DOCTYPE html>\n<html>\n<head>\n<title>Welcome to nginx!</title>\n<style>\nhtml { color-scheme: light dark; }\nbody { width: 35em; margin: 0 auto;\nfont-family: Tahoma, Verdana, Arial, sans-serif; }\n</style>\n</head>\n<body>\n<h1>Welcome to nginx!</h1>\n<p>If you see this page, the nginx web server is successfully installed and\nworking. Further configuration is required.</p>\n\n<p>For online documentation and support please refer to\n<a href=\"http://nginx.org/\">nginx.org</a>.<br/>\nCommercial support is available at\n<a href=\"http://nginx.com/\">nginx.com</a>.</p>\n\n<p><em>Thank you for using nginx.</em></p>\n</body>\n</html>\n",
+  "stderr": "",
+  "resolved_executable": "/workspace/.cache/mbx/targets/v1/4cfb011f5c6e6761c876ec13dd07babbf58eedb258718c9d3906a2bc1f8be767/debug/native-egress",
+  "sha256": "1f96d212b6fcd086f85910b612ef31f395c145743f617bc2b61db5234e755c17",
+  "policy_version": 6,
+  "captured_utc": "2026-10-23T22:43:13.095591+00:00"
+}

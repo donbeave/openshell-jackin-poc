@@ -1,0 +1,15 @@
+{
+  "command": [
+    "docker",
+    "exec",
+    "ojp-20261024-engine-b",
+    "sh",
+    "-c",
+    "find /sandbox/ojp-project/clean-repeat -maxdepth 3 -type f -print | sort; sha256sum /sandbox/ojp-project/clean-repeat/rust-project/Cargo.toml; stat -c \"%u:%g %a %n\" /sandbox/ojp-project/clean-repeat"
+  ],
+  "utc": "2026-10-23T22:33:53.721223+00:00",
+  "exit_status": 0,
+  "stdout": "/sandbox/ojp-project/clean-repeat/compose/Dockerfile\n/sandbox/ojp-project/clean-repeat/compose/compose.yaml\n/sandbox/ojp-project/clean-repeat/compose/html/index.html\n/sandbox/ojp-project/clean-repeat/rust-project/Cargo.lock\n/sandbox/ojp-project/clean-repeat/rust-project/Cargo.toml\n/sandbox/ojp-project/clean-repeat/rust-project/compose.yaml\n/sandbox/ojp-project/clean-repeat/rust-project/mise.toml\n/sandbox/ojp-project/clean-repeat/rust-project/role-hook.sh\n/sandbox/ojp-project/clean-repeat/rust-project/rust-toolchain.toml\n/sandbox/ojp-project/clean-repeat/rust-project/src/lib.rs\n/sandbox/ojp-project/clean-repeat/rust-project/tests/native_tcp.rs\n/sandbox/ojp-project/clean-repeat/rust-project/tests/redis_container.rs\nea3f8b22f608e82fb73f6f6c40e29dbec7f01bb03fef1517fb3ac8d011f617c6  /sandbox/ojp-project/clean-repeat/rust-project/Cargo.toml\n1000:1000 755 /sandbox/ojp-project/clean-repeat\n",
+  "stderr": "",
+  "seconds": 0.03102108300663531
+}

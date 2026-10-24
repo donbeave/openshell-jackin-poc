@@ -1,0 +1,10 @@
+{
+  "command": [
+    "sw_vers"
+  ],
+  "utc": "2026-10-23T22:46:58.240514+00:00",
+  "exit_status": 0,
+  "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+  "stderr": "",
+  "seconds": 0.00900804199045524
+}

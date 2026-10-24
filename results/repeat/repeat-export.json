@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "download",
+    "ojp-20261024-repeat",
+    "/workspace/retained.txt",
+    "results/repeat/retained.txt"
+  ],
+  "utc": "2026-10-23T22:23:42.201677+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Downloading sandbox:/workspace/retained.txt -> results/repeat/retained.txt\n\u2713 Download complete\n",
+  "seconds": 0.1800395419995766
+}

@@ -1,0 +1,123 @@
+{
+  "utc": "2026-10-23T22:22:54.005713+00:00",
+  "scope": "DinD outer container plus its nested child container; OpenShell sandbox was not available for comparison",
+  "checks": [
+    {
+      "name": "child-with-small-limit",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "run",
+        "--detach",
+        "--name",
+        "ojp-20261024-engine-a-limits",
+        "--memory=128m",
+        "--cpus=0.5",
+        "alpine:3.22",
+        "sh",
+        "-c",
+        "sleep 300"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "373be9ae42b8cc65636ed1001917050c4dae0d93b29006563e8b2e23d1ae2059\n",
+      "stderr": "",
+      "seconds": 0.1592604999896139
+    },
+    {
+      "name": "child-configured-cgroup-limits",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "inspect",
+        "ojp-20261024-engine-a-limits",
+        "--format",
+        "memory={{.HostConfig.Memory}} nano_cpus={{.HostConfig.NanoCpus}} cpu_quota={{.HostConfig.CpuQuota}} cpu_period={{.HostConfig.CpuPeriod}} cpu_shares={{.HostConfig.CpuShares}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "memory=134217728 nano_cpus=500000000 cpu_quota=0 cpu_period=0 cpu_shares=0\n",
+      "stderr": "",
+      "seconds": 0.01836754198302515
+    },
+    {
+      "name": "child-cgroup-visible-limits",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "exec",
+        "ojp-20261024-engine-a-limits",
+        "sh",
+        "-c",
+        "cat /sys/fs/cgroup/memory.max /sys/fs/cgroup/cpu.max"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "134217728\n50000 100000\n",
+      "stderr": "",
+      "seconds": 0.0358142500044778
+    },
+    {
+      "name": "child-limit-remove",
+      "command": [
+        "docker",
+        "--host",
+        "tcp://127.0.0.1:18776",
+        "--tlsverify",
+        "--tlscacert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/ca.pem",
+        "--tlscert",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/cert.pem",
+        "--tlskey",
+        "/Users/example/openshell-jackin-poc/experiments/engines/private/engine-a/client/key.pem",
+        "rm",
+        "--force",
+        "ojp-20261024-engine-a-limits"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "ojp-20261024-engine-a-limits\n",
+      "stderr": "",
+      "seconds": 0.12693954198039137
+    },
+    {
+      "name": "outer-engine-cgroup-cap",
+      "command": [
+        "docker",
+        "inspect",
+        "ojp-20261024-engine-a",
+        "--format",
+        "container_cpu_nanos={{.HostConfig.NanoCpus}} memory_bytes={{.HostConfig.Memory}}"
+      ],
+      "expected_exit_status": 0,
+      "exit_status": 0,
+      "stdout": "container_cpu_nanos=2000000000 memory_bytes=4294967296\n",
+      "stderr": "",
+      "seconds": 0.025605292001273483
+    }
+  ]
+}

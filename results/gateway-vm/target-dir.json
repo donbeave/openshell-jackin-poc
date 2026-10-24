@@ -1,0 +1,32 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--workdir",
+    "/sandbox/ojp-project/rust-project",
+    "--no-login-shell",
+    "--",
+    "env",
+    "HOME=/home/agent",
+    "MISE_DATA_DIR=/home/agent/.local/share/mise",
+    "CARGO_HOME=/home/agent/.cargo",
+    "RUSTUP_HOME=/usr/local/rustup",
+    "MISE_TRUSTED_CONFIG_PATHS=/home/agent/ojp-toolchain:/workspace:/sandbox/ojp-project/rust-project",
+    "PATH=/usr/local/cargo/bin:/usr/local/bin:/home/agent/.local/share/mise/shims:/home/agent/.local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "metadata",
+    "--no-deps",
+    "--format-version",
+    "1"
+  ],
+  "utc": "2026-10-23T22:44:25.667229+00:00",
+  "exit_status": 0,
+  "stdout": "{\"packages\":[{\"name\":\"runtime-probe\",\"version\":\"0.1.0\",\"id\":\"path+file:///sandbox/ojp-project/rust-project#runtime-probe@0.1.0\",\"license\":null,\"license_file\":null,\"description\":null,\"source\":null,\"dependencies\":[{\"name\":\"redis\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"=0.32.7\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"tokio-comp\"],\"target\":null,\"registry\":null},{\"name\":\"testcontainers\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"=0.28.0\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[],\"target\":null,\"registry\":null},{\"name\":\"tokio\",\"source\":\"registry+https://github.com/rust-lang/crates.io-index\",\"req\":\"=1.47.1\",\"kind\":\"dev\",\"rename\":null,\"optional\":false,\"uses_default_features\":true,\"features\":[\"macros\",\"rt-multi-thread\",\"time\"],\"target\":null,\"registry\":null}],\"targets\":[{\"kind\":[\"lib\"],\"crate_types\":[\"lib\"],\"name\":\"runtime_probe\",\"src_path\":\"/sandbox/ojp-project/rust-project/src/lib.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":true,\"test\":true},{\"kind\":[\"bin\"],\"crate_types\":[\"bin\"],\"name\":\"native-egress\",\"src_path\":\"/sandbox/ojp-project/rust-project/src/bin/native-egress.rs\",\"edition\":\"2024\",\"doc\":true,\"doctest\":false,\"test\":true},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"native_tcp\",\"src_path\":\"/sandbox/ojp-project/rust-project/tests/native_tcp.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":true},{\"kind\":[\"test\"],\"crate_types\":[\"bin\"],\"name\":\"redis_container\",\"src_path\":\"/sandbox/ojp-project/rust-project/tests/redis_container.rs\",\"edition\":\"2024\",\"doc\":false,\"doctest\":false,\"test\":true}],\"features\":{},\"manifest_path\":\"/sandbox/ojp-project/rust-project/Cargo.toml\",\"metadata\":null,\"publish\":null,\"authors\":[],\"categories\":[],\"keywords\":[],\"readme\":null,\"repository\":null,\"homepage\":null,\"documentation\":null,\"edition\":\"2024\",\"links\":null,\"default_run\":null,\"rust_version\":null}],\"workspace_members\":[\"path+file:///sandbox/ojp-project/rust-project#runtime-probe@0.1.0\"],\"workspace_default_members\":[\"path+file:///sandbox/ojp-project/rust-project#runtime-probe@0.1.0\"],\"resolve\":null,\"target_directory\":\"/sandbox/ojp-project/rust-project/target\",\"build_directory\":\"/sandbox/ojp-project/rust-project/target\",\"version\":1,\"workspace_root\":\"/sandbox/ojp-project/rust-project\",\"metadata\":null}\n",
+  "stderr": "",
+  "seconds": 0.1011093340057414
+}

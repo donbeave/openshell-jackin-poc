@@ -1,0 +1,11 @@
+{
+  "command": [
+    "uname",
+    "-a"
+  ],
+  "utc": "2026-10-23T22:40:28.659339+00:00",
+  "exit_status": 0,
+  "stdout": "Darwin example-host.local 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050 arm64\n",
+  "stderr": "",
+  "seconds": 0.003639499976998195
+}

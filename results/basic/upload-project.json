@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "upload",
+    "ojp-20261024-basic",
+    "experiments/rust-project",
+    "/workspace/ojp-project"
+  ],
+  "utc": "2026-10-23T22:20:35.697057+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "Warning: experiments/rust-project is outside a Git work tree; uploading without Git filtering (.gitignore rules are not applied).\nUploading experiments/rust-project -> sandbox:/workspace/ojp-project\n\u2713 Upload complete: /workspace/ojp-project/rust-project\n",
+  "seconds": 0.151625291997334
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "-e",
+      "OJP_VALUE=role-hook-probe",
+      "ojp-20261024-agent:2.1.310-poc-final-v2",
+      "id"
+    ],
+    "exit_status": 0,
+    "stdout": "uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "-e",
+      "OJP_VALUE=role-hook-probe",
+      "ojp-20261024-agent:2.1.310-poc-final-v2",
+      "sh",
+      "-c",
+      "cat /workspace/hook.log"
+    ],
+    "exit_status": 0,
+    "stdout": "role-hook-probe\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "-e",
+      "OJP_VALUE=version-probe",
+      "--workdir",
+      "/home/agent/ojp-toolchain",
+      "ojp-20261024-agent:2.1.310-poc-final-v2",
+      "mise",
+      "exec",
+      "--",
+      "cargo",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "cargo 1.99.1 (5f94df478 2026-08-27)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "-e",
+      "OJP_VALUE=version-probe",
+      "ojp-20261024-agent:2.1.310-poc-final-v2",
+      "cargo-nextest",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "cargo-nextest 0.9.149 (3fe4ef319 2026-10-20)\nrelease: 0.9.149\ncommit-hash: 3fe4ef31972f24e0c94cfe291718eab0fe678260\ncommit-date: 2026-10-20\nhost: aarch64-unknown-linux-gnu\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "-e",
+      "OJP_VALUE=version-probe",
+      "ojp-20261024-agent:2.1.310-poc-final-v2",
+      "claude",
+      "--version"
+    ],
+    "exit_status": 0,
+    "stdout": "2.1.310 (Claude Code)\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "-e",
+      "OJP_VALUE=version-probe",
+      "ojp-20261024-agent:2.1.310-poc-final-v2",
+      "docker",
+      "buildx",
+      "version"
+    ],
+    "exit_status": 0,
+    "stdout": "github.com/docker/buildx v0.38.1 0dbe87f36ed472fe36b6796c3f70b4210a731fc5\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "-e",
+      "OJP_VALUE=version-probe",
+      "ojp-20261024-agent:2.1.310-poc-final-v2",
+      "docker",
+      "compose",
+      "version"
+    ],
+    "exit_status": 0,
+    "stdout": "Docker Compose version v5.6.1\n",
+    "stderr": ""
+  }
+]

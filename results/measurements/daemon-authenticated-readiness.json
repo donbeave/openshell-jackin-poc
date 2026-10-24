@@ -1,0 +1,313 @@
+[
+  {
+    "command": [
+      "openssl",
+      "ecparam",
+      "-name",
+      "prime256v1",
+      "-genkey",
+      "-noout",
+      "-out",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.key"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.006783207994885743
+  },
+  {
+    "command": [
+      "openssl",
+      "ecparam",
+      "-name",
+      "prime256v1",
+      "-genkey",
+      "-noout",
+      "-out",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/server.key"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.0059752500092145056
+  },
+  {
+    "command": [
+      "openssl",
+      "ecparam",
+      "-name",
+      "prime256v1",
+      "-genkey",
+      "-noout",
+      "-out",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.key"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.0057699579920154065
+  },
+  {
+    "command": [
+      "openssl",
+      "req",
+      "-new",
+      "-x509",
+      "-key",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.key",
+      "-days",
+      "1",
+      "-subj",
+      "/CN=ojp-readiness-ca",
+      "-out",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.pem"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.008041374996537343
+  },
+  {
+    "command": [
+      "openssl",
+      "req",
+      "-new",
+      "-key",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/server.key",
+      "-subj",
+      "/CN=localhost",
+      "-out",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/server.csr"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.0065148329886142164
+  },
+  {
+    "command": [
+      "openssl",
+      "x509",
+      "-req",
+      "-in",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/server.csr",
+      "-CA",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.pem",
+      "-CAkey",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.key",
+      "-CAcreateserial",
+      "-days",
+      "1",
+      "-extfile",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/server.ext",
+      "-out",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/server.pem"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "Certificate request self-signature ok\nsubject=CN=localhost\n",
+    "seconds": 0.01025666602072306
+  },
+  {
+    "command": [
+      "openssl",
+      "req",
+      "-new",
+      "-key",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.key",
+      "-subj",
+      "/CN=localhost",
+      "-out",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.csr"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.006306166003923863
+  },
+  {
+    "command": [
+      "openssl",
+      "x509",
+      "-req",
+      "-in",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.csr",
+      "-CA",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.pem",
+      "-CAkey",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.key",
+      "-CAcreateserial",
+      "-days",
+      "1",
+      "-extfile",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.ext",
+      "-out",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.pem"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "Certificate request self-signature ok\nsubject=CN=localhost\n",
+    "seconds": 0.010031584009993821
+  },
+  {
+    "command": [
+      "docker",
+      "run",
+      "-d",
+      "--name",
+      "ojp-20261024-time",
+      "--privileged",
+      "--cpus=1",
+      "--memory=512m",
+      "--label",
+      "ojp.test-id=ojp-20261024",
+      "--publish",
+      "127.0.0.1:18779:2376",
+      "--mount",
+      "type=bind,src=/Users/example/openshell-jackin-poc/experiments/readiness-private,dst=/certs,readonly",
+      "--entrypoint",
+      "dockerd",
+      "docker:29.8.2-dind@sha256:1e08cdb63405ca788aea94ef35b792d1e299607c667d33d7bcbcae1fd2611ced",
+      "--tlsverify",
+      "--tlscacert=/certs/ca.pem",
+      "--tlscert=/certs/server.pem",
+      "--tlskey=/certs/server.key",
+      "--host=tcp://0.0.0.0:2376",
+      "--host=unix:///var/run/docker.sock"
+    ],
+    "exit_status": 0,
+    "stdout": "b5ae00ad34c0ee2cdd8739238e7a0285d220fee21ac8bbd086bbcfa6853ccb63\n",
+    "stderr": "",
+    "seconds": 0.1874760419887025
+  },
+  {
+    "command": [
+      "docker",
+      "--host",
+      "tcp://127.0.0.1:18779",
+      "--tlsverify",
+      "--tlscacert",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.pem",
+      "--tlscert",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.pem",
+      "--tlskey",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.key",
+      "info",
+      "--format",
+      "{{.ID}} {{.ServerVersion}}"
+    ],
+    "exit_status": 1,
+    "stdout": " \n",
+    "stderr": "error during connect: Get \"https://127.0.0.1:18779/v1.56/info\": EOF\n",
+    "seconds": 0.039186666981549934
+  },
+  {
+    "command": [
+      "docker",
+      "--host",
+      "tcp://127.0.0.1:18779",
+      "--tlsverify",
+      "--tlscacert",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.pem",
+      "--tlscert",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.pem",
+      "--tlskey",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.key",
+      "info",
+      "--format",
+      "{{.ID}} {{.ServerVersion}}"
+    ],
+    "exit_status": 0,
+    "stdout": "e03a8beb-fa89-4388-b52d-3eb148b2d01b 29.8.2\n",
+    "stderr": "",
+    "seconds": 0.0834468340035528
+  },
+  {
+    "phase": "cold",
+    "result": "PASS",
+    "mechanism": "EXTERNAL FIXTURE",
+    "seconds": 0.413032792013837,
+    "criterion": "first successful mutual-TLS Docker info response",
+    "cache": "host image cached; fresh empty daemon data"
+  },
+  {
+    "command": [
+      "docker",
+      "restart",
+      "ojp-20261024-time"
+    ],
+    "exit_status": 0,
+    "stdout": "ojp-20261024-time\n",
+    "stderr": "",
+    "seconds": 1.264720707986271
+  },
+  {
+    "command": [
+      "docker",
+      "--host",
+      "tcp://127.0.0.1:18779",
+      "--tlsverify",
+      "--tlscacert",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/ca.pem",
+      "--tlscert",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.pem",
+      "--tlskey",
+      "/Users/example/openshell-jackin-poc/experiments/readiness-private/client.key",
+      "info",
+      "--format",
+      "{{.ID}} {{.ServerVersion}}"
+    ],
+    "exit_status": 0,
+    "stdout": "e03a8beb-fa89-4388-b52d-3eb148b2d01b 29.8.2\n",
+    "stderr": "",
+    "seconds": 0.20964975000242703
+  },
+  {
+    "phase": "warm",
+    "result": "PASS",
+    "mechanism": "EXTERNAL FIXTURE",
+    "seconds": 1.4743895000137854,
+    "criterion": "first successful mutual-TLS Docker info response",
+    "cache": "host image cached; same daemon data retained"
+  },
+  {
+    "command": [
+      "docker",
+      "inspect",
+      "--format",
+      "{{.Id}} {{json .Mounts}}",
+      "ojp-20261024-time"
+    ],
+    "exit_status": 0,
+    "stdout": "b5ae00ad34c0ee2cdd8739238e7a0285d220fee21ac8bbd086bbcfa6853ccb63 [{\"Destination\":\"/certs\",\"Mode\":\"\",\"Propagation\":\"rprivate\",\"RW\":false,\"Source\":\"/Users/example/openshell-jackin-poc/experiments/readiness-private\",\"Type\":\"bind\"},{\"Destination\":\"/var/lib/docker\",\"Driver\":\"local\",\"Mode\":\"\",\"Name\":\"6bdd9136f91c140bfceb3f389eed15dcbac0694c834f8c69adca966522472856\",\"Propagation\":\"\",\"RW\":true,\"Source\":\"/var/lib/docker/volumes/6bdd9136f91c140bfceb3f389eed15dcbac0694c834f8c69adca966522472856/_data\",\"Type\":\"volume\"}]\n",
+    "stderr": "",
+    "seconds": 0.012733624986140057
+  },
+  {
+    "command": [
+      "docker",
+      "rm",
+      "-fv",
+      "ojp-20261024-time"
+    ],
+    "exit_status": 0,
+    "stdout": "ojp-20261024-time\n",
+    "stderr": "",
+    "seconds": 0.17476150000584312
+  },
+  {
+    "command": [
+      "docker",
+      "ps",
+      "-a",
+      "--filter",
+      "name=ojp-20261024-time",
+      "--format",
+      "{{.ID}}"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": "",
+    "seconds": 0.018034250009804964
+  }
+]

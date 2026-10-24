@@ -1,0 +1,17 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--",
+    "bash",
+    "-lc",
+    "printf \"PATH=%s\\n\" \"$PATH\"; command -v mise; command -v codex || true; find /home /root /opt /usr/local -type f -name codex -perm -111 2>/dev/null | head -20; ls -la /sandbox/ojp-project /sandbox/ojp-project/rust-project"
+  ],
+  "utc": "2026-10-23T22:43:33.016085+00:00",
+  "exit_status": 0,
+  "stdout": "PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games\n/usr/local/bin/mise\n/sandbox/ojp-project:\ntotal 12\ndrwxr-xr-x 3 agent sandbox 4096 Oct 23 22:43 .\ndrwxr-xr-x 1 agent sandbox 4096 Oct 23 22:43 ..\ndrwxr-xr-x 4 agent sandbox 4096 Oct 23 22:41 rust-project\n\n/sandbox/ojp-project/rust-project:\ntotal 108\ndrwxr-xr-x 4 agent sandbox  4096 Oct 23 22:41 .\ndrwxr-xr-x 3 agent sandbox  4096 Oct 23 22:43 ..\n-rw-r--r-- 1 agent sandbox 61733 Oct 23 22:28 Cargo.lock\n-rw-r--r-- 1 agent sandbox   272 Oct 23 22:14 Cargo.toml\n-rw-r--r-- 1 agent sandbox   196 Oct 23 22:14 compose.yaml\n-rw-r--r-- 1 agent sandbox  6622 Oct 23 22:41 docker-execution-result.txt\n-rw-r--r-- 1 agent sandbox   404 Oct 23 22:21 mise.toml\n-rw-r--r-- 1 agent sandbox   118 Oct 23 22:22 role-hook.sh\n-rw-r--r-- 1 agent sandbox   154 Oct 23 22:21 rust-toolchain.toml\ndrwxr-xr-x 3 agent sandbox  4096 Oct 23 22:20 src\ndrwxr-xr-x 2 agent sandbox  4096 Oct 23 22:14 tests\n",
+  "stderr": "",
+  "seconds": 0.2840126249939203
+}

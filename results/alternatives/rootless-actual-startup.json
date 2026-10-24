@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-root2",
+    "--no-login-shell",
+    "--",
+    "sh",
+    "-c",
+    "timeout 15 /usr/local/bin/dockerd-entrypoint.sh > /tmp/ojp-rootless-actual.log 2>&1; status=$?; cat /tmp/ojp-rootless-actual.log; exit \"$status\""
+  ],
+  "utc": "2026-10-23T22:32:28.534904+00:00",
+  "exit_status": 1,
+  "stdout": "find: /run: Permission denied\ncat: can't open '/proc/net/ip_tables_names': Permission denied\ncat: can't open '/proc/net/ip6_tables_names': Permission denied\ncat: can't open '/proc/net/arp_tables_names': Permission denied\nmodprobe: can't change directory to '/lib/modules': No such file or directory\nmodprobe: can't change directory to '/lib/modules': No such file or directory\nmodprobe: can't change directory to '/lib/modules': No such file or directory\niptables: Failed to initialize nft: Operation not permitted\n",
+  "stderr": "",
+  "seconds": 0.06997258300543763
+}

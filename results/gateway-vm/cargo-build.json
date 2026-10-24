@@ -1,0 +1,20 @@
+{
+  "command": [
+    "experiments/gateway-vm/client.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-vm1",
+    "--workdir",
+    "/sandbox/ojp-project",
+    "--",
+    "cargo",
+    "build",
+    "--locked",
+    "--offline"
+  ],
+  "utc": "2026-10-23T22:43:25.696805+00:00",
+  "exit_status": 127,
+  "stdout": "",
+  "stderr": "/bin/bash: line 1: cargo: command not found\n",
+  "seconds": 0.03842637498746626
+}

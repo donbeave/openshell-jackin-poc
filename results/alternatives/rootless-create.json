@@ -1,0 +1,31 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "ojp-20261024-root",
+    "--from",
+    "docker:29.8.2-dind-rootless",
+    "--policy",
+    "experiments/denied.yaml",
+    "--cpu",
+    "1",
+    "--memory",
+    "1Gi",
+    "--env",
+    "XDG_RUNTIME_DIR=/tmp/ojp-rootless",
+    "--no-auto-providers",
+    "--detach",
+    "--",
+    "sh",
+    "-c",
+    "mkdir -p /tmp/ojp-rootless; dockerd-rootless.sh > /workspace/rootless.log 2>&1; printf \"daemon_exit=%s\\n\" \"$?\" >> /workspace/rootless.log; sleep infinity"
+  ],
+  "utc": "2026-10-23T22:29:50.961389+00:00",
+  "exit_status": 1,
+  "stdout": "\nCreated sandbox: ojp-20261024-root\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image docker:29.8.2-dind-rootless\n[0.1s] Image already present\n[1.4s] Starting sandbox Container created\n",
+  "stderr": "Error:   \u00d7 sandbox entered error phase while provisioning:\n  \u2502 ControlSupervisorStartFailed: Docker supervisor exited before becoming\n  \u2502 ready; log tail: [truncated] A runtime binary identity mode\n  \u2502 2026-10-23T22:29:53.776Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary\n  \u2502 identity mode configured [source:proto require_binary_identity:true]\n  \u2502 [source:proto]\n  \u2502 2026-10-23T22:29:53.791Z INFO openshell_supervisor: Isolation boundary\n  \u2502 attached\n  \u2502 2026-10-23T22:29:53.792Z INFO openshell_supervisor: Isolation boundary\n  \u2502 enforcement confirmed\n  \u2502 2026-10-23T22:29:53.794Z OCSF CONFIG:ENABLED [INFO] TLS termination\n  \u2502 enabled: ephemeral CA generated\n  \u2502 2026-10-23T22:29:53.794Z OCSF CONFIG:READY [INFO] Policy DNS connected to\n  \u2502 isolation boundary\n  \u2502 2026-10-23T22:29:53.794Z OCSF NET:LISTEN [INFO] 127.0.0.1:3128\n  \u2502 2026-10-23T22:29:53.794Z WARN openshell_supervisor_network::proxy:\n  \u2502 host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF\n  \u2502 exemption disabled\n  \u2502 Error:   \u00d7 process error: boundary process leaf: start process supervisor\n  \u2502 leaf:   \u00d7\n  \u2502   \u2502 spawn delegated workload process\n  \u2502   \u2502   \u251c\u2500\u25b6 failed to spawn sandbox entrypoint process 'sh'\n  \u2502   \u2502   \u2570\u2500\u25b6 Permission denied (os error 13)\n  \u2502   \u2502\n\n",
+  "seconds": 3.150428541994188
+}

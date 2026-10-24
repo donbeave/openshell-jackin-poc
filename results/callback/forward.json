@@ -1,0 +1,16 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "forward",
+    "start",
+    "18100",
+    "ojp-20261024-main",
+    "--background"
+  ],
+  "utc": "2026-10-23T22:36:39.251981+00:00",
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "\u2713 Forwarding port 18100 to sandbox ojp-20261024-main in the background\n  Access at: http://127.0.0.1:18100/\n  Stop with: openshell forward stop 18100 ojp-20261024-main\n",
+  "seconds": 64.33770191701478
+}

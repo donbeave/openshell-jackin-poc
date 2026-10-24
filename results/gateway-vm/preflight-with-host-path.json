@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/opt/homebrew/opt/openshell/bin/openshell-gateway",
+    "config",
+    "preflight",
+    "--path",
+    "experiments/gateway-vm/gateway.toml"
+  ],
+  "utc": "2026-10-23T22:41:53.858409+00:00",
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 configuration error: inspect /usr/local/bin/mke2fs: Permission denied (os\n  \u2502 error 13). Install e2fsprogs 1.43 or newer, or repair the selected\n  \u2502 installation and the gateway service PATH; rerun config preflight with the\n  \u2502 service account and environment\n\n",
+  "seconds": 0.011558416008483618
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sh",
+    "experiments/os.sh",
+    "sandbox",
+    "exec",
+    "ojp-20261024-soc2",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "import socket;s=socket.create_connection((\"host.docker.internal\",18090),timeout=5);s.sendall(b\"SET unix-key unix-value\\r\\n\");print(s.recv(128));s.sendall(b\"GET unix-key\\r\\n\");print(s.recv(128));s.close()"
+  ],
+  "utc": "2026-10-23T22:36:58.939015+00:00",
+  "exit_status": 0,
+  "stdout": "b''\nb''\n",
+  "stderr": "",
+  "seconds": 0.059757124981842935
+}
