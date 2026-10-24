@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "env",
+    "XDG_CONFIG_HOME=/var/lib/jfr-20261024-linux/config",
+    "XDG_STATE_HOME=/var/lib/jfr-20261024-linux/state",
+    "OPENSHELL_LOCAL_TLS_DIR=/var/lib/jfr-20261024-linux/certs",
+    "openshell",
+    "--gateway",
+    "jfr-20261024-linux",
+    "gateway",
+    "info",
+    "-o",
+    "json"
+  ],
+  "exit_status": 1,
+  "wall_seconds": 0.102,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 transport error\n  \u251c\u2500\u25b6 tcp connect error\n  \u251c\u2500\u25b6 tcp connect error\n  \u2570\u2500\u25b6 Connection refused (os error 111)\n\n"
+}

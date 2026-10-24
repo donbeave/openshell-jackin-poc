@@ -1,0 +1,6 @@
+MODEL=zai/glm-5.2
+HOOK_BEGIN
+[architect-preflight] CONTEXT7_API_KEY unset — skipping Context7 setup for opencode
+HOOK_DONE
+1.19.4
+CONFIG_CONTENT={"permission":"allow"}

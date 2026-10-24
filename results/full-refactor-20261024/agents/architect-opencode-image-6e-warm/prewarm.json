@@ -1,0 +1,29 @@
+{
+  "command": [
+    "<experiment>/jackin",
+    "prewarm",
+    "--agent",
+    "opencode",
+    "--image",
+    "--role",
+    "jfr24/architect",
+    "--role-git",
+    "<experiment>/architect-derived"
+  ],
+  "started_utc": "2026-10-24T02:09:48.774831+00:00",
+  "duration_seconds": 16.46,
+  "exit_status": 0,
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "role_commit": "018fb476eeff6ff2dd750962127470953311a511",
+  "role_tree": "260192eb11b1ff72b8ead74cfe0fbc4322bbb331",
+  "jackin_version": "jackin 0.6.4",
+  "capsule_sha256": "60f50d7441a4caa64e92205444cc97868166a0714bac4c8b0a1fc334020de22d",
+  "capsule_artifact": "linux/arm64 ELF; macOS Jackin validates embedded identity/version markers, then copies this Linux artifact into linux/arm64 image",
+  "docker_context": "orbstack",
+  "docker_endpoint_identity": "unix://<home>/.orbstack/run/docker.sock",
+  "base_image_identity": "sha256:e7655072c6d511250b183e9511ca1f701e635766ec0d190a68bfe470745df63a linux/arm64",
+  "host_platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "expected": "Pinned Jackin 6e prewarm builds actual pinned Architect role with OpenCode selected and Linux ARM64 Capsule artifact before OpenShell sandbox creation. No auth implied.",
+  "stdout_file": "prewarm.stdout.txt",
+  "stderr_file": "prewarm.stderr.txt"
+}

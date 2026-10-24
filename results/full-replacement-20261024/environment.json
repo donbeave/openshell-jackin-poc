@@ -1,0 +1,96 @@
+{
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "architecture": "arm64",
+  "disk": {
+    "total": 3996276899840,
+    "used": 1790148030464,
+    "free": 2206128869376
+  },
+  "approved_remote_hosts": [],
+  "approved_test_credential_values_read": false,
+  "commands": {
+    "os": {
+      "argv": [
+        "sw_vers"
+      ],
+      "exit": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+      "stderr": ""
+    },
+    "cpu": {
+      "argv": [
+        "sysctl",
+        "-n",
+        "machdep.cpu.brand_string"
+      ],
+      "exit": 0,
+      "stdout": "Apple M5 Max\n",
+      "stderr": ""
+    },
+    "memory": {
+      "argv": [
+        "sysctl",
+        "-n",
+        "hw.memsize"
+      ],
+      "exit": 0,
+      "stdout": "137438953472\n",
+      "stderr": ""
+    },
+    "docker-version": {
+      "argv": [
+        "docker",
+        "version",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit": 0,
+      "stdout": "{\"Client\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"29.9.2\",\"ApiVersion\":\"1.56\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"a82e528901\",\"GoVersion\":\"go1.27.3\",\"Os\":\"darwin\",\"Arch\":\"arm64\",\"BuildTime\":\"Tue Oct 20 11:24:07 2026\",\"Context\":\"orbstack\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"29.8.2\",\"ApiVersion\":\"1.56\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"arm64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.8.2\",\"Details\":{\"ApiVersion\":\"1.56\",\"Arch\":\"arm64\",\"BuildTime\":\"Wed Sep 30 19:32:49 2026\",\"Experimental\":\"true\",\"GitCommit\":\"8af9fe3\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.2.9-orbstack-00391-g2b298d05fbd4\",\"MinAPIVersion\":\"1.40\",\"Module\":\"github.com/moby/moby/v2\",\"ModuleVersion\":\"v2.0.0+unknown\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.3.6\",\"Details\":{\"GitCommit\":\"ee2735368117d2eb259779949d5e75cdafec9761\"}},{\"Name\":\"runc\",\"Version\":\"1.5.2\",\"Details\":{\"GitCommit\":\"29dd3dc2b13b4123162e5fe132504bb4b15569f1\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"8af9fe3\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.2.9-orbstack-00391-g2b298d05fbd4\",\"Experimental\":true,\"BuildTime\":\"2026-09-30T19:32:49.000000000+00:00\"}}\n",
+      "stderr": ""
+    },
+    "docker-endpoint": {
+      "argv": [
+        "docker",
+        "context",
+        "inspect",
+        "orbstack",
+        "--format",
+        "{{json .Endpoints.docker}}"
+      ],
+      "exit": 0,
+      "stdout": "{\"Host\":\"unix:///Users/example/.orbstack/run/docker.sock\",\"SkipTLSVerify\":false}\n",
+      "stderr": ""
+    },
+    "contexts": {
+      "argv": [
+        "docker",
+        "context",
+        "ls",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit": 0,
+      "stdout": "{\"Current\":false,\"Description\":\"Current DOCKER_HOST based configuration\",\"DockerEndpoint\":\"unix:///var/run/docker.sock\",\"Error\":\"\",\"Name\":\"default\"}\n{\"Current\":true,\"Description\":\"OrbStack\",\"DockerEndpoint\":\"unix:///Users/example/.orbstack/run/docker.sock\",\"Error\":\"\",\"Name\":\"orbstack\"}\n",
+      "stderr": ""
+    },
+    "kubernetes-context": {
+      "argv": [
+        "kubectl",
+        "config",
+        "current-context"
+      ],
+      "exit": 1,
+      "stdout": "",
+      "stderr": "error: current-context is not set\n"
+    },
+    "driver-version": {
+      "argv": [
+        "openshell",
+        "--version"
+      ],
+      "exit": 0,
+      "stdout": "openshell 0.1.5\n",
+      "stderr": ""
+    }
+  }
+}

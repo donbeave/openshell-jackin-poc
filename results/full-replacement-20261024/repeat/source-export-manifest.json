@@ -1,0 +1,23 @@
+{
+  "archive_sha256": "bb28ea032125b386db1a34ebe5683044d9c6c4e9f34bd06bef51ce4741d320f7",
+  "archive_size_bytes": 10240,
+  "entries": [
+    {
+      "path": "canary-link",
+      "type": "symlink",
+      "target": "../protected/canary.txt"
+    },
+    {
+      "path": "from-agent.txt",
+      "type": "file",
+      "sha256": "70cd0e75c7f08b4e125c3e00c530d9fff4e53024cd0640169097a07736d9c2a5",
+      "mode": "0o644"
+    },
+    {
+      "path": "hello.txt",
+      "type": "file",
+      "sha256": "5500aed19ef90af9c9656b043c328c42baa906bb573f794998d2fb8ad14eb5da",
+      "mode": "0o644"
+    }
+  ]
+}

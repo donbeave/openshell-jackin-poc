@@ -1,0 +1,782 @@
+diff --git a/crates/openshell-cli/src/run.rs b/crates/openshell-cli/src/run.rs
+index 8aca727b..47d20336 100644
+--- a/crates/openshell-cli/src/run.rs
++++ b/crates/openshell-cli/src/run.rs
+@@ -4044,6 +4044,7 @@ pub async fn sandbox_delete(
+                 request_id: String::new(),
+                 allow_missing: true,
+                 name: name.clone(),
++                sandbox_id: String::new(),
+                 workspace_scope: Some(openshell_core::proto::workspace_selector(
+                     workspace.to_string(),
+                 )),
+diff --git a/crates/openshell-sdk/src/client.rs b/crates/openshell-sdk/src/client.rs
+index 69b75ffb..3d95bdf5 100644
+--- a/crates/openshell-sdk/src/client.rs
++++ b/crates/openshell-sdk/src/client.rs
+@@ -360,6 +360,34 @@ impl OpenShellClient {
+                     allow_missing: opts.allow_missing,
+                     name: name.to_string(),
+                     workspace_scope: Some(proto::workspace_selector("default")),
++                    sandbox_id: String::new(),
++                };
++                async move { grpc.delete_sandbox(request).await }
++            })
++            .await?;
++        Ok(DeletionResult {
++            outcome: response.outcome.into(),
++            sandbox_id: (!response.sandbox_id.is_empty()).then_some(response.sandbox_id),
++        })
++    }
++
++    /// Delete a sandbox by immutable object ID in the default workspace.
++    ///
++    /// The gateway rejects this request if its sandbox ID is not in the
++    /// selected workspace. Older gateways reject the empty `name` field.
++    pub async fn delete_sandbox_by_id(
++        &self,
++        sandbox_id: &str,
++        opts: DeleteOptions,
++    ) -> Result<DeletionResult> {
++        let response = self
++            .unary(|mut grpc| {
++                let request = proto::DeleteSandboxRequest {
++                    request_id: String::new(),
++                    allow_missing: opts.allow_missing,
++                    name: String::new(),
++                    workspace_scope: Some(proto::workspace_selector("default")),
++                    sandbox_id: sandbox_id.to_string(),
+                 };
+                 async move { grpc.delete_sandbox(request).await }
+             })
+@@ -1076,6 +1104,32 @@ impl WorkspaceScopedClient {
+                     allow_missing: opts.allow_missing,
+                     name: name.to_string(),
+                     workspace_scope: Some(proto::workspace_selector(&self.workspace)),
++                    sandbox_id: String::new(),
++                };
++                async move { grpc.delete_sandbox(request).await }
++            })
++            .await?;
++        Ok(DeletionResult {
++            outcome: response.outcome.into(),
++            sandbox_id: (!response.sandbox_id.is_empty()).then_some(response.sandbox_id),
++        })
++    }
++
++    /// Delete a sandbox by immutable object ID in this workspace.
++    pub async fn delete_sandbox_by_id(
++        &self,
++        sandbox_id: &str,
++        opts: DeleteOptions,
++    ) -> Result<DeletionResult> {
++        let response = self
++            .client
++            .unary(|mut grpc| {
++                let request = proto::DeleteSandboxRequest {
++                    request_id: String::new(),
++                    allow_missing: opts.allow_missing,
++                    name: String::new(),
++                    workspace_scope: Some(proto::workspace_selector(&self.workspace)),
++                    sandbox_id: sandbox_id.to_string(),
+                 };
+                 async move { grpc.delete_sandbox(request).await }
+             })
+diff --git a/crates/openshell-sdk/tests/delete_by_id_integration.rs b/crates/openshell-sdk/tests/delete_by_id_integration.rs
+new file mode 100644
+index 00000000..7616119f
+--- /dev/null
++++ b/crates/openshell-sdk/tests/delete_by_id_integration.rs
+@@ -0,0 +1,244 @@
++use std::{
++    env, fs,
++    time::{Duration, SystemTime, UNIX_EPOCH},
++};
++
++use openshell_sdk::{DeleteOptions, EdgeAuthInterceptor, OpenShellClient, raw::proto};
++use tonic::{
++    Code,
++    transport::{Certificate, ClientTlsConfig, Endpoint, Identity},
++};
++
++type TestResult<T> = Result<T, Box<dyn std::error::Error + Send + Sync>>;
++
++fn unique_name(prefix: &str) -> TestResult<String> {
++    let suffix = SystemTime::now().duration_since(UNIX_EPOCH)?.as_nanos() % 1_000_000_000_000_000;
++    Ok(format!("{prefix}{suffix:015}"))
++}
++
++async fn client() -> TestResult<OpenShellClient> {
++    let endpoint = env::var("PDEL_ENDPOINT")?;
++    let name = env::var("PDEL_SERVER_NAME").unwrap_or_else(|_| "localhost".into());
++    let ca = fs::read(env::var("PDEL_CA")?)?;
++    let cert = fs::read(env::var("PDEL_CLIENT_CERT")?)?;
++    let key = fs::read(env::var("PDEL_CLIENT_KEY")?)?;
++    let tls = ClientTlsConfig::new()
++        .ca_certificate(Certificate::from_pem(ca))
++        .domain_name(name)
++        .identity(Identity::from_pem(cert, key));
++    let channel = Endpoint::from_shared(endpoint)?
++        .connect_timeout(Duration::from_secs(5))
++        .timeout(Duration::from_secs(30))
++        .tls_config(tls)?
++        .connect()
++        .await?;
++    Ok(OpenShellClient::from_parts(
++        channel,
++        EdgeAuthInterceptor::noop(),
++    ))
++}
++
++async fn create(client: &OpenShellClient, name: &str) -> TestResult<String> {
++    let mut grpc = client.raw_grpc();
++    let response = grpc
++        .create_sandbox(proto::CreateSandboxRequest {
++            workspace_scope: Some(proto::workspace_selector("default")),
++            spec: Some(proto::SandboxSpec {
++                template: Some(proto::SandboxTemplate {
++                    image: env::var("PDEL_IMAGE").unwrap_or_else(|_| "ubuntu:22.04".into()),
++                    ..Default::default()
++                }),
++                command: vec!["/bin/sh".into(), "-c".into(), "sleep 600".into()],
++                restart_policy: proto::SandboxRestartPolicy::Never as i32,
++                ..Default::default()
++            }),
++            name: name.into(),
++            request_id: String::new(),
++            ..Default::default()
++        })
++        .await?
++        .into_inner();
++    let id = response
++        .sandbox
++        .and_then(|sandbox| sandbox.metadata)
++        .ok_or_else(|| std::io::Error::other("create response omitted sandbox metadata"))?
++        .id;
++    client.wait_ready(name, Duration::from_secs(120)).await?;
++    Ok(id)
++}
++
++async fn cleanup_prefix(client: &OpenShellClient, prefix: &str) -> TestResult<()> {
++    for sandbox in client.list_all_sandboxes(Default::default()).await? {
++        if sandbox.name.starts_with(prefix) {
++            let result = client
++                .delete_sandbox_by_id(&sandbox.id, DeleteOptions::default())
++                .await?;
++            client
++                .wait_deleted(
++                    &sandbox.name,
++                    Duration::from_secs(60),
++                    result.sandbox_id.as_deref(),
++                )
++                .await?;
++        }
++    }
++    Ok(())
++}
++
++#[tokio::test]
++#[ignore = "requires v0.1.5 gateway and mTLS test credentials via PDEL_* environment"]
++async fn released_server_rejects_new_empty_name_id_delete_without_deleting() -> TestResult<()> {
++    let client = client().await?;
++    cleanup_prefix(&client, "po").await?;
++    let name = unique_name("po")?;
++    let id = create(&client, &name).await?;
++    let mut grpc = client.raw_grpc();
++    let error = grpc
++        .delete_sandbox(proto::DeleteSandboxRequest {
++            name: String::new(),
++            sandbox_id: id.clone(),
++            workspace_scope: Some(proto::workspace_selector("default")),
++            allow_missing: false,
++            ..Default::default()
++        })
++        .await
++        .expect_err("released server must reject the unknown ID selector with empty name");
++    assert!(
++        error.code() == Code::InvalidArgument,
++        "expected InvalidArgument, got {error}"
++    );
++    let still_there = client.get_sandbox(&name).await?;
++    assert!(
++        still_there.id == id,
++        "released server deleted or retargeted the sandbox"
++    );
++    println!("server=release-v0.1.5 request_sandbox_id={id}");
++    println!(
++        "observed_status={} original_still_present=true",
++        error.code()
++    );
++    let cleanup = client
++        .delete_sandbox(&name, DeleteOptions::default())
++        .await?;
++    assert!(cleanup.sandbox_id.as_deref() == Some(id.as_str()));
++    client
++        .wait_deleted(&name, Duration::from_secs(60), Some(&id))
++        .await?;
++    Ok(())
++}
++
++#[tokio::test]
++#[ignore = "requires patched gateway and mTLS test credentials via PDEL_* environment"]
++async fn patched_server_deletes_by_id_and_preserves_name_replacement() -> TestResult<()> {
++    let client = client().await?;
++    cleanup_prefix(&client, "pn").await?;
++    let name = unique_name("pn")?;
++    let original_id = create(&client, &name).await?;
++    let deleted = client
++        .delete_sandbox_by_id(&original_id, DeleteOptions::default())
++        .await?;
++    assert!(deleted.sandbox_id.as_deref() == Some(original_id.as_str()));
++    client
++        .wait_deleted(&name, Duration::from_secs(60), Some(&original_id))
++        .await?;
++
++    let replacement_id = create(&client, &name).await?;
++    assert!(replacement_id != original_id);
++
++    let stale = client
++        .delete_sandbox_by_id(
++            &original_id,
++            DeleteOptions {
++                allow_missing: true,
++            },
++        )
++        .await?;
++    assert!(stale.sandbox_id.as_deref() == Some(original_id.as_str()));
++    assert!(stale.outcome == openshell_sdk::DeletionOutcome::AlreadyAbsent);
++    let replacement = client.get_sandbox(&name).await?;
++    assert!(
++        replacement.id == replacement_id,
++        "stale immutable-ID delete affected replacement"
++    );
++
++    let mut grpc = client.raw_grpc();
++    let other_workspace = unique_name("ws")?;
++    let workspace_created = grpc
++        .create_workspace(proto::CreateWorkspaceRequest {
++            name: other_workspace.clone(),
++            ..Default::default()
++        })
++        .await;
++    let (selected_workspace, workspace_creation_evidence) = match workspace_created {
++        Ok(_) => (
++            other_workspace.clone(),
++            "created via CreateWorkspace API".to_string(),
++        ),
++        Err(error) => {
++            println!("valid_other_workspace_creation_status={}", error.code());
++            (
++                "pdel-nonexistent-workspace".to_string(),
++                "BLOCKED: authenticated test operator cannot create another workspace".to_string(),
++            )
++        }
++    };
++    let cross_workspace = grpc
++        .delete_sandbox(proto::DeleteSandboxRequest {
++            sandbox_id: replacement_id.clone(),
++            workspace_scope: Some(proto::workspace_selector(selected_workspace)),
++            ..Default::default()
++        })
++        .await
++        .expect_err("wrong workspace must not delete the selected target");
++    let wrong_workspace_code = cross_workspace.code();
++    let dual_selector = grpc
++        .delete_sandbox(proto::DeleteSandboxRequest {
++            sandbox_id: replacement_id.clone(),
++            name: name.clone(),
++            workspace_scope: Some(proto::workspace_selector("default")),
++            ..Default::default()
++        })
++        .await
++        .expect_err("both selectors must be rejected");
++    let dual_selector_code = dual_selector.code();
++    let still_there = client.get_sandbox(&name).await?;
++    let replacement_survived_negative_requests = still_there.id == replacement_id;
++
++    let cleanup = client
++        .delete_sandbox_by_id(&replacement_id, DeleteOptions::default())
++        .await?;
++    assert!(cleanup.sandbox_id.as_deref() == Some(replacement_id.as_str()));
++    client
++        .wait_deleted(&name, Duration::from_secs(60), Some(&replacement_id))
++        .await?;
++    if workspace_creation_evidence == "created via CreateWorkspace API" {
++        grpc.delete_workspace(proto::DeleteWorkspaceRequest {
++            name: other_workspace,
++            ..Default::default()
++        })
++        .await?;
++    }
++    println!("wrong_workspace_status={wrong_workspace_code}");
++    println!("dual_selector_status={dual_selector_code}");
++    println!("other_workspace={workspace_creation_evidence}");
++    assert!(
++        matches!(
++            wrong_workspace_code,
++            Code::NotFound | Code::PermissionDenied | Code::InvalidArgument
++        ),
++        "wrong workspace was not denied: {wrong_workspace_code}"
++    );
++    assert!(dual_selector_code == Code::InvalidArgument);
++    assert!(
++        replacement_survived_negative_requests,
++        "negative request deleted replacement"
++    );
++    println!("original_id={original_id}");
++    println!("replacement_id={replacement_id}");
++    println!("first_delete_outcome={:?}", deleted.outcome);
++    println!("stale_delete_outcome={:?}", stale.outcome);
++    println!("wrong_workspace_status={wrong_workspace_code}");
++    println!("dual_selector_status={dual_selector_code}");
++    println!("replacement_survived=true");
++    Ok(())
++}
+diff --git a/crates/openshell-server/src/grpc/mutation_replay/ordinary.rs b/crates/openshell-server/src/grpc/mutation_replay/ordinary.rs
+index 25410043..e1e2b458 100644
+--- a/crates/openshell-server/src/grpc/mutation_replay/ordinary.rs
++++ b/crates/openshell-server/src/grpc/mutation_replay/ordinary.rs
+@@ -28,7 +28,7 @@ use openshell_core::proto::{
+     UpdateProviderProfilesRequest, UpdateProviderProfilesResponse, UpdateProviderRequest,
+     WorkspaceSelector,
+ };
+-use openshell_core::{GetResourceVersion, ObjectId};
++use openshell_core::{GetResourceVersion, ObjectId, ObjectWorkspace};
+ use prost::Message;
+ use serde::{Deserialize, Serialize};
+ use tonic::{Request, Response, Status};
+@@ -538,26 +538,85 @@ attachment_mutation!(
+     detached
+ );
+ 
+-sandbox_scoped_mutation!(
+-    DeleteSandboxRequest,
+-    DeleteSandboxResponse,
+-    "DeleteSandbox",
+-    sandbox::handle_delete_sandbox,
+-    User,
+-    |response: &Response<DeleteSandboxResponse>| Ok(Outcome::SandboxDeletion {
+-        id: response.get_ref().sandbox_id.clone(),
+-        outcome: response.get_ref().outcome
+-    }),
+-    async |_store: &Store, value: Outcome| {
+-        let Outcome::SandboxDeletion { id, outcome } = value else {
++impl Mutation for DeleteSandboxRequest {
++    type Output = DeleteSandboxResponse;
++    const METHOD: &'static str = "DeleteSandbox";
++    const PROTECTED: bool = true;
++
++    fn request_id(&self) -> &str {
++        &self.request_id
++    }
++
++    fn target_selector(&self) -> Option<(&str, &WorkspaceSelector)> {
++        self.workspace_scope.as_ref().map(|workspace| {
++            let target = if self.sandbox_id.is_empty() {
++                self.name.as_str()
++            } else {
++                self.sandbox_id.as_str()
++            };
++            (target, workspace)
++        })
++    }
++
++    async fn authorize(&self, state: &ServerState, principal: &Principal) -> Result<Scope, Status> {
++        let mut scope = sandbox_scope(
++            state,
++            principal,
++            self.workspace_scope.as_ref(),
++            MinWorkspaceRole::User,
++        )
++        .await?;
++        let name_based = !self.name.is_empty();
++        let id_based = !self.sandbox_id.is_empty();
++        if name_based == id_based {
++            return Err(Status::invalid_argument(
++                "exactly one of name or sandbox_id is required",
++            ));
++        }
++        if id_based {
++            if self.workspace_scope.is_none() {
++                return Err(Status::invalid_argument(
++                    "workspace_scope is required for sandbox_id deletion",
++                ));
++            }
++            let sandbox = state
++                .store
++                .get_message::<Sandbox>(&self.sandbox_id)
++                .await
++                .map_err(storage_error)?
++                .filter(|sandbox| sandbox.object_workspace() == scope.name)
++                .ok_or_else(|| Status::not_found("sandbox not found"))?;
++            scope.target_id = Some(sandbox.object_id().into());
++        }
++        Ok(scope)
++    }
++
++    async fn execute(
++        state: &Arc<ServerState>,
++        request: Request<Self>,
++    ) -> Result<Response<Self::Output>, Status> {
++        sandbox::handle_delete_sandbox(state, request).await
++    }
++
++    fn capture(response: &Response<Self::Output>) -> Result<Success, Status> {
++        Ok(Success::Ordinary(Outcome::SandboxDeletion {
++            id: response.get_ref().sandbox_id.clone(),
++            outcome: response.get_ref().outcome,
++        }))
++    }
++
++    async fn restore(_store: &Store, success: Success) -> Result<Self::Output, Status> {
++        let Outcome::SandboxDeletion { id, outcome } = outcome(success)? else {
+             return Err(replay_unavailable());
+         };
++        // A replay is bound to the original object ID. It does not resolve a
++        // reused name or mutate a replacement sandbox.
+         Ok(DeleteSandboxResponse {
+             sandbox_id: id,
+             outcome,
+         })
+     }
+-);
++}
+ 
+ sandbox_scoped_mutation!(
+     ExposeServiceRequest,
+diff --git a/crates/openshell-server/src/grpc/mutation_replay/ordinary/tests.rs b/crates/openshell-server/src/grpc/mutation_replay/ordinary/tests.rs
+index f0867a97..2b75717d 100644
+--- a/crates/openshell-server/src/grpc/mutation_replay/ordinary/tests.rs
++++ b/crates/openshell-server/src/grpc/mutation_replay/ordinary/tests.rs
+@@ -17,6 +17,23 @@ use openshell_core::proto::{
+ };
+ use tonic::Code;
+ 
++#[test]
++fn immutable_delete_target_is_part_of_replay_fingerprint() {
++    let first = DeleteSandboxRequest {
++        sandbox_id: "sandbox-target-a".into(),
++        workspace_scope: Some(openshell_core::proto::workspace_selector("default")),
++        request_id: id(),
++        ..Default::default()
++    };
++    let mut different_target = first.clone();
++    different_target.sandbox_id = "sandbox-target-b".into();
++    assert_ne!(
++        fingerprint(&first).unwrap(),
++        fingerprint(&different_target).unwrap(),
++        "reusing one request ID with another sandbox ID must conflict"
++    );
++}
++
+ async fn protected_state() -> (tempfile::TempDir, Arc<ServerState>) {
+     let directory = tempfile::tempdir().unwrap();
+     let mut state = test_server_state().await;
+@@ -46,6 +63,7 @@ pub(in crate::grpc::mutation_replay) async fn exercise_protected_backend(url: &s
+     configure_key(&mut second, &directory);
+     let req = DeleteSandboxRequest {
+         name: "keyed-restart".into(),
++        sandbox_id: String::new(),
+         workspace_scope: Some(openshell_core::proto::workspace_selector(
+             "default".to_string(),
+         )),
+@@ -220,6 +238,7 @@ async fn durable_sandbox_mutations_hide_unauthorized_workspaces() {
+             &state,
+             non_member_request(DeleteSandboxRequest {
+                 name: "hidden".into(),
++                sandbox_id: String::new(),
+                 workspace_scope: Some(openshell_core::proto::workspace_selector("default")),
+                 allow_missing: false,
+                 request_id,
+@@ -327,6 +346,7 @@ async fn keyed_fingerprints_fail_closed_on_missing_or_rotated_keys() {
+     let missing = test_server_state().await;
+     let req = DeleteSandboxRequest {
+         name: "missing".into(),
++        sandbox_id: String::new(),
+         workspace_scope: Some(openshell_core::proto::workspace_selector(
+             "default".to_string(),
+         )),
+@@ -376,6 +396,7 @@ async fn original_payload_is_identity_and_current_transformation_is_a_replay_gua
+     let (_directory, state) = protected_state().await;
+     let original = DeleteSandboxRequest {
+         name: "original".into(),
++        sandbox_id: String::new(),
+         workspace_scope: Some(openshell_core::proto::workspace_selector(
+             "default".to_string(),
+         )),
+diff --git a/crates/openshell-server/src/grpc/sandbox.rs b/crates/openshell-server/src/grpc/sandbox.rs
+index cda7cfc6..1df17cf4 100644
+--- a/crates/openshell-server/src/grpc/sandbox.rs
++++ b/crates/openshell-server/src/grpc/sandbox.rs
+@@ -1693,9 +1693,17 @@ async fn handle_delete_sandbox_inner(
+ ) -> Result<Response<DeleteSandboxResponse>, Status> {
+     let principal = super::extract_principal(&request)?;
+     let req = request.into_inner();
+-    let name = req.name;
+-    if name.is_empty() {
+-        return Err(Status::invalid_argument("sandbox is required"));
++    let name_based = !req.name.is_empty();
++    let id_based = !req.sandbox_id.is_empty();
++    if name_based == id_based {
++        return Err(Status::invalid_argument(
++            "exactly one of name or sandbox_id is required",
++        ));
++    }
++    if id_based && req.workspace_scope.is_none() {
++        return Err(Status::invalid_argument(
++            "workspace_scope is required for sandbox_id deletion",
++        ));
+     }
+     let authz = authorize_workspace(
+         &state.store,
+@@ -1715,19 +1723,43 @@ async fn handle_delete_sandbox_inner(
+     let workspace = super::workspace::resolve_workspace(state.store.as_ref(), &authz.workspace)
+         .await?
+         .name;
+-    // Main's canonical public delete request contains no caller-provided
+-    // identity/version fields. The compute layer still binds the resolved
+-    // object ID and lifecycle guards before committing deletion.
+-    let preconditions = SandboxDeletePreconditions::default();
+-    let result = state
+-        .compute
+-        .delete_sandbox_allow_missing_with_preconditions(
+-            &workspace,
+-            &name,
+-            req.allow_missing,
+-            preconditions,
+-        )
+-        .await?;
++    let (name, result) = if id_based {
++        let sandbox = state
++            .store
++            .get_message::<Sandbox>(&req.sandbox_id)
++            .await
++            .map_err(|error| Status::internal(format!("fetch sandbox failed: {error}")))?;
++        let Some(sandbox) = sandbox.filter(|sandbox| sandbox.object_workspace() == workspace)
++        else {
++            if req.allow_missing {
++                return Ok(Response::new(DeleteSandboxResponse {
++                    outcome: openshell_core::proto::DeletionOutcome::AlreadyAbsent.into(),
++                    sandbox_id: req.sandbox_id,
++                }));
++            }
++            return Err(Status::not_found("sandbox not found"));
++        };
++        let sandbox_id = sandbox.object_id().to_string();
++        let name = sandbox.object_name().to_string();
++        let result = state
++            .compute
++            .delete_sandbox_by_id(&sandbox_id, &name)
++            .await?;
++        (name, result)
++    } else {
++        let name = req.name;
++        let preconditions = SandboxDeletePreconditions::default();
++        let result = state
++            .compute
++            .delete_sandbox_allow_missing_with_preconditions(
++                &workspace,
++                &name,
++                req.allow_missing,
++                preconditions,
++            )
++            .await?;
++        (name, result)
++    };
+     if !result.sandbox_id.is_empty() {
+         state.telemetry.end_sandbox_session(&result.sandbox_id);
+     }
+@@ -5825,6 +5857,7 @@ mod tests {
+                     request_id: String::new(),
+                     allow_missing: false,
+                     name: "reused-name".to_string(),
++                    sandbox_id: String::new(),
+                     workspace_scope: Some(openshell_core::proto::workspace_selector(
+                         "default".to_string(),
+                     )),
+@@ -5869,6 +5902,141 @@ mod tests {
+         );
+     }
+ 
++    #[tokio::test]
++    async fn delete_by_immutable_id_preserves_same_name_replacement() {
++        let state = test_server_state().await;
++        let original = test_sandbox("id-reuse", Vec::new());
++        let original_id = original.object_id().to_string();
++        state.store.put_message(&original).await.unwrap();
++        let deleted = handle_delete_sandbox_inner(
++            &state,
++            authed_request(DeleteSandboxRequest {
++                sandbox_id: original_id.clone(),
++                workspace_scope: Some(openshell_core::proto::workspace_selector("default")),
++                ..Default::default()
++            }),
++        )
++        .await
++        .unwrap()
++        .into_inner();
++        assert_eq!(deleted.sandbox_id, original_id);
++        assert!(matches!(
++            deleted.outcome(),
++            openshell_core::proto::DeletionOutcome::Accepted
++                | openshell_core::proto::DeletionOutcome::Completed
++        ));
++        // The compute test runtime acknowledges deletion asynchronously; model
++        // its completed cleanup before testing the retained stale request.
++        state
++            .store
++            .delete(Sandbox::object_type(), &original_id)
++            .await
++            .unwrap();
++
++        let mut replacement = test_sandbox("id-reuse", Vec::new());
++        replacement.metadata.as_mut().unwrap().id = "sandbox-id-replacement".to_string();
++        state.store.put_message(&replacement).await.unwrap();
++        let stale = handle_delete_sandbox_inner(
++            &state,
++            authed_request(DeleteSandboxRequest {
++                sandbox_id: original_id.clone(),
++                workspace_scope: Some(openshell_core::proto::workspace_selector("default")),
++                ..Default::default()
++            }),
++        )
++        .await
++        .unwrap_err();
++        assert_eq!(stale.code(), tonic::Code::NotFound);
++        assert!(
++            state
++                .store
++                .get_message::<Sandbox>("sandbox-id-replacement")
++                .await
++                .unwrap()
++                .is_some()
++        );
++    }
++
++    #[tokio::test]
++    async fn delete_by_id_requires_exact_workspace_and_one_selector() {
++        let state = test_server_state().await;
++        let sandbox = test_sandbox("id-scope", Vec::new());
++        let id = sandbox.object_id().to_string();
++        state.store.put_message(&sandbox).await.unwrap();
++
++        for request in [
++            DeleteSandboxRequest {
++                sandbox_id: id.clone(),
++                workspace_scope: Some(openshell_core::proto::workspace_selector("other")),
++                ..Default::default()
++            },
++            DeleteSandboxRequest {
++                sandbox_id: id.clone(),
++                name: "also-a-name".into(),
++                workspace_scope: Some(openshell_core::proto::workspace_selector("default")),
++                ..Default::default()
++            },
++            DeleteSandboxRequest {
++                workspace_scope: Some(openshell_core::proto::workspace_selector("default")),
++                ..Default::default()
++            },
++        ] {
++            let status = handle_delete_sandbox_inner(&state, authed_request(request))
++                .await
++                .unwrap_err();
++            assert!(matches!(
++                status.code(),
++                tonic::Code::NotFound | tonic::Code::InvalidArgument
++            ));
++            assert!(
++                state
++                    .store
++                    .get_message::<Sandbox>(&id)
++                    .await
++                    .unwrap()
++                    .is_some()
++            );
++        }
++
++        let missing_error = handle_delete_sandbox_inner(
++            &state,
++            authed_request(DeleteSandboxRequest {
++                sandbox_id: "sandbox-absent-id".into(),
++                workspace_scope: Some(openshell_core::proto::workspace_selector("default")),
++                ..Default::default()
++            }),
++        )
++        .await
++        .unwrap_err();
++        assert_eq!(missing_error.code(), tonic::Code::NotFound);
++
++        let missing = handle_delete_sandbox_inner(
++            &state,
++            authed_request(DeleteSandboxRequest {
++                sandbox_id: "sandbox-absent-id".into(),
++                allow_missing: true,
++                workspace_scope: Some(openshell_core::proto::workspace_selector("default")),
++                ..Default::default()
++            }),
++        )
++        .await
++        .unwrap()
++        .into_inner();
++        assert_eq!(missing.sandbox_id, "sandbox-absent-id");
++        assert_eq!(
++            missing.outcome(),
++            openshell_core::proto::DeletionOutcome::AlreadyAbsent
++        );
++        assert!(
++            state
++                .store
++                .get_message::<Sandbox>(&id)
++                .await
++                .unwrap()
++                .is_some()
++        );
++    }
++
+     #[tokio::test]
+     async fn internal_delete_rejects_expected_identity_drift_before_mutation() {
+         let state = test_server_state().await;
+@@ -9866,6 +10034,7 @@ mod tests {
+                 request_id: String::new(),
+                 allow_missing: false,
+                 name: ("any").to_string(),
++                sandbox_id: String::new(),
+                 workspace_scope: Some(openshell_core::proto::workspace_selector(
+                     "no-such-ws".to_string(),
+                 )),
+diff --git a/crates/openshell-tui/src/lib.rs b/crates/openshell-tui/src/lib.rs
+index 86529c2e..928242aa 100644
+--- a/crates/openshell-tui/src/lib.rs
++++ b/crates/openshell-tui/src/lib.rs
+@@ -821,6 +821,7 @@ async fn handle_sandbox_delete(app: &mut App, tx: mpsc::UnboundedSender<Event>)
+         request_id: String::new(),
+         allow_missing: true,
+         name: sandbox_name,
++        sandbox_id: String::new(),
+     };
+     match app.client.delete_sandbox(req).await {
+         Ok(response) => {
+diff --git a/proto/openshell.proto b/proto/openshell.proto
+index 44d5ed81..8f239c5b 100644
+--- a/proto/openshell.proto
++++ b/proto/openshell.proto
+@@ -1460,7 +1460,7 @@ message DetachSandboxProviderRequest {
+ message DeleteSandboxRequest {
+   // Workspace scope. Only a named workspace selection is accepted.
+   openshell.datamodel.v1.WorkspaceSelector workspace_scope = 2;
+-  // Canonical sandbox name.
++  // Canonical sandbox name. Set this field alone for name-based deletion.
+   string name = 1;
+   // Succeed with ALREADY_ABSENT if the target is missing. Does not wait for
+   // asynchronous cleanup and does not suppress authorization or parent errors.
+@@ -1468,6 +1468,10 @@ message DeleteSandboxRequest {
+   // Optional nonzero UUID for durable at-most-once admission. Successful results
+   // can be replayed for 24 hours; see the API errors and retries reference.
+   string request_id = 4;
++  // Immutable sandbox object ID. Set this field alone for identity-guarded
++  // deletion. The selected workspace remains required and is checked against
++  // the sandbox's stored workspace before mutation.
++  string sandbox_id = 5;
+ }
+ 
+ // Stop sandbox request.

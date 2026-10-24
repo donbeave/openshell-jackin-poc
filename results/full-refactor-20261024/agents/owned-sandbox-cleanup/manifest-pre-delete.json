@@ -1,0 +1,114 @@
+{
+  "gateway": "jfr-20261024-a",
+  "endpoint": "https://localhost:28470",
+  "authority_assumption": "The resources below were created for this agent's role, Capsule, candidate-B PTY/account/shell, or GID-workaround experiments. Root authorized deletion only of this exact owned manifest. No other gateway resources may be touched.",
+  "pre_delete": [
+    {
+      "name": "jfr24-openc-01",
+      "expected_id": "8fe50c45-8a26-4038-b9ad-5bfe46927325",
+      "phase": "Error",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-openc-gid",
+      "expected_id": "15798361-0202-4e1b-8c07-0a208e5c3288",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-openc-ro",
+      "expected_id": "0315811a-c02b-4ac1-9609-f38ec24c2ff2",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-amp-gid",
+      "expected_id": "785f72ae-c67c-4ab3-8ff0-293e79d31c69",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-kimi-gid",
+      "expected_id": "1f8abadc-96a6-4f0d-8f7e-8ad41ea49603",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-grok-gid",
+      "expected_id": "b6ed1d00-e11a-4c2c-90d0-5aa24f377992",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-cap-bld-01",
+      "expected_id": "15e6980c-3ddc-4d34-a1f6-76a68293c758",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-cap-bld-02",
+      "expected_id": "e1c8b03d-8ba7-4b56-ba71-9bde71466943",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-cap-build-03",
+      "expected_id": "b280ff81-0484-43da-aa0d-c500222c7f67",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-cap-6e-01",
+      "expected_id": "3cd50366-1c27-406a-8f3c-dd26eb19a49e",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-cap-root-6e",
+      "expected_id": "bf301433-df3e-4749-b6a7-e4fb514a5a4b",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-pty-candb",
+      "expected_id": "29534441-a8df-42ff-9502-4416c9826f93",
+      "phase": "Completed",
+      "exit_code": 0
+    },
+    {
+      "name": "jfr24-pty-a-01",
+      "expected_id": "d6d96ae3-e3ae-48a3-9964-48c4fa1f8d9e",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-pty-shell01",
+      "expected_id": "ec7e1d5d-9bf2-479b-a606-c02591031aa2",
+      "phase": "Ready",
+      "exit_code": null
+    },
+    {
+      "name": "jfr24-pty-b-01",
+      "expected_id": "b24f58f9-957d-47b7-8e3b-0412f3eecb2b",
+      "phase": "Ready",
+      "exit_code": null
+    }
+  ],
+  "delete_command_scope": [
+    "jfr24-openc-01",
+    "jfr24-openc-gid",
+    "jfr24-openc-ro",
+    "jfr24-amp-gid",
+    "jfr24-kimi-gid",
+    "jfr24-grok-gid",
+    "jfr24-cap-bld-01",
+    "jfr24-cap-bld-02",
+    "jfr24-cap-build-03",
+    "jfr24-cap-6e-01",
+    "jfr24-cap-root-6e",
+    "jfr24-pty-candb",
+    "jfr24-pty-a-01",
+    "jfr24-pty-shell01",
+    "jfr24-pty-b-01"
+  ]
+}

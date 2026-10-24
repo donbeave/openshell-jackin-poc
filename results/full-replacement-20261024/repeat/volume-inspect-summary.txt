@@ -1,0 +1,1 @@
+local {"device":"/Users/example/openshell-jackin-public/results/full-replacement-20261024/repeat/source","o":"bind","type":"none"} {"jackin.fixture":"jfr-20261024-repeat","openshell.ai/sandbox-attachable":"true","openshell.ai/sandbox-attachable-workspace":"jfr-ws-repeat24"}

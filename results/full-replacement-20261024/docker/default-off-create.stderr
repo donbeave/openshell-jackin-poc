@@ -1,0 +1,5 @@
+Error:   × sandbox 'jfr24-dk-off' already exists
+  │ 
+  │ hint: delete it first with: openshell sandbox delete <name>
+  │       or use a different name
+

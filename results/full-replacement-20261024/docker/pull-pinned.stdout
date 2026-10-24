@@ -1,0 +1,7 @@
+docker.io/library/alpine@sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f: Pulling from library/alpine
+6b59a28fa201: Pulling fs layer
+6b59a28fa201: Download complete
+6b59a28fa201: Pull complete
+Digest: sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f
+Status: Downloaded newer image for alpine@sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f
+docker.io/library/alpine@sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f

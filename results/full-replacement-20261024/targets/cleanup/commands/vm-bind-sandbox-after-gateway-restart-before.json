@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm-bind/client.sh",
+    "sandbox",
+    "list",
+    "-o",
+    "json"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.111,
+  "stdout": "{\n  \"next_page_token\": \"\",\n  \"sandboxes\": []\n}\n",
+  "stderr": ""
+}

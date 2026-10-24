@@ -1,0 +1,239 @@
+{
+  "requirement_family": "workspaces, source mounts, git modes, profile limits",
+  "op_shell": {
+    "release": "v0.1.5",
+    "commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+    "platform": "macOS 27.0.1 arm64 + OrbStack Docker Engine Linux/arm64",
+    "gateway": "jfr-20261024-b",
+    "resource_admission": "enabled throughout"
+  },
+  "architect_base": {
+    "reference": "jfr-20261024-architect-base:7b72b38",
+    "id": "sha256:e7655072c6d511250b183e9511ca1f701e635766ec0d190a68bfe470745df63a",
+    "platform": "linux/arm64",
+    "selected_agent_derived_image": false
+  },
+  "results": [
+    {
+      "id": "WS-RAW-BIND",
+      "requirement": "raw host checkout bind under resource admission",
+      "result": "FAIL",
+      "mechanism": "RELEASED",
+      "evidence": [
+        "architect-rawbind.json",
+        "architect-rawbind.stderr"
+      ],
+      "observed": "host bind or image mount cannot be attached while resource admission is enabled: no trusted label resolver"
+    },
+    {
+      "id": "WS-EXT-VOLUME",
+      "requirement": "live host checkout via admin-created local-driver bind-backed named volume",
+      "result": "PASS",
+      "mechanism": [
+        "EXTERNAL FIXTURE",
+        "CONFIGURATION"
+      ],
+      "evidence": [
+        "official-volume-probes.json",
+        "architect-shared-create.json",
+        "architect-shared-git.stdout",
+        "architect-shared-git.stderr"
+      ],
+      "owner": "trusted Jackin host controller must authorize canonical source, create/label/attach volume, retain/export and clean it"
+    },
+    {
+      "id": "WS-SHARED",
+      "requirement": "Shared bidirectional host/agent file changes and Git view",
+      "result": "PASS",
+      "mechanism": [
+        "EXTERNAL FIXTURE",
+        "CONFIGURATION"
+      ],
+      "evidence": [
+        "architect-shared-git.stdout",
+        "architect-shared-git.stderr",
+        "official-volume-probes.json"
+      ]
+    },
+    {
+      "id": "WS-RO",
+      "requirement": "read-only named volume and read-only source file deny writes",
+      "result": "PASS",
+      "mechanism": "CONFIGURATION",
+      "evidence": [
+        "architect-readonly-create.json",
+        "architect-readonly-exec.stdout",
+        "architect-readonly-exec.stderr",
+        "architect-readonly-status.json"
+      ]
+    },
+    {
+      "id": "WS-SYMLINK",
+      "requirement": "relative symlink to a sibling protected canary remains outside mounted source",
+      "result": "PASS",
+      "mechanism": "EXTERNAL FIXTURE",
+      "evidence": [
+        "official-volume-probes.json"
+      ]
+    },
+    {
+      "id": "WS-WRONG-WORKSPACE",
+      "requirement": "reject external volume labeled for another workspace",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": [
+        "architect-wrong-volume.json",
+        "architect-wrong-volume.stderr"
+      ]
+    },
+    {
+      "id": "WS-CANONICAL-SOURCE",
+      "requirement": "reject validly labeled volume with wrong host device path",
+      "result": "PASS",
+      "mechanism": "EXTERNAL FIXTURE",
+      "evidence": [
+        "volume-source-positive.json",
+        "volume-source-decoy.json",
+        "volume-source-status.json"
+      ],
+      "scope": "small local validator; decoy not attached"
+    },
+    {
+      "id": "WS-WORKTREE-GIT-PRIMITIVES",
+      "requirement": "Git linked worktree status/diff/commit and metadata",
+      "result": "PASS",
+      "mechanism": [
+        "EXTERNAL FIXTURE",
+        "WORKAROUND"
+      ],
+      "evidence": [
+        "architect-worktree-plain-status.json",
+        "architect-worktree-plain.stderr",
+        "architect-worktree-git.stdout",
+        "worktree-recreate-read.stdout",
+        "worktree-recreate-list.stdout"
+      ],
+      "limitation": "single project mount fails; exact aliases for worktree path and common .git path are needed; host-repository metadata enumeration needs exact-path one-command safe.directory",
+      "scope": "tested git operations only; not the complete Jackin worktree contract"
+    },
+    {
+      "id": "WS-CLONE",
+      "requirement": "Clone mode Git changes isolated to separate clone",
+      "result": "PASS",
+      "mechanism": [
+        "EXTERNAL FIXTURE",
+        "CONFIGURATION"
+      ],
+      "evidence": [
+        "architect-clone-git.stdout",
+        "clone-recreate-read.stdout",
+        "retained-git-status.json"
+      ]
+    },
+    {
+      "id": "WS-STOP-START",
+      "requirement": "retained project survives sandbox stop/start",
+      "result": "PASS",
+      "mechanism": "EXTERNAL FIXTURE",
+      "evidence": [
+        "architect-shared-lifecycle-status.json",
+        "architect-shared-after-restart.stdout"
+      ]
+    },
+    {
+      "id": "WS-RECREATE",
+      "requirement": "retained Shared/Clone/Worktree bytes survive sandbox delete/recreate",
+      "result": "PASS",
+      "mechanism": "EXTERNAL FIXTURE",
+      "evidence": [
+        "retention-status.json",
+        "retention-host-before.sha256",
+        "retention-host-after.sha256",
+        "clone-recreate-read.stdout",
+        "worktree-recreate-read.stdout"
+      ]
+    },
+    {
+      "id": "PROFILE-IDENTITY",
+      "requirement": "non-root identity, no capabilities, NNP and denied sudo",
+      "result": "PASS",
+      "mechanism": "CONFIGURATION",
+      "evidence": [
+        "profile-identity.stdout",
+        "profile-identity-status.json"
+      ]
+    },
+    {
+      "id": "PROFILE-CPU-MEM",
+      "requirement": "bounded CPU/memory settings enforced",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": [
+        "resource-limits-effective.stdout",
+        "resource-cpu-bounded.stdout",
+        "resource-memory-2x-status.json",
+        "resource-memory-2x-cgroup.stdout"
+      ]
+    },
+    {
+      "id": "PROFILE-PIDS-FD",
+      "requirement": "per-profile PIDs and file descriptor limits",
+      "result": "FAIL",
+      "mechanism": "RELEASED",
+      "evidence": [
+        "profile-identity.stdout",
+        "resource-limits-effective.stdout"
+      ],
+      "observed": "cgroup pids.max=2048 and RLIMIT_NOFILE soft/hard=20480/1048576; Jackin locked expects 512 and 2048; OpenShell create help has no per-sandbox pids/nofile flag"
+    },
+    {
+      "id": "PROFILE-SYSTEM-WRITES",
+      "requirement": "Jackin writable-rootfs and Capsule filesystem profile parity",
+      "result": "NOT TESTED",
+      "mechanism": "",
+      "evidence": [
+        "profile-identity.stdout"
+      ],
+      "reason": "test of /usr/local write was DAC-denied for uid 1000 and does not test writable-rootfs; Capsule Landlock/Capsule session path not exercised"
+    },
+    {
+      "id": "PROFILE-RESERVATION",
+      "requirement": "Jackin memory reservation profile parity",
+      "result": "NOT TESTED",
+      "mechanism": "",
+      "evidence": [
+        "resource-limits-create.json",
+        "resource-limits-effective.stdout"
+      ],
+      "reason": "OpenShell CLI request exposes CPU/memory only; matching profile reservation not demonstrated"
+    },
+    {
+      "id": "WS-WORKTREE-COMPLETE-CONTRACT",
+      "requirement": "complete Jackin Worktree mode including two-instance isolation/sharing, commit hook, exit handling, host path materialization and current Jackin mount contract",
+      "result": "NOT TESTED",
+      "mechanism": "",
+      "evidence": [
+        "architect-worktree-plain-status.json",
+        "architect-worktree-git.stdout",
+        "worktree-recreate-read.stdout"
+      ],
+      "reason": "only Git status/diff/commit, linked metadata, and retained-state path were exercised; candidate uses external absolute-path aliases and has not been composed with actual Jackin host materializer/session behavior"
+    }
+  ],
+  "not_tested_here": [
+    "Jackin Capsule root-before-drop session path",
+    "network allowlist profile",
+    "system_writes behavior",
+    "capability grants",
+    "per-sandbox PID/no-file profile controls",
+    "memory reservation",
+    "Docker child aggregate budget",
+    "Docker children bind mount against live host checkout",
+    "Windows",
+    "Docker Desktop",
+    "native Linux",
+    "remote hosts",
+    "VM driver",
+    "Kubernetes"
+  ]
+}

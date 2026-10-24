@@ -1,0 +1,44 @@
+NAME                       IMAGE                 COMMAND                  SERVICE    CREATED         STATUS                   PORTS
+jfr24compose2-app-1        nginx:1.29.3-alpine   "/docker-entrypoint.…"   app        3 seconds ago   Up Less than a second    0.0.0.0:30004->80/tcp, 0.0.0.0:30080->80/tcp, [::]:30004->80/tcp, [::]:30080->80/tcp
+jfr24compose2-database-1   redis:7.4-alpine      "docker-entrypoint.s…"   database   3 seconds ago   Up 2 seconds (healthy)   6379/tcp
+0.0.0.0:30004
+0.0.0.0:30080
+[::]:30004
+[::]:30080
+Docker reported dynamic host port=30004
+automatic service response: host-created-before-sandbox
+fixed service response: host-created-before-sandbox
+database health: healthy
+database-1  | 1:C 24 Oct 2026 01:44:51.995 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+database-1  | 1:C 24 Oct 2026 01:44:51.995 * Redis version=7.4.11, bits=64, commit=00000000, modified=0, pid=1, just started
+database-1  | 1:C 24 Oct 2026 01:44:51.995 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+database-1  | 1:M 24 Oct 2026 01:44:51.996 * monotonic clock: POSIX clock_gettime
+database-1  | 1:M 24 Oct 2026 01:44:51.996 * Running mode=standalone, port=6379.
+database-1  | 1:M 24 Oct 2026 01:44:51.997 * Server initialized
+database-1  | 1:M 24 Oct 2026 01:44:51.997 * Ready to accept connections tcp
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: using the "epoll" event method
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: nginx/1.29.3
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: OS: Linux 7.2.9-orbstack-00391-g2b298d05fbd4
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 20480:1048576
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker processes
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 11
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 12
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 13
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 14
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 15
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 16
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 17
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 18
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 19
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 20
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 21
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 22
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 23
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 24
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 25
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 26
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 27
+app-1       | 2026/10/24 01:44:53 [notice] 1#1: start worker process 28
+app-1       | 192.168.215.1 - - [24/Oct/2026:01:44:54 +0000] "GET / HTTP/1.1" 200 28 "-" "curl/8.14.1" "-"
+app-1       | 192.168.215.1 - - [24/Oct/2026:01:44:54 +0000] "GET / HTTP/1.1" 200 28 "-" "curl/8.14.1" "-"

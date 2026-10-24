@@ -1,0 +1,11 @@
+version: 1
+process:
+  run_as_user: "1000"
+  run_as_group: "1000"
+filesystem_policy:
+  include_workdir: true
+  read_only: [/bin, /sbin, /usr, /usr/local, /lib, /lib64, /etc, /proc, /sys, /dev/urandom, /opt, /jackin]
+  read_write: [/workspace, /home, /tmp, /dev/null]
+landlock:
+  compatibility: best_effort
+network_policies: {}

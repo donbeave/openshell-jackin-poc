@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "uname",
+    "-a"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.098,
+  "stdout": "Linux jfr-20261024-linux 7.2.9-orbstack-00391-g2b298d05fbd4 #1 SMP PREEMPT Mon Oct 12 05:39:36 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux\n",
+  "stderr": ""
+}

@@ -1,0 +1,8 @@
+Client:
+ Version:           29.8.2
+ API version:       1.56
+ Go version:        go1.26.8
+ Git commit:        7fc2dff
+ Built:             Wed Sep 30 19:31:29 2026
+ OS/Arch:           linux/arm64
+ Context:           default

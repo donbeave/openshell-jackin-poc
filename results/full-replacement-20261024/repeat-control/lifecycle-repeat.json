@@ -1,0 +1,186 @@
+{
+  "argv": [
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/target/debug/openshell-control-probe",
+    "lifecycle",
+    "--endpoint",
+    "https://localhost:28600",
+    "--server-name",
+    "localhost",
+    "--ca",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/ca.crt",
+    "--cert",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/client/tls.crt",
+    "--key",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/client/tls.key",
+    "--name",
+    "jfrctl24a",
+    "--image",
+    "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686"
+  ],
+  "exit_status": 1,
+  "stdout": "[\n  {\n    \"operation\": \"authenticated_gateway_health\",\n    \"ok\": true,\n    \"detail\": {\n      \"status\": \"Healthy\",\n      \"version\": \"0.1.5\"\n    }\n  },\n  {\n    \"operation\": \"create_same_request_id_retry\",\n    \"ok\": true,\n    \"detail\": {\n      \"first_response_discarded_by_harness\": true,\n      \"idempotency_contract\": \"at-most-once request admission; harness discards acknowledgement after response, not a network packet drop\",\n      \"one_resource_with_name\": true,\n      \"request_id\": \"d719b3e3-55b6-48a6-a484-e500f9c99f0d\",\n      \"retry_id\": \"9eba7fae-ab40-43aa-8926-7553191ee993\"\n    }\n  },\n  {\n    \"operation\": \"wait_ready\",\n    \"ok\": true,\n    \"detail\": {\n      \"id\": \"9eba7fae-ab40-43aa-8926-7553191ee993\",\n      \"phase\": \"Ready\",\n      \"same_id\": true\n    }\n  },\n  {\n    \"operation\": \"get_inspect\",\n    \"ok\": true,\n    \"detail\": {\n      \"id\": \"9eba7fae-ab40-43aa-8926-7553191ee993\",\n      \"name\": \"jfrctl24a\",\n      \"phase\": \"Ready\",\n      \"same_id\": true\n    }\n  },\n  {\n    \"operation\": \"list\",\n    \"ok\": true,\n    \"detail\": {\n      \"items\": [\n        {\n          \"id\": \"9eba7fae-ab40-43aa-8926-7553191ee993\",\n          \"name\": \"jfrctl24a\",\n          \"phase\": \"Ready\"\n        }\n      ],\n      \"target_present_by_id\": true\n    }\n  },\n  {\n    \"operation\": \"exec_literal_argv\",\n    \"ok\": true,\n    \"detail\": {\n      \"exit_code\": 0,\n      \"stderr_base64\": \"\",\n      \"stdout_base64\": \"c3BhY2UgYW5kICJxdW90ZXMiIDsgdG91Y2ggL3RtcC9qZnItMjAyNjEwMjQtc2hvdWxkLW5vdC1leGlzdA==\"\n    }\n  },\n  {\n    \"operation\": \"exec_status_separate_streams\",\n    \"ok\": true,\n    \"detail\": {\n      \"exit_code\": 23,\n      \"stderr_base64\": \"c3RkZXJyLW1hcmtlcg==\",\n      \"stdout_base64\": \"c3Rkb3V0LW1hcmtlcg==\"\n    }\n  },\n  {\n    \"operation\": \"interactive_duplex_binary_backpressure_eof\",\n    \"ok\": true,\n    \"detail\": {\n      \"all_assertions_passed\": true,\n      \"child_space_output_bytes\": 1048576,\n      \"exit_code\": 0,\n      \"half_close_eof_exit\": true,\n      \"initial_stdout_and_stderr_before_input\": true,\n      \"input_frames\": [\n        \"split-\",\n        \"frame\\\\0tail\"\n      ],\n      \"receiver_pause_ms\": 500,\n      \"stderr_base64\": \"ZXJyLXN0YXJ0\",\n      \"stdout_len\": 1048601,\n      \"stdout_sha256\": \"371546435850cae0edfdf6b2a297b6c09888f53be28b1cc8d3d14fb4f43c59da\"\n    }\n  },\n  {\n    \"operation\": \"exec_disconnect_same_request_id_dedup\",\n    \"ok\": true,\n    \"detail\": {\n      \"duplicate_outcome\": \"rejected_duplicate: code: 'The system is not in a state required for the operation's execution', message: \\\"execution terminated, but its output stream is not stored; this request was not launched again\\\"\",\n      \"first_stream_disconnected_after\": \"READY, before terminal completion\",\n      \"marker_base64\": \"eA==\",\n      \"marker_written_once\": true,\n      \"request_id\": \"6e8abf2c-5b04-4ba2-bc97-5ee5f404fc95\"\n    }\n  },\n  {\n    \"operation\": \"stop\",\n    \"ok\": true,\n    \"detail\": {\n      \"id\": \"9eba7fae-ab40-43aa-8926-7553191ee993\",\n      \"phase\": \"Stopped\",\n      \"same_id\": true\n    }\n  },\n  {\n    \"operation\": \"start\",\n    \"ok\": true,\n    \"detail\": {\n      \"id\": \"9eba7fae-ab40-43aa-8926-7553191ee993\",\n      \"phase\": \"Ready\",\n      \"same_id\": true\n    }\n  },\n  {\n    \"operation\": \"wait_ready_after_start\",\n    \"ok\": true,\n    \"detail\": {\n      \"id\": \"9eba7fae-ab40-43aa-8926-7553191ee993\",\n      \"phase\": \"Ready\",\n      \"same_id\": true\n    }\n  },\n  {\n    \"operation\": \"delete_and_confirm_original_id\",\n    \"ok\": true,\n    \"detail\": {\n      \"confirmed\": true,\n      \"id\": \"9eba7fae-ab40-43aa-8926-7553191ee993\",\n      \"outcome\": \"Accepted\"\n    }\n  },\n  {\n    \"operation\": \"stale_name_mutation_after_reuse\",\n    \"ok\": false,\n    \"detail\": {\n      \"old_context_request_id\": \"e827389f-cc97-4b66-9886-fa9817105b12\",\n      \"replacement_cleanup_confirmed\": true,\n      \"replacement_id\": \"90e903f9-c3af-43cf-98a7-fa4c3f6d83f6\",\n      \"replacement_id_after\": \"90e903f9-c3af-43cf-98a7-fa4c3f6d83f6\",\n      \"replacement_phase_after\": \"Stopped\",\n      \"request_bytes_captured_before_original_delete\": true,\n      \"stale_mutation_rejected\": false,\n      \"stale_stop_rpc_error\": null,\n      \"stale_stop_rpc_succeeded\": true,\n      \"stop_response_sandbox_id\": \"90e903f9-c3af-43cf-98a7-fa4c3f6d83f6\"\n    },\n    \"error\": \"stale name-based stop affected replacement; API request has no immutable sandbox ID or runtime generation\"\n  }\n]\n",
+  "stderr": "",
+  "duration_seconds": 10.574,
+  "expected": "Control lifecycle and transport probes run. Stale old-context stop may fail by stopping replacement; preserve that failure.",
+  "record_outcomes": [
+    {
+      "operation": "authenticated_gateway_health",
+      "ok": true,
+      "detail": {
+        "status": "Healthy",
+        "version": "0.1.5"
+      }
+    },
+    {
+      "operation": "create_same_request_id_retry",
+      "ok": true,
+      "detail": {
+        "first_response_discarded_by_harness": true,
+        "idempotency_contract": "at-most-once request admission; harness discards acknowledgement after response, not a network packet drop",
+        "one_resource_with_name": true,
+        "request_id": "d719b3e3-55b6-48a6-a484-e500f9c99f0d",
+        "retry_id": "9eba7fae-ab40-43aa-8926-7553191ee993"
+      }
+    },
+    {
+      "operation": "wait_ready",
+      "ok": true,
+      "detail": {
+        "id": "9eba7fae-ab40-43aa-8926-7553191ee993",
+        "phase": "Ready",
+        "same_id": true
+      }
+    },
+    {
+      "operation": "get_inspect",
+      "ok": true,
+      "detail": {
+        "id": "9eba7fae-ab40-43aa-8926-7553191ee993",
+        "name": "jfrctl24a",
+        "phase": "Ready",
+        "same_id": true
+      }
+    },
+    {
+      "operation": "list",
+      "ok": true,
+      "detail": {
+        "items": [
+          {
+            "id": "9eba7fae-ab40-43aa-8926-7553191ee993",
+            "name": "jfrctl24a",
+            "phase": "Ready"
+          }
+        ],
+        "target_present_by_id": true
+      }
+    },
+    {
+      "operation": "exec_literal_argv",
+      "ok": true,
+      "detail": {
+        "exit_code": 0,
+        "stderr_base64": "",
+        "stdout_base64": "c3BhY2UgYW5kICJxdW90ZXMiIDsgdG91Y2ggL3RtcC9qZnItMjAyNjEwMjQtc2hvdWxkLW5vdC1leGlzdA=="
+      }
+    },
+    {
+      "operation": "exec_status_separate_streams",
+      "ok": true,
+      "detail": {
+        "exit_code": 23,
+        "stderr_base64": "c3RkZXJyLW1hcmtlcg==",
+        "stdout_base64": "c3Rkb3V0LW1hcmtlcg=="
+      }
+    },
+    {
+      "operation": "interactive_duplex_binary_backpressure_eof",
+      "ok": true,
+      "detail": {
+        "all_assertions_passed": true,
+        "child_space_output_bytes": 1048576,
+        "exit_code": 0,
+        "half_close_eof_exit": true,
+        "initial_stdout_and_stderr_before_input": true,
+        "input_frames": [
+          "split-",
+          "frame\\0tail"
+        ],
+        "receiver_pause_ms": 500,
+        "stderr_base64": "ZXJyLXN0YXJ0",
+        "stdout_len": 1048601,
+        "stdout_sha256": "371546435850cae0edfdf6b2a297b6c09888f53be28b1cc8d3d14fb4f43c59da"
+      }
+    },
+    {
+      "operation": "exec_disconnect_same_request_id_dedup",
+      "ok": true,
+      "detail": {
+        "duplicate_outcome": "rejected_duplicate: code: 'The system is not in a state required for the operation's execution', message: \"execution terminated, but its output stream is not stored; this request was not launched again\"",
+        "first_stream_disconnected_after": "READY, before terminal completion",
+        "marker_base64": "eA==",
+        "marker_written_once": true,
+        "request_id": "6e8abf2c-5b04-4ba2-bc97-5ee5f404fc95"
+      }
+    },
+    {
+      "operation": "stop",
+      "ok": true,
+      "detail": {
+        "id": "9eba7fae-ab40-43aa-8926-7553191ee993",
+        "phase": "Stopped",
+        "same_id": true
+      }
+    },
+    {
+      "operation": "start",
+      "ok": true,
+      "detail": {
+        "id": "9eba7fae-ab40-43aa-8926-7553191ee993",
+        "phase": "Ready",
+        "same_id": true
+      }
+    },
+    {
+      "operation": "wait_ready_after_start",
+      "ok": true,
+      "detail": {
+        "id": "9eba7fae-ab40-43aa-8926-7553191ee993",
+        "phase": "Ready",
+        "same_id": true
+      }
+    },
+    {
+      "operation": "delete_and_confirm_original_id",
+      "ok": true,
+      "detail": {
+        "confirmed": true,
+        "id": "9eba7fae-ab40-43aa-8926-7553191ee993",
+        "outcome": "Accepted"
+      }
+    },
+    {
+      "operation": "stale_name_mutation_after_reuse",
+      "ok": false,
+      "detail": {
+        "old_context_request_id": "e827389f-cc97-4b66-9886-fa9817105b12",
+        "replacement_cleanup_confirmed": true,
+        "replacement_id": "90e903f9-c3af-43cf-98a7-fa4c3f6d83f6",
+        "replacement_id_after": "90e903f9-c3af-43cf-98a7-fa4c3f6d83f6",
+        "replacement_phase_after": "Stopped",
+        "request_bytes_captured_before_original_delete": true,
+        "stale_mutation_rejected": false,
+        "stale_stop_rpc_error": null,
+        "stale_stop_rpc_succeeded": true,
+        "stop_response_sandbox_id": "90e903f9-c3af-43cf-98a7-fa4c3f6d83f6"
+      },
+      "error": "stale name-based stop affected replacement; API request has no immutable sandbox ID or runtime generation"
+    }
+  ],
+  "sandbox_names": [
+    "jfrctl24a"
+  ],
+  "image": "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+  "image_id": "sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+  "cache_condition": "warm: pinned linux/arm64 image already present in OrbStack engine"
+}

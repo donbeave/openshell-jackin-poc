@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "ps",
+    "-p",
+    "37318",
+    "-o",
+    "pid=,args="
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.131,
+  "stdout": "  37318 /usr/local/bin/openshell-gateway --config /var/lib/jfr-20261024-linux/gateway.toml --bind-address 192.168.139.147 --port 18470 --tls-cert /var/lib/jfr-20261024-linux/certs/server/private-ip.crt --tls-key /var/lib/jfr-20261024-linux/certs/server/private-ip.key --tls-client-ca /var/lib/jfr-20261024-linux/certs/ca.crt --enable-mtls-auth true --compute-driver docker\n",
+  "stderr": ""
+}

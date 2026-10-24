@@ -1,0 +1,38 @@
+{
+  "profile": "Packaged OpenShell VM driver on local macOS ARM64 host",
+  "host": {
+    "os": "macOS ARM64",
+    "image_builder": "OrbStack Docker Engine on host",
+    "builder_identity": "local host Docker context; image was not pushed to a remote registry"
+  },
+  "openshell": {
+    "version": "0.1.5",
+    "gateway_name": "jfr-20261024-vm",
+    "gateway_endpoint": "https://127.0.0.1:28472",
+    "control_transport": "TLS with mTLS; local client certificate; TLS verification enabled",
+    "driver": "packaged openshell-driver-vm 0.1.5",
+    "config": "experiments/full-replacement-20261024/targets/openshell-vm/gateway.toml",
+    "gateway_configured_vm_size": {"vcpus": 2, "memory_mib": 2048, "overlay_mib": 4096},
+    "guest_observation": {"nproc": 2, "memtotal_kib": 2036904, "uid": 1000, "gid": 1000, "supplementary_groups": [], "cap_eff": "0000000000000000", "no_new_privs": 1},
+    "cgroup_limit_evidence": "not present in the guest; no exhaustion enforcement claim"
+  },
+  "image": {
+    "base": "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+    "tag": "jfr-20261024-vm/probe:0.1.5",
+    "id": "sha256:2374eefdb4849a3dabd4f6f0ce03691d6083a8b1e53ff9dfa2f2d9e3eda55f14",
+    "platform": "linux/arm64",
+    "agent_installed": false,
+    "delivery": "host-built local image successfully delivered by the VM driver into a ready VM sandbox"
+  },
+  "resources": {
+    "gateway_process": "experiment-owned, launched by run-gateway.sh on loopback port 28472",
+    "sandboxes": [
+      {"name": "jfr-20261024-vm-a", "id": "86318f68-5bd0-4887-9d8d-b5a009de06e0", "phase": "Ready"},
+      {"name": "jfr-20261024-vm-b", "id": "c0dd2ba8-1876-48bf-b326-e5fe6269636e", "phase": "Ready"},
+      {"name": "jfr-20261024-vm-c", "id": "eb3409b0-4992-461a-b353-65ec21700f21", "phase": "Ready"}
+    ],
+    "bind_probe_gateway": "jfr-20261024-vm-bind, loopback port 28473; no sandbox was created",
+    "bind_probe_result": "host bind denied with resource admission enabled: no trusted label resolver"
+  },
+  "ownership_and_cleanup": "OpenShell owns the three VM sandbox resources and their VM runtime objects. The experiment owns gateway state, CA/JWT/certificates, prepared image and host builder cache references. No cleanup executed; coordinate first with parent."
+}

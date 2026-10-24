@@ -1,0 +1,15 @@
+/sandbox/docker-client/cross-a:
+total 12
+drwxr-xr-x    1 1000     1000            42 Oct 24 01:18 .
+drwxr-xr-x    1 1000     1000            14 Oct 24 01:18 ..
+-rw-r--r--    1 1000     1000           574 Oct 24 01:17 ca.pem
+-rw-r--r--    1 1000     1000           554 Oct 24 01:17 cert.pem
+-rw-------    1 1000     1000           227 Oct 24 01:17 key.pem
+Client:
+ Version:           29.8.2
+ API version:       1.56
+ Go version:        go1.26.8
+ Git commit:        7fc2dff
+ Built:             Wed Sep 30 19:31:29 2026
+ OS/Arch:           linux/arm64
+ Context:           default

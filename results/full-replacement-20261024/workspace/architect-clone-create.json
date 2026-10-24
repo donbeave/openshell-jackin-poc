@@ -1,0 +1,62 @@
+{
+  "annotations": {
+    "internal.openshell.ai/auth-epoch": "1",
+    "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+    "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+    "internal.openshell.ai/runtime-generation": "05ce6a78-1334-4a29-8b7b-8acb3fedf353"
+  },
+  "conditions": [
+    {
+      "last_transition_time": "",
+      "message": "Supervisor session connected",
+      "reason": "DependenciesReady",
+      "status": "True",
+      "type": "Ready"
+    },
+    {
+      "last_transition_time": "",
+      "message": "",
+      "reason": "ConfigurationAccepted",
+      "status": "True",
+      "type": "ConfigurationReady"
+    }
+  ],
+  "configuration_admission": {
+    "config_revision": 17864404688088294225,
+    "error": "",
+    "policy_hash": "8b9de7e466c8eb9a98e57569740e042c41a094ef1bd277cc3c674a88842d707d",
+    "policy_version": 1,
+    "provider_env_revision": 3176606324465211593,
+    "state": "accepted"
+  },
+  "created_at": "2026-10-24 01:18:19",
+  "created_from_workload_template": null,
+  "current_policy_version": 1,
+  "endpoint_statuses": [],
+  "exit_code": null,
+  "host_key_fingerprint": "SHA256:7Wd0vqVSjQrPTUVVH7D/fJdlWHjdjYpVzYLp9n44FSA",
+  "id": "d6e9551f-1ee1-47f4-b90b-fa49d4242a35",
+  "labels": {},
+  "last_token_grant_failure": null,
+  "name": "jfrws24-clonerole",
+  "phase": "Ready",
+  "provisioning": {
+    "admission_start_time": "2026-10-24T01:18:22.145Z",
+    "attempt_id": "b29e6a61-0d8f-4e0d-8bfe-eeea735a30d9",
+    "cleanup_completed_time": null,
+    "cleanup_error": "",
+    "cleanup_retry_time": null,
+    "configuration_change_id": "bacfa1b3d5c6e6636f5cc845139f8e194b5195059091b128a81b5cc1cb8fe6d6",
+    "configuration_change_time": "2026-10-24T01:18:19.515Z",
+    "deadline": null,
+    "driver_operation_id": "2b9f6dee-98e5-4a23-b102-9cf5ac8347f7",
+    "driver_operation_pending": false,
+    "first_rejection_time": null,
+    "phase": "ready",
+    "preparation_deadline": "2026-10-24T01:48:19.515Z",
+    "timeout_time": null
+  },
+  "resource_version": 10,
+  "service_urls": {},
+  "workspace": "jfr-ws-20261024"
+}

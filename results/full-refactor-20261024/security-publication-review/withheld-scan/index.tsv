@@ -1,0 +1,15 @@
+results/full-refactor-20261024/agents/architect-amp-image-6e/prewarm.stderr.txt	93259b8fb7ac	0
+results/full-refactor-20261024/agents/architect-claude-image-6e/prewarm.stderr.txt	df1066b57eff	0
+results/full-refactor-20261024/agents/architect-codex-image-6e/prewarm.stderr.txt	5e009a53472f	0
+results/full-refactor-20261024/agents/architect-grok-image-6e/prewarm.stderr.txt	a64eb6705421	0
+results/full-refactor-20261024/agents/architect-kimi-image-6e/prewarm.stderr.txt	10fd277f1958	0
+results/full-refactor-20261024/agents/architect-opencode-image-6e-rolechange/prewarm.stderr.txt	d04a0b108745	0
+results/full-refactor-20261024/agents/architect-opencode-image-6e/prewarm.stderr.txt	0655441118ff	0
+results/full-refactor-20261024/agents/opencode-gid-workaround/results.json	b410dc97833d	0
+results/full-refactor-20261024/openshell-main-comparison.json	840bd7971b9e	0
+results/full-refactor-20261024/rawmatches/cli-host-fleet.txt	0a3720ea256d	0
+results/full-refactor-20261024/runtime-search-all.txt	7ad33a40c38c	0
+results/full-refactor-20261024/workflow-fleet-matches.txt	54713e2af3bf	0
+results/full-replacement-20261024/agents-source.md	be95c4132397	0
+results/full-replacement-20261024/gateway-a.log	5af0961f2e02	0
+results/full-replacement-20261024/role/image-build-warm.stderr.txt	181f59862408	0

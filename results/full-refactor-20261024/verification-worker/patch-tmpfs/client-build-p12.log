@@ -1,0 +1,4 @@
+   Compiling openshell-control-probe v0.1.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/client)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.11s
+mbx[cache]: 0 hits, 0 misses, 1 incremental; 0 B downloaded, 0 B uploaded, 0 B stored locally
+mbx[savings]: escorted 15.8 TiB logical of ownerless outputs off the premises.

@@ -1,0 +1,27 @@
+{
+  "revision": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "kind": "git archive snapshot; NO .git; git rev-parse would walk to research repository and is NOT snapshot provenance",
+  "files": [
+    {
+      "file": "crates/apps/jackin-capsule/src/main.rs",
+      "gitshow_exit": 0,
+      "expected_sha256": "c59b1b4c520b44fab1c5c02979273b2a33886a7bbb8216926a00b1bd8442da9b",
+      "snapshot_sha256": "c59b1b4c520b44fab1c5c02979273b2a33886a7bbb8216926a00b1bd8442da9b",
+      "match": true
+    },
+    {
+      "file": "crates/services/jackin-workflow/src/verify.rs",
+      "gitshow_exit": 0,
+      "expected_sha256": "6b8765e9a1a6b5d6e93cd58eea501eee9f5882e62e1ec2391a28d5321c4f8f16",
+      "snapshot_sha256": "6b8765e9a1a6b5d6e93cd58eea501eee9f5882e62e1ec2391a28d5321c4f8f16",
+      "match": true
+    },
+    {
+      "file": "crates/apps/jackin/src/cli.rs",
+      "gitshow_exit": 0,
+      "expected_sha256": "1ddf23d81f8b7eac5d78b08f1bf26286d589c05138965468aca629d952858887",
+      "snapshot_sha256": "1ddf23d81f8b7eac5d78b08f1bf26286d589c05138965468aca629d952858887",
+      "match": true
+    }
+  ]
+}

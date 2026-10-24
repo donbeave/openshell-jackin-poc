@@ -1,0 +1,25 @@
+{
+  "sample_utc": "2026-10-24T01:11:14.383662+00:00",
+  "condition": "gateway-a idle before owned sandbox workloads",
+  "peak": "NOT TESTED: instantaneous sample is not peak",
+  "configured_allocation": "not equivalent to consumption",
+  "disk": {
+    "total": 3996276899840,
+    "used": 1797783080960,
+    "free": 2198493818880
+  },
+  "commands": [
+    {
+      "command": [
+        "ps",
+        "-p",
+        "65583",
+        "-o",
+        "pid=,%cpu=,rss=,etime=,command="
+      ],
+      "exit": 0,
+      "stdout": "65583   0.4 134496 05:18 /opt/homebrew/opt/openshell/bin/openshell-gateway --config /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/gateway.toml --bind-address 127.0.0.1 --port 28470 --tls-cert /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/server/tls.crt --tls-key /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/server/tls.key --tls-client-ca /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/ca.crt --enable-mtls-auth true --compute-driver docker\n",
+      "stderr": ""
+    }
+  ]
+}

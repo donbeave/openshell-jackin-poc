@@ -1,0 +1,59 @@
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:158:                "active Docker context uses TLS transport ({host}); jackin reads TLS material from DOCKER_TLS_VERIFY and DOCKER_CERT_PATH, not from a Docker context"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:161:                "active Docker context for {host} includes TLS settings; jackin reads TLS material from DOCKER_TLS_VERIFY and DOCKER_CERT_PATH, not from a Docker context"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:211:const OVERRIDE_HINT: &str = "Set DOCKER_HOST to a unix:// socket, a plain tcp:// endpoint, or a TLS tcp:// endpoint with DOCKER_TLS_VERIFY and DOCKER_CERT_PATH set, to override.";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:275:    docker_host_env_is_set_from(std::env::var_os("DOCKER_HOST").as_deref())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:297:    if let Some(ctx) = std::env::var("DOCKER_CONTEXT")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client_dispatch.rs:49:    sudo-provision                 Enforce per-profile sudo grant (run as root via docker exec)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:1397:            "cannot list local docker images".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:1405:            format!("cannot list local docker images for `{repository}`"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:292:        "docker inspect failed while resolving snapshot container {container_name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:301:                "docker inspect returned no identity for snapshot container {container_name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:307:        "docker inspect identity changed for snapshot container {container_name}: {name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:162:        "docker inspect failed for workflow container {instance}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:169:        .with_context(|| format!("docker inspect returned no identity for {instance}"))?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:173:        "docker inspect identity changed for workflow container {instance}: {name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:179:/// ownership: read-only `capsule status` over docker exec must list
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/error.rs:172:                "Start Docker Desktop, OrbStack, or run `colima start`. Check `DOCKER_HOST` if using a remote daemon.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/error.rs:220:                "Run `jackin prune` to remove stale containers, or `docker rm <name>` to remove the specific one.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:196:                "Start Docker Desktop / OrbStack / run `colima start` / check `DOCKER_HOST`",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:202:            "Start Docker Desktop / OrbStack / run `colima start` / check `DOCKER_HOST`",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:209:        jackin_process::ExecRequest::new("docker", ["version", "--format", "{{.Server.Version}}"]);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:236:    /// copying source bytes, and must never `docker exec` into the paused
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/env_model.rs:166:    ("DOCKER_HOST", None),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/env_model.rs:167:    ("DOCKER_TLS_VERIFY", None),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/env_model.rs:168:    ("DOCKER_CERT_PATH", None),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-diagnostics/src/run.rs:380:            "docker build step completed",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture.rs:17://! never runs `docker exec` inside the paused container, never copies live
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture/tests.rs:13:/// access only — never `docker exec` into the paused container.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/holds.rs:151:/// be inspected host-side (`docker inspect`) without trusting worker state.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-attach/src/host_attach.rs:150:                jackin_process::ExecRequest::new("docker", attach_proxy_exec_args(container))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:124:        let result = runner.run("docker", &args, None, &options).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:187:    let build_future = runner.run("docker", &args, None, &build_options);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:436:    let build_future = runner.run("docker", &build_args, None, &build_options);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/published.rs:34:            "docker pull {published} failed ({e}); treating published image as stale and rebuilding from workspace Dockerfile"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:79:                .capture_combined("docker", &["logs", "--tail", "40", container_ref], None)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:137:        || (detail.contains("docker exec") && detail.contains("jackin-capsule"))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:79:            "docker exec send failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:192:            "docker exec {action} failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:392:        let request = jackin_process::ExecRequest::new("docker", &args);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:395:                .context("starting the docker exec event stream")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:399:            .context("docker exec event stream has no stdout")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:171:            "docker exec snapshot failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:194:            "docker exec usage accounts failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:209:            "docker exec usage accounts failed because container {container_name} is running a stale jackin-capsule binary without usage support; rerun `jackin-dev pr sync <PR_NUMBER>`, source the generated env.sh, relaunch the instance, then retry `jackin usage {container_name} verify`: {stderr}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:242:    let request = jackin_process::ExecRequest::new("docker", &args);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:63:            .any(|operation| operation.starts_with("docker rm")),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/environment.rs:82:    let docker_host = format!("DOCKER_HOST=tcp://{dind}:2376");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/environment.rs:84:        "DOCKER_CERT_PATH={}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/environment.rs:123:                "DOCKER_TLS_VERIFY=1",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:49:        let result = runner.run("docker", &argv, None, &docker_run_opts).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:532:                std::process::Command::new("docker").args(["rm", "--force", &container_name]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:575:        std::process::Command::new("docker").args(["image", "inspect", TEST_SANDBOX_IMAGE]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:583:        std::process::Command::new("docker").args(["pull", TEST_SANDBOX_IMAGE]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:605:        std::process::Command::new("docker").args([
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:615:        std::process::Command::new("docker").args(["rm", "--force", container_name]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:776:    let mut command = std::process::Command::new("docker");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:858:                std::process::Command::new("docker").args(["rm", "--force", &self.name]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/ci.rs:321:    if let Some(temp) = std::env::var_os("VELNOR_DOCKER_HOST_TEMP") {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/construct.rs:313:        .with_context(|| format!("running docker buildx imagetools inspect {reference}"))?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/construct/tests.rs:85:    let mut command = Command::new("docker");

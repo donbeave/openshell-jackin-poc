@@ -1,0 +1,3 @@
+Error:   × sandbox entered error phase while provisioning: IdentityResolutionFailed:
+  │ descriptor error: workload identity must not contain UID or GID zero
+

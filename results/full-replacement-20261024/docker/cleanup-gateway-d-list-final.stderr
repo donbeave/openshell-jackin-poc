@@ -1,0 +1,4 @@
+Error:   × Unknown gateway 'jfr-20261024-d'.
+  │ Register it first: openshell gateway add <endpoint> --name jfr-20261024-d
+  │ Or list available gateways: openshell gateway select
+

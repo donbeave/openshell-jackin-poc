@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "env",
+    "XDG_CONFIG_HOME=/var/lib/jfr-20261024-linux/config",
+    "XDG_STATE_HOME=/var/lib/jfr-20261024-linux/state",
+    "OPENSHELL_LOCAL_TLS_DIR=/var/lib/jfr-20261024-linux/certs",
+    "openshell",
+    "--gateway",
+    "jfr-20261024-linux-ip",
+    "sandbox",
+    "exec",
+    "jfr-20261024-lnx-h",
+    "--",
+    "sh",
+    "-c",
+    "id; uname -m; cat /workspace/role-marker; printf edited > /workspace/edit-marker; sha256sum /workspace/role-marker /workspace/edit-marker; command -v docker || true"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.06,
+  "stdout": "uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu)\naarch64\nbuilt-before-sandbox\nc7351335c21fde061733dbe34c0a67634c71fdb6cc8842f4b1ce534912956cdf  /workspace/role-marker\n1fb9f4097256db2d7b1e13aff79cee44339891a31c556b9cf6093885773b3618  /workspace/edit-marker\n",
+  "stderr": ""
+}

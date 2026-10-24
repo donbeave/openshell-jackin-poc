@@ -1,0 +1,18 @@
+[
+  {
+    "operation": "verification_worker",
+    "ok": true,
+    "detail": {
+      "cleanup": {
+        "confirmed": true,
+        "outcome": "Accepted",
+        "sandbox_id": "392de56a-9dec-47c2-ac17-76bdb07c0bf8"
+      },
+      "journey": {
+        "error": "connect error: sandbox 'jfrv-20261024-w03' entered error phase"
+      },
+      "request_id": "699925a0-3993-4791-8971-dd9c79c5966c",
+      "sandbox_id": "392de56a-9dec-47c2-ac17-76bdb07c0bf8"
+    }
+  }
+]

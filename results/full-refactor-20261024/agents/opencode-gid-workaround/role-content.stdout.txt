@@ -1,0 +1,8 @@
+PLUGIN_DIRS
+/jackin/default-home/.config/opencode/plugins/caveman/plugin.js
+STATE_PATHS
+absent:/jackin/default-home/.config/opencode/opencode.json
+present:/jackin/default-home/.config/opencode/plugins/caveman/plugin.js
+present:/jackin/default-home/.config/opencode/plugins/rtk.ts
+absent:/jackin/default-home/.agents/skills/tailrocks-rust-toolchain/SKILL.md
+absent:/jackin/default-home/.opencode

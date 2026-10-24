@@ -1,0 +1,25 @@
+[
+  {
+    "operation": "create",
+    "ok": true,
+    "detail": {
+      "first_response_discarded_by_harness": true,
+      "idempotency_contract": "at-most-once request admission; harness discards acknowledgement after response, not a network packet drop",
+      "one_resource_with_name": true,
+      "request_id": "cc9bfe85-665b-459b-8f5e-fb9e0664c78b",
+      "retry_id": "8b135879-ca26-4d85-887c-af9529938201"
+    }
+  },
+  {
+    "operation": "pty_resize_input_interrupt_reconnect",
+    "ok": false,
+    "error": "PTY output timeout: deadline has elapsed"
+  },
+  {
+    "operation": "delete_confirmed",
+    "ok": true,
+    "detail": {
+      "id": "8b135879-ca26-4d85-887c-af9529938201"
+    }
+  }
+]

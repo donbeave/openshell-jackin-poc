@@ -1,0 +1,1 @@
+Error: isolated agent sessions require a Linux Landlock boundary

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm/client.sh",
+    "sandbox",
+    "delete",
+    "jfr-20261024-vm-a"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.102,
+  "stdout": "\u2713 Sandbox jfr-20261024-vm-a deletion accepted; cleanup is pending\n",
+  "stderr": ""
+}

@@ -1,0 +1,208 @@
+[
+  {
+    "operation": "two_gateways_duplicate_name_target_inventory_and_recovery",
+    "ok": true,
+    "detail": {
+      "targets": [
+        {
+          "authenticated_subject": "jfr-control-20261024",
+          "cleanup_confirmed": true,
+          "display_name": "jfrdup24",
+          "endpoint": "https://127.0.0.1:28470",
+          "list_count_same_name": 1,
+          "phase": "Ready",
+          "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+          "target": "gateway-a:jfr-20261024-a",
+          "watch": {
+            "expected_sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+            "first_watch_event": {
+              "cursor_present": false,
+              "identity_matches_expected": true,
+              "payload": "sandbox_snapshot",
+              "phase": "Ready",
+              "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+              "target": "gateway-a:jfr-20261024-a"
+            },
+            "fresh_query": {
+              "id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+              "phase": "Ready"
+            },
+            "fresh_query_matches_target_ready": true,
+            "name": "jfrdup24",
+            "saw_ready_event_after_restart": false,
+            "target": "gateway-a:jfr-20261024-a",
+            "watch_event_is_observation_not_current_state": true,
+            "watch_events_after_stop_start": [
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Stopping",
+                "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+                "target": "gateway-a:jfr-20261024-a"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Stopping",
+                "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+                "target": "gateway-a:jfr-20261024-a"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Stopped",
+                "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+                "target": "gateway-a:jfr-20261024-a"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Stopped",
+                "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+                "target": "gateway-a:jfr-20261024-a"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Starting",
+                "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+                "target": "gateway-a:jfr-20261024-a"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Starting",
+                "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+                "target": "gateway-a:jfr-20261024-a"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Starting",
+                "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+                "target": "gateway-a:jfr-20261024-a"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Starting",
+                "sandbox_id": "24791e1a-7046-4491-ba29-adcf7b0a41e1",
+                "target": "gateway-a:jfr-20261024-a"
+              }
+            ]
+          }
+        },
+        {
+          "authenticated_subject": "jfr-control-vm-20261024",
+          "cleanup_confirmed": true,
+          "display_name": "jfrdup24",
+          "endpoint": "https://192.168.139.147:18470",
+          "list_count_same_name": 1,
+          "phase": "Ready",
+          "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+          "target": "linux:192.168.139.147:18470",
+          "watch": {
+            "expected_sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+            "first_watch_event": {
+              "cursor_present": false,
+              "identity_matches_expected": true,
+              "payload": "sandbox_snapshot",
+              "phase": "Ready",
+              "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+              "target": "linux:192.168.139.147:18470"
+            },
+            "fresh_query": {
+              "id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+              "phase": "Ready"
+            },
+            "fresh_query_matches_target_ready": true,
+            "name": "jfrdup24",
+            "saw_ready_event_after_restart": false,
+            "target": "linux:192.168.139.147:18470",
+            "watch_event_is_observation_not_current_state": true,
+            "watch_events_after_stop_start": [
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Stopping",
+                "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+                "target": "linux:192.168.139.147:18470"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Stopping",
+                "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+                "target": "linux:192.168.139.147:18470"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Stopped",
+                "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+                "target": "linux:192.168.139.147:18470"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Stopped",
+                "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+                "target": "linux:192.168.139.147:18470"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Starting",
+                "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+                "target": "linux:192.168.139.147:18470"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Starting",
+                "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+                "target": "linux:192.168.139.147:18470"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Starting",
+                "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+                "target": "linux:192.168.139.147:18470"
+              },
+              {
+                "cursor_present": false,
+                "identity_matches_expected": true,
+                "payload": "sandbox_snapshot",
+                "phase": "Starting",
+                "sandbox_id": "cd185ec2-57fb-433f-b697-b15730aeb8c5",
+                "target": "linux:192.168.139.147:18470"
+              }
+            ]
+          }
+        }
+      ],
+      "two_targets_were_addressed_independently": true,
+      "unreachable_target": {
+        "availability": "UNAVAILABLE",
+        "error": "verified mTLS connection: transport error: tcp connect error: tcp connect error: Connection refused (os error 61)",
+        "instances_deleted": false
+      }
+    }
+  }
+]

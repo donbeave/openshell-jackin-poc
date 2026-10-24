@@ -1,0 +1,69 @@
+{
+  "Id": "a5fa8ad773fdbe48c9c17a624f854d39333e8a0631dfa97c2ca8df9de3b40d54",
+  "Name": "/openshell-default--jfrv-20261024-p09-92786547-b153-41db-8d42-ca7d92fc675a",
+  "Image": "sha256:4374083c637a23596026eb54ed67d7c11bb4f020f7e825592ddaefd7730073da",
+  "State": {
+    "Status": "created",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "0001-01-01T00:00:00Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "Config": {
+    "User": "1000:1000",
+    "Entrypoint": [
+      "/.openshell/runtime/openshell-sandbox"
+    ],
+    "Cmd": [
+      "--bootstrap",
+      "/.openshell/channel/sandbox/bootstrap.json"
+    ]
+  },
+  "HostConfig": {
+    "Tmpfs": {
+      "/build": "rw,size=268435456,mode=1777,nosuid",
+      "/run/openshell-supervisor-ca/material": "rw,noexec,nosuid,nodev,size=1m,uid=1000,gid=1000,mode=0755",
+      "/tmp": "rw,size=67108864,mode=1777,noexec,nosuid"
+    },
+    "Mounts": [
+      {
+        "Type": "volume",
+        "Source": "jfr24verify-candidate",
+        "Target": "/sandbox/repo",
+        "ReadOnly": true
+      },
+      {
+        "Type": "volume",
+        "Source": "jfr24verify-bundle",
+        "Target": "/sandbox/checks",
+        "ReadOnly": true
+      },
+      {
+        "Type": "volume",
+        "Source": "openshell-channel-5b9717b9e6290f1bb763d07400f2fe78",
+        "Target": "/.openshell/channel",
+        "VolumeOptions": {
+          "NoCopy": true
+        }
+      }
+    ],
+    "Binds": [],
+    "SecurityOpt": [
+      "no-new-privileges:true"
+    ],
+    "CapDrop": [
+      "ALL"
+    ],
+    "NetworkMode": "none",
+    "ReadonlyRootfs": false,
+    "Memory": 536870912,
+    "NanoCpus": 1000000000,
+    "PidsLimit": 64
+  }
+}

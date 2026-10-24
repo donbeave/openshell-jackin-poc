@@ -1,0 +1,2 @@
+PATH=/home/agent/.local/bin:/home/agent/.amp/bin:/home/agent/.opencode/bin:/usr/local/bin:/usr/bin:/bin
+AMP_NOT_INSTALLED

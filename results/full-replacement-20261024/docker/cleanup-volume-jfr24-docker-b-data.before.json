@@ -1,0 +1,14 @@
+[
+    {
+        "CreatedAt": "2026-10-24T08:17:56+07:00",
+        "Driver": "local",
+        "Labels": {
+            "ojp.owner": "followup-docker-engine-b",
+            "ojp.test-id": "jfr-20261024"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24-docker-b-data/_data",
+        "Name": "jfr24-docker-b-data",
+        "Options": null,
+        "Scope": "local"
+    }
+]

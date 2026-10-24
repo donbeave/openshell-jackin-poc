@@ -1,0 +1,1064 @@
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:.github/workflows/cache-prune.yml:2:name: Cache prune
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:.github/workflows/cache-prune.yml:9:  group: velnor-cache-prune
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:.github/workflows/cache-prune.yml:12:  prune:
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:.github/workflows/cache-prune.yml:24:        run: "set -eu; ref=\"$GITHUB_REF\"; d=\"$RUNNER_TEMP/velnor-cache-prune\"; rm -rf \"$d\"; mkdir -p \"$d\"; warn() { printf '%s\\n' \"::warning::cache_unavailable: $1\"; }; prune() { if gh cache list --key \"$1\" --ref \"$ref\" --limit 1000 --sort created_at --order desc --json id,key --jq '.[] | [.id, .key] | @tsv' > \"$d/list\"; then :; else warn \"could not list $1\"; return 0; fi; awk -v keep=\"$2\" '{ g = $2; sub(/-s256-[0-9a-f]+$/, \"\", g); n[g]++; if (n[g] > keep) print $1 }' \"$d/list\" > \"$d/doomed\"; while read -r id; do if gh cache delete \"$id\"; then printf 'velnor: pruned superseded entry %s of %s\\n' \"$id\" \"$1\"; else warn \"could not delete $id\"; fi; done < \"$d/doomed\"; }; prune 'velnor-v2-sources-trusted-' 3; prune 'velnor-v2-tofu-providers-trusted-' 3; prune 'velnor-v1-bun-install-trusted-' 2; prune 'velnor-v1-playwright-browsers-trusted-' 2; prune 'velnor-v1-dbt-packages-trusted-' 2; prune 'velnor-v1-python-venv-trusted-' 2; prune 'velnor-v1-ansible-collections-trusted-' 2; prune 'velnor-v1-mbx-bundle-trusted-' 1"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3353: "jackin-runtime-cleanup-prune-cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3354: "jackin-runtime-cleanup-prune-dir",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3355: "jackin-runtime-cleanup-prune-home",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3356: "jackin-runtime-cleanup-prune-images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3357: "jackin-runtime-cleanup-prune-roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3394: "jackin-runtime-launch-sibling-auth-prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3399: "jackin-runtime-prewarm-trigger",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3401: "jackin-runtime-prune-output",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3657:name = "jackin-runtime-cleanup-prune-cache"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3662: "jackin-runtime-cleanup-prune-dir",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3667:name = "jackin-runtime-cleanup-prune-dir"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3673: "jackin-runtime-prune-output",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3677:name = "jackin-runtime-cleanup-prune-home"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3685: "jackin-runtime-prune-output",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3689:name = "jackin-runtime-cleanup-prune-images"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3696: "jackin-runtime-prune-output",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3700:name = "jackin-runtime-cleanup-prune-roles"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:3705: "jackin-runtime-cleanup-prune-dir",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:4163:name = "jackin-runtime-launch-sibling-auth-prewarm"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:4230:name = "jackin-runtime-prewarm-trigger"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.lock:4268:name = "jackin-runtime-prune-output"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:54:    "crates/services/jackin-runtime-cleanup-prune-cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:55:    "crates/services/jackin-runtime-cleanup-prune-dir",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:56:    "crates/services/jackin-runtime-cleanup-prune-home",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:57:    "crates/services/jackin-runtime-cleanup-prune-images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:58:    "crates/services/jackin-runtime-cleanup-prune-roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:95:    "crates/services/jackin-runtime-launch-sibling-auth-prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:100:    "crates/services/jackin-runtime-prewarm-trigger",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:103:    "crates/services/jackin-runtime-prune-output",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:243:jackin-runtime-cleanup-prune-cache = { version = "0.6.4", path = "crates/services/jackin-runtime-cleanup-prune-cache" }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:244:jackin-runtime-cleanup-prune-dir = { version = "0.6.4", path = "crates/services/jackin-runtime-cleanup-prune-dir" }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:245:jackin-runtime-cleanup-prune-home = { version = "0.6.4", path = "crates/services/jackin-runtime-cleanup-prune-home" }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:246:jackin-runtime-cleanup-prune-images = { version = "0.6.4", path = "crates/services/jackin-runtime-cleanup-prune-images" }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:247:jackin-runtime-cleanup-prune-roles = { version = "0.6.4", path = "crates/services/jackin-runtime-cleanup-prune-roles" }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:284:jackin-runtime-launch-sibling-auth-prewarm = { version = "0.6.4", path = "crates/services/jackin-runtime-launch-sibling-auth-prewarm" }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:289:jackin-runtime-prewarm-trigger = { version = "0.6.4", path = "crates/services/jackin-runtime-prewarm-trigger" }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:Cargo.toml:292:jackin-runtime-prune-output = { version = "0.6.4", path = "crates/services/jackin-runtime-prune-output" }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:24:    ContainerMountSnapshot, ContainerRow, ContainerSpec, ContainerState, DockerApi, NetworkRow,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:114:pub struct BollardDockerClient {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:118:impl BollardDockerClient {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:158:                "active Docker context uses TLS transport ({host}); jackin reads TLS material from DOCKER_TLS_VERIFY and DOCKER_CERT_PATH, not from a Docker context"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:161:                "active Docker context for {host} includes TLS settings; jackin reads TLS material from DOCKER_TLS_VERIFY and DOCKER_CERT_PATH, not from a Docker context"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:211:const OVERRIDE_HINT: &str = "Set DOCKER_HOST to a unix:// socket, a plain tcp:// endpoint, or a TLS tcp:// endpoint with DOCKER_TLS_VERIFY and DOCKER_CERT_PATH set, to override.";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:251:            Docker::connect_with_defaults().context("connect to Docker daemon via bollard defaults")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:253:        ConnectionChoice::Host(host) => Docker::connect_with_host(&host)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:275:    docker_host_env_is_set_from(std::env::var_os("DOCKER_HOST").as_deref())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:465:impl DockerApi for BollardDockerClient {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:825:                        noprune: false,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/lib.rs:7:pub use docker_client::BollardDockerClient;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/lib.rs:9:pub use jackin_core::{CommandRunner, DockerApi, RunOptions};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-image/src/agent_binary.rs:203:    jackin_telemetry::spawn::spawn_prewarm_job(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client_dispatch.rs:49:    sudo-provision                 Enforce per-profile sudo grant (run as root via docker exec)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:11:mod prune_cmd;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:44:use jackin_docker::docker_client::{BollardDockerClient, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:60:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:119:    let connect_docker = || BollardDockerClient::connect();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:165:                prune_cmd::handle_purge(args, &paths, &mut runner, connect_docker).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:167:            Command::Prewarm(args) => crate::cli::prewarm::run(&args, &paths, &config, debug).await,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:169:                prune_cmd::handle_prune(cmd, &paths, &mut runner, connect_docker).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:332:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/account_cmd.rs:73:        editor.prune_account_bindings(id)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:176:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:257:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:322:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:376:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/helpers.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/helpers.rs:21:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:14:use jackin_docker::docker_client::BollardDockerClient;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:64:    connect_docker: impl FnOnce() -> Result<BollardDockerClient>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:234:    let connect_docker = || BollardDockerClient::connect();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:239:            runtime::spawn_background_image_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:241:                runtime::background_prewarm_targets(&config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:244:            runtime::spawn_background_sidecar_prewarm(&paths, debug);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:296:type ConsoleEntry = Option<(BollardDockerClient, runtime::EntryClaim)>;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:301:    docker: &'a BollardDockerClient,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:317:            return console_outcome_prewarm(name, &mut ctx, screen).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:345:async fn console_outcome_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:356:        flags: crate::cli::prewarm::PrewarmFlags {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:371:    crate::cli::prewarm::run(&args, ctx.paths, ctx.config, ctx.debug).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:564:    connect_docker: impl FnOnce() -> Result<BollardDockerClient>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:658:    connect_docker: impl FnOnce() -> Result<BollardDockerClient>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:938:    connect_docker: impl FnOnce() -> Result<BollardDockerClient>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:12:use jackin_docker::docker_client::BollardDockerClient;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:21:    connect_docker: impl FnOnce() -> Result<BollardDockerClient>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:55:pub(super) async fn handle_prune(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:59:    connect_docker: impl FnOnce() -> Result<BollardDockerClient>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:62:        PruneCommand::Roles => prune_host_paths(paths, runtime::prune_roles).await,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:63:        PruneCommand::Cache => prune_host_paths(paths, runtime::prune_cache).await,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:66:            runtime::prune_images(&docker).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:71:                runtime::prune_all_instances(paths, &docker, runner).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:73:                runtime::prune_instances(paths, &docker, runner).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:89:            let prune_instances_result = if args.all {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:90:                runtime::prune_all_instances(paths, &docker, runner)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:92:                    .context("prune instances")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:94:                runtime::prune_instances(paths, &docker, runner)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:96:                    .context("prune instances")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:99:                prune_instances_result,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:100:                runtime::prune_images(&docker).await.context("prune images"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:101:                prune_host_paths(paths, runtime::prune_roles)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:103:                    .context("prune roles"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:104:                prune_host_paths(paths, runtime::prune_cache)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:106:                    .context("prune cache"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:111:                    prune_host_paths(paths, runtime::prune_jackin_home)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:113:                        .context("prune runtime home")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:120:                anyhow::bail!("{} prune step(s) failed", errors.len())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:126:async fn prune_host_paths(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/prune_cmd.rs:133:        .context("join host prune worker")?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:11:use jackin_docker::docker_client::BollardDockerClient;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:12:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:31:        let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:78:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:98:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:181:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:219:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:1397:            "cannot list local docker images".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:1405:            format!("cannot list local docker images for `{repository}`"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:13:use jackin_docker::docker_client::BollardDockerClient;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:44:    prune: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:70:    let connect_docker = || BollardDockerClient::connect();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:112:            prune,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:140:                    prune,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:154:            handle_workspace_prune(config, paths, name, assume_yes)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:376:    if !plan.pre_existing_collapses.is_empty() && !params.prune {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:390:             run `jackin workspace prune {name}` to clean up, or pass --prune to this edit",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:528:    connect_docker: impl Fn() -> Result<BollardDockerClient>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:648:    connect_docker: impl Fn() -> Result<BollardDockerClient>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:656:fn handle_workspace_prune(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli.rs:32:pub mod prewarm;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli.rs:33:pub mod prune;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli.rs:48:pub use prewarm::PrewarmArgs;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli.rs:49:pub use prune::PruneCommand;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:13:use jackin_docker::docker_client::{BollardDockerClient, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:23:    about = "`jackin prewarm` — fill jackin-owned runtime caches before launch.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:24:    long_about = "`jackin prewarm` — fill jackin-owned runtime caches before launch."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:27:    #[arg(help = "Agent runtime binary to prewarm. Repeat to choose several. Defaults to all agents.", long_help = "Agent runtime binary to prewarm. Repeat to choose several. Defaults to all agents.", long = "agent", value_parser = parse_agent)]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:32:    #[arg(help = "Role selector whose repo cache and/or derived image(s) should be prewarmed.", long_help = "Role selector whose repo cache and/or derived image(s) should be prewarmed.", long, conflicts_with_all = ["workspace", "all_workspaces"])]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:34:    #[arg(help = "Saved workspace whose default role repo and/or agent image should be prewarmed.", long_help = "Saved workspace whose default role repo and/or agent image should be prewarmed.", long, conflicts_with_all = ["role", "all_workspaces"])]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:37:    #[arg(help = "Role git URL override for role/image prewarm. Defaults to configured role source.", long_help = "Role git URL override for role/image prewarm. Defaults to configured role source.", long, requires = "role", conflicts_with_all = ["workspace", "all_workspaces"])]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:40:        help = "Role branch to prewarm. Uses branch-scoped image tags.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:41:        long_help = "Role branch to prewarm. Uses branch-scoped image tags.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:61:    about = "Flags for `jackin prewarm` (flattened into `PrewarmArgs` for CLI ergonomics).",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:62:    long_about = "Flags for `jackin prewarm` (flattened into `PrewarmArgs` for CLI ergonomics)."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:66:        help = "Also prewarm derived Docker image(s) for a role.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:67:        long_help = "Also prewarm derived Docker image(s) for a role.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:84:        help = "Also prewarm the Docker-in-Docker sidecar image used by fresh launches.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:85:        long_help = "Also prewarm the Docker-in-Docker sidecar image used by fresh launches.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:96:        help = "Keep the prewarmed sidecar container running for future daemon/runtime reuse.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:97:        long_help = "Keep the prewarmed sidecar container running for future daemon/runtime reuse.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:124:    let agents = binary_prewarm_agents(args, &image_targets);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:127:    println!("prewarm\n");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:130:    let agents_result = prewarm_agents(paths, &agents);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:131:    let sidecar_needed = should_prewarm_sidecar_image(args);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:134:            Some(prewarm_sidecar_image_status().await)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:139:    let sidecar_container_needed = should_prewarm_sidecar_container(args);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:141:        emit_daemon_prewarm_plan();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:145:            Some(prewarm_sidecar_container_status(paths, should_keep_sidecar_container(args)).await)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:192:            jackin_runtime::runtime::write_prewarmed_dind_state(paths, row)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:198:        prewarm_images(args, paths, image_targets, debug).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:203:        prewarm_role_repos(paths, targets, debug).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:208:        println!("{}", "✓  runtime cache prewarmed".green());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:212:            "{}  {} agent binary prewarm(s) failed; Docker builds can still use fallback installers",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:220:fn should_prewarm_sidecar_image(args: &PrewarmArgs) -> bool {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:224:fn should_prewarm_sidecar_container(args: &PrewarmArgs) -> bool {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:232:fn emit_daemon_prewarm_plan() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:233:    let detail = r#"{"plan":"PrewarmOnly","reason":"daemon_prewarm:kept_sidecar","container":null,"skipped":["standalone_sidecar_image_prewarm"]}"#;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:249:async fn prewarm_sidecar_image_status() -> anyhow::Result<SidecarImagePrewarmStatus> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:250:    let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:261:async fn prewarm_sidecar_container_status(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:265:    let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:266:    jackin_runtime::runtime::prewarm_dind_sidecar_container_with_paths(paths, &docker, keep).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:323:async fn prewarm_role_repos(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:375:        anyhow::bail!("{} role repo prewarm(s) failed", failed.len())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:418:                anyhow::bail!("no saved workspaces have a default role to role-prewarm");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:440:            anyhow::bail!("no configured roles to prewarm");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:468:fn binary_prewarm_agents(args: &PrewarmArgs, image_targets: &[PrewarmImageTarget]) -> Vec<Agent> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:493:async fn prewarm_images(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:511:            let rows = jackin_runtime::runtime::prewarm_role_images(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:533:        print_image_prewarm_rows(rows?)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:538:fn print_image_prewarm_rows(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:578:                anyhow::bail!("no saved workspaces have a default role to image-prewarm");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:585:                anyhow::bail!("no configured roles to image-prewarm");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:619:                "`jackin prewarm --image` requires `--role <selector>`, `--workspace <name>`, `--all-workspaces`, or `--all-roles`"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:675:async fn prewarm_agents(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune.rs:30:Runs in order: prune instances, prune images, prune roles, prune cache. By default skips running instances; pass `--all` to stop and remove them too.", before_help = BANNER, styles = HELP_STYLES)]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune.rs:35:#[command(about = "Arguments for `jackin prune instances`", long_about = "Arguments for `jackin prune instances`", before_help = BANNER, styles = HELP_STYLES)]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune.rs:47:#[command(about = "Arguments for `jackin prune system`", long_about = "Arguments for `jackin prune system`", before_help = BANNER, styles = HELP_STYLES)]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:31:fn prune_help_lists_subcommands() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:32:    let help = help_text(&["jackin", "prune", "--help"]);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:39:fn prune_roles_parses() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:40:    let cli = Cli::try_parse_from(["jackin", "prune", "roles"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:48:fn prune_cache_parses() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:49:    let cli = Cli::try_parse_from(["jackin", "prune", "cache"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:57:fn prune_images_parses() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:58:    let cli = Cli::try_parse_from(["jackin", "prune", "images"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:66:fn prune_instances_parses() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:67:    let cli = Cli::try_parse_from(["jackin", "prune", "instances"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:77:fn prune_instances_all_flag_parses() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:78:    let cli = Cli::try_parse_from(["jackin", "prune", "instances", "--all"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:88:fn prune_system_defaults_yes_false_all_false() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:89:    let cli = Cli::try_parse_from(["jackin", "prune", "system"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:102:fn prune_system_yes_flag_parses() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:103:    let cli = Cli::try_parse_from(["jackin", "prune", "system", "--yes"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:116:fn prune_system_short_y_flag_parses() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:117:    let cli = Cli::try_parse_from(["jackin", "prune", "system", "-y"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:130:fn prune_system_all_flag_parses() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prune/tests.rs:131:    let cli = Cli::try_parse_from(["jackin", "prune", "system", "--all"]).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:21:use jackin_docker::docker_client::{BollardDockerClient, ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:99:    let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:112:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:247:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:354:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:530:async fn fetch_pr_info(docker: &impl DockerApi, container: &ContainerHandle) -> Option<PrInfo> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/telemetry.rs:30:        Command::Prune(command) => prune_command_name(command),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/telemetry.rs:57:const fn prune_command_name(command: &PruneCommand) -> CliCommandName {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:26:use jackin_docker::docker_client::{BollardDockerClient, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:556:    let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:168:  jackin workspace edit my-app --prune"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:257:        prune: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:335:  jackin workspace prune my-app
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:336:  jackin workspace prune my-app --yes"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:344:            help = "Name of the workspace to prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:345:            long_help = "Name of the workspace to prune"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services.rs:111:                    let docker = jackin_docker::docker_client::BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:292:        "docker inspect failed while resolving snapshot container {container_name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:301:                "docker inspect returned no identity for snapshot container {container_name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:307:        "docker inspect identity changed for snapshot container {container_name}: {name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:162:        "docker inspect failed for workflow container {instance}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:169:        .with_context(|| format!("docker inspect returned no identity for {instance}"))?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:173:        "docker inspect identity changed for workflow container {instance}: {name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:179:/// ownership: read-only `capsule status` over docker exec must list
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/error.rs:172:                "Start Docker Desktop, OrbStack, or run `colima start`. Check `DOCKER_HOST` if using a remote daemon.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/error.rs:184:                "Run `jackin prune` or `docker system prune` to reclaim space.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/error.rs:220:                "Run `jackin prune` to remove stale containers, or `docker rm <name>` to remove the specific one.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/error.rs:250:                "Run `jackin prune isolation` to clean up stale worktrees, then re-run.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:4:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:190:    match jackin_docker::docker_client::BollardDockerClient::connect() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:196:                "Start Docker Desktop / OrbStack / run `colima start` / check `DOCKER_HOST`",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:202:            "Start Docker Desktop / OrbStack / run `colima start` / check `DOCKER_HOST`",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:209:        jackin_process::ExecRequest::new("docker", ["version", "--format", "{{.Server.Version}}"]);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:264:            "Run `jackin prune` or `docker system prune` to reclaim space",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:408:    use jackin_docker::docker_client::{BollardDockerClient, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:411:    let Ok(docker) = BollardDockerClient::connect() else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:442:            "Run `jackin prune orphaned` to remove them",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:468:            "Run `jackin prune isolation` to clean up",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-build-meta/src/tests.rs:47:    git(&root, &["pack-refs", "--all", "--prune"])?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/accounts.rs:1233:    pub fn prune_account_bindings(&mut self, id: &str) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/accounts.rs:1243:    pub fn prune_agent_configurations(&mut self, account_id: &str) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/app_config/workspaces.rs:163:                     use `jackin workspace prune {name}` or pass `--prune` to clean up",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor.rs:867:            prune_empty_trailing_tables(&mut self.doc, &git_path, 1);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor.rs:931:            prune_empty_trailing_tables(doc, &path, 2);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor.rs:1172:    prune_empty_trailing_tables(doc, kind_path, 1);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor.rs:1175:fn prune_empty_trailing_tables(doc: &mut DocumentMut, path: &[String], max_prune: usize) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor.rs:1176:    let stop_at = path.len().saturating_sub(max_prune);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor/accounts.rs:33:            prune_agent_configurations(&mut candidate, &mut workspaces, id)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor/accounts.rs:41:    pub fn prune_account_bindings(&mut self, id: &str) -> ConfigResult<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor/accounts.rs:78:        prune_agent_configurations(&mut candidate, &mut workspaces, id)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor/accounts.rs:148:            prune_empty_role_overrides(doc)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor/accounts.rs:180:fn prune_agent_configurations(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-config/src/editor/accounts.rs:264:fn prune_empty_role_overrides(doc: &mut DocumentMut) -> ConfigResult<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:97:/// Returned by [`DockerApi::inspect_full_container_by_id`]. Used for the
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:188:pub trait DockerApi {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:235:    /// paused state with [`DockerApi::inspect_container_by_id`] before
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:236:    /// copying source bytes, and must never `docker exec` into the paused
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:242:    /// Resume a container paused with [`DockerApi::pause_container_by_id`].
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:250:    /// Unlike [`DockerApi::inspect_container_by_id`], which returns state and
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/env_model.rs:166:    ("DOCKER_HOST", None),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/env_model.rs:167:    ("DOCKER_TLS_VERIFY", None),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/env_model.rs:168:    ("DOCKER_CERT_PATH", None),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/worktree_dirty.rs:126:        "assess: branch {name} in {worktree_path} has upstream={upstream} marked gone and a remote-tracking ref contains its tip; treating as pushed and pruned"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-diagnostics/src/run.rs:380:            "docker build step completed",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:19:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:27:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:49:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:143:async fn count_keep_awake_agents(docker: &impl DockerApi) -> anyhow::Result<usize> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-instance-credentials/src/auth_directory/locks.rs:41:                    reason = "source lock polling runs in blocking launch/prewarm/console validation workers or provisioning OS threads"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-instance-credentials/src/paths.rs:117:        reason = "bounded auth reads run in joined blocking launch/prewarm workers or scoped provisioning OS threads"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-instance-roles/src/provision.rs:48:    pub fn prewarm_auth_for_agents(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-instance-roles/src/provision.rs:70:        Self::prewarm_auth_for_bindings(paths, container_name, &bindings, host_home)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-instance-roles/src/provision.rs:73:    pub fn prewarm_auth_for_bindings(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture.rs:17://! never runs `docker exec` inside the paused container, never copies live
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture.rs:22:use jackin_core::{CommandRunner, ContainerHandle, ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture.rs:430:async fn confirm_paused(docker: &impl DockerApi, handle: &ContainerHandle) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture.rs:451:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture/tests.rs:6:    ContainerHandle, ContainerInspection, ContainerRow, ContainerSpec, DockerApi, NetworkRow,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture/tests.rs:13:/// access only — never `docker exec` into the paused container.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture/tests.rs:34:    reason = "fake backend methods mirror the async DockerApi trait"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture/tests.rs:36:impl DockerApi for PauseFake {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/cleanup.rs:129:    // so normal cancellation, failure, retention expiry, and prune cannot
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/finalize.rs:227:    D: jackin_docker::docker_client::DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/finalize.rs:268:    docker: &impl jackin_docker::docker_client::DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/holds.rs:8://! retention expiry, and prune must obey holds: [`check_removal`] is enforced
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/holds.rs:151:/// be inspected host-side (`docker inspect`) without trusting worker state.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/materialize.rs:546:                &["-C", &mount.src, "worktree", "prune"],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:14:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:56:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:118:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-inspect/src/inspect.rs:6:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-inspect/src/inspect.rs:17:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-inspect/src/inspect.rs:169:pub async fn inspect_docker_network(docker: &impl DockerApi, network: &str) -> DockerNetworkState {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-running-gate/src/running_gate.rs:5:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-running-gate/src/running_gate.rs:13:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-sessions/src/sessions.rs:5:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-sessions/src/sessions.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-absent-guards/src/absent_guards.rs:4:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-absent-guards/src/absent_guards.rs:8:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-absent-guards/src/absent_guards.rs:19:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:12:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:28:pub async fn collect_labeled_dind(docker: &impl DockerApi) -> anyhow::Result<Vec<DindInfo>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:60:pub async fn gc_orphaned_resources(paths: &JackinPaths, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:76:        gc_orphaned_prewarm_dind(paths, docker).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:149:    gc_orphaned_prewarm_dind(paths, docker).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:152:pub async fn gc_orphaned_prewarm_dind(paths: &JackinPaths, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:154:        jackin_runtime_launch_dind::launch_dind::prewarmed_dind_state_container_name(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:162:                "  {} GC: could not list orphaned prewarm DinD containers: {err}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:171:                "  {} GC of prewarm sidecar skipped: retained identity is unavailable",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:181:        if row.name != "jk-prewarm-dind-dind" {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:184:        let certs_volume = "jk-prewarm-dind-certs";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:185:        let network = "jk-prewarm-dind-net";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:188:                "  {} GC of prewarm sidecar {} skipped: Docker row had no immutable ID",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:200:            "prewarm sidecar",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:201:            "prewarm certs volume",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:202:            "prewarm network",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:216:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-eject-resources/src/eject_resources.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-eject-resources/src/eject_resources.rs:12:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-cache/Cargo.toml:5:name = "jackin-runtime-cleanup-prune-cache"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-cache/Cargo.toml:18:name = "jackin_runtime_cleanup_prune_cache"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-cache/Cargo.toml:23:jackin-runtime-cleanup-prune-dir = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-cache/src/lib.rs:1:pub mod prune_cache;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-cache/src/prune_cache.rs:5:use jackin_runtime_cleanup_prune_dir::prune_dir::prune_dir;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-cache/src/prune_cache.rs:8:pub fn prune_cache(paths: &JackinPaths) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-cache/src/prune_cache.rs:10:    prune_dir(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/Cargo.toml:5:name = "jackin-runtime-cleanup-prune-dir"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/Cargo.toml:10:description = "Shared prune-one-directory helper for jackin runtime cleanup."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/Cargo.toml:18:name = "jackin_runtime_cleanup_prune_dir"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/Cargo.toml:24:jackin-runtime-prune-output = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/src/lib.rs:1:pub mod prune_dir;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/src/prune_dir.rs:6:use jackin_runtime_prune_output::prune_output;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/src/prune_dir.rs:8:pub fn prune_dir(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/src/prune_dir.rs:14:    let _timing = cleanup_timing("prune_dir");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/src/prune_dir.rs:15:    prune_output::section(section_label, section_detail);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-dir/src/prune_dir.rs:16:    let row = prune_output::start("Deleting", target_label);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-home/Cargo.toml:5:name = "jackin-runtime-cleanup-prune-home"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-home/Cargo.toml:18:name = "jackin_runtime_cleanup_prune_home"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-home/Cargo.toml:26:jackin-runtime-prune-output = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-home/src/lib.rs:1:pub mod prune_home;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-home/src/prune_home.rs:8:use jackin_runtime_prune_output::prune_output;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-home/src/prune_home.rs:10:pub fn prune_jackin_home(paths: &JackinPaths) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-home/src/prune_home.rs:13:    prune_output::section("Runtime Home", "removing remaining runtime state");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-home/src/prune_home.rs:14:    let row = prune_output::start("Deleting", "runtime home");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/Cargo.toml:5:name = "jackin-runtime-cleanup-prune-images"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/Cargo.toml:18:name = "jackin_runtime_cleanup_prune_images"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/Cargo.toml:25:jackin-runtime-prune-output = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/lib.rs:1:pub mod prune_images;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:4:use jackin_docker::docker_client::{DockerApi, RemoveImageOutcome};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:7:use jackin_runtime_prune_output::prune_output;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:9:pub async fn prune_images(docker: &impl DockerApi) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:11:    prune_output::section("Images", "scanning jackin-managed Docker images");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:12:    let all_images = prune_output::start("Finding", "jackin-managed Docker images")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:18:        prune_output::ok("no jackin-managed images found");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:22:    let role_rows = prune_output::start("Checking", "image usage by role containers").complete(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:47:        let row = prune_output::start("Deleting", image);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:76:            prune_output::ok(format!("no images removed ({skipped} skipped)"));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:78:            prune_output::ok("no unused jackin-managed images to remove");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:81:        prune_output::ok(format!("removed {removed} image(s), skipped {skipped}"));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:83:        prune_output::failed(format!(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-roles/Cargo.toml:5:name = "jackin-runtime-cleanup-prune-roles"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-roles/Cargo.toml:18:name = "jackin_runtime_cleanup_prune_roles"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-roles/Cargo.toml:23:jackin-runtime-cleanup-prune-dir = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-roles/src/lib.rs:1:pub mod prune_roles;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-roles/src/prune_roles.rs:5:use jackin_runtime_cleanup_prune_dir::prune_dir::prune_dir;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-roles/src/prune_roles.rs:8:pub fn prune_roles(paths: &JackinPaths) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-roles/src/prune_roles.rs:10:    prune_dir(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:8:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:14:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:60:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:70:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:83:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:101:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:120:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:95:fn reject_overlap(namespace: &Path, pruned: &Path) -> io::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:96:    let pruned = resolve(pruned)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:97:    if namespace.starts_with(&pruned) || pruned.starts_with(namespace) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:100:            "prune root overlaps the permanent coordination namespace",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:108:    for pruned in [
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:114:        reject_overlap(&namespace, pruned)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:119:pub fn ensure_prunable(paths: &JackinPaths, pruned: &Path) -> io::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:120:    reject_overlap(&namespace(paths)?, pruned)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:123:pub async fn ensure_prunable_async(paths: &JackinPaths, pruned: &Path) -> io::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:125:    let pruned = pruned.to_owned();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:126:    jackin_telemetry::spawn::joined_blocking(move || ensure_prunable(&paths, &pruned))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:4:use jackin_docker::docker_client::{ContainerRow, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:15:pub async fn list_running_agent_names(docker: &impl DockerApi) -> anyhow::Result<Vec<String>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:19:pub async fn list_managed_role_names(docker: &impl DockerApi) -> anyhow::Result<Vec<String>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:24:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:34:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-drift/src/drift.rs:14:    docker: &impl jackin_docker::docker_client::DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-attach/src/host_attach.rs:150:                jackin_process::ExecRequest::new("docker", attach_proxy_exec_args(container))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/Cargo.toml:10:description = "Role image pipeline: build, prewarm, refresh, and staleness for agent images."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:8:mod prewarm;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:17:pub use prewarm::prewarm_role_images;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:19:pub use prewarm::{ImagePrewarmStatus, RoleImagePrewarmRow};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:46:mod prewarm_run;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:47:mod prewarm_spawn;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:67:pub use prewarm_run::{prewarm_agent_image, reuse_staleness_sentinel};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:69:pub use prewarm_spawn::{spawn_sibling_image_prewarm, spawn_sibling_runtime_prewarm};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:72:pub use sibling::prewarm_sibling_image;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image.rs:79:    prewarm_agent_image_from_validated_repo, refresh_agent_image_from_validated_repo,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:78:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:124:        let result = runner.run("docker", &args, None, &options).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:187:    let build_future = runner.run("docker", &args, None, &build_options);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:233:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:281:    // Render exactly the staged variant: single-agent prewarm builds stage one
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:436:    let build_future = runner.run("docker", &build_args, None, &build_options);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/decision.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/decision.rs:43:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm.rs:21:pub async fn prewarm_role_images(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm.rs:72:            let row = super::prewarm_agent_image(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:12:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:13:use jackin_docker::{ShellRunner, docker_client::BollardDockerClient};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:20:use super::{prewarm_agent_image_from_validated_repo, refresh_agent_image_from_validated_repo};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:22:pub async fn prewarm_agent_image(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:31:    let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:43:    prewarm_agent_image_from_validated_repo(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:68:    let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:118:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:13:use super::{SiblingImagePrewarmOutcome, prewarm_sibling_image};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:16:pub fn spawn_sibling_runtime_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:32:                "runtime_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:34:                "no sibling runtime binaries to prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:43:                "runtime_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:45:                "selected image was rebuilt; skipping sibling runtime binary prewarm to avoid competing with foreground launch",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:59:        let reason = format!("sibling_runtime_prewarm:{agents}");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:73:    Some(jackin_telemetry::spawn::spawn_prewarm_job(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:78:                    "runtime_prewarm_started",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:80:                    "prewarming sibling runtime binaries",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:87:                    "sibling_runtime_prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:105:                    "sibling_runtime_prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:112:                        "runtime_prewarm_done",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:114:                        "prewarmed sibling runtime binaries",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:118:                        "runtime_prewarm_failed",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:120:                        "sibling runtime binary prewarm failed",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:137:pub fn spawn_sibling_image_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:150:                "sibling_image_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:152:                "no sibling runtime images to prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:161:                "sibling_image_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:163:                "selected image was rebuilt; skipping sibling image prewarm to avoid competing with foreground launch",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:175:                "sibling_image_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:177:                "sibling runtime image prewarm disabled in unit tests",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:189:        jackin_telemetry::spawn::spawn_prewarm_job(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:199:                        "sibling_image_prewarm_started",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:201:                        "prewarming sibling runtime images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:208:                    "sibling_image_prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:211:                let (built, reused, failed) = prewarm_sibling_images_concurrently(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:226:                    "sibling_image_prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:232:                            "sibling_image_prewarm_done",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:234:                            "prewarmed sibling runtime images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:239:                            "sibling_image_prewarm_failed",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:241:                            "sibling runtime image prewarm finished with failures",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:260:pub(crate) async fn prewarm_sibling_images_concurrently(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_spawn.rs:277:            let result = prewarm_sibling_image(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/published.rs:1:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/published.rs:15:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/published.rs:34:            "docker pull {published} failed ({e}); treating published image as stale and rebuilding from workspace Dockerfile"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/published.rs:73:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/refresh.rs:13:use super::prewarm_agent_image;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/refresh.rs:43:        jackin_telemetry::spawn::spawn_prewarm_job(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/refresh.rs:61:                let result = prewarm_agent_image(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/sibling.rs:13:use jackin_docker::{ShellRunner, docker_client::BollardDockerClient};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/sibling.rs:24:use super::{SiblingImagePrewarmOutcome, prewarm_agent_image_from_validated_repo};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/sibling.rs:27:pub async fn prewarm_sibling_image(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/sibling.rs:35:    let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/sibling.rs:48:    match prewarm_agent_image_from_validated_repo(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/staleness.rs:41:        jackin_telemetry::spawn::spawn_prewarm_job(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:28:pub async fn prewarm_agent_image_from_validated_repo(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:35:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:52:    jackin_runtime_launch_plan::launch_plan::emit_prewarm_launch_plan(&prewarm_launch_plan_reason(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:159:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:166:    jackin_runtime_launch_plan::launch_plan::emit_prewarm_launch_plan(&format!(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:198:pub(crate) fn prewarm_launch_plan_reason(decision: &ImageDecision) -> String {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-account-identity/src/account_identity.rs:12:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-account-identity/src/account_identity.rs:100:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/Cargo.toml:10:description = "Docker network creation, DinD sidecar launch, and retained-sidecar prewarm state for launch."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:8:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:16:const PREWARM_CONTAINER_BASE: &str = "jk-prewarm-dind";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:17:pub const PREWARM_STATE_FILE: &str = "prewarm-dind.json";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:95:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:113:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:137:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:150:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:267:pub async fn prewarm_dind_sidecar_container_with_paths(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:269:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:273:        ensure_prewarm_state_identity(paths, docker).await?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:280:    prewarm_dind_sidecar_container_inner(docker, keep, stale_dind_handle).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:283:async fn prewarm_dind_sidecar_container_inner(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:284:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:298:    jackin_runtime_launch_plan::launch_plan::emit_prewarm_launch_plan(if keep {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:299:        "sidecar_container_prewarm:keep"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:301:        "sidecar_container_prewarm"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:340:                "DinD identity unavailable; aborting prewarm cleanup before container teardown for {dind}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:371:pub async fn ensure_prewarm_state_identity(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:373:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:375:    let Some(state) = load_prewarmed_dind_state_with_identity(paths, docker).await? else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:376:        let prewarm_dind = jackin_instance::naming::dind_container_name(PREWARM_CONTAINER_BASE);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:377:        let inspection = docker.inspect_container_by_name(&prewarm_dind).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:381:                "prewarm container {} exists without a verified retained identity {}; cannot authorize prewarm cleanup",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:382:                prewarm_dind,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:386:                "cannot validate prewarm container {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:387:                prewarm_dind,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:394:        "retained DinD state is not a current kept identity; cannot authorize prewarm cleanup"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:396:    let expected = prewarmed_dind_expected_handle(&state)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:402:            "retained DinD identity changed for {} (expected {}, found {}); cannot authorize prewarm cleanup",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:416:async fn load_prewarmed_dind_state_with_identity(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:418:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:420:    let Some(mut state) = read_prewarmed_dind_state(paths)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:460:    persist_prewarmed_dind_state(paths, &state)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:464:pub fn write_prewarmed_dind_state(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:478:    persist_prewarmed_dind_state(paths, &state)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:481:fn persist_prewarmed_dind_state(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:487:    let path = prewarmed_dind_state_path(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:495:fn read_prewarmed_dind_state(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:498:    let path = prewarmed_dind_state_path(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:513:fn remove_prewarmed_dind_state(paths: &JackinPaths) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:514:    let path = prewarmed_dind_state_path(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:522:fn prewarmed_dind_state_path(paths: &JackinPaths) -> std::path::PathBuf {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:533:fn prewarmed_dind_state_age_ms(state: &DindSidecarPrewarmState) -> u128 {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:537:fn prewarmed_dind_state_detail(reason: &str, state: &DindSidecarPrewarmState) -> String {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:539:        "{reason};source=state;state_age_ms={};prewarm_ready_ms={}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:540:        prewarmed_dind_state_age_ms(state),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:545:fn prewarmed_dind_expected_handle(state: &DindSidecarPrewarmState) -> Option<ContainerHandle> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:550:pub async fn prewarmed_dind_state_is_live(paths: &JackinPaths, docker: &impl DockerApi) -> bool {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:551:    let Ok(Some(state)) = read_prewarmed_dind_state(paths) else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:557:    let Some(expected_handle) = prewarmed_dind_expected_handle(&state) else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:576:    if network_row.labels.get("jackin.kind").map(String::as_str) != Some("prewarm-dind") {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:584:pub fn prewarmed_dind_state_container_name(paths: &JackinPaths) -> Option<String> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:585:    let Ok(Some(state)) = read_prewarmed_dind_state(paths) else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:591:fn record_prewarm_adoption_skip(reason: &str) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:594:        "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:597:    emit_prewarmed_dind_adoption("skipped", reason);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:604:pub async fn adopt_prewarmed_dind_sidecar(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:606:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:610:        "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:613:    let Some(lock) = try_lock_prewarmed_dind(paths).await else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:614:        record_prewarm_adoption_skip("locked");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:617:    let state = match load_prewarmed_dind_state_with_identity(paths, docker).await {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:622:                "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:625:            emit_prewarmed_dind_adoption("skipped", "state-invalid");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:631:                "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:634:            emit_prewarmed_dind_adoption("skipped", "state-missing");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:641:                "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:644:            emit_prewarmed_dind_adoption("skipped", &reason);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:651:    let Some(expected_handle) = prewarmed_dind_expected_handle(&state) else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:652:        record_prewarm_adoption_skip("state-invalid-identity");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:661:            "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:664:        emit_prewarmed_dind_adoption("skipped", &prewarmed_dind_state_detail(&reason, &state));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:668:        record_prewarm_adoption_skip("container:identity-mismatch");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:677:            "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:680:        emit_prewarmed_dind_adoption("skipped", &prewarmed_dind_state_detail(&reason, &state));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:689:                "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:692:            emit_prewarmed_dind_adoption(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:694:                &prewarmed_dind_state_detail("network-missing", &state),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:696:            remove_prewarmed_dind_state(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:703:                "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:706:            emit_prewarmed_dind_adoption(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:708:                &prewarmed_dind_state_detail("network-inspect-error", &state),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:710:            remove_prewarmed_dind_state(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:714:    if network_row.labels.get("jackin.kind").map(String::as_str) != Some("prewarm-dind") {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:717:            "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:720:        emit_prewarmed_dind_adoption(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:722:            &prewarmed_dind_state_detail("network-label-mismatch", &state),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:724:        remove_prewarmed_dind_state(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:733:            "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:736:        emit_prewarmed_dind_adoption("skipped", &prewarmed_dind_state_detail("not-ready", &state));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:737:        remove_prewarmed_dind_state(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:743:        "adopt_prewarmed_dind",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:746:    emit_prewarmed_dind_adoption(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:749:            "ready_ms={ready_ms};source=state;state_age_ms={};prewarm_ready_ms={}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:750:            prewarmed_dind_state_age_ms(&state),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:754:    remove_prewarmed_dind_state(paths);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:769:pub async fn try_lock_prewarmed_dind(paths: &JackinPaths) -> Option<std::fs::File> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:773:            jackin_runtime_coordination::coordination::open_lock(&paths, "prewarm-dind-adoption")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:790:fn emit_prewarmed_dind_adoption(outcome: &str, detail: &str) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:793:            "prewarmed_dind_adoption",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:18:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:28:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:79:                .capture_combined("docker", &["logs", "--tail", "40", container_ref], None)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:137:        || (detail.contains("docker exec") && detail.contains("jackin-capsule"))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:141:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:169:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-image-plan/src/image_plan.rs:6:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-image-plan/src/image_plan.rs:40:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:100:    pub async fn run(&self, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:104:    pub async fn run_with_role_handle(&self, docker: &impl DockerApi, container: &ContainerHandle) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:109:    pub async fn run_preserving_evidence(&self, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:125:    async fn run_inner(&self, docker: &impl DockerApi, preserve_role_evidence: bool) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-plan/src/launch_plan.rs:54:pub fn emit_prewarm_launch_plan(reason: &str) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore.rs:6:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore.rs:127:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:12:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:100:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:128:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:234:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:293:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:372:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:399:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:611:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/Cargo.toml:5:name = "jackin-runtime-launch-sibling-auth-prewarm"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/Cargo.toml:10:description = "Sibling-agent auth prewarm spawn/await for a launch role."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/Cargo.toml:18:name = "jackin_runtime_launch_sibling_auth_prewarm"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/lib.rs:1:pub mod sibling_auth_prewarm;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:17:pub fn spawn_sibling_auth_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:20:    prewarm: &SiblingAuthPrewarm<'_>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:24:    let sibling_agents = prewarm
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:33:                "sibling_auth_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:43:    let config = prewarm.config.clone();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:44:    let workspace_name = prewarm.workspace_name.to_owned();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:45:    let role_key = prewarm.role_key.to_owned();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:52:            "sibling_auth_prewarm_started",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:54:                "prewarming {} sibling auth slots for selected agent {selected_agent}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:62:        let reason = format!("sibling_auth_prewarm:{timing_detail}");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:77:            "sibling_auth_prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:82:    Some(spawn_auth_prewarm_worker(move || {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:92:                        run.compact("sibling_auth_prewarm_failed", &error.to_string());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:104:                        run.compact("sibling_auth_prewarm_failed", &error.to_string());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:119:        let result = RoleState::prewarm_auth_for_bindings(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:132:                "sibling_auth_prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:140:                    "sibling_auth_prewarm_done",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:142:                        "prewarmed {count} sibling auth slots for selected agent {selected_agent}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:146:                    "sibling_auth_prewarm_failed",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:148:                        "sibling auth prewarm failed for selected agent {selected_agent}: {error}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:156:pub fn spawn_auth_prewarm_worker<F, R>(work: F) -> tokio::task::JoinHandle<R>
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:164:pub async fn await_sibling_auth_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:165:    prewarm: Option<tokio::task::JoinHandle<()>>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:167:    if let Some(prewarm) = prewarm {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:168:        prewarm
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-sibling-auth-prewarm/src/sibling_auth_prewarm.rs:170:            .context("sibling auth prewarm task panicked")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:19:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:95:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-naming/src/naming.rs:18:pub const LABEL_KIND_PREWARM_DIND: &str = "jackin.kind=prewarm-dind";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-naming/src/naming.rs:19:pub const LABEL_PREWARM: &str = "jackin.prewarm=true";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/Cargo.toml:5:name = "jackin-runtime-prewarm-trigger"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/Cargo.toml:10:description = "Background image and DinD sidecar prewarm triggers for runtime."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/Cargo.toml:18:name = "jackin_runtime_prewarm_trigger"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/lib.rs:1:pub mod prewarm_trigger;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:9:use jackin_docker::docker_client::BollardDockerClient;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:11:use jackin_runtime_image::image::prewarm_role_images;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:14:    prewarm_dind_sidecar_container_with_paths, prewarmed_dind_state_is_live,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:15:    try_lock_prewarmed_dind, write_prewarmed_dind_state,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:32:pub fn background_prewarm_targets(config: &AppConfig) -> Vec<BackgroundPrewarmTarget> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:70:pub fn spawn_background_image_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:84:                "background_image_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:86:                "background image prewarm disabled in unit tests",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:95:        jackin_telemetry::spawn::spawn_prewarm_job_attempts(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:102:                            prewarm_role_images(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:110:                            classify_image_prewarm_attempt,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:122:fn classify_image_prewarm_attempt<T, E>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:134:pub fn spawn_background_sidecar_prewarm(paths: &JackinPaths, debug: bool) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:140:                "background_sidecar_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:142:                "background sidecar prewarm disabled in unit tests",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:151:        jackin_telemetry::spawn::spawn_prewarm_job(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:153:            async move { background_sidecar_prewarm_once(&paths, debug).await },
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:154:            classify_sidecar_prewarm_attempt,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:165:pub fn classify_sidecar_prewarm_attempt(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:180:async fn background_sidecar_prewarm_once(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:184:    let Some(_lock) = try_lock_prewarmed_dind(paths).await else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:187:    let docker = BollardDockerClient::connect()?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:188:    if prewarmed_dind_state_is_live(paths, &docker).await {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:191:    let warmed = prewarm_dind_sidecar_container_with_paths(paths, &docker, true).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prewarm-trigger/src/prewarm_trigger.rs:192:    write_prewarmed_dind_state(paths, &warmed)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prune-output/Cargo.toml:5:name = "jackin-runtime-prune-output"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prune-output/Cargo.toml:10:description = "Formatted prune and cleanup terminal output."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prune-output/Cargo.toml:18:name = "jackin_runtime_prune_output"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prune-output/src/lib.rs:1:pub mod prune_output;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-prune-output/src/prune_output.rs:4://! Formatted prune and cleanup terminal output shared by runtime callers.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:79:            "docker exec send failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:192:            "docker exec {action} failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:392:        let request = jackin_process::ExecRequest::new("docker", &args);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:395:                .context("starting the docker exec event stream")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-session-control/src/session_control.rs:399:            .context("docker exec event stream has no stdout")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:171:            "docker exec snapshot failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:194:            "docker exec usage accounts failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:209:            "docker exec usage accounts failed because container {container_name} is running a stale jackin-capsule binary without usage support; rerun `jackin-dev pr sync <PR_NUMBER>`, source the generated env.sh, relaunch the instance, then retry `jackin usage {container_name} verify`: {stderr}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:242:    let request = jackin_process::ExecRequest::new("docker", &args);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:70:    match prune_stale_pending_claims(authority) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:80:pub async fn claim_entry(paths: &JackinPaths, docker: &impl DockerApi) -> EntryClaim {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:127:    if prune_stale_pending_claims(authority)? && allow_fresh {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:177:pub async fn release_entry_if_idle(docker: &impl DockerApi, claim: &EntryClaim) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:266:fn prune_stale_pending_claims(authority: &Path) -> std::io::Result<bool> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:382:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:441:    match prune_stale_pending_claims(authority) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe/tests.rs:8:    ContainerHandle, ContainerInspection, ContainerRow, ContainerSpec, ContainerState, DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:10:description = "Container bootstrap pipeline: runtime, instance, isolation. Holds the concrete DockerApi/CommandRunner impls, image build, DinD sidecar management, mount materialization, and instance lifecycle."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:56:jackin-runtime-cleanup-prune-cache = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:57:jackin-runtime-cleanup-prune-dir = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:58:jackin-runtime-cleanup-prune-home = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:59:jackin-runtime-cleanup-prune-images = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:60:jackin-runtime-cleanup-prune-roles = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:97:jackin-runtime-launch-sibling-auth-prewarm = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:102:jackin-runtime-prewarm-trigger = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:104:jackin-runtime-prune-output = { workspace = true }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/lib.rs:19:    prewarm_dind_sidecar_container_with_paths, prune_all_instances, prune_cache, prune_images,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/lib.rs:20:    prune_instances, prune_jackin_home, prune_roles, purge_class_data, purge_container_state,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/lib.rs:22:    spawn_background_sidecar_prewarm, spawn_shell_session, write_prewarmed_dind_state,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/lib.rs:25:pub use runtime::{ImagePrewarmStatus, RoleImagePrewarmRow, prewarm_role_images};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:18:pub mod prewarm_trigger;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:20:pub mod prune_output;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:35:    eject_role, exile_all, prune_all_instances, prune_cache, prune_images, prune_instances,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:36:    prune_jackin_home, prune_roles, purge_class_data, purge_container_state,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:44:pub use self::image::{ImagePrewarmStatus, RoleImagePrewarmRow, prewarm_role_images};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:50:    prewarm_dind_sidecar_container_with_paths, resolve_dry_run_identity,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:52:    write_prewarmed_dind_state,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:55:pub use self::prewarm_trigger::{
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:56:    BackgroundPrewarmTarget, background_prewarm_targets, spawn_background_image_prewarm,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime.rs:57:    spawn_background_sidecar_prewarm,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:38:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:66:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:185:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:30:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:53:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:142:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:22:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:48:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:75:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:148:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:22:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:43:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:82:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:175:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:193:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect_lease.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect_lease.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect_lease.rs:50:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect_lease.rs:196:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/spawn.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/spawn.rs:25:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/spawn.rs:139:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/backend.rs:4:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/backend.rs:56:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup.rs:7:mod prune;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup.rs:11:pub use absent::prune_all_instances;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup.rs:14:pub use prune::{prune_cache, prune_images, prune_instances, prune_jackin_home, prune_roles};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup.rs:32:/// and prune remove the whole container, so any hold in its state directory
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup.rs:34:/// code — so normal cancellation, failure, retention expiry, and prune obey
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:5:use crate::runtime::prune_output;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:15:pub async fn prune_all_instances(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:17:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:21:    prune_output::section(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:29:    let index = prune_output::start("Reading", "instance index")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:34:        prune_output::ok("no instances to prune");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:44:            let row = prune_output::start("Deleting", container_base);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:55:            prune_output::ok(format!("pruned {} instance(s)", containers.len()));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:57:            prune_output::failed(format!(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:58:                "pruned {} instance(s), cleanup failed for {cleanup_failures}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:65:        prune_output::failed("could not remove instance data");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:19:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:36:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:56:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:5:use crate::runtime::prune_output;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:15:pub async fn exile_all(paths: &JackinPaths, docker: &impl DockerApi) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:17:    let mut names = prune_output::start("Finding", "managed containers")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:28:        prune_output::start("Stopping", name)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:10:use crate::runtime::prune_output;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:14:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:19:pub use jackin_runtime_cleanup_prune_images::prune_images::prune_images;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:21:pub use jackin_runtime_cleanup_prune_home::prune_home::prune_jackin_home;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:23:pub use jackin_runtime_cleanup_prune_roles::prune_roles::prune_roles;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:25:pub use jackin_runtime_cleanup_prune_cache::prune_cache::prune_cache;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:27:pub async fn prune_instances(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:29:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:33:    prune_output::section("Instances", "scanning terminal instance state");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:34:    let index = prune_output::start("Reading", "instance index")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:91:        let row = prune_output::start("Deleting", &container_base);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:115:                    "{} instance index could not be updated: {err:#}; run `jackin prune instances` again to retry",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:122:            prune_output::ok(format!("pruned {} instance(s)", removed.len()));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:124:            prune_output::ok(format!(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:130:        prune_output::ok("no instances to prune");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:134:        prune_output::skip(format!(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:147:        prune_output::skip(format!(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge.rs:18:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge.rs:55:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge.rs:66:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge_absent.rs:6:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge_absent.rs:15:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/tests.rs:15:use jackin_core::{DockerApi, JackinPaths};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/tests.rs:19:use jackin_runtime_cleanup_prune_dir::prune_dir::prune_dir;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch.rs:18:    DindSidecarPrewarm, prewarm_dind_sidecar_container_with_paths, write_prewarmed_dind_state,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch.rs:20:use launch_dind::{adopt_prewarmed_dind_sidecar, run_dind_sidecar_headless};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch.rs:70:pub(crate) use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch.rs:177:    SidecarPrewarmReplenish, await_sibling_auth_prewarm, host_runtime_passthrough_env,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch.rs:178:    launch_role_runtime, spawn_sibling_auth_prewarm,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/failure.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/failure.rs:13:pub(crate) async fn render_exit(paths: &JackinPaths, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:13:    write_prewarmed_dind_state(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:16:            dind: "jk-prewarm-dind-dind".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:18:            network: "jk-prewarm-dind-net".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:19:            certs_volume: "jk-prewarm-dind-certs".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:28:        "jk-prewarm-dind-dind".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:34:        .insert("jk-prewarm-dind-dind".to_owned(), ContainerState::Running);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:37:        adopt_prewarmed_dind_sidecar(&paths, &docker)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:49:    let error = prewarm_dind_sidecar_container_with_paths(&paths, &docker, true)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:55:            .contains("cannot authorize prewarm cleanup"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:56:        "replacement must block stale prewarm cleanup: {error:#}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_dind/tests.rs:63:            .any(|operation| operation.starts_with("docker rm")),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:207:    docker: &'a impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:274:    docker: &'a impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:311:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:338:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:389:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:739:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:1465:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:1595:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/account_admission.rs:6:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/account_admission.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core.rs:14:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core.rs:61:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate.rs:27:    PrepareEnvironment, ResolveEnvironment, prewarm_sibling_auth_before_admission,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/active.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/active.rs:30:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/active.rs:184:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/active.rs:241:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/cleanup_classify.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/cleanup_classify.rs:29:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_prepare.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_prepare.rs:16:use super::{PrepareEnvironment, prewarm_sibling_auth_before_admission};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_prepare.rs:96:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_prepare.rs:140:    if let Err(error) = prewarm_sibling_auth_before_admission(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:29:pub(crate) async fn resolve_environment<D: DockerApi>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:130:pub(crate) async fn prewarm_sibling_auth_before_admission(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:139:    let prewarm = crate::runtime::launch::SiblingAuthPrewarm {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:145:    let prewarm =
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:146:        crate::runtime::launch::spawn_sibling_auth_prewarm(paths, container_name, &prewarm, agent);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:147:    crate::runtime::launch::await_sibling_auth_prewarm(prewarm).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finalize.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finalize.rs:57:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finalize.rs:180:pub(crate) async fn handle_launch_failure<D: DockerApi>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finish.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finish.rs:26:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/image.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/image.rs:49:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/image.rs:148:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/initialize.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/initialize.rs:40:pub(crate) async fn initialize_launch<D: DockerApi>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/initialize.rs:72:        crate::runtime::launch::adopt_prewarmed_dind_sidecar(paths, docker).await
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/phases.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/phases.rs:13:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/prepare_instance.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/prepare_instance.rs:38:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:59:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:202:        sidecar_prewarm_replenish: sidecar_replenish(adopted_sidecar_was_used),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:203:        sibling_prewarm: crate::runtime::launch::SiblingPrewarm {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:209:        sibling_auth_prewarm: crate::runtime::launch::SiblingAuthPrewarm {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime_dispatch.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime_dispatch.rs:45:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/workspace.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/workspace.rs:43:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases.rs:209:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:55:    pub(crate) sidecar_prewarm_replenish: SidecarPrewarmReplenish,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:56:    pub(crate) sibling_prewarm: SiblingPrewarm<'a>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:57:    pub(crate) sibling_auth_prewarm: SiblingAuthPrewarm<'a>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:128:pub(crate) use jackin_runtime_launch_sibling_auth_prewarm::sibling_auth_prewarm::spawn_auth_prewarm_worker;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:129:pub(crate) use jackin_runtime_launch_sibling_auth_prewarm::sibling_auth_prewarm::{
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:130:    SiblingAuthPrewarm, await_sibling_auth_prewarm, spawn_sibling_auth_prewarm,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:160:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/docker.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/docker.rs:283:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/environment.rs:82:    let docker_host = format!("DOCKER_HOST=tcp://{dind}:2376");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/environment.rs:84:        "DOCKER_CERT_PATH={}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/environment.rs:123:                "DOCKER_TLS_VERIFY=1",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:16:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:49:        let result = runner.run("docker", &argv, None, &docker_run_opts).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:79:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:146:        sibling_prewarm,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:171:    let sibling_runtime_prewarm = crate::runtime::image::spawn_sibling_runtime_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:173:        sibling_prewarm.validated_repo,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:175:        sibling_prewarm.selected_image_reused,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:177:    crate::runtime::image::spawn_sibling_image_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:180:        sibling_prewarm.role_git,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:181:        sibling_prewarm.branch_override,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:182:        sibling_prewarm.validated_repo,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:184:        sibling_prewarm.selected_image_reused,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:186:    sibling_runtime_prewarm
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:192:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:259:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:263:    let _sibling_runtime_prewarm = spawn_background(ctx);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:267:        sidecar_prewarm_replenish,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:278:            sidecar_prewarm_replenish,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:281:            crate::runtime::prewarm_trigger::spawn_background_sidecar_prewarm(paths, *debug);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:295:        sidecar_prewarm_replenish,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:298:        crate::runtime::prewarm_trigger::spawn_background_sidecar_prewarm(paths, *debug);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/setup.rs:23:        sibling_auth_prewarm,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/setup.rs:31:            workspace_name: (!sibling_auth_prewarm.workspace_name.is_empty())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/setup.rs:32:                .then_some(sibling_auth_prewarm.workspace_name),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/setup.rs:33:            role_key: sibling_auth_prewarm.role_key,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:4:pub use jackin_runtime_prewarm_trigger::prewarm_trigger::{
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:5:    BackgroundPrewarmTarget, SidecarPrewarmOutcome, background_prewarm_targets,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:6:    classify_sidecar_prewarm_attempt,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:10:pub use jackin_runtime_prewarm_trigger::prewarm_trigger::{
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:11:    spawn_background_image_prewarm, spawn_background_sidecar_prewarm,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:20:pub fn spawn_background_image_prewarm(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:31:            "background_image_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:33:            "background image prewarm disabled in unit tests",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:40:pub fn spawn_background_sidecar_prewarm(paths: &JackinPaths, debug: bool) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:44:            "background_sidecar_prewarm_skipped",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger.rs:46:            "background sidecar prewarm disabled in unit tests",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:35:    let targets = background_prewarm_targets(&config);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:54:    assert!(background_prewarm_targets(&config).is_empty());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:71:    let targets = background_prewarm_targets(&config);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:95:    let targets = background_prewarm_targets(&config);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:107:    spawn_background_image_prewarm(&paths, Vec::new(), false);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:115:    spawn_background_sidecar_prewarm(&paths, false);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:123:    let completed = classify_sidecar_prewarm_attempt(&Ok(completed_outcome));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:128:    let skipped = classify_sidecar_prewarm_attempt(&Ok(skipped_outcome));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prewarm_trigger/tests.rs:132:    let failed = classify_sidecar_prewarm_attempt(&Err(anyhow::anyhow!("private failure")));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/prune_output.rs:4:pub use jackin_runtime_prune_output::prune_output::*;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/registry/attributes.yaml:9:      - { id: cli.command.name, type: { members: [{id: load, value: load, stability: development}, {id: hardline, value: hardline, stability: development}, {id: eject, value: eject, stability: development}, {id: exile, value: exile, stability: development}, {id: purge, value: purge, stability: development}, {id: prewarm, value: prewarm, stability: development}, {id: prune, value: prune, stability: development}, {id: console, value: console, stability: development}, {id: role, value: role, stability: development}, {id: workspace, value: workspace, stability: development}, {id: config, value: config, stability: development}, {id: daemon, value: daemon, stability: development}, {id: doctor, value: doctor, stability: development}, {id: diagnostics, value: diagnostics, stability: development}, {id: status, value: status, stability: development}, {id: usage, value: usage, stability: development}, {id: account, value: account, stability: development}, {id: account.list, value: account.list, stability: development}, {id: account.scan, value: account.scan, stability: development}, {id: account.add, value: account.add, stability: development}, {id: account.remove, value: account.remove, stability: development}, {id: account.enable, value: account.enable, stability: development}, {id: account.disable, value: account.disable, stability: development}, {id: account.default, value: account.default, stability: development}, {id: workspace.account, value: workspace.account, stability: development}, {id: workspace.account.list, value: workspace.account.list, stability: development}, {id: workspace.account.assign, value: workspace.account.assign, stability: development}, {id: workspace.account.unassign, value: workspace.account.unassign, stability: development}, {id: workspace.account.select, value: workspace.account.select, stability: development}, {id: help, value: help, stability: development}, {id: role.validate, value: role.validate, stability: development}, {id: role.migrate, value: role.migrate, stability: development}, {id: role.create, value: role.create, stability: development}, {id: role.construct-version, value: role.construct-version, stability: development}, {id: role.published-image, value: role.published-image, stability: development}, {id: role.published-image-repository, value: role.published-image-repository, stability: development}, {id: role.publish-labels, value: role.publish-labels, stability: development}, {id: daemon.serve, value: daemon.serve, stability: development}, {id: daemon.install, value: daemon.install, stability: development}, {id: daemon.uninstall, value: daemon.uninstall, stability: development}, {id: daemon.start, value: daemon.start, stability: development}, {id: daemon.stop, value: daemon.stop, stability: development}, {id: daemon.restart, value: daemon.restart, stability: development}, {id: daemon.status, value: daemon.status, stability: development}, {id: diagnostics.validate, value: diagnostics.validate, stability: development}, {id: workspace.create, value: workspace.create, stability: development}, {id: workspace.list, value: workspace.list, stability: development}, {id: workspace.show, value: workspace.show, stability: development}, {id: workspace.edit, value: workspace.edit, stability: development}, {id: workspace.prune, value: workspace.prune, stability: development}, {id: workspace.remove, value: workspace.remove, stability: development}, {id: workspace.env, value: workspace.env, stability: development}, {id: workspace.env.set, value: workspace.env.set, stability: development}, {id: workspace.env.unset, value: workspace.env.unset, stability: development}, {id: workspace.env.list, value: workspace.env.list, stability: development}, {id: config.mount, value: config.mount, stability: development}, {id: config.mount.add, value: config.mount.add, stability: development}, {id: config.mount.remove, value: config.mount.remove, stability: development}, {id: config.mount.list, value: config.mount.list, stability: development}, {id: config.trust, value: config.trust, stability: development}, {id: config.trust.grant, value: config.trust.grant, stability: development}, {id: config.trust.revoke, value: config.trust.revoke, stability: development}, {id: config.trust.list, value: config.trust.list, stability: development}, {id: config.env, value: config.env, stability: development}, {id: config.env.set, value: config.env.set, stability: development}, {id: config.env.unset, value: config.env.unset, stability: development}, {id: config.env.list, value: config.env.list, stability: development}, {id: config.git, value: config.git, stability: development}, {id: config.git.coauthor-trailer, value: config.git.coauthor-trailer, stability: development}, {id: config.git.coauthor-trailer.enable, value: config.git.coauthor-trailer.enable, stability: development}, {id: config.git.coauthor-trailer.disable, value: config.git.coauthor-trailer.disable, stability: development}, {id: config.git.dco, value: config.git.dco, stability: development}, {id: config.git.dco.enable, value: config.git.dco.enable, stability: development}, {id: config.git.dco.disable, value: config.git.dco.disable, stability: development}, {id: prune.roles, value: prune.roles, stability: development}, {id: prune.cache, value: prune.cache, stability: development}, {id: prune.images, value: prune.images, stability: development}, {id: prune.instances, value: prune.instances, stability: development}, {id: prune.system, value: prune.system, stability: development}, {id: usage.accounts, value: usage.accounts, stability: development}, {id: usage.verify, value: usage.verify, stability: development}, {id: usage.doctor, value: usage.doctor, stability: development}, {id: usage.service, value: usage.service, stability: development}, {id: usage.service.start, value: usage.service.start, stability: development}, {id: usage.service.stop, value: usage.service.stop, stability: development}, {id: usage.service.status, value: usage.service.status, stability: development}, {id: usage.monitor, value: usage.monitor, stability: development}, {id: usage.monitor.observe, value: usage.monitor.observe, stability: development}, {id: usage.monitor.start, value: usage.monitor.start, stability: development}, {id: usage.monitor.stop, value: usage.monitor.stop, stability: development}, {id: usage.binding, value: usage.binding, stability: development}, {id: usage.binding.confirm, value: usage.binding.confirm, stability: development}, {id: usage.policy, value: usage.policy, stability: development}, {id: usage.policy.approve, value: usage.policy.approve, stability: development}, {id: usage.status, value: usage.status, stability: development}, {id: usage.refresh, value: usage.refresh, stability: development}, {id: usage.watch, value: usage.watch, stability: development}, {id: usage.wait, value: usage.wait, stability: development}, {id: usage.statusline, value: usage.statusline, stability: development}, {id: usage.statusline.ingest, value: usage.statusline.ingest, stability: development}, {id: usage.statusline.compose, value: usage.statusline.compose, stability: development}, {id: usage.spend, value: usage.spend, stability: development}, {id: usage.spend.record, value: usage.spend.record, stability: development}, {id: usage.auth, value: usage.auth, stability: development}, {id: usage.auth.prepare, value: usage.auth.prepare, stability: development}, {id: workflow, value: workflow, stability: development}, {id: workflow.validate, value: workflow.validate, stability: development}, {id: workflow.plan, value: workflow.plan, stability: development}, {id: workflow.run, value: workflow.run, stability: development}, {id: workflow.status, value: workflow.status, stability: development}, {id: workflow.pause, value: workflow.pause, stability: development}, {id: workflow.resume, value: workflow.resume, stability: development}, {id: workflow.cancel, value: workflow.cancel, stability: development}, {id: workflow.graph, value: workflow.graph, stability: development}, {id: workflow.events, value: workflow.events, stability: development}, {id: workflow.attach, value: workflow.attach, stability: development}, {id: workflow.resolve-input, value: workflow.resolve-input, stability: development}, {id: workflow.export, value: workflow.export, stability: development}, {id: workflow.record, value: workflow.record, stability: development}, {id: workflow.record.session, value: workflow.record.session, stability: development}, {id: workflow.record.candidate, value: workflow.record.candidate, stability: development}, {id: workflow.record.checkpoint, value: workflow.record.checkpoint, stability: development}, {id: workflow.record.test, value: workflow.record.test, stability: development}, {id: workflow.record.review, value: workflow.record.review, stability: development}, {id: workflow.record.backup, value: workflow.record.backup, stability: development}, {id: workflow.record.advance, value: workflow.record.advance, stability: development}, {id: workflow.record.dispatch-intent, value: workflow.record.dispatch-intent, stability: development}] }, brief: Registry-backed command path., stability: development }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/registry/attributes.yaml:16:      - { id: job.type, type: { members: [{id: image_prewarm, value: image_prewarm, stability: development}, {id: sidecar_prewarm, value: sidecar_prewarm, stability: development}] }, brief: Detached job class., stability: development }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/registry/metrics.yaml:17:  - { id: metric.prewarm.jobs, type: metric, metric_name: prewarm.jobs, instrument: counter, unit: "{job}", brief: Detached prewarm jobs started., stability: development, attributes: [{ref: job.type, requirement_level: required}] }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/registry/metrics.yaml:18:  - { id: metric.prewarm.active, type: metric, metric_name: prewarm.active, instrument: updowncounter, unit: "{attempt}", brief: Active detached prewarm attempts., stability: development, attributes: [{ref: job.type, requirement_level: required}] }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/registry/metrics.yaml:19:  - { id: metric.prewarm.duration, type: metric, metric_name: prewarm.duration, instrument: histogram, unit: s, brief: Detached prewarm attempt duration., stability: development, attributes: [{ref: job.type, requirement_level: required}, {ref: outcome, requirement_level: required}, {ref: error.type}] }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/registry/rust.toml:141:"prewarm.duration" = [0.001, 0.005, 0.010, 0.025, 0.050, 0.100, 0.250, 0.500, 1.0, 2.5, 5.0, 10.0, 30.0, 60.0]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/registry/spans.yaml:9:  - { id: span.prewarm.schedule, type: span, brief: Detached prewarm job scheduling decision., span_kind: producer, stability: development, attributes: [{ref: cli.invocation.id}, {ref: session.id}, {ref: job.id}, {ref: job.type}, {ref: outcome}] }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/registry/spans.yaml:10:  - { id: span.prewarm.attempt, type: span, brief: Detached prewarm job attempt., span_kind: consumer, stability: development, attributes: [{ref: cli.invocation.id}, {ref: session.id}, {ref: job.id}, {ref: job.type}, {ref: outcome}] }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/operation.rs:404:            tracing::info_span!(target: crate::TELEMETRY_TARGET, parent: None, "prewarm.schedule", otel.kind = "producer")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/operation.rs:407:            tracing::info_span!(target: crate::TELEMETRY_TARGET, parent: None, "prewarm.attempt", otel.kind = "consumer")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/operation.rs:473:            tracing::info_span!(target: crate::TELEMETRY_TARGET, "prewarm.schedule", otel.kind = "producer")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/operation.rs:476:            tracing::info_span!(target: crate::TELEMETRY_TARGET, "prewarm.attempt", otel.kind = "consumer")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:152:        "prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:153:        "prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:196:        "workspace.prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:221:        "prune.roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:222:        "prune.cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:223:        "prune.images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:224:        "prune.instances",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:225:        "prune.system",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/attrs.rs:434:    allowed_values: &["image_prewarm", "sidecar_prewarm"],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/enums.rs:29:bounded_values!(CliCommandName { Load => "load", Hardline => "hardline", Eject => "eject", Exile => "exile", Purge => "purge", Prewarm => "prewarm", Prune => "prune", Console => "console", Role => "role", Workspace => "workspace", Config => "config", Daemon => "daemon", Doctor => "doctor", Diagnostics => "diagnostics", Status => "status", Usage => "usage", Account => "account", AccountList => "account.list", AccountScan => "account.scan", AccountAdd => "account.add", AccountRemove => "account.remove", AccountEnable => "account.enable", AccountDisable => "account.disable", AccountDefault => "account.default", WorkspaceAccount => "workspace.account", WorkspaceAccountList => "workspace.account.list", WorkspaceAccountAssign => "workspace.account.assign", WorkspaceAccountUnassign => "workspace.account.unassign", WorkspaceAccountSelect => "workspace.account.select", Help => "help", RoleValidate => "role.validate", RoleMigrate => "role.migrate", RoleCreate => "role.create", RoleConstructVersion => "role.construct-version", RolePublishedImage => "role.published-image", RolePublishedImageRepository => "role.published-image-repository", RolePublishLabels => "role.publish-labels", DaemonServe => "daemon.serve", DaemonInstall => "daemon.install", DaemonUninstall => "daemon.uninstall", DaemonStart => "daemon.start", DaemonStop => "daemon.stop", DaemonRestart => "daemon.restart", DaemonStatus => "daemon.status", DiagnosticsValidate => "diagnostics.validate", WorkspaceCreate => "workspace.create", WorkspaceList => "workspace.list", WorkspaceShow => "workspace.show", WorkspaceEdit => "workspace.edit", WorkspacePrune => "workspace.prune", WorkspaceRemove => "workspace.remove", WorkspaceEnv => "workspace.env", WorkspaceEnvSet => "workspace.env.set", WorkspaceEnvUnset => "workspace.env.unset", WorkspaceEnvList => "workspace.env.list", ConfigMount => "config.mount", ConfigMountAdd => "config.mount.add", ConfigMountRemove => "config.mount.remove", ConfigMountList => "config.mount.list", ConfigTrust => "config.trust", ConfigTrustGrant => "config.trust.grant", ConfigTrustRevoke => "config.trust.revoke", ConfigTrustList => "config.trust.list", ConfigEnv => "config.env", ConfigEnvSet => "config.env.set", ConfigEnvUnset => "config.env.unset", ConfigEnvList => "config.env.list", ConfigGit => "config.git", ConfigGitCoauthorTrailer => "config.git.coauthor-trailer", ConfigGitCoauthorTrailerEnable => "config.git.coauthor-trailer.enable", ConfigGitCoauthorTrailerDisable => "config.git.coauthor-trailer.disable", ConfigGitDco => "config.git.dco", ConfigGitDcoEnable => "config.git.dco.enable", ConfigGitDcoDisable => "config.git.dco.disable", PruneRoles => "prune.roles", PruneCache => "prune.cache", PruneImages => "prune.images", PruneInstances => "prune.instances", PruneSystem => "prune.system", UsageAccounts => "usage.accounts", UsageVerify => "usage.verify", UsageDoctor => "usage.doctor", UsageService => "usage.service", UsageServiceStart => "usage.service.start", UsageServiceStop => "usage.service.stop", UsageServiceStatus => "usage.service.status", UsageMonitor => "usage.monitor", UsageMonitorObserve => "usage.monitor.observe", UsageMonitorStart => "usage.monitor.start", UsageMonitorStop => "usage.monitor.stop", UsageBinding => "usage.binding", UsageBindingConfirm => "usage.binding.confirm", UsagePolicy => "usage.policy", UsagePolicyApprove => "usage.policy.approve", UsageStatus => "usage.status", UsageRefresh => "usage.refresh", UsageWatch => "usage.watch", UsageWait => "usage.wait", UsageStatusline => "usage.statusline", UsageStatuslineIngest => "usage.statusline.ingest", UsageStatuslineCompose => "usage.statusline.compose", UsageSpend => "usage.spend", UsageSpendRecord => "usage.spend.record", UsageAuth => "usage.auth", UsageAuthPrepare => "usage.auth.prepare", Workflow => "workflow", WorkflowValidate => "workflow.validate", WorkflowPlan => "workflow.plan", WorkflowRun => "workflow.run", WorkflowStatus => "workflow.status", WorkflowPause => "workflow.pause", WorkflowResume => "workflow.resume", WorkflowCancel => "workflow.cancel", WorkflowGraph => "workflow.graph", WorkflowEvents => "workflow.events", WorkflowAttach => "workflow.attach", WorkflowResolveInput => "workflow.resolve-input", WorkflowExport => "workflow.export", WorkflowRecord => "workflow.record", WorkflowRecordSession => "workflow.record.session", WorkflowRecordCandidate => "workflow.record.candidate", WorkflowRecordCheckpoint => "workflow.record.checkpoint", WorkflowRecordTest => "workflow.record.test", WorkflowRecordReview => "workflow.record.review", WorkflowRecordBackup => "workflow.record.backup", WorkflowRecordAdvance => "workflow.record.advance", WorkflowRecordDispatchIntent => "workflow.record.dispatch-intent" });
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/enums.rs:40:bounded_values!(JobType { ImagePrewarm => "image_prewarm", SidecarPrewarm => "sidecar_prewarm" });
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:347:                "prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:348:                "prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:391:                "workspace.prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:416:                "prune.roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:417:                "prune.cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:418:                "prune.images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:419:                "prune.instances",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:420:                "prune.system",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:510:                "prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:511:                "prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:554:                "workspace.prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:579:                "prune.roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:580:                "prune.cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:581:                "prune.images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:582:                "prune.instances",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:583:                "prune.system",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:673:                "prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:674:                "prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:717:                "workspace.prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:742:                "prune.roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:743:                "prune.cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:744:                "prune.images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:745:                "prune.instances",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:746:                "prune.system",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1128:pub const PREWARM_ACTIVE: &str = "prewarm.active";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1131:    description: "Active detached prewarm attempts.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1139:        allowed_values: &["image_prewarm", "sidecar_prewarm"],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1142:pub const PREWARM_DURATION: &str = "prewarm.duration";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1145:    description: "Detached prewarm attempt duration.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1162:            allowed_values: &["image_prewarm", "sidecar_prewarm"],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1179:pub const PREWARM_JOBS: &str = "prewarm.jobs";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1182:    description: "Detached prewarm jobs started.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/metrics.rs:1190:        allowed_values: &["image_prewarm", "sidecar_prewarm"],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:20:                "prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:21:                "prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:64:                "workspace.prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:89:                "prune.roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:90:                "prune.cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:91:                "prune.images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:92:                "prune.instances",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:93:                "prune.system",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:199:                "prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:200:                "prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:243:                "workspace.prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:268:                "prune.roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:269:                "prune.cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:270:                "prune.images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:271:                "prune.instances",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:272:                "prune.system",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:430:                "prewarm",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:431:                "prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:474:                "workspace.prune",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:499:                "prune.roles",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:500:                "prune.cache",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:501:                "prune.images",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:502:                "prune.instances",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:503:                "prune.system",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:858:pub const PREWARM_ATTEMPT: &str = "prewarm.attempt";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:861:    description: "Detached prewarm job attempt.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:880:            allowed_values: &["image_prewarm", "sidecar_prewarm"],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:903:pub const PREWARM_SCHEDULE: &str = "prewarm.schedule";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:906:    description: "Detached prewarm job scheduling decision.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/schema/spans.rs:925:            allowed_values: &["image_prewarm", "sidecar_prewarm"],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/spawn.rs:328:pub fn spawn_prewarm_job<F, C>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/spawn.rs:338:    spawn_prewarm_job_attempts(job_type, |attempts| async move {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-telemetry/src/spawn.rs:384:pub fn spawn_prewarm_job_attempts<F, Fut>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor.rs:30:    append_event, append_event_if_changed, prune_inactive_sessions,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor.rs:31:    prune_inactive_unbound_sessions, session_is_active, status_for, update_reset_barrier,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/lifecycle.rs:27:pub(super) fn prune_inactive_sessions(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/lifecycle.rs:89:                prune_monitor_session_evidence(monitor, &removed);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/lifecycle.rs:95:pub(super) fn prune_inactive_unbound_sessions(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/lifecycle.rs:127:                prune_monitor_session_evidence(monitor, &removed);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/lifecycle.rs:133:fn prune_monitor_session_evidence(monitor: &mut DurableMonitor, removed: &[String]) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/operations.rs:19:    prepare_start_authority, prune_inactive_sessions, prune_inactive_unbound_sessions,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/operations.rs:748:            prune_inactive_unbound_sessions(&mut staged, &observation.session_id, now_epoch);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/operations.rs:752:            prune_inactive_sessions(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/storage/tests.rs:541:fn v4_migration_keeps_pruned_reset_history_and_sticky_barrier_unknown() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/tests.rs:5687:fn provider_used_only_requires_source_and_receipt_after_pruned_statusline_reset_fence() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-usage-broker/src/monitor/tests.rs:5767:            "session-reset-fence-pruner",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:532:                std::process::Command::new("docker").args(["rm", "--force", &container_name]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:575:        std::process::Command::new("docker").args(["image", "inspect", TEST_SANDBOX_IMAGE]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:583:        std::process::Command::new("docker").args(["pull", TEST_SANDBOX_IMAGE]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:605:        std::process::Command::new("docker").args([
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:615:        std::process::Command::new("docker").args(["rm", "--force", container_name]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:776:    let mut command = std::process::Command::new("docker");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:858:                std::process::Command::new("docker").args(["rm", "--force", &self.name]),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/arch.rs:53:    ("jackin-runtime-cleanup-prune-cache", 9),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/arch.rs:54:    ("jackin-runtime-cleanup-prune-dir", 8),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/arch.rs:55:    ("jackin-runtime-cleanup-prune-home", 8),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/arch.rs:56:    ("jackin-runtime-cleanup-prune-images", 7),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/arch.rs:57:    ("jackin-runtime-cleanup-prune-roles", 9),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/arch.rs:70:    ("jackin-runtime-prewarm-trigger", 8),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/arch.rs:72:    ("jackin-runtime-prune-output", 0),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/arch.rs:98:    ("jackin-runtime-launch-sibling-auth-prewarm", 8),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/ci.rs:321:    if let Some(temp) = std::env::var_os("VELNOR_DOCKER_HOST_TEMP") {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/construct.rs:313:        .with_context(|| format!("running docker buildx imagetools inspect {reference}"))?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/tools/jackin-xtask/src/construct/tests.rs:85:    let mut command = Command::new("docker");

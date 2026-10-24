@@ -1,0 +1,9 @@
+[
+  {
+    "operation": "verification_list_for_cleanup",
+    "ok": true,
+    "detail": {
+      "items": []
+    }
+  }
+]

@@ -1,0 +1,31 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 489B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/jfr24-architect-kimi:93a46c2
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/2] FROM docker.io/library/jfr24-architect-kimi:93a46c2@sha256:394c48478aea233046c95ec5eada721a75bfbdb2e2d0385b6dbd18982a776c9f
+#4 resolve docker.io/library/jfr24-architect-kimi:93a46c2@sha256:394c48478aea233046c95ec5eada721a75bfbdb2e2d0385b6dbd18982a776c9f 0.0s done
+#4 DONE 0.3s
+
+#5 [2/2] RUN if ! getent group sandbox >/dev/null; then       if getent group 1000 >/dev/null; then         groupmod -n sandbox "$(getent group 1000 | cut -d: -f1)";       else         groupadd --gid 1000 sandbox;       fi;     fi     && usermod --gid sandbox agent     && chgrp -R sandbox /home/agent /jackin/default-home     && chmod -R g+rwX /home/agent /jackin/default-home
+#5 DONE 2.9s
+
+#6 exporting to image
+#6 exporting layers
+#6 exporting layers 76.9s done
+#6 exporting manifest sha256:30ff09525518a000436036eabae430e7eb0e35cd2420dba2c0e963def124199d 0.0s done
+#6 exporting config sha256:c00dafff7784430fb886a72a04fbd35ac6ff67c5743faa3530337b2e2aa859cf 0.0s done
+#6 exporting attestation manifest sha256:e36b552e8bdbbe29a8b494b5706212b587a3685cbb5e86f2ea1b2a77c98d7d33 0.0s done
+#6 exporting manifest list sha256:23742d321eb26b2fbaadea1941162db70fa4ed15ec8c0638568ee98995c62219 0.0s done
+#6 naming to docker.io/library/jfr24-kimi-gid1000:fixture done
+#6 unpacking to docker.io/library/jfr24-kimi-gid1000:fixture
+#6 unpacking to docker.io/library/jfr24-kimi-gid1000:fixture 19.7s done
+#6 DONE 96.8s

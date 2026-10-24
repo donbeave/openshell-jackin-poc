@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/target/debug/openshell-control-probe",
+    "tls",
+    "--endpoint",
+    "https://localhost:28600",
+    "--server-name",
+    "localhost",
+    "--ca",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/ca.crt",
+    "--cert",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/private/certs/wrong-ou-client.crt",
+    "--key",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/private/certs/wrong-ou-client.key",
+    "--expect",
+    "deny"
+  ],
+  "exit_status": 1,
+  "stdout": "[\n  {\n    \"operation\": \"verified_mtls_and_authenticated_control_api\",\n    \"ok\": false,\n    \"error\": \"unexpectedly authenticated list_sandboxes\"\n  }\n]\n",
+  "stderr": "",
+  "expected": "TLS/authentication rejection with verification enabled",
+  "expected_outcome_observed": false
+}

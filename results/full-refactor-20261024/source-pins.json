@@ -1,0 +1,11 @@
+{
+  "resolved_utc": "2026-10-24T01:35:17.828537+00:00",
+  "research_baseline": "2315e6a278231854b3139b1ca32402777ff3cd01",
+  "jackin_reviewed_and_selected": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "jackin_previous_group": "41bad147b5ba9db09be99b07248531ce1bd867be",
+  "architect": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+  "openshell_release": "v0.1.5",
+  "openshell": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+  "openshell_main_observed_not_selected": "f571c8e99c185804c39e837a2b70692e957de327",
+  "scope_change": "Fresh setup reset allowed. No legacy import/config migration. Preserve new-design persistence/recovery; workflow worker must execute via OpenShell."
+}

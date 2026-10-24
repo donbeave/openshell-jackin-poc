@@ -1,0 +1,6 @@
+FROM jfr-20261024-architect-base:7b72b38@sha256:e7655072c6d511250b183e9511ca1f701e635766ec0d190a68bfe470745df63a
+USER root
+ADD --checksum=sha256:3a3c72376687ba21a588d0f5a2c88c76f483fb6cdece7b0fc43d5e3132b08a52 https://github.com/jdx/mise/releases/download/v2026.10.18/mise-v2026.10.18-linux-arm64 /usr/local/bin/mise
+ADD --checksum=sha256:8a1aaf0a495e455d2ea09430c92c59169eef6a29a140c6b21a6d1581fe252f86 https://github.com/jdx/mr-boxington/releases/download/v1.27.0/mbx-aarch64-unknown-linux-gnu.tar.gz /tmp/mbx.tar.gz
+RUN groupadd --gid 1000 sandbox && usermod --gid sandbox agent && chmod 0755 /usr/local/bin/mise && tar -xzf /tmp/mbx.tar.gz -C /usr/local/bin mbx && chmod 0755 /usr/local/bin/mbx && mkdir -p /workspace /home/agent/.cargo && chown -R agent:1000 /workspace /home/agent/.cargo && rm /tmp/mbx.tar.gz
+USER agent:1000

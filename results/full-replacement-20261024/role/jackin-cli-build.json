@@ -1,0 +1,25 @@
+{
+  "command": [
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "build",
+    "--locked",
+    "--release",
+    "--target-dir",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-target",
+    "-p",
+    "jackin"
+  ],
+  "cwd": "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source",
+  "source_commit": "41bad147b5ba9db09be99b07248531ce1bd867be",
+  "started_utc": "2026-10-24T01:15:12.924220+00:00",
+  "duration_seconds": 263.831,
+  "exit_status": 0,
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "binary_path": "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-target/release/jackin",
+  "binary_size_bytes": 64287328,
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27) (Homebrew)"
+}

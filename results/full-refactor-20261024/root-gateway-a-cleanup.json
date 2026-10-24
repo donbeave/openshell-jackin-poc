@@ -1,0 +1,45 @@
+{
+  "test_id": "jfr-20261024-a",
+  "pid": 65583,
+  "endpoint": "https://localhost:28470",
+  "commands": [
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:28470",
+        "-sTCP:LISTEN",
+        "-Fp"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ps",
+        "-p",
+        "65583",
+        "-o",
+        "command="
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "dry_run": false,
+  "complete": true,
+  "assumption": "sole-authority disposable fixture; no concurrent recreation",
+  "removed_private_paths": [
+    "experiments/full-replacement-20261024/gateway-a/config/openshell/gateways/jfr-20261024-a/mtls/ca.crt",
+    "experiments/full-replacement-20261024/gateway-a/config/openshell/gateways/jfr-20261024-a/mtls/tls.key",
+    "experiments/full-replacement-20261024/gateway-a/config/openshell/gateways/jfr-20261024-a/mtls/tls.crt",
+    "experiments/full-replacement-20261024/gateway-a/config/openshell/gateways/jfr-20261024-a/metadata.json",
+    "experiments/full-replacement-20261024/gateway-a/config/openshell/active_gateway",
+    "experiments/full-replacement-20261024/gateway-a/state/openshell/gateway/credentials/key-encryption-key.bin",
+    "experiments/full-replacement-20261024/gateway-a/state/openshell/gateway/openshell.db"
+  ],
+  "resumed": true,
+  "phase": "gateway_stopped"
+}

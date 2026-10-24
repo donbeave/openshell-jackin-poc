@@ -1,0 +1,101 @@
+[
+  {
+    "argv": [
+      "sh",
+      "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+      "--workspace",
+      "jfr-ws-repeat24",
+      "sandbox",
+      "delete",
+      "jfr24volpos"
+    ],
+    "status": 0,
+    "stdout": "\u2713 Sandbox jfr24volpos deletion accepted; cleanup is pending\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "sh",
+      "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+      "--workspace",
+      "jfr-ws-repeat24",
+      "sandbox",
+      "delete",
+      "jfr24volro"
+    ],
+    "status": 0,
+    "stdout": "\u2713 Sandbox jfr24volro deletion accepted; cleanup is pending\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "sh",
+      "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+      "--workspace",
+      "jfr-ws-repeat24",
+      "sandbox",
+      "list",
+      "-o",
+      "json"
+    ],
+    "status": 0,
+    "stdout": "{\n  \"next_page_token\": \"\",\n  \"sandboxes\": []\n}\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "docker",
+      "volume",
+      "inspect",
+      "jfr24repeat-host-rw"
+    ],
+    "status": 0,
+    "stdout": "[\n    {\n        \"CreatedAt\": \"2026-10-24T08:16:48+07:00\",\n        \"Driver\": \"local\",\n        \"Labels\": {\n            \"jackin.fixture\": \"jfr-20261024-repeat\",\n            \"openshell.ai/sandbox-attachable\": \"true\",\n            \"openshell.ai/sandbox-attachable-workspace\": \"jfr-ws-repeat24\"\n        },\n        \"Mountpoint\": \"/var/lib/docker/volumes/jfr24repeat-host-rw/_data\",\n        \"Name\": \"jfr24repeat-host-rw\",\n        \"Options\": {\n            \"device\": \"/Users/example/openshell-jackin-public/results/full-replacement-20261024/repeat/source\",\n            \"o\": \"bind\",\n            \"type\": \"none\"\n        },\n        \"Scope\": \"local\"\n    }\n]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "docker",
+      "volume",
+      "rm",
+      "jfr24repeat-host-rw"
+    ],
+    "status": 0,
+    "stdout": "jfr24repeat-host-rw\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "docker",
+      "volume",
+      "inspect",
+      "jfr24repeat-wrong-workspace"
+    ],
+    "status": 0,
+    "stdout": "[\n    {\n        \"CreatedAt\": \"2026-10-24T08:16:48+07:00\",\n        \"Driver\": \"local\",\n        \"Labels\": {\n            \"jackin.fixture\": \"jfr-20261024-repeat\",\n            \"openshell.ai/sandbox-attachable\": \"true\",\n            \"openshell.ai/sandbox-attachable-workspace\": \"jfr-ws-other24\"\n        },\n        \"Mountpoint\": \"/var/lib/docker/volumes/jfr24repeat-wrong-workspace/_data\",\n        \"Name\": \"jfr24repeat-wrong-workspace\",\n        \"Options\": {\n            \"device\": \"/Users/example/openshell-jackin-public/results/full-replacement-20261024/repeat/source\",\n            \"o\": \"bind\",\n            \"type\": \"none\"\n        },\n        \"Scope\": \"local\"\n    }\n]\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "docker",
+      "volume",
+      "rm",
+      "jfr24repeat-wrong-workspace"
+    ],
+    "status": 0,
+    "stdout": "jfr24repeat-wrong-workspace\n",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "sh",
+      "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+      "workspace",
+      "delete",
+      "jfr-ws-repeat24"
+    ],
+    "status": 0,
+    "stdout": "\u2713 Deleted workspace jfr-ws-repeat24\n",
+    "stderr": ""
+  }
+]

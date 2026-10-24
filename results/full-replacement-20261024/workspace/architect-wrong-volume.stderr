@@ -1,0 +1,4 @@
+Error:   × code: 'The system is not in a state required for the operation's
+  │ execution', message: "docker volume 'jfr24ws-wrong-ws': external resource
+  │ not admitted by required labels"
+

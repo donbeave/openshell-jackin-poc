@@ -1,0 +1,113 @@
+{
+  "profile": "macOS 27.0.1 arm64 + OrbStack Docker context + OpenShell v0.1.5 Docker driver, gateway jfr-20261024-a",
+  "source_pins": {
+    "jackin_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+    "jackin_tree": "11c7af3812dd9ba0be27f6ae33fc078fa40ff85c",
+    "architect_commit": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+    "openshell_commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f"
+  },
+  "images": [
+    {
+      "tag": "jk_jfr24_architect:018fb47",
+      "id": "sha256:d1c82a2c8d9b21dfcb1d2bb20dd5a23823a7747799f01d73c291f3a7140546a2",
+      "platform": "linux/arm64",
+      "size_bytes": 13981089043,
+      "role_commit": "018fb476eeff6ff2dd750962127470953311a511",
+      "recipe_hash": "733090a834d8687bc5ee6ff406dedfda3cf3f365b73e8ccf14063bc2bab3b3df",
+      "build_seconds": 77.774,
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": "../architect-opencode-image-6e/prewarm.json"
+    },
+    {
+      "tag": "jk_jfr24_architect:93a46c2",
+      "id": "sha256:f14f7f176039788cf487f2dc59e57ccf746a4dcf9219a356bf4cf7a7f7ad35ff",
+      "platform": "linux/arm64",
+      "size_bytes": 13981089044,
+      "role_commit": "93a46c2ddfbd868e4208109f4ca23401ccd519e8",
+      "role_tree": "4521549007573c10993a38b40eafded80d04521d",
+      "recipe_hash": "c48bffb87a3e624c04506a34f8881e4e06865427b433d0acf661f3d4e162c10f",
+      "build_seconds": 94.899,
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "source_change": "behavior-neutral comment appended to declared hooks/preflight.sh in the experiment-only role clone",
+      "evidence": "../architect-opencode-image-6e-rolechange/prewarm.json"
+    },
+    {
+      "tag": "jfr24-openc-gid1000:fixture",
+      "id": "sha256:0515299a30d6dcd6e2b0b037937d96e2c854d5f7e859524343680520d833a7fe",
+      "platform": "linux/arm64",
+      "size_bytes": 18766140290,
+      "user": "agent:sandbox (UID:GID 1000:1000)",
+      "result": "PASS",
+      "mechanism": "WORKAROUND",
+      "change": "group-only image adjustment; no capabilities or root access added",
+      "evidence": "build.stdout.txt, build.stderr.txt, image.inspect.txt"
+    }
+  ],
+  "cache": {
+    "warm_command": "pinned Jackin 6e jackin prewarm --agent opencode --image --role jfr24/architect --role-git <experiment>/architect-derived",
+    "warm_seconds": 16.46,
+    "warm_result": "PASS; reused jk_jfr24_architect:018fb47 without a rebuild",
+    "evidence": "../architect-opencode-image-6e-warm/prewarm.json"
+  },
+  "released_image_identity": {
+    "requirement": "OpenShell can provision the full Architect image's workload user under released identity restrictions",
+    "result": "FAIL",
+    "mechanism": "RELEASED",
+    "sandbox": "jfr24-openc-01",
+    "sandbox_id": "8fe50c45-8a26-4038-b9ad-5bfe46927325",
+    "exit_status": 1,
+    "observed": "IdentityResolutionFailed: workload identity must not contain UID or GID zero",
+    "evidence": "openshell-create-validname.stdout.txt, openshell-create-validname.stderr.txt"
+  },
+  "configured_workaround_sandboxes": [
+    {
+      "name": "jfr24-openc-gid",
+      "id": "15798361-0202-4e1b-8c07-0a208e5c3288",
+      "phase": "Ready",
+      "policy": "candidate-b-pty-policy.yaml equivalent, no /jackin grant"
+    },
+    {
+      "name": "jfr24-openc-ro",
+      "id": "0315811a-c02b-4ac1-9609-f38ec24c2ff2",
+      "phase": "Ready",
+      "policy": "same filesystem policy with /jackin added read-only"
+    }
+  ],
+  "workload_execution": {
+    "result": "PASS",
+    "mechanism": "CONFIGURATION + WORKAROUND",
+    "command": "explicit OpenShell exec: /jackin/runtime/hooks/preflight.sh; opencode --version; /jackin/runtime/jackin-capsule --version",
+    "sandbox": "jfr24-openc-ro",
+    "exit_status": 0,
+    "identity": "uid=1000(agent), gid=1000(sandbox), groups=1000(sandbox)",
+    "cap_eff": "0000000000000000",
+    "cap_bnd": "0000000000000000",
+    "no_new_privs": 1,
+    "home_and_workdir": "/sandbox",
+    "extra_process_environment": "PATH explicitly included image-installed /home/agent/.local/bin and /home/agent/.opencode/bin; JACKIN_AGENT=opencode",
+    "hook": "actual Architect hooks/preflight.sh; exit 0; CONTEXT7_API_KEY unset so remote setup skipped; headroom MCP entry appeared in /sandbox/.config/opencode/opencode.json",
+    "agent_version": "1.19.4",
+    "capsule_version": "0.6.4",
+    "evidence": "hook-pathfix.stdout.txt, hook-pathfix.stderr.txt, hook-config.stdout.txt, role-content.stdout.txt"
+  },
+  "hook_failure": {
+    "result": "PASS",
+    "mechanism": "WORKAROUND",
+    "condition": "harmless CONTEXT7_API_KEY=fixture-invalid-no-network; the image's mise reports ctx7 is not a valid shim",
+    "hook_exit_status": 1,
+    "agent_version_command_ran": false,
+    "evidence": "hook-failure.stdout.txt, hook-failure.stderr.txt, hook-failure.exit",
+    "limitation": "This bounded wrapper demonstrated failure short-circuit before the agent command; the actual Jackin Capsule entrypoint path was not run because its unchanged isolation startup is separately blocked by OpenShell's root restriction."
+  },
+  "limitations": [
+    "The released role image remains unlaunchable due to GID 0. The nonzero group image is a labeled configuration workaround, not a released full-role pass.",
+    "OpenShell default filesystem policy could not read/execute /jackin/runtime/hooks/preflight.sh; adding /jackin read-only fixed access without making it writable.",
+    "OpenShell overrides HOME and PATH; the actual agent version and hook succeeded after setting the image-installed PATH explicitly. Effective persistent-state and default-home seeding behavior remain unproved.",
+    "OpenShell did not automatically run the image ENTRYPOINT. An explicit shell command invoked the hook and agent version. Full Jackin Capsule launch remains blocked by the independent root/Landlock restrictions.",
+    "OpenCode model authentication and coding task: NOT TESTED; no approved credentials were available or read.",
+    "Claude full Architect image build: FAIL due to invalid tailrocks-rust-skills marketplace source. Codex full Architect image build: FAIL because the current fallback installer URL returned HTTP 404.",
+    "No forced rebuild was exercised through Jackin's prewarm command; released `prewarm` has no force flag. The CLI `load --rebuild` path was not invoked because it would continue into the old runtime."
+  ]
+}

@@ -1,0 +1,15 @@
+[
+  {
+    "operation": "authenticated_gateway_health",
+    "ok": true,
+    "detail": {
+      "status": "Healthy",
+      "version": "0.1.5"
+    }
+  },
+  {
+    "operation": "create_same_request_id_retry",
+    "ok": false,
+    "error": "code: 'Client specified an invalid argument', message: \"name exceeds maximum length (25 > 19)\""
+  }
+]

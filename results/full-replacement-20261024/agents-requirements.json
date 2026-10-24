@@ -1,0 +1,38 @@
+{
+  "source": {
+    "jackin_commit": "41bad147b5ba9db09be99b07248531ce1bd867be",
+    "architect_commit": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+    "openshell_selected": "v0.1.5",
+    "openshell_commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+    "openshell_main_recorded_separately": "f571c8e99c185804c39e837a2b70692e957de327",
+    "source_checkout_matches_pin": true,
+    "execution_performed": false,
+    "current_revision_delta": "none; root froze remote HEAD once and all three pins match"
+  },
+  "active_architect_agents": ["claude", "codex", "amp", "kimi", "opencode", "grok"],
+  "agent_inventory": [
+    {"agent":"claude","adapter":true,"installer":"relocatable release/install path","entrypoint":true,"architect_role":true,"auth_modes":["sync","api_key","oauth_token","ignore"],"state_path":".claude","runtime_result":"NOT TESTED"},
+    {"agent":"codex","adapter":true,"installer":"release plus code-mode sibling","entrypoint":true,"architect_role":true,"auth_modes":["sync","api_key","ignore"],"state_path":".codex","runtime_result":"NOT TESTED"},
+    {"agent":"amp","adapter":true,"installer":"release/install path","entrypoint":true,"architect_role":true,"auth_modes":["sync","api_key","ignore"],"state_paths":[".local/share/amp",".config/amp"],"runtime_result":"NOT TESTED"},
+    {"agent":"kimi","adapter":true,"installer":"release/install path","entrypoint":true,"architect_role":true,"auth_modes":["sync","api_key","ignore"],"state_path":".kimi-code","runtime_result":"NOT TESTED"},
+    {"agent":"opencode","adapter":true,"installer":"release/install path","entrypoint":true,"architect_role":true,"auth_modes":["sync","api_key","ignore"],"state_paths":[".local/share/opencode",".config/opencode"],"runtime_result":"NOT TESTED"},
+    {"agent":"grok","adapter":true,"installer":"release/install path","entrypoint":true,"architect_role":true,"auth_modes":["sync","api_key","ignore"],"state_path":".grok","runtime_result":"NOT TESTED"},
+    {"agent":"antigravity","adapter":true,"installer":"release/install path","entrypoint":false,"architect_role":false,"current_contract":"entrypoint rejects selected agent","auth_modes":["sync","api_key","ignore"],"runtime_result":"NOT TESTED"},
+    {"agent":"gemini","adapter":true,"installer":"npm package","entrypoint":false,"architect_role":false,"current_contract":"entrypoint rejects selected agent","auth_modes":["sync","api_key","ignore"],"runtime_result":"NOT TESTED"},
+    {"agent":"cursor","adapter":true,"installer":"no relocatable binary; official installer layout prevents prefetch path","entrypoint":false,"architect_role":false,"current_contract":"entrypoint rejects selected agent","auth_modes":["sync","api_key","ignore"],"runtime_result":"NOT TESTED"},
+    {"agent":"muse","adapter":true,"installer":"no verified standalone installer; host prefetch required","entrypoint":false,"architect_role":false,"current_contract":"entrypoint rejects selected agent","auth_modes":["sync","api_key","ignore"],"runtime_result":"NOT TESTED"},
+    {"agent":"omp","adapter":true,"installer":"npm package","entrypoint":false,"architect_role":false,"current_contract":"entrypoint rejects selected agent","auth_modes":["sync","api_key","ignore"],"runtime_result":"NOT TESTED"},
+    {"agent":"hermes","adapter":true,"installer":"Python/uv environment not relocatable in resolver model","entrypoint":false,"architect_role":false,"current_contract":"entrypoint rejects selected agent","auth_modes":["sync","api_key","ignore"],"runtime_result":"NOT TESTED"}
+  ],
+  "capsule_contract": {
+    "requirements": ["protocol negotiation", "session create/focus/send/snapshot/status/events", "exclusive operator control", "NUL-safe bidirectional streaming", "interrupt and cancellation", "file export", "clipboard", "URL-open", "reveal-path", "activity and usage message transport", "root-dependent process isolation", "two-account filesystem and credential separation", "disconnect/reconnect semantics", "sandbox restart and conversation resume semantics"],
+    "runtime_result": "NOT TESTED",
+    "reason": "Earlier OpenShell evidence covers ordinary shell/exec primitives, not the Capsule daemon/session protocol."
+  },
+  "authenticated_agent_tasks": {
+    "required_agents": ["claude", "codex", "amp", "kimi", "opencode", "grok"],
+    "credential_requirement": "approved disposable/test credentials only; never inspect personal credential stores",
+    "result": "BLOCKED",
+    "reason": "Baseline evidence documents no approved live agent credentials. API-key, profile-sync, and Claude OAuth remain distinct paths."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm/client.sh",
+    "status",
+    "-o",
+    "json"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.065,
+  "stdout": "{\n  \"authentication\": {\n    \"provider\": \"mTLS transport\",\n    \"status\": \"authenticated\"\n  },\n  \"gateway\": \"jfr-20261024-vm\",\n  \"server\": \"https://127.0.0.1:28472\",\n  \"status\": \"connected\",\n  \"version\": \"0.1.5\"\n}\n",
+  "stderr": ""
+}

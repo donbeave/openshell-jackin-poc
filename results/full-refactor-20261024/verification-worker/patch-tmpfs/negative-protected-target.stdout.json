@@ -1,0 +1,15 @@
+[
+  {
+    "operation": "verification_negative",
+    "ok": true,
+    "detail": {
+      "accepted_sandbox_id": "6b985256-674b-41fd-9c91-35c0d221e5c1",
+      "case": "protected-target",
+      "create_status": null,
+      "readiness_error": "connect error: sandbox 'jfrv-20261024-npt' entered error phase",
+      "request_id": "f81fa503-3499-4464-9b7a-6fdd0982c8d8",
+      "result": "PASS",
+      "sandbox_absent_after_cleanup": true
+    }
+  }
+]

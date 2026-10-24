@@ -1,0 +1,4 @@
+Certificate request self-signature ok
+subject=CN=localhost
+Certificate request self-signature ok
+subject=CN=jfr-20261024-vpatch-client, OU=openshell-user

@@ -1,0 +1,19 @@
+--- a/jackin.role.toml
++++ b/jackin.role.toml
+@@ -3,7 +3,7 @@
+ 
+ version = "v1alpha7"
+ dockerfile = "Dockerfile"
+-published_image = "docker.io/projectjackin/jackin-the-architect:latest"
++published_image = "jfr-20261024-architect-base:7b72b38"
+ agents = ["claude", "codex", "amp", "opencode", "kimi", "grok"]
+ 
+ [identity]
+--- a/hooks/preflight.sh
++++ b/hooks/preflight.sh
+@@ -182,3 +182,5 @@
+     "")     warn "JACKIN_AGENT unset — skipping per-agent setup" ;;
+     *)      warn "unknown JACKIN_AGENT=${JACKIN_AGENT} — skipping per-agent setup" ;;
+ esac
++
++# POC role-source cache-key change: 2026-10-24, behavior unchanged.

@@ -1,0 +1,2 @@
+ABSENT jfr24repeat-host-rw
+ABSENT jfr24repeat-wrong-workspace

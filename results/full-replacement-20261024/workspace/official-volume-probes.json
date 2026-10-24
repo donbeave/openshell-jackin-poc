@@ -1,0 +1,300 @@
+{
+  "test_id": "jfr-20261024-ws",
+  "result": "PASS",
+  "mechanism": "EXTERNAL FIXTURE + CONFIGURATION",
+  "requirement": "Live host checkout semantics via administrator-created, labeled Docker local-driver volume attached by OpenShell",
+  "platform": "macOS 27.0.1 arm64; OrbStack Docker engine linux/arm64; OpenShell Docker driver",
+  "openshell": {
+    "version": "0.1.5",
+    "commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f"
+  },
+  "gateway": {
+    "name": "jfr-20261024-b",
+    "endpoint": "https://localhost:28471",
+    "pid": 71130,
+    "namespace": "jfr-20261024-b",
+    "resource_admission_enabled": true
+  },
+  "image": {
+    "reference": "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+    "id": "sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+    "platform": "linux/arm64",
+    "role": "official base for filesystem/Git mechanism probes; not a coding-agent role"
+  },
+  "sandbox_ids": {
+    "shared_a": "dfb460f3-edd1-41a0-ac19-c54d075056d0",
+    "shared_b": "303ea70d-e938-43bc-98f8-b1a925de1edf",
+    "architect_shared": "370d6a1a-119c-47ac-8a9c-fd77337146c8"
+  },
+  "mount": {
+    "type": "volume",
+    "volume": "jfr24ws-shared-rw",
+    "target": "/workspace/jfr-20261024-ws/host-source",
+    "read_only": false,
+    "driver": "local",
+    "driver_options": {
+      "type": "none",
+      "o": "bind",
+      "device": "__POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source"
+    },
+    "labels": {
+      "openshell.ai/sandbox-attachable": "true",
+      "openshell.ai/sandbox-attachable-workspace": "jfr-ws-20261024",
+      "jackin.fixture": "jfr-20261024-ws"
+    },
+    "owner": "trusted Jackin host fixture/controller; not OpenShell-created"
+  },
+  "policy": "experiments/denied.yaml; explicitly allows /workspace read-write for the disposable fixture; network_policies empty; needed because default filesystem policy denied the /workspace mount target",
+  "observations": {
+    "atomic_host_replacement": {
+      "result": "PASS",
+      "mechanism": "host os.replace + immediate sandbox read",
+      "old_sha256": "50633f5c0155902a3d560d58421e9d8a9e9b20ca55dde1df0737b7229f5b09f6",
+      "new_sha256": "769cb2301da1b2455c48c03c1f38e777f9b5fbe584e9f5112c8f6e4389f780f6",
+      "sandbox_stdout": "pub fn fixture_value() -> &'static str { \"host-atomic-1792804891476233000\" }\n",
+      "sandbox_status": 0
+    },
+    "agent_to_host": {
+      "result": "PASS",
+      "sandbox_status": 0,
+      "host_value": "official-agent-to-host\n"
+    },
+    "concurrent_shared_instance": {
+      "result": "PASS",
+      "reader_sandbox": "jfrws24-official2",
+      "stdout": "official-agent-to-host\n",
+      "status": 0
+    },
+    "host_to_sandbox": {
+      "result": "PASS",
+      "host_atomic_replace": true,
+      "reader_sandbox": "jfrws24-official2",
+      "stdout": "host-to-agent-v2\n",
+      "status": 0
+    },
+    "working_directory": {
+      "result": "PASS",
+      "stdout": "/workspace/jfr-20261024-ws/host-source\n",
+      "status": 0
+    },
+    "permissions": {
+      "result": "PASS",
+      "fixture_mode": "0444",
+      "sandbox_exit_status": 2,
+      "sandbox_stderr": "/bin/sh: 1: cannot create /workspace/jfr-20261024-ws/host-source/README.md: Permission denied\n",
+      "hash_unchanged": true
+    },
+    "read_only_mount": {
+      "result": "PASS negative enforcement",
+      "sandbox": "jfrws24-rorole",
+      "sandbox_id": "52abba42-0002-4144-8645-0dc436fe873e",
+      "mechanism": "CONFIGURATION",
+      "read_only": true,
+      "exec_exit_status": 2,
+      "stdout": "workspace fixture jfr-20261024-ws\n",
+      "stderr": "sh: 1: cannot create /workspace/jfr-20261024-ws/host-source/should-not-write.txt: Read-only file system\n",
+      "host_file_absent": true,
+      "additional_evidence": "architect-readonly-create.json, architect-readonly-exec.stdout, architect-readonly-exec.stderr, architect-readonly-status.json"
+    },
+    "symlink_escape": {
+      "result": "PASS",
+      "host_canary_readable": "protected fixture jfr-20261024-ws",
+      "sandbox_exit_status": 1,
+      "sandbox_stderr": "cat: /workspace/jfr-20261024-ws/host-source/protected-canary-link: No such file or directory\n"
+    },
+    "file_watch": {
+      "result": "PASS",
+      "mechanism": "macOS kqueue vnode watch on host source directory",
+      "event": {
+        "events": [
+          "WRITE"
+        ],
+        "event_count": 1
+      },
+      "host_created_file": "agent-dirwatch-official-v1\n",
+      "architect_base_repeat": {
+        "result": "PASS",
+        "sandbox": "jfrws24-recreat",
+        "sandbox_id": "a342d346-5bea-42eb-ac71-f829224ea436",
+        "mechanism": "CONFIGURATION + EXTERNAL FIXTURE",
+        "event": {
+          "events": [
+            "WRITE"
+          ],
+          "event_count": 1
+        },
+        "command": "experiments/full-replacement-20261024/workspace/probe-runtime-filewatch.py jfrws24-recreat",
+        "evidence": "architect-filewatch-run.stdout, architect-filewatch-run.stderr, architect-filewatch-run-status.json, jfr-20261024-ws/runtime-filewatch.json"
+      }
+    },
+    "default_policy_path": {
+      "result": "FAIL; /workspace mount path denied until explicit policy grant",
+      "evidence": "earlier exec on /workspace mount returned Permission denied; adding explicit fixture filesystem rule made subsequent mount usable"
+    },
+    "cross_workspace": {
+      "result": "PASS negative",
+      "stderr": "docker volume 'jfr24ws-wrong-ws': external resource not admitted by required labels",
+      "sandbox_created": false
+    }
+  },
+  "commands": [
+    {
+      "argv": [
+        "sh",
+        "__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh",
+        "--workspace",
+        "jfr-ws-20261024",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfrws24-official",
+        "--",
+        "/bin/sh",
+        "-c",
+        "cat /workspace/jfr-20261024-ws/host-source/src/lib.rs"
+      ],
+      "exit_status": 0,
+      "stdout": "pub fn fixture_value() -> &'static str { \"host-atomic-1792804891476233000\" }\n",
+      "stderr": "",
+      "expected": null
+    },
+    {
+      "argv": [
+        "sh",
+        "__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh",
+        "--workspace",
+        "jfr-ws-20261024",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfrws24-official",
+        "--",
+        "/bin/sh",
+        "-c",
+        "printf \"official-agent-to-host\\n\" > /workspace/jfr-20261024-ws/host-source/src/from-agent.txt"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "expected": null
+    },
+    {
+      "argv": [
+        "sh",
+        "__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh",
+        "--workspace",
+        "jfr-ws-20261024",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfrws24-official2",
+        "--",
+        "/bin/sh",
+        "-c",
+        "cat /workspace/jfr-20261024-ws/host-source/src/from-agent.txt"
+      ],
+      "exit_status": 0,
+      "stdout": "official-agent-to-host\n",
+      "stderr": "",
+      "expected": null
+    },
+    {
+      "argv": [
+        "sh",
+        "__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh",
+        "--workspace",
+        "jfr-ws-20261024",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfrws24-official2",
+        "--",
+        "/bin/sh",
+        "-c",
+        "cat /workspace/jfr-20261024-ws/host-source/host-to-agent.txt"
+      ],
+      "exit_status": 0,
+      "stdout": "host-to-agent-v2\n",
+      "stderr": "",
+      "expected": null
+    },
+    {
+      "argv": [
+        "sh",
+        "__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh",
+        "--workspace",
+        "jfr-ws-20261024",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "--workdir",
+        "/workspace/jfr-20261024-ws/host-source",
+        "jfrws24-official",
+        "--",
+        "pwd"
+      ],
+      "exit_status": 0,
+      "stdout": "/workspace/jfr-20261024-ws/host-source\n",
+      "stderr": "",
+      "expected": "pwd equals project path"
+    },
+    {
+      "argv": [
+        "sh",
+        "__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh",
+        "--workspace",
+        "jfr-ws-20261024",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfrws24-official",
+        "--",
+        "/bin/sh",
+        "-c",
+        "printf \"forbidden\\n\" >> /workspace/jfr-20261024-ws/host-source/README.md"
+      ],
+      "exit_status": 2,
+      "stdout": "",
+      "stderr": "/bin/sh: 1: cannot create /workspace/jfr-20261024-ws/host-source/README.md: Permission denied\n",
+      "expected": null
+    },
+    {
+      "argv": [
+        "sh",
+        "__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh",
+        "--workspace",
+        "jfr-ws-20261024",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfrws24-official",
+        "--",
+        "/bin/sh",
+        "-c",
+        "cat /workspace/jfr-20261024-ws/host-source/protected-canary-link"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "cat: /workspace/jfr-20261024-ws/host-source/protected-canary-link: No such file or directory\n",
+      "expected": null
+    },
+    {
+      "argv": [
+        "/opt/homebrew/opt/python@3.15/bin/python3.15",
+        "experiments/full-replacement-20261024/workspace/probe-runtime-filewatch.py"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"fixture_id\": \"jfr-20261024-ws\",\n  \"classification\": \"OpenShell sandbox host-checkout watcher probe\",\n  \"watch_setup\": {\n    \"ready\": true,\n    \"watched_path\": \"__POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source/src\",\n    \"watcher\": \"macOS kqueue vnode\"\n  },\n  \"watch_event\": {\n    \"events\": [\n      \"WRITE\"\n    ],\n    \"event_count\": 1\n  },\n  \"sandbox_command\": [\n    \"sh\",\n    \"__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh\",\n    \"--workspace\",\n    \"jfr-ws-20261024\",\n    \"sandbox\",\n    \"exec\",\n    \"--no-login-shell\",\n    \"--no-tty\",\n    \"jfrws24-official\",\n    \"--\",\n    \"/bin/sh\",\n    \"-c\",\n    \"printf \\\"agent-dirwatch-official-v1\\\\n\\\" > /workspace/jfr-20261024-ws/host-source/src/agent-dirwatch-created-official.txt\"\n  ],\n  \"exit_status\": 0,\n  \"stdout\": \"\",\n  \"stderr\": \"\",\n  \"watcher_stderr\": \"\",\n  \"host_file_after\": \"pub fn fixture_value() -> &'static str { \\\"host-atomic-1792804891476233000\\\" }\\n\",\n  \"host_created_file\": \"agent-dirwatch-official-v1\\n\",\n  \"created_path_was_absent_before_probe\": true,\n  \"result\": \"PASS\"\n}\n",
+      "stderr": "",
+      "expected": "macOS vnode WRITE event"
+    }
+  ],
+  "limitation": "This is an administrator-created bind-backed Docker volume, not an OpenShell raw bind. Current Jackin must own exact-path canonical authorization, volume creation/labels, identity-to-workspace mapping, retention, and cleanup. Only this local OrbStack path is proven; no remote host, VM, Desktop, native Linux, or Kubernetes claim. Earlier official Ubuntu base evidence is separate from Architect BASE repetition. Actual Architect BASE was repeated for Shared bidirectional edits, read-only enforcement, cross-workspace rejection, raw-bind denial, Clone and Worktree Git, and stop/recreate persistence; see architect-*.json/stdout/stderr evidence. "
+}

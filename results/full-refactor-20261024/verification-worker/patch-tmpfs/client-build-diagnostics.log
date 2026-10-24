@@ -1,0 +1,25 @@
+   Compiling aws-lc-sys v0.46.0
+mbx[warning]: cc cache bypassed: compiler invocation names no output file
+   Compiling aws-lc-rs v1.18.2
+   Compiling rustls v0.23.46
+   Compiling rustls-webpki v0.103.16
+   Compiling rcgen v0.14.10
+   Compiling jsonwebtoken v10.4.0
+   Compiling tokio-rustls v0.26.6
+   Compiling tungstenite v0.26.2
+   Compiling tonic v0.14.6
+   Compiling hyper-rustls v0.27.10
+   Compiling reqwest v0.12.28
+   Compiling tokio-tungstenite v0.26.2
+   Compiling openshell-extension-core v0.0.0 (https://github.com/NVIDIA/OpenShell?rev=bdb956f2cd65a635f1294fccf1d138d263bf650f#bdb956f2)
+   Compiling tonic-types v0.14.6
+   Compiling openshell-crypto v0.0.0 (https://github.com/NVIDIA/OpenShell?rev=bdb956f2cd65a635f1294fccf1d138d263bf650f#bdb956f2)
+   Compiling tonic-prost v0.14.6
+   Compiling oauth2 v5.0.0
+   Compiling openshell-core v0.0.0 (https://github.com/NVIDIA/OpenShell?rev=bdb956f2cd65a635f1294fccf1d138d263bf650f#bdb956f2)
+mbx[progress]: 15s elapsed; 3 hits, 401 misses, 9 bypassed, 5 not looked up; ~0s compiler work saved
+   Compiling openshell-sdk v0.0.0 (https://github.com/NVIDIA/OpenShell?rev=bdb956f2cd65a635f1294fccf1d138d263bf650f#bdb956f2)
+   Compiling openshell-control-probe v0.1.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/client)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 23.16s
+mbx[cache]: 3 hits, 403 misses, 5 not looked up, 1 incremental, 9 bypassed; 0 B downloaded, 0 B uploaded, 260.8 MiB stored locally
+mbx[savings]: 3244904 compilations old. not one compiled twice.

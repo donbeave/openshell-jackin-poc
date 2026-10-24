@@ -1,0 +1,19 @@
+[
+    {
+        "CreatedAt": "2026-10-24T08:49:28+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-verification-worker",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "default"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24verify-bundle/_data",
+        "Name": "jfr24verify-bundle",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    }
+]

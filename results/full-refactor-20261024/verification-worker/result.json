@@ -1,0 +1,235 @@
+{
+  "experiment_id": "jfr-20261024-verification-worker",
+  "source": {
+    "jackin_revision": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+    "openshell_release": "v0.1.5",
+    "openshell_commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+    "inspection_and_execution": "pinned source inspection plus local runtime execution"
+  },
+  "platform": {
+    "os": "macOS 27.0.1 build 26A434",
+    "host_architecture": "arm64",
+    "docker_context": "orbstack",
+    "docker_endpoint": "unix:///Users/example/.orbstack/run/docker.sock",
+    "docker_client": "29.9.2",
+    "docker_engine": "29.8.2",
+    "engine_architecture": "linux/arm64",
+    "gateway_driver": "docker",
+    "gateway_endpoint": "https://localhost:28630",
+    "gateway_id": "jfr-20261024-verify",
+    "gateway_authentication": "verified mTLS; fresh client CA/certificate; OU openshell-user"
+  },
+  "image": {
+    "base": "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+    "derived_reference": "jfr-20261024-verify-worker:baseline-python",
+    "image_id": "sha256:9644b32c48960dee46b1b7f47b7ba15a7f57f61e1b821fa6a4ea9c916dc6d77c",
+    "platform": "linux/arm64",
+    "configured_user": "1000:1000",
+    "change": "Base lacked groupadd; derived image adds passwd/group entries for UID/GID 1000 directly. No packages or credentials added."
+  },
+  "fixtures": {
+    "candidate_source": "results/full-replacement-20261024/docker/host-source at commit aa24614607f52a98fd4894a1b02d355b219a9edc, cloned into experiment fixture and checked out clean",
+    "candidate_tree": "20aa242142b7099eac398f15fe79cb105f22838a",
+    "trusted_bundle_hash": "bfc0ed0b3b485105266abffc8f7ec7077051b2c6ca6985099685d10ad7535662",
+    "volumes": [
+      {
+        "name": "jfr24verify-candidate",
+        "owner": "external Docker local named-volume fixture",
+        "device": "experiments/full-refactor-20261024/verification-worker/fixture/candidate",
+        "labels": {
+          "openshell.ai/sandbox-attachable": "true",
+          "openshell.ai/sandbox-attachable-workspace": "default",
+          "jackin.fixture": "jfr-20261024-verification-worker"
+        }
+      },
+      {
+        "name": "jfr24verify-bundle",
+        "owner": "external Docker local named-volume fixture",
+        "device": "experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle",
+        "labels": {
+          "openshell.ai/sandbox-attachable": "true",
+          "openshell.ai/sandbox-attachable-workspace": "default",
+          "jackin.fixture": "jfr-20261024-verification-worker"
+        }
+      }
+    ],
+    "source_validation": "PASS: exact canonical device/options/labels validator accepted both owned fixtures",
+    "runtime_attachment": "NOT TESTED: every sandbox failed container creation before Ready"
+  },
+  "gateway_configuration": {
+    "resource_admission_enabled": true,
+    "allow_driver_config": true,
+    "enable_bind_mounts": true,
+    "sandbox_pids_limit": 64,
+    "sandbox_volumes_requested_read_only": true,
+    "sandbox_resource_request": {
+      "limits": {
+        "cpu": "1",
+        "memory": "512Mi"
+      }
+    },
+    "tmpfs_requested": [
+      {
+        "target": "/tmp",
+        "size_bytes": 67108864,
+        "options": [
+          "noexec",
+          "nosuid"
+        ]
+      },
+      {
+        "target": "/build",
+        "size_bytes": 268435456,
+        "options": [
+          "nosuid"
+        ]
+      }
+    ],
+    "provider_or_account_count": 0,
+    "exec_environment_allowlist": [
+      "PYTHONDONTWRITEBYTECODE=1"
+    ]
+  },
+  "policy_hash_receipt": {
+    "argv": [
+      "python3",
+      "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/success.py",
+      "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+    ],
+    "timeout_seconds": 30,
+    "policy_hash": "0dc072c0a7d5c2f274b1b71e684d7efb6d5d34ea36979c171d6ab833923e1ddf",
+    "production_result_record": false
+  },
+  "attempts": [
+    {
+      "sandbox_name": "jfrv-20261024-w01",
+      "sandbox_id": "af2ebd7a-ed3f-463e-a9d8-6f49bac1d0a0",
+      "result": "FAIL",
+      "mechanism": "CONFIGURATION",
+      "expected": "candidate and trusted mounts under the selected workspace path admitted and sandbox Ready",
+      "observed": "container creation rejected target /work/repo because it replaces protected workspace root /sandbox",
+      "cleanup": "OpenShell DeleteSandbox acknowledged and wait_deleted confirmed"
+    },
+    {
+      "sandbox_name": "jfrv-20261024-w02",
+      "sandbox_id": "f8b6c9aa-a1ad-4b16-8e76-fc1e4297737a",
+      "result": "FAIL",
+      "mechanism": "CONFIGURATION",
+      "expected": "exact current tmpfs policy can be materialized",
+      "observed": "Docker rejected the tmpfs mount option rw; OpenShell tmpfs is writable by default, so this redundant option was removed without changing the requested boundary",
+      "cleanup": "OpenShell DeleteSandbox acknowledged and wait_deleted confirmed"
+    },
+    {
+      "sandbox_name": "jfrv-20261024-w03",
+      "sandbox_id": "392de56a-9dec-47c2-ac17-76bdb07c0bf8",
+      "result": "FAIL",
+      "mechanism": "CONFIGURATION",
+      "expected": "64 MiB noexec/nosuid /tmp and 256 MiB nosuid /build available in a Ready sandbox",
+      "observed": "OpenShell v0.1.5 Docker driver structured tmpfs Mount request rejected by Docker API (400 invalid option: nosuid); exact policy retained; direct HostConfig.Tmpfs create-only control on same engine succeeded.",
+      "cleanup": "OpenShell DeleteSandbox acknowledged and wait_deleted confirmed"
+    }
+  ],
+  "overall_result": "FAIL",
+  "overall_mechanism": "CONFIGURATION",
+  "capability_results": {
+    "derived_image_build_from_pinned_base": {
+      "result": "PASS",
+      "mechanism": "EXTERNAL FIXTURE",
+      "evidence": "experiments/full-refactor-20261024/verification-worker/results/image-build.stdout.txt and image-final-identity.txt"
+    },
+    "fresh_mtls_gateway_start": {
+      "result": "PASS",
+      "mechanism": "CONFIGURATION",
+      "evidence": "experiments/full-refactor-20261024/verification-worker/gateway/gateway.log"
+    },
+    "create_request_acceptance_and_delete_confirmation": {
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": "gateway-attempt-events.log; each allocated sandbox ID was deleted and wait_deleted returned"
+    },
+    "verification_worker_reaches_ready": {
+      "result": "FAIL",
+      "mechanism": "RELEASED",
+      "evidence": "gateway-attempt-events.log: typed tmpfs Mount rejected with invalid option nosuid; tmpfs-diagnostic create-only HostConfig.Tmpfs control accepted exact options on same engine, proving this is the released driver request path rather than general engine rejection."
+    },
+    "candidate_or_bundle_runtime_mount": {
+      "result": "NOT TESTED",
+      "mechanism": "EXTERNAL FIXTURE",
+      "evidence": "mount request was rejected before container creation"
+    },
+    "success_failure_timeout_abnormal_exit_missing_runtime": {
+      "result": "NOT TESTED",
+      "mechanism": "RELEASED",
+      "evidence": "no ExecSandbox call occurred because sandbox did not reach Ready"
+    },
+    "network_none_readonly_root_cap_drop_no_new_privileges": {
+      "result": "NOT TESTED",
+      "mechanism": "RELEASED",
+      "evidence": "no workload container reached Ready"
+    },
+    "tmpfs_capacity_exhaustion_output_truncation_cancellation": {
+      "result": "NOT TESTED",
+      "mechanism": "RELEASED",
+      "evidence": "no workload execution occurred"
+    },
+    "effective_cpu_memory_pid_enforcement": {
+      "result": "NOT TESTED",
+      "mechanism": "CONFIGURATION",
+      "evidence": "request includes CPU/memory limits and gateway PID limit, but no workload ran"
+    },
+    "production_result_binding": {
+      "result": "NOT TESTED",
+      "mechanism": "RETAINED HOST LOGIC",
+      "evidence": "Jackin workflow service was not invoked"
+    },
+    "docker_hostconfig_tmpfs_accepts_exact_policy": {
+      "result": "PASS",
+      "mechanism": "EXTERNAL FIXTURE",
+      "evidence": "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/reproduce.sh and saved create/inspect/remove outputs; container was created but never started, then exact ID removal and inspect-after-remove confirmed."
+    }
+  },
+  "execution_summary": {
+    "sandbox_ids_created": [
+      "af2ebd7a-ed3f-463e-a9d8-6f49bac1d0a0",
+      "f8b6c9aa-a1ad-4b16-8e76-fc1e4297737a",
+      "392de56a-9dec-47c2-ac17-76bdb07c0bf8"
+    ],
+    "sandbox_ids_deleted_and_confirmed": [
+      "af2ebd7a-ed3f-463e-a9d8-6f49bac1d0a0",
+      "f8b6c9aa-a1ad-4b16-8e76-fc1e4297737a",
+      "392de56a-9dec-47c2-ac17-76bdb07c0bf8"
+    ],
+    "remaining_containers_using_owned_volumes": 0,
+    "image_build_duration": "NOT MEASURED",
+    "gateway_start_to_listener": "approximately 1.54 seconds from timestamped gateway log",
+    "sandbox_readiness": "no sandbox became Ready",
+    "first_successful_development_test": "NOT TESTED",
+    "idle_or_peak_resource_use": "NOT MEASURED"
+  },
+  "evidence_files": [
+    "experiments/full-refactor-20261024/verification-worker/gateway/gateway.toml",
+    "experiments/full-refactor-20261024/verification-worker/gateway/gateway.log",
+    "experiments/full-refactor-20261024/verification-worker/results/gateway-attempt-events.log",
+    "experiments/full-refactor-20261024/verification-worker/results/worker.stdout.json",
+    "experiments/full-refactor-20261024/verification-worker/results/worker.stderr.txt",
+    "experiments/full-refactor-20261024/verification-worker/results/worker.command.json",
+    "experiments/full-refactor-20261024/verification-worker/results/worker.exit-status",
+    "experiments/full-refactor-20261024/verification-worker/results/candidate-volume-validation-rerun.json",
+    "experiments/full-refactor-20261024/verification-worker/results/bundle-volume-validation-rerun.json",
+    "experiments/full-refactor-20261024/verification-worker/results/containers-candidate-after-delete.txt",
+    "experiments/full-refactor-20261024/verification-worker/results/containers-bundle-after-delete.txt",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/reproduce.sh",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/create.stdout.txt",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/create.stderr.txt",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/create.exit-status",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/hostconfig-tmpfs.json",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/inspect.json",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/container-id.txt",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/remove.stdout.txt",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/remove.exit-status",
+    "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/inspect-after-remove.exit-status"
+  ],
+  "required_next_smallest_experiment": "Preserve released failure, then try a one-behavior experimental OpenShell patch routing validated tmpfs entries through HostConfig.Tmpfs, retaining noexec/nosuid and sizes. Require worker readiness, functional noexec/nosuid negatives, and a negative malformed-option or forbidden-target case. If that needs broader driver redesign, stop and report the missing interface.",
+  "source_patch": "none",
+  "security_boundary_deviation": false
+}

@@ -1,0 +1,491 @@
+[WARN ] RUSTC_WRAPPER is already set to sccache; deferring to it, so this build is not cached
+   Compiling proc-macro2 v1.0.106
+   Compiling quote v1.0.45
+   Compiling unicode-ident v1.0.24
+   Compiling libc v0.2.189
+   Compiling cfg-if v1.0.4
+   Compiling memchr v2.8.0
+   Compiling itoa v1.0.18
+   Compiling serde_core v1.0.229
+   Compiling smallvec v1.15.1
+   Compiling pin-project-lite v0.2.17
+   Compiling once_cell v1.21.4
+   Compiling bytes v1.12.1
+   Compiling futures-core v0.3.32
+   Compiling hashbrown v0.17.0
+   Compiling bitflags v2.13.2
+   Compiling equivalent v1.0.2
+   Compiling parking_lot_core v0.9.12
+   Compiling scopeguard v1.2.0
+   Compiling futures-sink v0.3.32
+   Compiling find-msvc-tools v0.1.9
+   Compiling tracing-core v0.1.36
+   Compiling shlex v1.3.0
+   Compiling slab v0.4.12
+   Compiling pkg-config v0.3.33
+   Compiling dunce v1.0.5
+   Compiling fs_extra v1.3.0
+   Compiling serde v1.0.229
+   Compiling futures-io v0.3.32
+   Compiling futures-task v0.3.32
+   Compiling http v1.4.0
+   Compiling lock_api v0.4.14
+   Compiling thiserror v2.0.20
+   Compiling tower-service v0.3.3
+   Compiling aws-lc-rs v1.18.0
+   Compiling anyhow v1.0.102
+   Compiling futures-channel v0.3.32
+   Compiling either v1.15.0
+   Compiling autocfg v1.5.0
+   Compiling log v0.4.34
+   Compiling core-foundation-sys v0.8.7
+   Compiling httparse v1.10.1
+   Compiling adler2 v2.0.1
+   Compiling percent-encoding v2.3.2
+   Compiling http-body v1.0.1
+   Compiling jobserver v0.1.34
+   Compiling fnv v1.0.7
+   Compiling errno v0.3.14
+   Compiling socket2 v0.6.3
+   Compiling mio v1.2.0
+   Compiling num-traits v0.2.19
+   Compiling itertools v0.14.0
+   Compiling untrusted v0.7.1
+   Compiling indexmap v2.14.0
+   Compiling atomic-waker v1.1.2
+   Compiling simd-adler32 v0.3.9
+   Compiling cc v1.2.60
+   Compiling try-lock v0.2.5
+   Compiling signal-hook-registry v1.4.8
+   Compiling parking_lot v0.12.5
+   Compiling httpdate v1.0.3
+   Compiling getrandom v0.4.2
+   Compiling stable_deref_trait v1.2.1
+   Compiling http-body-util v0.1.3
+   Compiling version_check v0.9.5
+   Compiling zmij v1.0.21
+   Compiling tower-layer v0.3.3
+   Compiling rustls v0.23.46
+   Compiling base64 v0.22.1
+   Compiling miniz_oxide v0.8.9
+   Compiling want v0.3.1
+   Compiling sync_wrapper v1.0.2
+   Compiling serde_json v1.0.149
+   Compiling cmake v0.1.58
+   Compiling crc32fast v1.5.0
+   Compiling untrusted v0.9.0
+   Compiling core-foundation v0.10.1
+   Compiling security-framework-sys v2.17.0
+   Compiling subtle v2.6.1
+   Compiling powerfmt v0.2.0
+   Compiling mime v0.3.17
+   Compiling time-core v0.1.8
+   Compiling num-conv v0.2.1
+   Compiling matchit v0.8.4
+   Compiling zerocopy v0.8.48
+   Compiling aws-lc-sys v0.44.0
+   Compiling litemap v0.8.2
+   Compiling lazy_static v1.5.0
+   Compiling rustix v1.1.4
+   Compiling security-framework v3.7.0
+   Compiling writeable v0.6.3
+   Compiling icu_properties_data v2.2.0
+   Compiling deranged v0.5.8
+   Compiling prettyplease v0.2.37
+   Compiling axum-core v0.5.6
+   Compiling getrandom v0.3.4
+   Compiling syn v2.0.117
+   Compiling syn v3.0.5
+   Compiling time-macros v0.2.27
+   Compiling utf8_iter v1.0.4
+   Compiling minimal-lexical v0.2.1
+   Compiling icu_normalizer_data v2.2.0
+   Compiling pulldown-cmark v0.13.3
+   Compiling flate2 v1.1.9
+   Compiling num-integer v0.1.46
+   Compiling generic-array v0.14.7
+   Compiling heck v0.5.0
+   Compiling fastrand v2.4.1
+   Compiling regex-syntax v0.8.10
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling nom v7.1.3
+   Compiling foldhash v0.1.5
+   Compiling unicase v2.9.0
+   Compiling object v0.37.3
+mbx[warning]: cc cache bypassed: compiler invocation names no output file
+   Compiling tracing-attributes v0.1.31
+   Compiling synstructure v0.13.2
+   Compiling tokio-macros v2.7.0
+   Compiling zeroize_derive v1.5.0
+   Compiling futures-macro v0.3.32
+   Compiling displaydoc v0.2.5
+   Compiling prost-derive v0.14.3
+   Compiling zerovec-derive v0.11.3
+   Compiling pin-project-internal v1.1.11
+   Compiling time v0.3.47
+   Compiling async-trait v0.1.89
+   Compiling hashbrown v0.15.5
+   Compiling regex-automata v0.4.14
+   Compiling rusticata-macros v4.1.0
+   Compiling zerofrom-derive v0.1.7
+   Compiling zeroize v1.9.0
+   Compiling tokio v1.52.1
+   Compiling yoke-derive v0.8.2
+   Compiling futures-util v0.3.32
+   Compiling tracing v0.1.44
+   Compiling asn1-rs-derive v0.6.0
+   Compiling asn1-rs-impl v0.2.0
+   Compiling num-bigint v0.4.6
+   Compiling pin-project v1.1.11
+   Compiling rustls-pki-types v1.14.0
+   Compiling zerofrom v0.1.7
+   Compiling prost v0.14.3
+   Compiling fixedbitset v0.5.7
+   Compiling typenum v1.20.1
+   Compiling gimli v0.32.3
+   Compiling tokio-util v0.7.19
+   Compiling tokio-stream v0.1.18
+   Compiling rand_core v0.9.5
+   Compiling asn1-rs v0.7.2
+   Compiling rustls-native-certs v0.8.3
+   Compiling regex v1.12.3
+   Compiling yoke v0.8.2
+   Compiling pulldown-cmark-to-cmark v22.0.0
+   Compiling prost-types v0.14.3
+   Compiling ppv-lite86 v0.2.21
+   Compiling petgraph v0.8.3
+   Compiling tempfile v3.27.0
+   Compiling h2 v0.4.19
+   Compiling tower v0.5.3
+   Compiling addr2line v0.25.1
+   Compiling uuid v1.23.1
+   Compiling rustc-demangle v0.1.27
+   Compiling multimap v0.10.1
+   Compiling oid-registry v0.8.1
+   Compiling owo-colors v4.3.0
+   Compiling libm v0.2.16
+   Compiling zerovec v0.11.6
+mbx[progress]: 15s elapsed; 19 hits, 1 misses, 13 bypassed, 1 not looked up; ~0s compiler work saved
+   Compiling zerotrie v0.2.4
+   Compiling rand_chacha v0.9.0
+   Compiling tonic-build v0.14.6
+   Compiling futures-executor v0.3.32
+   Compiling opentelemetry v0.32.0
+   Compiling form_urlencoded v1.2.2
+   Compiling protoc-bin-vendored-macos-x86_64 v3.2.0
+   Compiling axum v0.8.9
+   Compiling backtrace v0.3.76
+   Compiling prost-build v0.14.3
+   Compiling protoc-bin-vendored-linux-x86_64 v3.2.0
+   Compiling hyper v1.9.0
+   Compiling unicode-linebreak v0.1.5
+   Compiling protoc-bin-vendored-linux-s390_64 v3.2.0
+   Compiling protoc-bin-vendored-linux-aarch_64 v3.2.0
+   Compiling base64 v0.23.1
+   Compiling protoc-bin-vendored-win32 v3.2.0
+   Compiling protoc-bin-vendored-macos-aarch_64 v3.2.0
+   Compiling protoc-bin-vendored-linux-x86_32 v3.2.0
+   Compiling noyalib v0.0.53
+   Compiling protoc-bin-vendored-linux-ppcle_64 v3.2.0
+   Compiling cfg_aliases v0.2.1
+   Compiling is_ci v1.2.0
+   Compiling tinystr v0.8.3
+   Compiling potential_utf v0.1.5
+   Compiling unicode-width v0.2.2
+   Compiling backtrace-ext v0.2.1
+   Compiling tonic-prost-build v0.14.6
+   Compiling rand v0.9.4
+   Compiling hyper-util v0.1.20
+   Compiling pem v4.0.0
+   Compiling der-parser v10.0.0
+   Compiling matchers v0.2.0
+   Compiling protoc-bin-vendored v3.2.0
+   Compiling nix v0.29.0
+   Compiling textwrap v0.16.2
+   Compiling supports-color v3.0.2
+   Compiling icu_locale_core v2.2.0
+   Compiling icu_collections v2.2.0
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling tracing-serde v0.2.0
+   Compiling simple_asn1 v0.6.4
+   Compiling yasna v0.6.0
+   Compiling terminal_size v0.4.4
+   Compiling miette-derive v7.6.0
+   Compiling serde_repr v0.1.20
+   Compiling sharded-slab v0.1.7
+   Compiling hyper-timeout v0.5.2
+   Compiling pem v3.0.6
+   Compiling ahash v0.8.12
+   Compiling tracing-log v0.2.0
+   Compiling thread_local v1.1.9
+   Compiling icu_provider v2.2.0
+   Compiling nu-ansi-term v0.50.3
+   Compiling supports-hyperlinks v3.2.0
+   Compiling rustc-hash v2.1.2
+   Compiling unicode-width v0.1.14
+   Compiling data-encoding v2.10.0
+   Compiling signature v2.2.0
+   Compiling supports-unicode v3.0.0
+   Compiling digest v0.10.7
+   Compiling openshell-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-core)
+   Compiling opentelemetry_sdk v0.32.1
+   Compiling xattr v1.6.1
+   Compiling iana-time-zone v0.1.65
+   Compiling serde_path_to_error v0.1.20
+   Compiling icu_properties v2.2.0
+   Compiling icu_normalizer v2.2.0
+   Compiling tracing-subscriber v0.3.23
+   Compiling filetime v0.2.27
+   Compiling cpufeatures v0.2.17
+   Compiling utf8parse v0.2.2
+   Compiling x509-parser v0.18.1
+   Compiling miette v7.6.0
+   Compiling rustls-pemfile v2.2.0
+   Compiling chrono v0.4.45
+   Compiling anstyle-query v1.1.5
+   Compiling ipnet v2.12.0
+   Compiling idna_adapter v1.2.1
+   Compiling tar v0.4.46
+   Compiling glob v0.3.3
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstyle-parse v1.0.0
+   Compiling sha2 v0.10.9
+   Compiling colorchoice v1.0.5
+   Compiling anstyle v1.0.14
+   Compiling metrics v0.24.3
+   Compiling tracing-opentelemetry v0.33.0
+   Compiling futures v0.3.32
+   Compiling openshell-ocsf v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-ocsf)
+   Compiling tower-http v0.6.8
+   Compiling toml_datetime v0.6.11
+   Compiling openshell-policy-schema v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-policy-schema)
+   Compiling serde_spanned v0.6.9
+   Compiling idna v1.1.0
+   Compiling clap_lex v1.1.0
+   Compiling toml_write v0.1.2
+   Compiling ryu v1.0.23
+   Compiling hex v0.4.3
+   Compiling strsim v0.11.1
+   Compiling anstream v1.0.0
+   Compiling winnow v0.7.15
+   Compiling bollard-stubs v1.52.1-rc.29.1.3
+   Compiling clap_derive v4.6.1
+   Compiling temp-env v0.3.6
+   Compiling url v2.5.8
+   Compiling hyperlocal v0.9.1
+   Compiling serde_urlencoded v0.7.1
+   Compiling clap_builder v4.6.0
+   Compiling toml_edit v0.22.27
+   Compiling toml v0.8.23
+   Compiling clap v4.6.1
+   Compiling bollard v0.20.2
+   Compiling rustls-webpki v0.103.15
+   Compiling jsonwebtoken v10.3.0
+   Compiling rcgen v0.14.10
+   Compiling tokio-rustls v0.26.4
+   Compiling tonic v0.14.6
+   Compiling tonic-prost v0.14.6
+   Compiling tonic-types v0.14.6
+   Compiling openshell-extension-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-extension-core)
+   Compiling openshell-crypto v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-crypto)
+   Compiling opentelemetry-proto v0.32.0
+   Compiling opentelemetry-otlp v0.32.0
+   Compiling openshell-otel v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-otel)
+   Compiling openshell-otel-test-support v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-otel-test-support)
+mbx[progress]: 30s elapsed; 226 hits, 151 misses, 13 bypassed, 1 not looked up; ~0s compiler work saved
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-core/src/policy.rs:165:26
+    |
+165 |               otherwise => miette::bail!(
+    |  __________________________^
+166 | |                 "invalid landlock.compatibility {:?}; accepted: {}",
+167 | |                 otherwise,
+168 | |                 LANDLOCK_COMPATIBILITY_VALUES.join(", ")
+169 | |             ),
+    | |_____________^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling openshell-isolation-interface v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-isolation-interface)
+warning: `openshell-core` (lib) generated 1 warning
+   Compiling openshell-sandbox-backend v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-sandbox-backend)
+   Compiling openshell-driver-docker v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/openshell/crates/openshell-driver-docker)
+mbx[progress]: 45s elapsed; 226 hits, 151 misses, 13 bypassed, 1 not looked up; ~0s compiler work saved
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 45.59s
+     Running unittests src/lib.rs (target/debug/deps/openshell_driver_docker-78696aa903bb8ab7)
+
+running 152 tests
+test isolation::tests::outer_fence_projection_rejects_each_missing_native_fact ... ok
+test tests::build_binds_does_not_expose_host_runtime_material ... ok
+test tests::boundary_environment_contains_only_driver_owned_values ... ok
+test tests::admission_provisioning_failure_distinguishes_denials_from_lookup_failures ... ok
+test tests::admission_defaults_reject_even_gpu_driver_json_but_not_public_gpu_requests ... ok
+test tests::build_container_create_body_rejects_empty_cdi_devices ... ok
+test tests::build_container_create_body_rejects_gpu_count_mismatched_cdi_devices ... ok
+test tests::build_container_create_body_rejects_cdi_devices_without_gpu_request ... ok
+test tests::admission_blocks_unlabelable_bind_mount_even_when_bind_mounts_enabled ... ok
+test tests::build_container_create_body_uses_runtime_namespace_label ... ok
+test tests::build_container_create_body_omits_devices_without_resolved_default_cdi_devices ... ok
+test tests::build_container_create_body_maps_default_gpu_to_selected_cdi_device ... ok
+test tests::concurrent_container_removal_is_idempotent ... ok
+test tests::bind_mount_selinux_shared_label ... ok
+test tests::bind_mount_selinux_private_label ... ok
+test tests::build_container_create_body_replaces_inherited_cmd_with_sandbox_bootstrap ... ok
+test tests::build_container_create_body_limits_writable_runtime_storage_to_supervisor_ca ... ok
+test tests::build_container_create_body_disables_docker_networking ... ok
+test tests::build_container_create_body_passes_explicit_cdi_device_id_through ... ok
+test tests::build_container_create_body_includes_driver_config_mounts ... ok
+test tests::bind_mount_without_selinux_label ... ok
+test tests::container_create_body_sets_driver_owned_pids_limit ... ok
+test tests::build_container_create_body_includes_bind_mounts_when_enabled ... ok
+test tests::container_creation_rejects_invalid_oci_working_dir ... ok
+test tests::container_creation_rejects_image_volume_that_masks_working_dir ... ok
+test tests::container_creation_rejects_openshell_control_path_working_dir ... ok
+test tests::container_creation_reserves_resolved_workspace_root_but_allows_nested_mounts ... ok
+test tests::default_docker_supervisor_image_uses_nvidia_ghcr_repo ... ok
+test tests::container_state_needs_start_matches_startable_states ... ok
+test tests::container_name_preserves_id_suffix_for_long_names ... ok
+test tests::container_spec_rejects_host_paths_in_explicit_and_resolved_cdi_devices ... ok
+test tests::capabilities_report_static_resource_support ... ok
+test tests::capabilities_reject_missing_gateway_metadata ... ok
+test tests::docker_bridge_defaults_respect_desktop_and_linux_listener_reachability ... ok
+test tests::container_name_empty_sandbox_name_uses_workspace_and_id ... ok
+test tests::container_creation_uses_inspected_immutable_image ... ok
+test tests::docker_compute_config_disables_bind_mounts_by_default ... ok
+test tests::docker_child_environment_strips_supervisor_control_keys ... ok
+test tests::docker_bridge_host_aliases_are_independent_of_gateway_endpoint ... ok
+test tests::container_spec_accepts_non_nvidia_explicit_and_resolved_cdi_devices ... ok
+test tests::docker_guest_tls_paths_allows_plain_http_without_tls_flags ... ok
+test tests::docker_identity_resolution_uses_numeric_default_for_userless_image ... ok
+test tests::control_failure_does_not_hide_a_terminal_container_exit ... ok
+test tests::control_failure_overrides_running_container_readiness ... ok
+test tests::docker_info_reports_wsl2_from_kernel_version ... ok
+test tests::docker_info_reports_wsl2_from_operating_system ... ok
+test tests::docker_host_gateway_resolver_uses_the_trusted_image_without_network_or_privileges ... ok
+test tests::docker_identity_resolution_uses_pinned_image_accounts_and_exact_groups ... ok
+test tests::docker_info_reports_wsl2_rejects_plain_linux ... ok
+test tests::docker_host_gateway_parser_prefers_one_ipv4_and_rejects_invalid_mappings ... ok
+test tests::docker_info_reports_wsl2_ignores_daemon_name_and_labels ... ok
+test tests::docker_identity_resolution_honors_policy_selectors_and_rejects_root ... ok
+test tests::docker_local_volume_with_bind_option_is_bind_backed ... ok
+test tests::docker_local_volume_with_rbind_option_is_bind_backed ... ok
+test tests::docker_nonlocal_volume_with_bind_option_is_not_bind_backed ... ok
+test tests::docker_local_volume_without_bind_option_is_not_bind_backed ... ok
+test tests::docker_oom_kill_stays_terminal_despite_137 ... ok
+test tests::docker_guest_tls_paths_rejects_tls_flags_without_https ... ok
+test tests::docker_ordinary_exit_stays_terminal ... ok
+test tests::docker_pids_limit_uses_driver_default_and_allows_runtime_inherit ... ok
+test tests::docker_outer_fence_rejects_network_mode_or_attached_network_drift ... ok
+test tests::docker_outer_fence_accepts_network_none_without_attachments ... ok
+test tests::docker_proxy_ca_bundle_uses_fixed_supervisor_path ... ok
+test tests::docker_pull_progress_event_adds_layer_detail_metadata ... ok
+test tests::docker_bridge_preserves_explicit_endpoints_and_rejects_loopback ... ok
+test tests::docker_guest_tls_paths_accept_ca_only_for_https ... ok
+test tests::docker_pulled_event_advances_to_starting_progress ... ok
+test tests::docker_resource_limits_applies_cpu_and_memory_limits ... ok
+test tests::docker_signal_kill_reclassified_as_runtime_restart ... ok
+test tests::docker_supervisor_defaults_to_the_primary_loopback_endpoint ... ok
+test tests::docker_resource_limits_rejects_requests ... ok
+test tests::docker_scheduled_event_adds_progress_metadata ... ok
+test tests::docker_supervisor_honors_operator_network_mode ... ok
+test tests::docker_supervisor_image_refreshes_mutable_tags_only ... ok
+test tests::docker_supervisor_image_tag_prefers_explicit_build_tags ... ok
+test tests::docker_config_parses_operator_proxy_ca_bundle ... ok
+test tests::docker_supervisor_image_tag_sanitizes_build_metadata_for_docker ... ok
+test tests::docker_host_gateway_override_is_operator_owned_and_matches_the_alias_pin ... ok
+test tests::docker_supervisor_maps_host_aliases_to_the_gateway_address ... ok
+test tests::docker_supervisor_leaves_named_gateway_hosts_to_dns ... ok
+test tests::docker_supervisor_uses_host_network ... ok
+test tests::docker_supervisor_network_mode_is_an_operator_config_enum ... ok
+test tests::driver_config_allows_explicit_writable_volume_mounts ... ok
+test tests::driver_config_rejects_bind_mounts_unless_enabled ... ok
+test tests::driver_config_rejects_duplicate_mount_targets ... ok
+test tests::driver_config_defaults_volume_mounts_to_read_only ... ok
+test tests::driver_config_rejects_image_mounts ... ok
+test tests::driver_config_rejects_relative_bind_sources_when_enabled ... ok
+test tests::driver_config_rejects_missing_bind_source ... ok
+test tests::driver_config_rejects_reserved_mount_targets ... ok
+test tests::different_start_generation_is_rejected ... ok
+test tests::driver_status_keeps_running_sandboxes_provisioning_with_stable_message ... ok
+test tests::driver_status_marks_restarting_sandboxes_as_error ... ok
+test tests::live_docker_host_gateway_resolver_reads_daemon_mapping_and_cleans_up ... ignored, requires Docker and local supervisor/sandbox images; starts one confined resolver at a time
+test tests::background_provisioning_does_not_extend_the_scheduling_span_lifetime ... ok
+test tests::live_docker_resource_admission_checks_native_volume_labels ... ignored, requires a local Docker daemon; creates and removes only isolated test volumes
+test tests::extract_first_tar_entry_rejects_empty_archive ... ok
+test tests::driver_default_gpu_selection_consumes_distinct_devices_for_creates ... ok
+test tests::managed_container_label_filters_include_gateway_namespace ... ok
+test tests::extract_first_tar_entry_returns_payload_of_single_file_archive ... ok
+test tests::normalize_pull_reference_appends_latest_only_when_untagged ... ok
+test tests::parse_cpu_limit_supports_cores_and_millicores ... ok
+test tests::driver_config_defaults_enabled_bind_mounts_to_read_only ... ok
+test tests::parse_memory_limit_supports_binary_quantities ... ok
+test tests::lifecycle_fence_rejects_polled_exit_from_before_restart ... ok
+test tests::pending_lookup_is_id_authoritative_and_rejects_ambiguous_names ... ok
+test tests::pending_sandbox_snapshot_uses_docker_namespace_and_starting_condition ... ok
+test tests::require_sandbox_identifier_rejects_when_id_and_name_are_empty ... ok
+test tests::repository_e2e_docker_configuration_uses_the_supported_schema ... ok
+test tests::sandbox_driver_config_rejects_trusted_runtime_image_overrides ... ok
+test tests::sandbox_driver_config_cannot_override_proxy_ca_bundle ... ok
+test tests::sandbox_bundle_stages_private_tls_server_material ... ok
+test tests::supervisor_otlp_environment_carries_only_configured_signals ... ok
+test tests::supervisor_workspace_validation_exit_is_reported_explicitly ... ok
+test tests::sandbox_bundle_prepares_only_the_driver_managed_workspace ... ok
+test tests::temp_extract_container_names_are_unique_per_call ... ok
+test tests::trim_container_name_tail_strips_separators ... ok
+test tests::user_tmpfs_cannot_replace_or_mask_openshell_owned_tmpfs ... ok
+test tests::user_tmpfs_defaults_to_docker_documented_mode ... ok
+test tests::startup_error_log_tails_fit_grpc_header_budget ... ok
+test tests::user_tmpfs_options_and_sizes_are_encoded_in_hostconfig ... ok
+test tests::missing_start_generation_is_adopted ... ok
+test tests::validate_sandbox_accepts_gpu_count_request_shape ... ok
+test tests::validate_sandbox_accepts_gpu_count_matching_cdi_devices ... ok
+test tests::validate_sandbox_accepts_single_cdi_device_without_gpu_count ... ok
+test tests::validate_sandbox_auth_accepts_launch_authentication ... ok
+test tests::validate_sandbox_auth_requires_launch_authentication ... ok
+test tests::validate_sandbox_rejects_cdi_devices_without_gpu_request ... ok
+test tests::validate_sandbox_rejects_gpu_count_mismatched_cdi_devices ... ok
+test tests::validate_sandbox_rejects_invalid_cdi_devices_before_gpu_capability ... ok
+test tests::validate_sandbox_rejects_gpu_when_cdi_unavailable ... ok
+test tests::validate_sandbox_rejects_missing_gpu_support_before_request_shape ... ok
+test tests::validate_sandbox_rejects_multiple_cdi_devices_without_gpu_count ... ok
+test tests::validate_sandbox_rejects_template_errors_before_device_config ... ok
+test tests::validate_sandbox_rejects_unknown_driver_config_fields ... ok
+test tests::workload_mounts_only_the_shared_channel_volume ... ok
+test tests::workspace_failure_survives_supervisor_cleanup_before_readiness_inspection ... ok
+test otel_tracing::tests::driver_spans_reach_otlp_collector_with_resource_identity ... ok
+test tests::start_sandbox_span_does_not_capture_launch_authentication ... ok
+test tests::tracing_direct_start_exports_a_docker_start_span ... ok
+test tests::tracing_in_process_service_preserves_the_driver_rpc_server_boundary ... ok
+test tests::tracing_image_preparation_failure_exports_nested_failed_spans ... ok
+test tests::tracing_in_process_stream_leaves_status_unset_when_dropped ... ok
+test tests::tracing_in_process_stream_records_ok_when_stream_completes ... ok
+test tests::tracing_in_process_stream_span_lives_until_stream_failure ... ok
+test tests::tracing_lifecycle_rpc_failures_export_docker_operation_spans ... ok
+test tests::tracing_standalone_rpc_layer_propagates_context_and_records_errors ... ok
+test isolation::tests::provisioning_binds_container_and_image_claims ... ok
+test tests::docker_constructor_rejects_proxy_ca_bundle_without_proxy ... ok
+test tests::docker_proxy_ca_bundle_is_staged_in_supervisor_archive ... ok
+test tests::docker_proxy_ca_bundle_validation_is_fail_closed ... ok
+test tests::restart_rotates_bootstrap_descriptor_and_provisioning_evidence_together ... ok
+
+test result: ok. 150 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running unittests src/main.rs (target/debug/deps/openshell_driver_docker-f6a247dda586d8cb)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests openshell_driver_docker
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+mbx[cache]: 226 hits, 151 misses, 1 not looked up, 14 bypassed; 0 B downloaded, 0 B uploaded, 8.9 MiB stored locally
+mbx[savings]: 27d 11h unspent across 97698 builds. compounding, in a sense.

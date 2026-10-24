@@ -1,0 +1,33 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 489B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/jfr24-architect-grok:93a46c2
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [1/2] FROM docker.io/library/jfr24-architect-grok:93a46c2@sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f
+#4 resolve docker.io/library/jfr24-architect-grok:93a46c2@sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f 0.0s done
+#4 DONE 0.7s
+
+#5 [2/2] RUN if ! getent group sandbox >/dev/null; then       if getent group 1000 >/dev/null; then         groupmod -n sandbox "$(getent group 1000 | cut -d: -f1)";       else         groupadd --gid 1000 sandbox;       fi;     fi     && usermod --gid sandbox agent     && chgrp -R sandbox /home/agent /jackin/default-home     && chmod -R g+rwX /home/agent /jackin/default-home
+#5 DONE 5.7s
+
+#6 exporting to image
+#6 exporting layers
+#6 exporting layers 87.8s done
+#6 exporting manifest sha256:32323dfa271a4da5d6edc3d2c64bcd6621e585889237f02deccb2fd5c5d12de7
+#6 exporting manifest sha256:32323dfa271a4da5d6edc3d2c64bcd6621e585889237f02deccb2fd5c5d12de7 done
+#6 exporting config sha256:0cec46389a36b15d52030ed98c9dd166d63b0ecb6762b8c3126dfb5cde979431 done
+#6 exporting attestation manifest sha256:65f662c9cedda2781495076990478266c24ae5a88f63957024496fd6ab5f9241 0.0s done
+#6 exporting manifest list sha256:716b4cf62a101a398947b14dd96f9c72fa8f0aac4699cad3a06d91e0236ba98c 0.0s done
+#6 naming to docker.io/library/jfr24-grok-gid1000:fixture done
+#6 unpacking to docker.io/library/jfr24-grok-gid1000:fixture
+#6 unpacking to docker.io/library/jfr24-grok-gid1000:fixture 15.8s done
+#6 DONE 103.7s

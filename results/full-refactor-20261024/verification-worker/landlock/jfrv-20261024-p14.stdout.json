@@ -1,0 +1,120 @@
+[
+  {
+    "operation": "verification_adversarial",
+    "ok": false,
+    "detail": {
+      "cleanup": {
+        "confirmed": true,
+        "outcome": "Accepted",
+        "sandbox_id": "81c25a40-9eb0-49e1-b52d-ce93a291c1d2"
+      },
+      "execution": {
+        "exec_exit_code": 10,
+        "exec_stderr_base64": "",
+        "policy": {
+          "admission_policy_hash": "a79c53775fb007bbf636e880aa4b3b90d77e85289a343620097a5504248e4ca8",
+          "admission_policy_version": 1,
+          "admission_state": "2",
+          "current_policy_version": 1,
+          "include_workdir": false,
+          "landlock": "None",
+          "network_policy_count": 0,
+          "process": "None",
+          "read_only": [
+            "/bin",
+            "/usr",
+            "/lib",
+            "/proc",
+            "/dev/urandom",
+            "/etc",
+            "/var/log",
+            "/sandbox"
+          ],
+          "read_write": [
+            "/tmp",
+            "/dev/null",
+            "/build"
+          ],
+          "workload_image": "jfr-20261024-verify-worker:patch-adversarial"
+        },
+        "report": {
+          "boundary_summary": {
+            "all_outside_denied": false,
+            "stopped_after_first_success": true
+          },
+          "dotdot_aliases": {},
+          "fd_audit": {
+            "outside_tmpfs_writable_regular_fds": [],
+            "writable_regular_fds": []
+          },
+          "first_violation": {
+            "errno": null,
+            "operation": "chmod-existing",
+            "where": "/home/jackin-test/landlock-probe"
+          },
+          "parent_operations": {
+            "/home/jackin-test/landlock-probe:chmod-existing": {
+              "denied": false,
+              "errno": null
+            },
+            "/home/jackin-test/landlock-probe:create": {
+              "denied": true,
+              "errno": 13
+            },
+            "/home/jackin-test/landlock-probe:mkdir": {
+              "denied": true,
+              "errno": 13
+            },
+            "/home/jackin-test/landlock-probe:rename-over-existing": {
+              "denied": true,
+              "errno": 13
+            },
+            "/home/jackin-test/landlock-probe:truncate-existing": {
+              "denied": true,
+              "errno": 13
+            },
+            "/home/jackin-test/landlock-probe:write-existing": {
+              "denied": true,
+              "errno": 13
+            }
+          },
+          "proc_root_aliases": {},
+          "process": {
+            "ancestry": [
+              {
+                "comm": "python3",
+                "pid": 61
+              },
+              {
+                "comm": "openshell-sandb",
+                "pid": 1
+              }
+            ],
+            "egid": 1000,
+            "euid": 1000,
+            "gid": 1000,
+            "landlock_kernel_abi": 10,
+            "status": {
+              "CapBnd": "0000000000000000",
+              "CapEff": "0000000000000000",
+              "Gid": "1000\t1000\t1000\t1000",
+              "Groups": "1000",
+              "NoNewPrivs": "1",
+              "PPid": "1",
+              "Seccomp": "2",
+              "Seccomp_filters": "6",
+              "Uid": "1000\t1000\t1000\t1000"
+            },
+            "uid": 1000
+          },
+          "tmp_symlink_aliases": {}
+        },
+        "result": "FAIL",
+        "sandbox_phase": "Ready"
+      },
+      "request_id": "94cca77d-9223-49fb-bf53-114ed97a62c3",
+      "sandbox_id": "81c25a40-9eb0-49e1-b52d-ce93a291c1d2"
+    },
+    "error": "adversarial worker confinement probe did not pass"
+  }
+]

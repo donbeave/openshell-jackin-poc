@@ -1,0 +1,121 @@
+[
+    {
+        "CreatedAt": "2026-10-24T08:10:20+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-ws",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-20261024"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24ws-clone/_data",
+        "Name": "jfr24ws-clone",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/workspace/jfr-20261024-ws/clone",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-24T08:16:29+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-ws",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-20261024"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24ws-common-git/_data",
+        "Name": "jfr24ws-common-git",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source/.git",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-24T08:20:30+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-ws",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-20261024"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24ws-decoy-validlbl/_data",
+        "Name": "jfr24ws-decoy-validlbl",
+        "Options": {
+            "device": "results/full-replacement-20261024/workspace/jfr-20261024-ws/protected",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-24T08:10:20+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-ws",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-20261024"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24ws-shared-ro/_data",
+        "Name": "jfr24ws-shared-ro",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-24T08:10:20+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-ws",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-20261024"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24ws-shared-rw/_data",
+        "Name": "jfr24ws-shared-rw",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-24T08:10:20+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-ws",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-20261024"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24ws-worktree/_data",
+        "Name": "jfr24ws-worktree",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/workspace/jfr-20261024-ws/worktree",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    },
+    {
+        "CreatedAt": "2026-10-24T08:10:20+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-ws",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-other24"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24ws-wrong-ws/_data",
+        "Name": "jfr24ws-wrong-ws",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    }
+]

@@ -1,0 +1,18 @@
+{
+  "fixture_id": "jfr-20261024-ws",
+  "runtime_release": "v0.1.5",
+  "runtime_commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+  "source": "results/sources/docs__how-it-works__sandboxes__runtimes.mdx:171-182",
+  "official_url": "https://docs.nvidia.com/openshell/latest/how-it-works/sandboxes/runtimes#docker-mounts",
+  "documented_requirement": {
+    "enable_bind_mounts": true,
+    "resource_admission_enabled": false,
+    "allow_driver_config": true
+  },
+  "documented_warning": "Bind mounts expose gateway-host files and can bypass workspace isolation and filesystem policy.",
+  "user_constraint": "Do not weaken mount admission.",
+  "decision": "NO HOST BIND RUNTIME TEST UNTIL AUTHORIZATION DESIGN REVIEWED. Keep admission enabled. A denial may be recorded as a negative test only after isolated gateway config is available.",
+  "runtime_result": "NOT TESTED",
+  "reason": "Documented released bind-mount path requires globally disabling driver resource admission; no reviewed scoped replacement control exists in current evidence.",
+  "host_fixture_result": "See host-fixture-setup.json and host-layout-probes.json; these are HOST_FIXTURE_ONLY."
+}

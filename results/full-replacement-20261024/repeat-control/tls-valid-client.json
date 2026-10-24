@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/target/debug/openshell-control-probe",
+    "tls",
+    "--endpoint",
+    "https://localhost:28600",
+    "--server-name",
+    "localhost",
+    "--ca",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/ca.crt",
+    "--cert",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/client/tls.crt",
+    "--key",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/client/tls.key",
+    "--expect",
+    "allow"
+  ],
+  "exit_status": 0,
+  "stdout": "[\n  {\n    \"operation\": \"verified_mtls_and_authenticated_control_api\",\n    \"ok\": true,\n    \"detail\": {\n      \"authenticated_list_allowed\": true,\n      \"authenticated_subject\": \"jfr-20261024-rctl-client\",\n      \"gateway_version\": \"0.1.5\",\n      \"health_status\": \"Healthy\",\n      \"visible_sandbox_count\": 0\n    }\n  }\n]\n",
+  "stderr": "",
+  "expected": "valid identity API success",
+  "expected_outcome_observed": true
+}

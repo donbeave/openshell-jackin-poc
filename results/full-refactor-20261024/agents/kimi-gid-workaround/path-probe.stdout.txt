@@ -1,0 +1,7 @@
+PATH=/home/agent/.local/bin:/home/agent/.kimi-code/bin:/usr/local/bin:/usr/bin:/bin
+ls: cannot access '/home/agent/.kimi-code/bin': No such file or directory
+drwxrwxr-x 1 501 sandbox 298 Oct 24 02:21 /home/agent
+drwxrwxr-x 1 501 sandbox   0 Oct 24 02:21 /home/agent/.kimi-code
+ls: cannot access '/home/agent/.kimi-code/bin': No such file or directory
+stat: cannot statx '/home/agent/.kimi-code/bin/kimi': No such file or directory
+/bin/bash: line 1: file: command not found

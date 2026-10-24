@@ -1,0 +1,4 @@
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+HOME=/sandbox
+-rwxrwxr-x 1 501 sandbox 211340280 Oct 22 12:30 /home/agent/.opencode/bin/opencode
+/home/agent/.opencode/bin/opencode

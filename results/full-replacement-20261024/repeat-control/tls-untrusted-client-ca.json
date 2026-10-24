@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/target/debug/openshell-control-probe",
+    "tls",
+    "--endpoint",
+    "https://localhost:28600",
+    "--server-name",
+    "localhost",
+    "--ca",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/ca.crt",
+    "--cert",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/private/certs/untrusted-client.crt",
+    "--key",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/private/certs/untrusted-client.key",
+    "--expect",
+    "deny"
+  ],
+  "exit_status": 0,
+  "stdout": "[\n  {\n    \"operation\": \"verified_mtls_and_authenticated_control_api\",\n    \"ok\": true,\n    \"detail\": {\n      \"denied_at\": \"health_rpc\",\n      \"reason\": \"gateway error (1): operation was canceled\"\n    }\n  }\n]\n",
+  "stderr": "",
+  "expected": "TLS client-certificate rejection; server CA and hostname remain valid",
+  "expected_outcome_observed": true
+}

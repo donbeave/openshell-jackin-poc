@@ -1,0 +1,20 @@
+[
+  "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/client/target/debug/openshell-control-probe",
+  "verification-worker",
+  "--endpoint",
+  "https://localhost:28631",
+  "--gateway-id",
+  "jfr-20261024-vpatch",
+  "--server-name",
+  "localhost",
+  "--ca",
+  "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/private/certs/ca.crt",
+  "--cert",
+  "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/private/certs/client/tls.crt",
+  "--key",
+  "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/private/certs/client/tls.key",
+  "--name",
+  "jfrv-20261024-p01",
+  "--image",
+  "jfr-20261024-verify-worker:baseline-python"
+]

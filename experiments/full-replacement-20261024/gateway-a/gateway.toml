@@ -1,0 +1,13 @@
+[openshell]
+version = 2
+[openshell.gateway]
+compute_driver = "docker"
+guest_tls_ca = "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/ca.crt"
+[openshell.drivers.docker]
+allow_driver_config = true
+sandbox_label = "jfr-20261024-a"
+[openshell.gateway.gateway_jwt]
+signing_key_path = "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/jwt/signing.pem"
+public_key_path = "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/jwt/public.pem"
+kid_path = "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/jwt/kid"
+gateway_id = "jfr-20261024-a"

@@ -1,0 +1,15 @@
+mise trusted ~/rust-project
+mise by @jdx – installing 2 tools
+mise ✗ mr-boxington@1.27.0  181ms · failed: fetching the release list of packslip:github.com/jdx/mr-boxington
+mise rust@1.99.1 info: syncing channel updates for 1.99.1-aarch64-unknown-linux-gnu
+mise rust@1.99.1 error: could not create temp file /usr/local/rustup/tmp/w1kdxulq0fjstvmi_file: Permission denied (os error 13)
+mise ERROR /home/agent/.cargo/bin/rustup failed
+mise ✗ rust@1.99.1          256ms · failed: /home/agent/.cargo/bin/rustup exited with non-zero status: exit code 1; last stderr: error: could not create temp file /usr/local/rustup/tmp/w1kdxulq0fjstvmi_file: Permission denied (os error 13)
+mise ████████████████ 2/2 · installed 0 tools · 2 failed in 258ms
+mise ERROR Failed to install tools: core:rust@1.99.1, packslip:github.com/jdx/mr-boxington@1.27.0
+
+core:rust@1.99.1: /home/agent/.cargo/bin/rustup exited with non-zero status: exit code 1; last stderr: error: could not create temp file /usr/local/rustup/tmp/w1kdxulq0fjstvmi_file: Permission denied (os error 13)
+
+packslip:github.com/jdx/mr-boxington@1.27.0: fetching the release list of packslip:github.com/jdx/mr-boxington: error sending request: client error (Connect): tcp connect error: Permission denied (os error 13)
+mise ERROR Version: 2026.10.18 linux-arm64 (2026-10-23)
+mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information

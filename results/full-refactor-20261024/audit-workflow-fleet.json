@@ -1,0 +1,123 @@
+{
+  "source_revision": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "requested_historical_baseline": "41bad147b5ba9db09be99b07248531ce1bd867be",
+  "source_authority": "Pinned role/jackin-source Git checkout and checked source snapshot hashes; archived snapshot has no .git, so parent repository rev is not its provenance.",
+  "inspection": "source-only git show/git grep; no runtime tests were run for this audit",
+  "raw_matches": [
+    "rawmatches/verify-worker.txt",
+    "rawmatches/cli-host-fleet.txt",
+    "rawmatches/host-lifecycle-targets.txt",
+    "rawmatches/selected-operations.txt",
+    "rawmatches/match-classification.json"
+  ],
+  "features": [
+    {
+      "id": "WF-VERIFY-WORKER",
+      "user_visible_behavior": "workflow record test executes frozen trusted check against a specific candidate and records a host-observed result",
+      "source": ["crates/apps/jackin/src/cli/workflow.rs:384,523", "crates/apps/jackin/src/app/workflow_cmd.rs:401-471", "crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:WorkflowRecordTest dispatch", "crates/services/jackin-workflow/src/service.rs:713-829", "crates/services/jackin-workflow/src/verify.rs:431-829"],
+      "current_owner_action_outcome": "Jackin host workflow service freezes argv/image/policy, verifies candidate/check digests, prepares a private detached checkout, executes via Docker and stores bounded output/result/evidence; source path active, execution not tested in this audit.",
+      "new_owner_mechanism": "Jackin remains policy/result authority; OpenShell one-use sandbox executes exact argv, no network, read-only candidate/check bundle, bounded output, timeout and explicit delete. No host or Docker fallback.",
+      "required_positive_negative_proof": ["exact argv and candidate binding", "network denial", "read-only source", "current memory/CPU/PID/tmpfs limits effectively enforced", "no credentials", "timeout/cancellation", "bounded stdout/stderr/exit", "cleanup", "wrong digest/candidate/version and duplicate result rejected"],
+      "evidence": "source only: audit-workflow-fleet.md; execution evidence absent",
+      "result": "NOT TESTED",
+      "remaining_gap": "proposed worker mechanism and effective policy equivalence require bounded OpenShell experiment"
+    },
+    {
+      "id": "WF-GRANT",
+      "user_visible_behavior": "workflow plan validates host grant resource ceilings and repository authorization",
+      "source": ["crates/apps/jackin/src/app/workflow_cmd.rs:1138-1265", "crates/core/jackin-workflow-spec/src/rules.rs"],
+      "current_owner_action_outcome": "Jackin compiles policy with maxima (16 CPU, 64 GiB, 4096 PIDs, 24h, 1 TiB); no runtime apply/readback consumer found. Verification Docker child has separate 1 CPU, 512 MiB, 64 PIDs limits; no explicit fd/disk quota.",
+      "new_owner_mechanism": "Jackin admission policy plus explicit OpenShell sandbox resource config and queryable effective limits.",
+      "required_positive_negative_proof": ["each configured limit enforced under bounded load", "excess exceeds limit predictably", "grant does not silently broaden verification profile", "effective values read back"],
+      "evidence": "source only: audit-workflow-fleet.md",
+      "result": "NOT TESTED",
+      "remaining_gap": "compiled grant is not runtime enforcement evidence"
+    },
+    {
+      "id": "CLI-PREFLIGHT-DOCTOR",
+      "user_visible_behavior": "load/lifecycle commands preflight environment; doctor provides human and v1 JSON diagnosis",
+      "source": ["crates/apps/jackin/src/preflight.rs:76-117", "crates/apps/jackin/src/load_cmd.rs:81,574,666,941", "crates/apps/jackin/src/prune_cmd.rs:24", "crates/apps/jackin/src/cli/doctor.rs:25-85"],
+      "current_owner_action_outcome": "Active CLI checks Docker daemon/version, host disk/config/home and Docker cleanup state; then connects Docker. Doctor JSON v1.",
+      "new_owner_mechanism": "Jackin keeps host checks and JSON compatibility; OpenShell gateway readiness/certificate/driver/image checks replace Docker runtime checks.",
+      "required_positive_negative_proof": ["healthy gateway reported ready", "bad CA/hostname/client identity denied", "unavailable gateway actionable", "host checks preserved", "JSON schema stable"],
+      "evidence": "source only",
+      "result": "NOT TESTED",
+      "remaining_gap": "gateway preflight and CLI mapping not implemented or exercised"
+    },
+    {
+      "id": "FLEET-STATUS",
+      "user_visible_behavior": "status lists all workspaces/instances or reports one selected instance, agent status, branch, PR and CI",
+      "source": ["crates/apps/jackin/src/cli/status.rs:98-155", "crates/apps/jackin/src/cli/status.rs:350-448", "crates/apps/jackin/src/cli.rs:90-134"],
+      "current_owner_action_outcome": "Active single-local-Docker inventory from InstanceIndex plus Docker inspect/exec. No gateway selector or target identity in current CLI; branch/PR/CI fields are best-effort.",
+      "new_owner_mechanism": "Jackin retains display grouping/schema and adds target registry/routing; OpenShell target clients list/get/exec provide runtime data using immutable target and sandbox IDs.",
+      "required_positive_negative_proof": ["duplicate display names on two gateways remain distinct", "correct target selection and event attribution", "unreachable gateway shows unavailable, not deleted", "status/agent/branch/PR/CI from real sandbox"],
+      "evidence": "source only; low-level two-target control probe is separate and does not establish Jackin multi-target workflow",
+      "result": "NOT TESTED",
+      "remaining_gap": "target-aware Jackin inventory and user selection absent"
+    },
+    {
+      "id": "SNAPSHOT-USAGE",
+      "user_visible_behavior": "console displays live session snapshots and per-instance usage/account state",
+      "source": ["crates/services/jackin-runtime-snapshot/src/snapshot.rs:20-99,167-323", "crates/apps/jackin/src/console/effects.rs:97", "crates/apps/jackin/src/console/services/instances.rs:22-56,206-223", "crates/apps/jackin/src/cli/usage.rs:556-570,1623+"],
+      "current_owner_action_outcome": "Active Unix socket protocol with Docker exec fallback; console polls and usage CLI connects to Docker.",
+      "new_owner_mechanism": "Jackin owns UI/data model; OpenShell exec or authenticated Capsule protocol stream supplies data; remove Docker fallback.",
+      "required_positive_negative_proof": ["authenticated origin", "bounded reply", "poll/reconnect behavior", "missing sandbox handled without Docker fallback"],
+      "evidence": "source only",
+      "result": "NOT TESTED",
+      "remaining_gap": "integrated console and usage path not exercised over OpenShell"
+    },
+    {
+      "id": "WORKFLOW-EVENTS-RECOVERY",
+      "user_visible_behavior": "workflow event JSON and daemon control preserve event history and avoid replay after uncertain delivery",
+      "source": ["crates/apps/jackin/src/cli/workflow.rs:22,129", "crates/apps/jackin/src/app/workflow_cmd.rs:202-283", "crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:602-614", "crates/services/jackin-workflow/src/service.rs"],
+      "current_owner_action_outcome": "Jackin owns durable workflow event stream; startup recovery marks uncertain dispatch delivery_unknown instead of resubmitting. Workflow control transport requires Unix host daemon socket.",
+      "new_owner_mechanism": "Jackin retains durable product events and uncertainty; OpenShell lifecycle watch is correlated by target+immutable sandbox ID, not substituted for workflow events.",
+      "required_positive_negative_proof": ["watch interruption followed by fresh state query", "no stale observation represented current", "lost create/exec response retry semantics", "no prompt replay", "non-Unix control transport design"],
+      "evidence": "source only",
+      "result": "NOT TESTED",
+      "remaining_gap": "cross-platform daemon transport and combined event/recovery journey unproved"
+    },
+    {
+      "id": "CHECKPOINT-HOLD",
+      "user_visible_behavior": "checkpoint candidate source and prevent destructive cleanup while preservation is required",
+      "source": ["crates/apps/jackin/src/app/workflow_cmd.rs:265-282", "crates/services/jackin-workflow/src/service.rs:600-675,1339-1348", "crates/services/jackin-runtime/src/runtime/eject.rs", "crates/services/jackin-runtime/src/runtime/prune.rs", "crates/services/jackin-runtime/src/runtime/purge.rs"],
+      "current_owner_action_outcome": "Checkpoint validates local source and stores metadata, not bytes. Normal caller uses preservation_hold None. Cancellation inserts workflow sentinel cancel-hold. Runtime cleanup checks exist; active producer was not found.",
+      "new_owner_mechanism": "Jackin explicitly owns retained source/workspace and hold decisions; OpenShell persistent storage is only a candidate runtime storage layer.",
+      "required_positive_negative_proof": ["retained bytes after stop/start and delete/recreate", "byte-exact export before purge", "hold prevents every destructive action", "missing recovery data errors"],
+      "evidence": "source only",
+      "result": "NOT TESTED",
+      "remaining_gap": "hold producer and real checkpoint/persistence/export contract unresolved"
+    },
+    {
+      "id": "HOST-FINALIZATION-DIAGNOSTICS",
+      "user_visible_behavior": "apply dirty-exit policy and prompt, record host crash diagnostics, run entry/onboarding and keep-awake",
+      "source": ["crates/services/jackin-runtime/src/runtime/launch/*/finalize.rs", "crates/services/jackin-runtime/src/runtime/attach/finalize.rs", "crates/apps/jackin/src/lifecycle.rs:36-48", "crates/apps/jackin/src/app.rs:58-69", "crates/apps/jackin/src/load_cmd.rs (keep-awake callsites)"],
+      "current_owner_action_outcome": "Jackin host owns finalization decision/UX, invocation and panic reporting, first-entry experience, and OS keep-awake; runtime state detection currently Docker-backed.",
+      "new_owner_mechanism": "Jackin retains decisions, host telemetry, UX and power management; OpenShell state/events replace Docker state and cleanup operations.",
+      "required_positive_negative_proof": ["normal/forced exit distinct", "disconnect vs session exit vs sandbox restart", "resume", "dirty-state prompt", "host diagnostics redacted", "keep-awake remains host-only"],
+      "evidence": "source only",
+      "result": "NOT TESTED",
+      "remaining_gap": "combined lifecycle journey not run"
+    },
+    {
+      "id": "MULTI-TARGET",
+      "user_visible_behavior": "select and observe resources across local, VM, remote and Kubernetes targets, including duplicate names and unavailable targets",
+      "source": ["crates/apps/jackin/src/cli.rs:90-134", "crates/apps/jackin/src/cli/status.rs:98-155", "crates/services/jackin-runtime-discovery/src/lib.rs"],
+      "current_owner_action_outcome": "No target argument/registry; LoadArgs.target is a project path/workspace. Discovery symbols do not have a multi-gateway product caller.",
+      "new_owner_mechanism": "Jackin adds target registry, trust identity, routing, inventory and unavailable state; OpenShell supplies per-gateway clients only.",
+      "required_positive_negative_proof": ["two-gateway duplicate name lookup", "target identity in status/events", "unavailable not deleted", "all required target profiles independently verified"],
+      "evidence": "source only; separate low-level POC is not Jackin product proof",
+      "result": "NOT TESTED",
+      "remaining_gap": "product target-routing layer and target-specific integrated proof absent"
+    }
+  ],
+  "future_or_incomplete": [
+    "Windows and future agent collaboration are not inferred from this audit.",
+    "HostGrant compile-time maxima have no runtime grant readback consumer found.",
+    "Preservation-hold guard has no normal instance-manifest producer found; cancellation sentinel is workflow metadata.",
+    "Checkpoint metadata is not byte backup; event JSON is not OpenShell lifecycle event history.",
+    "Raw keyword matches include test/docs/example/build/config/planning data and were not treated as production behavior."
+  ],
+  "bounded_next_experiment": "Run the active record-test workflow once in an OpenShell one-use sandbox with the exact frozen TestPolicy and pinned image. No host/Docker fallback. Verify argv and candidate binding, no network/credentials, read-only source, effective limits/readback, bounded streams, cancellation, and cleanup; run negative probes for incorrect digest/candidate/version and duplicate result. Stop if required limits cannot be enforced; do not relax the profile.",
+  "verdict": "Source mapping only; no readiness claim."
+}

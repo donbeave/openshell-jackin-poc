@@ -1,0 +1,189 @@
+{
+  "test_id": "jfr-20261024-rctl",
+  "scope": "independent Rust control/mTLS/duplex/lifecycle primitive repeat; not a full Jackin journey",
+  "baseline_commit": "2315e6a278231854b3139b1ca32402777ff3cd01",
+  "jackin_pin": "41bad147b5ba9db09be99b07248531ce1bd867be",
+  "architect_pin": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+  "openshell_release": "v0.1.5",
+  "openshell_commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+  "gateway": {
+    "id": "jfr-20261024-rctl",
+    "endpoint": "https://localhost:28600",
+    "driver": "docker",
+    "namespace": "jfr-20261024-rctl",
+    "status": "healthy",
+    "version": "0.1.5",
+    "resource_admission": true,
+    "mtls": true,
+    "owner": "this repeat; isolated XDG config/state under gateway-rctl"
+  },
+  "machine": {
+    "os": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+    "architecture": "arm64",
+    "disk_bytes": {
+      "total": 3996276899840,
+      "used": 1787473620992,
+      "free": 2208803278848
+    }
+  },
+  "image": {
+    "reference": "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+    "id": "sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+    "platform": "linux/arm64",
+    "cache": "warm"
+  },
+  "rust_client": {
+    "crate": "openshell-control-probe",
+    "source_sha256": "35cd4923d23bb796ccd66631799b868372d5e2f09889f91919c52051638f1349",
+    "sdk_rev": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+    "transport": "public OpenShellClient::from_parts(Tonic Channel, EdgeAuthInterceptor::noop())",
+    "tls": "Tonic ClientTlsConfig with private CA, expected server name and client identity; verification enabled",
+    "version_tools": {
+      "rust": "1.99.1",
+      "mise": "2026.10.18",
+      "mbx": "1.27.0",
+      "tonic": "0.14.6"
+    },
+    "credentials": "Fresh experiment CA/client keys. No model/provider or personal credentials."
+  },
+  "commands": {
+    "os": {
+      "argv": [
+        "sw_vers"
+      ],
+      "exit_status": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+      "stderr": ""
+    },
+    "uname": {
+      "argv": [
+        "uname",
+        "-a"
+      ],
+      "exit_status": 0,
+      "stdout": "Darwin <HOST> 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050 arm64\n",
+      "stderr": ""
+    },
+    "cpu": {
+      "argv": [
+        "sysctl",
+        "-n",
+        "machdep.cpu.brand_string"
+      ],
+      "exit_status": 0,
+      "stdout": "Apple M5 Max\n",
+      "stderr": ""
+    },
+    "memory": {
+      "argv": [
+        "sysctl",
+        "-n",
+        "hw.memsize"
+      ],
+      "exit_status": 0,
+      "stdout": "137438953472\n",
+      "stderr": ""
+    },
+    "docker-context": {
+      "argv": [
+        "docker",
+        "context",
+        "show"
+      ],
+      "exit_status": 0,
+      "stdout": "orbstack\n",
+      "stderr": ""
+    },
+    "docker-endpoint": {
+      "argv": [
+        "docker",
+        "context",
+        "inspect",
+        "orbstack",
+        "--format",
+        "{{json .Endpoints.docker}}"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"Host\":\"unix:///Users/example/.orbstack/run/docker.sock\",\"SkipTLSVerify\":false}\n",
+      "stderr": ""
+    },
+    "docker-client": {
+      "argv": [
+        "docker",
+        "version",
+        "--format",
+        "{{json .ClientInfo}}"
+      ],
+      "exit_status": 1,
+      "stdout": "\n",
+      "stderr": "template: version:1:7: executing \"version\" at <.ClientInfo>: can't evaluate field ClientInfo in type system.versionInfo\n"
+    },
+    "docker-server": {
+      "argv": [
+        "docker",
+        "version",
+        "--format",
+        "{{json .Server}}"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"29.8.2\",\"ApiVersion\":\"1.56\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"arm64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.8.2\",\"Details\":{\"ApiVersion\":\"1.56\",\"Arch\":\"arm64\",\"BuildTime\":\"Wed Sep 30 19:32:49 2026\",\"Experimental\":\"true\",\"GitCommit\":\"8af9fe3\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.2.9-orbstack-00391-g2b298d05fbd4\",\"MinAPIVersion\":\"1.40\",\"Module\":\"github.com/moby/moby/v2\",\"ModuleVersion\":\"v2.0.0+unknown\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.3.6\",\"Details\":{\"GitCommit\":\"ee2735368117d2eb259779949d5e75cdafec9761\"}},{\"Name\":\"runc\",\"Version\":\"1.5.2\",\"Details\":{\"GitCommit\":\"29dd3dc2b13b4123162e5fe132504bb4b15569f1\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"8af9fe3\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.2.9-orbstack-00391-g2b298d05fbd4\",\"Experimental\":true,\"BuildTime\":\"2026-09-30T19:32:49.000000000+00:00\"}\n",
+      "stderr": ""
+    },
+    "openshell": {
+      "argv": [
+        "openshell",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stdout": "openshell 0.1.5\n",
+      "stderr": ""
+    },
+    "image": {
+      "argv": [
+        "docker",
+        "image",
+        "inspect",
+        "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+        "--format",
+        "{{.Id}} {{.Os}}/{{.Architecture}}"
+      ],
+      "exit_status": 0,
+      "stdout": "sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686 linux/arm64\n",
+      "stderr": ""
+    },
+    "docker-fixture-containers": {
+      "argv": [
+        "docker",
+        "ps",
+        "-a",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jfr-20261024-rctl",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    "sandbox-list": {
+      "argv": [
+        "sh",
+        "experiments/full-replacement-20261024/repeat-control/gateway-rctl/client.sh",
+        "sandbox",
+        "list",
+        "-o",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"next_page_token\": \"\",\n  \"sandboxes\": []\n}\n",
+      "stderr": ""
+    }
+  },
+  "limitations": [
+    "No Capsule or Jackin role/account/model auth.",
+    "No actual network packet loss injected for create: harness discards a successful response then retries same request ID.",
+    "No PTY route in this repeat.",
+    "Sandbox operations remain name-based; stale-stop request mutated a same-name replacement.",
+    "No CPU/memory resource measurement."
+  ]
+}

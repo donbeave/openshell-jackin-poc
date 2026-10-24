@@ -1,0 +1,14 @@
+ Network jfr24concurrentb_default Creating 
+ Network jfr24concurrentb_default Creating 
+ Network jfr24concurrentb_default Created 
+ Network jfr24concurrentb_default Created 
+ Container jfr24concurrentb-database-1 Creating 
+ Container jfr24concurrentb-database-1 Created 
+ Container jfr24concurrentb-app-1 Creating 
+ Container jfr24concurrentb-app-1 Created 
+ Container jfr24concurrentb-database-1 Starting 
+ Container jfr24concurrentb-database-1 Started 
+ Container jfr24concurrentb-database-1 Waiting 
+ Container jfr24concurrentb-database-1 Healthy 
+ Container jfr24concurrentb-app-1 Starting 
+Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint jfr24concurrentb-app-1 (53544248c7fc89af221c0e7b969d3cd602011a6cb45ff71da92d7c396f3bcb0f): Bind for 0.0.0.0:30080 failed: port is already allocated

@@ -1,0 +1,487 @@
+{
+  "annotations": {
+    "internal.openshell.ai/auth-epoch": "1",
+    "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+    "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+    "internal.openshell.ai/runtime-generation": "b1f7bb90-3045-4626-84e9-3113f7023a1b"
+  },
+  "conditions": [
+    {
+      "last_transition_time": "",
+      "message": "Supervisor session connected",
+      "reason": "DependenciesReady",
+      "status": "True",
+      "type": "Ready"
+    },
+    {
+      "last_transition_time": "",
+      "message": "",
+      "reason": "ConfigurationAccepted",
+      "status": "True",
+      "type": "ConfigurationReady"
+    }
+  ],
+  "configuration_admission": {
+    "config_revision": 11936503598888845510,
+    "error": "",
+    "policy_hash": "e30d0f5ac99c158639a2574a9e8266e510bb3bce7b09ce2c062f86846ebae3c8",
+    "policy_version": 5,
+    "provider_env_revision": 3176606324465211593,
+    "state": "accepted"
+  },
+  "created_at": "2026-10-24 01:31:04",
+  "created_from_workload_template": null,
+  "current_policy_version": 5,
+  "endpoint_statuses": [],
+  "exit_code": null,
+  "host_key_fingerprint": "SHA256:KHzxbOL/nhKV+JFmcsN2cs9ZOs9nrrcP0YeEa0AM+fk",
+  "id": "fe768974-c7fb-4f60-86cc-0e53a7eb5101",
+  "labels": {
+    "ojp.owner": "followup-docker-rust",
+    "ojp.test-id": "jfr-20261024-docker"
+  },
+  "last_token_grant_failure": null,
+  "main_process_instance_id": "e1aef079-c13f-40f8-948d-5477358fdfaf",
+  "main_process_started_at_ms": 1792805465581,
+  "name": "jfr24-rust-b",
+  "next_restart_at_ms": 0,
+  "phase": "Ready",
+  "policy": {
+    "filesystem_policy": {
+      "include_workdir": true,
+      "read_only": [
+        "/bin",
+        "/sbin",
+        "/usr",
+        "/usr/local",
+        "/lib",
+        "/lib64",
+        "/etc",
+        "/proc",
+        "/sys",
+        "/dev/urandom",
+        "/opt"
+      ],
+      "read_write": [
+        "/workspace",
+        "/sandbox",
+        "/tmp",
+        "/home",
+        "/dev/null"
+      ]
+    },
+    "landlock": {
+      "compatibility": "best_effort"
+    },
+    "network_policies": {
+      "crates": {
+        "binaries": [
+          {
+            "path": "/usr/bin/curl"
+          },
+          {
+            "path": "/usr/local/bin/mise"
+          },
+          {
+            "path": "/home/agent/.local/share/mise/shims/cargo"
+          },
+          {
+            "path": "/home/agent/.local/share/mise/shims/cargo-nextest"
+          },
+          {
+            "path": "/home/agent/.local/share/mise/installs/**"
+          },
+          {
+            "path": "/workspace/rust-project/**"
+          }
+        ],
+        "endpoints": [
+          {
+            "host": "crates.io",
+            "port": 443,
+            "protocol": "tcp"
+          },
+          {
+            "host": "index.crates.io",
+            "port": 443,
+            "protocol": "tcp"
+          },
+          {
+            "host": "static.crates.io",
+            "port": 443,
+            "protocol": "tcp"
+          },
+          {
+            "host": "mise-versions.jdx.dev",
+            "port": 443,
+            "protocol": "tcp"
+          },
+          {
+            "host": "mise.jdx.dev",
+            "port": 443,
+            "protocol": "tcp"
+          },
+          {
+            "host": "api.github.com",
+            "port": 443,
+            "protocol": "tcp"
+          },
+          {
+            "host": "github.com",
+            "port": 443,
+            "protocol": "tcp"
+          },
+          {
+            "host": "static.rust-lang.org",
+            "port": 443,
+            "protocol": "tcp"
+          }
+        ],
+        "name": "crates"
+      },
+      "engine": {
+        "binaries": [
+          {
+            "path": "/bin/sh"
+          },
+          {
+            "path": "/bin/bash"
+          },
+          {
+            "path": "/usr/bin/docker"
+          },
+          {
+            "path": "/usr/libexec/docker/cli-plugins/docker-compose"
+          },
+          {
+            "path": "/workspace/rust-project/**"
+          }
+        ],
+        "endpoints": [
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 28481,
+            "protocol": "tcp",
+            "tls": "skip"
+          }
+        ],
+        "name": "engine"
+      },
+      "services": {
+        "binaries": [
+          {
+            "path": "/bin/sh"
+          },
+          {
+            "path": "/bin/bash"
+          },
+          {
+            "path": "/usr/bin/curl"
+          },
+          {
+            "path": "/usr/bin/docker"
+          },
+          {
+            "path": "/usr/libexec/docker/cli-plugins/docker-compose"
+          },
+          {
+            "path": "/workspace/rust-project/**"
+          }
+        ],
+        "endpoints": [
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30000,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30001,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30002,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30003,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30004,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30005,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30006,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30007,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30008,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30009,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30010,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30011,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30012,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30013,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30014,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30015,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30016,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30017,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30018,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30019,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30020,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30021,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30022,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30023,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30024,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30025,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30026,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30027,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30028,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30029,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30030,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30031,
+            "protocol": "tcp"
+          },
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 30080,
+            "protocol": "tcp"
+          }
+        ],
+        "name": "services"
+      }
+    },
+    "version": 1
+  },
+  "policy_source": "sandbox",
+  "provisioning": {
+    "admission_start_time": "2026-10-24T01:31:05.535Z",
+    "attempt_id": "98e81bfe-8a6e-4062-9244-4915d8a39b73",
+    "cleanup_completed_time": null,
+    "cleanup_error": "",
+    "cleanup_retry_time": null,
+    "configuration_change_id": "453e7b1456a192dd16a8b99a4a20afab640a2feec465e8a604a5b8584a7997fd",
+    "configuration_change_time": "2026-10-24T01:31:05.540Z",
+    "deadline": null,
+    "driver_operation_id": "8c761f42-88f6-4877-8bbb-22985b4a34c8",
+    "driver_operation_pending": false,
+    "first_rejection_time": null,
+    "phase": "ready",
+    "preparation_deadline": "2026-10-24T02:01:04.930Z",
+    "timeout_time": null
+  },
+  "resource_version": 105,
+  "restart_count": 0,
+  "restart_policy": "always",
+  "revision": 5,
+  "workspace": "default"
+}

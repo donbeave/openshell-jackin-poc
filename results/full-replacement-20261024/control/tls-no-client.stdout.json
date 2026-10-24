@@ -1,0 +1,11 @@
+[
+  {
+    "operation": "verified_mtls_and_authenticated_control_api",
+    "ok": true,
+    "detail": {
+      "denied_at": "list_sandboxes",
+      "health_is_public": "Healthy",
+      "reason": "auth error: missing authorization header"
+    }
+  }
+]

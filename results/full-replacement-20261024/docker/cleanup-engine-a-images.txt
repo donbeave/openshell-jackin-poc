@@ -1,0 +1,5 @@
+REPOSITORY                  TAG       DIGEST                                                                    IMAGE ID                                                                  CREATED         SIZE
+jfr-20261024-online-build   forced    sha256:f603d428f25d980efaf98df4df1b5c515b8a0cd77fd7fa9c70bf3867b0837069   sha256:f603d428f25d980efaf98df4df1b5c515b8a0cd77fd7fa9c70bf3867b0837069   2 hours ago     22.2MB
+jfr-20261024-online-build   warm      sha256:c3387a013b5eae6ea1350d7b893ea4a58afdce940a43d0e20b26a0f55ef76372   sha256:c3387a013b5eae6ea1350d7b893ea4a58afdce940a43d0e20b26a0f55ef76372   2 hours ago     22.2MB
+jfr-20261024-online-build   once      sha256:bcc846a56cbe15797ae353670ec3acee21b342808c52814fba6104f2092cc5d6   sha256:bcc846a56cbe15797ae353670ec3acee21b342808c52814fba6104f2092cc5d6   2 hours ago     22.2MB
+alpine                      <none>    sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f   sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f   12 months ago   14.3MB

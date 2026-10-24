@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "env",
+    "XDG_CONFIG_HOME=/var/lib/jfr-20261024-linux/config",
+    "XDG_STATE_HOME=/var/lib/jfr-20261024-linux/state",
+    "OPENSHELL_LOCAL_TLS_DIR=/var/lib/jfr-20261024-linux/certs",
+    "openshell",
+    "--gateway",
+    "jfr-20261024-linux-ip",
+    "sandbox",
+    "delete",
+    "jfr-20261024-lnx-g"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.454,
+  "stdout": "\u2713 Sandbox jfr-20261024-lnx-g deletion accepted; cleanup is pending\n",
+  "stderr": ""
+}

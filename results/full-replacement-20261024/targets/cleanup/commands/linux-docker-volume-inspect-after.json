@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "volume",
+    "inspect",
+    "jfr-20261024-linux-retain",
+    "jfr-20261024-linux-workspace"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.108,
+  "stdout": "[\n    {\n        \"CreatedAt\": \"2026-10-24T08:16:23+07:00\",\n        \"Driver\": \"local\",\n        \"Labels\": {\n            \"jfr.experiment\": \"jfr-20261024-linux\",\n            \"openshell.ai/sandbox-attachable\": \"true\",\n            \"openshell.ai/sandbox-attachable-workspace\": \"default\"\n        },\n        \"Mountpoint\": \"/var/lib/docker/volumes/jfr-20261024-linux-retain/_data\",\n        \"Name\": \"jfr-20261024-linux-retain\",\n        \"Options\": null,\n        \"Scope\": \"local\"\n    },\n    {\n        \"CreatedAt\": \"2026-10-24T08:15:38+07:00\",\n        \"Driver\": \"local\",\n        \"Labels\": {\n            \"jfr.experiment\": \"jfr-20261024-linux\",\n            \"openshell.ai/sandbox-attachable\": \"true\",\n            \"openshell.ai/sandbox-attachable-workspace\": \"default\"\n        },\n        \"Mountpoint\": \"/var/lib/docker/volumes/jfr-20261024-linux-workspace/_data\",\n        \"Name\": \"jfr-20261024-linux-workspace\",\n        \"Options\": null,\n        \"Scope\": \"local\"\n    }\n]\n",
+  "stderr": ""
+}

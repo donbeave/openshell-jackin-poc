@@ -1,0 +1,16 @@
+[
+  "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/control/target/debug/openshell-control-probe",
+  "tls",
+  "--endpoint",
+  "https://127.0.0.1:28470",
+  "--server-name",
+  "localhost",
+  "--ca",
+  "../gateway-a/certs/ca.crt",
+  "--cert",
+  "private/certs/untrusted-client.crt",
+  "--key",
+  "private/certs/untrusted-client.key",
+  "--expect",
+  "deny"
+]

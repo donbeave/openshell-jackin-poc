@@ -1,0 +1,2 @@
+release-worker-gateway stopped pid=53597 port=28630 by SIGTERM; listener absent
+patched-worker-gateway stopped pid=25374 port=28631 by SIGTERM; listener absent

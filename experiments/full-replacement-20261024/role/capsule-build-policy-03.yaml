@@ -1,0 +1,45 @@
+version: 1
+process:
+  run_as_user: "1000"
+  run_as_group: "1000"
+filesystem_policy:
+  include_workdir: true
+  read_only: [/bin, /sbin, /usr, /usr/local, /lib, /lib64, /etc, /proc, /sys, /dev/urandom, /opt]
+  read_write: [/workspace, /sandbox, /tmp, /home, /dev/null]
+landlock:
+  compatibility: best_effort
+network_policies:
+  rust-dependencies:
+    endpoints:
+      - host: index.crates.io
+        port: 443
+        protocol: tcp
+      - host: static.crates.io
+        port: 443
+        protocol: tcp
+      - host: crates.io
+        port: 443
+        protocol: tcp
+      - host: github.com
+        port: 443
+        protocol: tcp
+      - host: codeload.github.com
+        port: 443
+        protocol: tcp
+      - host: raw.githubusercontent.com
+        port: 443
+        protocol: tcp
+      - host: api.github.com
+        port: 443
+        protocol: tcp
+    binaries:
+      - path: /bin/sh
+      - path: /bin/bash
+      - path: /usr/bin/git
+      - path: /usr/local/bin/mise
+      - path: /usr/local/bin/mbx
+      - path: /usr/local/cargo/bin/cargo
+      - path: /usr/local/cargo/bin/rustc
+      - path: /usr/local/cargo/bin/rustup
+      - path: /usr/local/rustup/toolchains/**
+      - path: /sandbox/jackin-source/**

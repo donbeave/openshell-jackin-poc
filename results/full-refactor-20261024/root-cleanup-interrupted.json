@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "experiments/full-refactor-20261024/cleanup-gateway-a.py",
+    "--apply"
+  ],
+  "exit_status": 1,
+  "observed": "Gateway stopped, certificate cleanup partially completed; bottom-up traversal attempted to remove an already removed child directory. Subsequent authenticated retry failed because gateway/certificates were gone.",
+  "unrecorded_detail": "First partial apply did not persist each removed certificate path. No private contents were read.",
+  "scope": "Only gateway-a private tree; no sandbox remained before stop; no other process or directory targeted.",
+  "recovery": "Preserve prior validated empty authenticated inventory; verify listener and recorded PID absent; resume only remaining owned private tree. New procedure writes progress before effects and skips double-directory removal."
+}

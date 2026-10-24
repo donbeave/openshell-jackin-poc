@@ -1,0 +1,15 @@
+{
+  "docker_context": "orbstack",
+  "owner": "experiment-owned Capsule root fixture; root explicitly authorized exact-tag cleanup",
+  "tag": "jfr-20261024-capsule-root-6e:fixture",
+  "expected_image_id": "sha256:c8f1f20f48889d8ced6af633778663bdde90a1b659c8ab4ff08d624e0b6f2d88",
+  "pre_delete_inspect_exit": 0,
+  "pre_delete_container_reference_exit": 0,
+  "pre_delete_container_references": "",
+  "delete_exit": 0,
+  "post_delete_inspect_exit": 1,
+  "post_delete_stderr": "Error response from daemon: No such image: jfr-20261024-capsule-root-6e:fixture",
+  "force": false,
+  "shared_cache_prune": "not run",
+  "result": "PASS"
+}

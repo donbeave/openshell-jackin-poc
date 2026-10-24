@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "orbctl",
+    "list",
+    "--format",
+    "json"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.063,
+  "stdout": "[\n  {\n    \"id\": \"01M5NQEC7J2BYG95SH85TRZHXW\",\n    \"name\": \"jfr-20261024-linux\",\n    \"image\": {\n      \"distro\": \"ubuntu\",\n      \"version\": \"noble\",\n      \"arch\": \"arm64\",\n      \"variant\": \"default\"\n    },\n    \"config\": {\n      \"isolated\": true,\n      \"forward_ssh_agent\": false,\n      \"isolate_network\": false,\n      \"default_username\": \"jfr\",\n      \"http_port\": 0,\n      \"https_port\": 0,\n      \"memory_limit_mib\": 4096,\n      \"cpu_limit\": 2,\n      \"disk_limit_bytes\": 34359738368\n    },\n    \"os_release\": {\n      \"name\": \"Ubuntu\",\n      \"version_id\": \"24.04\",\n      \"pretty_name\": \"Ubuntu 24.04.5 LTS\"\n    },\n    \"builtin\": false,\n    \"state\": \"running\"\n  }\n]\n",
+  "stderr": ""
+}

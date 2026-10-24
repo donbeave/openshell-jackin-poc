@@ -1,0 +1,140 @@
+   Compiling smallvec v1.15.1
+   Compiling serde_core v1.0.229
+   Compiling hashbrown v0.17.0
+   Compiling shlex v1.3.0
+   Compiling once_cell v1.21.4
+   Compiling zeroize v1.9.0
+   Compiling futures-io v0.3.32
+   Compiling log v0.4.34
+   Compiling mio v1.2.0
+   Compiling syn v3.0.5
+   Compiling rustls v0.23.46
+   Compiling num-traits v0.2.19
+   Compiling serde v1.0.229
+   Compiling anyhow v1.0.102
+   Compiling subtle v2.6.1
+   Compiling either v1.15.0
+   Compiling generic-array v0.14.7
+   Compiling getrandom v0.4.2
+mbx[warning]: rustc cache bypassed: failed to read Cargo's build-script declarations: No such file or directory (os error 2)
+   Compiling typenum v1.20.1
+   Compiling parking_lot_core v0.9.12
+   Compiling cc v1.2.60
+   Compiling tracing-core v0.1.36
+   Compiling futures-util v0.3.32
+   Compiling rustls-pki-types v1.14.0
+   Compiling serde_json v1.0.149
+   Compiling itertools v0.14.0
+   Compiling axum-core v0.5.6
+   Compiling icu_normalizer v2.2.0
+   Compiling bytes v1.12.1
+   Compiling parking_lot v0.12.5
+   Compiling tracing v0.1.44
+   Compiling foldhash v0.1.5
+   Compiling tokio v1.52.1
+   Compiling rustls-native-certs v0.8.3
+   Compiling hashbrown v0.15.5
+   Compiling idna_adapter v1.2.1
+   Compiling indexmap v2.14.0
+   Compiling rustix v1.1.4
+   Compiling fastrand v2.4.1
+   Compiling cmake v0.1.58
+   Compiling miniz_oxide v0.8.9
+   Compiling idna v1.1.0
+   Compiling libm v0.2.16
+   Compiling lazy_static v1.5.0
+   Compiling tempfile v3.27.0
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling backtrace v0.3.76
+   Compiling prost-derive v0.14.3
+   Compiling aws-lc-sys v0.44.0
+   Compiling petgraph v0.8.3
+   Compiling nix v0.29.0
+   Compiling signature v2.2.0
+   Compiling digest v0.10.7
+   Compiling num-integer v0.1.46
+   Compiling sha2 v0.10.9
+   Compiling sha1 v0.10.6
+   Compiling regex-automata v0.4.14
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling backtrace-ext v0.2.1
+   Compiling num-bigint v0.4.6
+   Compiling uuid v1.23.1
+   Compiling rustls-pemfile v2.2.0
+   Compiling num_cpus v1.17.0
+   Compiling futures-executor v0.3.32
+   Compiling deadpool-runtime v0.1.4
+   Compiling prost v0.14.3
+   Compiling futures v0.3.32
+   Compiling terminal_size v0.4.4
+   Compiling thiserror v2.0.20
+   Compiling serde_path_to_error v0.1.20
+   Compiling miette v7.6.0
+   Compiling asn1-rs v0.7.2
+   Compiling simple_asn1 v0.6.4
+   Compiling prost-types v0.14.3
+   Compiling noyalib v0.0.53
+mbx[warning]: cc cache bypassed: compiler invocation names no output file
+   Compiling regex v1.12.3
+   Compiling prost-build v0.14.3
+   Compiling der-parser v10.0.0
+   Compiling oid-registry v0.8.1
+   Compiling tokio-util v0.7.19
+   Compiling tokio-stream v0.1.18
+   Compiling deadpool v0.12.3
+   Compiling tonic-prost-build v0.14.6
+   Compiling x509-parser v0.18.1
+   Compiling url v2.5.8
+   Compiling serde_urlencoded v0.7.1
+   Compiling chrono v0.4.45
+   Compiling assert-json-diff v2.0.2
+   Compiling openshell-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-core)
+   Compiling h2 v0.4.19
+   Compiling tower v0.5.3
+   Compiling openshell-policy-schema v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-policy-schema)
+   Compiling axum v0.8.9
+   Compiling tower-http v0.6.8
+   Compiling hyper v1.9.0
+   Compiling hyper-util v0.1.20
+   Compiling hyper-timeout v0.5.2
+   Compiling wiremock v0.6.5
+   Compiling aws-lc-rs v1.18.0
+   Compiling rustls-webpki v0.103.15
+   Compiling rcgen v0.14.10
+   Compiling jsonwebtoken v10.3.0
+mbx[progress]: 15s elapsed; 226 hits, 280 misses, 14 bypassed, 1 not looked up; ~0s compiler work saved
+   Compiling tokio-rustls v0.26.4
+   Compiling tungstenite v0.26.2
+   Compiling tonic v0.14.6
+   Compiling hyper-rustls v0.27.9
+   Compiling reqwest v0.12.28
+   Compiling tokio-tungstenite v0.26.2
+   Compiling tonic-types v0.14.6
+   Compiling openshell-crypto v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-crypto)
+   Compiling tonic-prost v0.14.6
+   Compiling openshell-extension-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-extension-core)
+   Compiling oauth2 v5.0.0
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-core/src/policy.rs:165:26
+    |
+165 |               otherwise => miette::bail!(
+    |  __________________________^
+166 | |                 "invalid landlock.compatibility {:?}; accepted: {}",
+167 | |                 otherwise,
+168 | |                 LANDLOCK_COMPATIBILITY_VALUES.join(", ")
+169 | |             ),
+    | |_____________^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling openshell-sdk v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-sdk)
+warning: `openshell-core` (lib) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 26.18s
+  Executable tests/delete_by_id_integration.rs (target/debug/deps/delete_by_id_integration-2f0946da5babd519)
+mbx[cache]: 226 hits, 298 misses, 1 not looked up, 1 incremental, 14 bypassed; 0 B downloaded, 0 B uploaded, 492.2 MiB stored locally
+mbx[savings]: 6.0 TiB shared among checkouts that each believe they are an only child.

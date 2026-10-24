@@ -1,0 +1,8 @@
+
+Created sandbox: jfr24-kimi-gid
+
+  [0.0s] Requesting compute...
+[0.0s] Sandbox allocated
+[0.0s] Pulling image jfr24-kimi-gid1000:fixture
+[0.1s] Image already present
+[0.4s] Starting sandbox Container created

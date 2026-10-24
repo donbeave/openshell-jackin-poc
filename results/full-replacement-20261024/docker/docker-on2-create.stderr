@@ -1,0 +1,8 @@
+Provisioning sandbox (structured output on stdout)...
+  • Uploading files to /workspace/docker-client...
+Error:   × Sandbox 'jfr24-dk-on2' was created and still exists.
+  │ Retry the upload with 'openshell sandbox upload', or remove the sandbox
+  │ with 'openshell sandbox delete'
+  ╰─▶ sandbox upload failed: extraction exited with status 1: mkdir: can't
+      create directory '/workspace/': Permission denied
+

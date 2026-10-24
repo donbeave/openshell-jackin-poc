@@ -1,0 +1,98 @@
+   Compiling openshell-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-core)
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-prover/src/model.rs:277:33
+    |
+277 |             SatResult::Unsat => miette::bail!("inconsistent reachability model"),
+    |                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-prover/src/model.rs:278:35
+    |
+278 |             SatResult::Unknown => miette::bail!("reachability model validation inconclusive"),
+    |                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: trailing semicolon in macro used in expression position
+  --> crates/openshell-prover/src/queries.rs:95:39
+   |
+95 |                 SatResult::Unknown => miette::bail!("reachability query inconclusive"),
+   |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+   = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+   = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: `openshell-prover` (lib) generated 3 warnings
+mbx[warning]: incremental state was not reused: compiler environment input changed: OPENSHELL_GIT_VERSION
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-core/src/policy.rs:165:26
+    |
+165 |               otherwise => miette::bail!(
+    |  __________________________^
+166 | |                 "invalid landlock.compatibility {:?}; accepted: {}",
+167 | |                 otherwise,
+168 | |                 LANDLOCK_COMPATIBILITY_VALUES.join(", ")
+169 | |             ),
+    | |_____________^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling openshell-policy v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-policy)
+   Compiling openshell-isolation-interface v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-isolation-interface)
+   Compiling openshell-bootstrap v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-bootstrap)
+   Compiling openshell-driver-db-credstore v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-driver-db-credstore)
+   Compiling openshell-supervisor-middleware-builtins v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-supervisor-middleware-builtins)
+   Compiling openshell-driver-kubernetes-secrets v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-driver-kubernetes-secrets)
+   Compiling openshell-supervisor-middleware v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-supervisor-middleware)
+   Compiling openshell-driver-vault v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-driver-vault)
+   Compiling openshell-gateway-interceptors v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-gateway-interceptors)
+   Compiling openshell-sdk v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-sdk)
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-policy/src/lib.rs:633:30
+    |
+633 |                   otherwise => miette::bail!(
+    |  ______________________________^
+634 | |                     "invalid landlock.compatibility {:?}; accepted: {}",
+635 | |                     otherwise,
+636 | |                     openshell_core::policy::LANDLOCK_COMPATIBILITY_VALUES.join(", ")
+637 | |                 ),
+    | |_________________^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling openshell-sandbox-backend v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-sandbox-backend)
+   Compiling openshell-providers v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-providers)
+warning: `openshell-core` (lib) generated 1 warning
+warning: `openshell-policy` (lib) generated 1 warning
+   Compiling openshell-tui v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-tui)
+   Compiling openshell-server v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-server)
+   Compiling openshell-driver-podman v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-driver-podman)
+   Compiling openshell-driver-docker v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-driver-docker)
+   Compiling openshell-driver-kubernetes v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-driver-kubernetes)
+   Compiling openshell-cli v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-cli)
+mbx[progress]: 15s elapsed; 0 hits, 16 misses, 0 bypassed, 1 not looked up; ~0s compiler work saved
+mbx[progress]: 30s elapsed; 0 hits, 18 misses, 0 bypassed, 2 not looked up; ~0s compiler work saved
+   Compiling openshell-gateway v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-gateway)
+mbx[progress]: 45s elapsed; 0 hits, 19 misses, 0 bypassed, 2 not looked up; ~0s compiler work saved
+warning: linker stderr: ld: __eh_frame section too large (max 16MB) to encode dwarf unwind offsets in compact unwind table, performance of exception handling might be affected
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `openshell-gateway` (bin "openshell-gateway") generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 50.07s
+mbx[cache]: 0 hits, 21 misses, 2 not looked up, 3 incremental; 0 B downloaded, 0 B uploaded, 1.1 GiB stored locally
+mbx[savings]: disposed of 19.8 TiB logical without being asked. that is rather the point.

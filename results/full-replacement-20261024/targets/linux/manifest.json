@@ -1,0 +1,59 @@
+{
+  "profile": "OrbStack-hosted Linux ARM64; not native bare-host Linux",
+  "platform": {
+    "machine_name": "jfr-20261024-linux",
+    "machine_id": "01M5NQEC7J2BYG95SH85TRZHXW",
+    "os": "Ubuntu 24.04.5 LTS",
+    "architecture": "arm64",
+    "orb_machine_cpu_limit": 2,
+    "orb_machine_memory_limit_bytes": 4294967296,
+    "orb_machine_disk_limit_bytes": 34359738368,
+    "guest_cgroup_cpu_max": "200000 100000",
+    "guest_cgroup_memory_max": "4294967296",
+    "guest_cgroup_pids_max": "max",
+    "guest_ipv4": "192.168.139.147",
+    "host_mounts": false,
+    "ssh_agent_forwarding": false
+  },
+  "openshell": {
+    "version": "0.1.5",
+    "cli_asset_sha256": "ae381703f78061141bbac44aa85fb7d9856cb567d2ab2b4306318365f5466ac5",
+    "gateway_archive_sha256": "125f9f43b8d06da8280c78089904a6da2faa7c4cb03f82db3b31fc980cf6c62d",
+    "gateway_name": "jfr-20261024-linux",
+    "gateway_endpoint": "https://192.168.139.147:18470",
+    "control_transport": "TLS 1.3 with mTLS; gateway certificate SAN includes exact guest IP; TLS validation enabled",
+    "compute_driver": "docker",
+    "driver_config": "grpc_endpoint=https://192.168.139.147:18470; sandbox_label=jfr-20261024-linux"
+  },
+  "engine": {
+    "owner": "disposable OrbStack Linux guest",
+    "engine_id": "0a39b2e3-bccf-4cc0-ac11-e3cd211b1673",
+    "docker_version": "29.1.3",
+    "architecture": "aarch64",
+    "data_root": "/var/lib/docker",
+    "ncpus_reported_by_engine": 18,
+    "memory_reported_by_engine_bytes": 130666131456,
+    "note": "Engine-reported host capacity is misleading; guest limits are 2 CPUs and 4 GiB from OrbStack/cgroup evidence."
+  },
+  "image": {
+    "base": "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+    "derived_image_id": "sha256:3f7907c4b4e8270c89f83252d462e068328a44ae2ed7677a46db45e078a1de00",
+    "platform": "linux/arm64",
+    "recipe": "experiments/full-replacement-20261024/targets/linux/probe-image/Dockerfile",
+    "delivery": "built in the disposable guest's Docker engine, then consumed as a local image by the OpenShell Docker driver",
+    "agent_installed": false,
+    "architect_role": false
+  },
+  "resources": {
+    "volume": "jfr-20261024-linux-retain",
+    "volume_owner": "external fixture: Docker Engine in this Linux guest",
+    "sandboxes": [
+      {"name": "jfr-20261024-lnx-a", "id": "c97dea51-bf6d-4331-94ba-f8b7b1b7c2ba", "observed_phase": "Error after gateway rebind"},
+      {"name": "jfr-20261024-lnx-d", "id": "80eaaf81-9b3e-4b86-be36-b324605357b2", "observed_phase": "Error after gateway rebind"},
+      {"name": "jfr-20261024-lnx-e", "id": "d8241443-3a1b-4fcc-b06c-817d79de5842", "observed_phase": "Error after gateway rebind"},
+      {"name": "jfr-20261024-lnx-g", "id": "ca178d9a-44e2-48e7-8acc-05168ac8efeb", "observed_phase": "Ready after grpc_endpoint configuration"},
+      {"name": "jfr-20261024-lnx-h", "id": "9341c009-e05c-4036-bd0b-300057cae320", "observed_phase": "Ready from final probe image"}
+    ]
+  },
+  "ownership_and_cleanup": "OpenShell owns its recorded sandbox resources; the external fixture script/operator owns the OrbStack guest, guest Docker daemon, image, named volume, gateway state, and certificates. Remove only after parent confirms cross-gateway control tests are complete. No cleanup executed."
+}

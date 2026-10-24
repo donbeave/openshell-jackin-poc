@@ -1,0 +1,19 @@
+version: 1
+filesystem_policy:
+  include_workdir: true
+  read_only: [/bin, /sbin, /usr, /usr/local, /lib, /lib64, /etc, /proc, /sys, /dev/urandom, /opt]
+  read_write: [/workspace, /sandbox, /tmp, /home, /dev/null]
+landlock:
+  compatibility: best_effort
+network_policies:
+  engine:
+    endpoints:
+      - host: host.docker.internal
+        port: 28480
+        protocol: tcp
+        tls: skip
+        allowed_ips: [127.0.0.1/32]
+    binaries:
+      - path: /bin/sh
+      - path: /bin/busybox
+      - path: /usr/local/bin/docker

@@ -1,0 +1,13 @@
+# Packaged OpenShell VM target fixture
+
+This profile uses the installed OpenShell `v0.1.5` packaged VM driver with fresh gateway, XDG, certificate, JWT, and runtime state. It does not use the existing `preview-vm` gateway or runtime state. Its local listener is `127.0.0.1:28472`; sandbox supervisor traffic uses the configured VM `grpc_endpoint`. Host Docker builds are resolved by the gateway and delivered into the VM guest image.
+
+Run `setup.sh`, then `run-gateway.sh` in a dedicated terminal. Run `client.sh gateway add https://127.0.0.1:28472 --local --name jfr-20261024-vm` once per fresh profile. The gateway process PATH includes the installed e2fsprogs directory; without that PATH, config preflight reports `inspect /usr/local/bin/mke2fs: Permission denied`. The initial long runtime socket path failed with `path must be shorter than SUN_LEN`; the corrected gateway state socket is under `/tmp/jfr-20261024-vm/runtime`. This path is owned by this experiment and included in `results/full-replacement-20261024/targets/openshell-vm/manifest.json`.
+
+The gateway uses 2 vCPUs, 2048 MiB guest memory, and a 4096 MiB overlay allocation for each VM sandbox. Generic create `--cpu` and `--memory` options were omitted. The guest reported `nproc=2` and `MemTotal=2036904 kB`; this is VM guest capacity evidence, not a stress test of behavior at exhaustion or a combined gateway/engine budget.
+
+`probe-image/Dockerfile` creates a small arm64 image in the local OrbStack builder before sandbox creation. A VM sandbox from that image reached `Ready`. The default VM policy denied `/workspace` marker reads and writes. A separate sandbox using the explicit writable-workspace policy and `sandbox exec --workdir /workspace` read the image marker and wrote an edit. This is a configured disposable fixture, not the actual Architect role.
+
+The separate `openshell-vm-bind` gateway tests a disposable host checkout. It enables VM driver config and raw bind mounts while keeping resource admission enabled. The request failed with `host bind mount cannot be attached while resource admission is enabled: no trusted label resolver`; it did not create a sandbox. Do not disable admission. The pinned VM runtime documentation warns that virtiofs mounts do not confine a compromised guest kernel to the configured source directory. No live host sharing or filesystem confinement PASS is claimed.
+
+The named-volume result from the Docker driver does not transfer to this VM profile. VM host workspace access, persistent retained-state reconstruction, Docker/Compose/Testcontainers, actual agent/session/auth, Jackin lifecycle, and all other target-level journeys remain unproven.

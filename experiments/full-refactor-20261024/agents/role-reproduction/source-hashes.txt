@@ -1,0 +1,1 @@
+architect-role-inputs.patch sha256=0b26944c002bb5558fe4cd3d7ce65ef79d641a7d2b5f0676747d26bed9f8017c bytes=629

@@ -1,0 +1,19 @@
+[
+    {
+        "CreatedAt": "2026-10-24T08:20:30+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-ws",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-20261024"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24ws-decoy-validlbl/_data",
+        "Name": "jfr24ws-decoy-validlbl",
+        "Options": {
+            "device": "results/full-replacement-20261024/workspace/jfr-20261024-ws/protected",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    }
+]

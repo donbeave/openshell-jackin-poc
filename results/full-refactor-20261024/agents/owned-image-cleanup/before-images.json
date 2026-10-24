@@ -1,0 +1,71 @@
+{
+  "docker_context": "orbstack",
+  "images": [
+    {
+      "tag": "jk_jfr24_architect:018fb47",
+      "expected_id": "sha256:d1c82a2c8d9b21dfcb1d2bb20dd5a23823a7747799f01d73c291f3a7140546a2",
+      "actual_id": "sha256:d1c82a2c8d9b21dfcb1d2bb20dd5a23823a7747799f01d73c291f3a7140546a2",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jk_jfr24_architect:93a46c2",
+      "expected_id": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f",
+      "actual_id": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr24-architect-opencode:93a46c2",
+      "expected_id": "sha256:f14f7f176039788cf487f2dc59e57ccf746a4dcf9219a356bf4cf7a7f7ad35ff",
+      "actual_id": "sha256:f14f7f176039788cf487f2dc59e57ccf746a4dcf9219a356bf4cf7a7f7ad35ff",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr24-architect-amp:93a46c2",
+      "expected_id": "sha256:7a506190ca30f6d0935e447d3ede617834432b3c2a1c65f1f62e99ca4ceb7fb7",
+      "actual_id": "sha256:7a506190ca30f6d0935e447d3ede617834432b3c2a1c65f1f62e99ca4ceb7fb7",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr24-architect-kimi:93a46c2",
+      "expected_id": "sha256:394c48478aea233046c95ec5eada721a75bfbdb2e2d0385b6dbd18982a776c9f",
+      "actual_id": "sha256:394c48478aea233046c95ec5eada721a75bfbdb2e2d0385b6dbd18982a776c9f",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr24-architect-grok:93a46c2",
+      "expected_id": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f",
+      "actual_id": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr24-openc-gid1000:fixture",
+      "expected_id": "sha256:0515299a30d6dcd6e2b0b037937d96e2c854d5f7e859524343680520d833a7fe",
+      "actual_id": "sha256:0515299a30d6dcd6e2b0b037937d96e2c854d5f7e859524343680520d833a7fe",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr24-amp-gid1000:fixture",
+      "expected_id": "sha256:b4dff49e253bf9e317cd23298f8282d8fee42fa654d1b15cedbd62b002f531aa",
+      "actual_id": "sha256:b4dff49e253bf9e317cd23298f8282d8fee42fa654d1b15cedbd62b002f531aa",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr24-kimi-gid1000:fixture",
+      "expected_id": "sha256:23742d321eb26b2fbaadea1941162db70fa4ed15ec8c0638568ee98995c62219",
+      "actual_id": "sha256:23742d321eb26b2fbaadea1941162db70fa4ed15ec8c0638568ee98995c62219",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr24-grok-gid1000:fixture",
+      "expected_id": "sha256:716b4cf62a101a398947b14dd96f9c72fa8f0aac4699cad3a06d91e0236ba98c",
+      "actual_id": "sha256:716b4cf62a101a398947b14dd96f9c72fa8f0aac4699cad3a06d91e0236ba98c",
+      "inspect_exit": 0
+    },
+    {
+      "tag": "jfr-20261024-architect-tools:1.99.1-1.27.0",
+      "expected_id": "sha256:ca42583c38e737d8ac701c7bc16d6a65e97c4d86e32f710a046363130bfaf38e",
+      "actual_id": "sha256:ca42583c38e737d8ac701c7bc16d6a65e97c4d86e32f710a046363130bfaf38e",
+      "inspect_exit": 0
+    }
+  ]
+}

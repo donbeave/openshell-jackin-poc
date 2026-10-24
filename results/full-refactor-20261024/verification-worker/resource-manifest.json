@@ -1,0 +1,23 @@
+{
+  "experiment_id": "jfr-20261024-verification-worker",
+  "gateway": {
+    "identity": "jfr-20261024-verify",
+    "endpoint": "https://localhost:28630",
+    "config": "experiments/full-refactor-20261024/verification-worker/gateway/gateway.toml",
+    "owner": "verification-worker POC",
+    "process_pid_observed": 53597,
+    "cleanup": "scoped cleanup.sh; gateway PID 53597 is currently retained for review"
+  },
+  "sandboxes": [
+    {"name":"jfrv-20261024-w01","id":"af2ebd7a-ed3f-463e-a9d8-6f49bac1d0a0","owner":"OpenShell gateway","result":"failed provisioning","deleted_confirmed":true},
+    {"name":"jfrv-20261024-w02","id":"f8b6c9aa-a1ad-4b16-8e76-fc1e4297737a","owner":"OpenShell gateway","result":"failed provisioning","deleted_confirmed":true},
+    {"name":"jfrv-20261024-w03","id":"392de56a-9dec-47c2-ac17-76bdb07c0bf8","owner":"OpenShell gateway","result":"failed provisioning","deleted_confirmed":true}
+  ],
+  "external_resources": [
+    {"kind":"Docker named volume","name":"jfr24verify-candidate","owner":"POC fixture script","device":"experiments/full-refactor-20261024/verification-worker/fixture/candidate","labels":{"jackin.fixture":"jfr-20261024-verification-worker","openshell.ai/sandbox-attachable":"true","openshell.ai/sandbox-attachable-workspace":"default"},"cleanup":"cleanup.sh verifies exact labels/options/device then removes on --apply"},
+    {"kind":"Docker named volume","name":"jfr24verify-bundle","owner":"POC fixture script","device":"experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle","labels":{"jackin.fixture":"jfr-20261024-verification-worker","openshell.ai/sandbox-attachable":"true","openshell.ai/sandbox-attachable-workspace":"default"},"cleanup":"cleanup.sh verifies exact labels/options/device then removes on --apply"},
+    {"kind":"Docker image","reference":"jfr-20261024-verify-worker:baseline-python","id":"sha256:9644b32c48960dee46b1b7f47b7ba15a7f57f61e1b821fa6a4ea9c916dc6d77c","owner":"POC image build","cleanup":"cleanup.sh verifies exact image ID then removes on --apply"}
+  ],
+  "secrets": "fresh CA and client private keys reside only in ignored gateway/private; do not archive",
+  "cleanup_scope": "does not remove fixture source, evidence, shared Docker caches, or unrelated OpenShell resources"
+}

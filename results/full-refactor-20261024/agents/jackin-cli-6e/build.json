@@ -1,0 +1,30 @@
+{
+  "command": [
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "build",
+    "--locked",
+    "--release",
+    "--target-dir",
+    "<experiment>/jackin-target-cli",
+    "-p",
+    "jackin"
+  ],
+  "cwd": "<pinned-jackin-source>",
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "source_tree": "11c7af3812dd9ba0be27f6ae33fc078fa40ff85c",
+  "started_utc": "2026-10-24T01:53:36.718709+00:00",
+  "duration_seconds": 203.471,
+  "exit_status": 0,
+  "host_platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "binary_path": "<experiment>/jackin-target-cli/release/jackin",
+  "binary_size_bytes": 64337696,
+  "binary_sha256": "307d6985e79662ed3edf4068c5013d28e742b56b430c6d2abc285583cbf8c7d0",
+  "version_status": 0,
+  "version_stdout": "jackin 0.6.4",
+  "version_stderr": ""
+}

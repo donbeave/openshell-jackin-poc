@@ -1,0 +1,1 @@
+{"docker":{"mounts":[{"type":"volume","source":"jfr24-dk-host-project","target":"/workspace/rust-project","read_only":false}]}}

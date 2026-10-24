@@ -1,0 +1,39 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 186B done
+#1 DONE 0.8s
+
+#2 [internal] load metadata for docker.io/library/alpine@sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 63B done
+#4 DONE 0.1s
+
+#5 [1/3] FROM docker.io/library/alpine@sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f
+#5 resolve docker.io/library/alpine@sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f
+#5 resolve docker.io/library/alpine@sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f 0.1s done
+#5 DONE 0.1s
+
+#6 [2/3] RUN apk add --no-cache curl
+#6 CACHED
+
+#7 [3/3] COPY Cargo.toml Cargo.lock /probe/
+#7 CACHED
+
+#8 exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:fbb4208abfed2ca5cce8c32215980bb32b704f3048829c896ab1a65684e4894b 0.0s done
+#8 exporting config sha256:d11f769a793637ef85e663f8349244f08c379c0f00af02aed87fb5d3c4f2eb45 done
+#8 exporting attestation manifest sha256:7c5e6c0dcce41f1748c2642188c1d56ad8b4b87457571f530c20ec0abc7aa4f6 0.0s done
+#8 exporting manifest list sha256:c3387a013b5eae6ea1350d7b893ea4a58afdce940a43d0e20b26a0f55ef76372
+#8 exporting manifest list sha256:c3387a013b5eae6ea1350d7b893ea4a58afdce940a43d0e20b26a0f55ef76372 0.0s done
+#8 naming to docker.io/library/jfr-20261024-online-build:warm 0.0s done
+#8 unpacking to docker.io/library/jfr-20261024-online-build:warm 0.0s done
+#8 DONE 0.2s

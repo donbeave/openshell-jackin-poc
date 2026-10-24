@@ -1,0 +1,111 @@
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-account-identity/src/account_identity.rs:105:    if let Err(cleanup_error) = docker.remove_container_by_id(container).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-inspect/src/inspect.rs:38:        docker.inspect_container_by_name(container_name),
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-inspect/src/inspect.rs:41:                let inspection = docker.inspect_container_by_name(dind_name).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-inspect/src/inspect.rs:43:                    Some(handle) => docker.inspect_container_by_id(&handle).await,
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-inspect/src/inspect.rs:170:    match docker.inspect_network(network).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-host/src/caffeinate.rs:145:        .list_containers(
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:27:        let inspection = docker.inspect_container_by_name(&name).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:33:                Some(handle) => match docker.remove_container_by_id(&handle).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:97:    match docker.inspect_container_by_name(container_name).await.state {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:117:                let state = docker.inspect_container_by_id(container).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:151:                Some(container) => Some(docker.remove_container_by_id(container).await),
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:169:                Some(container) => Some(docker.remove_container_by_id(container).await),
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:185:            if let Err(e) = docker.remove_volume(&self.certs_volume).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:192:            if let Err(e) = docker.remove_network(&self.network).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:74:            .exec_capture_by_id(container, &["sh", "-c", &protocol_check])
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:131:                .exec_capture_by_id(dind, &["docker", "info"])
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:145:        .exec_capture_by_id(dind, &["test", "-f", "/certs/client/ca.pem"])
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-running-gate/src/running_gate.rs:16:    let inspection = docker.inspect_container_by_name(container_name).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:23:    let state = docker.inspect_container_by_name(container_name).await.state;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:33:    let state = docker.inspect_container_by_id(container).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:146:        match docker.inspect_container_by_name(container).await.state {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:173:    Ok(match docker.inspect_container_by_id(container).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-eject-resources/src/eject_resources.rs:35:    docker.remove_container_by_id(role_handle).await?;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-eject-resources/src/eject_resources.rs:40:        docker.remove_container_by_id(dind_handle).await?;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-eject-resources/src/eject_resources.rs:44:        docker.remove_volume(certs_volume).await?;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-eject-resources/src/eject_resources.rs:46:    docker.remove_network(&resources.network).await?;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:123:    let inspection = docker.inspect_container_by_name(name).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-isolation/src/capture.rs:432:        match docker.inspect_container_by_id(handle).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-isolation/src/capture.rs:485:    if let Err(e) = docker.pause_container_by_id(handle).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-isolation/src/capture.rs:517:    let resume_result = docker.unpause_container_by_id(handle).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-isolation/src/capture.rs:540:    let state = docker.inspect_container_by_id(handle).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-isolation/src/finalize.rs:275:        .exec_capture_by_id(container, &["sh", "-c", &status_command])
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:29:    let rows = docker.list_containers(&[LABEL_KIND_DIND], true).await?;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:80:    let existing_rows = match docker.list_containers(&[LABEL_KIND_ROLE], true).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:101:        let r1 = docker.remove_container_by_id(&info.handle).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:110:        let role_inspection = docker.inspect_container_by_name(&info.role).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:122:            docker.remove_volume(&certs_volume),
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:123:            docker.remove_network(&network),
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:156:        .list_containers(&[LABEL_KIND_PREWARM_DIND], true)
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:195:            docker.remove_container_by_id(&handle),
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:196:            docker.remove_volume(certs_volume),
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:197:            docker.remove_network(network),
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:220:    let net_rows = match docker.list_networks(&[LABEL_MANAGED]).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:268:        let inspection = docker.inspect_container_by_name(&role).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:276:        if let Err(err) = docker.remove_network(&net_name).await {
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/app.rs:339:    let inspection = docker.inspect_container_by_name(container).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-attach-sessions/src/sessions.rs:37:        .exec_capture_by_id(container, &["sh", "-c", &status_command])
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-image/src/image/published.rs:22:    let pull_result = docker.pull_image(published).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-image/src/image/published.rs:39:    let labels = match docker.inspect_image_labels(published).await {
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/preflight.rs:191:        Ok(docker) => match docker.ping().await {
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/preflight.rs:414:    let Ok(containers) = docker.list_containers(&[LABEL_MANAGED], true).await else {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:120:    let result = docker.create_network(network, labels, internal).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:161:    let dind_image_tags = docker.list_image_tags(dind_image).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:177:        let pull_dind_image = docker.pull_image(dind_image);
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:211:    let create_dind = docker.create_container(dind, spec);
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:234:    let start_dind = docker.start_container_by_id(&dind_handle);
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:306:            Some(handle) => docker.remove_container_by_id(handle).await,
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:309:        docker.remove_volume(&certs_volume).await,
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:310:        docker.remove_network(&network).await,
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:338:            Some(container) => docker.remove_container_by_id(container).await,
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:343:        let remove_volume = docker.remove_volume(&certs_volume).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:344:        let remove_network = docker.remove_network(&network).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:377:        let inspection = docker.inspect_container_by_name(&prewarm_dind).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:398:    let inspection = docker.inspect_container_by_name(&state.dind).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:430:        .list_containers(&[LABEL_MANAGED, LABEL_KIND_PREWARM_DIND], true)
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:450:    let state_by_id = docker.inspect_container_by_id(&handle).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:560:    let inspection = docker.inspect_container_by_name(&state.dind).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:568:        docker.inspect_container_by_id(&dind_handle).await,
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:573:    let Ok(Some(network_row)) = docker.inspect_network(&state.network).await else {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:656:    let inspection = docker.inspect_container_by_name(&dind).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:672:    let dind_state = docker.inspect_container_by_id(&dind_handle).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:684:    let network_row = match docker.inspect_network(&network).await {
+experiments/full-refactor-20261024/source/jackin/crates/core/jackin-core/src/docker.rs:224:        Ok(self.inspect_image_labels(image).await?.remove(label))
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-image/src/image/build.rs:87:            .list_image_tags(&base_name)
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-image/src/image/build.rs:91:            .inspect_image_labels(&base_name)
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-image/src/image/build.rs:352:            .inspect_image_label(&image, LABEL_IMAGE_CONSTRUCT)
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-image/src/image/decision.rs:65:    let tag_result = docker.list_image_tags(&image).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-image/src/image/decision.rs:135:    let label_result = docker.inspect_image_labels(&image).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-discovery/src/discovery.rs:28:        .list_containers(&[LABEL_KIND_ROLE], include_stopped)
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-discovery/src/discovery.rs:36:    let rows = docker.list_containers(&[LABEL_KIND_ROLE], false).await?;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:13:        .complete(docker.list_image_tags("jk_*").await, |error| {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:23:        docker.list_containers(&[LABEL_KIND_ROLE], true).await,
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:53:        match docker.remove_image(image).await {
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/status.rs:135:                    .inspect_container_by_name(&entry.container_base)
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/status.rs:171:                .inspect_container_by_name(&e.container_base)
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/status.rs:265:            .inspect_container_by_name(&e.container_base)
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/status.rs:368:    let inspection = docker.inspect_container_by_name(container_name).await;
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/status.rs:382:            .exec_capture_by_id(container, &["sh", "-c", &jackin_agents_command()])
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/status.rs:403:            .exec_capture_by_id(container, &["sh", "-c", GIT_BRANCH_CMD])
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/status.rs:532:        .exec_capture_by_id(container, &["sh", "-c", GH_PR_CMD])
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-cleanup-absent-guards/src/absent_guards.rs:23:    let state_phrase = match docker.inspect_container_by_name(container_name).await.state {
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/usage.rs:557:    let inspection = docker.inspect_container_by_name(&target.container).await;
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:380:    match docker.inspect_network(&network_name).await {
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:425:            .inspect_container_by_name(&manifest.container_base)
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:633:            .inspect_container_by_name(&manifest.container_base)
+experiments/full-refactor-20261024/source/jackin/crates/services/jackin-runtime-launch-restore/src/restore.rs:147:            .inspect_container_by_name(&manifest.container_base)
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/prewarm.rs:252:    let tags = docker.list_image_tags(image).await?;
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/cli/prewarm.rs:254:        docker.pull_image(image).await?;
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:479:                .ping()
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:598:                .list_containers(Some(ListContainersOptions {
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:668:                .create_container(
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:730:                .remove_volume(name, None::<RemoveVolumeOptions>)
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:749:                .create_network(NetworkCreateRequest {
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:764:            match self.inner.remove_network(name).await {
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:778:                .list_networks(Some(ListNetworksOptions { filters }))
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:821:                .remove_image(
+experiments/full-refactor-20261024/source/jackin/crates/adapters/jackin-docker/src/docker_client.rs:1005:                .inspect_network(
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/app/context.rs:339:            .inspect_container_by_name(&manifest.container_base)
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/app/context.rs:399:            .inspect_container_by_name(&manifest.container_base)
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/app/restore.rs:87:        docker.inspect_container_by_name(container).await.state,
+experiments/full-refactor-20261024/source/jackin/crates/apps/jackin/src/app/restore.rs:191:    match docker.inspect_container_by_name(container).await.state {

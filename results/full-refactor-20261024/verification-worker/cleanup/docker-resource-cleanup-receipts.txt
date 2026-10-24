@@ -1,0 +1,19 @@
+jfr24verify-candidate
+jfr24verify-bundle
+Untagged: jfr-20261024-verify-worker:patch-adversarial
+Deleted: sha256:6c005dccad5abf6cd7c2ce997505b7acc9764cc1824ce41ff5cf1dc68084ac50
+Untagged: jfr-20261024-verify-worker:patch-confined
+Deleted: sha256:e461f6a0b7c788b8f33cac5de39341033afdc10cceef5618174f6710148b58db
+Untagged: jfr-20261024-verify-worker:patch-policy-baseline
+Deleted: sha256:4374083c637a23596026eb54ed67d7c11bb4f020f7e825592ddaefd7730073da
+Untagged: jfr-20261024-verify-worker:patch-policy-final
+Deleted: sha256:9e1738c8e074ed986a86d0d1fc24aac4b18f0687afc853fa55e5a0db4ec1d7b6
+Untagged: jfr-20261024-verify-worker:patch-policy-wd
+Deleted: sha256:28a421a1c2156d71712e9af94382ecb1c9fa931355e31c851b06061acd4b5ec3
+Untagged: jfr-20261024-verify-worker:patch-policy
+Deleted: sha256:f85b4ee54f47e6ce1a60b652b2a05e3ccf44710e7a7d68a890cd067c9111358f
+Untagged: jfr-20261024-verify-worker:patch-workdir
+Deleted: sha256:715988558a36ea00ea89c17904a6c30c801fcf3a100746c165509dd70eb5fa95
+Untagged: jfr-20261024-verify-worker:baseline-python
+Deleted: sha256:9644b32c48960dee46b1b7f47b7ba15a7f57f61e1b821fa6a4ea9c916dc6d77c
+confirmed absent: exact two owned volumes and all eight recorded derived image tags; shared base images/caches untouched

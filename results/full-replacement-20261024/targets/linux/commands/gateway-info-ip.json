@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "env",
+    "XDG_CONFIG_HOME=/var/lib/jfr-20261024-linux/config",
+    "XDG_STATE_HOME=/var/lib/jfr-20261024-linux/state",
+    "OPENSHELL_LOCAL_TLS_DIR=/var/lib/jfr-20261024-linux/certs",
+    "openshell",
+    "--gateway",
+    "jfr-20261024-linux-ip",
+    "gateway",
+    "info",
+    "-o",
+    "json"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.069,
+  "stdout": "{\n  \"auth\": null,\n  \"compute_drivers\": [\n    {\n      \"capabilities\": {\n        \"driver_name\": \"docker\",\n        \"driver_version\": \"0.1.5\"\n      },\n      \"name\": \"docker\"\n    }\n  ],\n  \"extensions\": [\n    {\n      \"configured_name\": \"docker\",\n      \"implementation_name\": \"openshell/docker\",\n      \"implementation_version\": \"0.1.5\",\n      \"kind\": \"compute-driver\",\n      \"protocol_version\": \"1.0\",\n      \"required_capabilities\": [\n        \"openshell.compute.contract\"\n      ],\n      \"supported_capabilities\": [\n        \"openshell.compute.contract\"\n      ]\n    },\n    {\n      \"configured_name\": \"openshell-driver-db-credstore\",\n      \"implementation_name\": \"openshell/openshell-driver-db-credstore\",\n      \"implementation_version\": \"0.1.5\",\n      \"kind\": \"credential-driver\",\n      \"protocol_version\": \"1.0\",\n      \"required_capabilities\": [\n        \"openshell.credentials.contract\"\n      ],\n      \"supported_capabilities\": [\n        \"openshell.credentials.contract\"\n      ]\n    },\n    {\n      \"configured_name\": \"openshell/regex\",\n      \"implementation_name\": \"openshell/regex\",\n      \"implementation_version\": \"0.1.5\",\n      \"kind\": \"supervisor-middleware\",\n      \"protocol_version\": \"1.0\",\n      \"required_capabilities\": [\n        \"openshell.supervisor-middleware.contract\"\n      ],\n      \"supported_capabilities\": [\n        \"openshell.supervisor-middleware.contract\"\n      ]\n    }\n  ],\n  \"gateway\": \"jfr-20261024-linux-ip\",\n  \"server\": \"https://192.168.139.147:18470\",\n  \"status\": \"healthy\",\n  \"version\": \"0.1.5\"\n}\n",
+  "stderr": ""
+}

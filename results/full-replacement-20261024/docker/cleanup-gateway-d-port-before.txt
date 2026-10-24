@@ -1,0 +1,2 @@
+COMMAND     PID     USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+openshell 39112 donbeave   22u  IPv4 0x386996897c49ea35      0t0  TCP 127.0.0.1:28610 (LISTEN)

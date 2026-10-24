@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "volume",
+    "ls",
+    "--format",
+    "{{.Name}}"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.217,
+  "stdout": "jfr-20261024-linux-retain\njfr-20261024-linux-workspace\nopenshell-channel-01e92dee612a429dfc68a76e614c0197\nopenshell-channel-706a006228754a19f076f537e372b4e0\nopenshell-channel-4531dc7a69533292131bc1f95ef1248b\nopenshell-channel-a673425d7ed8cd1d4e482fcbb7dff263\nopenshell-channel-c6c1e9443c7b07ddb5e058195844776c\nopenshell-supervisor-01e92dee612a429dfc68a76e614c0197\nopenshell-supervisor-706a006228754a19f076f537e372b4e0\nopenshell-supervisor-4531dc7a69533292131bc1f95ef1248b\nopenshell-supervisor-a673425d7ed8cd1d4e482fcbb7dff263\nopenshell-supervisor-c6c1e9443c7b07ddb5e058195844776c\n",
+  "stderr": ""
+}

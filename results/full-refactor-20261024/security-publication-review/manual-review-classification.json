@@ -1,0 +1,367 @@
+[
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-amp-image-6e/prewarm.stderr.txt",
+    "line": 38,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-amp-image-6e/prewarm.stderr.txt",
+    "line": 41,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-amp-image-6e/prewarm.stderr.txt",
+    "line": 47,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-amp-image-6e/prewarm.stderr.txt",
+    "line": 59,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-amp-image-6e/prewarm.stderr.txt",
+    "line": 65,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-amp-image-6e/prewarm.stderr.txt",
+    "line": 80,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-claude-image-6e/prewarm.stderr.txt",
+    "line": 32,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-claude-image-6e/prewarm.stderr.txt",
+    "line": 38,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-claude-image-6e/prewarm.stderr.txt",
+    "line": 44,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-claude-image-6e/prewarm.stderr.txt",
+    "line": 47,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-claude-image-6e/prewarm.stderr.txt",
+    "line": 56,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-claude-image-6e/prewarm.stderr.txt",
+    "line": 83,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-codex-image-6e/prewarm.stderr.txt",
+    "line": 41,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-codex-image-6e/prewarm.stderr.txt",
+    "line": 47,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-codex-image-6e/prewarm.stderr.txt",
+    "line": 53,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-codex-image-6e/prewarm.stderr.txt",
+    "line": 59,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-codex-image-6e/prewarm.stderr.txt",
+    "line": 68,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-codex-image-6e/prewarm.stderr.txt",
+    "line": 74,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-grok-image-6e/prewarm.stderr.txt",
+    "line": 35,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-grok-image-6e/prewarm.stderr.txt",
+    "line": 50,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-grok-image-6e/prewarm.stderr.txt",
+    "line": 59,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-grok-image-6e/prewarm.stderr.txt",
+    "line": 65,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-grok-image-6e/prewarm.stderr.txt",
+    "line": 71,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-grok-image-6e/prewarm.stderr.txt",
+    "line": 80,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-kimi-image-6e/prewarm.stderr.txt",
+    "line": 32,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-kimi-image-6e/prewarm.stderr.txt",
+    "line": 35,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-kimi-image-6e/prewarm.stderr.txt",
+    "line": 41,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-kimi-image-6e/prewarm.stderr.txt",
+    "line": 53,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-kimi-image-6e/prewarm.stderr.txt",
+    "line": 77,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-kimi-image-6e/prewarm.stderr.txt",
+    "line": 80,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e-rolechange/prewarm.stderr.txt",
+    "line": 41,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e-rolechange/prewarm.stderr.txt",
+    "line": 56,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e-rolechange/prewarm.stderr.txt",
+    "line": 62,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e-rolechange/prewarm.stderr.txt",
+    "line": 65,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e-rolechange/prewarm.stderr.txt",
+    "line": 68,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e-rolechange/prewarm.stderr.txt",
+    "line": 71,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e/prewarm.stderr.txt",
+    "line": 29,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e/prewarm.stderr.txt",
+    "line": 32,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e/prewarm.stderr.txt",
+    "line": 50,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e/prewarm.stderr.txt",
+    "line": 65,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e/prewarm.stderr.txt",
+    "line": 68,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/agents/architect-opencode-image-6e/prewarm.stderr.txt",
+    "line": 74,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/openshell-main-comparison.json",
+    "line": 1,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4306,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4309,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4312,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4313,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4324,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4385,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4397,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4404,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4442,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 4443,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 8381,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 8394,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 9207,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 9213,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/rawmatches/cli-host-fleet.txt",
+    "line": 9603,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/workflow-fleet-matches.txt",
+    "line": 15331,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/workflow-fleet-matches.txt",
+    "line": 16465,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/workflow-fleet-matches.txt",
+    "line": 16500,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/workflow-fleet-matches.txt",
+    "line": 16690,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/workflow-fleet-matches.txt",
+    "line": 16737,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/workflow-fleet-matches.txt",
+    "line": 16878,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/workflow-fleet-matches.txt",
+    "line": 16899,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-refactor-20261024/workflow-fleet-matches.txt",
+    "line": 17137,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-replacement-20261024/agents-source.md",
+    "line": 64,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-replacement-20261024/role/image-build-warm.stderr.txt",
+    "line": 28,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-replacement-20261024/role/image-build-warm.stderr.txt",
+    "line": 40,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-replacement-20261024/role/image-build-warm.stderr.txt",
+    "line": 52,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-replacement-20261024/role/image-build-warm.stderr.txt",
+    "line": 58,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-replacement-20261024/role/image-build-warm.stderr.txt",
+    "line": 67,
+    "status": "missing destination"
+  },
+  {
+    "source_path": "results/full-replacement-20261024/role/image-build-warm.stderr.txt",
+    "line": 70,
+    "status": "missing destination"
+  }
+]

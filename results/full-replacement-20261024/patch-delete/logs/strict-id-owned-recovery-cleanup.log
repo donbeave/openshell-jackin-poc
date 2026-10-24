@@ -1,0 +1,297 @@
+    Updating crates.io index
+     Locking 399 packages to highest Rust 1.99.1 compatible versions
+      Adding crypto-common v0.1.6 (available: v0.1.7)
+      Adding matchit v0.8.4 (available: v0.8.6)
+      Adding psm v0.1.24 (available: v0.1.32)
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.27
+   Compiling libc v0.2.191
+   Compiling cfg-if v1.0.5
+   Compiling memchr v2.8.3
+   Compiling smallvec v1.16.4
+   Compiling serde_core v1.0.229
+   Compiling pin-project-lite v0.2.17
+   Compiling bytes v1.12.1
+   Compiling futures-core v0.3.34
+   Compiling itoa v1.0.18
+   Compiling bitflags v2.13.2
+   Compiling hashbrown v0.17.1
+   Compiling equivalent v1.0.3
+   Compiling find-msvc-tools v0.1.15
+   Compiling shlex v2.0.1
+   Compiling parking_lot_core v0.9.12
+   Compiling scopeguard v1.2.0
+   Compiling once_cell v1.21.4
+   Compiling fs_extra v1.3.0
+   Compiling stable_deref_trait v1.2.1
+   Compiling pkg-config v0.3.34
+   Compiling dunce v1.0.5
+   Compiling futures-sink v0.3.34
+   Compiling slab v0.4.12
+   Compiling aws-lc-rs v1.18.2
+   Compiling lock_api v0.4.14
+   Compiling http v1.5.0
+   Compiling futures-channel v0.3.34
+   Compiling futures-io v0.3.34
+   Compiling futures-task v0.3.34
+   Compiling writeable v0.6.4
+   Compiling tracing-core v0.1.36
+   Compiling untrusted v0.7.1
+   Compiling log v0.4.34
+   Compiling percent-encoding v2.3.2
+   Compiling core-foundation-sys v0.8.7
+   Compiling http-body v1.1.0
+   Compiling httparse v1.10.1
+   Compiling litemap v0.8.3
+   Compiling autocfg v1.5.1
+   Compiling tower-service v0.3.3
+   Compiling utf8_iter v1.0.4
+   Compiling rustls v0.23.46
+   Compiling untrusted v0.9.0
+   Compiling anyhow v1.0.104
+   Compiling thiserror v2.0.21
+   Compiling atomic-waker v1.1.2
+   Compiling subtle v2.6.1
+   Compiling try-lock v0.2.5
+   Compiling either v1.19.0
+   Compiling num-traits v0.2.19
+   Compiling fnv v1.0.7
+   Compiling base64 v0.23.1
+   Compiling serde v1.0.229
+   Compiling sync_wrapper v1.0.2
+   Compiling num-conv v0.2.2
+   Compiling itertools v0.14.0
+   Compiling want v0.3.2
+   Compiling httpdate v1.0.3
+   Compiling version_check v0.9.5
+   Compiling tower-layer v0.3.3
+   Compiling time-core v0.1.9
+   Compiling powerfmt v0.2.1
+   Compiling ipnet v2.12.2
+   Compiling deranged v0.5.9
+   Compiling generic-array v0.14.9
+   Compiling http-body-util v0.1.5
+   Compiling icu_normalizer_data v2.4.0
+   Compiling time-macros v0.2.32
+   Compiling zerocopy v0.8.63
+   Compiling getrandom v0.4.3
+   Compiling base64 v0.22.1
+   Compiling typenum v1.20.1
+   Compiling icu_properties_data v2.4.0
+   Compiling time v0.3.55
+   Compiling zmij v1.0.23
+   Compiling pulldown-cmark v0.13.5
+   Compiling rustix v1.1.5
+   Compiling minimal-lexical v0.2.1
+   Compiling mime v0.3.17
+   Compiling icu_locale_fallback_data v2.4.0
+   Compiling prettyplease v0.2.37
+   Compiling serde_json v1.0.154
+mbx[warning]: rustc cache bypassed: failed to read Cargo's build-script declarations: No such file or directory (os error 2)
+   Compiling indexmap v2.14.2
+   Compiling nom v7.1.3
+   Compiling num-integer v0.1.47
+   Compiling axum-core v0.5.6
+   Compiling syn v3.0.9
+   Compiling syn v2.0.119
+   Compiling errno v0.3.14
+   Compiling jobserver v0.1.35
+   Compiling mio v1.2.4
+   Compiling socket2 v0.6.5
+   Compiling security-framework-sys v2.17.0
+   Compiling core-foundation v0.10.1
+   Compiling synstructure v0.13.2
+   Compiling synstructure v0.14.0
+   Compiling cc v1.10.0
+   Compiling zeroize_derive v1.5.0
+   Compiling parking_lot v0.12.5
+   Compiling signal-hook-registry v1.4.8
+   Compiling tracing-attributes v0.1.31
+   Compiling security-framework v3.7.0
+   Compiling pin-project-internal v1.1.13
+   Compiling ppv-lite86 v0.2.21
+   Compiling block-buffer v0.10.4
+   Compiling displaydoc v0.2.7
+   Compiling tokio-macros v2.7.2
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling cmake v0.1.58
+   Compiling zerovec-derive v0.11.7
+   Compiling futures-macro v0.3.34
+   Compiling tracing v0.1.44
+   Compiling thiserror-impl v2.0.21
+   Compiling zeroize v1.9.1
+   Compiling serde_derive v1.0.229
+   Compiling crypto-common v0.1.6
+   Compiling zerofrom v0.1.8
+   Compiling tokio v1.54.1
+   Compiling unicase v2.10.0
+   Compiling object v0.37.3
+   Compiling futures-util v0.3.34
+   Compiling aws-lc-sys v0.46.0
+   Compiling rustls-pki-types v1.15.1
+   Compiling foldhash v0.1.5
+   Compiling regex-syntax v0.8.11
+   Compiling icu_segmenter_data v2.4.0
+   Compiling getrandom v0.3.4
+   Compiling matchit v0.8.4
+   Compiling yoke v0.8.4
+   Compiling digest v0.10.7
+   Compiling tokio-util v0.7.20
+   Compiling rustls-native-certs v0.8.5
+   Compiling regex-automata v0.4.18
+   Compiling tokio-stream v0.1.19
+   Compiling hashbrown v0.15.5
+   Compiling pin-project v1.1.13
+   Compiling zerovec v0.11.9
+   Compiling zerotrie v0.2.5
+   Compiling h2 v0.4.20
+   Compiling tower v0.5.3
+   Compiling async-trait v0.1.92
+   Compiling asn1-rs-derive v0.6.0
+   Compiling asn1-rs-impl v0.2.0
+   Compiling rusticata-macros v4.1.0
+   Compiling tinystr v0.8.5
+   Compiling potential_utf v0.1.6
+   Compiling hyper v1.12.0
+   Compiling axum v0.8.9
+   Compiling num-bigint v0.4.8
+   Compiling cpufeatures v0.2.17
+   Compiling form_urlencoded v1.2.2
+   Compiling icu_locale_core v2.4.0
+   Compiling icu_collections v2.4.0
+   Compiling gimli v0.32.3
+   Compiling adler2 v2.0.1
+   Compiling fixedbitset v0.5.7
+   Compiling hyper-util v0.1.21
+   Compiling fastrand v2.5.0
+   Compiling miniz_oxide v0.8.9
+   Compiling asn1-rs v0.7.2
+   Compiling icu_provider v2.4.0
+   Compiling addr2line v0.25.1
+   Compiling hyper-timeout v0.5.2
+   Compiling petgraph v0.8.3
+   Compiling tempfile v3.27.0
+   Compiling regex v1.13.1
+   Compiling pulldown-cmark-to-cmark v22.0.3
+   Compiling heck v0.5.0
+   Compiling oid-registry v0.8.1
+   Compiling data-encoding v2.11.1
+   Compiling rustc-demangle v0.1.28
+   Compiling icu_properties v2.4.0
+   Compiling icu_normalizer v2.4.0
+   Compiling icu_locale_fallback v2.4.0
+   Compiling multimap v0.10.1
+   Compiling libm v0.2.16
+   Compiling prost-derive v0.14.4
+   Compiling rand_core v0.9.5
+   Compiling backtrace v0.3.76
+   Compiling tonic-build v0.14.6
+   Compiling getrandom v0.2.17
+   Compiling idna_adapter v1.2.2
+   Compiling icu_segmenter v2.4.0
+   Compiling protoc-bin-vendored-macos-x86_64 v3.3.0
+   Compiling protoc-bin-vendored-linux-x86_64 v3.3.0
+   Compiling protoc-bin-vendored-linux-s390_64 v3.3.0
+   Compiling protoc-bin-vendored-linux-aarch_64 v3.3.0
+   Compiling unicode-width v0.2.2
+   Compiling noyalib v0.0.53
+   Compiling protoc-bin-vendored-win32 v3.3.0
+   Compiling idna v1.1.0
+   Compiling protoc-bin-vendored-macos-aarch_64 v3.3.0
+   Compiling ryu v1.0.23
+   Compiling is_ci v1.2.0
+   Compiling protoc-bin-vendored-linux-x86_32 v3.3.0
+   Compiling protoc-bin-vendored-linux-ppcle_64 v3.3.0
+   Compiling cfg_aliases v0.2.2
+   Compiling textwrap v0.16.4
+   Compiling terminal_size v0.4.4
+   Compiling url v2.5.8
+   Compiling serde_urlencoded v0.7.1
+   Compiling supports-color v3.0.2
+   Compiling rand_core v0.6.4
+   Compiling protoc-bin-vendored v3.3.0
+   Compiling backtrace-ext v0.2.1
+   Compiling rand_chacha v0.9.0
+   Compiling der-parser v10.0.0
+   Compiling simple_asn1 v0.6.4
+   Compiling tower-http v0.6.11
+   Compiling nix v0.29.0
+   Compiling miette-derive v7.6.0
+   Compiling serde_path_to_error v0.1.20
+   Compiling yasna v0.6.0
+   Compiling pem v3.0.6
+   Compiling pem v4.0.0
+   Compiling iana-time-zone v0.1.65
+   Compiling supports-hyperlinks v3.2.0
+   Compiling rustc-hash v2.1.3
+   Compiling lazy_static v1.5.1
+   Compiling supports-unicode v3.0.0
+   Compiling owo-colors v4.4.0
+   Compiling thiserror v1.0.69
+   Compiling unicode-width v0.1.14
+   Compiling signature v2.2.0
+   Compiling chrono v0.4.45
+   Compiling rand v0.9.5
+   Compiling rand_chacha v0.3.1
+   Compiling x509-parser v0.18.1
+   Compiling sha1 v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling thiserror-impl v1.0.69
+   Compiling miette v7.6.0
+   Compiling utf-8 v0.7.6
+   Compiling futures-executor v0.3.34
+   Compiling rustls-pemfile v2.2.0
+   Compiling rand v0.8.8
+   Compiling async-stream-impl v0.3.6
+   Compiling glob v0.3.4
+   Compiling uuid v1.29.0
+   Compiling futures v0.3.34
+   Compiling async-stream v0.3.6
+   Compiling openshell-policy-schema v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-policy-schema)
+mbx[warning]: cc cache bypassed: compiler invocation names no output file
+   Compiling prost v0.14.4
+   Compiling prost-types v0.14.4
+   Compiling prost-build v0.14.4
+   Compiling tonic-prost-build v0.14.6
+   Compiling openshell-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-core)
+   Compiling rustls-webpki v0.103.16
+   Compiling jsonwebtoken v10.4.0
+   Compiling rcgen v0.14.10
+   Compiling tokio-rustls v0.26.6
+   Compiling tungstenite v0.26.2
+   Compiling tonic v0.14.6
+   Compiling hyper-rustls v0.27.10
+   Compiling tokio-tungstenite v0.26.2
+   Compiling reqwest v0.12.28
+   Compiling tonic-types v0.14.6
+   Compiling openshell-extension-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-extension-core)
+   Compiling tonic-prost v0.14.6
+   Compiling openshell-crypto v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-crypto)
+   Compiling oauth2 v5.0.0
+mbx[progress]: 15s elapsed; 559 hits, 157 misses, 10 bypassed, 17 not looked up; ~2m 27s compiler work saved
+warning: trailing semicolon in macro used in expression position
+   --> /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-core/src/policy.rs:165:26
+    |
+165 |               otherwise => miette::bail!(
+    |  __________________________^
+166 | |                 "invalid landlock.compatibility {:?}; accepted: {}",
+167 | |                 otherwise,
+168 | |                 LANDLOCK_COMPATIBILITY_VALUES.join(", ")
+169 | |             ),
+    | |_____________^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling openshell-sdk v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-sdk)
+warning: `openshell-core` (lib) generated 1 warning
+   Compiling pdel-cleanup-owned v0.1.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/cleanup-owned)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 21.85s
+     Running `mbx-launch /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/cleanup-owned/target/debug/pdel-cleanup-owned pn809681496488000=5dda188b-2e41-4c34-91c7-dda4c2b1bee7`
+mbx[cache]: 559 hits, 157 misses, 19 not looked up, 10 bypassed; 0 B downloaded, 0 B uploaded, 183.3 MiB stored locally
+deleted_owned_sandbox_id=5dda188b-2e41-4c34-91c7-dda4c2b1bee7 name=pn809681496488000
+mbx[savings]: the checkouts are gone. their 15.8 TiB logical has gone to join them.

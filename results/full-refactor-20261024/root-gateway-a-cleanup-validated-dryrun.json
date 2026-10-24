@@ -1,0 +1,48 @@
+{
+  "test_id": "jfr-20261024-a",
+  "pid": 65583,
+  "endpoint": "https://localhost:28470",
+  "commands": [
+    {
+      "command": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/client.sh",
+        "sandbox",
+        "list",
+        "-o",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"next_page_token\": \"\",\n  \"sandboxes\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "ps",
+        "-p",
+        "65583",
+        "-o",
+        "command="
+      ],
+      "exit_status": 0,
+      "stdout": "/opt/homebrew/opt/openshell/bin/openshell-gateway --config /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/gateway.toml --bind-address 127.0.0.1 --port 28470 --tls-cert /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/server/tls.crt --tls-key /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/server/tls.key --tls-client-ca /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/certs/ca.crt --enable-mtls-auth true --compute-driver docker\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:28470",
+        "-sTCP:LISTEN",
+        "-Fp"
+      ],
+      "exit_status": 0,
+      "stdout": "p65583\nf22\n",
+      "stderr": ""
+    }
+  ],
+  "dry_run": true,
+  "complete": false,
+  "assumption": "sole-authority disposable fixture; no concurrent recreation",
+  "removed_private_paths": []
+}

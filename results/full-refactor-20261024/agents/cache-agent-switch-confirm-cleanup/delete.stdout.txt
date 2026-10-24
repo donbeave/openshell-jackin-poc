@@ -1,0 +1,2 @@
+✓ Sandbox jfr24-ca-amp deletion accepted; cleanup is pending
+✓ Sandbox jfr24-ca-paths deletion accepted; cleanup is pending

@@ -1,0 +1,6 @@
+jfr24-rust-b	fe768974-c7fb-4f60-86cc-0e53a7eb5101	Ready	followup-docker-rust	jfr-20261024-docker
+jfr24-native-tc	93103eaf-ffb8-4af5-9bce-b12de618f35c	Ready	followup-docker-native-tc	jfr-20261024-docker
+jfr24-native2	e747683e-b7c2-4125-b656-5f7bac3be975	Ready	followup-docker-native2	jfr-20261024-docker
+jfr24-native3	e146946e-666f-44b9-94f2-ebd1f3882b77	Ready	followup-docker-native3	jfr-20261024-docker
+jfr24rootless2	bde30230-40d1-40e9-82fd-6ffcdf910c70	Error	followup-docker-rootless	jfr-20261024-docker-rootless
+jfr24rootless3	8a756d2b-615e-4013-94c3-8cd4590c916a	Error	followup-docker-rootless-corrected	jfr-20261024-docker-rootless

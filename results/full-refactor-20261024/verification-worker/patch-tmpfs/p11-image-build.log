@@ -1,0 +1,50 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-confined
+#1 transferring dockerfile: 649B 0.0s done
+#1 DONE 0.2s
+
+#2 [internal] load metadata for docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#5 resolve docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#5 resolve docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 0.1s done
+#5 CACHED
+
+#6 [2/4] RUN printf 'jackin-test:x:1000:1000:Jackin test worker:/home/jackin-test:/bin/sh\n' >> /etc/passwd     && printf 'jackin-test:x:1000:\n' >> /etc/group     && mkdir -p /home/jackin-test /sandbox /work/repo /jackin/checks /tmp /build /etc/openshell     && chmod 0755 /home/jackin-test /sandbox /work /work/repo /jackin /jackin/checks /tmp /build     && chown 1000:1000 /sandbox
+#6 ...
+
+#4 [internal] load build context
+#4 transferring context: 344B 0.0s done
+#4 DONE 0.1s
+
+#6 [2/4] RUN printf 'jackin-test:x:1000:1000:Jackin test worker:/home/jackin-test:/bin/sh\n' >> /etc/passwd     && printf 'jackin-test:x:1000:\n' >> /etc/group     && mkdir -p /home/jackin-test /sandbox /work/repo /jackin/checks /tmp /build /etc/openshell     && chmod 0755 /home/jackin-test /sandbox /work /work/repo /jackin /jackin/checks /tmp /build     && chown 1000:1000 /sandbox
+#6 DONE 1.1s
+
+#7 [3/4] COPY patch-tmpfs/policy-confined.yaml /etc/openshell/policy.yaml
+#7 DONE 0.7s
+
+#8 [4/4] WORKDIR /sandbox
+#8 DONE 0.6s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 1.6s done
+#9 exporting manifest sha256:072f31194de34f396a91da19a17edb08235155895ba13bf7a49d69f3ef830d30
+#9 exporting manifest sha256:072f31194de34f396a91da19a17edb08235155895ba13bf7a49d69f3ef830d30 0.0s done
+#9 exporting config sha256:36f32f4537f09897921a7fee1d5620008a3120eaa7f67ac42507b43f9f2826bc
+#9 exporting config sha256:36f32f4537f09897921a7fee1d5620008a3120eaa7f67ac42507b43f9f2826bc 0.2s done
+#9 exporting attestation manifest sha256:10475531ff35904723de57a40b52d2d3c444280ac34ca2274f3de646f9f90276 0.0s done
+#9 exporting manifest list sha256:e461f6a0b7c788b8f33cac5de39341033afdc10cceef5618174f6710148b58db 0.0s done
+#9 naming to docker.io/library/jfr-20261024-verify-worker:patch-confined done
+#9 unpacking to docker.io/library/jfr-20261024-verify-worker:patch-confined
+#9 unpacking to docker.io/library/jfr-20261024-verify-worker:patch-confined 0.6s done
+#9 DONE 2.5s

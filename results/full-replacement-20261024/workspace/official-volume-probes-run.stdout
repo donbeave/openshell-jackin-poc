@@ -1,0 +1,73 @@
+{
+  "result": "PASS",
+  "mechanism": "EXTERNAL FIXTURE + CONFIGURATION",
+  "observations": {
+    "atomic_host_replacement": {
+      "result": "PASS",
+      "mechanism": "host os.replace + immediate sandbox read",
+      "old_sha256": "50633f5c0155902a3d560d58421e9d8a9e9b20ca55dde1df0737b7229f5b09f6",
+      "new_sha256": "769cb2301da1b2455c48c03c1f38e777f9b5fbe584e9f5112c8f6e4389f780f6",
+      "sandbox_stdout": "pub fn fixture_value() -> &'static str { \"host-atomic-1792804891476233000\" }\n",
+      "sandbox_status": 0
+    },
+    "agent_to_host": {
+      "result": "PASS",
+      "sandbox_status": 0,
+      "host_value": "official-agent-to-host\n"
+    },
+    "concurrent_shared_instance": {
+      "result": "PASS",
+      "reader_sandbox": "jfrws24-official2",
+      "stdout": "official-agent-to-host\n",
+      "status": 0
+    },
+    "host_to_sandbox": {
+      "result": "PASS",
+      "host_atomic_replace": true,
+      "reader_sandbox": "jfrws24-official2",
+      "stdout": "host-to-agent-v2\n",
+      "status": 0
+    },
+    "working_directory": {
+      "result": "PASS",
+      "stdout": "/workspace/jfr-20261024-ws/host-source\n",
+      "status": 0
+    },
+    "permissions": {
+      "result": "PASS",
+      "fixture_mode": "0444",
+      "sandbox_exit_status": 2,
+      "sandbox_stderr": "/bin/sh: 1: cannot create /workspace/jfr-20261024-ws/host-source/README.md: Permission denied\n",
+      "hash_unchanged": true
+    },
+    "read_only_mount": {
+      "result": "see read-only sandbox result below; `read_only=true` returned `Read-only file system`"
+    },
+    "symlink_escape": {
+      "result": "PASS",
+      "host_canary_readable": "protected fixture jfr-20261024-ws",
+      "sandbox_exit_status": 1,
+      "sandbox_stderr": "cat: /workspace/jfr-20261024-ws/host-source/protected-canary-link: No such file or directory\n"
+    },
+    "file_watch": {
+      "result": "PASS",
+      "mechanism": "macOS kqueue vnode watch on host source directory",
+      "event": {
+        "events": [
+          "WRITE"
+        ],
+        "event_count": 1
+      },
+      "host_created_file": "agent-dirwatch-official-v1\n"
+    },
+    "default_policy_path": {
+      "result": "FAIL; /workspace mount path denied until explicit policy grant",
+      "evidence": "earlier exec on /workspace mount returned Permission denied; adding explicit fixture filesystem rule made subsequent mount usable"
+    },
+    "cross_workspace": {
+      "result": "PASS negative",
+      "stderr": "docker volume 'jfr24ws-wrong-ws': external resource not admitted by required labels",
+      "sandbox_created": false
+    }
+  }
+}

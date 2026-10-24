@@ -1,0 +1,8 @@
+
+Created sandbox: jfr24-grok-gid
+
+  [0.0s] Requesting compute...
+[0.0s] Sandbox allocated
+[0.0s] Pulling image jfr24-grok-gid1000:fixture
+[0.0s] Image already present
+[2.6s] Starting sandbox Container created

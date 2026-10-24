@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "sh",
+    "-c",
+    "ps -axo pid=,command= | rg \"jfr-20261024-vm|jfr-20261024-vmbind\" | rg -v \"rg |capture.py\" || true"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.075,
+  "stdout": "",
+  "stderr": ""
+}

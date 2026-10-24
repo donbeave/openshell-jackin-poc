@@ -1,0 +1,4 @@
+Error:   × Landlock allow/deny probe
+  ├─▶ create Landlock probe root
+  ╰─▶ Permission denied (os error 13)
+

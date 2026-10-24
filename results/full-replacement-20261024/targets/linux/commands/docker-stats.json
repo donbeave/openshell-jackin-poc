@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "stats",
+    "--no-stream",
+    "--format",
+    "{{.ID}} {{.Name}} {{.CPUPerc}} {{.MemUsage}} {{.MemPerc}} {{.PIDs}}"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 2.054,
+  "stdout": "c93d8a15ad85 openshell-default--jfr-20261024-lnx-g-ca178d9a-44e2-48e7-8acc-05168ac8efeb-supervisor 2.85% 15.81MiB / 121.7GiB 0.01% 22\n4b24ad33917f openshell-default--jfr-20261024-lnx-g-ca178d9a-44e2-48e7-8acc-05168ac8efeb 0.12% 4.727MiB / 121.7GiB 0.00% 66\n",
+  "stderr": ""
+}

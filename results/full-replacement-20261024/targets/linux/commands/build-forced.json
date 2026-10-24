@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "build",
+    "--pull=false",
+    "--no-cache",
+    "--tag",
+    "jfr-20261024-linux/probe:0.1.5-forced",
+    "/home/jfr/build-context"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 1.004,
+  "stdout": "Sending build context to Docker daemon  3.072kB\n\nStep 1/5 : FROM nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686\n ---> 7e0f726d635d\nStep 2/5 : LABEL jfr.experiment=\"jfr-20261024-linux\" jfr.role=\"target-image-probe\"\n ---> Running in 976ac33079d5\n ---> Removed intermediate container 976ac33079d5\n ---> 1de53e3e938b\nStep 3/5 : RUN mkdir -p /workspace && chown 1000:1000 /workspace\n ---> Running in c3f7bee6cb7e\n ---> Removed intermediate container c3f7bee6cb7e\n ---> 3e78c04add05\nStep 4/5 : COPY input.txt /opt/jfr-image-input\n ---> 0129a6a4315a\nStep 5/5 : WORKDIR /workspace\n ---> Running in cf11bdbe5797\n ---> Removed intermediate container cf11bdbe5797\n ---> 84c4a5cd24a7\nSuccessfully built 84c4a5cd24a7\nSuccessfully tagged jfr-20261024-linux/probe:0.1.5-forced\n",
+  "stderr": "DEPRECATED: The legacy builder is deprecated and will be removed in a future release.\n            Install the buildx component to build images with BuildKit:\n            https://docs.docker.com/go/buildx/\n\n"
+}

@@ -1,0 +1,245 @@
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/README.md:27:`DockerApi` and `CommandRunner` implementations plus the networking helpers consumed by `jackin-runtime`, `jackin-image`, `jackin-isolation`, and `jackin-host`.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:24:    ContainerMountSnapshot, ContainerRow, ContainerSpec, ContainerState, DockerApi, NetworkRow,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/docker_client.rs:465:impl DockerApi for BollardDockerClient {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/adapters/jackin-docker/src/lib.rs:9:pub use jackin_core::{CommandRunner, DockerApi, RunOptions};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:44:use jackin_docker::docker_client::{BollardDockerClient, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:60:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app.rs:332:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:176:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:257:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:322:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/context.rs:376:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/helpers.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/helpers.rs:21:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:12:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:78:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:98:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:181:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:219:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/prewarm.rs:13:use jackin_docker::docker_client::{BollardDockerClient, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:21:use jackin_docker::docker_client::{BollardDockerClient, ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:112:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:247:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:354:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/status.rs:530:async fn fetch_pr_info(docker: &impl DockerApi, container: &ContainerHandle) -> Option<PrInfo> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:26:use jackin_docker::docker_client::{BollardDockerClient, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:4:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/preflight.rs:408:    use jackin_docker::docker_client::{BollardDockerClient, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:97:/// Returned by [`DockerApi::inspect_full_container_by_id`]. Used for the
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:188:pub trait DockerApi {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:235:    /// paused state with [`DockerApi::inspect_container_by_id`] before
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:242:    /// Resume a container paused with [`DockerApi::pause_container_by_id`].
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-core/src/docker.rs:250:    /// Unlike [`DockerApi::inspect_container_by_id`], which returns state and
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:19:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:27:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:49:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-host/src/caffeinate.rs:143:async fn count_keep_awake_agents(docker: &impl DockerApi) -> anyhow::Result<usize> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture.rs:22:use jackin_core::{CommandRunner, ContainerHandle, ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture.rs:430:async fn confirm_paused(docker: &impl DockerApi, handle: &ContainerHandle) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture.rs:451:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture/tests.rs:6:    ContainerHandle, ContainerInspection, ContainerRow, ContainerSpec, DockerApi, NetworkRow,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture/tests.rs:34:    reason = "fake backend methods mirror the async DockerApi trait"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/capture/tests.rs:36:impl DockerApi for PauseFake {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/finalize.rs:227:    D: jackin_docker::docker_client::DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-isolation/src/finalize.rs:268:    docker: &impl jackin_docker::docker_client::DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:14:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:56:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-capsule-ready/src/capsule_ready.rs:118:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-inspect/src/inspect.rs:6:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-inspect/src/inspect.rs:17:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-inspect/src/inspect.rs:169:pub async fn inspect_docker_network(docker: &impl DockerApi, network: &str) -> DockerNetworkState {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-running-gate/src/running_gate.rs:5:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-running-gate/src/running_gate.rs:13:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-sessions/src/sessions.rs:5:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-attach-sessions/src/sessions.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-absent-guards/src/absent_guards.rs:4:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-absent-guards/src/absent_guards.rs:8:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-absent-guards/src/absent_guards.rs:19:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:12:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:28:pub async fn collect_labeled_dind(docker: &impl DockerApi) -> anyhow::Result<Vec<DindInfo>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:60:pub async fn gc_orphaned_resources(paths: &JackinPaths, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:152:pub async fn gc_orphaned_prewarm_dind(paths: &JackinPaths, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-dind-gc/src/dind_gc.rs:216:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-eject-resources/src/eject_resources.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-eject-resources/src/eject_resources.rs:12:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:4:use jackin_docker::docker_client::{DockerApi, RemoveImageOutcome};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-prune-images/src/prune_images.rs:9:pub async fn prune_images(docker: &impl DockerApi) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:8:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:14:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:60:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:70:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:83:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:101:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-cleanup-resolve/src/resolve.rs:120:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:4:use jackin_docker::docker_client::{ContainerRow, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:15:pub async fn list_running_agent_names(docker: &impl DockerApi) -> anyhow::Result<Vec<String>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:19:pub async fn list_managed_role_names(docker: &impl DockerApi) -> anyhow::Result<Vec<String>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:24:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-discovery/src/discovery.rs:34:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-drift/src/drift.rs:14:    docker: &impl jackin_docker::docker_client::DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:78:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/build.rs:233:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/decision.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/decision.rs:43:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:12:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/prewarm_run.rs:118:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/published.rs:1:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/published.rs:15:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/published.rs:73:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:35:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-image/src/image/validated.rs:159:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-account-identity/src/account_identity.rs:12:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-account-identity/src/account_identity.rs:100:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:8:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:95:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:113:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:137:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:150:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:269:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:284:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:373:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:418:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:550:pub async fn prewarmed_dind_state_is_live(paths: &JackinPaths, docker: &impl DockerApi) -> bool {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-dind/src/launch_dind.rs:606:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:18:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:28:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:141:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-exit-diagnosis/src/exit_diagnosis.rs:169:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-image-plan/src/image_plan.rs:6:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-image-plan/src/image_plan.rs:40:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:100:    pub async fn run(&self, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:104:    pub async fn run_with_role_handle(&self, docker: &impl DockerApi, container: &ContainerHandle) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:109:    pub async fn run_preserving_evidence(&self, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-load-cleanup/src/load_cleanup.rs:125:    async fn run_inner(&self, docker: &impl DockerApi, preserve_role_evidence: bool) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore.rs:6:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore.rs:127:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:12:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:100:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:128:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:234:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:293:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:372:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:399:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:611:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:19:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-launch-slot/src/launch_slot.rs:95:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:80:pub async fn claim_entry(paths: &JackinPaths, docker: &impl DockerApi) -> EntryClaim {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:177:pub async fn release_entry_if_idle(docker: &impl DockerApi, claim: &EntryClaim) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe.rs:382:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-universe/src/universe/tests.rs:8:    ContainerHandle, ContainerInspection, ContainerRow, ContainerSpec, ContainerState, DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/Cargo.toml:10:description = "Container bootstrap pipeline: runtime, instance, isolation. Holds the concrete DockerApi/CommandRunner impls, image build, DinD sidecar management, mount materialization, and instance lifecycle."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/README.md:3:Container bootstrap pipeline — the orchestrator that turns a resolved workspace + role into a running (or restorable) container and attaches the operator to it. Holds the concrete `DockerApi`/`CommandRunner` implementations, image build, DinD sidecar management, mount materialization, and the launch phases.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:38:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:66:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/finalize.rs:185:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:30:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:53:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline.rs:142:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:22:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:48:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:75:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:148:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:22:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:43:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:82:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:175:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:193:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect_lease.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect_lease.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect_lease.rs:50:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/reconnect_lease.rs:196:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/spawn.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/spawn.rs:25:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/attach/spawn.rs:139:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/backend.rs:4:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/backend.rs:56:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/absent.rs:17:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:19:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:36:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:56:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:15:pub async fn exile_all(paths: &JackinPaths, docker: &impl DockerApi) -> anyhow::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:14:use jackin_docker::docker_client::{ContainerState, DockerApi};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/prune.rs:29:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge.rs:18:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge.rs:55:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge.rs:66:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge_absent.rs:6:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/purge_absent.rs:15:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/cleanup/tests.rs:15:use jackin_core::{DockerApi, JackinPaths};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch.rs:70:pub(crate) use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/failure.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/failure.rs:13:pub(crate) async fn render_exit(paths: &JackinPaths, docker: &impl DockerApi) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:207:    docker: &'a impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:274:    docker: &'a impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:311:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:338:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:389:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:739:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:1465:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:1595:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/account_admission.rs:6:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/account_admission.rs:20:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core.rs:14:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core.rs:61:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/active.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/active.rs:30:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/active.rs:184:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/active.rs:241:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/cleanup_classify.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/cleanup_classify.rs:29:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_prepare.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_prepare.rs:96:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/environment_resolve.rs:29:pub(crate) async fn resolve_environment<D: DockerApi>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finalize.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finalize.rs:57:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finalize.rs:180:pub(crate) async fn handle_launch_failure<D: DockerApi>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finish.rs:8:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finish.rs:26:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/image.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/image.rs:49:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/image.rs:148:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/initialize.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/initialize.rs:40:pub(crate) async fn initialize_launch<D: DockerApi>(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/phases.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/phases.rs:13:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/prepare_instance.rs:7:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/prepare_instance.rs:38:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:59:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime_dispatch.rs:5:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime_dispatch.rs:45:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/workspace.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/workspace.rs:43:    D: DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases.rs:10:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases.rs:209:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime.rs:160:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/docker.rs:11:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/docker.rs:283:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:9:use jackin_docker::docker_client::DockerApi;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:16:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:79:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:192:    docker: &impl DockerApi,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime/src/runtime/launch/launch_runtime/session.rs:259:    docker: &impl DockerApi,

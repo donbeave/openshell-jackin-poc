@@ -1,0 +1,7 @@
+jfr24ws-clone
+jfr24ws-common-git
+jfr24ws-decoy-validlbl
+jfr24ws-shared-ro
+jfr24ws-shared-rw
+jfr24ws-worktree
+jfr24ws-wrong-ws

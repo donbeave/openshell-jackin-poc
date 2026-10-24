@@ -1,0 +1,6 @@
+2026-10-24T02:26:35.479Z INFO openshell_sandbox::boundary_server::linux: Boundary control listener ready
+2026-10-24T02:26:36.926Z OCSF CONFIG:PROBED [INFO] Landlock filesystem sandbox available [abi:v10 compat:BestEffort ro:9 rw:4]
+2026-10-24T02:26:36.926Z OCSF CONFIG:APPLYING [INFO] Applying Landlock filesystem sandbox [abi:V3 compat:BestEffort ro:12 rw:4]
+2026-10-24T02:26:36.927Z OCSF CONFIG:BUILT [INFO] Landlock ruleset built [rules_applied:15 skipped:1]
+2026-10-24T02:26:36.931Z WARN openshell_sandbox::boundary_server::linux: Sandbox Protocol connection lost; workload frozen pending authenticated recovery
+2026-10-24T02:26:36.931Z OCSF FINDING:CREATE [MED] "Sandbox Supervisor Connection Lost" [type:sandbox-supervisor-connection-lost confidence:high]

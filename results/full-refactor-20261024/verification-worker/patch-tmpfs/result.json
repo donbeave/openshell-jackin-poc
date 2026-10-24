@@ -1,0 +1,83 @@
+{
+  "release": "OpenShell v0.1.5",
+  "base_commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+  "profile": "macOS 27.0.1 + OrbStack Docker Linux/arm64 + OpenShell Docker driver",
+  "overall_worker_result": "FAIL",
+  "mechanism": "EXPERIMENTAL PATCH",
+  "tmpfs_option_mapping": "PASS",
+  "worker_contract": "FAIL",
+  "patch_scope": [
+    "validated tmpfs mount options routed through Docker HostConfig.Tmpfs",
+    "preserve supervisor CA tmpfs",
+    "reject duplicate/protected tmpfs paths"
+  ],
+  "patch_source_files": [
+    "crates/openshell-driver-docker/src/lib.rs",
+    "crates/openshell-driver-docker/src/tests.rs"
+  ],
+  "patch_tests": {
+    "command": "mise exec -- cargo test -p openshell-driver-docker",
+    "exit_status": 0,
+    "passed": 150,
+    "failed": 0,
+    "ignored": 2
+  },
+  "patch_build_exit_status": 0,
+  "negative_tests": {
+    "untrusted_volume_labels": "PASS",
+    "protected_channel_mount_target": "PASS"
+  },
+  "worker_cases": {
+    "candidate_and_trusted_mounts_read_only": "PASS",
+    "tmpfs_writable_and_size_limits": "PASS",
+    "tmpfs_noexec": "PASS",
+    "network_denied": "PASS",
+    "capabilities_zero_and_nnp": "PASS",
+    "nonzero_and_abnormal_exit": "PASS",
+    "timeout_and_process_group": "PASS",
+    "output_truncation": "PASS",
+    "cpu_limit": "PASS",
+    "pid_limit": "PASS_WITH_7_CHILDREN_BEFORE_EAGAIN_UNDER_LIMIT_64",
+    "read_only_root_mount": "FAIL; docker HostConfig ReadonlyRootfs false",
+    "image_workdir_write_outside_ro_mount": "FAIL in P10; PASS in P11 with include_workdir false and /sandbox RO",
+    "memory_limit": "OOM_ENFORCED; P12 emitted exact-container OOM event, returned 247 and remained Ready; P13 emitted exact-container OOM event, returned 74 and transitioned sandbox Ready->Error/ContainerExited; nondeterministic worker recovery unresolved"
+  },
+  "sandbox_ids": {
+    "p03": "71da4906-01a2-4a9f-9263-cc5e1db5da0e",
+    "p04": "38f66477-b6f2-4974-9dc1-7aa830d25d22",
+    "p05": "42cdaac4-fe1f-4abc-b437-36f797deaa5c",
+    "p06": "fc9cb009-a94c-49a2-b6f7-d70352958953",
+    "p07": "8379adfb-1a39-483f-bc30-f6126d83b6c6",
+    "p08": "32d171a5-cc6a-4900-9532-f47fb1f76133",
+    "p09": "92786547-b153-41db-8d42-ca7d92fc675a",
+    "p10": "ee7d1160-15f6-4d95-b1cd-e4f0ecd40b14",
+    "p11": "e6c78d04-bb54-48fa-a208-91a03f2d7757",
+    "p12": "43ef268f-5da1-4ae7-b8cf-cebdbd90078c",
+    "p13": "d9c1f367-db9a-4ffa-ad62-7371433290fe"
+  },
+  "cleanup": {
+    "failed_sandbox_deletes_confirmed": [
+      "p03",
+      "p04",
+      "p07",
+      "p08"
+    ],
+    "worker_sandbox_deletes_confirmed": [
+      "p05",
+      "p06",
+      "p09",
+      "p10",
+      "p11",
+      "p12",
+      "p13"
+    ],
+    "candidate_and_bundle_named_volumes": "retained experiment fixtures for parent review",
+    "patched_gateway": "left running for parent review on assigned port 28631"
+  },
+  "evidence": {
+    "p12_oom_event_container": "15100ac6168006306d15417281dafd56ba0e93906e0836b256f0be2007bd7315",
+    "p13_oom_event_container": "073cb04a749d41220056e1b591d74645d4422eba2dd08ea2e73ff1bf0e198c05",
+    "p13_error": "ContainerExited; gateway phase Ready -> Error",
+    "stats": "Docker stats did not capture transient peak; no peak number claimed"
+  }
+}

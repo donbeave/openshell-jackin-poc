@@ -1,0 +1,275 @@
+diff --git a/crates/openshell-driver-docker/src/lib.rs b/crates/openshell-driver-docker/src/lib.rs
+index 059ba153..64b64a54 100644
+--- a/crates/openshell-driver-docker/src/lib.rs
++++ b/crates/openshell-driver-docker/src/lib.rs
+@@ -13,8 +13,8 @@ use bollard::errors::Error as BollardError;
+ use bollard::models::{
+     ContainerCreateBody, ContainerState, ContainerStateStatusEnum, ContainerSummary,
+     ContainerSummaryStateEnum, ContainerWaitResponse, CreateImageInfo, DeviceRequest, HealthConfig,
+-    HealthStatusEnum, HostConfig, Mount, MountTmpfsOptions, MountTypeEnum, MountVolumeOptions,
+-    ProgressDetail, SystemInfo, VolumeCreateRequest,
++    HealthStatusEnum, HostConfig, Mount, MountTypeEnum, MountVolumeOptions, ProgressDetail,
++    SystemInfo, VolumeCreateRequest,
+ };
+ use bollard::query_parameters::{
+     CreateContainerOptionsBuilder, CreateImageOptions, DownloadFromContainerOptionsBuilder,
+@@ -3856,7 +3856,7 @@ fn docker_bind_string(
+     }
+ }
+ 
+-/// Collect user-supplied non-bind mounts as structured `Mount` objects.
++/// Collect user-supplied volume mounts as structured `Mount` objects.
+ fn docker_driver_mounts(config: &DockerSandboxDriverConfig) -> Result<Vec<Mount>, Status> {
+     config
+         .mounts
+@@ -3865,6 +3865,73 @@ fn docker_driver_mounts(config: &DockerSandboxDriverConfig) -> Result<Vec<Mount>
+         .collect()
+ }
+ 
++/// Encode user tmpfs mounts through Docker's HostConfig tmpfs map.
++///
++/// Some supported engines accept security flags through this API field while
++/// rejecting the same flags in the structured `Mount` tmpfs path.
++fn docker_driver_tmpfs_mounts(
++    config: &DockerSandboxDriverConfig,
++) -> Result<HashMap<String, String>, Status> {
++    config
++        .mounts
++        .iter()
++        .filter_map(|mount| match mount {
++            DockerDriverMountConfig::Tmpfs {
++                target,
++                options,
++                size_bytes,
++                mode,
++            } => Some((target, options, size_bytes, mode)),
++            _ => None,
++        })
++        .map(|(target, options, size_bytes, mode)| {
++            let mut encoded_options = Vec::new();
++            if !options
++                .iter()
++                .any(|option| matches!(option.trim(), "ro" | "rw"))
++            {
++                encoded_options.push("rw".to_string());
++            }
++            if let Some(size_bytes) =
++                validate_optional_positive_integral_i64(*size_bytes, "tmpfs size_bytes")?
++            {
++                encoded_options.push(format!("size={size_bytes}"));
++            }
++            let mode =
++                validate_optional_nonnegative_integral_i64(*mode, "tmpfs mode")?.unwrap_or(0o1777);
++            // The Docker tmpfs mount API documents 1777 as its default mode.
++            // Send it explicitly through HostConfig.tmpfs so engines that
++            // otherwise create a root-only mount preserve tmpfs semantics.
++            encoded_options.push(format!("mode={mode:o}"));
++            for option in options {
++                encoded_options.push(docker_tmpfs_option(option)?.join("="));
++            }
++            Ok((target.clone(), encoded_options.join(",")))
++        })
++        .collect()
++}
++
++fn merge_docker_driver_tmpfs_mounts(
++    mut existing: HashMap<String, String>,
++    additional: HashMap<String, String>,
++) -> Result<HashMap<String, String>, Status> {
++    for (target, options) in additional {
++        let normalized_target = driver_mounts::normalize_mount_target(&target);
++        for existing_target in existing.keys() {
++            if driver_mounts::paths_overlap(
++                Path::new(&normalized_target),
++                Path::new(existing_target),
++            ) {
++                return Err(Status::failed_precondition(format!(
++                    "docker tmpfs target conflicts with an existing mount: '{normalized_target}'"
++                )));
++            }
++        }
++        existing.insert(normalized_target, options);
++    }
++    Ok(existing)
++}
++
+ fn docker_mount_from_config(config: &DockerDriverMountConfig) -> Result<Option<Mount>, Status> {
+     match config {
+         DockerDriverMountConfig::Bind { .. } => {
+@@ -3887,31 +3954,7 @@ fn docker_mount_from_config(config: &DockerDriverMountConfig) -> Result<Option<M
+             }),
+             ..Default::default()
+         })),
+-        DockerDriverMountConfig::Tmpfs {
+-            target,
+-            options,
+-            size_bytes,
+-            mode,
+-        } => Ok(Some(Mount {
+-            typ: Some(MountTypeEnum::TMPFS),
+-            target: Some(target.clone()),
+-            tmpfs_options: Some(MountTmpfsOptions {
+-                size_bytes: validate_optional_positive_integral_i64(
+-                    *size_bytes,
+-                    "tmpfs size_bytes",
+-                )?,
+-                mode: validate_optional_nonnegative_integral_i64(*mode, "tmpfs mode")?,
+-                options: (!options.is_empty())
+-                    .then(|| {
+-                        options
+-                            .iter()
+-                            .map(|option| docker_tmpfs_option(option))
+-                            .collect::<Result<Vec<_>, _>>()
+-                    })
+-                    .transpose()?,
+-            }),
+-            ..Default::default()
+-        })),
++        DockerDriverMountConfig::Tmpfs { .. } => Ok(None),
+         DockerDriverMountConfig::Image { .. } => Err(Status::failed_precondition(
+             "invalid docker driver_config: docker image mounts are not supported",
+         )),
+@@ -5920,6 +5963,17 @@ fn build_container_create_body_for_image(
+     )
+     .map_err(Status::failed_precondition)?;
+     let mut user_mounts = docker_driver_mounts(driver_config)?;
++    let user_tmpfs = docker_driver_tmpfs_mounts(driver_config)?;
++    let tmpfs = merge_docker_driver_tmpfs_mounts(
++        HashMap::from([(
++            openshell_sandbox_backend::SUPERVISOR_CA_RUNTIME_DIR.to_string(),
++            format!(
++                "rw,noexec,nosuid,nodev,size=1m,uid={},gid={},mode=0755",
++                workload_identity.uid, workload_identity.gid
++            ),
++        )]),
++        user_tmpfs,
++    )?;
+     user_mounts.push(Mount {
+         target: Some(BOUNDARY_MOUNT_PATH.to_string()),
+         source: Some(docker_channel_volume_name(sandbox, config)),
+@@ -6037,13 +6091,7 @@ fn build_container_create_body_for_image(
+             // Podman, Kubernetes, and VM resolvers, send names to policy DNS
+             // exactly as written so short names never expand to host domains.
+             dns_search: Some(vec![".".to_string()]),
+-            tmpfs: Some(HashMap::from([(
+-                openshell_sandbox_backend::SUPERVISOR_CA_RUNTIME_DIR.to_string(),
+-                format!(
+-                    "rw,noexec,nosuid,nodev,size=1m,uid={},gid={},mode=0755",
+-                    workload_identity.uid, workload_identity.gid
+-                ),
+-            )])),
++            tmpfs: Some(tmpfs),
+             sysctls: Some(HashMap::from([(
+                 "net.ipv4.ip_unprivileged_port_start".to_string(),
+                 "0".to_string(),
+diff --git a/crates/openshell-driver-docker/src/tests.rs b/crates/openshell-driver-docker/src/tests.rs
+index 0159ecd9..20e36eb9 100644
+--- a/crates/openshell-driver-docker/src/tests.rs
++++ b/crates/openshell-driver-docker/src/tests.rs
+@@ -2042,7 +2042,7 @@ fn build_container_create_body_includes_driver_config_mounts() {
+             {
+                 "type": "tmpfs",
+                 "target": "/sandbox/cache",
+-                "options": ["nosuid", "size=1048576"],
++                "options": ["nosuid"],
+                 "size_bytes": 1_048_576,
+                 "mode": 511
+             }
+@@ -2050,13 +2050,12 @@ fn build_container_create_body_includes_driver_config_mounts() {
+     })));
+ 
+     let body = build_container_create_body(&sandbox, &runtime_config()).unwrap();
+-    let mounts = body
+-        .host_config
+-        .unwrap()
++    let host_config = body.host_config.unwrap();
++    let mounts = host_config
+         .mounts
+-        .expect("driver config mounts should be set");
++        .expect("driver config structured mounts should be set");
+ 
+-    assert_eq!(mounts.len(), 3);
++    assert_eq!(mounts.len(), 2);
+     assert_eq!(mounts[0].typ, Some(MountTypeEnum::VOLUME));
+     assert_eq!(mounts[0].source.as_deref(), Some("work-nfs"));
+     assert_eq!(mounts[0].target.as_deref(), Some("/sandbox/work"));
+@@ -2068,20 +2067,69 @@ fn build_container_create_body_includes_driver_config_mounts() {
+             .and_then(|options| options.subpath.as_deref()),
+         Some("project-a")
+     );
+-    assert_eq!(mounts[1].typ, Some(MountTypeEnum::TMPFS));
+-    assert_eq!(mounts[1].target.as_deref(), Some("/sandbox/cache"));
+-    assert_eq!(mounts[2].typ, Some(MountTypeEnum::VOLUME));
+-    assert_eq!(mounts[2].target.as_deref(), Some(BOUNDARY_MOUNT_PATH));
+-    assert_eq!(mounts[2].read_only, Some(false));
++    assert_eq!(mounts[1].typ, Some(MountTypeEnum::VOLUME));
++    assert_eq!(mounts[1].target.as_deref(), Some(BOUNDARY_MOUNT_PATH));
++    assert_eq!(mounts[1].read_only, Some(false));
++    let tmpfs = host_config.tmpfs.expect("tmpfs map should be set");
+     assert_eq!(
+-        mounts[1]
+-            .tmpfs_options
+-            .as_ref()
+-            .and_then(|options| options.size_bytes),
+-        Some(1_048_576)
++        tmpfs.get("/sandbox/cache").map(String::as_str),
++        Some("rw,size=1048576,mode=777,nosuid")
++    );
++    assert!(tmpfs.contains_key(openshell_sandbox_backend::SUPERVISOR_CA_RUNTIME_DIR));
++}
++
++#[test]
++fn user_tmpfs_options_and_sizes_are_encoded_in_hostconfig() {
++    let config: DockerSandboxDriverConfig = serde_json::from_value(serde_json::json!({
++        "mounts": [{
++            "type": "tmpfs",
++            "target": "/sandbox/cache",
++            "options": ["noexec", "nosuid"],
++            "size_bytes": 67_108_864,
++            "mode": 511
++        }]
++    }))
++    .unwrap();
++
++    let tmpfs = docker_driver_tmpfs_mounts(&config).unwrap();
++    assert_eq!(
++        tmpfs.get("/sandbox/cache").map(String::as_str),
++        Some("rw,size=67108864,mode=777,noexec,nosuid")
+     );
+ }
+ 
++#[test]
++fn user_tmpfs_defaults_to_docker_documented_mode() {
++    let config: DockerSandboxDriverConfig = serde_json::from_value(serde_json::json!({
++        "mounts": [{
++            "type": "tmpfs",
++            "target": "/sandbox/tmp",
++            "options": ["noexec", "nosuid"],
++            "size_bytes": 67_108_864
++        }]
++    }))
++    .unwrap();
++
++    let tmpfs = docker_driver_tmpfs_mounts(&config).unwrap();
++    assert_eq!(
++        tmpfs.get("/sandbox/tmp").map(String::as_str),
++        Some("rw,size=67108864,mode=1777,noexec,nosuid")
++    );
++}
++
++#[test]
++fn user_tmpfs_cannot_replace_or_mask_openshell_owned_tmpfs() {
++    let owned = HashMap::from([(
++        openshell_sandbox_backend::SUPERVISOR_CA_RUNTIME_DIR.to_string(),
++        "rw,noexec,nosuid".to_string(),
++    )]);
++    let user = HashMap::from([("/run/openshell-supervisor-ca".to_string(), "rw".to_string())]);
++
++    let error = merge_docker_driver_tmpfs_mounts(owned, user).unwrap_err();
++
++    assert!(error.message().contains("conflicts with an existing mount"));
++}
++
+ #[test]
+ fn driver_config_defaults_volume_mounts_to_read_only() {
+     let mut sandbox = test_sandbox();

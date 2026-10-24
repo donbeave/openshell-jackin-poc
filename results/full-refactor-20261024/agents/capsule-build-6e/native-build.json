@@ -1,0 +1,29 @@
+{
+  "command": [
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "build",
+    "--locked",
+    "--release",
+    "--target-dir",
+    "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/agents/jackin-target-native",
+    "-p",
+    "jackin-capsule",
+    "--bin",
+    "jackin-capsule"
+  ],
+  "cwd": "<pinned-jackin-source>",
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "source_tree": "11c7af3812dd9ba0be27f6ae33fc078fa40ff85c",
+  "started_utc": "2026-10-24T01:50:32.719763+00:00",
+  "duration_seconds": 167.945,
+  "exit_status": 0,
+  "host_platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)",
+  "binary_path": "<experiment>/jackin-target-native/release/jackin-capsule",
+  "binary_size_bytes": 28074064,
+  "binary_sha256": "3765eef14d44a2b6ebf6e0234a535dfa5f600b316fc8c062f2b4d82d3007700d"
+}

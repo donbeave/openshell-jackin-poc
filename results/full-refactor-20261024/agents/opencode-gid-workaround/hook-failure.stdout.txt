@@ -1,0 +1,2 @@
+[architect-preflight] configuring Context7 for opencode
+HOOK_FAILED_RC=1

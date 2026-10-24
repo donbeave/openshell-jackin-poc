@@ -1,0 +1,10 @@
+[
+  {
+    "operation": "verified_mtls_and_gateway_identity",
+    "ok": true,
+    "detail": {
+      "denied_at": "verified_mtls_handshake",
+      "reason": "verified mTLS connection: transport error: invalid peer certificate: UnknownIssuer: invalid peer certificate: UnknownIssuer"
+    }
+  }
+]

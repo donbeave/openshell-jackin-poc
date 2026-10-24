@@ -1,0 +1,41 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile-adversarial
+#1 transferring dockerfile: 933B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/jfr-20261024-verify-worker:patch-confined
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/jfr-20261024-verify-worker:patch-confined@sha256:e461f6a0b7c788b8f33cac5de39341033afdc10cceef5618174f6710148b58db
+#4 resolve docker.io/library/jfr-20261024-verify-worker:patch-confined@sha256:e461f6a0b7c788b8f33cac5de39341033afdc10cceef5618174f6710148b58db 0.0s done
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 1.62MB 0.0s done
+#5 DONE 0.0s
+
+#6 [2/4] RUN mkdir -p /home/jackin-test/landlock-probe /opt/landlock-probe /var/tmp/landlock-probe /run/landlock-probe /work/landlock-probe /sandbox/landlock-probe /usr/local/share/landlock-probe     && for path in /home/jackin-test/landlock-probe /opt/landlock-probe /var/tmp/landlock-probe /run/landlock-probe /work/landlock-probe /sandbox/landlock-probe /usr/local/share/landlock-probe; do          chown 1000:1000 "$path" && chmod 0777 "$path" &&          for file in write-canary truncate-canary chmod-canary unlink-canary rename-source rename-target hardlink-source; do            printf 'fixture-only' > "$path/$file" && chown 1000:1000 "$path/$file" && chmod 0666 "$path/$file";          done;        done
+#6 DONE 0.3s
+
+#7 [3/4] COPY --chown=0:0 --chmod=4755 jfr-setuid-probe /usr/local/bin/jfr-setuid-probe
+#7 DONE 0.1s
+
+#8 [4/4] WORKDIR /sandbox
+#8 DONE 0.1s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.2s done
+#9 exporting manifest sha256:7a1c47fd467c75f02650f15173637c3f9c71e25784b9f30b318c0672bdd3eb12
+#9 exporting manifest sha256:7a1c47fd467c75f02650f15173637c3f9c71e25784b9f30b318c0672bdd3eb12 0.0s done
+#9 exporting config sha256:57e6dd8b2209608bcbf8296466301d9337df3a4eee702eef702d62289810506f 0.0s done
+#9 exporting attestation manifest sha256:0fe87d83539d3a946a193af634879e2433685ca5d9c634b1ed8ce7cc3597156f 0.0s done
+#9 exporting manifest list sha256:6c005dccad5abf6cd7c2ce997505b7acc9764cc1824ce41ff5cf1dc68084ac50 0.0s done
+#9 naming to docker.io/library/jfr-20261024-verify-worker:patch-adversarial done
+#9 unpacking to docker.io/library/jfr-20261024-verify-worker:patch-adversarial 0.1s done
+#9 DONE 0.4s

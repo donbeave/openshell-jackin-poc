@@ -1,0 +1,11 @@
+IDENTITY
+uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+NoNewPrivs:	1
+HOME=/sandbox PWD=/sandbox
+HOOK_BEGIN
+[architect-preflight] CONTEXT7_API_KEY unset — skipping Context7 MCP for amp
+Added amp.mcpServers.headroom to /sandbox/.config/amp/settings.json
+HOOK_DONE
+0.0.1792800065-ga5b55b (released 2026-10-24T00:01:05.000Z, 2h ago)

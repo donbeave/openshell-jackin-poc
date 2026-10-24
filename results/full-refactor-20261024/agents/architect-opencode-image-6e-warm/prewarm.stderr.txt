@@ -1,0 +1,2 @@
+agent binary release resolution failed
+telemetry: invocation 2d8268e5-626a-4d40-ad37-747aabc570a2 - OpenTelemetry export disabled

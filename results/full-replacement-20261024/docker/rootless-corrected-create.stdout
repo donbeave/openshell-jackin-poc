@@ -1,0 +1,8 @@
+
+Created sandbox: jfr24rootless3
+
+  [0.0s] Requesting compute...
+[0.0s] Sandbox allocated
+[0.0s] Pulling image docker:29.8.2-dind-rootless@sha256:c652fa9cebdaa3d655c33c6389c3c409f9a0fea6449c7d7c56c486fe71af0591
+[0.3s] Image already present
+[2.6s] Starting sandbox Container created

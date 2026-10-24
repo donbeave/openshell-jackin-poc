@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "sh",
+    "-c",
+    "realpath /tmp/jfr-20261024-vm /tmp/jfr-20261024-vmbind; test ! -L /tmp/jfr-20261024-vm && test ! -L /tmp/jfr-20261024-vmbind; du -sh /tmp/jfr-20261024-vm /tmp/jfr-20261024-vmbind; find /tmp/jfr-20261024-vm/runtime/sandboxes /tmp/jfr-20261024-vmbind/runtime/sandboxes -mindepth 1 -maxdepth 1 -type d 2>/dev/null"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.026,
+  "stdout": "<TEMP_PATH>\n<TEMP_PATH>bind\n982M\t/tmp/jfr-20261024-vm\n  0B\t/tmp/jfr-20261024-vmbind\n",
+  "stderr": ""
+}

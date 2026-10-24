@@ -1,0 +1,125 @@
+{
+  "annotations": {
+    "internal.openshell.ai/auth-epoch": "1",
+    "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+    "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+    "internal.openshell.ai/runtime-generation": "0768217a-79dc-4836-832c-af9d421bc4ca"
+  },
+  "conditions": [
+    {
+      "last_transition_time": "",
+      "message": "Supervisor session connected",
+      "reason": "DependenciesReady",
+      "status": "True",
+      "type": "Ready"
+    },
+    {
+      "last_transition_time": "",
+      "message": "",
+      "reason": "ConfigurationAccepted",
+      "status": "True",
+      "type": "ConfigurationReady"
+    }
+  ],
+  "configuration_admission": {
+    "config_revision": 11687864791273533480,
+    "error": "",
+    "policy_hash": "57c04ed1492a5ebd5a2286d9f099d6283e29589a5e358fbb2e92602b3b3f9085",
+    "policy_version": 2,
+    "provider_env_revision": 3176606324465211593,
+    "state": "accepted"
+  },
+  "created_at": "2026-10-24 01:14:06",
+  "created_from_workload_template": null,
+  "current_policy_version": 2,
+  "endpoint_statuses": [],
+  "exit_code": null,
+  "host_key_fingerprint": "SHA256:uHsJF883wZVn5x1iAHr+D66VjDg5Zb6Xzetp5Y3SB7s",
+  "id": "28173088-7389-4f38-8de5-74eb55f415c0",
+  "labels": {},
+  "last_token_grant_failure": null,
+  "main_process_instance_id": "dd9a6167-0c83-4168-a131-6706534f9b9e",
+  "main_process_started_at_ms": 1792804447642,
+  "name": "jfr24-dk-noauth",
+  "next_restart_at_ms": 0,
+  "phase": "Ready",
+  "policy": {
+    "filesystem_policy": {
+      "include_workdir": true,
+      "read_only": [
+        "/bin",
+        "/sbin",
+        "/usr",
+        "/usr/local",
+        "/lib",
+        "/lib64",
+        "/etc",
+        "/proc",
+        "/sys",
+        "/dev/urandom",
+        "/opt",
+        "/var/log"
+      ],
+      "read_write": [
+        "/workspace",
+        "/sandbox",
+        "/tmp",
+        "/home",
+        "/dev/null"
+      ]
+    },
+    "landlock": {
+      "compatibility": "best_effort"
+    },
+    "network_policies": {
+      "probe": {
+        "binaries": [
+          {
+            "path": "/bin/sh"
+          },
+          {
+            "path": "/bin/busybox"
+          },
+          {
+            "path": "/usr/local/bin/docker"
+          }
+        ],
+        "endpoints": [
+          {
+            "allowed_ips": [
+              "127.0.0.1/32"
+            ],
+            "host": "host.docker.internal",
+            "port": 28480,
+            "protocol": "tcp",
+            "tls": "skip"
+          }
+        ],
+        "name": "probe"
+      }
+    },
+    "version": 1
+  },
+  "policy_source": "sandbox",
+  "provisioning": {
+    "admission_start_time": "2026-10-24T01:14:07.618Z",
+    "attempt_id": "011e15d8-8b6d-4cc3-b9d1-fea7b578c46b",
+    "cleanup_completed_time": null,
+    "cleanup_error": "",
+    "cleanup_retry_time": null,
+    "configuration_change_id": "78a26ac6eab2fbd91109959196a17a402b2cbd8590c047f44862c203fe0df82d",
+    "configuration_change_time": "2026-10-24T01:14:07.622Z",
+    "deadline": null,
+    "driver_operation_id": "9728a8fb-0345-43f2-b0dc-4c79de7e4237",
+    "driver_operation_pending": false,
+    "first_rejection_time": null,
+    "phase": "ready",
+    "preparation_deadline": "2026-10-24T01:44:06.853Z",
+    "timeout_time": null
+  },
+  "resource_version": 116,
+  "restart_count": 0,
+  "restart_policy": "always",
+  "revision": 2,
+  "workspace": "default"
+}

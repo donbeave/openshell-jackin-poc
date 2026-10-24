@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "orbctl",
+    "list"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.029,
+  "stdout": "",
+  "stderr": ""
+}

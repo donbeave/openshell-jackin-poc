@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "ps",
+    "-a",
+    "--no-trunc",
+    "--format",
+    "{{.ID}} {{.Names}} {{.Status}}"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.127,
+  "stdout": "",
+  "stderr": ""
+}

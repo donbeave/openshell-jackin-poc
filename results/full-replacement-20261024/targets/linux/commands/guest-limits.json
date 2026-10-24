@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sh",
+    "-c",
+    "cat /sys/fs/cgroup/cpu.max /sys/fs/cgroup/memory.max /sys/fs/cgroup/pids.max"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.078,
+  "stdout": "200000 100000\n4294967296\nmax\n",
+  "stderr": ""
+}

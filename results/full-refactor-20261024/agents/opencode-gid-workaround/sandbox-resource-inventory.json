@@ -1,0 +1,44 @@
+{
+  "gateway": "jfr-20261024-a",
+  "resources": [
+    {
+      "name": "jfr24-openc-01",
+      "id": "8fe50c45-8a26-4038-b9ad-5bfe46927325",
+      "phase": "Error",
+      "created_at": "2026-10-24 02:04:44",
+      "runtime_generation": "2b97a452-f507-467a-9638-9078d6104a9a",
+      "isolation_backend": "openshell-sandbox",
+      "auth_epoch": "1",
+      "policy_hash": "",
+      "ready_condition": "False",
+      "ready_reason": "IdentityResolutionFailed",
+      "ready_message": "descriptor error: workload identity must not contain UID or GID zero"
+    },
+    {
+      "name": "jfr24-openc-gid",
+      "id": "15798361-0202-4e1b-8c07-0a208e5c3288",
+      "phase": "Ready",
+      "created_at": "2026-10-24 02:06:50",
+      "runtime_generation": "970f66bb-0ece-4edb-aa06-9e89bc490234",
+      "isolation_backend": "openshell-sandbox",
+      "auth_epoch": "1",
+      "policy_hash": "a45a8ff3564f00ae26cbd66f1131f37eedd8b54a66fbfec103d65a204c19c6e8",
+      "ready_condition": "True",
+      "ready_reason": "DependenciesReady",
+      "ready_message": "Supervisor session connected"
+    },
+    {
+      "name": "jfr24-openc-ro",
+      "id": "0315811a-c02b-4ac1-9609-f38ec24c2ff2",
+      "phase": "Ready",
+      "created_at": "2026-10-24 02:07:36",
+      "runtime_generation": "3a2dd2e3-4d22-4144-ade5-6628940b556d",
+      "isolation_backend": "openshell-sandbox",
+      "auth_epoch": "1",
+      "policy_hash": "c8287792415759aecca6be276cd5f257e8b4b074c7d1ca0cc95541584ee9de9a",
+      "ready_condition": "True",
+      "ready_reason": "DependenciesReady",
+      "ready_message": "Supervisor session connected"
+    }
+  ]
+}

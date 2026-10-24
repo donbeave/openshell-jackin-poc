@@ -1,0 +1,7 @@
+
+Created sandbox: jfr24-openc-01
+
+  [0.0s] Requesting compute...
+[0.0s] Sandbox allocated
+[0.0s] Pulling image jk_jfr24_architect:018fb47
+[0.0s] Image already present

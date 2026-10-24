@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "volume",
+    "rm",
+    "jfr-20261024-linux-retain",
+    "jfr-20261024-linux-workspace"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.239,
+  "stdout": "jfr-20261024-linux-retain\njfr-20261024-linux-workspace\n",
+  "stderr": ""
+}

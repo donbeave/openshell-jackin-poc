@@ -1,0 +1,1530 @@
+{
+  "next_page_token": "",
+  "sandboxes": [
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "fc351cd0-cc27-4491-8870-c1d587f0ae64"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Docker supervisor exited before becoming ready; log tail: [truncated] time binary identity mode\n2026-10-24T01:10:43.661Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\n2026-10-24T01:10:43.674Z INFO openshell_supervisor: Isolation boundary attached\n2026-10-24T01:10:43.675Z INFO openshell_supervisor: Isolation boundary enforcement confirmed\n2026-10-24T01:10:43.676Z OCSF CONFIG:ENABLED [INFO] TLS termination enabled: ephemeral CA generated\n2026-10-24T01:10:43.676Z OCSF CONFIG:READY [INFO] Policy DNS connected to isolation boundary\n2026-10-24T01:10:43.676Z OCSF NET:LISTEN [INFO] 127.0.0.1:3128\n2026-10-24T01:10:43.676Z WARN openshell_supervisor_network::proxy: host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF exemption disabled\nError:   × process error: boundary process leaf: start process supervisor leaf:   ×\n  │ spawn delegated workload process\n  │   ├─▶ failed to spawn sandbox entrypoint process '/bin/sh'\n  │   ╰─▶ Permission denied (os error 13)\n  │",
+          "reason": "ControlSupervisorStartFailed",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 12871555518196103027,
+        "error": "",
+        "policy_hash": "d54fe3e6f7f6d28dcfb4196aca10517159b81035806677e243a3a3e9aba2094a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:10:42",
+      "created_from_workload_template": null,
+      "current_policy_version": 0,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:7aDQ7GKPtDURae3YVCMlM2dcE5+DDKNl3As8J7QI7PA",
+      "id": "b507f0f4-6c73-42ba-b958-f8bb816805df",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-off",
+      "phase": "Error",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:10:43.656Z",
+        "attempt_id": "2897e16e-1cbf-4743-a753-6351fccfb294",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "c51a4753b1e008515925c5e4f2a0b74a8427785393fbffc0037876a07a139679",
+        "configuration_change_time": "2026-10-24T01:10:42.899Z",
+        "deadline": "2026-10-24T01:15:43.656Z",
+        "driver_operation_id": "5ec881e7-4258-4e98-a636-520ba87edfd0",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "admission",
+        "preparation_deadline": "2026-10-24T01:40:42.899Z",
+        "timeout_time": null
+      },
+      "resource_version": 111,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "babf4e52-9b85-46cb-92ee-c430d742c7ea"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 16709790733110020355,
+        "error": "",
+        "policy_hash": "a45a8ff3564f00ae26cbd66f1131f37eedd8b54a66fbfec103d65a204c19c6e8",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:11:06",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:ZHa0xJmv/I3o10Kl+waeur/Rul4LmqzUv4cx2ss6zPQ",
+      "id": "a4cac7a0-2784-42a6-be2f-17217d97477c",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-off2",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:11:07.394Z",
+        "attempt_id": "3d32cc8d-f974-41eb-9b7e-7060604f3f60",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "aac38bec6d921248b546901450130641b8101bd1535ed36dc455bf28f5771c3f",
+        "configuration_change_time": "2026-10-24T01:11:07.398Z",
+        "deadline": null,
+        "driver_operation_id": "2627a9ae-e47b-4ec8-b557-3f763ad20a9f",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:41:06.545Z",
+        "timeout_time": null
+      },
+      "resource_version": 115,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "f96fa126-9060-423d-b0b6-040f4f820c65"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 16709790733110020355,
+        "error": "",
+        "policy_hash": "a45a8ff3564f00ae26cbd66f1131f37eedd8b54a66fbfec103d65a204c19c6e8",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:11:12",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:IBhxlJUZeP2XObxOkFltN9u0tD2b0Rh0i/YjOYEs5uc",
+      "id": "6302f388-da0a-4c52-ad2f-1655625f8591",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-cli",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:11:13.590Z",
+        "attempt_id": "747e4b34-6281-4886-9758-e664df0e06db",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "aac38bec6d921248b546901450130641b8101bd1535ed36dc455bf28f5771c3f",
+        "configuration_change_time": "2026-10-24T01:11:13.594Z",
+        "deadline": null,
+        "driver_operation_id": "ae44ae5d-e244-4892-8a57-74a67b5ac4ed",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:41:12.667Z",
+        "timeout_time": null
+      },
+      "resource_version": 115,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "43fed2cf-bfd2-4c13-8dfa-c58c8d46d3d6"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Docker supervisor exited before becoming ready; log tail: [truncated] time binary identity mode\n2026-10-24T01:11:53.328Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\n2026-10-24T01:11:53.337Z INFO openshell_supervisor: Isolation boundary attached\n2026-10-24T01:11:53.338Z INFO openshell_supervisor: Isolation boundary enforcement confirmed\n2026-10-24T01:11:53.338Z OCSF CONFIG:ENABLED [INFO] TLS termination enabled: ephemeral CA generated\n2026-10-24T01:11:53.338Z OCSF CONFIG:READY [INFO] Policy DNS connected to isolation boundary\n2026-10-24T01:11:53.338Z OCSF NET:LISTEN [INFO] 127.0.0.1:3128\n2026-10-24T01:11:53.338Z WARN openshell_supervisor_network::proxy: host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF exemption disabled\nError:   × process error: boundary process leaf: start process supervisor leaf:   ×\n  │ spawn delegated workload process\n  │   ├─▶ failed to spawn sandbox entrypoint process '/bin/sh'\n  │   ╰─▶ Permission denied (os error 13)\n  │",
+          "reason": "ControlSupervisorStartFailed",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 11801998321221630499,
+        "error": "",
+        "policy_hash": "541ab6372af88d091987831509a1bc1a2f1dc73220f18c9dc686ac2080ef2f28",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:11:52",
+      "created_from_workload_template": null,
+      "current_policy_version": 0,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:w+TXlZ2oX0sNeMRf40ozVOteKLT+dQcgfM8ZAUTxy9Y",
+      "id": "8b6a2267-2b56-45bb-93a1-1f5691596e63",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-on",
+      "phase": "Error",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:11:53.322Z",
+        "attempt_id": "8c804615-4006-4ff5-ac36-bd7a9f063135",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "080e84f8731b44bfe75f83c990ba7c6c365f0f5b6455acadb8252ac31529822c",
+        "configuration_change_time": "2026-10-24T01:11:53.326Z",
+        "deadline": "2026-10-24T01:16:53.326Z",
+        "driver_operation_id": "390658b7-db5e-4f4b-94c2-7c3e8a43b756",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "admission",
+        "preparation_deadline": "2026-10-24T01:41:52.008Z",
+        "timeout_time": null
+      },
+      "resource_version": 111,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "3cb65b81-2bbb-48b1-8d30-6d889e67139b"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 16720897166466216841,
+        "error": "",
+        "policy_hash": "4d402846a4dd584c18b8820a9be62f4aa9df45d99a0fac46a498310a7e21f52f",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:12:08",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:JR4UT4fz5e+EQQiIhzaT+WL0C1FaTOrAl7gjcv+hNKE",
+      "id": "89eaa9b7-7533-4e6d-8270-89e6084613a7",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-on2",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:12:10.398Z",
+        "attempt_id": "df3b416d-bd94-46a9-aff0-33c011227133",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "ff04ce605edaa8f312752fea147d4b1c6d67541cfa9b04035111e2a5cd6d71c9",
+        "configuration_change_time": "2026-10-24T01:12:10.402Z",
+        "deadline": null,
+        "driver_operation_id": "97a3a4bf-2c6d-48a8-acbc-af4925fb1cc7",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:42:08.117Z",
+        "timeout_time": null
+      },
+      "resource_version": 114,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "e5d7ad2b-d7d1-412c-a921-ee933f0a5090"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 16720897166466216841,
+        "error": "",
+        "policy_hash": "4d402846a4dd584c18b8820a9be62f4aa9df45d99a0fac46a498310a7e21f52f",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:12:16",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:f4iUunmqjvY/d50Wmm2VxVIU5j/rjSr0t8VBfMlse9c",
+      "id": "953365f7-80f1-461c-ac18-0ed9315988fd",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-on3",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:12:17.257Z",
+        "attempt_id": "94c1a925-00a8-4ae0-870c-9c9b3c457356",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "ff04ce605edaa8f312752fea147d4b1c6d67541cfa9b04035111e2a5cd6d71c9",
+        "configuration_change_time": "2026-10-24T01:12:17.261Z",
+        "deadline": null,
+        "driver_operation_id": "9970cd5e-61aa-4251-8f89-be62f42adc8e",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:42:16.721Z",
+        "timeout_time": null
+      },
+      "resource_version": 113,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "35332345-a839-41ce-a508-9b57c492dd56"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 1640331686033890253,
+        "error": "",
+        "policy_hash": "d89e8b08f18bc5a629e7346de6af0b34efa69aedd5b94f7c583ded6067c331cd",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:13:36",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:a3bABiDIL9mcWatU3vHa9k10e4R3ZCSURZ/GYROvw4A",
+      "id": "63d9787b-31d0-432d-93b1-f74a8adc35dc",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-on4",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:13:37.806Z",
+        "attempt_id": "f6f76055-4ed7-45ec-899b-d00013a0d627",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "6a72b6c1b755d7818bddfde85e9ac3b41cd248674482fc060475fba3ab142374",
+        "configuration_change_time": "2026-10-24T01:13:37.814Z",
+        "deadline": null,
+        "driver_operation_id": "d9441c30-e986-4cd7-9e7f-321723c32e5f",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:43:36.653Z",
+        "timeout_time": null
+      },
+      "resource_version": 113,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "0768217a-79dc-4836-832c-af9d421bc4ca"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 11687864791273533480,
+        "error": "",
+        "policy_hash": "57c04ed1492a5ebd5a2286d9f099d6283e29589a5e358fbb2e92602b3b3f9085",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:14:06",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:uHsJF883wZVn5x1iAHr+D66VjDg5Zb6Xzetp5Y3SB7s",
+      "id": "28173088-7389-4f38-8de5-74eb55f415c0",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-noauth",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:14:07.618Z",
+        "attempt_id": "011e15d8-8b6d-4cc3-b9d1-fea7b578c46b",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "78a26ac6eab2fbd91109959196a17a402b2cbd8590c047f44862c203fe0df82d",
+        "configuration_change_time": "2026-10-24T01:14:07.622Z",
+        "deadline": null,
+        "driver_operation_id": "9728a8fb-0345-43f2-b0dc-4c79de7e4237",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:44:06.853Z",
+        "timeout_time": null
+      },
+      "resource_version": 113,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "deaa399f-e9e2-4c15-9521-7b7709279c1a"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 17143771903171945111,
+        "error": "",
+        "policy_hash": "a3db2253bd229e9e766a49f78680ba8846065e6e5ace720cd93241a2df1fb69a",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:18:05",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:+5YKUYQFRU/N5YkeFFucT5c7OIXAhVIKWX1WoTOXUCM",
+      "id": "53f00f60-11f7-4c54-8a05-c500240c3161",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-b",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:18:10.922Z",
+        "attempt_id": "819d192c-bc64-4aa1-80d6-07c2adeeb303",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "d32b2f317a9174d003a64e001e3cf8d93efaf216df37052e29c3908a1c087973",
+        "configuration_change_time": "2026-10-24T01:18:10.933Z",
+        "deadline": null,
+        "driver_operation_id": "d22e2485-6efc-4abf-a09a-b883043070ef",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:48:05.132Z",
+        "timeout_time": null
+      },
+      "resource_version": 108,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "afb8328d-ab1b-4b8f-8cae-b08db33e4b80"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 17143771903171945111,
+        "error": "",
+        "policy_hash": "a3db2253bd229e9e766a49f78680ba8846065e6e5ace720cd93241a2df1fb69a",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:18:15",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:x5VRrFWkGlecUFt2P7CPrYpvY1KcftIm8Viwwd2pu9k",
+      "id": "5fe5d959-cf9a-4098-ad91-3a0fd7230289",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-dk-xa",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:18:20.078Z",
+        "attempt_id": "5da07cfc-6baf-4ec1-8b94-aa8f63418c57",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "d32b2f317a9174d003a64e001e3cf8d93efaf216df37052e29c3908a1c087973",
+        "configuration_change_time": "2026-10-24T01:18:20.107Z",
+        "deadline": null,
+        "driver_operation_id": "da0b228d-1dee-4324-9775-cffd2f39c3d1",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:48:15.349Z",
+        "timeout_time": null
+      },
+      "resource_version": 108,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "8ecac090-94f9-4ec8-93e3-d78a6a652e70"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 15565124776095752225,
+        "error": "",
+        "policy_hash": "6f00fd7fed93b9019f9c24f98714a6072c6bc4f521f761bfbd4a9f184d7babc4",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:26:04",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:qwfcvZKtPvKQk+n3OHXOz2vAsXjQQp/zGLBvv16JdAQ",
+      "id": "15e6980c-3ddc-4d34-a1f6-76a68293c758",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-cap-bld-01",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:26:06.042Z",
+        "attempt_id": "80bf8778-213a-4c1d-af1c-ec82f0e6ef87",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "6bbcc5bd8ed549dd75f6970b04466ec8a5406cd4265769dfb8a917c8ac4b5261",
+        "configuration_change_time": "2026-10-24T01:26:06.047Z",
+        "deadline": null,
+        "driver_operation_id": "143db657-11da-47e0-92ae-fa32dfcbdc90",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:56:04.696Z",
+        "timeout_time": null
+      },
+      "resource_version": 100,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "f03ae45b-03ad-481b-89ac-26039dca1fec"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 10679935630016381551,
+        "error": "",
+        "policy_hash": "0a574fc05adc726c2efe7f46f0953a4654b5afe2a0729f03adf8a5a7bd5eebbe",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:26:55",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:jEk/SgxXmj7f+VnbxUMJt+yTcKaIIm3UDz90qP9d/3I",
+      "id": "e1c8b03d-8ba7-4b56-ba71-9bde71466943",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-cap-bld-02",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:26:59.543Z",
+        "attempt_id": "6d0830ad-b870-4157-b280-b4d4e9959c72",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "426e7214dc760ba112cebe81699ed619b48a65adaeed5cc1dfa80e1ecec572ac",
+        "configuration_change_time": "2026-10-24T01:26:59.548Z",
+        "deadline": null,
+        "driver_operation_id": "9f3b0b8b-9642-43b8-b072-888a28d459a7",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:56:55.234Z",
+        "timeout_time": null
+      },
+      "resource_version": 100,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "3d6ef21e-342b-4a2e-b204-96e174c5213f"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 3500531146320181021,
+        "error": "",
+        "policy_hash": "debd63879f342b401fe51098eadeba6aabd622b431808b44ac41da4046b42766",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:31:05",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:nFbvDfRwrVD0TRhcUE7oKuVp/kGxqfAvuCEz6T9w5UI",
+      "id": "b280ff81-0484-43da-aa0d-c500222c7f67",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-cap-build-03",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:31:05.949Z",
+        "attempt_id": "00a6f4e1-0b39-46ee-a880-d1a9d8f89716",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "f9ffca138065cb2b5a159d8fdae4f768e805db4cdefde71f97a950658d790d98",
+        "configuration_change_time": "2026-10-24T01:31:05.956Z",
+        "deadline": null,
+        "driver_operation_id": "c6339acd-bd8e-4751-a616-d97cb2e40853",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:01:05.287Z",
+        "timeout_time": null
+      },
+      "resource_version": 95,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "fcc93c53-ae9c-4006-a066-8135b1a73b37"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 8252787183878590021,
+        "error": "",
+        "policy_hash": "0a2ea30449a1a5e0f2a14b177808ea6158ff75b4c16d87e583c2a512da12c965",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:40:06",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:cZ+a26FHX0cTVIfl1l0+zBuC+03rzyZi7KnanubcgLQ",
+      "id": "3cd50366-1c27-406a-8f3c-dd26eb19a49e",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-cap-6e-01",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:40:08.004Z",
+        "attempt_id": "11bf09d9-d9e7-4e13-8358-cfa3e127d6db",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "55bf4f385818151e5e1e7a5b32a694d42540bdc334de35c636109862eddcf8b1",
+        "configuration_change_time": "2026-10-24T01:40:08.011Z",
+        "deadline": null,
+        "driver_operation_id": "db8dcec8-202c-4c0b-94a9-9907f4e66643",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:10:06.695Z",
+        "timeout_time": null
+      },
+      "resource_version": 86,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "86be109a-f191-4809-afb0-4a9f4212d302"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Canonical main process completed successfully",
+          "reason": "MainProcessCompleted",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 15897143789839287023,
+        "error": "",
+        "policy_hash": "6b0bf9afc1ca0b957a64230d60709b69cc48effa848bf6acc388b83a7783299e",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:46:09",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": 0,
+      "host_key_fingerprint": "SHA256:NXidBYBpuYZJwVAeXeVgOq6zdgfpv+zKlRedqNSEcrQ",
+      "id": "29534441-a8df-42ff-9502-4416c9826f93",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-pty-candb",
+      "phase": "Completed",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:46:10.324Z",
+        "attempt_id": "3f453ca7-d64c-43ef-8d65-c2cba979e806",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "2a629aba992e309912c4d8b7ca05b56bfcf729432a492a9ab53c0335a5fbea5e",
+        "configuration_change_time": "2026-10-24T01:46:09.440Z",
+        "deadline": null,
+        "driver_operation_id": "0be01aad-5390-4738-be88-836270b098c1",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:16:09.440Z",
+        "timeout_time": null
+      },
+      "resource_version": 81,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "3",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "7383a09f-0320-44a3-afa9-8780d9fa8502"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 15897143789839287023,
+        "error": "",
+        "policy_hash": "6b0bf9afc1ca0b957a64230d60709b69cc48effa848bf6acc388b83a7783299e",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:47:29",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:6HSSl61d/jLNlOm0ko/jw42163x/A2mm8sCtf0Y/xmI",
+      "id": "d6d96ae3-e3ae-48a3-9964-48c4fa1f8d9e",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-pty-a-01",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:49:08.939Z",
+        "attempt_id": "96202bb5-cf46-4e10-92a2-c82d2bfcb713",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "2a629aba992e309912c4d8b7ca05b56bfcf729432a492a9ab53c0335a5fbea5e",
+        "configuration_change_time": "2026-10-24T01:49:08.328Z",
+        "deadline": null,
+        "driver_operation_id": "d4e89566-b694-4b43-b94d-93efce1d6103",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:19:08.328Z",
+        "timeout_time": null
+      },
+      "resource_version": 112,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "ceb7302b-fd37-4c98-86ed-99d1e4f9cdd3"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 15897143789839287023,
+        "error": "",
+        "policy_hash": "6b0bf9afc1ca0b957a64230d60709b69cc48effa848bf6acc388b83a7783299e",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:47:29",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:cLO3UN9ft2KFU67Am9DJ5g/d54QPtly/4BkIqOFg9HA",
+      "id": "ec7e1d5d-9bf2-479b-a606-c02591031aa2",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-pty-shell01",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:47:50.923Z",
+        "attempt_id": "9dab214a-cb1a-4940-b385-801aea32f6c0",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "2a629aba992e309912c4d8b7ca05b56bfcf729432a492a9ab53c0335a5fbea5e",
+        "configuration_change_time": "2026-10-24T01:47:29.280Z",
+        "deadline": null,
+        "driver_operation_id": "b47f36f4-4da6-46d2-8c85-4541b2a938fa",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:17:29.280Z",
+        "timeout_time": null
+      },
+      "resource_version": 79,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "fe0a4178-1606-4a40-b4c9-ba120e4abe91"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 15897143789839287023,
+        "error": "",
+        "policy_hash": "6b0bf9afc1ca0b957a64230d60709b69cc48effa848bf6acc388b83a7783299e",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:47:29",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:qCW4y1TBYao872QtB185JiejnSOOrnXbf6Ry7/gJVhc",
+      "id": "b24f58f9-957d-47b7-8e3b-0412f3eecb2b",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-pty-b-01",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:47:50.770Z",
+        "attempt_id": "ccc0db25-81a4-4722-9c74-248d7b2991c0",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "2a629aba992e309912c4d8b7ca05b56bfcf729432a492a9ab53c0335a5fbea5e",
+        "configuration_change_time": "2026-10-24T01:47:29.282Z",
+        "deadline": null,
+        "driver_operation_id": "064eb0c8-2c02-4539-b1cb-26a8aefdda37",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:17:29.282Z",
+        "timeout_time": null
+      },
+      "resource_version": 79,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "1a006649-bca6-4663-a2bf-58c74bc32ee9"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 16687111493672881471,
+        "error": "",
+        "policy_hash": "0625132e3b68f1689a01cf62a162eb41301fe46777cbcb9bb3edc02178a346e6",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:50:06",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:KsC/YyaP4/jBlmUwkhYgNtOH0uuJNAjFvrJD9NpySHc",
+      "id": "bf301433-df3e-4749-b6a7-e4fb514a5a4b",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-cap-root-6e",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:50:07.407Z",
+        "attempt_id": "b6b9784e-c784-4cae-ad71-42592e64c4d1",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "555b05dc1de8fb7bed84081600442605f31a06e530ebcb52c94f6eb3939bc299",
+        "configuration_change_time": "2026-10-24T01:50:06.659Z",
+        "deadline": null,
+        "driver_operation_id": "793fdd07-fa6b-4182-a350-3350ab02dd5e",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:20:06.659Z",
+        "timeout_time": null
+      },
+      "resource_version": 76,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "2b97a452-f507-467a-9638-9078d6104a9a"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "descriptor error: workload identity must not contain UID or GID zero",
+          "reason": "IdentityResolutionFailed",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "Waiting for effective configuration validation before workload activation",
+          "reason": "ConfigurationPending",
+          "status": "False",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 0,
+        "error": "",
+        "policy_hash": "",
+        "policy_version": 0,
+        "provider_env_revision": 0,
+        "state": "pending"
+      },
+      "created_at": "2026-10-24 02:04:44",
+      "created_from_workload_template": null,
+      "current_policy_version": 0,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:8qhB0LvAN265+qxpqaqFfpYQmxz/b9kvLoz5G8GeU2U",
+      "id": "8fe50c45-8a26-4038-b9ad-5bfe46927325",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-openc-01",
+      "phase": "Error",
+      "provisioning": {
+        "admission_start_time": null,
+        "attempt_id": "e1166466-39b3-4881-90ab-50632673f45f",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "575b875f19f678aef0b6020494fce7ced6f501533f49d9c5e2dd7158788f660e",
+        "configuration_change_time": "2026-10-24T02:04:44.161Z",
+        "deadline": "2026-10-24T02:34:44.161Z",
+        "driver_operation_id": "679ea9a5-6561-44e8-9134-448d276b7d66",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "preparation",
+        "preparation_deadline": "2026-10-24T02:34:44.161Z",
+        "timeout_time": null
+      },
+      "resource_version": 55,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "970f66bb-0ece-4edb-aa06-9e89bc490234"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 16709790733110020355,
+        "error": "",
+        "policy_hash": "a45a8ff3564f00ae26cbd66f1131f37eedd8b54a66fbfec103d65a204c19c6e8",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 02:06:50",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:PlKF6p5Gsq80ZpA+axBVNQNSTXu/UdKSaKsjMfUMmto",
+      "id": "15798361-0202-4e1b-8c07-0a208e5c3288",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-openc-gid",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T02:06:51.679Z",
+        "attempt_id": "2c5e9296-8335-4e6b-a410-01779dad692b",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "aac38bec6d921248b546901450130641b8101bd1535ed36dc455bf28f5771c3f",
+        "configuration_change_time": "2026-10-24T02:06:51.683Z",
+        "deadline": null,
+        "driver_operation_id": "b2743c79-5a93-4ebf-b5b6-120acc955150",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:36:50.787Z",
+        "timeout_time": null
+      },
+      "resource_version": 60,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "3a2dd2e3-4d22-4144-ade5-6628940b556d"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 10520454499131416246,
+        "error": "",
+        "policy_hash": "c8287792415759aecca6be276cd5f257e8b4b074c7d1ca0cc95541584ee9de9a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 02:07:36",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:OWCe2KZ9itgLasFF+nayfnphUO8BgzPa/jtA3e9IGiI",
+      "id": "0315811a-c02b-4ac1-9609-f38ec24c2ff2",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-openc-ro",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T02:07:36.770Z",
+        "attempt_id": "d4b191c9-c164-4dbd-a47c-83660d99e286",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "8d33c6f73d37a7709a8af5e67da759719aa7d1be4780d913debfccbc7ab931e0",
+        "configuration_change_time": "2026-10-24T02:07:36.122Z",
+        "deadline": null,
+        "driver_operation_id": "9863cd26-14b0-485f-85e2-bf89a13bd2a1",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:37:36.122Z",
+        "timeout_time": null
+      },
+      "resource_version": 58,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "119ca105-76f2-4d9a-8cde-aa4b145908cd"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 10520454499131416246,
+        "error": "",
+        "policy_hash": "c8287792415759aecca6be276cd5f257e8b4b074c7d1ca0cc95541584ee9de9a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 02:19:43",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:FvoxWUAbfpd8GRGzTgyI5ah384cSB3/ZjjkIyWWrRdg",
+      "id": "785f72ae-c67c-4ab3-8ff0-293e79d31c69",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-amp-gid",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T02:19:49.147Z",
+        "attempt_id": "1089a3b8-a1dd-41b1-8916-1834cc94eff5",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "8d33c6f73d37a7709a8af5e67da759719aa7d1be4780d913debfccbc7ab931e0",
+        "configuration_change_time": "2026-10-24T02:19:43.344Z",
+        "deadline": null,
+        "driver_operation_id": "022440e1-1837-46e6-b747-460a990bf612",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:49:43.344Z",
+        "timeout_time": null
+      },
+      "resource_version": 47,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "298bd88f-02d3-49b3-96d8-554b698d7d3c"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 10520454499131416246,
+        "error": "",
+        "policy_hash": "c8287792415759aecca6be276cd5f257e8b4b074c7d1ca0cc95541584ee9de9a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 02:24:44",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:eZ6z/zZ3R35lHEQEOzZVWNELSeGFkJws1god8BW/pcY",
+      "id": "1f8abadc-96a6-4f0d-8f7e-8ad41ea49603",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-kimi-gid",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T02:24:45.422Z",
+        "attempt_id": "27f8e42c-c73a-41d7-85be-97e42ef247a8",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "8d33c6f73d37a7709a8af5e67da759719aa7d1be4780d913debfccbc7ab931e0",
+        "configuration_change_time": "2026-10-24T02:24:44.328Z",
+        "deadline": null,
+        "driver_operation_id": "298d6548-ed97-4f4d-bc06-9bb3533e60dd",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:54:44.328Z",
+        "timeout_time": null
+      },
+      "resource_version": 41,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "6e321d03-c177-4739-9ce0-e5c520265724"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 10520454499131416246,
+        "error": "",
+        "policy_hash": "c8287792415759aecca6be276cd5f257e8b4b074c7d1ca0cc95541584ee9de9a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 02:30:07",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:6iULncTqwIJAo0dzC5M2DuZ39u2ZR4dZPuKgl5UUrDc",
+      "id": "b6ed1d00-e11a-4c2c-90d0-5aa24f377992",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfr24-grok-gid",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T02:30:10.829Z",
+        "attempt_id": "6c8b7781-7a6f-465e-ae6d-797b8cdfb876",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "8d33c6f73d37a7709a8af5e67da759719aa7d1be4780d913debfccbc7ab931e0",
+        "configuration_change_time": "2026-10-24T02:30:07.412Z",
+        "deadline": null,
+        "driver_operation_id": "48f29890-93b5-4a63-940c-d77d1ab33d88",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T03:00:07.412Z",
+        "timeout_time": null
+      },
+      "resource_version": 37,
+      "workspace": "default"
+    }
+  ]
+}

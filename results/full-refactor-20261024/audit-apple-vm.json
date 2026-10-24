@@ -1,0 +1,326 @@
+{
+  "audit_id": "jackin-apple-container-vm-source-audit-20261024",
+  "source_revision": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "source_archive_verification": "results/full-refactor-20261024/source-snapshot-check.json",
+  "research_baseline": "2315e6a278231854b3139b1ca32402777ff3cd01",
+  "evidence_kind": "source inspection only; no Jackin runtime execution",
+  "source_checkout": "experiments/full-replacement-20261024/role/jackin-source (detached at the exact selected commit)",
+  "raw_matches": "results/full-refactor-20261024/audit-apple-vm-rawmatches.txt",
+  "legacy_import_required": false,
+  "legacy_import_reason": "Accepted scope permits fresh setup/reset; no migration of Apple Container manifests/config is needed.",
+  "new_design_persistence_recovery_required": true,
+  "result": "Source classification only; no runtime PASS. Apple Container is active but experimental. Apple finalize explicitly fails Phase 0. inspect_full_container_by_id, compare_grant_vs_actual and capture_checkpoint are inactive foundations without production callers. Active workflow checkpoint metadata is distinct. Full replacement must preserve active Jackin contracts and runtime-tested capabilities; do not elevate foundations into requirements without an active user contract.",
+  "records": [
+    {
+      "id": "apple-selector-entry",
+      "source": [
+        "crates/apps/jackin/src/app/load_cmd.rs:57-60,168-193",
+        "crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:1380",
+        "crates/services/jackin-runtime-launch-mounts/src/mounts.rs:709-733"
+      ],
+      "symbol_or_feature": "handle_load, resolve_backend",
+      "caller_and_user_entry": "jackin load; global runtime.default_backend or per-workspace runtime.backend",
+      "current_owner": "Jackin CLI, config and runtime launch pipeline",
+      "action_outcome": "Workspace override wins, then global default. docker/apple-container selected; unknown value errors. No per-call backend CLI selector found.",
+      "new_owner": "Jackin retains role/workspace/user selection; OpenShell becomes sole sandbox executor.",
+      "exact_mechanism": "Remove Apple/Docker runtime selector and dispatch while retaining Jackin role selector/config semantics.",
+      "code_change_expected": "Replace backend enum/config resolution with OpenShell target/profile selection owned by Jackin; remove Apple adapter path.",
+      "evidence_and_status": "Active source path. Source-only; no runtime PASS.",
+      "release_test": "No Apple Container runtime/release qualification found for selected target."
+    },
+    {
+      "id": "apple-launch-image-dispatch",
+      "source": [
+        "crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:112-137",
+        "crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finish.rs:32-45"
+      ],
+      "symbol_or_feature": "launch_runtime Apple branch; RuntimeDispatch::AppleContainer",
+      "caller_and_user_entry": "launch pipeline from jackin load",
+      "current_owner": "Jackin image/workspace pipeline uses Docker API then Apple runtime CLI; provider owns VM/container",
+      "action_outcome": "Build/preparation happens before backend dispatch. Apple branch materializes mounts, runs Docker cleanup, invokes Apple launcher, then returns instance name without Docker finish/finalization path.",
+      "new_owner": "OpenShell driver owns sandbox execution. Jackin keeps builder-at-launch and product orchestration.",
+      "exact_mechanism": "Keep host image build before sandbox create; make image builder distinct from OpenShell execution; explicitly call selected image/startup command.",
+      "code_change_expected": "Replace Apple launch branch with OpenShell create/exec and keep the derived image recipe/cache logic under Jackin.",
+      "evidence_and_status": "Active source call graph; not executed on Apple Container.",
+      "release_test": "No live Apple image-to-VM test in this audit."
+    },
+    {
+      "id": "apple-container-cli-api",
+      "source": [
+        "crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:72-89,96-159,164-193,232-310",
+        "crates/services/jackin-runtime/src/runtime/apple_container.rs:333-346"
+      ],
+      "symbol_or_feature": "AppleContainerApi, AppleContainerClient, container_run_args, parse_all_containers_json",
+      "caller_and_user_entry": "Apple launcher, reconnect and lifecycle methods",
+      "current_owner": "Jackin subprocess adapter invokes external Apple `container` CLI; Apple provider owns runtime resources",
+      "action_outcome": "Surface is run/start/stop/rm/inspect/list. Run uses `container run --name ... -d --user 0:0`; adds env/env-file/mount/caps options, then image and jackin-capsule. List is JSON, parsed as a complete inventory and exact IDs validated. `rm` is called by `remove`/`remove_with` wrappers, but repository-wide production-caller search found no caller; these functions are not an active removal workflow.",
+      "new_owner": "OpenShell released CLI or Rust control API owns sandbox lifecycle/exec; Jackin keeps narrow product adapter.",
+      "exact_mechanism": "Use supported OpenShell APIs and immutable sandbox identity; do not parse human CLI output.",
+      "code_change_expected": "Replace AppleContainerApi implementation and provider CLI process calls with OpenShell client; preserve typed errors/identity checks.",
+      "evidence_and_status": "Run/start/stop/inspect/list have active production paths, source only. Apple remove/remove_with/rm are implemented without a production caller. CLI compatibility not executed here.",
+      "release_test": "No live Apple CLI test in this audit; no production Apple rm caller found."
+    },
+    {
+      "id": "guest-start-pty-readiness",
+      "source": [
+        "crates/services/jackin-runtime-apple-container-wait/src/wait.rs:8-40",
+        "crates/services/jackin-runtime-apple-container-attach/src/attach.rs:8-31",
+        "crates/services/jackin-runtime-apple-container-supervisor-env/src/supervisor_env.rs:4-17"
+      ],
+      "symbol_or_feature": "wait_for_capsule, attach, apple_supervisor_env",
+      "caller_and_user_entry": "fresh launch and hardline/reconnect after jackin load or jackin hardline",
+      "current_owner": "Jackin wait/attach logic and Capsule; Apple provider supplies PTY/container exec",
+      "action_outcome": "Polls socket/protocol every 500 ms for 60 s; attaches with `container exec --user 0:0 -it`; inherits host stdio and returns exit status. Injects force-daemon and supervisor PID markers.",
+      "new_owner": "OpenShell owns exec/session transport; Jackin/Capsule owns application session protocol and UX.",
+      "exact_mechanism": "Use explicit OpenShell startup command/readiness checks plus stream/PTY session operations; retain focus/session IDs and reconnect semantics.",
+      "code_change_expected": "Replace provider-specific exec and readiness with OpenShell API; preserve Capsule protocol validation and operator terminal behavior.",
+      "evidence_and_status": "Active source path, not live Apple runtime evidence.",
+      "release_test": "PTY/resize/reconnect must be tested for each OpenShell target separately."
+    },
+    {
+      "id": "workspace-agent-state-mounts",
+      "source": [
+        "crates/services/jackin-runtime-launch-mounts/src/mounts.rs:580-662",
+        "crates/services/jackin-runtime/src/runtime/apple_container.rs:142-160"
+      ],
+      "symbol_or_feature": "apple_agent_mounts, build_workspace_mounts, launch mount assembly",
+      "caller_and_user_entry": "Apple branch of jackin load",
+      "current_owner": "Jackin host owns project, account credentials, per-instance state, agent homes/caches/auth stores and usage relay socket; Apple provider exposes explicit mounts.",
+      "action_outcome": "Project/workspace is writable/read-only per resolved mount; credentials/auth stores are read-only; state/home/cache/relay are mounted. Generated provider config overlays and worktree auxiliary overlays fail closed. Provider runtime sees a mounted guest view.",
+      "new_owner": "Jackin retains file/data authority; OpenShell storage/driver or an explicitly named storage fixture owns persistence and mount execution.",
+      "exact_mechanism": "Use target-qualified persistent state and workspace sharing; verify live host-to-sandbox and sandbox-to-host updates, permissions, symlinks, atomic replacement, read-only enforcement, deletion/recreation retention.",
+      "code_change_expected": "Translate/adapt mount and durable-data semantics to OpenShell; do not copy files and claim live sharing.",
+      "evidence_and_status": "Active source bindings; no Apple mount runtime test. Separate OpenShell VM test failed host bind under enabled admission.",
+      "release_test": "Per-platform tests required; packaged OpenShell VM host bind is currently blocked by admission resolver."
+    },
+    {
+      "id": "runtime-manifest-target-identity",
+      "source": [
+        "crates/services/jackin-instance/src/manifest/resources.rs:23-36",
+        "crates/services/jackin-runtime-backend-selection/src/backend_selection.rs:8-24",
+        "crates/services/jackin-runtime/src/runtime/apple_container.rs:193-208"
+      ],
+      "symbol_or_feature": "AppleContainerResources, backend_for_manifest/state, manifest write",
+      "caller_and_user_entry": "launch, reconnect, hardline, eject, purge, exile, restore",
+      "current_owner": "Jackin local manifest owns the Apple name/image reference and inner-Docker bit; Apple provider owns container/VM lifecycle.",
+      "action_outcome": "Persisted manifest chooses backend for later operations. Missing backend defaults to Docker. Apple resource schema has no target gateway, immutable sandbox ID or runtime generation.",
+      "new_owner": "Jackin owns product state; OpenShell owns target identity and sandbox IDs; durable Jackin state remains separately retained.",
+      "exact_mechanism": "Persist gateway/target identity, sandbox ID/generation, role/image revision, project/state locator and session resume fields. Fresh reset is allowed, but new persistence/recovery is required.",
+      "code_change_expected": "Add OpenShell target/sandbox identity to new Jackin state schema; no old Apple manifest import is required.",
+      "evidence_and_status": "Active schema/dispatch; schema behavior only source inspected.",
+      "release_test": "Recovery after runtime delete/recreate remains unproven."
+    },
+    {
+      "id": "apple-stop-eject-purge-exile",
+      "source": [
+        "crates/services/jackin-runtime/src/runtime/backend.rs:132-208",
+        "crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:15-29",
+        "crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:14-56",
+        "crates/services/jackin-runtime/src/runtime/cleanup/purge_absent.rs:14-29"
+      ],
+      "symbol_or_feature": "AppleContainerBackend, eject_role, exile_all, ensure_backend_absent_for_purge",
+      "caller_and_user_entry": "jackin eject, jackin exile, purge and restore flows",
+      "current_owner": "Jackin chooses stop/purge. Apple provider stop owns the active eject operation. An Apple remove/rm implementation exists but no production caller was found.",
+      "action_outcome": "Eject calls stop, retaining object; exile enumerates Apple instances by local manifests then stops them; purge guard requires exact Apple container absence. Apple remove/remove_with calls client.remove_container but has no production caller. Runtime removal and Jackin state purge are distinct; the active Apple lifecycle does not establish runtime-object deletion.",
+      "new_owner": "OpenShell owns sandbox stop/delete; Jackin owns retention/purge authorization and retained state.",
+      "exact_mechanism": "Map Jackin lifecycle intents to OpenShell stop/delete; prove idempotency, explicit resource inventory, recovery, retained data, and safe repeated cleanup.",
+      "code_change_expected": "Replace provider lifecycle routing; maintain user-facing lifecycle meanings and separation between runtime delete and retained-state purge.",
+      "evidence_and_status": "Active source dispatch for stop/eject/exile/purge guard, no Apple runtime execution. Apple removal convenience path is implemented without a production caller.",
+      "release_test": "OpenShell lifecycle tests elsewhere do not prove this integrated contract. No production caller for Apple remove/rm was found."
+    },
+    {
+      "id": "apple-finalization",
+      "source": [
+        "crates/services/jackin-runtime/src/runtime/backend.rs:187-207",
+        "crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:131-141",
+        "crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finish.rs:32-45"
+      ],
+      "symbol_or_feature": "AppleContainerBackend::finalize, hardline, finish_launch",
+      "caller_and_user_entry": "jackin hardline and post-attach `jackin load`",
+      "current_owner": "Jackin owns session finalization and dirty-exit policy; Docker backend currently implements it.",
+      "action_outcome": "Apple finalize unconditionally returns `apple-container finalize not yet implemented - Phase 0`; hardline reconnect then fails explicitly. Fresh Apple dispatch returns before Docker finalization.",
+      "new_owner": "Jackin remains owner of finalization semantics; OpenShell supplies runtime state/events only.",
+      "exact_mechanism": "Implement Jackin finalization on OpenShell; distinguish clean exit, dirty exit, stopped sandbox, disconnect, and resume.",
+      "code_change_expected": "Replace explicit Phase 0 error with a proven OpenShell session-finalization path.",
+      "evidence_and_status": "Explicitly NOT WORKING in source; source defect/incomplete Apple backend, not OpenShell regression.",
+      "release_test": "No release/runtime finalization test exists in this audit."
+    },
+    {
+      "id": "profiles-grant-readback-sizing",
+      "source": [
+        "crates/services/jackin-runtime/src/runtime/launch/launch_runtime/profile.rs:13-63",
+        "crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/initialize.rs:68",
+        "crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:112-137",
+        "crates/services/jackin-runtime/src/runtime/apple_container.rs:161-171",
+        "crates/core/jackin-core/src/docker.rs:253",
+        "crates/adapters/jackin-docker/src/docker_client.rs:974",
+        "crates/services/jackin-runtime-docker-profile/src/docker_profile/workflow_grant.rs:212"
+      ],
+      "symbol_or_feature": "Active Docker profile preparation vs uncalled full-inspection/grant-readback foundations",
+      "caller_and_user_entry": "Security profile and effective grants selected during jackin load",
+      "current_owner": "Jackin owns requested profiles. Docker launch actively applies profile settings and probes cgroup/AppArmor facts. Apple provider receives an AppleContainerSpec.",
+      "action_outcome": "Apple early dispatch bypasses Docker runtime profile setup. Apple spec has empty caps_add and no CPU/memory/pids/fd fields. No Apple VM sizing/create/delete request is present. inspect_full_container_by_id has trait/default and adapter implementation but no production call; compare_grant_vs_actual has no production call; launch passes workflow_grant: None. Docker profile application is separate from the inactive actual-grant readback foundation.",
+      "new_owner": "Jackin retains active profile intent; OpenShell driver/policy and any separate engine enforce active grants/budgets.",
+      "exact_mechanism": "Translate actively used grants and verify allowed and denied operations. Do not require full-inspection readback or live-write barrier solely from uncalled foundation; require it only if an active user contract establishes it. Do not infer VM sizing from Docker flags.",
+      "code_change_expected": "Translate active supported profile controls into OpenShell configuration; no requirement to port uncalled Docker readback foundation absent product caller.",
+      "evidence_and_status": "Apple profile enforcement NOT PROVEN. Docker grant readback is NOT A PRODUCTION CALLER. No Apple limits requested in code. Source-only.",
+      "release_test": "No Apple resource-limit/profile runtime test in this audit; target-specific OpenShell controls require separate execution proof."
+    },
+    {
+      "id": "supervisor-root-process-boundary",
+      "source": [
+        "crates/services/jackin-runtime-identity/src/identity.rs:13",
+        "crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:164-170",
+        "crates/services/jackin-runtime-apple-container-supervisor-env/src/supervisor_env.rs:4-17",
+        "crates/apps/jackin-capsule/src/main.rs:34-52",
+        "crates/apps/jackin-capsule/src/daemon/boot.rs"
+      ],
+      "symbol_or_feature": "CAPSULE_SUPERVISOR_USER, apple_supervisor_env, Capsule PID/forced daemon startup",
+      "caller_and_user_entry": "Apple container run starts `jackin-capsule`; Capsule then launches/owns sessions",
+      "current_owner": "Jackin controls process args/env; provider vminitd owns VM PID1; Capsule owns its supervisor/child model.",
+      "action_outcome": "Container CLI requires user `0:0`, runs image command `jackin-capsule`, and receives FORCE_DAEMON plus supervisor marker. vminitd remains PID1; signal forwarding is documented gRPC/vsock dependency. Capsule uses Darwin reaper setup only under cfg(target_os = \"macos\"); the Apple Container guest is Linux, so that Capsule branch does not apply. Host Jackin macOS uses a separate jackin-process reaper.",
+      "new_owner": "OpenShell owns sandbox process tree; Jackin/Capsule retains session/account semantics unless a proven replacement is used.",
+      "exact_mechanism": "Set startup command explicitly; preserve account boundaries and test UID/GID/groups/caps and process interruption/cleanup inside sandbox.",
+      "code_change_expected": "Replace provider startup wiring, preserve only required supervisor and session behavior.",
+      "evidence_and_status": "Active source call path; no runtime proof that guest agent is root or that force-stop cleanup works.",
+      "release_test": "Rooted Capsule session path and actual target must be exercised elsewhere."
+    },
+    {
+      "id": "process-reaper-scope",
+      "source": [
+        "crates/core/jackin-process/src/lib.rs",
+        "crates/core/jackin-process/src/child_ownership.rs",
+        "crates/apps/jackin-capsule/src/pid1.rs",
+        "crates/apps/jackin-capsule/src/main.rs:34-48",
+        "crates/services/jackin-runtime-process-telemetry/src/process_telemetry.rs:129"
+      ],
+      "symbol_or_feature": "jackin_process child registry/reaper and Darwin Capsule reaper",
+      "caller_and_user_entry": "Jackin host adapter subprocesses; Capsule daemon subprocesses",
+      "current_owner": "jackin-process owns host child waits/reaping; Capsule owns its guest-level child model; Apple vminitd is outer VM PID1.",
+      "action_outcome": "6e adds host child registration/reaper coordination for Jackin running on macOS. Capsule Darwin reaper startup is target-gated by cfg(target_os = \"macos\") and does not run in the Apple Container Linux guest. Apple vminitd remains guest PID1; host reaper does not prove guest child cleanup or provider signal propagation.",
+      "new_owner": "OpenShell sandbox supervisor owns sandbox process lifetime; Capsule or a proven session relay owns session children.",
+      "exact_mechanism": "Map stop/interrupt to OpenShell sandbox/session operations and test forced cleanup without relying on host CLI child reaper.",
+      "code_change_expected": "Replace host provider subprocess; keep Capsule process control if behavior contract requires it.",
+      "evidence_and_status": "Host production reaper callers active on macOS; guest Darwin reaper inapplicable. No provider signal/guest process-lifetime proof.",
+      "release_test": "No Apple provider process-lifetime test in this audit."
+    },
+    {
+      "id": "snapshot-checkpoint-usage",
+      "source": [
+        "crates/services/jackin-runtime-snapshot/src/snapshot.rs",
+        "crates/services/jackin-runtime-usage-relay/src/usage_relay.rs",
+        "crates/services/jackin-isolation/src/capture.rs:450",
+        "crates/services/jackin-isolation/src/capture/tests.rs:166,241",
+        "crates/services/jackin-workflow/src/service.rs:600,661",
+        "crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1606"
+      ],
+      "symbol_or_feature": "Docker snapshot/usage APIs; capture_checkpoint foundation; active workflow metadata checkpoint",
+      "caller_and_user_entry": "Jackin instance/status and usage APIs; jackin workflow record checkpoint",
+      "current_owner": "Jackin owns active usage/session relay and workflow checkpoint metadata. Docker snapshot has production callers on Docker paths. jackin-isolation capture_checkpoint accepts Docker API but is only called in its unit tests.",
+      "action_outcome": "No Apple production caller for Docker snapshot. capture_checkpoint is only defined and unit-tested; no production caller. Workflow record_checkpoint is active host metadata recording, not source capture or VM snapshot. Apple usage separately uses host socket/stdio relay.",
+      "new_owner": "Jackin retains active metadata checkpoint and usage/accounting semantics. OpenShell transports runtime state/events. No VM snapshot or live-write-barrier contract follows from the uncalled capture foundation.",
+      "exact_mechanism": "Port active usage/session transport as needed. Preserve workflow metadata record. Do not infer source-capture or VM snapshot requirement from the unused function; require live-write barrier only if an active user contract establishes it.",
+      "code_change_expected": "Replace Apple relay transport with OpenShell-compatible session/event transport; no source capture change unless a production caller/user contract is established.",
+      "evidence_and_status": "Docker snapshot active on Docker callers only. capture_checkpoint FOUNDATION ONLY. Workflow metadata record active and semantically distinct. No Apple/OpenShell runtime proof here.",
+      "release_test": "No Apple provider capture test. OpenShell runtime tests do not claim VM snapshot support."
+    },
+    {
+      "id": "docker-grant-readback-foundation",
+      "source": [
+        "crates/core/jackin-core/src/docker.rs:253",
+        "crates/adapters/jackin-docker/src/docker_client.rs:974",
+        "crates/services/jackin-runtime-docker-profile/src/docker_profile/workflow_grant.rs:212",
+        "crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/initialize.rs:68"
+      ],
+      "symbol_or_feature": "inspect_full_container_by_id, compare_grant_vs_actual, workflow_grant launch input",
+      "caller_and_user_entry": "Potential post-create Docker grant verification during role launch",
+      "current_owner": "Jackin Docker API/profile foundation",
+      "action_outcome": "Search of selected source: inspect_full_container_by_id occurs only in trait/default and Docker adapter implementation; compare_grant_vs_actual occurs at definition, re-export and unit tests; launch initializes workflow_grant: None. No production invocation for inspection or comparison found.",
+      "new_owner": "No OpenShell readback owner required from this inactive foundation alone. Jackin/OpenShell still must enforce active profile grants.",
+      "exact_mechanism": "Keep active profile-to-runtime enforcement. Add actual readback only if an active Jackin user contract requires it; no live-write-barrier requirement arises from these definitions alone.",
+      "code_change_expected": "Do not port inactive readback functions as a mandatory OpenShell capability absent an active caller/contract.",
+      "evidence_and_status": "FOUNDATION ONLY; no production call. Matches independent source-coverage review at results/full-refactor-20261024/source-coverage-review.md.",
+      "release_test": "No production runtime test or caller found."
+    },
+    {
+      "id": "apple-telemetry-events",
+      "source": [
+        "crates/services/jackin-telemetry/src/schema/events.rs:1118-1128",
+        "crates/services/jackin-telemetry/src/event_defs.rs:38-39",
+        "crates/services/jackin-telemetry/src/event_emit.rs:111-112,539-565",
+        "crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs"
+      ],
+      "symbol_or_feature": "RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING schema, emit adapter and diagnostics",
+      "caller_and_user_entry": "record_attach_outcome after Apple Container interactive attach",
+      "current_owner": "Jackin telemetry schema and event facade",
+      "action_outcome": "Records warning telemetry when provider inventory/outcome is absent or uncertain. Schema and emit code are production code; they do not enforce runtime behavior.",
+      "new_owner": "Jackin retains product observability. OpenShell status/events are runtime inputs only.",
+      "exact_mechanism": "Map OpenShell state observations to existing Jackin outcome/event semantics; preserve uncertainty.",
+      "code_change_expected": "Replace Apple provider observations with OpenShell status/event client while retaining Jackin event contracts.",
+      "evidence_and_status": "Active source wiring; no telemetry event emitted or runtime tested in this audit.",
+      "release_test": "No Apple runtime telemetry test in this audit."
+    },
+    {
+      "id": "packaging-ci-foundation",
+      "source": [
+        "Cargo.toml:32-42,221-231",
+        "crates/services/jackin-runtime/Cargo.toml:34-44,127",
+        "crates/tools/jackin-xtask/src/arch.rs:31-41",
+        ".github/workflows/ci.yml:98,145"
+      ],
+      "symbol_or_feature": "workspace membership, dependency edges, architecture policy, Mac CI jobs",
+      "caller_and_user_entry": "Cargo/build/check workflows",
+      "current_owner": "Jackin repository architecture and CI maintainers",
+      "action_outcome": "Apple adapters are build members/dependencies and listed by architecture gate. macOS 26 CI jobs found are repository link/policy checks. No provider install or Apple runtime conformance lane found.",
+      "new_owner": "Jackin maintains its product build/test graph; OpenShell release owns runtime driver binary compatibility.",
+      "exact_mechanism": "Remove obsolete Apple crates after parity; add tests against selected OpenShell release and required target driver.",
+      "code_change_expected": "Update workspace/dependency manifests and CI lanes; do not conflate architecture checks with runtime tests.",
+      "evidence_and_status": "Build-only/foundation evidence; no runtime PASS.",
+      "release_test": "Roadmap says Phase 0 requires macOS 26 ARM plus Apple Container v0.11.0+; no completed hardware result in this source.",
+      "exclusion_reason": "Docs/CI metadata reveal intent/prerequisites only; not product runtime calls or execution evidence."
+    }
+  ],
+  "excluded_source_categories": [
+    {
+      "category": "unit/integration tests and FakeAppleContainerClient",
+      "reason": "Test fixtures/source expectations do not prove live Apple Container behavior."
+    },
+    {
+      "category": "README, docs, research, roadmap, architecture plans",
+      "reason": "Intent or known blocker only; no runtime PASS."
+    },
+    {
+      "category": "Cargo membership, package lists, architecture checks, generated schema/docs metadata",
+      "reason": "Build or source-generation evidence only."
+    },
+    {
+      "category": "Docker-specific profile readback and snapshot exec",
+      "reason": "Active on Docker caller path; Apple dispatch has no production caller."
+    },
+    {
+      "category": "workflow checkpoint records",
+      "reason": "Host-side source/run provenance; not VM snapshot or runtime checkpoint."
+    }
+  ],
+  "compatibility_decision": {
+    "remove_apple_container_adapter": "Yes, after porting Jackin user-facing lifecycle, session, workspace/data, credential and observability contracts to OpenShell.",
+    "legacy_migration": "Not required under approved fresh setup/reset.",
+    "new_persistence_and_recovery": "Still required; runtime delete must remain distinct from retained Jackin data deletion.",
+    "specific_open_blockers": [
+      "Apple backend finalization explicitly fails Phase 0",
+      "source path lacks runtime proof",
+      "no Apple-specific CPU/memory/process/fd limits",
+      "VM sizing/provider resource ownership opaque",
+      "mounts/worktree/provider overlay behavior constrained",
+      "outer PID1 signal forwarding is caveated",
+      "no target runtime CI lane"
+    ],
+    "inactive_foundations_not_requirements_without_active_contract": [
+      "inspect_full_container_by_id has no production call",
+      "compare_grant_vs_actual has no production call; workflow_grant is None at launch",
+      "capture_checkpoint has no production caller; workflow metadata record_checkpoint is separate"
+    ]
+  },
+  "independent_review": "results/full-refactor-20261024/source-coverage-review.md (reaper target guard correction applied)",
+  "source_caller_correction": "Raw matches now include all calls to inspect_full_container_by_id, compare_grant_vs_actual, capture_checkpoint, workflow_grant initialization, and record_checkpoint. First three inspection/capture foundations have no production caller. Active workflow metadata record_checkpoint is separate. AppleContainerClient remove_container is called by runtime/apple_container.rs remove/remove_with only; repository-wide search found no production caller for either wrapper. Tests do not establish active removal. Eject uses stop; purge checks provider inventory."
+}

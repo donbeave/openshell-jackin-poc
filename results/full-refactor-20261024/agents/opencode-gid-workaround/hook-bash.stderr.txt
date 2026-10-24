@@ -1,0 +1,1 @@
+/bin/bash: /jackin/runtime/hooks/preflight.sh: Permission denied

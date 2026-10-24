@@ -1,0 +1,25 @@
+uid=1000(agent) gid=1000 groups=1000
+/usr/bin/git
+## main
+ M protected-canary-link
+ M src/lib.rs
+?? agent-created.txt
+?? host-to-agent.txt
+?? official-agent-write.txt
+?? shared-concurrent.txt
+?? src/agent-dirwatch-created-official.txt
+?? src/agent-dirwatch-created.txt
+?? src/agent-source-edit.txt
+?? src/from-agent.txt
+pub fn fixture_value() -> &'static str { "host-atomic-final" }
+ M protected-canary-link
+ M src/lib.rs
+?? agent-created.txt
+?? host-to-agent.txt
+?? official-agent-write.txt
+?? shared-concurrent.txt
+?? src/agent-dirwatch-created-official.txt
+?? src/agent-dirwatch-created.txt
+?? src/agent-source-edit.txt
+?? src/architect-role-write.txt
+?? src/from-agent.txt

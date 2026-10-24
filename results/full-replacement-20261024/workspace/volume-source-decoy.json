@@ -1,0 +1,14 @@
+{
+  "volume": "jfr24ws-decoy-validlbl",
+  "expected_device": "__POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source",
+  "actual_device": "results/full-replacement-20261024/workspace/jfr-20261024-ws/protected",
+  "checks": {
+    "driver_local": true,
+    "type_none": true,
+    "bind_option": true,
+    "canonical_device": false,
+    "attachable": true,
+    "workspace": true
+  },
+  "authorized": false
+}

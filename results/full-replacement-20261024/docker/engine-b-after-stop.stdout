@@ -1,0 +1,5 @@
+id=253d0666-9d55-4dc5-b165-733d2eb778e4 name=jfr-20261024-docker-engine-b root=/var/lib/docker
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+REPOSITORY   TAG             DIGEST                                                                    IMAGE ID                                                                  CREATED         SIZE
+redis        7.4-alpine      sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541   sha256:57e4255cc971b1c8d6f8a6ca283ac01bc3ecdd914273ef6bfaede87aaecd6541   2 days ago      59.8MB
+nginx        1.29.3-alpine   sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14   sha256:b3c656d55d7ad751196f21b7fd2e8d4da9cb430e32f646adcf92441b72f82b14   12 months ago   83.1MB

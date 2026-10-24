@@ -1,0 +1,56 @@
+{
+  "docker-desktop": {
+    "command": [
+      "docker",
+      "--context",
+      "desktop-linux",
+      "version",
+      "--format",
+      "{{json .Server}}"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "Failed to initialize: unable to resolve docker endpoint: context \"desktop-linux\": context not found: open /Users/example/.docker/contexts/meta/fe9c6bd7a66301f49ca9b6a70b217107cd1284598bfc254700c989b916da791e/meta.json: no such file or directory\n"
+  },
+  "kubectl-context": {
+    "command": [
+      "kubectl",
+      "config",
+      "current-context"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "error: current-context is not set\n"
+  },
+  "vm-driver-files": {
+    "command": [
+      "sh",
+      "-c",
+      "ls /opt/homebrew/opt/openshell/libexec"
+    ],
+    "exit_status": 0,
+    "stdout": "openshell-driver-vm\nopenshell-gateway-homebrew-service\n",
+    "stderr": ""
+  },
+  "host-platform": {
+    "command": [
+      "uname",
+      "-a"
+    ],
+    "exit_status": 0,
+    "stdout": "Darwin <HOST> 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050 arm64\n",
+    "stderr": ""
+  },
+  "remote-hosts": {
+    "result": "BLOCKED",
+    "reason": "No authorized remote macOS/Linux test endpoint or target fixture supplied. No arbitrary SSH hosts accessed."
+  },
+  "live-agent-test-credentials": {
+    "result": "BLOCKED",
+    "reason": "No disposable/approved test account material supplied for six active agents. Personal credential stores not inspected. Harmless fixture identities cannot authenticate model tasks."
+  },
+  "registry-auth": {
+    "result": "BLOCKED",
+    "reason": "No disposable registry authentication fixture supplied; public registry pull is a separate path."
+  }
+}

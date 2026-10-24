@@ -1,0 +1,19 @@
+[
+  {
+    "operation": "stale_delete_after_reuse",
+    "ok": false,
+    "detail": {
+      "cleanup_confirmed": true,
+      "old_request_id": "6cada205-c04e-4501-b15c-098868f9d522",
+      "original_delete_confirmed": true,
+      "replacement_absent_after_old_request": true,
+      "replacement_id": "e0a3c6dc-9efb-4245-80b4-a8a378e30aa5",
+      "request_bytes_captured_before_original_delete": true,
+      "stale_delete_rejected": false,
+      "stale_delete_rpc_error": null,
+      "stale_delete_rpc_response_sandbox_id": "e0a3c6dc-9efb-4245-80b4-a8a378e30aa5",
+      "stale_delete_rpc_succeeded": true
+    },
+    "error": "preconstructed old-context delete removed same-name replacement"
+  }
+]

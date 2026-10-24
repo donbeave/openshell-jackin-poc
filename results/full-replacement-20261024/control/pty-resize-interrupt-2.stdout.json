@@ -1,0 +1,25 @@
+[
+  {
+    "operation": "create",
+    "ok": true,
+    "detail": {
+      "first_response_discarded_by_harness": true,
+      "idempotency_contract": "at-most-once request admission; harness discards acknowledgement after response, not a network packet drop",
+      "one_resource_with_name": true,
+      "request_id": "8c9dbd81-8f06-4555-b38d-eb2ccadfbedb",
+      "retry_id": "6385e6da-d7b4-4c0a-a7c2-e65094f5340b"
+    }
+  },
+  {
+    "operation": "pty_resize_input_interrupt_reconnect",
+    "ok": false,
+    "error": "resize trap missing"
+  },
+  {
+    "operation": "delete_confirmed",
+    "ok": true,
+    "detail": {
+      "id": "6385e6da-d7b4-4c0a-a7c2-e65094f5340b"
+    }
+  }
+]

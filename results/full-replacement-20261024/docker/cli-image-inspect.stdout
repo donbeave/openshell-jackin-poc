@@ -1,0 +1,6 @@
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+-rwxr-xr-x    1 root     root        919304 Jan 10  2026 /bin/busybox
+lrwxrwxrwx    1 root     root            12 Sep 17 17:32 /bin/sh -> /bin/busybox
+-rwxr-xr-x    1 root     root      41565640 Sep 30 19:35 /usr/local/bin/docker
+/usr/local/bin/docker
+uid=1000 gid=1000 groups=1000

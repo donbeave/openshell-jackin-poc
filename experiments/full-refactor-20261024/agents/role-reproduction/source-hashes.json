@@ -1,0 +1,35 @@
+{
+  "jackin_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "architect_pinned_commit": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+  "experiment_role_commits": [
+    "018fb476eeff6ff2dd750962127470953311a511",
+    "93a46c2ddfbd868e4208109f4ca23401ccd519e8"
+  ],
+  "diff_scope": [
+    "jackin.role.toml",
+    "hooks/preflight.sh"
+  ],
+  "pinned_tracked_file_count": 34,
+  "derived_tracked_file_count": 31,
+  "changed_tracked_paths_vs_pinned": [
+    ".dockerignore",
+    ".velnor/config.toml",
+    ".velnor/release-manifest.json",
+    "config/fleet/velnor-host.env",
+    "hooks/preflight.sh",
+    "jackin.role.toml"
+  ],
+  "unexpected_changed_paths_in_historical_snapshot_comparison": [
+    ".dockerignore",
+    ".velnor/config.toml",
+    ".velnor/release-manifest.json",
+    "config/fleet/velnor-host.env"
+  ],
+  "patch_sha256": "0b26944c002bb5558fe4cd3d7ce65ef79d641a7d2b5f0676747d26bed9f8017c",
+  "patch_bytes": 629,
+  "exported_role_diff_scope": [
+    "jackin.role.toml",
+    "hooks/preflight.sh"
+  ],
+  "historical_comparison_limitation": "An earlier one-off source-tree comparison read all tracked file bytes transiently to identify mismatched paths. It emitted only changed path names and did not save or print file contents or per-file hashes. Do not describe that historical operation as never reading the host environment file. The rebuild script uses sparse checkout to exclude the file before worktree extraction and copies only curated role files into the Docker context."
+}

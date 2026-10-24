@@ -1,0 +1,29 @@
+{
+  "command": [
+    "<experiment>/jackin",
+    "prewarm",
+    "--agent",
+    "grok",
+    "--image",
+    "--role",
+    "jfr24/architect",
+    "--role-git",
+    "<experiment>/architect-derived"
+  ],
+  "started_utc": "2026-10-24T02:25:27.630295+00:00",
+  "duration_seconds": 119.05,
+  "exit_status": 0,
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "role_commit": "93a46c2ddfbd868e4208109f4ca23401ccd519e8",
+  "role_tree": "4521549007573c10993a38b40eafded80d04521d",
+  "jackin_version": "jackin 0.6.4",
+  "capsule_sha256": "60f50d7441a4caa64e92205444cc97868166a0714bac4c8b0a1fc334020de22d",
+  "image_tag": "jk_jfr24_architect:93a46c2",
+  "image_identity": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f linux/arm64 13808679580 agent [\"/jackin/runtime/jackin-capsule\"] c48bffb87a3e624c04506a34f8881e4e06865427b433d0acf661f3d4e162c10f 93a46c2",
+  "immutable_retag": "jfr24-architect-grok:93a46c2",
+  "retag_status": 0,
+  "expected": "Pinned Jackin 6e prewarm builds actual pinned Architect role with grok selected and Linux ARM64 Capsule artifact before OpenShell sandbox creation; no authentication implied.",
+  "host_platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "stdout_file": "prewarm.stdout.txt",
+  "stderr_file": "prewarm.stderr.txt"
+}

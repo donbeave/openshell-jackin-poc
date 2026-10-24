@@ -1,0 +1,2 @@
+jfr24-dk-host-project jackin.fixture=jfr-20261024-docker,ojp.owner=followup-docker-engine,openshell.ai/sandbox-attachable-workspace=default,openshell.ai/sandbox-attachable=true
+jfr-20261024-docker-data ojp.owner=followup-docker-engine,ojp.test-id=jfr-20261024

@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm-bind/client.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "jfr-20261024-bm",
+    "--from",
+    "jfr-20261024-vm/probe:0.1.5",
+    "--policy",
+    "experiments/denied.yaml",
+    "--driver-config-json",
+    "{\"vm\":{\"mounts\":[{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/targets/openshell-vm-bind/project\",\"target\":\"/sandbox/project\",\"read_only\":false}]}}",
+    "--detach",
+    "--label",
+    "jfr.experiment=jfr-20261024-vmbind",
+    "--output",
+    "json",
+    "--",
+    "sleep",
+    "infinity"
+  ],
+  "exit_status": 1,
+  "wall_seconds": 0.082,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 code: 'The system is not in a state required for the operation's\n  \u2502 execution', message: \"host bind mount cannot be attached while resource\n  \u2502 admission is enabled: no trusted label resolver\"\n\n"
+}

@@ -1,0 +1,14 @@
+{
+  "mutable": {
+    "ref": "jk_jfr24_architect:93a46c2",
+    "exit": 0,
+    "identity": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f linux/arm64 13808679580 agent [\"/jackin/runtime/jackin-capsule\"] <no value> c48bffb87a3e624c04506a34f8881e4e06865427b433d0acf661f3d4e162c10f",
+    "stderr": ""
+  },
+  "immutable_grok": {
+    "ref": "jfr24-architect-grok:93a46c2",
+    "exit": 0,
+    "identity": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f linux/arm64 13808679580 agent [\"/jackin/runtime/jackin-capsule\"] <no value> c48bffb87a3e624c04506a34f8881e4e06865427b433d0acf661f3d4e162c10f",
+    "stderr": ""
+  }
+}

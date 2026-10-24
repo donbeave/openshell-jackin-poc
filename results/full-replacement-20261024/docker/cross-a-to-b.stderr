@@ -1,0 +1,1 @@
+error during connect: Get "https://host.docker.internal:28481/v1.56/version": remote error: tls: certificate required

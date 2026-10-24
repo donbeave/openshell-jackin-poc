@@ -1,0 +1,2 @@
+e6e98353-9c27-4c22-a966-1eb0b8821bc7 29.8.2 aarch64 /var/lib/docker
+exit=0

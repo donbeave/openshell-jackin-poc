@@ -1,0 +1,15 @@
+{
+  "volume": "jfr24verify-bundle",
+  "expected_device": "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle",
+  "actual_device": "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle",
+  "checks": {
+    "driver_local": true,
+    "type_none": true,
+    "bind_option": true,
+    "canonical_device": true,
+    "attachable": true,
+    "workspace": true,
+    "fixture_identity": true
+  },
+  "authorized": true
+}

@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "info",
+    "--format",
+    "{{.ID}} {{.Architecture}} {{.NCPU}} {{.MemTotal}} {{.DockerRootDir}}"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.212,
+  "stdout": "0a39b2e3-bccf-4cc0-ac11-e3cd211b1673 aarch64 18 130666131456 /var/lib/docker\n",
+  "stderr": ""
+}

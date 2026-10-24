@@ -1,0 +1,98 @@
+{
+  "test_id": "jfr-20261024-rctl",
+  "platform": "macOS ARM64 + OrbStack Linux ARM64 Docker",
+  "openshell": "v0.1.5 bdb956f2cd65a635f1294fccf1d138d263bf650f",
+  "gateway": "jfr-20261024-rctl at https://localhost:28600",
+  "image": "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686; linux/arm64; warm cache",
+  "capabilities": [
+    {
+      "requirement": "Rust released API with caller-built verified mTLS Tonic Channel",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": "tls-valid-client.json; rust-build.json",
+      "expected": "CA + hostname + client identity; protected API calls",
+      "observed": "authenticated list and GetCurrentUser succeeded; subject jfr-20261024-rctl-client"
+    },
+    {
+      "requirement": "TLS trust negatives",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": [
+        "tls-missing-client.json",
+        "tls-wrong-ca.json",
+        "tls-wrong-server-name.json",
+        "tls-untrusted-client-ca.json"
+      ],
+      "observed": "protected API denied without client identity; bad server CA and hostname rejected by verified channel; client chain from untrusted CA rejected"
+    },
+    {
+      "requirement": "certificate-subject identity separation",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": "tls-alternate-ca-signed-client.json",
+      "observed": "same trusted CA signed alternate subject authenticated as jfr-rctl-wrong-ou; CA signature defines trust; OU is not an authorization boundary tested here"
+    },
+    {
+      "requirement": "create same request id retry",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": "lifecycle-repeat.json",
+      "observed": "one sandbox ID returned and listed; client discarded first successful response locally. Actual network loss for create response NOT TESTED"
+    },
+    {
+      "requirement": "inspect/list/exec exact argv/status/stdout/stderr/stop/start/delete",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": "lifecycle-repeat.json",
+      "observed": "literal shell metacharacters stayed a single argument; exit 23 preserved; stdout/stderr separate; same ID through stop/start; deletion confirmed by original UUID"
+    },
+    {
+      "requirement": "non-TTY input/output stream with 1MiB, NUL, frames, receiver pause and EOF",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": "lifecycle-repeat.json",
+      "observed": "1,048,576 output bytes, split input frames including NUL, receiver paused 500ms, EOF produced exit 0, stderr separate"
+    },
+    {
+      "requirement": "exec retry does not execute side effect twice after stream disconnect",
+      "result": "PASS",
+      "mechanism": "RELEASED",
+      "evidence": "lifecycle-repeat.json",
+      "observed": "same request ID was rejected with `execution terminated, but its output stream is not stored; this request was not launched again`; marker contained one byte. Terminal output/exit recovery after disconnect unavailable"
+    },
+    {
+      "requirement": "stale old Stop cannot mutate same-name replacement",
+      "result": "FAIL",
+      "mechanism": "RELEASED",
+      "evidence": "lifecycle-repeat.json; gateway-rctl.log",
+      "observed": "old-context StopSandbox request succeeded against replacement ID 90e903f9-c3af-43cf-98a7-fa4c3f6d83f6; replacement phase Stopped; name request has no immutable ID/generation"
+    },
+    {
+      "requirement": "full Jackin combined journey and all other target platforms",
+      "result": "NOT TESTED",
+      "mechanism": "NOT APPLICABLE",
+      "evidence": "README.md",
+      "observed": "no Capsule, authenticated model task, real workspace/Git mode, profile, optional Docker, PTY, remote, VM, Docker Desktop, Linux host, Kubernetes, or combined lifecycle journey"
+    }
+  ],
+  "measurements": {
+    "sandbox_ready_from_gateway_log_seconds": 0.838,
+    "rust_fresh_target_build_seconds": 28.68,
+    "rust_build_cache": "fresh target; warm mbx compiler cache",
+    "confirmation_build": "rust-build.json warm success",
+    "sandbox_instance_count": 1,
+    "agent_cpu_memory": "NOT MEASURED",
+    "gateway_cpu_memory": "NOT MEASURED",
+    "image_build": "NOT RUN",
+    "optional_engine_readiness": "NOT APPLICABLE"
+  },
+  "cleanup": {
+    "result": "PASS",
+    "evidence": "cleanup.json",
+    "sandboxes": "0 in final inventory before gateway config cleanup",
+    "docker_containers": "none with this gateway namespace",
+    "volumes": "none created by this test",
+    "unrelated caches": "untouched"
+  },
+  "overall": "FAIL for the tested full control/recovery requirement due stale name-based stop; NOT READY for full replacement regardless of this primitive repeat."
+}

@@ -1,0 +1,5 @@
+29.8.2-cli: Pulling from library/docker
+1d11207ad156: Download complete
+Digest: sha256:35cfcf893c20f2931f4909151b5407aaaeab711277de7ce8b8f521f095d54c32
+Status: Downloaded newer image for docker:29.8.2-cli
+docker.io/library/docker:29.8.2-cli

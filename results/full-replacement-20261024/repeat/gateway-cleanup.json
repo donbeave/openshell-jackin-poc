@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "gateway": "jfr-20261024-c",
+  "endpoint": "https://localhost:28472",
+  "process_stopped": true,
+  "listener_absent": true,
+  "isolated_client_registration": "removed with gateway-c/config",
+  "private_ca_server_client_jwt_keys": "removed with gateway-c/certs",
+  "gateway_runtime_state": "removed with gateway-c/state",
+  "kept": [
+    "gateway-c/setup.sh",
+    "gateway-c/run.sh",
+    "gateway-c/client.sh",
+    "experiment logs and results"
+  ]
+}

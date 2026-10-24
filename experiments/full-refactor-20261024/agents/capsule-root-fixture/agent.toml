@@ -1,0 +1,32 @@
+role = "capsule-root-fixture"
+workdir = "/workspace"
+instances = ["claude-work"]
+
+[agents]
+claude-work = "claude"
+
+[auth_modes]
+claude-work = "ignore"
+
+[accounts]
+claude-work = "account-fixture"
+
+[instance_home_dirs]
+claude-work = "/home/agent/.slot-0"
+
+[instance_forwarded_dirs]
+claude-work = "/jackin/slot-0"
+
+[instance_credential_files]
+claude-work = "/jackin/account-credentials/acct-636c617564652d776f726b.json"
+
+[instance_mount_paths]
+claude-work = ["/home/agent/.slot-0", "/jackin/slot-0"]
+
+[instance_identities.claude-work]
+uid = 2000
+gid = 2000
+
+[shell_identity]
+uid = 2001
+gid = 2001

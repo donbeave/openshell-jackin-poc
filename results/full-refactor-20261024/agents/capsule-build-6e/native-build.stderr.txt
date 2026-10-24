@@ -1,0 +1,443 @@
+error: unclosed table, expected `]`
+ --> ../../../../../.cargo/git/checkouts/velnor-new-e7471f4f9af9fd1a/9191fea/fixtures/parity/malformed/input/Cargo.toml:4:14
+  |
+4 | [dependencies
+  |              ^
+error: unclosed table, expected `]`
+ --> ../../../../../.cargo/git/checkouts/velnor-new-e7471f4f9af9fd1a/9191fea/fixtures/parity/malformed-ignored/input/Cargo.toml:4:14
+  |
+4 | [dependencies
+  |              ^
+   Compiling libc v0.2.191
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling cfg-if v1.0.5
+   Compiling log v0.4.34
+   Compiling bitflags v2.13.2
+   Compiling smallvec v1.16.3
+   Compiling pin-project-lite v0.2.17
+   Compiling memchr v2.8.3
+   Compiling once_cell v1.21.4
+   Compiling find-msvc-tools v0.1.14
+   Compiling itoa v1.0.18
+   Compiling shlex v2.0.1
+   Compiling bytes v1.12.1
+   Compiling futures-core v0.3.34
+   Compiling thiserror v2.0.21
+   Compiling futures-sink v0.3.34
+   Compiling typenum v1.20.1
+   Compiling serde_core v1.0.229
+   Compiling anyhow v1.0.104
+   Compiling equivalent v1.0.3
+   Compiling autocfg v1.5.1
+   Compiling zeroize v1.9.1
+   Compiling tracing-core v0.1.36
+   Compiling allocator-api2 v0.2.21
+   Compiling foldhash v0.2.0
+   Compiling stable_deref_trait v1.2.1
+   Compiling cfg_aliases v0.2.2
+   Compiling core-foundation-sys v0.8.7
+   Compiling pkg-config v0.3.34
+   Compiling rand_core v0.10.1
+   Compiling getrandom v0.4.3
+   Compiling http v1.5.0
+   Compiling aho-corasick v1.1.5
+   Compiling writeable v0.6.4
+   Compiling regex-syntax v0.8.11
+   Compiling subtle v2.6.1
+   Compiling lazy_static v1.5.1
+   Compiling litemap v0.8.3
+   Compiling hashbrown v0.17.1
+mbx[warning]: rustc cache bypassed: failed to read Cargo's build-script declarations: No such file or directory (os error 2)
+   Compiling tracing-log v0.2.0
+   Compiling sharded-slab v0.1.7
+   Compiling thread_local v1.1.10
+   Compiling nu-ansi-term v0.50.3
+   Compiling zmij v1.0.23
+   Compiling memoffset v0.9.1
+   Compiling dunce v1.0.5
+   Compiling utf8_iter v1.0.4
+   Compiling slab v0.4.12
+   Compiling serde v1.0.229
+   Compiling fs_extra v1.3.0
+   Compiling icu_normalizer_data v2.3.0
+   Compiling icu_properties_data v2.3.0
+   Compiling futures-io v0.3.34
+   Compiling futures-task v0.3.34
+   Compiling indexmap v2.14.2
+   Compiling serde_json v1.0.154
+   Compiling sha1_smol v1.0.1
+   Compiling http-body v1.1.0
+   Compiling hybrid-array v0.4.15
+   Compiling num-traits v0.2.19
+   Compiling utf16_iter v1.0.5
+   Compiling aws-lc-rs v1.18.2
+   Compiling percent-encoding v2.3.2
+   Compiling hex v0.4.3
+   Compiling write16 v1.0.0
+   Compiling tower-service v0.3.3
+   Compiling cmov v0.5.4
+   Compiling jobserver v0.1.35
+   Compiling rustls-pki-types v1.15.1
+   Compiling const-oid v0.10.2
+   Compiling errno v0.3.14
+   Compiling mio v1.2.4
+   Compiling socket2 v0.6.5
+   Compiling getrandom v0.2.17
+   Compiling crypto-common v0.2.2
+   Compiling block-buffer v0.12.1
+   Compiling signal-hook-registry v1.4.8
+   Compiling cc v1.8.0
+   Compiling regex-automata v0.4.18
+   Compiling ctutils v0.4.5
+   Compiling httparse v1.10.1
+   Compiling syn v3.0.9
+   Compiling syn v2.0.119
+   Compiling uuid v1.28.0
+   Compiling untrusted v0.9.0
+   Compiling futures-channel v0.3.34
+   Compiling try-lock v0.2.5
+   Compiling base64 v0.23.1
+   Compiling atomic-waker v1.1.2
+   Compiling rustls v0.23.46
+   Compiling digest v0.11.3
+   Compiling fnv v1.0.7
+   Compiling cpufeatures v0.3.1
+   Compiling nix v0.31.3
+   Compiling want v0.3.2
+   Compiling sync_wrapper v1.0.2
+   Compiling option-ext v0.2.0
+   Compiling tower-layer v0.3.3
+   Compiling httpdate v1.0.3
+   Compiling security-framework-sys v2.17.0
+   Compiling sha2 v0.11.1
+   Compiling cmake v0.1.58
+   Compiling dirs-sys v0.5.0
+   Compiling core-foundation v0.10.1
+   Compiling iana-time-zone v0.1.65
+   Compiling ipnet v2.12.2
+   Compiling opentelemetry-semantic-conventions v0.33.1
+   Compiling http-body-util v0.1.5
+   Compiling form_urlencoded v1.2.2
+   Compiling rustix v1.1.5
+   Compiling directories v6.0.0
+   Compiling chrono v0.4.45
+   Compiling ring v0.17.14
+   Compiling aws-lc-sys v0.46.0
+   Compiling rustversion v1.0.23
+   Compiling security-framework v3.7.0
+   Compiling version_check v0.9.5
+   Compiling either v1.19.0
+   Compiling heck v0.5.0
+   Compiling semver v1.0.28
+   Compiling getrandom v0.3.4
+   Compiling generic-array v0.14.7
+   Compiling parking_lot_core v0.9.12
+mbx[warning]: cc cache bypassed: compiler invocation names no output file
+   Compiling rustc_version v0.4.1
+   Compiling zerocopy v0.8.63
+   Compiling rand_core v0.6.4
+   Compiling ryu v1.0.23
+   Compiling scopeguard v1.2.0
+   Compiling fallible-iterator v0.3.0
+   Compiling fastrand v2.5.0
+   Compiling lock_api v0.4.14
+   Compiling synstructure v0.14.0
+   Compiling matchers v0.2.0
+   Compiling crypto-common v0.1.7
+   Compiling rand_core v0.9.5
+   Compiling itertools v0.14.0
+   Compiling parking_lot v0.12.5
+   Compiling num_threads v0.1.8
+   Compiling glob v0.3.4
+   Compiling num-conv v0.2.2
+   Compiling crossbeam-utils v0.8.23
+   Compiling time-core v0.1.9
+   Compiling tracing-attributes v0.1.31
+   Compiling icu_locale_fallback_data v2.3.0
+   Compiling base64 v0.22.1
+   Compiling deranged v0.5.9
+   Compiling powerfmt v0.2.1
+   Compiling tokio-macros v2.7.2
+   Compiling thiserror-impl v2.0.21
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling zerovec-derive v0.11.6
+   Compiling displaydoc v0.2.7
+   Compiling serde_derive v1.0.229
+   Compiling futures-macro v0.3.34
+mbx[progress]: 15s elapsed; 0 hits, 1 misses, 12 bypassed, 220 not looked up; ~0s compiler work saved
+   Compiling tempfile v3.27.0
+   Compiling tokio v1.53.3
+   Compiling tracing v0.1.44
+   Compiling zerofrom v0.1.8
+   Compiling prost-derive v0.14.4
+   Compiling time v0.3.55
+   Compiling clang-sys v1.9.1
+   Compiling tracing-subscriber v0.3.23
+   Compiling yoke v0.8.3
+   Compiling futures-util v0.3.34
+   Compiling opentelemetry v0.33.1
+   Compiling inout v0.1.4
+   Compiling cpufeatures v0.2.17
+   Compiling chacha20 v0.10.2
+   Compiling rustix v0.38.44
+   Compiling prettyplease v0.2.37
+   Compiling libm v0.2.16
+   Compiling rand v0.10.3
+   Compiling zerovec v0.11.8
+   Compiling zerotrie v0.2.5
+   Compiling cipher v0.4.4
+   Compiling bytemuck_derive v1.12.1
+   Compiling prost v0.14.4
+   Compiling universal-hash v0.5.1
+   Compiling regex v1.13.1
+   Compiling unicode-segmentation v1.13.3
+   Compiling crc32fast v1.5.2
+   Compiling tracing-opentelemetry v0.34.0
+   Compiling minimal-lexical v0.2.1
+   Compiling signal-hook v0.3.18
+   Compiling icu_locale_data v2.3.0
+   Compiling opaque-debug v0.3.1
+   Compiling vcpkg v0.2.15
+   Compiling icu_collator_data v2.3.0
+   Compiling tinystr v0.8.4
+   Compiling potential_utf v0.1.6
+   Compiling ppv-lite86 v0.2.21
+   Compiling icu_locale_core v2.3.0
+   Compiling icu_collections v2.3.0
+   Compiling nom v7.1.3
+   Compiling libsqlite3-sys v0.38.2
+   Compiling rand_chacha v0.9.0
+   Compiling polyval v0.6.2
+   Compiling bytemuck v1.25.2
+   Compiling jackin-core v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/core/jackin-core)
+   Compiling rand v0.9.5
+   Compiling convert_case v0.10.0
+   Compiling miette-derive v7.6.0
+   Compiling strum_macros v0.26.4
+   Compiling turso_macros v0.8.3
+   Compiling libloading v0.8.9
+   Compiling castaway v0.2.4
+   Compiling icu_provider v2.3.1
+   Compiling branches v0.4.6
+   Compiling crc32c v0.6.8
+   Compiling uncased v0.9.10
+   Compiling simsimd v6.5.16
+   Compiling aegis v0.9.20
+   Compiling icu_normalizer v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling icu_locale_fallback v2.3.0
+   Compiling num-integer v0.1.47
+   Compiling bigdecimal v0.4.11
+   Compiling crossbeam-epoch v0.9.21
+   Compiling static_assertions v1.1.0
+   Compiling bindgen v0.69.5
+   Compiling tokio-util v0.7.20
+   Compiling jackin-telemetry v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-telemetry)
+   Compiling home v0.5.12
+   Compiling adler2 v2.0.1
+   Compiling winnow v1.0.4
+   Compiling unicode-width v0.1.14
+   Compiling litrs v1.0.1
+   Compiling turso_ext v0.8.3
+   Compiling simd-adler32 v0.3.10
+   Compiling mime v0.3.17
+   Compiling miette v7.6.0
+   Compiling which v4.4.2
+   Compiling axum-core v0.5.6
+   Compiling h2 v0.4.20
+   Compiling tower v0.5.3
+   Compiling idna_adapter v1.2.2
+   Compiling miniz_oxide v0.9.1
+   Compiling document-features v0.2.12
+   Compiling idna v1.1.0
+   Compiling strum v0.26.3
+   Compiling toml_parser v1.1.5+spec-1.1.0
+   Compiling url v2.5.8
+   Compiling num-bigint v0.4.8
+   Compiling tokio-stream v0.1.19
+   Compiling cexpr v0.6.0
+   Compiling tower-http v0.6.11
+   Compiling derive_more-impl v2.1.1
+   Compiling ghash v0.5.1
+   Compiling ctr v0.9.2
+   Compiling aes v0.8.4
+   Compiling aristo-macros v0.4.1
+   Compiling pin-project-internal v1.1.13
+   Compiling aead v0.5.2
+   Compiling itertools v0.12.1
+   Compiling toml_datetime v1.1.2+spec-1.1.0
+   Compiling serde_spanned v1.1.2
+   Compiling turso_core v0.8.3
+   Compiling unicode-width v0.2.2
+   Compiling byteorder v1.5.0
+   Compiling strsim v0.11.1
+   Compiling toml_writer v1.1.3+spec-1.1.0
+   Compiling ident_case v1.0.1
+   Compiling lazycell v1.3.0
+   Compiling matchit v0.8.4
+   Compiling shlex v1.3.0
+   Compiling softaes v0.1.7
+   Compiling siphasher v1.0.4
+   Compiling rustc-hash v1.1.0
+   Compiling darling_core v0.24.1
+   Compiling pin-project v1.1.13
+   Compiling roaring v0.11.5
+   Compiling fastbloom v0.14.1
+   Compiling axum v0.8.9
+   Compiling aristo v0.4.1
+   Compiling jackin-protocol v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/core/jackin-protocol)
+   Compiling aes-gcm v0.10.3
+   Compiling hyper v1.12.0
+   Compiling derive_more v2.1.1
+   Compiling icu_collator v2.3.1
+   Compiling icu_locale v2.3.1
+   Compiling signal-hook-mio v0.2.5
+   Compiling flate2 v1.1.10
+mbx[progress]: 30s elapsed; 0 hits, 1 misses, 18 bypassed, 462 not looked up; ~0s compiler work saved
+   Compiling turso_parser v0.8.3
+   Compiling pack1 v1.1.0
+   Compiling twox-hash v2.1.5
+   Compiling polling v3.11.0
+   Compiling async-trait v0.1.92
+   Compiling strum_macros v0.28.0
+   Compiling rustls-native-certs v0.8.5
+   Compiling hyper-util v0.1.21
+   Compiling rapidhash v4.5.1
+   Compiling arc-swap v1.9.3
+   Compiling intrusive-collections v0.9.7
+   Compiling pastey v0.2.3
+   Compiling simdutf8 v0.1.5
+   Compiling allocator-api2 v0.4.0
+   Compiling bumpalo v3.20.3
+   Compiling rustc-hash v2.1.3
+   Compiling fallible-streaming-iterator v0.1.9
+   Compiling cfg_block v0.1.1
+   Compiling crossterm v0.29.0
+   Compiling darling_macro v0.24.1
+   Compiling toml v1.1.8+spec-1.1.0
+   Compiling compact_str v0.9.1
+   Compiling strum v0.28.0
+   Compiling crossbeam-channel v0.5.17
+   Compiling hyper-timeout v0.5.2
+   Compiling kasuari v0.4.13
+   Compiling unicode-truncate v2.0.1
+   Compiling lru v0.18.5
+   Compiling env_filter v2.0.0
+   Compiling shell-words v1.1.1
+   Compiling symlink v0.1.0
+   Compiling genawaiter-macro v0.99.1
+   Compiling turso_sdk_kit v0.8.3
+   Compiling critical-section v1.2.0
+   Compiling tracing-appender v0.2.5
+   Compiling ratatui-core v0.1.2
+   Compiling genawaiter v0.99.1
+   Compiling env_logger v0.11.11
+   Compiling darling v0.24.1
+   Compiling toml_edit v0.25.17+spec-1.1.0
+   Compiling futures-executor v0.3.34
+   Compiling fs4 v1.1.0
+   Compiling turso_sdk_kit_macros v0.8.3
+   Compiling indoc v2.0.8
+   Compiling opentelemetry_sdk v0.33.1
+   Compiling prost-types v0.14.4
+   Compiling objc2-core-foundation v0.3.2
+   Compiling jackin-diagnostics v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-diagnostics)
+   Compiling hmac v0.13.0
+   Compiling instability v0.3.14
+   Compiling line-clipping v0.3.8
+   Compiling jackin-usage-host-presentation v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-host-presentation)
+   Compiling objc2-io-kit v0.3.2
+   Compiling jackin-usage-coordinator v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-coordinator)
+   Compiling is_ci v1.2.0
+   Compiling sysinfo v0.39.6
+   Compiling ratatui-widgets v0.3.2
+   Compiling opentelemetry-appender-tracing v0.33.1
+   Compiling is-terminal v0.4.17
+   Compiling cfg_aliases v0.1.1
+   Compiling thiserror v1.0.69
+   Compiling supports-color v2.1.0
+   Compiling ratatui-crossterm v0.1.2
+   Compiling nix v0.28.0
+   Compiling jackin-usage-broker-wire v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-broker-wire)
+   Compiling supports-color v3.0.2
+   Compiling thiserror-impl v1.0.69
+   Compiling utf8parse v0.2.2
+   Compiling tui-scrollbar v0.2.8
+   Compiling anstyle-parse v1.0.0
+   Compiling owo-colors v4.4.0
+   Compiling arrayvec v0.7.8
+   Compiling web-time v1.1.0
+   Compiling compact_str v0.10.0
+   Compiling serial2 v0.2.38
+   Compiling vte v0.15.0
+   Compiling jackin-usage-output v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-output)
+   Compiling downcast-rs v1.2.1
+   Compiling jackin-process v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/core/jackin-process)
+   Compiling jackin-process-directory v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/core/jackin-process-directory)
+   Compiling jackin-agent-status v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-agent-status)
+   Compiling ratatui-macros v0.7.2
+   Compiling termrock v0.11.0 (https://github.com/tailrocks/termrock.git?rev=1ac0d0793b8cfd9edc61ced241e2b2ecb89162b4#1ac0d079)
+   Compiling termpane v0.1.0 (https://github.com/tailrocks/termpane.git?tag=v0.1.0#04382971)
+   Compiling ratatui v0.30.2
+   Compiling jackin-brand v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/core/jackin-brand)
+   Compiling filedescriptor v0.8.3
+   Compiling portable-pty v0.9.0
+mbx[progress]: 45s elapsed; 0 hits, 1 misses, 20 bypassed, 743 not looked up; ~0s compiler work saved
+   Compiling jackin-build-meta v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/core/jackin-build-meta)
+   Compiling jackin-capsule v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/apps/jackin-capsule)
+mbx[progress]: 1m elapsed; 0 hits, 1 misses, 20 bypassed, 908 not looked up; ~0s compiler work saved
+   Compiling rustls-webpki v0.103.16
+   Compiling rusqlite v0.40.2
+   Compiling jackin-omp-store v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/adapters/jackin-omp-store)
+   Compiling jackin-config v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/core/jackin-config)
+   Compiling jackin-tui v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/ui/jackin-tui)
+   Compiling tokio-rustls v0.26.6
+   Compiling rustls-platform-verifier v0.7.1
+   Compiling hyper-rustls v0.27.10
+   Compiling tonic v0.14.6
+   Compiling reqwest v0.13.5
+   Compiling jackin-usage-provider-core v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-core)
+   Compiling tonic-prost v0.14.6
+   Compiling tonic-types v0.14.6
+   Compiling opentelemetry-proto v0.33.1
+   Compiling jackin-usage-provider-amp v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-amp)
+   Compiling jackin-usage-provider-grok v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-grok)
+   Compiling jackin-usage-provider-claude v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-claude)
+   Compiling jackin-usage-provider-kimi v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-kimi)
+   Compiling jackin-usage-host-credentials v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-host-credentials)
+   Compiling jackin-usage-provider-gemini v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-gemini)
+   Compiling jackin-usage-provider-codex v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-codex)
+   Compiling jackin-usage-host-accounts v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-host-accounts)
+   Compiling jackin-usage-provider-cursor v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-cursor)
+   Compiling jackin-usage-provider-antigravity v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-antigravity)
+   Compiling jackin-usage-provider-opencode v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-opencode)
+   Compiling jackin-usage-broker-publish v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-broker-publish)
+   Compiling jackin-usage-provider-openrouter v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-openrouter)
+   Compiling jackin-usage-provider-zai v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-zai)
+   Compiling jackin-usage-provider-minimax v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-minimax)
+   Compiling jackin-usage-credential-snapshots v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-credential-snapshots)
+   Compiling jackin-usage-provider-muse v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-muse)
+   Compiling opentelemetry-otlp v0.33.1
+mbx[progress]: 1m 15s elapsed; 0 hits, 1 misses, 20 bypassed, 942 not looked up; ~0s compiler work saved
+   Compiling jackin-usage-discovery v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-discovery)
+   Compiling jackin-usage-provider-hermes v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-provider-hermes)
+   Compiling jackin-usage-credential-resolver v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-credential-resolver)
+   Compiling jackin-usage-broker v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-broker)
+   Compiling jackin-usage-capsule-telemetry v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-capsule-telemetry)
+   Compiling turso_sync_engine v0.8.3
+   Compiling jackin-usage-host-runtime v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-host-runtime)
+mbx[progress]: 1m 30s elapsed; 0 hits, 1 misses, 20 bypassed, 950 not looked up; ~0s compiler work saved
+mbx[progress]: 1m 45s elapsed; 0 hits, 1 misses, 20 bypassed, 950 not looked up; ~0s compiler work saved
+   Compiling turso_sync_sdk_kit v0.8.3
+   Compiling turso v0.8.3
+   Compiling jackin-usage-store-backend v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-store-backend)
+   Compiling jackin-usage-token-monitor v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-token-monitor)
+   Compiling jackin-usage-snapshot-store v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage-snapshot-store)
+   Compiling jackin-usage v0.6.4 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/jackin-source/crates/services/jackin-usage)
+mbx[progress]: 2m elapsed; 0 hits, 1 misses, 22 bypassed, 956 not looked up; ~0s compiler work saved
+    Finished `release` profile [optimized] target(s) in 2m 46s
+mbx[cache]: 0 hits, 1 misses, 957 not looked up, 22 bypassed; 0 B downloaded, 0 B uploaded, 1.3 GiB stored locally
+mbx[savings]: 6.0 TiB of outputs exist once and appear everywhere. do not tell the checkouts.

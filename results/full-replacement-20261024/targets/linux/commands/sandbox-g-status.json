@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "env",
+    "XDG_CONFIG_HOME=/var/lib/jfr-20261024-linux/config",
+    "XDG_STATE_HOME=/var/lib/jfr-20261024-linux/state",
+    "OPENSHELL_LOCAL_TLS_DIR=/var/lib/jfr-20261024-linux/certs",
+    "openshell",
+    "--gateway",
+    "jfr-20261024-linux-ip",
+    "sandbox",
+    "get",
+    "jfr-20261024-lnx-g",
+    "-o",
+    "json"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.057,
+  "stdout": "{\n  \"annotations\": {\n    \"internal.openshell.ai/auth-epoch\": \"1\",\n    \"internal.openshell.ai/gateway-token-id\": \"[REDACTED-ID]\",\n    \"internal.openshell.ai/isolation-backend\": \"openshell-sandbox\",\n    \"internal.openshell.ai/runtime-generation\": \"20dddc0c-3a4a-456b-973c-86e701aa4989\"\n  },\n  \"conditions\": [\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"Supervisor session connected\",\n      \"reason\": \"DependenciesReady\",\n      \"status\": \"True\",\n      \"type\": \"Ready\"\n    },\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"\",\n      \"reason\": \"ConfigurationAccepted\",\n      \"status\": \"True\",\n      \"type\": \"ConfigurationReady\"\n    }\n  ],\n  \"configuration_admission\": {\n    \"config_revision\": 16709790733110020355,\n    \"error\": \"\",\n    \"policy_hash\": \"a45a8ff3564f00ae26cbd66f1131f37eedd8b54a66fbfec103d65a204c19c6e8\",\n    \"policy_version\": 1,\n    \"provider_env_revision\": 3176606324465211593,\n    \"state\": \"accepted\"\n  },\n  \"created_at\": \"2026-10-24 01:20:42\",\n  \"created_from_workload_template\": null,\n  \"current_policy_version\": 1,\n  \"endpoint_statuses\": [],\n  \"exit_code\": null,\n  \"host_key_fingerprint\": \"SHA256:yXs4vamAjae2AtOU4Nr2kHPEpk5oMsOZhK+hpRwFVfc\",\n  \"id\": \"ca178d9a-44e2-48e7-8acc-05168ac8efeb\",\n  \"labels\": {\n    \"jfr.experiment\": \"jfr-20261024-linux\"\n  },\n  \"last_token_grant_failure\": null,\n  \"main_process_instance_id\": \"6978fd8d-238e-4a7f-b47b-f4c0fcec4da0\",\n  \"main_process_started_at_ms\": 1792804843041,\n  \"name\": \"jfr-20261024-lnx-g\",\n  \"next_restart_at_ms\": 0,\n  \"phase\": \"Ready\",\n  \"policy\": {\n    \"filesystem_policy\": {\n      \"include_workdir\": true,\n      \"read_only\": [\n        \"/bin\",\n        \"/usr\",\n        \"/lib\",\n        \"/proc\",\n        \"/dev/urandom\",\n        \"/etc\",\n        \"/var/log\"\n      ],\n      \"read_write\": [\n        \"/tmp\",\n        \"/dev/null\"\n      ]\n    },\n    \"landlock\": {\n      \"compatibility\": \"best_effort\"\n    },\n    \"version\": 1\n  },\n  \"policy_source\": \"sandbox\",\n  \"provisioning\": {\n    \"admission_start_time\": \"2026-10-24T01:20:42.999Z\",\n    \"attempt_id\": \"7d0bd11a-6cad-405c-b26e-e85fbbd6fc8f\",\n    \"cleanup_completed_time\": null,\n    \"cleanup_error\": \"\",\n    \"cleanup_retry_time\": null,\n    \"configuration_change_id\": \"aac38bec6d921248b546901450130641b8101bd1535ed36dc455bf28f5771c3f\",\n    \"configuration_change_time\": \"2026-10-24T01:20:43.003Z\",\n    \"deadline\": null,\n    \"driver_operation_id\": \"f5207f50-2d47-45e7-a0a5-4a8356a04059\",\n    \"driver_operation_pending\": false,\n    \"first_rejection_time\": null,\n    \"phase\": \"ready\",\n    \"preparation_deadline\": \"2026-10-24T01:50:42.594Z\",\n    \"timeout_time\": null\n  },\n  \"resource_version\": 14,\n  \"restart_count\": 0,\n  \"restart_policy\": \"never\",\n  \"revision\": 1,\n  \"workspace\": \"default\"\n}\n",
+  "stderr": ""
+}

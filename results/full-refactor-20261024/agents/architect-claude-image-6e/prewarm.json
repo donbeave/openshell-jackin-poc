@@ -1,0 +1,30 @@
+{
+  "command": [
+    "<experiment>/jackin",
+    "prewarm",
+    "--agent",
+    "claude",
+    "--image",
+    "--role",
+    "jfr24/architect",
+    "--role-git",
+    "<experiment>/architect-derived"
+  ],
+  "started_utc": "2026-10-24T01:58:03.017422+00:00",
+  "duration_seconds": 72.05,
+  "exit_status": 1,
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "role_commit": "018fb476eeff6ff2dd750962127470953311a511",
+  "role_tree": "260192eb11b1ff72b8ead74cfe0fbc4322bbb331",
+  "jackin_version": "jackin 0.6.4",
+  "capsule_sha256": "3765eef14d44a2b6ebf6e0234a535dfa5f600b316fc8c062f2b4d82d3007700d",
+  "capsule_version_status": 0,
+  "capsule_version": "jackin-capsule 0.6.4",
+  "docker_context": "orbstack",
+  "docker_endpoint_identity": "unix://<home>/.orbstack/run/docker.sock",
+  "base_image_identity": "sha256:e7655072c6d511250b183e9511ca1f701e635766ec0d190a68bfe470745df63a linux/arm64",
+  "host_platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "expected": "Pinned Jackin 6e prewarm builds a Claude-only derived Architect image from the committed pinned role source and installs Claude/plugins before any OpenShell sandbox is created; no authentication implied.",
+  "stdout_file": "prewarm.stdout.txt",
+  "stderr_file": "prewarm.stderr.txt"
+}

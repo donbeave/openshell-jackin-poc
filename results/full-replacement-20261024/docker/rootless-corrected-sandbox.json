@@ -1,0 +1,100 @@
+{
+  "annotations": {
+    "internal.openshell.ai/auth-epoch": "1",
+    "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+    "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+    "internal.openshell.ai/runtime-generation": "2f626ea3-cdc4-494e-bce0-0ef0c214ebd9"
+  },
+  "conditions": [
+    {
+      "last_transition_time": "",
+      "message": "Canonical main process exited with status 1",
+      "reason": "MainProcessFailed",
+      "status": "False",
+      "type": "Ready"
+    },
+    {
+      "last_transition_time": "",
+      "message": "",
+      "reason": "ConfigurationAccepted",
+      "status": "True",
+      "type": "ConfigurationReady"
+    }
+  ],
+  "configuration_admission": {
+    "config_revision": 7962441389727433512,
+    "error": "",
+    "policy_hash": "41f3d24be33f83af0968f9b4aaa5c0af28a57ec913c45b560a2c4c9de2f93462",
+    "policy_version": 1,
+    "provider_env_revision": 3176606324465211593,
+    "state": "accepted"
+  },
+  "created_at": "2026-10-24 01:51:49",
+  "created_from_workload_template": null,
+  "current_policy_version": 1,
+  "endpoint_statuses": [],
+  "exit_code": 1,
+  "host_key_fingerprint": "SHA256:ZGhVHAHvNUvHtV3rMCL7NXiOc7gfMiXmrU6ELlyRtcg",
+  "id": "8a756d2b-615e-4013-94c3-8cd4590c916a",
+  "labels": {
+    "ojp.owner": "followup-docker-rootless-corrected",
+    "ojp.test-id": "jfr-20261024-docker-rootless"
+  },
+  "last_token_grant_failure": null,
+  "main_process_instance_id": "0050c1f8-fac5-4449-a45b-496ecfaea23c",
+  "main_process_started_at_ms": 0,
+  "name": "jfr24rootless3",
+  "next_restart_at_ms": 0,
+  "phase": "Error",
+  "policy": {
+    "filesystem_policy": {
+      "include_workdir": true,
+      "read_only": [
+        "/bin",
+        "/sbin",
+        "/usr",
+        "/usr/local",
+        "/lib",
+        "/lib64",
+        "/etc",
+        "/proc",
+        "/sys",
+        "/dev/urandom",
+        "/opt"
+      ],
+      "read_write": [
+        "/workspace",
+        "/sandbox",
+        "/tmp",
+        "/home",
+        "/dev/null"
+      ]
+    },
+    "landlock": {
+      "compatibility": "best_effort"
+    },
+    "version": 1
+  },
+  "policy_source": "sandbox",
+  "provisioning": {
+    "admission_start_time": "2026-10-24T01:51:54.494Z",
+    "attempt_id": "ddfc923d-f98e-403d-b24a-9f818d26e3db",
+    "cleanup_completed_time": null,
+    "cleanup_error": "",
+    "cleanup_retry_time": null,
+    "configuration_change_id": "4d5810d649abdde80df7d9d6a23e0f8f67099bde8c8cce8bd818e3cf9839d519",
+    "configuration_change_time": "2026-10-24T01:51:49.080Z",
+    "deadline": "2026-10-24T01:56:54.494Z",
+    "driver_operation_id": "7ef05cf3-671f-4b3d-9f2c-13bd06b722ee",
+    "driver_operation_pending": false,
+    "first_rejection_time": null,
+    "phase": "admission",
+    "preparation_deadline": "2026-10-24T02:21:49.080Z",
+    "timeout_time": null
+  },
+  "resource_version": 13,
+  "restart_count": 0,
+  "restart_policy": "never",
+  "revision": 1,
+  "workspace": "default"
+}

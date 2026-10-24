@@ -1,0 +1,4 @@
+✓ Gateway 'jfr-20261024-d' added and set as active
+  Endpoint: https://localhost:28610
+  Type: local
+✓ TLS certificates present

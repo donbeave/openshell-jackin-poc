@@ -1,0 +1,33 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 546B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#2 DONE 2.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#4 resolve docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 0.0s done
+#4 CACHED
+
+#5 [2/3] RUN printf 'jackin-test:x:1000:1000:Jackin test worker:/home/jackin-test:/bin/sh\n' >> /etc/passwd     && printf 'jackin-test:x:1000:\n' >> /etc/group     && mkdir -p /home/jackin-test /work/repo /jackin/checks /tmp /build     && chmod 0755 /home/jackin-test /work /work/repo /jackin /jackin/checks /tmp /build     && chown 1000:1000 /work/repo
+#5 DONE 0.2s
+
+#6 [3/3] WORKDIR /work/repo
+#6 DONE 0.1s
+
+#7 exporting to image
+#7 exporting layers 0.1s done
+#7 exporting manifest sha256:ca4bd67ff9c649bc54fbd4d3367882b4b9f5348d7ca95e02a362c87af8ca7dfe
+#7 exporting manifest sha256:ca4bd67ff9c649bc54fbd4d3367882b4b9f5348d7ca95e02a362c87af8ca7dfe done
+#7 exporting config sha256:0bdd91db630e55046f1e1fae5c64e86ad5575f1a4c9bec0e67c67b02997c50c1 0.0s done
+#7 exporting attestation manifest sha256:e7c669660bf978267bf557694c8bc627851163ebe5d08b654330a282fb4a0a15 0.0s done
+#7 exporting manifest list sha256:715988558a36ea00ea89c17904a6c30c801fcf3a100746c165509dd70eb5fa95 0.0s done
+#7 naming to docker.io/library/jfr-20261024-verify-worker:patch-workdir done
+#7 unpacking to docker.io/library/jfr-20261024-verify-worker:patch-workdir 0.1s done
+#7 DONE 0.3s

@@ -1,0 +1,17 @@
+FROM python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 AS helper-build
+RUN apt-get update && apt-get install -y --no-install-recommends gcc libc6-dev && rm -rf /var/lib/apt/lists/*
+COPY patch-tmpfs/setuid-probe.c /tmp/setuid-probe.c
+RUN gcc -static -O2 -Wall -Wextra -o /tmp/jfr-setuid-probe /tmp/setuid-probe.c
+
+FROM jfr-20261024-verify-worker:patch-confined
+USER 0
+RUN mkdir -p /home/jackin-test/landlock-probe /opt/landlock-probe /var/tmp/landlock-probe /run/landlock-probe /work/landlock-probe /sandbox/landlock-probe /usr/local/share/landlock-probe \
+    && for path in /home/jackin-test/landlock-probe /opt/landlock-probe /var/tmp/landlock-probe /run/landlock-probe /work/landlock-probe /sandbox/landlock-probe /usr/local/share/landlock-probe; do \
+         chown 1000:1000 "$path" && chmod 0777 "$path" && \
+         for file in write-canary truncate-canary chmod-canary unlink-canary rename-source rename-target hardlink-source; do \
+           printf 'fixture-only' > "$path/$file" && chown 1000:1000 "$path/$file" && chmod 0666 "$path/$file"; \
+         done; \
+       done
+COPY --from=helper-build --chown=0:0 --chmod=4755 /tmp/jfr-setuid-probe /usr/local/bin/jfr-setuid-probe
+USER 1000:1000
+WORKDIR /sandbox

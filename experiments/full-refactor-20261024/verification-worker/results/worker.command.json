@@ -1,0 +1,18 @@
+[
+  "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/client/target/debug/openshell-control-probe",
+  "verification-worker",
+  "--endpoint",
+  "https://localhost:28630",
+  "--server-name",
+  "localhost",
+  "--ca",
+  "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/gateway/private/certs/ca.crt",
+  "--cert",
+  "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/gateway/private/certs/client/tls.crt",
+  "--key",
+  "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/gateway/private/certs/client/tls.key",
+  "--name",
+  "jfrv-20261024-w03",
+  "--image",
+  "jfr-20261024-verify-worker:baseline-python"
+]

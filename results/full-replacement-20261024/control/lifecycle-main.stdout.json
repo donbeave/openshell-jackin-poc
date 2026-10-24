@@ -1,0 +1,141 @@
+[
+  {
+    "operation": "authenticated_gateway_health",
+    "ok": true,
+    "detail": {
+      "status": "Healthy",
+      "version": "0.1.5"
+    }
+  },
+  {
+    "operation": "create_same_request_id_retry",
+    "ok": true,
+    "detail": {
+      "first_response_discarded_by_harness": true,
+      "idempotency_contract": "at-most-once request admission; harness discards acknowledgement after response, not a network packet drop",
+      "one_resource_with_name": true,
+      "request_id": "929ee483-c1f2-4fc5-901c-e8c68eefa308",
+      "retry_id": "3ec30088-8ab1-4cc6-b2b3-9ec499550534"
+    }
+  },
+  {
+    "operation": "wait_ready",
+    "ok": true,
+    "detail": {
+      "id": "3ec30088-8ab1-4cc6-b2b3-9ec499550534",
+      "phase": "Ready",
+      "same_id": true
+    }
+  },
+  {
+    "operation": "get_inspect",
+    "ok": true,
+    "detail": {
+      "id": "3ec30088-8ab1-4cc6-b2b3-9ec499550534",
+      "name": "jfrctl241024",
+      "phase": "Ready",
+      "same_id": true
+    }
+  },
+  {
+    "operation": "list",
+    "ok": true,
+    "detail": {
+      "items": [
+        {
+          "id": "3ec30088-8ab1-4cc6-b2b3-9ec499550534",
+          "name": "jfrctl241024",
+          "phase": "Ready"
+        }
+      ],
+      "target_present_by_id": true,
+      "redaction_note": "unrelated gateway sandbox rows removed from saved evidence; count and selected own row preserved"
+    }
+  },
+  {
+    "operation": "exec_literal_argv",
+    "ok": true,
+    "detail": {
+      "exit_code": 0,
+      "stderr_base64": "",
+      "stdout_base64": "c3BhY2UgYW5kICJxdW90ZXMiIDsgdG91Y2ggL3RtcC9qZnItMjAyNjEwMjQtc2hvdWxkLW5vdC1leGlzdA=="
+    }
+  },
+  {
+    "operation": "exec_status_separate_streams",
+    "ok": true,
+    "detail": {
+      "exit_code": 23,
+      "stderr_base64": "c3RkZXJyLW1hcmtlcg==",
+      "stdout_base64": "c3Rkb3V0LW1hcmtlcg=="
+    }
+  },
+  {
+    "operation": "interactive_duplex_binary_backpressure_eof",
+    "ok": false,
+    "error": "unexpected stdout byte count: 25"
+  },
+  {
+    "operation": "exec_disconnect_same_request_id_dedup",
+    "ok": true,
+    "detail": {
+      "duplicate_outcome": "rejected_duplicate: code: 'The system is not in a state required for the operation's execution', message: \"execution terminated, but its output stream is not stored; this request was not launched again\"",
+      "first_stream_disconnected_after": "READY, before terminal completion",
+      "marker_base64": "eA==",
+      "marker_written_once": true,
+      "request_id": "8f081a10-09b8-4b27-93f0-fbbcdf648a58"
+    }
+  },
+  {
+    "operation": "stop",
+    "ok": true,
+    "detail": {
+      "id": "3ec30088-8ab1-4cc6-b2b3-9ec499550534",
+      "phase": "Stopped",
+      "same_id": true
+    }
+  },
+  {
+    "operation": "start",
+    "ok": true,
+    "detail": {
+      "id": "3ec30088-8ab1-4cc6-b2b3-9ec499550534",
+      "phase": "Ready",
+      "same_id": true
+    }
+  },
+  {
+    "operation": "wait_ready_after_start",
+    "ok": true,
+    "detail": {
+      "id": "3ec30088-8ab1-4cc6-b2b3-9ec499550534",
+      "phase": "Ready",
+      "same_id": true
+    }
+  },
+  {
+    "operation": "delete_and_confirm_original_id",
+    "ok": true,
+    "detail": {
+      "confirmed": true,
+      "id": "3ec30088-8ab1-4cc6-b2b3-9ec499550534",
+      "outcome": "Accepted"
+    }
+  },
+  {
+    "operation": "stale_name_mutation_after_reuse",
+    "ok": false,
+    "detail": {
+      "old_context_request_id": "a7a87e71-950f-43ac-ac64-b5db4a953e66",
+      "replacement_cleanup_confirmed": true,
+      "replacement_id": "48812db8-a1e1-469c-86be-b0d441d20209",
+      "replacement_id_after": "48812db8-a1e1-469c-86be-b0d441d20209",
+      "replacement_phase_after": "Stopped",
+      "stale_mutation_rejected": false,
+      "stale_stop_rpc_error": null,
+      "stale_stop_rpc_succeeded": true,
+      "stop_response_sandbox_id": "48812db8-a1e1-469c-86be-b0d441d20209"
+    },
+    "error": "stale name-based stop affected replacement; API request has no immutable sandbox ID or runtime generation"
+  }
+]

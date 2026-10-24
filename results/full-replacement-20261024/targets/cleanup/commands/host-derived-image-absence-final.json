@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "docker",
+    "image",
+    "inspect",
+    "jfr-20261024-vm/probe:0.1.5",
+    "jfr-20261024-vm/probe:forced"
+  ],
+  "exit_status": 1,
+  "wall_seconds": 0.028,
+  "stdout": "[]\n",
+  "stderr": "Error response from daemon: No such image: jfr-20261024-vm/probe:0.1.5\nError response from daemon: No such image: jfr-20261024-vm/probe:forced\n"
+}

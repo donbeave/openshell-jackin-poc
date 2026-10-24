@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "sh",
+    "-c",
+    "lsof -nP -iTCP:28472 -sTCP:LISTEN; lsof -nP -iTCP:28473 -sTCP:LISTEN"
+  ],
+  "exit_status": 1,
+  "wall_seconds": 0.116,
+  "stdout": "",
+  "stderr": ""
+}

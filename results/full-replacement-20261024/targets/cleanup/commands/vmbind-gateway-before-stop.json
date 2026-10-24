@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "ps",
+    "-p",
+    "51205",
+    "-o",
+    "pid=,command="
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.006,
+  "stdout": "51205 /opt/homebrew/opt/openshell/bin/openshell-gateway --config /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/targets/openshell-vm-bind/gateway.toml --bind-address 127.0.0.1 --port 28473 --tls-cert /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/targets/openshell-vm-bind/certs/server/tls.crt --tls-key /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/targets/openshell-vm-bind/certs/server/tls.key --tls-client-ca /Users/example/openshell-jackin-public/experiments/full-replacement-20261024/targets/openshell-vm-bind/certs/ca.crt --enable-mtls-auth true --compute-driver vm\n",
+  "stderr": ""
+}

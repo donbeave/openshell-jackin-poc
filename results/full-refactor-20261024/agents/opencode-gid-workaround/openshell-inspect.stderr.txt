@@ -1,0 +1,7 @@
+error: unrecognized subcommand 'inspect'
+
+  tip: a similar subcommand exists: 'connect'
+
+Usage: openshell sandbox [OPTIONS] [COMMAND]
+
+For more information, try '--help'.

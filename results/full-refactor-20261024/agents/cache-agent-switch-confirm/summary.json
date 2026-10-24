@@ -1,0 +1,80 @@
+{
+  "started_utc": "2026-10-24T02:34:28.264891+00:00",
+  "frozen_versions": {
+    "jackin": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+    "architect": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+    "openshell": "bdb956f2cd65a635f1294fccf1d138d263bf650f"
+  },
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "expected": "Fresh state: selected Amp prewarm should produce an Amp image; if the exact image it reports reused is tested in OpenShell, Amp CLI should exist. Grok is checked as a positive identity control.",
+  "mutable_tag_before": {
+    "ref": "jk_jfr24_architect:93a46c2",
+    "exit": 0,
+    "identity": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f linux/arm64 13808679580 agent [\"/jackin/runtime/jackin-capsule\"] <no value> c48bffb87a3e624c04506a34f8881e4e06865427b433d0acf661f3d4e162c10f",
+    "stderr": ""
+  },
+  "preserved_grok_tag_before": {
+    "ref": "jfr24-architect-grok:93a46c2",
+    "exit": 0,
+    "identity": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f linux/arm64 13808679580 agent [\"/jackin/runtime/jackin-capsule\"] <no value> c48bffb87a3e624c04506a34f8881e4e06865427b433d0acf661f3d4e162c10f",
+    "stderr": ""
+  },
+  "prewarm": {
+    "argv": [
+      "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/agents/jackin-target-cli/release/jackin",
+      "prewarm",
+      "--agent",
+      "amp",
+      "--image",
+      "--role",
+      "jfr24/architect",
+      "--role-git",
+      "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/architect-derived"
+    ],
+    "exit": 0,
+    "duration_seconds": 16.461,
+    "stdout": "amp-prewarm.stdout.txt",
+    "stderr": "amp-prewarm.stderr.txt"
+  },
+  "mutable_tag_after": {
+    "ref": "jk_jfr24_architect:93a46c2",
+    "exit": 0,
+    "identity": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f linux/arm64 13808679580 agent [\"/jackin/runtime/jackin-capsule\"] <no value> c48bffb87a3e624c04506a34f8881e4e06865427b433d0acf661f3d4e162c10f",
+    "stderr": ""
+  },
+  "preserved_grok_tag_after": {
+    "ref": "jfr24-architect-grok:93a46c2",
+    "exit": 0,
+    "identity": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f linux/arm64 13808679580 agent [\"/jackin/runtime/jackin-capsule\"] <no value> c48bffb87a3e624c04506a34f8881e4e06865427b433d0acf661f3d4e162c10f",
+    "stderr": ""
+  },
+  "openshell_image": "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f",
+  "sandbox_name": "jfr24-cache-confirm-amp",
+  "sandbox_create_and_command": {
+    "argv": [
+      "sh",
+      "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/client.sh",
+      "sandbox",
+      "create",
+      "--name",
+      "jfr24-cache-confirm-amp",
+      "--from",
+      "sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f",
+      "--policy",
+      "/Users/example/openshell-jackin-public/results/full-refactor-20261024/agents/cache-agent-switch-confirm/run-nonzero-identity-policy.yaml",
+      "--no-tty",
+      "--",
+      "/bin/sh",
+      "-lc",
+      "printf 'PATH=%s\\n' \"$PATH\"; printf 'USER=%s UID=%s GID=%s\\n' \"$(id -un)\" \"$(id -u)\" \"$(id -g)\"; command -v amp || true; command -v grok || true; amp --version; printf 'AMP_EXIT=%s\\n' \"$?\"; grok --version; printf 'GROK_EXIT=%s\\n' \"$?\""
+    ],
+    "exit": 1,
+    "duration_seconds": 0.057,
+    "stdout": "openshell-create.stdout.txt",
+    "stderr": "openshell-create.stderr.txt"
+  },
+  "capsule_sha256": "60f50d7441a4caa64e92205444cc97868166a0714bac4c8b0a1fc334020de22d",
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "role_commit": "93a46c2ddfbd868e4208109f4ca23401ccd519e8",
+  "auth": "NOT TESTED; no approved live credentials used"
+}

@@ -1,0 +1,4 @@
+mise ERROR ctx7 is not a valid shim. This likely means you uninstalled a tool and the shim does not point to anything. Run `mise use <TOOL>` to reinstall the tool.
+mise ERROR Version: 2026.7.12 linux-arm64 (2026-07-23)
+mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information
+[architect-preflight] ERROR: ctx7 setup failed (exit 1). Check CONTEXT7_API_KEY and reachability of context7.com

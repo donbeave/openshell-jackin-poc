@@ -1,0 +1,7 @@
+[
+  {
+    "operation": "verification_delete",
+    "ok": false,
+    "error": "not found: sandbox not found"
+  }
+]

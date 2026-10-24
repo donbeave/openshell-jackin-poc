@@ -1,0 +1,16 @@
+{
+  "command": [
+    "<experiment>/jackin-target-native/release/jackin-capsule",
+    "__isolated-exec",
+    "-",
+    "2001",
+    "2001",
+    "/bin/true"
+  ],
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "host_platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "expected": "isolated agent sessions require a Linux Landlock boundary",
+  "exit_status": 1,
+  "stdout_file": "native-isolated-exec.stdout.txt",
+  "stderr_file": "native-isolated-exec.stderr.txt"
+}

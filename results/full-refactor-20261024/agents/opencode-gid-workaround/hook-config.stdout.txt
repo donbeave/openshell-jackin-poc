@@ -1,0 +1,1 @@
+{"type":"local","command":["headroom","mcp","serve"],"enabled":true}

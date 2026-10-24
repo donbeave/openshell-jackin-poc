@@ -1,0 +1,30 @@
+   Compiling runtime-probe v0.1.0 (/workspace/rust-project)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.25s
+────────────
+ Nextest run ID d63e341e-975c-477e-844a-1f714ccd1082 with nextest profile: default
+    Starting 2 tests across 4 binaries
+        PASS [   0.010s] (1/2) runtime-probe::native_tcp executable_can_open_a_local_tcp_connection
+        FAIL [   0.246s] (2/2) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data
+  stdout ───
+
+    running 1 test
+    test testcontainers_starts_redis_and_exchanges_data ... FAILED
+
+    failures:
+
+    failures:
+        testcontainers_starts_redis_and_exchanges_data
+
+    test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+  stderr ───
+
+    thread 'testcontainers_starts_redis_and_exchanges_data' (7291) panicked at tests/redis_container.rs:12:10:
+    start Redis container: Client(CreateContainer(HyperLegacyError { err: hyper_util::client::legacy::Error(Connect, ConnectError("tcp connect error", 198.18.0.8:28481, Os { code: 13, kind: PermissionDenied, message: "Permission denied" })) }))
+    note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+  Cancelling due to test failure: 
+────────────
+     Summary [   0.252s] 2 tests run: 1 passed, 1 failed, 0 skipped
+        FAIL [   0.246s] (2/2) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data
+error: test run failed

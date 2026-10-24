@@ -1,0 +1,180 @@
+agent binary release resolution failed
+jackin: warning: docker pull jfr-20261024-architect-base:7b72b38 failed (pulling image jfr-20261024-architect-base:7b72b38); treating published image as stale and rebuilding from workspace Dockerfile
+agent binary release resolution failed
+[jackin] could not resolve or download the hard-coded kimi binary; the upstream release layout may have changed or the server may be unavailable, so the Docker build will run fallback installer `curl -fsSL --connect-timeout 15 --max-time 120 --retry 2 --retry-delay 2 --retry-connrefused https://code.kimi.com/kimi-code/install.sh | bash`: resolving latest kimi binary: GET https://code.kimi.com/kimi-code/latest: error sending request for url (https://code.kimi.com/kimi-code/latest): client error (Connect): operation timed out
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from BaseDockerfile
+#1 transferring dockerfile: 6.89kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/projectjackin/construct:0.37-trixie@sha256:67fc093e1dd9a021e2af66beebbeddbb4d676839dcd0a5371ce8a5d7b2cdcab4
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 124B done
+#3 DONE 0.0s
+
+#4 [internal] setting cache mount permissions
+#4 DONE 0.0s
+
+#5 [stage-0  1/20] FROM docker.io/projectjackin/construct:0.37-trixie@sha256:67fc093e1dd9a021e2af66beebbeddbb4d676839dcd0a5371ce8a5d7b2cdcab4
+#5 resolve docker.io/projectjackin/construct:0.37-trixie@sha256:67fc093e1dd9a021e2af66beebbeddbb4d676839dcd0a5371ce8a5d7b2cdcab4 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 3.16kB 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-0 16/20] RUN find /tmp/AGENTS.md.d -maxdepth 1 -type f -name '*.md' | sort |     while IFS= read -r file; do cat "${file}"; printf '\n'; done > /tmp/AGENTS.md &&     install -m 0644 /tmp/AGENTS.md /home/agent/AGENTS.md &&     install -m 0644 /tmp/AGENTS.md /home/agent/CLAUDE.md &&     ln -sf /home/agent/CLAUDE.md /home/agent/.claude/CLAUDE.md &&     ln -sf /home/agent/AGENTS.md /home/agent/.codex/AGENTS.md &&     ln -sf /home/agent/AGENTS.md /home/agent/.config/amp/AGENTS.md &&     ln -sf /home/agent/AGENTS.md /home/agent/.kimi-code/AGENTS.md &&     ln -sf /home/agent/AGENTS.md /home/agent/.grok/AGENTS.md
+#7 CACHED
+
+#8 [stage-0  9/20] RUN --mount=type=secret,id=github_token,uid=1000,required=false     GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || true)     mise exec -- npm install -g "ctx7@0.5.11" "skills@1.5.22"
+#8 CACHED
+
+#9 [stage-0  8/20] RUN --mount=type=secret,id=github_token,uid=1000,required=false     --mount=type=cache,target=/home/agent/.cache/mise,uid=1000     GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || true)     mise install "opentofu@1.12.6" &&     mise use -g --pin "opentofu@1.12.6"
+#9 CACHED
+
+#10 [stage-0 15/20] COPY --chown=agent:agent --chmod=644 AGENTS.md.d/ /tmp/AGENTS.md.d/
+#10 CACHED
+
+#11 [stage-0  7/20] RUN --mount=type=secret,id=github_token,uid=1000,required=false     --mount=type=cache,target=/home/agent/.cargo/registry,uid=1000     --mount=type=cache,target=/home/agent/.cargo/git,uid=1000     GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || true)     . ~/.profile &&     cargo binstall --locked --no-confirm cargo-watch lychee
+#11 CACHED
+
+#12 [stage-0  6/20] RUN --mount=type=secret,id=github_token,uid=1000,required=false     --mount=type=cache,target=/home/agent/.cache/mise,uid=1000     --mount=type=cache,target=/home/agent/.cargo/registry,uid=1000     --mount=type=cache,target=/home/agent/.cargo/git,uid=1000     GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || true)     mise trust /tmp/jackin-mise/mise.toml &&     mkdir -p "${HOME}/.config/mise" &&     cp /tmp/jackin-mise/mise.toml "${HOME}/.config/mise/config.toml" &&     : "Keep cargo-binstall pinned before installing Cargo-backed mise tools" &&     mise use -g --pin "cargo-binstall@1.23.0" &&     mise install -C /tmp/jackin-mise rust &&     mise use -g --pin -C /tmp/jackin-mise rust &&     mise install &&     mise exec -- rustup component add rust-analyzer
+#12 CACHED
+
+#13 [stage-0 11/20] RUN . ~/.profile &&     skills add "jackin-project/jackin-dev" -s '*' -a codex --yes --global &&     skills add "jackin-project/jackin-dev" -s '*' -a amp --yes --global &&     test -f "${HOME}/.agents/skills/jackin-propose/SKILL.md" &&     test -f "${HOME}/.agents/skills/jackin-merge-pr/SKILL.md"
+#13 CACHED
+
+#14 [stage-0 12/20] RUN . ~/.profile &&     skills add "shadcn/improve" -a claude-code --yes --global &&     skills add "shadcn/improve" -a codex --yes --global &&     skills add "shadcn/improve" -a amp --yes --global &&     skills add "shadcn/improve" -a opencode --yes --global &&     skills add "shadcn/improve" -a kimi-code-cli --yes --global &&     test -f "${HOME}/.claude/skills/improve/SKILL.md" &&     test -f "${HOME}/.agents/skills/improve/SKILL.md"
+#14 CACHED
+
+#15 [stage-0 19/20] RUN --mount=type=secret,id=github_token,uid=1000,required=false     --mount=type=cache,target=/home/agent/.cache/mise,uid=1000     GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || true)     mise install "rtk@0.49.0" &&     mise use -g --pin "rtk@0.49.0" &&     mise exec -- rtk --version
+#15 CACHED
+
+#16 [stage-0  2/20] RUN --mount=type=cache,target=/var/cache/apt,sharing=locked     --mount=type=cache,target=/var/lib/apt,sharing=locked     apt-get update &&     apt-get install -y --no-install-recommends     build-essential     libssl-dev     openssl     pkg-config     cmake     xxd &&     apt-get autoremove -y
+#16 CACHED
+
+#17 [stage-0 10/20] RUN . ~/.profile &&     git clone --depth 1 --branch "v2.7.0" https://github.com/JuliusBrussee/caveman.git /tmp/caveman &&     node /tmp/caveman/bin/install.js --only opencode --no-mcp-shrink &&     test -f "${HOME}/.config/opencode/plugins/caveman/plugin.js" &&     skills add "JuliusBrussee/caveman#v2.7.0" -a codex --yes --global &&     skills add "JuliusBrussee/caveman#v2.7.0" -a amp --yes --global &&     test -f "${HOME}/.agents/skills/caveman/SKILL.md" &&     rm -rf /tmp/caveman
+#17 CACHED
+
+#18 [stage-0 14/20] COPY --chown=root:agent --chmod=440 caveman-config.json /home/agent/.config/caveman/config.json
+#18 CACHED
+
+#19 [stage-0 18/20] RUN . ~/.profile && uv tool install --no-build "headroom-ai[mcp]==0.37.0"
+#19 CACHED
+
+#20 [stage-0  3/20] COPY --chown=root:root jackin-toolchain/ /tmp/jackin-mise/
+#20 CACHED
+
+#21 [stage-0  4/20] RUN mkdir -p     "${HOME}/.cache/amp"     "${HOME}/.cache/mise"     "${HOME}/.cargo/bin"     "${HOME}/.cargo/registry"     "${HOME}/.cargo/git"
+#21 CACHED
+
+#22 [stage-0 13/20] RUN mkdir -p     /home/agent/.config/caveman     /home/agent/.claude     /home/agent/.codex     /home/agent/.config/amp     /home/agent/.kimi-code     /home/agent/.grok
+#22 CACHED
+
+#23 [stage-0  5/20] RUN --mount=type=secret,id=github_token,uid=1000,required=false     --mount=type=cache,target=/home/agent/.cache/mise,uid=1000     GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || true)     mise install "cargo-binstall@1.23.0" &&     mise use -g --pin "cargo-binstall@1.23.0"
+#23 CACHED
+
+#24 [stage-0 17/20] RUN --mount=type=secret,id=github_token,uid=1000,required=false     --mount=type=cache,target=/home/agent/.cache/mise,uid=1000     GITHUB_TOKEN=$(cat /run/secrets/github_token 2>/dev/null || true)     mise install "uv@0.12.15" &&     mise use -g --pin "uv@0.12.15"
+#24 CACHED
+
+#25 [stage-0 20/20] RUN . ~/.profile &&     rtk init -g --opencode &&     test -f /home/agent/.config/opencode/plugins/rtk.ts
+#25 CACHED
+
+#26 exporting to image
+#26 exporting layers done
+#26 exporting manifest sha256:58a64bbbdc18db2e80384196c7ab54040c95786296ba731801878e8ac006dd14 done
+#26 exporting config sha256:94d7606ac7fd08b872642c46b7b6791e7111138cf3df0ead91e974fe4d90e0fd done
+#26 naming to docker.io/library/jk_jfr24_architect__base:93a46c2 done
+#26 unpacking to docker.io/library/jk_jfr24_architect__base:93a46c2
+#26 unpacking to docker.io/library/jk_jfr24_architect__base:93a46c2 0.0s done
+#26 DONE 0.1s
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from DerivedDockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 5.70kB 0.0s done
+#1 DONE 0.2s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 2.9s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/jk_jfr24_architect__base:93a46c2
+#4 DONE 2.1s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 274B done
+#5 DONE 0.0s
+
+#6 [internal] settings cache mount permissions
+#6 CACHED
+
+#7 [stage-0  1/11] FROM docker.io/library/jk_jfr24_architect__base:93a46c2@sha256:58a64bbbdc18db2e80384196c7ab54040c95786296ba731801878e8ac006dd14
+#7 resolve docker.io/library/jk_jfr24_architect__base:93a46c2@sha256:58a64bbbdc18db2e80384196c7ab54040c95786296ba731801878e8ac006dd14 0.0s done
+#7 CACHED
+
+#8 [internal] load build context
+#8 transferring context: 29.17MB 0.2s done
+#8 DONE 0.2s
+
+#9 [stage-0  2/11] RUN --mount=type=cache,id=jackin-agent-fallback-kimi,target=/home/agent/.cache,uid=1000,gid=1000,sharing=locked     set -euxo pipefail &&     : "0" &&     { curl -fsSL --connect-timeout 15 --max-time 120 --retry 2 --retry-delay 2 --retry-connrefused https://code.kimi.com/kimi-code/install.sh | bash; } ||     { sleep 5; curl -fsSL --connect-timeout 15 --max-time 120 --retry 2 --retry-delay 2 --retry-connrefused https://code.kimi.com/kimi-code/install.sh | bash; } ||     { sleep 10; curl -fsSL --connect-timeout 15 --max-time 120 --retry 2 --retry-delay 2 --retry-connrefused https://code.kimi.com/kimi-code/install.sh | bash; } &&     kimi --version
+#9 0.221 + : 0
+#9 0.221 + curl -fsSL --connect-timeout 15 --max-time 120 --retry 2 --retry-delay 2 --retry-connrefused https://code.kimi.com/kimi-code/install.sh
+#9 0.221 + bash
+#9 3.717 ==> Detected target: linux-arm64
+#9 3.717 ==> Resolving latest version from https://code.kimi.com/kimi-code/latest
+#9 6.052 ==> Latest version: 2.3.1
+#9 6.052 ==> Fetching manifest https://code.kimi.com/kimi-code/binaries/2.3.1/manifest.json
+#9 11.57 ==> Downloading https://code.kimi.com/kimi-code/binaries/2.3.1/kimi-code-linux-arm64.tar.gz
+#9 21.49 ==> Extracting tarball
+#9 22.73 ==> Verifying checksum
+#9 23.44 ==> Installed to /home/agent/.kimi-code/bin/kimi
+#9 23.44 ==> /home/agent/.kimi-code/bin already in PATH
+#9 23.44 ==> Done. Run: kimi --version
+#9 23.46 + kimi --version
+#9 23.96 2.3.1
+#9 DONE 24.0s
+
+#10 [stage-0  3/11] RUN install -d -o agent -g 0 /jackin/default-home     && for dir in '.kimi-code'; do         if [ -d "/home/agent/$dir" ]; then             mkdir -p "$(dirname "/jackin/default-home/$dir")"             && mv "/home/agent/$dir" "/jackin/default-home/$dir"             && install -d -o agent -g 0 -m 0775 "/home/agent/$dir";         fi;     done     && find /jackin/default-home -type d -exec chmod g+rx {} +     && find /jackin/default-home -type f -exec chmod g+r {} +
+#10 DONE 0.2s
+
+#11 [stage-0  4/11] RUN bad="$(find /jackin/default-home \( -type d ! -perm -0050 -o -type f ! -perm -0040 \) -print -quit)"     && if [ -n "$bad" ]; then         echo "jackin default-home contains a non-group-readable path: $bad" >&2;         exit 1;     fi
+#11 DONE 0.2s
+
+#12 [stage-0  5/11] COPY --link --chown=agent:0 --chmod=0755 hooks/preflight.sh /jackin/runtime/hooks/preflight.sh
+#12 DONE 0.1s
+
+#13 [stage-0  6/11] COPY --link --chmod=0755 .jackin-runtime/entrypoint.sh /jackin/runtime/entrypoint.sh
+#13 DONE 0.1s
+
+#14 [stage-0  7/11] COPY --link --chmod=0755 .jackin-runtime/agent-status /jackin/runtime/agent-status
+#14 DONE 0.1s
+
+#15 [stage-0  8/11] COPY --link --chown=agent:0 --chmod=0644 .jackin-runtime/zsh-title-shim /jackin/runtime/zsh-title-shim
+#15 DONE 0.1s
+
+#16 [stage-0  9/11] COPY --link --chmod=0755 .jackin-runtime/jackin-capsule /jackin/runtime/jackin-capsule
+#16 DONE 0.1s
+
+#17 [stage-0 10/11] RUN install -d /jackin/runtime/hooks     && install -d -o agent -g 0 /jackin/state /jackin/state/hooks     && ( grep -q '__JACKIN_AUTO_TITLE_LOADED' /home/agent/.zshrc 2>/dev/null       || cat /jackin/runtime/zsh-title-shim >> /home/agent/.zshrc )     && install -d -o agent -g 0 /jackin/run /jackin/state /jackin/account-credentials
+#17 DONE 0.2s
+
+#18 [stage-0 11/11] RUN install -d -o agent -g 0 -m 0775 /home/agent /home/agent/.cache /home/agent/.cache/mise /home/agent/.config /home/agent/.config/git /home/agent/.config/fish /home/agent/.config/mise /home/agent/.local /home/agent/.local/bin /home/agent/.local/share /home/agent/.local/share/mise /home/agent/.local/share/mise/installs /home/agent/.local/share/mise/plugins /home/agent/.local/share/mise/shims /home/agent/.local/state /home/agent/.local/state/mise /home/agent/.local/state/mise/tracked-configs     && chown -R 501:0 /home/agent     && chmod -R g+rwX /home/agent     && touch /home/agent/.gitconfig /home/agent/.config/git/config     && chown 501:0 /home/agent/.gitconfig /home/agent/.config/git/config     && chmod 0664 /home/agent/.gitconfig /home/agent/.config/git/config     && for path in /home/agent/.zshrc /home/agent/.config/fish/config.fish; do         if [ -e "$path" ]; then chown 501:0 "$path" && chmod 0664 "$path"; fi;     done     && bad="$(find /home/agent \( -type d -o -type f \) \( ! -uid 501 -o ! -group 0 -o ! -perm -0020 \) -print -quit)"     && if [ -n "$bad" ]; then         echo "jackin runtime home contains a non-runtime-UID, non-group-0, or non-group-writable mutable path: $bad" >&2;         exit 1;     fi
+#18 DONE 3.8s
+
+#19 exporting to image
+#19 exporting layers
+#19 exporting layers 25.0s done
+#19 exporting manifest sha256:394c48478aea233046c95ec5eada721a75bfbdb2e2d0385b6dbd18982a776c9f 0.0s done
+#19 exporting config sha256:4155ac34cd76de49847a5281d39babd1264cabff89267d5735fc5826a95c6b81 0.0s done
+#19 naming to docker.io/library/jk_jfr24_architect:93a46c2 done
+#19 unpacking to docker.io/library/jk_jfr24_architect:93a46c2
+#19 unpacking to docker.io/library/jk_jfr24_architect:93a46c2 10.4s done
+#19 DONE 35.4s
+telemetry: invocation 0c2294dc-36b9-4ac8-868c-21376ae4e786 - OpenTelemetry export disabled

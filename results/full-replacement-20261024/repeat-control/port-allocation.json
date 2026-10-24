@@ -1,0 +1,22 @@
+{
+  "test_id": "jfr-20261024-rctl",
+  "ports": [
+    {
+      "port": 28473,
+      "result": "BLOCKED",
+      "observed": "First gateway start failed to bind: Address already in use (os error 48). Existing listener PID 31241 was identified with command path under targets/openshell-vm-bind. It was not terminated or changed.",
+      "use": "none after collision"
+    },
+    {
+      "port": 28474,
+      "result": "NOT TESTED",
+      "observed": "Root marked this port reserved by concurrent Docker fixture before this repeat bound it. No bind attempt was made for this repeat."
+    },
+    {
+      "port": 28600,
+      "result": "PASS",
+      "observed": "Fresh isolated rctl gateway started, healthy, test cases completed, then stopped."
+    }
+  ],
+  "ownership_note": "Initial generated gateway-D folder was a shared path during concurrent work. Later test was moved to exclusive repeat-control/gateway-rctl. Do not infer initial port collision was a runtime failure."
+}

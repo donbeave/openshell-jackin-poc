@@ -1,0 +1,11 @@
+IDENTITY
+uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+NoNewPrivs:	1
+HOME=/sandbox PWD=/sandbox
+-rwxr-xr-x agent:root /jackin/runtime/hooks/preflight.sh
+HOOK_BEGIN
+[architect-preflight] CONTEXT7_API_KEY unset — skipping Context7 setup for opencode
+HOOK_DONE
+AGENT_VERSION

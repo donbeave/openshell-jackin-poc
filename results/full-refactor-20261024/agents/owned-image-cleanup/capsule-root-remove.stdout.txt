@@ -1,0 +1,2 @@
+Untagged: jfr-20261024-capsule-root-6e:fixture
+Deleted: sha256:c8f1f20f48889d8ced6af633778663bdde90a1b659c8ab4ff08d624e0b6f2d88

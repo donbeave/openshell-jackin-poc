@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "env",
+    "XDG_CONFIG_HOME=/var/lib/jfr-20261024-linux/config",
+    "XDG_STATE_HOME=/var/lib/jfr-20261024-linux/state",
+    "OPENSHELL_LOCAL_TLS_DIR=/var/lib/jfr-20261024-linux/certs",
+    "openshell",
+    "--gateway",
+    "jfr-20261024-linux-ip",
+    "sandbox",
+    "list",
+    "-o",
+    "json"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.124,
+  "stdout": "{\n  \"next_page_token\": \"\",\n  \"sandboxes\": []\n}\n",
+  "stderr": ""
+}

@@ -1,0 +1,2 @@
+[architect-preflight] WARNING: headroom not on PATH — skipping
+bash: line 1: opencode: command not found

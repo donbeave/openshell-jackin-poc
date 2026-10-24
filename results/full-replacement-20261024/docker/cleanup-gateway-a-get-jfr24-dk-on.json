@@ -1,0 +1,123 @@
+{
+  "annotations": {
+    "internal.openshell.ai/auth-epoch": "1",
+    "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+    "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+    "internal.openshell.ai/runtime-generation": "43fed2cf-bfd2-4c13-8dfa-c58c8d46d3d6"
+  },
+  "conditions": [
+    {
+      "last_transition_time": "",
+      "message": "Docker supervisor exited before becoming ready; log tail: [truncated] time binary identity mode\n2026-10-24T01:11:53.328Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\n2026-10-24T01:11:53.337Z INFO openshell_supervisor: Isolation boundary attached\n2026-10-24T01:11:53.338Z INFO openshell_supervisor: Isolation boundary enforcement confirmed\n2026-10-24T01:11:53.338Z OCSF CONFIG:ENABLED [INFO] TLS termination enabled: ephemeral CA generated\n2026-10-24T01:11:53.338Z OCSF CONFIG:READY [INFO] Policy DNS connected to isolation boundary\n2026-10-24T01:11:53.338Z OCSF NET:LISTEN [INFO] 127.0.0.1:3128\n2026-10-24T01:11:53.338Z WARN openshell_supervisor_network::proxy: host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF exemption disabled\nError:   × process error: boundary process leaf: start process supervisor leaf:   ×\n  │ spawn delegated workload process\n  │   ├─▶ failed to spawn sandbox entrypoint process '/bin/sh'\n  │   ╰─▶ Permission denied (os error 13)\n  │",
+      "reason": "ControlSupervisorStartFailed",
+      "status": "False",
+      "type": "Ready"
+    },
+    {
+      "last_transition_time": "",
+      "message": "",
+      "reason": "ConfigurationAccepted",
+      "status": "True",
+      "type": "ConfigurationReady"
+    }
+  ],
+  "configuration_admission": {
+    "config_revision": 11801998321221630499,
+    "error": "",
+    "policy_hash": "541ab6372af88d091987831509a1bc1a2f1dc73220f18c9dc686ac2080ef2f28",
+    "policy_version": 2,
+    "provider_env_revision": 3176606324465211593,
+    "state": "accepted"
+  },
+  "created_at": "2026-10-24 01:11:52",
+  "created_from_workload_template": null,
+  "current_policy_version": 0,
+  "endpoint_statuses": [],
+  "exit_code": null,
+  "host_key_fingerprint": "SHA256:w+TXlZ2oX0sNeMRf40ozVOteKLT+dQcgfM8ZAUTxy9Y",
+  "id": "8b6a2267-2b56-45bb-93a1-1f5691596e63",
+  "labels": {},
+  "last_token_grant_failure": null,
+  "main_process_instance_id": "",
+  "main_process_started_at_ms": 0,
+  "name": "jfr24-dk-on",
+  "next_restart_at_ms": 0,
+  "phase": "Error",
+  "policy": {
+    "filesystem_policy": {
+      "include_workdir": true,
+      "read_only": [
+        "/usr",
+        "/usr/local",
+        "/lib",
+        "/lib64",
+        "/etc",
+        "/proc",
+        "/sys",
+        "/dev/urandom",
+        "/opt",
+        "/var/log"
+      ],
+      "read_write": [
+        "/workspace",
+        "/sandbox",
+        "/tmp",
+        "/home",
+        "/dev/null"
+      ]
+    },
+    "landlock": {
+      "compatibility": "best_effort"
+    },
+    "network_policies": {
+      "engine": {
+        "binaries": [
+          {
+            "path": "/bin/sh"
+          },
+          {
+            "path": "/bin/busybox"
+          },
+          {
+            "path": "/usr/local/bin/docker"
+          }
+        ],
+        "endpoints": [
+          {
+            "allowed_ips": [
+              "192.168.215.0/24"
+            ],
+            "host": "host.docker.internal",
+            "port": 28480,
+            "protocol": "tcp",
+            "tls": "skip"
+          }
+        ],
+        "name": "engine"
+      }
+    },
+    "version": 1
+  },
+  "policy_source": "sandbox",
+  "provisioning": {
+    "admission_start_time": "2026-10-24T01:11:53.322Z",
+    "attempt_id": "8c804615-4006-4ff5-ac36-bd7a9f063135",
+    "cleanup_completed_time": null,
+    "cleanup_error": "",
+    "cleanup_retry_time": null,
+    "configuration_change_id": "080e84f8731b44bfe75f83c990ba7c6c365f0f5b6455acadb8252ac31529822c",
+    "configuration_change_time": "2026-10-24T01:11:53.326Z",
+    "deadline": "2026-10-24T01:16:53.326Z",
+    "driver_operation_id": "390658b7-db5e-4f4b-94c2-7c3e8a43b756",
+    "driver_operation_pending": false,
+    "first_rejection_time": null,
+    "phase": "admission",
+    "preparation_deadline": "2026-10-24T01:41:52.008Z",
+    "timeout_time": null
+  },
+  "resource_version": 114,
+  "restart_count": 0,
+  "restart_policy": "always",
+  "revision": 2,
+  "workspace": "default"
+}

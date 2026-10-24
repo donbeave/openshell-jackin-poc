@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "sh",
+    "-c",
+    "pgrep -af \"openshell-gateway --config /var/lib/jfr-20261024-linux/gateway.toml\"; ss -lntp sport = :18470"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.101,
+  "stdout": "281166 sudo sh -c pgrep -af \"openshell-gateway --config /var/lib/jfr-20261024-linux/gateway.toml\"; ss -lntp sport = :18470\n281168 sh -c pgrep -af \"openshell-gateway --config /var/lib/jfr-20261024-linux/gateway.toml\"; ss -lntp sport = :18470\nState Recv-Q Send-Q Local Address:Port Peer Address:PortProcess\n",
+  "stderr": ""
+}

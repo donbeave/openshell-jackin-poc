@@ -1,0 +1,98 @@
+{
+  "annotations": {
+    "internal.openshell.ai/auth-epoch": "1",
+    "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+    "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+    "internal.openshell.ai/runtime-generation": "ec0a363b-a771-47f5-a365-0cbed9b20134"
+  },
+  "conditions": [
+    {
+      "last_transition_time": "",
+      "message": "Docker supervisor exited before becoming ready; log tail: [truncated] 7.510Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\n2026-10-24T01:50:17.523Z INFO openshell_supervisor: Isolation boundary attached\n2026-10-24T01:50:17.523Z INFO openshell_supervisor: Isolation boundary enforcement confirmed\n2026-10-24T01:50:17.524Z OCSF CONFIG:ENABLED [INFO] TLS termination enabled: ephemeral CA generated\n2026-10-24T01:50:17.524Z OCSF CONFIG:READY [INFO] Policy DNS connected to isolation boundary\n2026-10-24T01:50:17.524Z OCSF NET:LISTEN [INFO] 127.0.0.1:3128\n2026-10-24T01:50:17.524Z WARN openshell_supervisor_network::proxy: host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF exemption disabled\nError:   × process error: boundary process leaf: start process supervisor leaf:   ×\n  │ spawn delegated workload process\n  │   ├─▶ failed to spawn sandbox entrypoint process '/usr/local/bin/dockerd-\n  │   │   entrypoint.sh'\n  │   ╰─▶ Permission denied (os error 13)\n  │",
+      "reason": "ControlSupervisorStartFailed",
+      "status": "False",
+      "type": "Ready"
+    },
+    {
+      "last_transition_time": "",
+      "message": "",
+      "reason": "ConfigurationAccepted",
+      "status": "True",
+      "type": "ConfigurationReady"
+    }
+  ],
+  "configuration_admission": {
+    "config_revision": 12871555518196103027,
+    "error": "",
+    "policy_hash": "d54fe3e6f7f6d28dcfb4196aca10517159b81035806677e243a3a3e9aba2094a",
+    "policy_version": 1,
+    "provider_env_revision": 3176606324465211593,
+    "state": "accepted"
+  },
+  "created_at": "2026-10-24 01:50:16",
+  "created_from_workload_template": null,
+  "current_policy_version": 0,
+  "endpoint_statuses": [],
+  "exit_code": null,
+  "host_key_fingerprint": "SHA256:kOuzKeqBdvMK7T9KyRbmiG+3TZOEB0fgzJamW6g+MyQ",
+  "id": "bde30230-40d1-40e9-82fd-6ffcdf910c70",
+  "labels": {
+    "ojp.owner": "followup-docker-rootless",
+    "ojp.test-id": "jfr-20261024-docker-rootless"
+  },
+  "last_token_grant_failure": null,
+  "main_process_instance_id": "",
+  "main_process_started_at_ms": 0,
+  "name": "jfr24rootless2",
+  "next_restart_at_ms": 0,
+  "phase": "Error",
+  "policy": {
+    "filesystem_policy": {
+      "include_workdir": true,
+      "read_only": [
+        "/usr",
+        "/usr/local",
+        "/lib",
+        "/lib64",
+        "/etc",
+        "/proc",
+        "/sys",
+        "/dev/urandom",
+        "/opt"
+      ],
+      "read_write": [
+        "/workspace",
+        "/sandbox",
+        "/tmp",
+        "/home",
+        "/dev/null"
+      ]
+    },
+    "landlock": {
+      "compatibility": "best_effort"
+    },
+    "version": 1
+  },
+  "policy_source": "sandbox",
+  "provisioning": {
+    "admission_start_time": "2026-10-24T01:50:17.505Z",
+    "attempt_id": "130ecd33-66eb-47d4-9056-6339786daf14",
+    "cleanup_completed_time": null,
+    "cleanup_error": "",
+    "cleanup_retry_time": null,
+    "configuration_change_id": "c51a4753b1e008515925c5e4f2a0b74a8427785393fbffc0037876a07a139679",
+    "configuration_change_time": "2026-10-24T01:50:16.825Z",
+    "deadline": "2026-10-24T01:55:17.505Z",
+    "driver_operation_id": "4fa1c11f-d652-4f6d-8637-aff91c3254f2",
+    "driver_operation_pending": false,
+    "first_rejection_time": null,
+    "phase": "admission",
+    "preparation_deadline": "2026-10-24T02:20:16.825Z",
+    "timeout_time": null
+  },
+  "resource_version": 74,
+  "restart_count": 0,
+  "restart_policy": "always",
+  "revision": 1,
+  "workspace": "default"
+}

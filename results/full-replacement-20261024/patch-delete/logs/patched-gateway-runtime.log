@@ -1,0 +1,40 @@
+   Compiling openshell-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-core)
+mbx[warning]: incremental state was not reused: compiler environment input changed: OPENSHELL_GIT_VERSION
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-core/src/policy.rs:165:26
+    |
+165 |               otherwise => miette::bail!(
+    |  __________________________^
+166 | |                 "invalid landlock.compatibility {:?}; accepted: {}",
+167 | |                 otherwise,
+168 | |                 LANDLOCK_COMPATIBILITY_VALUES.join(", ")
+169 | |             ),
+    | |_____________^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling openshell-sdk v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-sdk)
+warning: `openshell-core` (lib) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.44s
+     Running tests/delete_by_id_integration.rs (target/debug/deps/delete_by_id_integration-81a5552462ce11b8)
+
+running 1 test
+wrong_workspace_status=Some requested entity was not found
+dual_selector_status=Client specified an invalid argument
+other_workspace=created via CreateWorkspace API
+original_id=b93daf79-2a50-4544-9550-b4b710a1376f
+replacement_id=c891702c-3f74-4732-8dde-d6b0276829ad
+first_delete_outcome=Accepted
+stale_delete_outcome=AlreadyAbsent
+wrong_workspace_status=Some requested entity was not found
+dual_selector_status=Client specified an invalid argument
+replacement_survived=true
+test patched_server_deletes_by_id_and_preserves_name_replacement ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 3.57s
+
+mbx[cache]: 0 hits, 4 misses; 0 B downloaded, 0 B uploaded, 76.5 MiB stored locally
+mbx[savings]: the sweep found 19.8 TiB logical nobody would miss. nobody has.

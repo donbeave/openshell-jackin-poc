@@ -1,0 +1,12 @@
+[
+  {
+    "operation": "verification_delete",
+    "ok": true,
+    "detail": {
+      "deleted_and_confirmed": true,
+      "name": "jfrv-20261024-p04",
+      "result": "PASS",
+      "sandbox_id": "38f66477-b6f2-4974-9dc1-7aa830d25d22"
+    }
+  }
+]

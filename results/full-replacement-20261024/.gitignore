@@ -1,0 +1,11 @@
+# Build artifacts are represented by checksums and reproduction commands.
+**/private/
+**/jackin-capsule-linux-arm64
+**/*.pem
+**/*.key
+**/*.crt
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.tar
+**/*.tar.gz

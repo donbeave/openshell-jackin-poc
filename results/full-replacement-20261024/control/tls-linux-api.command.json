@@ -1,0 +1,16 @@
+[
+  "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/control/target/debug/openshell-control-probe",
+  "tls",
+  "--endpoint",
+  "https://192.168.139.147:18470",
+  "--server-name",
+  "192.168.139.147",
+  "--ca",
+  "../targets/private/certs/jfr-linux-ca.crt",
+  "--cert",
+  "../targets/private/certs/jfr-linux-client.crt",
+  "--key",
+  "private/certs/control-vm.key",
+  "--expect",
+  "allow"
+]

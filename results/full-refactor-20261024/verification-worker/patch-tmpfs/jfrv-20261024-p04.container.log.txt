@@ -1,0 +1,3 @@
+2026-10-24T02:22:00.081Z INFO openshell_sandbox::boundary_server::linux: Boundary control listener ready
+2026-10-24T02:22:00.607Z WARN openshell_sandbox::boundary_server::linux: Sandbox Protocol connection lost; workload frozen pending authenticated recovery
+2026-10-24T02:22:00.607Z OCSF FINDING:CREATE [MED] "Sandbox Supervisor Connection Lost" [type:sandbox-supervisor-connection-lost confidence:high]

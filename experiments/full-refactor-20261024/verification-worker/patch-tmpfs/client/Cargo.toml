@@ -1,0 +1,18 @@
+[package]
+name = "openshell-control-probe"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1"
+base64 = "0.22"
+openshell-sdk = { git = "https://github.com/NVIDIA/OpenShell", rev = "bdb956f2cd65a635f1294fccf1d138d263bf650f" }
+prost = "0.14"
+prost-types = "0.14"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+tokio = { version = "1.43", features = ["macros", "rt-multi-thread", "sync", "time"] }
+tonic = { version = "0.14", features = ["tls-aws-lc"] }
+tokio-stream = "0.1"
+uuid = { version = "1", features = ["v4"] }

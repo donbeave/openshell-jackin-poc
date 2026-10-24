@@ -1,0 +1,39 @@
+[
+  {
+    "operation": "create",
+    "ok": true,
+    "detail": {
+      "first_response_discarded_by_harness": true,
+      "idempotency_contract": "at-most-once request admission; harness discards acknowledgement after response, not a network packet drop",
+      "one_resource_with_name": true,
+      "request_id": "0b624fdc-7c99-4383-a8cc-2fa6bce0db9b",
+      "retry_id": "8ad73ecb-1143-4428-aa30-513736a30982"
+    }
+  },
+  {
+    "operation": "interactive_duplex_binary_backpressure_eof",
+    "ok": true,
+    "detail": {
+      "all_assertions_passed": true,
+      "child_space_output_bytes": 1048576,
+      "exit_code": 0,
+      "half_close_eof_exit": true,
+      "initial_stdout_and_stderr_before_input": true,
+      "input_frames": [
+        "split-",
+        "frame\\0tail"
+      ],
+      "receiver_pause_ms": 500,
+      "stderr_base64": "ZXJyLXN0YXJ0",
+      "stdout_len": 1048601,
+      "stdout_sha256": "371546435850cae0edfdf6b2a297b6c09888f53be28b1cc8d3d14fb4f43c59da"
+    }
+  },
+  {
+    "operation": "delete_confirmed",
+    "ok": true,
+    "detail": {
+      "id": "8ad73ecb-1143-4428-aa30-513736a30982"
+    }
+  }
+]

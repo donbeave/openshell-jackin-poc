@@ -1,0 +1,19 @@
+{
+  "gateway": "jfr-20261024-a",
+  "scope": "only the two completed cache reproduction sandboxes; no images or Docker cache touched",
+  "resources": [
+    {
+      "name": "jfr24-ca-amp",
+      "id": "a54ef537-1a3d-4009-be1c-77bc4bc2a451",
+      "pre_delete_phase": "Completed"
+    },
+    {
+      "name": "jfr24-ca-paths",
+      "id": "4047104e-7cbc-4c7c-a3c3-88356aaf9d54",
+      "pre_delete_phase": "Completed"
+    }
+  ],
+  "delete_exit": 0,
+  "remaining_after_delete": [],
+  "result": "PASS"
+}

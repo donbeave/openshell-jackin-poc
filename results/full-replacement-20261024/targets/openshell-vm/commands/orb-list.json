@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "orbctl",
+    "list"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.014,
+  "stdout": "jfr-20261024-linux  running  ubuntu  noble  arm64  2.1 GB  192.168.139.147\n",
+  "stderr": ""
+}

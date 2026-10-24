@@ -1,0 +1,20 @@
+[
+  {
+    "operation": "verification_worker",
+    "ok": false,
+    "detail": {
+      "cleanup": {
+        "confirmed": false,
+        "retained_for_diagnostics": true,
+        "sandbox_id": "38f66477-b6f2-4974-9dc1-7aa830d25d22"
+      },
+      "journey": {
+        "error": "connect error: sandbox 'jfrv-20261024-p04' entered error phase"
+      },
+      "request_id": "502f4cee-d667-45b4-ac37-a8789e4ac562",
+      "result": "FAIL",
+      "sandbox_id": "38f66477-b6f2-4974-9dc1-7aa830d25d22"
+    },
+    "error": "verification worker did not meet its execution contract"
+  }
+]

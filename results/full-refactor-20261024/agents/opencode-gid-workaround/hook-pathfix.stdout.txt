@@ -1,0 +1,13 @@
+IDENTITY
+uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+NoNewPrivs:	1
+HOME=/sandbox PWD=/sandbox PATH=/jackin/runtime:/home/agent/.local/bin:/home/agent/.opencode/bin:/usr/local/bin:/usr/bin:/bin
+HOOK_BEGIN
+[architect-preflight] CONTEXT7_API_KEY unset — skipping Context7 setup for opencode
+HOOK_DONE
+AGENT_VERSION
+1.19.4
+CAPSULE_VERSION
+jackin-capsule 0.6.4

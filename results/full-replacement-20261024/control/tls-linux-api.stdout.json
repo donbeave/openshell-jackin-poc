@@ -1,0 +1,13 @@
+[
+  {
+    "operation": "verified_mtls_and_authenticated_control_api",
+    "ok": true,
+    "detail": {
+      "authenticated_list_allowed": true,
+      "authenticated_subject": "jfr-control-vm-20261024",
+      "gateway_version": "0.1.5",
+      "health_status": "Healthy",
+      "visible_sandbox_count": 6
+    }
+  }
+]

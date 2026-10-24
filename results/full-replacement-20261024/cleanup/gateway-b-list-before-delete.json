@@ -1,0 +1,560 @@
+{
+  "next_page_token": "",
+  "sandboxes": [
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "653a874e-fa0a-4f2d-966c-69ab0953abda"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Failed to start sandbox during gateway startup: Docker supervisor exited before becoming ready; log tail: 2026-10-24T02:57:29.509Z INFO openshell_supervisor: Starting sandbox supervision\n2026-10-24T02:57:29.536Z INFO openshell_supervisor: Fetching sandbox policy via gRPC\n2026-10-24T02:57:29.560Z INFO openshell_supervisor_network::opa: Configured OPA runtime binary identity mode\n2026-10-24T02:57:29.560Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\nError:   × attachment denied: boundary process leaf: sandbox runtime is already bound\n  │ to another supervisor process",
+          "reason": "StartFailed",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 12871555518196103027,
+        "error": "",
+        "policy_hash": "d54fe3e6f7f6d28dcfb4196aca10517159b81035806677e243a3a3e9aba2094a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:13:27",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:0KzCK0KJTwG8k8Fu/0NvCGfGv/4cuxXzE0mAROYvEos",
+      "id": "dfb460f3-edd1-41a0-ac19-c54d075056d0",
+      "labels": {
+        "jackin.fixture": "jfr-20261024-ws"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfrws24-official",
+      "phase": "Error",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:13:28.533Z",
+        "attempt_id": "aaf05e0b-4072-498f-916f-2fa259f48c5d",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "c51a4753b1e008515925c5e4f2a0b74a8427785393fbffc0037876a07a139679",
+        "configuration_change_time": "2026-10-24T01:13:27.953Z",
+        "deadline": null,
+        "driver_operation_id": "96ecc647-c0a7-4e65-85ef-1baac6a498b7",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:43:27.953Z",
+        "timeout_time": null
+      },
+      "resource_version": 47,
+      "workspace": "jfr-ws-20261024"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "01b0bb26-27af-4a44-b2af-faed7a3980a9"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Failed to start sandbox during gateway startup: Docker supervisor exited before becoming ready; log tail: 2026-10-24T02:57:29.969Z INFO openshell_supervisor: Starting sandbox supervision\n2026-10-24T02:57:30.001Z INFO openshell_supervisor: Fetching sandbox policy via gRPC\n2026-10-24T02:57:30.007Z INFO openshell_supervisor_network::opa: Configured OPA runtime binary identity mode\n2026-10-24T02:57:30.007Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\nError:   × attachment denied: boundary process leaf: sandbox runtime is already bound\n  │ to another supervisor process",
+          "reason": "StartFailed",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 12871555518196103027,
+        "error": "",
+        "policy_hash": "d54fe3e6f7f6d28dcfb4196aca10517159b81035806677e243a3a3e9aba2094a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:13:45",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:uBcXHlnamvhYrEkEF/JAGbXnAxkRjNd12J7NEPBsVF8",
+      "id": "303ea70d-e938-43bc-98f8-b1a925de1edf",
+      "labels": {
+        "jackin.fixture": "jfr-20261024-ws"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfrws24-official2",
+      "phase": "Error",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:13:48.301Z",
+        "attempt_id": "a6d4431e-b48b-4340-8575-5ac35f3e7176",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "c51a4753b1e008515925c5e4f2a0b74a8427785393fbffc0037876a07a139679",
+        "configuration_change_time": "2026-10-24T01:13:45.859Z",
+        "deadline": null,
+        "driver_operation_id": "ed70a0b8-918e-4538-94b0-de031ed91ec7",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:43:45.859Z",
+        "timeout_time": null
+      },
+      "resource_version": 48,
+      "workspace": "jfr-ws-20261024"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "35af15cc-11a1-42dc-868f-e28c1a60879e"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Failed to start sandbox during gateway startup: Docker supervisor exited before becoming ready; log tail: 2026-10-24T02:57:30.408Z INFO openshell_supervisor: Starting sandbox supervision\n2026-10-24T02:57:30.437Z INFO openshell_supervisor: Fetching sandbox policy via gRPC\n2026-10-24T02:57:30.446Z INFO openshell_supervisor_network::opa: Configured OPA runtime binary identity mode\n2026-10-24T02:57:30.446Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\nError:   × attachment denied: boundary process leaf: sandbox runtime is already bound\n  │ to another supervisor process",
+          "reason": "StartFailed",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 12871555518196103027,
+        "error": "",
+        "policy_hash": "d54fe3e6f7f6d28dcfb4196aca10517159b81035806677e243a3a3e9aba2094a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:15:22",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:qRzrYSW6RHzKxEaefIU+8WbJaCxw4ConytAD1OL/O2o",
+      "id": "f9d3d764-a34d-44bc-b3d3-942bc340b4fb",
+      "labels": {
+        "jackin.fixture": "jfr-20261024-ws"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfrws24-officialro",
+      "phase": "Error",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:15:24.896Z",
+        "attempt_id": "93333cd0-b205-4c26-9753-7458a4074793",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "c51a4753b1e008515925c5e4f2a0b74a8427785393fbffc0037876a07a139679",
+        "configuration_change_time": "2026-10-24T01:15:22.974Z",
+        "deadline": null,
+        "driver_operation_id": "b134a098-2b4f-48e7-92e6-4e7e157417af",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:45:22.974Z",
+        "timeout_time": null
+      },
+      "resource_version": 45,
+      "workspace": "jfr-ws-20261024"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "9aeab1c7-3b41-4c51-bacc-302d362da0d0"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Canonical main process completed successfully",
+          "reason": "MainProcessCompleted",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 17864404688088294225,
+        "error": "",
+        "policy_hash": "8b9de7e466c8eb9a98e57569740e042c41a094ef1bd277cc3c674a88842d707d",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:19:04",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": 0,
+      "host_key_fingerprint": "SHA256:YW6bXKkGQuPiD9WlpihIZjFR+0N6c7NGuNLRP4toqQM",
+      "id": "6a1be9be-9e5f-423f-b47d-6ed730cca481",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfrws24-limits",
+      "phase": "Completed",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:19:07.562Z",
+        "attempt_id": "2d5c629e-af15-401c-ba6f-3ba53074ef9c",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "bacfa1b3d5c6e6636f5cc845139f8e194b5195059091b128a81b5cc1cb8fe6d6",
+        "configuration_change_time": "2026-10-24T01:19:04.122Z",
+        "deadline": null,
+        "driver_operation_id": "5faa69fd-463a-419f-8c2a-422de6b64e12",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:49:04.122Z",
+        "timeout_time": null
+      },
+      "resource_version": 36,
+      "workspace": "jfr-ws-20261024"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "51201af2-faf7-46f4-a8fb-d94042c4fdc5"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Canonical main process completed successfully",
+          "reason": "MainProcessCompleted",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 17864404688088294225,
+        "error": "",
+        "policy_hash": "8b9de7e466c8eb9a98e57569740e042c41a094ef1bd277cc3c674a88842d707d",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:20:16",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": 0,
+      "host_key_fingerprint": "SHA256:t993pgPkqzyAbAhMEuFgaNiaYkKHy6VRr9RFLCAG6VM",
+      "id": "a342d346-5bea-42eb-ac71-f829224ea436",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfrws24-recreat",
+      "phase": "Completed",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:20:18.440Z",
+        "attempt_id": "12df36cd-a8e5-4928-a936-bbe9bfefcfa6",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "bacfa1b3d5c6e6636f5cc845139f8e194b5195059091b128a81b5cc1cb8fe6d6",
+        "configuration_change_time": "2026-10-24T01:20:16.111Z",
+        "deadline": null,
+        "driver_operation_id": "12e1a40a-47b0-4992-a5b4-f7cab9ba142a",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:50:16.111Z",
+        "timeout_time": null
+      },
+      "resource_version": 35,
+      "workspace": "jfr-ws-20261024"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "36a95dd5-1c83-48dc-bb34-5520ffaf19a2"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Canonical main process completed successfully",
+          "reason": "MainProcessCompleted",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 17864404688088294225,
+        "error": "",
+        "policy_hash": "8b9de7e466c8eb9a98e57569740e042c41a094ef1bd277cc3c674a88842d707d",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:20:37",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": 0,
+      "host_key_fingerprint": "SHA256:HgWSHmispCNdz15ptxXZzU2QMW0LCoYbgiJ0nC7waXg",
+      "id": "52abba42-0002-4144-8645-0dc436fe873e",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfrws24-rorole",
+      "phase": "Completed",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:20:38.150Z",
+        "attempt_id": "0c142f13-1587-4ed3-9477-824ce34341cf",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "bacfa1b3d5c6e6636f5cc845139f8e194b5195059091b128a81b5cc1cb8fe6d6",
+        "configuration_change_time": "2026-10-24T01:20:37.575Z",
+        "deadline": null,
+        "driver_operation_id": "0b314bcf-e8c0-454c-aaa9-165536c48bf4",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:50:37.575Z",
+        "timeout_time": null
+      },
+      "resource_version": 35,
+      "workspace": "jfr-ws-20261024"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "bfd726fd-533a-4df3-88c7-61c89b851dc9"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Canonical main process completed successfully",
+          "reason": "MainProcessCompleted",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 17864404688088294225,
+        "error": "",
+        "policy_hash": "8b9de7e466c8eb9a98e57569740e042c41a094ef1bd277cc3c674a88842d707d",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:20:55",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": 0,
+      "host_key_fingerprint": "SHA256:rERlPnBIyf4pc0rSOGKUC8Q7rjdO3s0YSIHqL3kiYPI",
+      "id": "202b7bca-03cd-42e7-8afc-9ba4adcb0abe",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfrws24-wtplain",
+      "phase": "Completed",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:20:56.490Z",
+        "attempt_id": "e827dff1-bb35-4f8f-bcdd-6982e23954db",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "bacfa1b3d5c6e6636f5cc845139f8e194b5195059091b128a81b5cc1cb8fe6d6",
+        "configuration_change_time": "2026-10-24T01:20:55.838Z",
+        "deadline": null,
+        "driver_operation_id": "3721c19a-48c3-42fc-bbc5-1a187c7b5882",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:50:55.838Z",
+        "timeout_time": null
+      },
+      "resource_version": 35,
+      "workspace": "jfr-ws-20261024"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "c564572c-3ac9-41fc-9f35-c4b5467364dc"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Canonical main process completed successfully",
+          "reason": "MainProcessCompleted",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 17864404688088294225,
+        "error": "",
+        "policy_hash": "8b9de7e466c8eb9a98e57569740e042c41a094ef1bd277cc3c674a88842d707d",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:22:01",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": 0,
+      "host_key_fingerprint": "SHA256:FNop1prq/u34RKFKfirc3XBnKkRj92zgRlLEjQKD++g",
+      "id": "e4b4992c-b152-4cb5-8c44-d33f6601f733",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfrws24-cloner",
+      "phase": "Completed",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:22:02.648Z",
+        "attempt_id": "4642ca0d-7e71-470a-9acd-6a2c8f282c0e",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "bacfa1b3d5c6e6636f5cc845139f8e194b5195059091b128a81b5cc1cb8fe6d6",
+        "configuration_change_time": "2026-10-24T01:22:01.998Z",
+        "deadline": null,
+        "driver_operation_id": "8fc5fbc1-df56-40a8-a3fb-588eb548d21d",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:52:01.998Z",
+        "timeout_time": null
+      },
+      "resource_version": 34,
+      "workspace": "jfr-ws-20261024"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "1754174d-d1a8-414b-b78b-b55e51461d9b"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Canonical main process completed successfully",
+          "reason": "MainProcessCompleted",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 18249610736059978595,
+        "error": "",
+        "policy_hash": "a99028f1a44680749a85dfc199e62b81be23490b869a87eef8fadc16c4cccdaf",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:22:02",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": 0,
+      "host_key_fingerprint": "SHA256:qIHuUro5dAOK/7/I7OF9CvSdpSnuuLNBzGGKlaKp2/w",
+      "id": "c030e1a5-7a8a-4fd9-b114-d9ed3a04ef0e",
+      "labels": {},
+      "last_token_grant_failure": null,
+      "name": "jfrws24-wtrecr",
+      "phase": "Completed",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:22:03.459Z",
+        "attempt_id": "6f209d8f-2d63-47a7-8960-38f160993bb0",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "74dd61ef454e0aef17b6d91201429c983483e40ba506e96467870f9c8b2698a4",
+        "configuration_change_time": "2026-10-24T01:22:02.756Z",
+        "deadline": null,
+        "driver_operation_id": "84776f2d-e168-4312-a78c-b180017d3c88",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T01:52:02.756Z",
+        "timeout_time": null
+      },
+      "resource_version": 34,
+      "workspace": "jfr-ws-20261024"
+    }
+  ]
+}

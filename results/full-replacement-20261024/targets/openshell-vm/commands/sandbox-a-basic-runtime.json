@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm/client.sh",
+    "sandbox",
+    "exec",
+    "jfr-20261024-vm-a",
+    "--",
+    "sh",
+    "-c",
+    "id; uname -m; nproc; awk \"/MemTotal/ {print}\" /proc/meminfo; cat /proc/self/status | grep -E \"^(Uid|Gid|Groups|CapEff|NoNewPrivs):\"; cat /sys/fs/cgroup/cpu.max; cat /sys/fs/cgroup/memory.max"
+  ],
+  "exit_status": 1,
+  "wall_seconds": 0.068,
+  "stdout": "uid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu)\naarch64\n2\nMemTotal:        2036904 kB\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nGroups:\t \nCapEff:\t0000000000000000\nNoNewPrivs:\t1\n",
+  "stderr": "cat: /sys/fs/cgroup/cpu.max: No such file or directory\ncat: /sys/fs/cgroup/memory.max: No such file or directory\n"
+}

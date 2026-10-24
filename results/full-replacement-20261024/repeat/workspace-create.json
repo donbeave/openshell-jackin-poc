@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/gateway-c/client.sh",
+    "workspace",
+    "create",
+    "--name",
+    "jfr-ws-repeat24",
+    "--label",
+    "jackin.fixture=jfr-20261024-repeat"
+  ],
+  "status": 0,
+  "stdout": "\u2713 Created workspace jfr-ws-repeat24\n",
+  "stderr": ""
+}

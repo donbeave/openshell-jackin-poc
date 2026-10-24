@@ -1,0 +1,911 @@
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/agent_status/hook_installer/claude.rs:67:    fn hook_entry(&self, event: &str, async_flag: bool) -> serde_json::Value {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/agent_status/hook_installer/claude.rs:83:                  merge-with-preserve protocol."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/agent_status/hook_installer/claude.rs:130:            hooks_obj.insert(event.to_owned(), serde_json::Value::Array(entries));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/argv.rs:25:            "status" | "snapshot" | "send" | "events" | "usage" | "agents" | "runtime-setup"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/argv.rs:51:            "status" | "snapshot" | "send" | "events" | "attach-proxy" | "usage" | "agents"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client.rs:19:    run_snapshot, run_status, run_status_capture, run_status_explain, run_token_usage,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client.rs:25:    AccountUsageSnapshotView, ServerMsg, frame as control_frame,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/control.rs:117:            | (ClientMsg::Snapshot, ServerMsg::Snapshot { .. })
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/status.rs:41:    let ServerMsg::Snapshot { tabs, .. } = request_control(&ClientMsg::Snapshot).await? else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/status.rs:42:        anyhow::bail!("daemon did not reply with a snapshot");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/status.rs:48:        .with_context(|| format!("no session {session_id} in the current snapshot"))?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/status.rs:122:pub async fn run_snapshot() -> Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/status.rs:123:    let msg = request_control(&ClientMsg::Snapshot).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/status.rs:125:        ServerMsg::Snapshot { tabs, active_tab } => (tabs, active_tab),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/status.rs:128:                "daemon replied with ServerMsg::Unknown for Snapshot — peer is newer than this CLI"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/status.rs:131:        other => anyhow::bail!("daemon replied with {} for Snapshot request", other.kind()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/usage.rs:7:use crate::protocol::control::{AccountUsageSnapshotView, ClientMsg, ServerMsg};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/usage.rs:37:pub(crate) async fn usage_accounts() -> Result<Vec<AccountUsageSnapshotView>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/usage.rs:56:    accounts: &[AccountUsageSnapshotView],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/usage.rs:80:    accounts: &[AccountUsageSnapshotView],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client/usage.rs:138:pub(crate) fn usage_row_proves_live_quota(row: &AccountUsageSnapshotView) -> bool {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client_dispatch.rs:35:    snapshot                       Write a screen snapshot to stdout
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client_dispatch.rs:39:    events [--session <id>]        Stream session state/exit/activity events as NDJSON
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client_dispatch.rs:49:    sudo-provision                 Enforce per-profile sudo grant (run as root via docker exec)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client_dispatch.rs:71:        Some("snapshot") => client::run_snapshot().await,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/client_dispatch.rs:140:                "unknown jackin-capsule subcommand {other:?} — known: status, status explain <id>, status capture <id>, snapshot, attach-proxy, usage accounts, usage verify, protocol-check, usage-relay-proxy, token-usage <id>, agents [--format json], report-event --event <name> [--payload-stdin], exec <command>, mcp-server, runtime-setup, sudo-provision, firewall-apply, prepare-commit-msg, new <agent>, --focus <session_id>, --version, --help"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/clipboard.rs:161:        let actual: [u8; FILE_EXPORT_DIGEST_BYTES] = active.hasher.finalize().into();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/frame.rs:61:    pub(crate) fn snapshot_session_states(&self) -> Vec<(u64, VisibleAgentState)> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:12:        reason = "Per-frame compositor that snapshots the multiplexer state and \
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:14:                  shape preserves snapshot borrow scope across the snapshot → \
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:18:        use crate::tui::components::dialog_widgets::DialogRatatuiSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:24:        let usage_status_label = self.focused_usage_snapshot().status_bar_label;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:38:        let session_states = self.snapshot_session_states();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:79:        let dialog_snapshot: Option<(DialogRatatuiSnapshot, (u16, u16, u16, u16))> = if dialog_open
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:89:                let snapshot = d.to_ratatui_snapshot(Some(&github));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:90:                (snapshot, rect)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:98:            dialog_snapshot.as_ref().and_then(|(snapshot, rect)| {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:107:                        .footer_hint_spans(Some(&github_view_for_hint), snapshot.scroll_axes(block))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:176:            if let Some((DialogRatatuiSnapshot::DebugInfo(state), (row, col, height, width))) =
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:177:                dialog_snapshot.as_ref()
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/compositor/ratatui_frame.rs:211:            dialog_snapshot: dialog_snapshot.as_ref(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/auth.rs:57:        | ClientMsg::Snapshot
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:57:            let health = jackin_diagnostics::telemetry_health_snapshot();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:65:        ClientMsg::Snapshot => ServerMsg::Snapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:66:            tabs: mux.tab_snapshots(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:70:            records: mux.agent_registry_snapshot(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:105:            usage: Box::new(mux.focused_usage_snapshot()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:110:                usage: Box::new(mux.focused_usage_snapshot()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:114:            accounts: mux.usage.cache().account_snapshot_views(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:277:        health: jackin_protocol::control::TelemetryHealthSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/replies.rs:308:        Source::IncompleteClientIdentity => Target::IncompleteClientIdentity,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/tests.rs:30:fn stray_frame_behind_resize_is_preserved_not_dropped() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/control/tests.rs:44:fn stray_frame_after_several_resizes_is_preserved() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/exit_flow.rs:42:            if let Err(error) = crate::exit_assess::write_exit_action(action) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/exit_flow.rs:45:                    "[daemon] exit: failed to write exit-action file, policy will not be applied: {error}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/file_export.rs:18:use crate::tui::pane_snapshot::RowSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/file_export.rs:234:        let rows = session.render_content_snapshot(selection.inner.cols);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/file_export.rs:269:        let rows = session.render_content_snapshot(inner.cols);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/file_export.rs:277:        let rows = session.render_content_snapshot(candidate.inner.cols);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/file_export.rs:300:fn word_token(row: &RowSnapshot, col: u16) -> Option<String> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/file_export/source.rs:144:            sha256: hash.finalize().into(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/actions.rs:58:                let view = self.focused_usage_snapshot();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/actions.rs:260:                let usage_status_label = self.focused_usage_snapshot().status_bar_label;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/actions.rs:324:            Action::FinalizeSelection => self.finalize_selection(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/dialog_actions.rs:77:                        self.control.exit_request = Some(jackin_protocol::ExitAction::Keep);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/dialog_actions.rs:80:                        self.control.exit_request = Some(jackin_protocol::ExitAction::Discard);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/dialog_actions.rs:132:                let view = self.focused_usage_snapshot_for_account_id(&account_id, &provider_label);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/dialog_actions.rs:160:    fn focused_usage_snapshot_for_account_id(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/dialog_actions.rs:166:            return self.focused_usage_snapshot_for_provider(Some(provider_label));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/dialog_actions.rs:171:            .focused_snapshot_for_account_id(account_id)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/input_dispatch/input_events.rs:202:                let view = self.focused_usage_snapshot();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/host_open.rs:6:use crate::tui::pane_snapshot::RowSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/host_open.rs:46:            .render_content_snapshot_range(inner.cols, content_row..content_row.saturating_add(1));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/host_open.rs:73:        let rows = session.render_content_snapshot_range(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/host_open.rs:89:        rows: &[RowSnapshot],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/selection.rs:4:use crate::tui::pane_snapshot::RowSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/selection.rs:183:    pub(crate) fn finalize_selection(&mut self) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/selection.rs:205:            .map(|session| session.render_content_snapshot(sel.inner.cols))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/selection.rs:210:    fn copy_selection_rows(&mut self, sel: &SelectionState, rows: &[RowSnapshot]) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/mouse_input/selection.rs:245:        let rows = session.render_content_snapshot(candidate.inner.cols);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils.rs:44:    pub(super) fn tab_snapshots(&self) -> Vec<crate::protocol::control::TabSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils.rs:45:        use crate::protocol::control::{PaneSnapshot, TabSnapshot};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils.rs:47:        let placeholder_rect = Rect::new(0, 0, self.render.term_rows, self.render.term_cols);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils.rs:54:                    .leaves(placeholder_rect)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils.rs:57:                        Some(session) => PaneSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils.rs:65:                        None => PaneSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils.rs:75:                TabSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils.rs:86:    pub(super) fn agent_registry_snapshot(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:16:    pub(crate) fn focused_usage_snapshot(&mut self) -> jackin_protocol::control::FocusedUsageView {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:17:        self.focused_usage_snapshot_for_provider(None)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:49:    pub(crate) fn focused_usage_snapshot_for_provider(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:63:        self.usage.usage_cache.focused_snapshot_for_capability(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:172:                .focused_snapshot_for_account_id(&tab_id)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:185:            self.focused_usage_snapshot_for_provider(provider_label.as_deref())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:241:            && previous.status == jackin_protocol::control::UsageSnapshotStatus::Unavailable
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:270:            .snapshots
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/multiplexer_utils/usage_views.rs:363:    if view.status == jackin_protocol::control::UsageSnapshotStatus::Fresh {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/pane_layout/splits.rs:70:            .ok_or_else(|| anyhow::anyhow!("split target has no isolated Unix identity"))?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/run_loop/events.rs:23:                if let Err(error) = crate::exit_assess::write_exit_action(action) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/run_loop/events.rs:26:                        "[daemon] exit: failed to write exit-action file, retrying: {error}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/session_lifecycle/agent_spawn.rs:90:            .ok_or_else(|| anyhow::anyhow!("spawn target has no isolated Unix identity"))?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/subsystem_state.rs:107:    pub(crate) exit_request: Option<jackin_protocol::ExitAction>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/subsystems/tests.rs:9:fn render_and_launch_accessors_preserve_constructor_state() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/daemon/subsystems/tests.rs:22:    drop(mux.usage.cache().account_snapshot_views());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:10:use jackin_protocol::{CapsuleConfig, EXIT_ACTION_PATH, ExitAction};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:119:    DrainWithAction(ExitAction),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:129:        "keep" => ExitDecision::DrainWithAction(ExitAction::Keep),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:130:        "discard" => ExitDecision::DrainWithAction(ExitAction::Discard),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:135:pub fn write_exit_action(action: ExitAction) -> std::io::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:136:    write_exit_action_to(Path::new(EXIT_ACTION_PATH), action)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:139:fn exit_action_json(action: ExitAction) -> &'static str {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:141:        ExitAction::Keep => "\"keep\"",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:142:        ExitAction::Discard => "\"discard\"",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:146:fn write_exit_action_to(path: &Path, action: ExitAction) -> std::io::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess.rs:150:    std::fs::write(path, exit_action_json(action))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:5:    DirtyRepo, ExitDecision, assess_dirty, decide_exit, exit_action_json, policy_is_ask,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:6:    write_exit_action_to,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:8:use jackin_protocol::{CapsuleConfig, ExitAction};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:126:fn exit_action_json_matches_serde_snake_case() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:127:    assert_eq!(exit_action_json(ExitAction::Keep), "\"keep\"");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:128:    assert_eq!(exit_action_json(ExitAction::Discard), "\"discard\"");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:132:fn write_exit_action_writes_expected_json() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:134:    let path = dir.path().join("exit-action.json");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/exit_assess/tests.rs:135:    write_exit_action_to(&path, ExitAction::Discard).expect("write");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/perf_budgets.rs:1:pub const FOCUSED_FULL_SNAPSHOT_MAX_BLOCKS: usize = 3;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/perf_budgets.rs:3:pub const FOCUSED_FULL_SNAPSHOT_MAX_BYTES: usize = 1024;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1.rs:277:pub(crate) struct ReaperTestDiagnosticSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1.rs:294:pub(crate) fn reaper_test_diagnostic_snapshot() -> ReaperTestDiagnosticSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1.rs:318:    ReaperTestDiagnosticSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:452:    ) -> io::Result<ReaperTestDiagnosticSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:455:                let snapshot = reaper_test_diagnostic_snapshot();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:456:                if snapshot.thread_entered
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:457:                    && (snapshot.thread_mask_error.is_some()
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:458:                        || snapshot.thread_sigchld_blocked != Some(true)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:459:                        || snapshot.sigwait_errors > 0)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:461:                    emit_reaper_diagnostic("readiness-error", snapshot, 0, false);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:463:                        "production reaper startup diagnostic failed: {snapshot:?}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:466:                if snapshot.thread_entered && snapshot.sigwait_entries > 0 {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:467:                    return Ok(snapshot);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:471:                    emit_reaper_diagnostic("readiness-timeout", snapshot, 0, false);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:474:                        format!("production reaper startup diagnostic timed out: {snapshot:?}"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:911:    snapshot: ReaperTestDiagnosticSnapshot,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:918:        snapshot.thread_entered,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:919:        snapshot.thread_sigchld_blocked,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:920:        snapshot.thread_mask_error,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:921:        snapshot.sigwait_entries,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:922:        snapshot.sigwait_successes,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:923:        snapshot.sigwait_errors,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:924:        snapshot.last_sigwait_error,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:932:    reaper_snapshot: ReaperTestDiagnosticSnapshot,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:939:            "PID1_SIGCHLD_ACTION phase={phase} rust_pid={} worker_sigchld_mask=blocked child_pid={child_pid:?} disposition={:?} flags_raw={} flags_hex={:#010x} reaper_snapshot={reaper_snapshot:?} causal_event_count={causal_event_count} overflow={overflowed}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:948:                "PID1_SIGCHLD_ACTION phase={phase} rust_pid={} worker_sigchld_mask=blocked child_pid={child_pid:?} query_error_kind={:?} query_error_raw_os_error={:?} query_error={error} reaper_snapshot={reaper_snapshot:?} causal_event_count={causal_event_count} overflow={overflowed}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:960:    let reaper_snapshot = reaper_test_diagnostic_snapshot();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:964:        reaper_snapshot,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:985:        let before = reaper_test_diagnostic_snapshot();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:989:        let after = reaper_test_diagnostic_snapshot();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1031:    fn new(snapshot: ReaperTestDiagnosticSnapshot) -> Self {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1036:        diagnostic.report("startup", snapshot, 0, false);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1043:        snapshot: ReaperTestDiagnosticSnapshot,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1049:        emit_reaper_diagnostic(stage, snapshot, causal_event_count, overflowed);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1066:            reaper_test_diagnostic_snapshot(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1111:                reaper_test_diagnostic_snapshot(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1360:                reaper_test_diagnostic_snapshot(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1372:            reaper_test_diagnostic_snapshot(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1380:            emit_reaper_diagnostic("install-error", reaper_test_diagnostic_snapshot(), 0, false);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1386:    let startup_snapshot = match (&diagnostic_timer, diagnostic_deadline) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1395:    let diagnostic_guard = startup_snapshot.map(ReaperDiagnosticGuard::new);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1429:            reaper_test_diagnostic_snapshot(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1876:    run_worker("pid1::tests::worker_preserves_registered_child");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1884:fn worker_preserves_registered_child() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:1885:    if !worker_selected("pid1::tests::worker_preserves_registered_child") {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:2161:fn diagnostic_caught_sigchld_preserves_strict_production_requeue_sequence() -> io::Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:2240:                "caught SIGCHLD action did not match its opaque disposition and preserved flags",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/pid1/tests.rs:3520:            "blocked-mask preflight did not preserve the ordinary worker identity",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/process_isolation/tests.rs:51:mod linux_grants;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/runtime_setup/seed.rs:130:            copy_file_preserving_mode(&entry_src, &entry_dst)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/runtime_setup/seed.rs:141:    copy_file_preserving_mode(src.as_ref(), dst.as_ref())?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/runtime_setup/seed.rs:150:pub(crate) fn copy_file_preserving_mode(src: &Path, dst: &Path) -> Result<()> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session.rs:41:pub(crate) use types::{OSC_EVIDENCE_MAX_CHARS, STATUS_FLAP_THRESHOLD, STATUS_FLAP_WINDOW};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/spawn.rs:101:          the multiplexer state. Inline shape preserves captured-runtime \
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/status.rs:4:use super::{STATUS_FLAP_THRESHOLD, STATUS_FLAP_WINDOW, Session, StatusTick, StatusTransition};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/status.rs:95:        self.render_content_snapshot(cols)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/status.rs:176:            ActivityEvidence, EvidenceNote, EvidenceSnapshot, ScreenEvidence,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/status.rs:199:        let snapshot = EvidenceSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/status.rs:210:        let candidate = apply_watchdog(arbitrate(&snapshot, self.status.raw, now), now);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/status.rs:249:        let flapping = self.status_transition_times.len() >= STATUS_FLAP_THRESHOLD;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/types.rs:65:pub(crate) const STATUS_FLAP_THRESHOLD: usize = 3;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/viewport.rs:6:use crate::tui::pane_snapshot::RowSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/viewport.rs:55:    pub(crate) fn render_content_snapshot(&self, viewport_cols: u16) -> Vec<RowSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/viewport.rs:56:        crate::tui::pane_snapshot::pane_content_from_damagegrid(&self.shadow_grid, viewport_cols)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/viewport.rs:59:    pub(crate) fn render_content_snapshot_range(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/viewport.rs:63:    ) -> Vec<RowSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/viewport.rs:64:        crate::tui::pane_snapshot::pane_content_range_from_damagegrid(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/session/viewport.rs:77:            .render_content_snapshot(cols)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision.rs:21:fn sudo_action(granted: bool, present: bool) -> SudoAction {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision.rs:22:    match (granted, present) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision.rs:30:    let granted = std::env::var(jackin_core::JACKIN_SUDO_ENV_NAME).as_deref() == Ok("1");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision.rs:32:    match sudo_action(granted, present) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision.rs:38:                "[sudo-provision] sudo revoked (no JACKIN_SUDO grant)"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision/tests.rs:7:fn grant_on_missing_writes() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision/tests.rs:12:fn grant_off_present_removes() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision/tests.rs:17:fn grant_on_present_is_noop() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/sudo_provision/tests.rs:22:fn grant_off_missing_is_noop_not_remove() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui.rs:12:pub mod pane_snapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog/github_context.rs:56:        let loading_placeholder =
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog/github_context.rs:64:            || loading_placeholder.to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog/github_context.rs:67:        let pr_title = pr.map_or_else(|| loading_placeholder.to_owned(), |p| p.title.clone());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog/github_context.rs:68:        let pr_url = pr.map_or_else(|| loading_placeholder.to_owned(), |p| p.url.clone());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets.rs:25:pub(crate) enum DialogRatatuiSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets.rs:55:impl DialogRatatuiSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets.rs:75:mod snapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:5:    DialogRatatuiSnapshot, PickerItem, usage_body_rect, usage_info_lines_for_width,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:24:    snapshot: &DialogRatatuiSnapshot,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:36:    match snapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:37:        DialogRatatuiSnapshot::ConfirmAction {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:45:        DialogRatatuiSnapshot::FilterPicker {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:54:        DialogRatatuiSnapshot::TextInputDialog {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:62:        DialogRatatuiSnapshot::ErrorPopup(state) => {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:77:        DialogRatatuiSnapshot::DebugInfo(state) => {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:82:        DialogRatatuiSnapshot::UsageInfo {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:212:                .placeholder("Filter")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:279:        "text-input snapshot cursor must remain on a grapheme boundary"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/render.rs:283:            .placeholder("")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:4:use super::{DialogRatatuiSnapshot, PickerItem, usage_tab_strip_labels};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:10:        reason = "Dialog renderer snapshot builder carrying each dialog variant's \
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:14:    pub(crate) fn to_ratatui_snapshot(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:17:    ) -> DialogRatatuiSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:25:                DialogRatatuiSnapshot::ConfirmAction {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:63:                DialogRatatuiSnapshot::FilterPicker {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:109:                DialogRatatuiSnapshot::FilterPicker {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:127:                DialogRatatuiSnapshot::FilterPicker {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:146:                DialogRatatuiSnapshot::FilterPicker {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:165:                DialogRatatuiSnapshot::FilterPicker {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:174:            Dialog::RenameTab { input, .. } => DialogRatatuiSnapshot::TextInputDialog {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:184:            } => DialogRatatuiSnapshot::TextInputDialog {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:196:            Dialog::SpawnFailure(state) => DialogRatatuiSnapshot::ErrorPopup(state.clone()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:198:            Dialog::ContainerInfo { .. } => DialogRatatuiSnapshot::DebugInfo(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:203:            Dialog::GitHubContext { .. } => DialogRatatuiSnapshot::DebugInfo(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:221:                DialogRatatuiSnapshot::FilterPicker {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:239:                DialogRatatuiSnapshot::FilterPicker {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/dialog_widgets/snapshot.rs:253:            } => DialogRatatuiSnapshot::UsageInfo {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/pane.rs:13:use termpane::{Cell as TermCell, Color as TermColor, GridSnapshot, GridView, SnapCell};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/pane.rs:17:    Full(&'a GridSnapshot),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/pane.rs:28:    pub const fn new(snapshot: &'a GridSnapshot) -> Self {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/pane.rs:30:            content: PaneBodyContent::Full(snapshot),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/pane.rs:45:            PaneBodyContent::Full(snapshot) => render_full(snapshot, area, buf),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/pane.rs:51:fn render_full(snapshot: &GridSnapshot, area: Rect, buf: &mut Buffer) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/pane.rs:56:            if row < snapshot.rows && col < snapshot.cols {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/pane.rs:57:                let Some(cell) = snapshot.cell(row, col) else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/status_bar.rs:13:const TAB_GLYPH_PLACEHOLDER: &str = " X";
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/components/status_bar.rs:275:    format!("{name}{TAB_GLYPH_PLACEHOLDER}")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/message.rs:96:    FinalizeSelection,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/message.rs:267:        Action::FinalizeSelection
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:10:pub struct CellSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:16:pub struct RowSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:17:    pub cells: Vec<CellSnapshot>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:20:impl RowSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:107:pub fn snapshot_damagegrid_row(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:111:) -> RowSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:129:        cells.push(CellSnapshot { contents, width });
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:132:    RowSnapshot { cells }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:139:) -> Vec<RowSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:151:) -> Vec<RowSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:163:    let mut snapshot = Vec::with_capacity(end - start);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:171:            snapshot.push(snapshot_damagegrid_cells(sb_row, cols_to_draw));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:182:        snapshot.push(snapshot_damagegrid_row(grid, row_u16, cols_to_draw));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:185:    snapshot
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:188:fn snapshot_damagegrid_cells(cells: &[termpane::Cell], cols_to_draw: u16) -> RowSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:205:        out.push(CellSnapshot { contents, width });
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:208:    RowSnapshot { cells: out }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:211:fn row_range_cells(row: &RowSnapshot, from_col: u16, to_col: u16) -> Vec<CellSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/pane_snapshot.rs:234:        cells.push(CellSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/selection.rs:5:use crate::tui::pane_snapshot::RowSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/selection.rs:47:pub(crate) fn selection_text(rows: &[RowSnapshot], sel: &SelectionState) -> String {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/selection.rs:50:    let Some(max_snapshot_row) = rows.len().checked_sub(1) else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/selection.rs:53:    let max_row = max_snapshot_row.min(end_row);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/selection/tests.rs:11:use crate::tui::pane_snapshot::{CellSnapshot, RowSnapshot};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/selection/words.rs:4:use crate::tui::pane_snapshot::{DisplayCell, RowSnapshot};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/selection/words.rs:6:pub(crate) fn word_bounds_in_row(row: &RowSnapshot, col: u16) -> Option<(u16, u16)> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/view.rs:6:use crate::tui::components::dialog_widgets::DialogRatatuiSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/view.rs:24:pub(crate) type DialogFrameSnapshot = (DialogRatatuiSnapshot, (u16, u16, u16, u16));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/view.rs:33:    reason = "Six orthogonal render-state flags on the per-frame snapshot \
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/view.rs:38:              this snapshot feeds."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/view.rs:51:    pub(crate) dialog_snapshot: Option<&'a DialogFrameSnapshot>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/view/frame.rs:126:        if let Some((snapshot, rect)) = view.dialog_snapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/view/frame.rs:127:            render_dialog_ratatui(frame, *rect, snapshot);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin-capsule/src/tui/view/tests.rs:10:use crate::tui::components::dialog_widgets::DialogRatatuiSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/config_cmd.rs:284:        cli::TrustCommand::Grant { selector } => {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/config_cmd.rs:290:                emit_trust_decision("granted", "external", "skip", None);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/config_cmd.rs:298:                emit_trust_decision("granted", "external", "success", None);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/helpers.rs:139:    if workspace.keep_awake.enabled {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/helpers.rs:140:        info.push(("Keep Awake", "enabled (macOS only)"));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:178:    runtime::reconcile_keep_awake_when_configured(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:182:        any_keep_awake_enabled(config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:207:    runtime::reconcile_keep_awake_when_configured(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:211:        any_keep_awake_enabled(config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:392:    runtime::reconcile_keep_awake_when_configured(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:396:        any_keep_awake_enabled(ctx.config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:411:    runtime::reconcile_keep_awake_when_configured(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:415:        any_keep_awake_enabled(ctx.config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:436:    runtime::reconcile_keep_awake_when_configured(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:440:        any_keep_awake_enabled(ctx.config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:454:    runtime::reconcile_keep_awake_when_configured(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:458:        any_keep_awake_enabled(ctx.config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:477:    runtime::reconcile_keep_awake_when_configured(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:481:        any_keep_awake_enabled(ctx.config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:500:    runtime::reconcile_keep_awake_when_configured(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:504:        any_keep_awake_enabled(ctx.config),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:518:fn any_keep_awake_enabled(config: &AppConfig) -> bool {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:522:        .any(|workspace| workspace.keep_awake.enabled)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:625:        runtime::reconcile_keep_awake(&paths, &docker, &mut runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:638:        runtime::reconcile_keep_awake(&paths, &docker, &mut runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:641:    runtime::reconcile_keep_awake(&paths, &docker, &mut runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:650:    runtime::reconcile_keep_awake(&paths, &docker, &mut runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:709:    runtime::reconcile_keep_awake(paths, &docker, &mut runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/load_cmd.rs:958:    runtime::reconcile_keep_awake(paths, &docker, &mut runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:56:        runtime::reconcile_keep_awake(&self.paths, &docker, &mut runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:106:            runtime::reconcile_keep_awake(paths, docker, runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:114:            runtime::reconcile_keep_awake(paths, docker, runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:118:            runtime::reconcile_keep_awake(paths, docker, runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:127:            runtime::reconcile_keep_awake(paths, docker, runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:144:            runtime::reconcile_keep_awake(paths, docker, runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/restore.rs:157:            runtime::reconcile_keep_awake(paths, docker, runner).await;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:77:                checkpoint,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:85:                    checkpoint,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:211:    emit_events(&detail, after, json);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:216:/// checkpoints, trusted test verdicts, isolated review verdicts,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:265:        WorkflowRecordAction::Checkpoint(action) => {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:268:                DaemonRequestKind::WorkflowRecordCheckpoint {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:893:fn emit_events(detail: &jackin_workflow::RunDetail, after: i64, json: bool) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:919:    // Observe is the default: it grants no input ownership.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:1148:    use jackin_workflow_spec::rules::{HostGrant, compile_plan};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:1231:    let grant = HostGrant {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_cmd.rs:1242:    let plan = compile_plan(&loaded.checked, &inputs, &grant, file_label)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:29:    pub checkpoint_count: usize,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:101:            "- {} {}: status={}, external={}, preservation={}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:106:            redact_opt(effect.preservation.as_deref()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:126:    let _unused = writeln!(report, "## Checkpoints and preserved work");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:127:    if detail.checkpoints.is_empty() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:128:        let _unused = writeln!(report, "No recorded checkpoints.");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:130:    for checkpoint in &detail.checkpoints {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:134:            redact(&checkpoint.candidate),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:135:            redact(&checkpoint.commit_hash),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:136:            redact(&checkpoint.backup_state),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:137:            redact(&checkpoint.local_path),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:139:        if let Some(hold) = checkpoint.preservation_hold.as_deref() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:140:            let _unused = writeln!(report, "  preservation hold: {}", redact(hold));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export.rs:219:        checkpoint_count: detail.checkpoints.len(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:4:use jackin_workflow::{RunDetail, RunSummary, StoredCheckpoint, StoredEvidence};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:36:        checkpoints: vec![StoredCheckpoint {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:43:            preservation_hold: None,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:69:/// paused run with test/review evidence and a checkpoint exports
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:73:fn report_from_store_fixtures_covers_evidence_and_checkpoints() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:74:    use jackin_workflow::{CheckpointRecord, EvidenceRecord, SessionAttachment, WorkflowService};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:115:        .record_checkpoint(&CheckpointRecord {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:123:            preservation_hold: Some("hold-1"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:125:        .expect("record fixture checkpoint");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:136:    assert_eq!(manifest.checkpoint_count, 1);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:144:        "## Checkpoints and preserved work",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workflow_export/tests.rs:152:    assert!(text.contains("preservation hold: hold-1"));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:23:    keep_awake: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:47:    keep_awake: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:48:    no_keep_awake: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:58:    keep_awake_change: Option<bool>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:81:            keep_awake,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:93:                keep_awake,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:115:            keep_awake,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:116:            no_keep_awake,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:143:                    keep_awake,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:144:                    no_keep_awake,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:173:        keep_awake,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:208:        keep_awake: workspace::KeepAwakeConfig {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:209:            enabled: keep_awake,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:352:    let keep_awake_change = if params.keep_awake {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:354:    } else if params.no_keep_awake {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:438:        keep_awake_change,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:502:    if let Some(v) = prepared.keep_awake_change {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:504:            "keep-awake → {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:537:        keep_awake_change,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:592:                "edit affects preserved isolated state for {} container(s): {}; pass --delete-isolated-state to remove and apply, or restore the previous src",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/app/workspace_cmd.rs:625:            keep_awake_enabled: keep_awake_change,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/bin/usage-broker/tests.rs:107:fn explicit_auth_holds_foreground_service_and_reports_only_safe_readiness() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli.rs:15:    .placeholder(AnsiColor::White.on_default())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/config.rs:222:  jackin config trust grant chainargos/the-architect"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/config.rs:230:    Grant {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/config/tests.rs:76:fn parses_config_trust_grant() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/config/tests.rs:81:        "grant",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/config/tests.rs:88:            TrustCommand::Grant { .. }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/telemetry.rs:136:            WorkflowRecordAction::Checkpoint(_) => CliCommandName::WorkflowRecordCheckpoint,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/telemetry.rs:197:            TrustCommand::Grant { .. } => CliCommandName::ConfigTrustGrant,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:7:    AccountUsageSnapshotView, CountQuotaUnit, PercentObservationOrigin, ProviderQuotaState,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:28:use jackin_runtime::runtime::snapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:96:    #[command(about = "Stream new monitor events as JSON Lines", long_about = "Stream new monitor events as JSON Lines", before_help = BANNER, styles = HELP_STYLES)]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:522:    accounts: Vec<AccountUsageSnapshotView>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:1623:    let accounts = snapshot::fetch_usage_accounts(paths, container)?.unwrap_or_default();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:1661:fn render_accounts_table(accounts: &[AccountUsageSnapshotView]) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage.rs:1728:fn usage_amount_label(account: &AccountUsageSnapshotView) -> String {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/statusline/tests.rs:65:fn preserves_settings_and_statusline_options() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/statusline/tests.rs:380:fn preserves_legacy_failure_status_and_skips_ingestion() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:8:use jackin_protocol::control::AccountUsageSnapshotView;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:22:    account: AccountUsageSnapshotView,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:27:struct SnapshotColumn {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:41:    accounts: &[AccountUsageSnapshotView],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:55:) -> Result<(PathBuf, Vec<AccountUsageSnapshotView>)> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:68:    if !table_exists(conn, "account_usage_snapshots").await? {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:134:                    // while this caller waited for BEGIN IMMEDIATE. Finalize
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:217:        CREATE TABLE IF NOT EXISTS account_usage_snapshots (
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:244:    let columns = account_snapshot_columns(conn).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:249:                "ALTER TABLE account_usage_snapshots ADD COLUMN quota_bucket_json TEXT",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:260:                "ALTER TABLE account_usage_snapshots ADD COLUMN capability_account_id TEXT",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:271:                "ALTER TABLE account_usage_snapshots ADD COLUMN capability_surface_id TEXT",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:288:        .context("preserve prior host usage cache schema version")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:298:    .context("preserve prior host usage capability schema version")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:356:    let has_snapshots = table_exists(conn, "account_usage_snapshots").await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:357:    if !has_snapshots {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:360:                "versioned or partial host usage cache is missing account_usage_snapshots"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:366:    let columns = account_snapshot_columns(conn).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:377:            validate_snapshot_columns(conn, "pre-v2", false, false).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:386:            validate_snapshot_columns(conn, "2", true, false).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:427:                "SELECT id, window_kind, quota_bucket_json, typeof(quota_bucket_json) FROM account_usage_snapshots ORDER BY id",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:467:    validate_snapshot_columns(conn, SCHEMA_VERSION, true, true).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:468:    let columns = account_snapshot_column_info(conn).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:477:async fn validate_snapshot_columns(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:511:    let columns = account_snapshot_column_info(conn).await?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:557:    columns: &std::collections::HashMap<String, SnapshotColumn>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:576:        conn.query("PRAGMA index_list(account_usage_snapshots)", ()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:597:        conn.query("PRAGMA main.table_list(account_usage_snapshots)", ()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:633:        || table_name != "account_usage_snapshots"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:648:        conn.query("PRAGMA index_list(account_usage_snapshots)", ()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:692:async fn account_snapshot_column_info(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:694:) -> Result<std::collections::HashMap<String, SnapshotColumn>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:697:            .query("PRAGMA table_info(account_usage_snapshots)", ())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:709:                SnapshotColumn {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:721:async fn account_snapshot_columns(conn: &Connection) -> Result<std::collections::HashSet<String>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:722:    Ok(account_snapshot_column_info(conn)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:732:                "SELECT id, provider, account_key_hash, capability_account_id, capability_surface_id, typeof(provider), typeof(account_key_hash), typeof(capability_account_id), typeof(capability_surface_id) FROM account_usage_snapshots ORDER BY id",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:793:                "SELECT id, provider, account_key_hash, typeof(provider), typeof(account_key_hash) FROM account_usage_snapshots ORDER BY id",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:878:fn prepare_account_rows(accounts: &[AccountUsageSnapshotView]) -> Result<Vec<PreparedAccount>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:932:            INSERT INTO account_usage_snapshots (
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:958:                    THEN account_usage_snapshots.used_amount
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:963:                    THEN account_usage_snapshots.used_unit
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:968:                    THEN account_usage_snapshots.limit_amount
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:973:                    THEN account_usage_snapshots.limit_unit
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1014:    .context("upsert host usage account snapshot")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1050:        .context("begin host usage account snapshot upsert")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1083:                "upsert host usage account snapshot failed: {error:#}; rollback failed: {rollback_error}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1093:                    "commit host usage account snapshot upsert failed: {commit_error}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1096:                    "commit host usage account snapshot upsert failed: {commit_error}; rollback failed: {rollback_error}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1103:async fn read_account_rows(conn: &Connection) -> Result<Vec<AccountUsageSnapshotView>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1127:            FROM account_usage_snapshots
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1133:            .context("query host usage account snapshots")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1139:            .context("read host usage account snapshot row")?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store.rs:1170:            accounts.push(AccountUsageSnapshotView {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:56:fn account(window: &str, used: i64) -> AccountUsageSnapshotView {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:57:    AccountUsageSnapshotView {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:86:            status: jackin_protocol::control::UsageSnapshotStatus::Fresh,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:126:                     CREATE TABLE account_usage_snapshots (
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:170:                     CREATE TABLE account_usage_snapshots (
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:194:                    "INSERT INTO account_usage_snapshots
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:214:                        "INSERT INTO account_usage_snapshots
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:259:                     CREATE TABLE account_usage_snapshots (
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:277:                     INSERT INTO account_usage_snapshots
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:349:        status: jackin_protocol::control::UsageSnapshotStatus::Fresh,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:456:async fn host_account_cache_v1_migration_preserves_legacy_scalars_and_null_bucket() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:493:async fn typed_refresh_preserves_migrated_extreme_scalar_pairs_after_reopen() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:692:                .contains("missing account_usage_snapshots"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:701:                .contains("missing account_usage_snapshots"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:710:            !table_exists(&conn, "account_usage_snapshots")
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:727:        "UPDATE account_usage_snapshots SET quota_bucket_json = '{broken'",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:746:            "SELECT quota_bucket_json FROM account_usage_snapshots WHERE window_kind = 'session'",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:789:        account_snapshot_columns(&conn)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:817:        !account_snapshot_columns(&conn)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:865:        !account_snapshot_columns(&conn)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:871:        "ALTER TABLE account_usage_snapshots ADD COLUMN last_error TEXT",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:948:        "account_usage_snapshots",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/store/tests.rs:959:            .query("SELECT COUNT(*) FROM account_usage_snapshots", ())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:8:    UsageSnapshotStatus,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:75:        .map(|account| serde_json::from_value::<AccountUsageSnapshotView>(account.clone()).unwrap())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:84:    let old_account: AccountUsageSnapshotView = serde_json::from_value(legacy_json).unwrap();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:91:    let account = AccountUsageSnapshotView {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:152:    bucket.status = UsageSnapshotStatus::Fresh;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:157:    reset_only.quota_bucket.as_mut().unwrap().status = UsageSnapshotStatus::Unavailable;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:166:    bucket.status = UsageSnapshotStatus::Fresh;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:169:    state_only.quota_bucket.as_mut().unwrap().status = UsageSnapshotStatus::Stale;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:171:    state_only.quota_bucket.as_mut().unwrap().status = UsageSnapshotStatus::Fresh;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:178:    bucket.status = UsageSnapshotStatus::Fresh;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:206:) -> AccountUsageSnapshotView {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:207:    AccountUsageSnapshotView {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/tests.rs:236:            status: UsageSnapshotStatus::Fresh,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/verify.rs:4:use super::{AccountUsageSnapshotView, BANNER, JackinPaths, Result, UsageTarget, snapshot};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/verify.rs:6:    CountQuota, ProviderQuotaState, QuotaBucketView, UsageSnapshotStatus,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/verify.rs:14:    let accounts = snapshot::fetch_usage_accounts(paths, container)?.unwrap_or_default();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/verify.rs:45:    accounts: &[AccountUsageSnapshotView],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/verify.rs:68:    accounts: &[AccountUsageSnapshotView],
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/verify.rs:111:pub(super) fn usage_row_proves_live_quota(row: &AccountUsageSnapshotView) -> bool {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/usage/verify.rs:125:    if bucket.status != UsageSnapshotStatus::Fresh || bucket.validate().is_err() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:27:    #[command(about = "Cancel a durable run and preserve its source", long_about = "Cancel a durable run and preserve its source", before_help = BANNER, styles = HELP_STYLES)]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:149:        help = "Print the events as JSON",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:150:        long_help = "Print the events as JSON",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:173:        help = "Mark a checkpoint source-capture freeze instead of a normal pause",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:174:        long_help = "Mark a checkpoint source-capture freeze instead of a normal pause",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:175:        long = "checkpoint"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:177:    pub checkpoint: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:381:    #[command(about = "Record a source checkpoint for the run candidate")]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:382:    Checkpoint(WorkflowRecordCheckpointArgs),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:469:#[command(about = "Arguments for `jackin workflow record checkpoint`.")]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:470:pub struct WorkflowRecordCheckpointArgs {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workflow.rs:546:        help = "Repository holding the candidate (defaults to the checkpoint local path)",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:123:            help = "Opt the workspace into the macOS keep-awake reconciler. While any role in this workspace is running, jackin holds a `caffeinate -imsu` assertion so the host stays awake. Silent no-op on Linux/Windows.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:124:            long_help = "Opt the workspace into the macOS keep-awake reconciler. While any role in this workspace is running, jackin holds a `caffeinate -imsu` assertion so the host stays awake. Silent no-op on Linux/Windows.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:125:            long = "keep-awake",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:128:        keep_awake: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:206:            help = "Grant a role access to this workspace (repeatable)",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:207:            long_help = "Grant a role access to this workspace (repeatable)",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:270:            help = "Allow this edit to delete preserved isolated worktree state. Required when --mount source changes for a mount whose dst has active isolation records on a stopped container.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:271:            long_help = "Allow this edit to delete preserved isolated worktree state. Required when --mount source changes for a mount whose dst has active isolation records on a stopped container.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:276:            help = "Opt the workspace into the macOS keep-awake reconciler. Mutually exclusive with `--no-keep-awake`. See `workspace create`.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:277:            long_help = "Opt the workspace into the macOS keep-awake reconciler. Mutually exclusive with `--no-keep-awake`. See `workspace create`.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:278:            long = "keep-awake",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:281:        keep_awake: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:283:            long = "no-keep-awake",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:284:            conflicts_with = "keep_awake",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:288:            help = "Opt the workspace OUT of the keep-awake reconciler. Mutually exclusive with `--keep-awake`.",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:289:            long_help = "Opt the workspace OUT of the keep-awake reconciler. Mutually exclusive with `--keep-awake`."
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/cli/workspace.rs:291:        no_keep_awake: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/run.rs:111:            Ok(snapshot) => {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/run.rs:112:                manager.usage_snapshot = snapshot.clone();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/run.rs:113:                screen.apply_refresh(snapshot, now);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/run.rs:117:                manager.usage_snapshot.notice = Some(notice.clone());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/run.rs:157:        if manager.usage_snapshot.canonical_projection.is_some()
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/run.rs:167:            Ok(snapshot) => {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/run.rs:168:                manager.usage_snapshot = snapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/run.rs:171:                manager.usage_snapshot.notice = Some(format!("Usage unavailable: {error}"));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/state/tests.rs:8:use crate::console::services::instances::load_instance_refresh_snapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/adapter/state/tests.rs:12:use jackin_config::{CURRENT_WORKSPACE_VERSION, KeepAwakeConfig, MountConfig, WorkspaceConfig};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/effects.rs:7:use crate::console::services::instances::load_instance_refresh_snapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/effects.rs:97:                let result = run_instance_refresh_cycle(|| load_instance_refresh_snapshot(&paths));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:7:use jackin_console::tui::state::ManagerInstanceRefreshSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:9:use jackin_runtime::runtime::snapshot::SnapshotTransport;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:11:type SnapshotFetchResult = (
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:14:        Option<jackin_runtime::runtime::snapshot::InstanceSnapshot>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:15:        SnapshotTransport,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:22:pub(crate) fn load_instance_refresh_snapshot(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:24:) -> Result<ManagerInstanceRefreshSnapshot, String> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:36:    let mut snapshot_targets: Vec<String> = Vec::new();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:46:        if should_snapshot_instance(entry, running_filter.as_ref()) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:47:            snapshot_targets.push(entry.container_base.clone());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:51:    let mut snapshots = HashMap::new();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:53:    let snapshot_results = fetch_snapshots_parallel(paths, &snapshot_targets);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:54:    for (container, result) in snapshot_results {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:56:            apply_snapshot_result(container, result, &mut snapshots, &mut exec_fallback_seen);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:63:    Ok(ManagerInstanceRefreshSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:68:        snapshots,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:157:fn should_snapshot_instance(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:206:fn apply_snapshot_result(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:209:        Option<jackin_runtime::runtime::snapshot::InstanceSnapshot>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:210:        SnapshotTransport,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:212:    snapshots: &mut HashMap<String, jackin_runtime::runtime::snapshot::InstanceSnapshot>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:215:    let Ok((snapshot, transport)) = result else {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:219:    *exec_fallback_seen |= transport == SnapshotTransport::DockerExecFallback;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:220:    if let Some(snapshot) = snapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:221:        snapshots.insert(container, snapshot);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:226:fn fetch_snapshots_parallel(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:229:) -> Vec<SnapshotFetchResult> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:230:    const SNAPSHOT_FANOUT_CHUNK: usize = 8;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:232:    for chunk in targets.chunks(SNAPSHOT_FANOUT_CHUNK) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:233:        results.extend(fetch_snapshot_chunk(paths, chunk));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:238:fn fetch_snapshot_chunk(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:241:) -> Vec<SnapshotFetchResult> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:248:                move || fetch_snapshot_for_container(paths, container),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:251:        handles.into_iter().map(join_snapshot_worker).collect()
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:255:fn fetch_snapshot_for_container(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:258:) -> SnapshotFetchResult {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:259:    let result = resolve_snapshot_container(&container).and_then(|handle| {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:260:        jackin_runtime::runtime::snapshot::fetch_snapshot_with_transport(paths, &handle)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:265:fn join_snapshot_worker(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:266:    handle: std::thread::ScopedJoinHandle<'_, SnapshotFetchResult>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:267:) -> SnapshotFetchResult {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:276:            Err(anyhow::anyhow!("snapshot worker thread panicked: {detail}")),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:281:fn resolve_snapshot_container(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:289:        .context("resolving immutable container identity for snapshot")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:292:        "docker inspect failed while resolving snapshot container {container_name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:301:                "docker inspect returned no identity for snapshot container {container_name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances.rs:307:        "docker inspect identity changed for snapshot container {container_name}: {name}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:3:use super::{SnapshotTransport, apply_snapshot_result, should_snapshot_instance};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:23:fn snapshot_filter_uses_running_container_set() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:26:    assert!(should_snapshot_instance(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:33:    assert!(!should_snapshot_instance(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:40:    assert!(!should_snapshot_instance(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:50:fn snapshot_filter_preserves_legacy_behavior_without_docker_ps() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:51:    assert!(should_snapshot_instance(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:61:fn snapshot_result_records_snapshot_and_transport() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:62:    let mut snapshots = HashMap::new();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:64:    let snapshot = jackin_runtime::runtime::snapshot::InstanceSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:69:    assert!(!apply_snapshot_result(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:71:        Ok((Some(snapshot), SnapshotTransport::DirectSocket)),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:72:        &mut snapshots,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:76:    assert!(snapshots.contains_key("jk-running"));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:80:fn snapshot_result_records_fallback_without_snapshot() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:81:    let mut snapshots = HashMap::new();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:84:    assert!(!apply_snapshot_result(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:86:        Ok((None, SnapshotTransport::DockerExecFallback)),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:87:        &mut snapshots,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:91:    assert!(snapshots.is_empty());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:95:fn snapshot_result_marks_fetch_failure_for_recovery() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:96:    let mut snapshots = HashMap::new();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:99:    assert!(apply_snapshot_result(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:101:        Err(anyhow::anyhow!("snapshot unavailable")),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:102:        &mut snapshots,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/services/instances/tests.rs:106:    assert!(snapshots.is_empty());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:6://! Capsule calls and feeds fresh snapshots back into the screen.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:210:/// screen, then pause the run while the operator holds it.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/console/workflows.rs:401:            checkpoint: false,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/apps/jackin/src/workspace.rs:28:    DirtyExitPolicy, KeepAwakeConfig, MountConfig, MountIsolation, WorkspaceConfig, WorkspaceEdit,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/digest.rs:8://! meaningful array order preserved. The plan hash covers a version
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/digest.rs:26:    hex::encode(hasher.finalize())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/digest.rs:106:    Ok(hex::encode(hasher.finalize()))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/digest.rs:110:pub fn finalize_plan(mut plan: ExecutionPlan) -> WorkflowResult<ExecutionPlan> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/model.rs:91:    /// Disk monitor threshold in bytes.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/model.rs:161:/// Host capability facts granted to the plan.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/model.rs:196:    /// Resource limits after host-grant clamping.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/model.rs:206:    /// Granted capability facts.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/resolve.rs:85:    /// Directory holding the frozen test bundle files.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/resolve.rs:283:/// never appear here (the type carries no field that could hold it).
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:19:use crate::digest::finalize_plan;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:100:pub struct HostGrant {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:101:    /// Sandbox profile the host grants.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:103:    /// Sandbox backend the host grants.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:105:    /// Granted CPU ceiling in millicores.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:107:    /// Granted memory ceiling in bytes.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:109:    /// Granted process ceiling.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:111:    /// Granted run time ceiling in seconds.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:113:    /// Granted disk monitor ceiling in bytes.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:462:    grant: &HostGrant,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:512:    check_grant_maxima(checked, grant, file_label)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:513:    if !grant
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:528:    let backup = backup_policy(checked, grant, file_label)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:530:    let mut remote_ids = grant.authorized_remote_ids.clone();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:584:    finalize_plan(plan)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:589:    grant: &HostGrant,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:610:            if !grant.authorized_remote_ids.contains(&remote.to_owned()) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:683:fn check_grant_maxima(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:685:    grant: &HostGrant,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:693:            grant.max_cpu_millicores,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:698:            grant.max_memory_bytes,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:703:            u64::from(grant.max_pids),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:708:            grant.max_run_seconds,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:713:            grant.max_disk_monitor_bytes,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:723:            format!("requested {want} exceeds the host grant maximum {have}"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:724:            "lower the request or broaden the host grant and recompile",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-coordination/src/coordination.rs:138:        .join(hex::encode(hash.finalize())))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:11:use jackin_protocol::{InstanceSnapshot, TelemetryContext};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:13:    CheckpointRecord, InstanceInventory, OperatorDecision, RecordTestParams, RecordedDispatch,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:42:    AttentionSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:66:        checkpoint: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:97:    WorkflowRecordCheckpoint {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:154:            Self::AttentionSnapshot { .. } => "jackin.host.Daemon/AttentionSnapshot",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:166:            Self::WorkflowRecordCheckpoint { .. } => "jackin.host.Daemon/WorkflowRecordCheckpoint",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:256:    pub health: TelemetryHealthSnapshot,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:293:pub struct TelemetryHealthSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:435:    pub fn ingest_snapshot(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:438:        snapshot: &InstanceSnapshot,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:440:        let panes = snapshot
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:460:            .context("validating attention snapshot container name")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:605:    // clients. Crash-left `dispatching` commands become
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:749:                "jackin.host.Daemon/AttentionSnapshot",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:797:                "jackin.host.Daemon/WorkflowRecordCheckpoint",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1111:            DaemonRequestKind::AttentionSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1138:            | DaemonRequestKind::WorkflowRecordCheckpoint { .. }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1161:    let health = jackin_diagnostics::telemetry_health_snapshot();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1213:        health: TelemetryHealthSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1497:            checkpoint,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1500:            workflow.pause_run(&run_id, "operator", &reason, checkpoint),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1532:        | DaemonRequestKind::WorkflowRecordCheckpoint { .. }
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1595:        DaemonRequestKind::WorkflowRecordCheckpoint {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1606:            workflow.record_checkpoint(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1607:                &CheckpointRecord {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1615:                    preservation_hold: None,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests.rs:3:use jackin_protocol::control::{AgentState, PaneSnapshot, TabSnapshot};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/lib.rs:1:pub mod snapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:11:    AccountUsageSnapshotView, ClientMsg, ControlRequest, ServerMsg, TabSnapshot,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:18:pub use jackin_protocol::InstanceSnapshot;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:21:pub enum SnapshotTransport {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:31:struct SnapshotPayload {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:32:    tabs: Vec<TabSnapshot>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:44:pub fn fetch_snapshot(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:47:) -> Result<Option<InstanceSnapshot>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:48:    fetch_snapshot_with_transport(paths, container).map(|(snapshot, _transport)| snapshot)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:51:pub fn fetch_snapshot_with_transport(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:54:) -> Result<(Option<InstanceSnapshot>, SnapshotTransport)> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:58:        match request_control_inner(&path, &ClientMsg::Snapshot).and_then(snapshot_from_msg) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:59:            Ok(snapshot) => return Ok((Some(snapshot), SnapshotTransport::DirectSocket)),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:64:    match fetch_snapshot_via_docker_exec(container) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:65:        Ok(snapshot) => Ok((snapshot, SnapshotTransport::DockerExecFallback)),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:68:                "direct socket snapshot failed for {} ({error:#})",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:79:) -> Result<Option<Vec<AccountUsageSnapshotView>>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:149:fn snapshot_from_msg(msg: ServerMsg) -> Result<InstanceSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:151:        ServerMsg::Snapshot { tabs, active_tab } => Ok(InstanceSnapshot { tabs, active_tab }),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:153:        other => bail!("daemon replied with {}; expected Snapshot", other.kind()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:157:fn accounts_from_msg(msg: ServerMsg) -> Result<Vec<AccountUsageSnapshotView>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:167:fn fetch_snapshot_via_docker_exec(container: &ContainerHandle) -> Result<Option<InstanceSnapshot>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:168:    let output = run_docker_exec_capsule(container, snapshot_exec_script())?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:171:            "docker exec snapshot failed with status {}: {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:176:    let stdout = String::from_utf8(output.stdout).context("snapshot stdout is not UTF-8")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:180:    snapshot_from_cli_stdout(&stdout).map(Some)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:185:) -> Result<Option<Vec<AccountUsageSnapshotView>>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:245:            .context("starting docker snapshot process")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:253:                    bail!("collecting docker snapshot output failed");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:261:                bail!("polling docker snapshot process failed");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:273:                    reason = "snapshot timeout drain runs on the caller's snapshot worker path"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:279:            bail!("docker snapshot process timed out");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:283:            reason = "snapshot retry loop is bounded and not part of the render task"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:301:const fn snapshot_exec_script() -> &'static str {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:302:    "exec /jackin/runtime/jackin-capsule snapshot"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:316:fn snapshot_from_cli_stdout(stdout: &str) -> Result<InstanceSnapshot> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:317:    let payload: SnapshotPayload =
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:318:        serde_json::from_str(stdout).context("parsing jackin-capsule snapshot JSON")?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:319:    Ok(InstanceSnapshot {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot.rs:325:fn usage_accounts_from_cli_stdout(stdout: &str) -> Result<Vec<AccountUsageSnapshotView>> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:7:fn parses_snapshot_cli_stdout() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:8:    let snapshot = snapshot_from_cli_stdout(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:29:    assert_eq!(snapshot.active_tab, 0);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:30:    assert_eq!(snapshot.tabs.len(), 1);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:31:    assert_eq!(snapshot.tabs[0].panes[0].agent.as_deref(), Some("claude"));
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:35:fn snapshot_exec_script_uses_capsule_client() {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:36:    let script = snapshot_exec_script();
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:37:    assert_eq!(script, "exec /jackin/runtime/jackin-capsule snapshot");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:43:    let args = docker_exec_capsule_args(&container, "exec /jackin/runtime/jackin-capsule snapshot");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-snapshot/src/snapshot/tests.rs:82:        r#"Error: unknown jackin-capsule subcommand "usage" — known: status, snapshot"#,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/lib.rs:27:    ArtifactRef, CheckpointRecord, EvidenceRecord, NewCommand, NewEffect, RunStore, RunTransition,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/lib.rs:28:    SessionAttachment, StoredCheckpoint, StoredCommand, StoredEffect, StoredEvent, StoredEvidence,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/lib.rs:118:    /// must stop while instances are preserved.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/model.rs:214:    /// The checkpoint is captured and the pinned test worker starts;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/model.rs:230:/// Snapshot of run position used by the reducer.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:27:    CheckpointRecord, NewEffect, RunStore, RunTransition, SessionAttachment, StoredCheckpoint,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:38:/// Machine-readable run snapshot served to the CLI.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:57:/// state, and the bounded durable event/evidence/checkpoint history.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:65:    pub checkpoints: Vec<StoredCheckpoint>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:181:        checkpoint: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:209:    fn record_checkpoint(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:211:        checkpoint: &CheckpointRecord<'_>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:322:    /// Current snapshot of a run (or the active slot when `None`).
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:363:            checkpoints: self.store.load_checkpoints(run_id)?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:436:/// Verified local source: the tree HEAD pins, for checkpoint rows.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:465:/// to the recorded checkpoint's local path.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:594:    /// Record a checkpoint for the run's current candidate. The local
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:597:    /// clean. A checkpoint that moves the commit after verification
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:600:    pub fn record_checkpoint(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:602:        checkpoint: &CheckpointRecord<'_>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:605:        let stored = self.store.load_run(checkpoint.run_id)?.ok_or_else(|| {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:606:            WorkflowError::not_found(format!("run {} not found", checkpoint.run_id))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:608:        check_expected_version(&stored, checkpoint.run_id, expected_version)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:610:            WorkflowError::storage(format!("run {} has unknown status", checkpoint.run_id))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:615:        if stored.candidate.as_deref() != Some(checkpoint.candidate) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:617:                "checkpoint candidate `{}` does not match the recorded run candidate `{}`",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:618:                checkpoint.candidate,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:623:            checkpoint.local_path,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:624:            checkpoint.commit,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:625:            checkpoint.candidate,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:627:        if !checkpoint.tree.trim().is_empty() && checkpoint.tree != verified.tree {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:630:                checkpoint.tree, verified.tree
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:635:            .load_evidence(checkpoint.run_id)?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:638:                row.candidate == checkpoint.candidate
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:644:                .load_checkpoints(checkpoint.run_id)?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:646:                .find(|row| row.candidate == checkpoint.candidate)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:649:                    "candidate `{}` has evidence but no checkpoint",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:650:                    checkpoint.candidate
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:653:            if previous.commit_hash != checkpoint.commit || previous.tree_hash != verified.tree {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:657:                    checkpoint.candidate
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:661:        self.store.record_checkpoint(&CheckpointRecord {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:662:            backup_state: checkpoint.backup_state,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:663:            commit: checkpoint.commit,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:665:            ..*checkpoint
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:668:            checkpoint.run_id,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:670:            "checkpoint_created",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:671:            Some(checkpoint.candidate),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:673:        self.summary_of(checkpoint.run_id)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:676:    /// Verify that a local path holds the candidate identity: HEAD
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:685:                "checkpoint commit is required".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:739:        let checkpoint = self
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:741:            .load_checkpoints(run_id)?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:746:                    "candidate `{candidate}` has no checkpoint; capture it first"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:768:        let script_digest = hex::encode(hasher.finalize());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:804:            &checkpoint.commit_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:805:            &checkpoint.tree_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:810:            || Path::new(&checkpoint.local_path).to_path_buf(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:847:    /// Validate one isolated review file against the checkpoint
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:882:        let checkpoint = self
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:884:            .load_checkpoints(run_id)?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:889:                    "candidate `{candidate}` has no checkpoint; capture it first"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:927:                commit: &checkpoint.commit_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:928:                tree: &checkpoint.tree_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:952:    /// effect done. The ref must resolve to the checkpoint commit:
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:980:        let checkpoint = self
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:982:            .load_checkpoints(run_id)?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:987:                    "candidate `{candidate}` has no checkpoint; capture it first"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:991:            Path::new(&checkpoint.local_path),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:995:        if resolved != checkpoint.commit_hash {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:999:                checkpoint.commit_hash
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1012:        self.store.record_checkpoint(&CheckpointRecord {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1015:            commit: &checkpoint.commit_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1016:            tree: &checkpoint.tree_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1017:            source_manifest: &checkpoint.source_manifest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1018:            local_path: &checkpoint.local_path,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1020:            preservation_hold: checkpoint.preservation_hold.as_deref(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1025:            "checkpoint_backup_changed",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1128:        let checkpoint = self
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1130:            .load_checkpoints(run_id)?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1168:            Self::verify_source(&checkpoint.local_path, &checkpoint.commit_hash, &candidate);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1179:            commit: &checkpoint.commit_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1180:            tree: &checkpoint.tree_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1223:    /// Pause a run. `checkpoint` marks a C4 source-capture freeze,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1232:        checkpoint: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1253:        let pause_kind = if checkpoint { "checkpoint" } else { "operator" };
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1254:        let event_kind = if checkpoint {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1255:            "checkpoint_paused"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1318:    /// Cancel a run. New actions stop; the checkpoint preservation
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1319:    /// hold is recorded before cleanup; the CLI process is never
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1339:            self.store.record_checkpoint(&CheckpointRecord {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1342:                commit: "preserved",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1343:                tree: "preserved",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1344:                source_manifest: "cancel-preserved-source",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1345:                local_path: "preserved",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1346:                backup_state: "preserved",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1347:                preservation_hold: Some("cancel-hold"),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1495:    /// is the fault-test seam for crash-between-commit-and-receipt
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:1687:            preservation: None,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/backend.rs:5:use super::{CheckpointRecord, RecordTestParams, SessionAttachment, WorkflowService};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/backend.rs:49:        checkpoint: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/backend.rs:51:        WorkflowService::pause_run(self, run_id, actor, reason, checkpoint)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/backend.rs:102:    fn record_checkpoint(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/backend.rs:104:        checkpoint: &CheckpointRecord<'_>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/backend.rs:107:        WorkflowService::record_checkpoint(self, checkpoint, expected_version)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/recovery.rs:13:    /// inventory (C5 recovery table). Crash-left `dispatching`
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/recovery.rs:47:    /// Crash-left `dispatching` commands become `delivery_unknown` and
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/recovery.rs:78:    /// paused capture staging, and hold uncertain backups for an
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/recovery.rs:105:                            "capture staging paused for operation {}; inspect then resume or preserve",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/recovery.rs:154:    /// Confirm a backup at its exact remote ref, or hold it uncertain
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/unavailable.rs:6:use super::{CheckpointRecord, RecordTestParams, SessionAttachment};
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/unavailable.rs:62:        _checkpoint: bool,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/unavailable.rs:108:    fn record_checkpoint(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service/unavailable.rs:110:        _checkpoint: &CheckpointRecord<'_>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:80:    pub preservation: Option<String>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:113:/// One stored checkpoint row: candidate identity, exact commit/tree,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:114:/// source manifest, backup state, preservation hold.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:116:pub struct StoredCheckpoint {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:123:    pub preservation_hold: Option<String>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:418:    /// All checkpoint rows for one run (preserved work, backup
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:420:    pub fn load_checkpoints(&self, run_id: &str) -> Result<Vec<StoredCheckpoint>, WorkflowError> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:426:                        local_path, backup_state, preservation_hold
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:427:                     FROM checkpoints WHERE run_id = ?1 ORDER BY rowid",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:432:            .map_err(|err| format!("load workflow checkpoints failed: {err}"))?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:437:                .map_err(|err| format!("read workflow checkpoints failed: {err}"))?
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:439:                out.push(StoredCheckpoint {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:440:                    candidate: row_string(&row, 0, "checkpoint candidate")?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:441:                    commit_hash: row_string(&row, 1, "checkpoint commit")?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:442:                    tree_hash: row_string(&row, 2, "checkpoint tree")?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:443:                    source_manifest: row_string(&row, 3, "checkpoint manifest")?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:444:                    local_path: row_string(&row, 4, "checkpoint path")?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:445:                    backup_state: row_string(&row, 5, "checkpoint backup")?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:446:                    preservation_hold: row_opt_string(&row, 6, "preservation hold")?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:833:                    external_identity, ownership_label, preservation
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:878:            preservation: None,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:885:                    external_identity, ownership_label, preservation
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:909:        preservation: Option<&str>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:918:                        "UPDATE effects SET status = ?1, external_identity = ?2, preservation = ?3
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:923:                            preservation.map(str::to_owned),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:964:                        external_identity, ownership_label, preservation
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1039:    /// Record a checkpoint row (candidate identity, exact commit/tree,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1040:    /// source manifest, backup state, preservation hold).
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1041:    pub fn record_checkpoint(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1043:        checkpoint: &CheckpointRecord<'_>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1049:                    "INSERT INTO checkpoints (run_id, candidate, commit_hash, tree_hash,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1050:                        source_manifest, local_path, backup_state, preservation_hold)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1058:                        preservation_hold = excluded.preservation_hold",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1060:                        checkpoint.run_id.to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1061:                        checkpoint.candidate.to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1062:                        checkpoint.commit.to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1063:                        checkpoint.tree.to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1064:                        checkpoint.source_manifest.to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1065:                        checkpoint.local_path.to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1066:                        checkpoint.backup_state.to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1067:                        checkpoint.preservation_hold.map(str::to_owned),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1073:                WorkflowError::storage(format!("record workflow checkpoint failed: {err}"))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1085:        let digest = hex::encode(hasher.finalize());
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1149:        Ok(hex::encode(hasher.finalize()) == digest)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1195:/// One checkpoint row: candidate identity, exact commit/tree, source
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1196:/// manifest, backup state, preservation hold.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1198:pub struct CheckpointRecord<'a> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1206:    pub preservation_hold: Option<&'a str>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1232:    pub preservation: Option<String>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1286:        CREATE TABLE IF NOT EXISTS checkpoints (
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1294:            preservation_hold TEXT,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1336:            preservation TEXT
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1501:                external_identity, ownership_label, preservation)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1510:                effect.preservation.clone(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/store.rs:1595:        preservation: row_opt_string(row, 7, "preservation")?,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:83:            policy_hash: hex::encode(hasher.finalize()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:132:/// Exact identity and checkpoint for one non-interactive test worker.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:224:/// checkpoint, verified before any test byte runs.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:240:    /// Private clone directory holding the pinned source.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:287:/// checkpoint. The trusted bundle is never copied into the worker.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:324:            "test worker HEAD {head} does not match checkpoint {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:331:            "test worker tree {tree} does not match checkpoint {}",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:338:            "test worker checkout is not clean after pinning the checkpoint".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:910:            output_digest: hex::encode(hasher.finalize()),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:1032:/// session metadata after validation; the reviewer cannot grant
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:1046:/// host from the checkpoint, never by the reviewer.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:1619:/// Evidence snapshot the host decision reads. Every field is
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:1633:/// session, fail it with the budget spent, or hold for the operator.
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify/process.rs:158:                 a child process may hold the pipe open"

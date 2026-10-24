@@ -1,0 +1,40 @@
+[
+  {
+    "operation": "create",
+    "ok": true,
+    "detail": {
+      "first_response_discarded_by_harness": true,
+      "idempotency_contract": "at-most-once request admission; harness discards acknowledgement after response, not a network packet drop",
+      "one_resource_with_name": true,
+      "request_id": "535df61f-2469-4bbb-87d1-4d3ba6a5b811",
+      "retry_id": "eb12ca42-deb9-4529-8bd4-a99d56636254"
+    }
+  },
+  {
+    "operation": "pty_resize_input_interrupt_reconnect",
+    "ok": true,
+    "detail": {
+      "ctrl_c_exit_code": 130,
+      "initial_window": {
+        "cols": 80,
+        "rows": 24
+      },
+      "new_exec_exit_code": 0,
+      "pty_output_bytes": 88,
+      "reconnect_behavior": "new ExecSandboxInteractive request; not process/session reattachment",
+      "resize_observed_by_stty": true,
+      "resize_sent": {
+        "cols": 101,
+        "rows": 37
+      },
+      "text_input_received": true
+    }
+  },
+  {
+    "operation": "delete_confirmed",
+    "ok": true,
+    "detail": {
+      "id": "eb12ca42-deb9-4529-8bd4-a99d56636254"
+    }
+  }
+]

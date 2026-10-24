@@ -1,0 +1,27 @@
+ID
+uid=1000(agent) gid=1000 groups=1000
+STATUS
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+Groups:	1000 
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+CapAmb:	0000000000000000
+NoNewPrivs:	1
+ULIMIT
+20480
+CGROUP
+/sys/fs/cgroup/cpu.max=max 100000
+/sys/fs/cgroup/memory.max=max
+/sys/fs/cgroup/memory.high=max
+/sys/fs/cgroup/pids.max=2048
+PRIVILEGE
+/usr/bin/sudo
+sudo: The "no new privileges" flag is set, which prevents sudo from running as root.
+sudo: If sudo is running in a container, you may need to adjust the container configuration to disable the flag.
+sudo_rc=1
+touch: cannot touch '/usr/local/share/jfr-profile-denied': Permission denied
+system_write_rc=1
+tmp_write_rc=0

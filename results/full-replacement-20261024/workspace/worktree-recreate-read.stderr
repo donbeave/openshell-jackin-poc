@@ -1,0 +1,4 @@
+fatal: detected dubious ownership in repository at '__POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source'
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory __POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source

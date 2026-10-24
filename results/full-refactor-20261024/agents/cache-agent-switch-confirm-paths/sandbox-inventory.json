@@ -1,0 +1,35 @@
+{
+  "gateway": "jfr-20261024-a",
+  "resources": [
+    {
+      "name": "jfr24-ca-amp",
+      "id": "a54ef537-1a3d-4009-be1c-77bc4bc2a451",
+      "phase": "Completed",
+      "exit_code": 0,
+      "created_at": "2026-10-24 02:34:55",
+      "configuration_admission": {
+        "config_revision": 10520454499131416246,
+        "error": "",
+        "policy_hash": "c8287792415759aecca6be276cd5f257e8b4b074c7d1ca0cc95541584ee9de9a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      }
+    },
+    {
+      "name": "jfr24-ca-paths",
+      "id": "4047104e-7cbc-4c7c-a3c3-88356aaf9d54",
+      "phase": "Completed",
+      "exit_code": 0,
+      "created_at": "2026-10-24 02:35:12",
+      "configuration_admission": {
+        "config_revision": 10520454499131416246,
+        "error": "",
+        "policy_hash": "c8287792415759aecca6be276cd5f257e8b4b074c7d1ca0cc95541584ee9de9a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      }
+    }
+  ]
+}

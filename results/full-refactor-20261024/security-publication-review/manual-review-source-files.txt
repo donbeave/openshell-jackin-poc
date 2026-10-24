@@ -1,0 +1,15 @@
+results/full-refactor-20261024/agents/architect-amp-image-6e/prewarm.stderr.txt
+results/full-refactor-20261024/agents/architect-claude-image-6e/prewarm.stderr.txt
+results/full-refactor-20261024/agents/architect-codex-image-6e/prewarm.stderr.txt
+results/full-refactor-20261024/agents/architect-grok-image-6e/prewarm.stderr.txt
+results/full-refactor-20261024/agents/architect-kimi-image-6e/prewarm.stderr.txt
+results/full-refactor-20261024/agents/architect-opencode-image-6e-rolechange/prewarm.stderr.txt
+results/full-refactor-20261024/agents/architect-opencode-image-6e/prewarm.stderr.txt
+results/full-refactor-20261024/agents/opencode-gid-workaround/results.json
+results/full-refactor-20261024/openshell-main-comparison.json
+results/full-refactor-20261024/rawmatches/cli-host-fleet.txt
+results/full-refactor-20261024/runtime-search-all.txt
+results/full-refactor-20261024/workflow-fleet-matches.txt
+results/full-replacement-20261024/agents-source.md
+results/full-replacement-20261024/gateway-a.log
+results/full-replacement-20261024/role/image-build-warm.stderr.txt

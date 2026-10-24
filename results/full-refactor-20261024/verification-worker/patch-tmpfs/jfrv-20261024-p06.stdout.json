@@ -1,0 +1,220 @@
+[
+  {
+    "operation": "verification_worker",
+    "ok": false,
+    "detail": {
+      "cleanup": {
+        "confirmed": true,
+        "outcome": "Accepted",
+        "sandbox_id": "fc9cb009-a94c-49a2-b6f7-d70352958953"
+      },
+      "journey": {
+        "candidate_commit": "aa24614607f52a98fd4894a1b02d355b219a9edc",
+        "candidate_tree": "20aa242142b7099eac398f15fe79cb105f22838a",
+        "cases": [
+          {
+            "environment_allowlist": [
+              "PYTHONDONTWRITEBYTECODE=1"
+            ],
+            "gateway_pid_limit": 64,
+            "image": "jfr-20261024-verify-worker:patch-workdir",
+            "inspect_contains_same_id": true,
+            "list_contains_id": true,
+            "mounts": [
+              {
+                "read_only": true,
+                "source": "jfr24verify-candidate",
+                "target": "/sandbox/repo"
+              },
+              {
+                "read_only": true,
+                "source": "jfr24verify-bundle",
+                "target": "/sandbox/checks"
+              },
+              {
+                "options": [
+                  "noexec",
+                  "nosuid"
+                ],
+                "size_bytes": 67108864,
+                "target": "/tmp"
+              },
+              {
+                "options": [
+                  "nosuid"
+                ],
+                "size_bytes": 268435456,
+                "target": "/build"
+              }
+            ],
+            "operation": "create_list_inspect",
+            "phase": "Ready",
+            "provider_count": 0,
+            "request_id": "2fa57885-73e3-443e-90dc-18ad7e2cd3cf",
+            "resource_request": {
+              "cpu_limit": "1",
+              "memory_limit": "512Mi"
+            },
+            "result": "PASS",
+            "sandbox_id": "fc9cb009-a94c-49a2-b6f7-d70352958953"
+          },
+          {
+            "error": "success: expected exit 0, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3Mvc3VjY2Vzcy5weSc6IFtFcnJubyAxM10gUGVybWlzc2lvbiBkZW5pZWQK",
+            "operation": "frozen_policy_success_and_boundaries",
+            "result": "FAIL"
+          },
+          {
+            "details": {
+              "mountinfo": {
+                "NoNewPrivs": "1",
+                "mounts": {
+                  "/build": {
+                    "fs_type": "tmpfs",
+                    "mount_options": [
+                      "rw",
+                      "nosuid",
+                      "nodev",
+                      "noexec",
+                      "relatime"
+                    ],
+                    "super_options": [
+                      "rw",
+                      "size=262144k"
+                    ]
+                  },
+                  "/tmp": {
+                    "fs_type": "tmpfs",
+                    "mount_options": [
+                      "rw",
+                      "nosuid",
+                      "nodev",
+                      "noexec",
+                      "relatime"
+                    ],
+                    "super_options": [
+                      "rw",
+                      "size=65536k"
+                    ]
+                  }
+                }
+              },
+              "noexec": "functional negative tested separately by executing a disposable /tmp file and observing EACCES",
+              "nosuid": "mount flag observed in mountinfo; functional setuid negative NOT TESTED because NoNewPrivs=1 also prevents setuid transitions and this experiment does not disable that boundary"
+            },
+            "operation": "tmpfs_mount_flags_and_nnp_context",
+            "result": "PASS"
+          },
+          {
+            "error": "fail: expected exit 7, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3MvZmFpbC5weSc6IFtFcnJubyAxM10gUGVybWlzc2lvbiBkZW5pZWQK",
+            "operation": "nonzero_result_and_separate_streams",
+            "result": "FAIL"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "/jfr/no-such-runtime",
+                "/sandbox/checks/missing-runtime.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 125,
+              "expected_exit_code": 125,
+              "frozen_host_argv": [
+                "/jfr/no-such-runtime",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/missing-runtime.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mode": "missing-runtime",
+              "policy_hash_receipt": "fcc74c7458b74e78745c088a8bf63f2656ed05315d981fda9c5989f2c2e4c762",
+              "production_result_record": false,
+              "stderr_base64": "W0Vycm5vIDJdIE5vIHN1Y2ggZmlsZSBvciBkaXJlY3Rvcnk6ICcvamZyL25vLXN1Y2gtcnVudGltZScK",
+              "stderr_bytes_total": 60,
+              "stderr_retained_bytes": 60,
+              "stderr_truncated": false,
+              "stdout_base64": "",
+              "stdout_bytes_total": 0,
+              "stdout_retained_bytes": 0,
+              "stdout_truncated": false,
+              "verification_report": null
+            },
+            "operation": "missing_runtime",
+            "result": "PASS"
+          },
+          {
+            "error": "abnormal-child: expected exit 250, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3MvYWJub3JtYWwtY2hpbGQucHknOiBbRXJybm8gMTNdIFBlcm1pc3Npb24gZGVuaWVkCg==",
+            "operation": "abnormal_exit",
+            "result": "FAIL"
+          },
+          {
+            "error": "timeout-child: expected exit 124, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3MvdGltZW91dC1jaGlsZC5weSc6IFtFcnJubyAxM10gUGVybWlzc2lvbiBkZW5pZWQK",
+            "operation": "timeout_and_process_group",
+            "result": "FAIL"
+          },
+          {
+            "after": "Condition failed: `response.exit_code == 0` (1 vs 0)",
+            "before": "Condition failed: `response.exit_code == 0` (1 vs 0)",
+            "error": "pids-fill: expected exit 0, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3MvcGlkcy1maWxsLnB5JzogW0Vycm5vIDEzXSBQZXJtaXNzaW9uIGRlbmllZAo=",
+            "operation": "pids_limit",
+            "result": "FAIL"
+          },
+          {
+            "error": "tmpfs-fill-tmp: expected exit 0, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3MvdG1wZnMtZmlsbC10bXAucHknOiBbRXJybm8gMTNdIFBlcm1pc3Npb24gZGVuaWVkCg==",
+            "operation": "tmpfs-fill-tmp",
+            "result": "FAIL"
+          },
+          {
+            "error": "tmpfs-fill-build: expected exit 0, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3MvdG1wZnMtZmlsbC1idWlsZC5weSc6IFtFcnJubyAxM10gUGVybWlzc2lvbiBkZW5pZWQK",
+            "operation": "tmpfs-fill-build",
+            "result": "FAIL"
+          },
+          {
+            "error": "Condition failed: `output.exit_code == 0 && output.stdout.truncated && output.stderr.truncated`",
+            "operation": "bounded_output_truncation",
+            "result": "FAIL"
+          },
+          {
+            "error": "cpu-load: expected exit 0, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3MvY3B1LWxvYWQucHknOiBbRXJybm8gMTNdIFBlcm1pc3Npb24gZGVuaWVkCg==",
+            "operation": "cpu_limit_bounded_load",
+            "result": "FAIL"
+          },
+          {
+            "error": "memory-limit: expected exit 0, observed 2; stdout_base64= stderr_base64=cHl0aG9uMzogY2FuJ3Qgb3BlbiBmaWxlICcvc2FuZGJveC9jaGVja3MvbWVtb3J5LWxpbWl0LnB5JzogW0Vycm5vIDEzXSBQZXJtaXNzaW9uIGRlbmllZAo=",
+            "operation": "memory_limit_bounded_load",
+            "result": "FAIL"
+          },
+          {
+            "details": {
+              "client_dropped_exec_stream": true,
+              "completed_after_disconnect": false,
+              "meaning": "disconnect is observation loss; no assumption it cancels the remote child",
+              "stream_disconnected_after_start": false
+            },
+            "operation": "exec_disconnect",
+            "result": "OBSERVED"
+          }
+        ],
+        "commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+        "endpoint": "https://localhost:28631",
+        "experimental_patch": "docker HostConfig.Tmpfs routing",
+        "gateway": "jfr-20261024-vpatch",
+        "policy_receipt": {
+          "argv": [
+            "python3",
+            "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/success.py",
+            "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+          ],
+          "image": "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+          "policy_hash": "0dc072c0a7d5c2f274b1b71e684d7efb6d5d34ea36979c171d6ab833923e1ddf",
+          "provenance": "same byte-concatenation constants as Jackin TestPolicy::freeze at 6e266; receipt only, not a production run record",
+          "timeout_seconds": 30
+        },
+        "release": "OpenShell v0.1.5",
+        "test_id": "jfr-20261024-verification-worker-patch",
+        "trusted_bundle_hashes": "5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/abnormal-child.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/cpu-load.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/fail.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/interrupt-child.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/memory-limit.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/missing-runtime.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/output.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/pids-fill.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/success.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/timeout-child.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/tmpfs-fill-build.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/tmpfs-fill-tmp.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/verify.py\n"
+      },
+      "request_id": "2fa57885-73e3-443e-90dc-18ad7e2cd3cf",
+      "result": "FAIL",
+      "sandbox_id": "fc9cb009-a94c-49a2-b6f7-d70352958953"
+    },
+    "error": "verification worker did not meet its execution contract"
+  }
+]

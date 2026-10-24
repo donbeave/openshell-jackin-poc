@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "du",
+    "-sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm/state",
+    "experiments/full-replacement-20261024/targets/openshell-vm-bind/state",
+    "experiments/full-replacement-20261024/targets/openshell-vm/config",
+    "experiments/full-replacement-20261024/targets/openshell-vm-bind/config"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.01,
+  "stdout": "680K\texperiments/full-replacement-20261024/targets/openshell-vm/state\n 80K\texperiments/full-replacement-20261024/targets/openshell-vm-bind/state\n 20K\texperiments/full-replacement-20261024/targets/openshell-vm/config\n 20K\texperiments/full-replacement-20261024/targets/openshell-vm-bind/config\n",
+  "stderr": ""
+}

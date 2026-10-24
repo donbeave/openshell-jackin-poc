@@ -1,0 +1,78 @@
+[
+  {
+    "path": "certs/ca.crt",
+    "bytes": 554
+  },
+  {
+    "path": "certs/ca.key",
+    "bytes": 227
+  },
+  {
+    "path": "certs/ca.srl",
+    "bytes": 41
+  },
+  {
+    "path": "certs/client/tls.crt",
+    "bytes": 574
+  },
+  {
+    "path": "certs/client/tls.key",
+    "bytes": 227
+  },
+  {
+    "path": "certs/jwt/kid",
+    "bytes": 33
+  },
+  {
+    "path": "certs/jwt/public.pem",
+    "bytes": 113
+  },
+  {
+    "path": "certs/jwt/signing.pem",
+    "bytes": 119
+  },
+  {
+    "path": "certs/server/tls.crt",
+    "bytes": 562
+  },
+  {
+    "path": "certs/server/tls.key",
+    "bytes": 227
+  },
+  {
+    "path": "state/openshell/gateway/credentials/key-encryption-key.bin",
+    "bytes": 32
+  },
+  {
+    "path": "state/openshell/gateway/openshell.db",
+    "bytes": 118784
+  },
+  {
+    "path": "state/openshell/gateway/openshell.db-shm",
+    "bytes": 32768
+  },
+  {
+    "path": "state/openshell/gateway/openshell.db-wal",
+    "bytes": 1248392
+  },
+  {
+    "path": "config/openshell/active_gateway",
+    "bytes": 15
+  },
+  {
+    "path": "config/openshell/gateways/jfr-20261024-b/metadata.json",
+    "bytes": 146
+  },
+  {
+    "path": "config/openshell/gateways/jfr-20261024-b/mtls/ca.crt",
+    "bytes": 554
+  },
+  {
+    "path": "config/openshell/gateways/jfr-20261024-b/mtls/tls.crt",
+    "bytes": 574
+  },
+  {
+    "path": "config/openshell/gateways/jfr-20261024-b/mtls/tls.key",
+    "bytes": 227
+  }
+]

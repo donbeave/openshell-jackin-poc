@@ -1,0 +1,99 @@
+{
+  "annotations": {
+    "internal.openshell.ai/auth-epoch": "1",
+    "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+    "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+    "internal.openshell.ai/runtime-generation": "bfd726fd-533a-4df3-88c7-61c89b851dc9"
+  },
+  "conditions": [
+    {
+      "last_transition_time": "",
+      "message": "Canonical main process completed successfully",
+      "reason": "MainProcessCompleted",
+      "status": "False",
+      "type": "Ready"
+    },
+    {
+      "last_transition_time": "",
+      "message": "",
+      "reason": "ConfigurationAccepted",
+      "status": "True",
+      "type": "ConfigurationReady"
+    }
+  ],
+  "configuration_admission": {
+    "config_revision": 17864404688088294225,
+    "error": "",
+    "policy_hash": "8b9de7e466c8eb9a98e57569740e042c41a094ef1bd277cc3c674a88842d707d",
+    "policy_version": 1,
+    "provider_env_revision": 3176606324465211593,
+    "state": "accepted"
+  },
+  "created_at": "2026-10-24 01:20:55",
+  "created_from_workload_template": null,
+  "current_policy_version": 1,
+  "endpoint_statuses": [],
+  "exit_code": 0,
+  "host_key_fingerprint": "SHA256:rERlPnBIyf4pc0rSOGKUC8Q7rjdO3s0YSIHqL3kiYPI",
+  "id": "202b7bca-03cd-42e7-8afc-9ba4adcb0abe",
+  "labels": {},
+  "last_token_grant_failure": null,
+  "main_process_instance_id": "b7467d28-026d-466d-bb01-12962f1dfcdd",
+  "main_process_started_at_ms": 0,
+  "name": "jfrws24-wtplain",
+  "next_restart_at_ms": 0,
+  "phase": "Completed",
+  "policy": {
+    "filesystem_policy": {
+      "include_workdir": true,
+      "read_only": [
+        "/usr",
+        "/usr/local",
+        "/lib",
+        "/lib64",
+        "/etc",
+        "/proc",
+        "/sys",
+        "/dev/urandom",
+        "/opt"
+      ],
+      "read_write": [
+        "/workspace",
+        "/sandbox",
+        "/tmp",
+        "/home",
+        "/dev/null"
+      ]
+    },
+    "landlock": {
+      "compatibility": "best_effort"
+    },
+    "process": {
+      "run_as_group": "1000",
+      "run_as_user": "1000"
+    },
+    "version": 1
+  },
+  "policy_source": "sandbox",
+  "provisioning": {
+    "admission_start_time": "2026-10-24T01:20:56.490Z",
+    "attempt_id": "e827dff1-bb35-4f8f-bcdd-6982e23954db",
+    "cleanup_completed_time": null,
+    "cleanup_error": "",
+    "cleanup_retry_time": null,
+    "configuration_change_id": "bacfa1b3d5c6e6636f5cc845139f8e194b5195059091b128a81b5cc1cb8fe6d6",
+    "configuration_change_time": "2026-10-24T01:20:55.838Z",
+    "deadline": null,
+    "driver_operation_id": "3721c19a-48c3-42fc-bbc5-1a187c7b5882",
+    "driver_operation_pending": false,
+    "first_rejection_time": null,
+    "phase": "ready",
+    "preparation_deadline": "2026-10-24T01:50:55.838Z",
+    "timeout_time": null
+  },
+  "resource_version": 35,
+  "restart_count": 0,
+  "restart_policy": "never",
+  "revision": 1,
+  "workspace": "jfr-ws-20261024"
+}

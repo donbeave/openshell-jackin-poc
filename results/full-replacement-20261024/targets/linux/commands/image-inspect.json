@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "image",
+    "inspect",
+    "jfr-20261024-linux/probe:0.1.5",
+    "--format",
+    "{{.Id}} {{.Os}}/{{.Architecture}} {{json .RepoDigests}}"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.186,
+  "stdout": "sha256:3f7907c4b4e8270c89f83252d462e068328a44ae2ed7677a46db45e078a1de00 linux/arm64 [\"jfr-20261024-linux/probe@sha256:3f7907c4b4e8270c89f83252d462e068328a44ae2ed7677a46db45e078a1de00\"]\n",
+  "stderr": ""
+}

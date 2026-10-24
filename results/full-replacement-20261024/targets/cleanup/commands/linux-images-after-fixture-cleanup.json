@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "image",
+    "ls",
+    "--no-trunc",
+    "--format",
+    "{{.ID}} {{.Repository}}:{{.Tag}}"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.237,
+  "stdout": "sha256:3a32d589459fcc3eaf9850d3820ae5a816e006eeea35f52ad7adf1de50f96f03 jfr-20261024-linux/probe:0.1.5\nsha256:84c4a5cd24a78771849d620eb69ba1eb843103ab5821e63d7d4ac8fdeed7f432 jfr-20261024-linux/probe:0.1.5-forced\nsha256:3f7907c4b4e8270c89f83252d462e068328a44ae2ed7677a46db45e078a1de00 jfr-20261024-linux/probe:0.1.5-warm\nsha256:fabcd01f656e9d23df4386f82e80b4f48b90f3452d7d5c58889007643a069161 ghcr.io/nvidia/openshell/supervisor:0.1.5\nsha256:e9adf9ecde328122414ad2ee8c6fc5d5b389e4cf168daf4357c46f5a77d55851 ghcr.io/nvidia/openshell/sandbox:0.1.5\nsha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686 nvcr.io/nvidia/base/ubuntu:<none>\n",
+  "stderr": ""
+}

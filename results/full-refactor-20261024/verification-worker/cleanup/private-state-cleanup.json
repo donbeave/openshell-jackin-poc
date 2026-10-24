@@ -1,0 +1,34 @@
+{
+  "removed": [
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/gateway/private",
+      "before_bytes": 2669,
+      "after": "absent"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/gateway/state",
+      "before_bytes": 988408,
+      "after": "absent"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/gateway/config",
+      "before_bytes": 0,
+      "after": "absent"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/private",
+      "before_bytes": 2669,
+      "after": "absent"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/state",
+      "before_bytes": 4361824,
+      "after": "absent"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/config",
+      "before_bytes": 0,
+      "after": "absent"
+    }
+  ]
+}

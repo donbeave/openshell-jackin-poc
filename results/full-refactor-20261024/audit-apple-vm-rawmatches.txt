@@ -1,0 +1,384 @@
+# Apple Container production-source matches
+# Source: experiments/full-replacement-20261024/role/jackin-source at 6e266406b49da2ab3c55355f3b7d33d1643ee6cd (frozen detached checkout)
+# Tests/docs excluded here; see audit-apple-vm.md for classification and explicitly cited docs.
+## Apple backend production source
+crates/services/jackin-runtime-session-control/src/session_control.rs:420:        jackin_runtime_identity::identity::CAPSULE_SUPERVISOR_USER.to_owned(),
+crates/services/jackin-runtime-apple-container-supervisor-env/src/supervisor_env.rs:6:        ("JACKIN_CAPSULE_FORCE_DAEMON".to_owned(), "1".to_owned()),
+crates/services/jackin-runtime-attach-running-gate/src/running_gate.rs:10:pub async fn require_container_running(
+crates/services/jackin-runtime-apple-container-running/src/running.rs:5:use jackin_runtime_apple_container_client::apple_container_client::{
+crates/services/jackin-runtime-apple-container-running/src/running.rs:6:    AppleContainerApi, AppleContainerClient, AppleContainerInfo,
+crates/services/jackin-runtime-apple-container-running/src/running.rs:9:pub async fn inspect_container(container_id: &str) -> Result<Option<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-running/src/running.rs:10:    inspect_container_with(&AppleContainerClient::new(), container_id).await
+crates/services/jackin-runtime-apple-container-running/src/running.rs:14:    client: &impl AppleContainerApi,
+crates/services/jackin-runtime-apple-container-running/src/running.rs:16:) -> Result<Option<AppleContainerInfo>> {
+crates/services/jackin-runtime/src/apple_container_client.rs:4:pub use jackin_runtime_apple_container_client::apple_container_client::*;
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:8:    event::RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:11:        attrs::{APPLE_CONTAINER_ATTACH_OUTCOME_REASON, APPLE_CONTAINER_STATE, std_attrs},
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:12:        enums::{AppleContainerAttachOutcomeReason, AppleContainerState},
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:31:    const fn reason(self) -> AppleContainerAttachOutcomeReason {
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:33:            Self::InspectionUncertain(_) => AppleContainerAttachOutcomeReason::InspectionUncertain,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:34:            Self::Absent => AppleContainerAttachOutcomeReason::Absent,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:35:            Self::StateUncertain(_) => AppleContainerAttachOutcomeReason::StateUncertain,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:36:            Self::RecordingFailed(_) => AppleContainerAttachOutcomeReason::RecordingFailed,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:40:    const fn observed_state(self) -> Option<AppleContainerState> {
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:43:                Some(AppleContainerState::Unknown)
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:46:                Some(AppleContainerState::Stopping)
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:85:                key: APPLE_CONTAINER_ATTACH_OUTCOME_REASON,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:91:                key: APPLE_CONTAINER_STATE,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:110:    if !event_enabled(&RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING) {
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome/diagnostics.rs:116:        &RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:8:use jackin_runtime_apple_container_client::apple_container_client::{
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:9:    AppleContainerInfo, AppleContainerStatus,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:24:        || jackin_runtime_apple_container_running::running::inspect_container(container_id),
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:37:    status: AppleContainerStatus,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:41:        AppleContainerStatus::Running => Some(AttachOutcome::still_running()),
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:42:        AppleContainerStatus::Stopped => Some(AttachOutcome::stopped(exit_code.unwrap_or(-1))),
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:43:        AppleContainerStatus::Unknown | AppleContainerStatus::Stopping => None,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:55:    PF: Future<Output = Result<Option<AppleContainerInfo>>>,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:68:            AppleContainerStatus::Unknown => diagnostics::UncertainObservedState::Unknown,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:69:            AppleContainerStatus::Stopping => diagnostics::UncertainObservedState::Stopping,
+crates/services/jackin-runtime-apple-container-attach-outcome/src/attach_outcome.rs:70:            AppleContainerStatus::Running | AppleContainerStatus::Stopped => return Ok(()),
+crates/services/jackin-runtime/src/runtime/attach/spawn.rs:19:    require_container_running, require_current_instance_admission, set_role_terminal_title,
+crates/services/jackin-runtime/src/runtime/attach/spawn.rs:61:    let run_as_user = Some(crate::runtime::identity::CAPSULE_SUPERVISOR_USER);
+crates/services/jackin-runtime/src/runtime/attach/spawn.rs:148:    let container = require_container_running(
+crates/services/jackin-runtime/src/runtime/attach/spawn.rs:203:    let run_as_user = Some(crate::runtime::identity::CAPSULE_SUPERVISOR_USER);
+crates/services/jackin-runtime/src/runtime/attach/hardline.rs:41:        crate::runtime::backend::InstanceBackend::AppleContainer => {
+crates/services/jackin-runtime/src/runtime/attach/hardline.rs:42:            crate::runtime::backend::AppleContainerBackend::production()
+crates/services/jackin-runtime/src/runtime/attach/reconnect.rs:119:    let run_as_user = Some(crate::runtime::identity::CAPSULE_SUPERVISOR_USER);
+crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:16:pub(crate) use jackin_runtime_attach_running_gate::running_gate::require_container_running;
+crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:131:        crate::runtime::backend::InstanceBackend::AppleContainer => {
+crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:137:            crate::runtime::apple_container::reconnect(paths, container_name, None, entry_claim)
+crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:140:            anyhow::bail!("apple-container finalize not yet implemented - Phase 0")
+crates/services/jackin-runtime/src/runtime/attach/hardline_start.rs:154:    let container = require_container_running(paths, container_name, docker, stopped_hint).await?;
+crates/services/jackin-isolation/src/state.rs:82:    AppleContainer { container_name: String },
+crates/services/jackin-isolation/src/state.rs:348:                Some(HistoricalBackendIdentityV3::AppleContainer { container_name }) => {
+crates/services/jackin-isolation/src/state.rs:369:                Some(jackin_instance::manifest::BackendResources::AppleContainer(resources)) => {
+crates/services/jackin-runtime-identity/src/identity.rs:13:pub const CAPSULE_SUPERVISOR_USER: &str = "0:0";
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:16:pub struct AppleContainerMount {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:22:impl AppleContainerMount {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:32:pub const BACKEND_NAME: &str = "apple-container";
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:37:pub struct AppleContainerSpec {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:42:    pub mounts: Vec<AppleContainerMount>,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:47:pub enum AppleContainerStatus {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:54:impl AppleContainerStatus {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:61:pub struct AppleContainerInfo {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:63:    pub status: AppleContainerStatus,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:66:impl AppleContainerInfo {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:72:pub trait AppleContainerApi: Send + Sync {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:73:    async fn run_container(&self, name: &str, spec: &AppleContainerSpec) -> Result<()>;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:82:    async fn inspect_container(&self, name: &str) -> Result<Option<AppleContainerInfo>>;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:85:    async fn list_containers(&self, name_prefix: &str) -> Result<Vec<AppleContainerInfo>>;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:89:pub struct AppleContainerClient;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:91:impl AppleContainerClient {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:102:            anyhow::bail!("container lifecycle command exited unsuccessfully");
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:109:        runner: &impl AppleContainerCommandRunner,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:111:    ) -> Result<Vec<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:112:        let request = container_list_request();
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:125:        runner: &impl AppleContainerCommandRunner,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:127:    ) -> Result<Option<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:139:        runner: &impl AppleContainerCommandRunner,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:141:    ) -> Result<Vec<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:149:        runner: &impl AppleContainerCommandRunner,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:151:    ) -> Result<Option<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:157:impl Default for AppleContainerClient {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:163:impl AppleContainerApi for AppleContainerClient {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:164:    async fn run_container(&self, name: &str, spec: &AppleContainerSpec) -> Result<()> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:166:            spec.user == jackin_runtime_identity::identity::CAPSULE_SUPERVISOR_USER,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:167:            "apple-container capsule supervisor must launch as root"
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:169:        let args = container_run_args(name, spec);
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:193:    async fn inspect_container(&self, name: &str) -> Result<Option<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:198:    async fn list_containers(&self, name_prefix: &str) -> Result<Vec<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:206:pub trait AppleContainerCommandRunner: Send + Sync {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:214:trait AppleContainerCommandRunner: Send + Sync {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:223:impl AppleContainerCommandRunner for ProcessTelemetryRunner {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:232:fn container_list_request() -> jackin_process::ExecRequest {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:236:fn container_run_args(name: &str, spec: &AppleContainerSpec) -> Vec<std::ffi::OsString> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:271:fn parse_all_containers_json(json_output: &[u8]) -> Result<Vec<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:274:    let rows: Vec<AppleContainerRow> = serde_json::from_slice(json_output).map_err(|_| {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:297:        containers.push(AppleContainerInfo {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:305:struct AppleContainerRow {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:307:    configuration: AppleContainerConfiguration,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:308:    status: AppleContainerStatusObject,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:337:impl<'de> Deserialize<'de> for AppleContainerRow {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:345:            type Value = AppleContainerRow;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:366:                Ok(AppleContainerRow {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:379:struct AppleContainerConfiguration {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:383:impl<'de> Deserialize<'de> for AppleContainerConfiguration {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:391:            type Value = AppleContainerConfiguration;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:408:                Ok(AppleContainerConfiguration {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:418:struct AppleContainerStatusObject {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:419:    state: AppleContainerStatus,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:422:impl<'de> Deserialize<'de> for AppleContainerStatusObject {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:430:            type Value = AppleContainerStatusObject;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:447:                Ok(AppleContainerStatusObject {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:457:impl<'de> Deserialize<'de> for AppleContainerStatus {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:475:pub struct FakeAppleContainerClient {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:476:    pub containers: Mutex<Vec<AppleContainerInfo>>,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:482:impl FakeAppleContainerClient {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:492:        containers.push(AppleContainerInfo {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:494:            status: AppleContainerStatus::Running,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:512:        container.status = AppleContainerStatus::Running;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:522:            container.status = AppleContainerStatus::Stopped;
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:535:    fn inspect_container_now(&self, name: &str) -> Result<Option<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:549:    fn list_containers_now(&self, name_prefix: &str) -> Result<Vec<AppleContainerInfo>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:562:impl AppleContainerApi for FakeAppleContainerClient {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:566:        _spec: &AppleContainerSpec,
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:586:    ) -> impl Future<Output = Result<Option<AppleContainerInfo>>> {
+crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:593:    ) -> impl Future<Output = Result<Vec<AppleContainerInfo>>> {
+crates/services/jackin-runtime-apple-container-client/src/lib.rs:1:pub mod apple_container_client;
+crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:25:        InstanceBackend::AppleContainer => {
+crates/services/jackin-runtime/src/runtime/cleanup/eject.rs:26:            crate::runtime::backend::AppleContainerBackend::production()
+crates/services/jackin-runtime-snapshot/src/snapshot.rs:293:        jackin_runtime_identity::identity::CAPSULE_SUPERVISOR_USER.to_owned(),
+crates/services/jackin-telemetry/src/event_defs.rs:38:pub const RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING: EventDef =
+crates/services/jackin-telemetry/src/event_defs.rs:39:    EventDef::generated(&schema::events::RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING_DEF);
+crates/services/jackin-telemetry/src/event_defs.rs:78:    RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING,
+crates/services/jackin-telemetry/src/schema/attrs.rs:80:pub const APPLE_CONTAINER_ATTACH_OUTCOME_REASON: &str = "apple.container.attach_outcome.reason";
+crates/services/jackin-telemetry/src/schema/attrs.rs:81:pub const APPLE_CONTAINER_ATTACH_OUTCOME_REASON_DEF: super::AttributeMetadata =
+crates/services/jackin-telemetry/src/schema/attrs.rs:83:        name: APPLE_CONTAINER_ATTACH_OUTCOME_REASON,
+crates/services/jackin-telemetry/src/schema/attrs.rs:93:pub const APPLE_CONTAINER_STATE: &str = "apple.container.state";
+crates/services/jackin-telemetry/src/schema/attrs.rs:94:pub const APPLE_CONTAINER_STATE_DEF: super::AttributeMetadata = super::AttributeMetadata {
+crates/services/jackin-telemetry/src/schema/attrs.rs:95:    name: APPLE_CONTAINER_STATE,
+crates/services/jackin-telemetry/src/schema/attrs.rs:96:    description: "Bounded observed Apple Container lifecycle state for an uncertain attach outcome.",
+crates/services/jackin-telemetry/src/schema/attrs.rs:740:    APPLE_CONTAINER_ATTACH_OUTCOME_REASON,
+crates/services/jackin-telemetry/src/schema/attrs.rs:741:    APPLE_CONTAINER_STATE,
+crates/services/jackin-telemetry/src/schema/attrs.rs:798:    APPLE_CONTAINER_ATTACH_OUTCOME_REASON_DEF,
+crates/services/jackin-telemetry/src/schema/attrs.rs:799:    APPLE_CONTAINER_STATE_DEF,
+crates/services/jackin-telemetry/src/schema/enums.rs:23:bounded_values!(AppleContainerAttachOutcomeReason { InspectionUncertain => "inspection_uncertain", Absent => "absent", StateUncertain => "state_uncertain", RecordingFailed => "recording_failed" });
+crates/services/jackin-telemetry/src/schema/enums.rs:24:bounded_values!(AppleContainerState { Unknown => "unknown", Stopping => "stopping" });
+crates/services/jackin-telemetry/src/schema/events.rs:1118:pub const RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING: &str =
+crates/services/jackin-telemetry/src/schema/events.rs:1119:    "runtime.apple_container.attach_outcome.warning";
+crates/services/jackin-telemetry/src/schema/events.rs:1120:pub const RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING_DEF: super::EventMetadata =
+crates/services/jackin-telemetry/src/schema/events.rs:1122:        name: RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING,
+crates/services/jackin-telemetry/src/schema/events.rs:1566:    RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING,
+crates/services/jackin-telemetry/src/schema/events.rs:1604:    RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING_DEF,
+crates/services/jackin-runtime/src/runtime/cleanup/purge_absent.rs:23:        InstanceBackend::AppleContainer => {
+crates/services/jackin-runtime/src/runtime/cleanup/purge_absent.rs:24:            crate::runtime::backend::AppleContainerBackend::production()
+crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:21:    for name in apple_container_instance_names(paths)? {
+crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:36:pub(crate) fn apple_container_instance_names(paths: &JackinPaths) -> anyhow::Result<Vec<String>> {
+crates/services/jackin-runtime/src/runtime/cleanup/exile.rs:52:            InstanceBackend::AppleContainer
+crates/services/jackin-telemetry/src/event_emit.rs:111:        schema::events::RUNTIME_APPLE_CONTAINER_ATTACH_OUTCOME_WARNING => {
+crates/services/jackin-telemetry/src/event_emit.rs:112:            emit_runtime_apple_container_attach_outcome_warning(def, fields);
+crates/services/jackin-telemetry/src/event_emit.rs:539:fn emit_runtime_apple_container_attach_outcome_warning(
+crates/services/jackin-telemetry/src/event_emit.rs:544:        "runtime.apple_container.attach_outcome.warning",
+crates/services/jackin-telemetry/src/event_emit.rs:550:                field_apple_container_attach_outcome_reason,
+crates/services/jackin-telemetry/src/event_emit.rs:553:            ("apple.container.state", field_apple_container_state, String),
+crates/services/jackin-runtime/src/runtime/apple_container.rs:4:use crate::apple_container_client::AppleContainerMount;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:7:use crate::apple_container_client::{AppleContainerApi as _, AppleContainerStatus};
+crates/services/jackin-runtime/src/runtime/apple_container.rs:9:    AppleContainerResources, BackendResources, DockerResources, InstanceManifest,
+crates/services/jackin-runtime/src/runtime/apple_container.rs:15:pub use jackin_runtime_apple_container_stop::stop::stop_with;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:17:use jackin_runtime_apple_container_session_contract::session_contract::print_session_contract;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:19:use jackin_runtime_apple_container_check_dns::check_dns::check_dns;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:21:use jackin_runtime_apple_container_wait::wait::wait_for_capsule;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:23:use jackin_runtime_apple_container_attach::attach::attach;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:25:use jackin_runtime_apple_container_attach_outcome::attach_outcome::record_attach_outcome;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:27:use jackin_runtime_apple_container_probe_version::probe_version::probe_version;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:29:use jackin_runtime_apple_container_activate_entry::activate_entry::activate_started_entry;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:31:use jackin_runtime_apple_container_supervisor_env::supervisor_env::apple_supervisor_env;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:34:pub struct AppleContainerLaunch<'a> {
+crates/services/jackin-runtime/src/runtime/apple_container.rs:48:    pub mounts: &'a [AppleContainerMount],
+crates/services/jackin-runtime/src/runtime/apple_container.rs:64:        .context("apple-container does not support on-demand credential bindings")
+crates/services/jackin-runtime/src/runtime/apple_container.rs:67:pub async fn launch(args: AppleContainerLaunch<'_>) -> Result<()> {
+crates/services/jackin-runtime/src/runtime/apple_container.rs:68:    let AppleContainerLaunch {
+crates/services/jackin-runtime/src/runtime/apple_container.rs:94:        "generated provider configuration requires read-only file overlays; the apple-container backend rejects single-file bind mounts; use the docker backend"
+crates/services/jackin-runtime/src/runtime/apple_container.rs:101:            "apple/container CLI (`container`) not found. \
+crates/services/jackin-runtime/src/runtime/apple_container.rs:110:            key != "JACKIN_CAPSULE_FORCE_DAEMON"
+crates/services/jackin-runtime/src/runtime/apple_container.rs:150:        container_mounts.push(AppleContainerMount::new(
+crates/services/jackin-runtime/src/runtime/apple_container.rs:161:    let spec = crate::apple_container_client::AppleContainerSpec {
+crates/services/jackin-runtime/src/runtime/apple_container.rs:163:        user: crate::runtime::identity::CAPSULE_SUPERVISOR_USER.to_owned(),
+crates/services/jackin-runtime/src/runtime/apple_container.rs:171:        crate::apple_container_client::AppleContainerClient::new()
+crates/services/jackin-runtime/src/runtime/apple_container.rs:202:        BackendResources::AppleContainer(AppleContainerResources {
+crates/services/jackin-runtime/src/runtime/apple_container.rs:228:use jackin_runtime_apple_container_running::running::inspect_container_with;
+crates/services/jackin-runtime/src/runtime/apple_container.rs:236:    let client = crate::apple_container_client::AppleContainerClient::new();
+crates/services/jackin-runtime/src/runtime/apple_container.rs:245:    client: &impl crate::apple_container_client::AppleContainerApi,
+crates/services/jackin-runtime/src/runtime/apple_container.rs:268:    C: crate::apple_container_client::AppleContainerApi,
+crates/services/jackin-runtime/src/runtime/apple_container.rs:286:        AppleContainerStatus::Running => {}
+crates/services/jackin-runtime/src/runtime/apple_container.rs:287:        AppleContainerStatus::Stopped => client
+crates/services/jackin-runtime/src/runtime/apple_container.rs:291:        AppleContainerStatus::Unknown | AppleContainerStatus::Stopping => {
+crates/services/jackin-runtime/src/runtime/apple_container.rs:301:        &crate::apple_container_client::AppleContainerClient::new(),
+crates/services/jackin-runtime/src/runtime/apple_container.rs:308:    client: &impl crate::apple_container_client::AppleContainerApi,
+crates/services/jackin-runtime/src/runtime/apple_container.rs:318:            "cannot purge local state: apple-container `{container_name}` still exists; \
+crates/services/jackin-runtime/src/runtime/apple_container.rs:327:        &crate::apple_container_client::AppleContainerClient::new(),
+crates/services/jackin-runtime/src/runtime/apple_container.rs:335:        &crate::apple_container_client::AppleContainerClient::new(),
+crates/services/jackin-runtime/src/runtime/apple_container.rs:342:    client: &impl crate::apple_container_client::AppleContainerApi,
+crates/services/jackin-runtime/src/runtime/apple_container.rs:355:    spec: crate::apple_container_client::AppleContainerSpec,
+crates/services/jackin-runtime/src/runtime/apple_container.rs:356:    submit: impl FnOnce(crate::apple_container_client::AppleContainerSpec) -> T,
+crates/services/jackin-runtime-backend-selection/src/backend_selection.rs:10:    AppleContainer,
+crates/services/jackin-runtime-backend-selection/src/backend_selection.rs:15:        Some(BackendResources::AppleContainer(_)) => InstanceBackend::AppleContainer,
+crates/apps/jackin-capsule/src/argv.rs:17:    std::env::var_os("JACKIN_CAPSULE_FORCE_DAEMON").is_some() && is_daemon_entrypoint_args(args)
+crates/services/jackin-runtime/src/runtime/backend.rs:6:use crate::apple_container_client::{AppleContainerApi, AppleContainerClient};
+crates/services/jackin-runtime/src/runtime/backend.rs:132:pub struct AppleContainerBackend<C = AppleContainerClient> {
+crates/services/jackin-runtime/src/runtime/backend.rs:136:impl AppleContainerBackend<AppleContainerClient> {
+crates/services/jackin-runtime/src/runtime/backend.rs:139:            client: AppleContainerClient::new(),
+crates/services/jackin-runtime/src/runtime/backend.rs:144:impl<C> AppleContainerBackend<C> {
+crates/services/jackin-runtime/src/runtime/backend.rs:150:impl<C> ContainerBackend for AppleContainerBackend<C>
+crates/services/jackin-runtime/src/runtime/backend.rs:152:    C: AppleContainerApi,
+crates/services/jackin-runtime/src/runtime/backend.rs:155:        crate::runtime::apple_container::stop_with(&self.client, container_name).await
+crates/services/jackin-runtime/src/runtime/backend.rs:163:        crate::runtime::apple_container::ensure_absent_for_purge_with(&self.client, container_name)
+crates/services/jackin-runtime/src/runtime/backend.rs:176:        let result = crate::runtime::apple_container::reconnect_with_client(
+crates/services/jackin-runtime/src/runtime/backend.rs:207:        anyhow::bail!("apple-container finalize not yet implemented - Phase 0")
+crates/services/jackin-runtime-usage-relay/src/usage_relay.rs:46:) -> jackin_runtime_apple_container_client::apple_container_client::AppleContainerMount {
+crates/services/jackin-runtime-usage-relay/src/usage_relay.rs:47:    jackin_runtime_apple_container_client::apple_container_client::AppleContainerMount::new(
+crates/services/jackin-runtime-usage-relay/src/usage_relay.rs:345:const CAPSULE_SUPERVISOR_USER: &str = "0:0";
+crates/services/jackin-runtime-usage-relay/src/usage_relay.rs:365:        CAPSULE_SUPERVISOR_USER.to_owned(),
+crates/services/jackin-instance/src/manifest.rs:16:pub use resources::{AppleContainerResources, BackendResources, DockerIdentity, DockerResources};
+crates/services/jackin-instance/src/manifest/resources.rs:25:pub struct AppleContainerResources {
+crates/services/jackin-instance/src/manifest/resources.rs:35:    AppleContainer(AppleContainerResources),
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:436:            "explicit_restore_container_startable"
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline.rs:438:            "explicit_restore_container_running"
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:9:use jackin_runtime_apple_container_client::apple_container_client::AppleContainerMount;
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:12:pub enum AppleContainerMountError {
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:14:        "mount {destination} requires read-only file overlays, but the apple-container backend rejects single-file bind mounts; use the docker backend or change this mount to shared isolation"
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:482:    mounts: &[AppleContainerMount],
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:582:) -> anyhow::Result<Vec<AppleContainerMount>> {
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:601:        AppleContainerMount::new(state_dir, jackin_core::container_paths::STATE_DIR, false),
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:602:        AppleContainerMount::new(credentials, jackin_protocol::ACCOUNT_CREDENTIALS_DIR, true),
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:618:            mounts.push(AppleContainerMount::new(
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:624:                mounts.push(AppleContainerMount::new(
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:635:                mounts.push(AppleContainerMount::new(
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:648:                mounts.push(AppleContainerMount::new(
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:706:    AppleContainer,
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:720:            jackin_runtime_apple_container_client::apple_container_client::DOCKER_BACKEND_NAME,
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:722:        Some(jackin_runtime_apple_container_client::apple_container_client::BACKEND_NAME) => {
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:723:            Ok(Backend::AppleContainer)
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:727:            jackin_runtime_apple_container_client::apple_container_client::DOCKER_BACKEND_NAME,
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:728:            jackin_runtime_apple_container_client::apple_container_client::BACKEND_NAME,
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:735:) -> Result<Vec<AppleContainerMount>, AppleContainerMountError> {
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:739:            return Err(AppleContainerMountError::WorktreeFileOverlays {
+crates/services/jackin-runtime-launch-mounts/src/mounts.rs:743:        out.push(AppleContainerMount::new(
+crates/services/jackin-runtime-apple-container-check-dns/src/check_dns.rs:15:                jackin_runtime_identity::identity::CAPSULE_SUPERVISOR_USER,
+crates/services/jackin-runtime-apple-container-check-dns/src/check_dns.rs:30:                    "[jackin] apple-container: DNS hiccup detected after sleep/wake. \
+crates/services/jackin-instance/src/lib.rs:16:    AdmittedInstance, AppleContainerResources, BackendResources, DockerIdentity, DockerResources,
+crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:559:                    "only_viable_current_role_agent_container_startable"
+crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:561:                    "single_current_role_agent_container_startable"
+crates/services/jackin-runtime-launch-restore/src/restore_resolve.rs:691:                    "current_role_container_startable",
+crates/services/jackin-runtime-apple-container-attach/src/attach.rs:11:        jackin_runtime_identity::identity::CAPSULE_SUPERVISOR_USER,
+crates/services/jackin-runtime-apple-container-wait/src/wait.rs:31:                    jackin_runtime_identity::identity::CAPSULE_SUPERVISOR_USER,
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/finish.rs:47:        RuntimeDispatch::AppleContainer(container_name)
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime_dispatch.rs:8:    AppleContainer(String),
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:112:    if backend == crate::runtime::launch::Backend::AppleContainer {
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:117:        crate::runtime::apple_container::launch(
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:118:            crate::runtime::apple_container::AppleContainerLaunch {
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/runtime.rs:143:        return Ok(RuntimeDispatch::AppleContainer(container_name.to_owned()));
+crates/services/jackin-runtime/src/lib.rs:1:pub mod apple_container_client;
+crates/services/jackin-runtime/src/runtime.rs:4:pub mod apple_container;
+crates/services/jackin-runtime-apple-container-session-contract/src/session_contract.rs:4:use jackin_runtime_apple_container_client::apple_container_client::AppleContainerMount;
+crates/services/jackin-runtime-apple-container-session-contract/src/session_contract.rs:14:    mounts: &[AppleContainerMount],
+crates/services/jackin-runtime-apple-container-session-contract/src/session_contract.rs:19:    eprintln!("  backend:              apple-container");
+crates/services/jackin-runtime-apple-container-session-contract/src/session_contract.rs:28:        "  force_daemon:         JACKIN_CAPSULE_FORCE_DAEMON=1 (capsule PID 2+ under vminitd)"
+crates/services/jackin-runtime-apple-container-session-contract/src/session_contract.rs:43:    eprintln!("  network:              per-container IP via vmnet (no port mapping)");
+crates/services/jackin-runtime-apple-container-stop/src/stop.rs:7:    client: &impl jackin_runtime_apple_container_client::apple_container_client::AppleContainerApi,
+crates/services/jackin-runtime/src/runtime/attach.rs:48:    require_container_reachable, require_container_running, start_or_hardline_agent,
+crates/adapters/jackin-docker/src/docker_client.rs:43:const CONTAINER_LIST: DockerRoute = DockerRoute::new("GET", "/containers/json");
+crates/adapters/jackin-docker/src/docker_client.rs:45:const CONTAINER_START: DockerRoute = DockerRoute::new("POST", "/containers/{id}/start");
+crates/adapters/jackin-docker/src/docker_client.rs:594:        docker_http(CONTAINER_LIST, async {
+crates/adapters/jackin-docker/src/docker_client.rs:711:        docker_http(CONTAINER_START, async {
+crates/tools/jackin-xtask/src/arch.rs:31:    ("jackin-runtime-apple-container-activate-entry", 3),
+crates/tools/jackin-xtask/src/arch.rs:32:    ("jackin-runtime-apple-container-attach", 4),
+crates/tools/jackin-xtask/src/arch.rs:33:    ("jackin-runtime-apple-container-attach-outcome", 9),
+crates/tools/jackin-xtask/src/arch.rs:34:    ("jackin-runtime-apple-container-check-dns", 4),
+crates/tools/jackin-xtask/src/arch.rs:35:    ("jackin-runtime-apple-container-client", 4),
+crates/tools/jackin-xtask/src/arch.rs:36:    ("jackin-runtime-apple-container-probe-version", 2),
+crates/tools/jackin-xtask/src/arch.rs:37:    ("jackin-runtime-apple-container-running", 5),
+crates/tools/jackin-xtask/src/arch.rs:38:    ("jackin-runtime-apple-container-session-contract", 5),
+crates/tools/jackin-xtask/src/arch.rs:39:    ("jackin-runtime-apple-container-stop", 5),
+crates/tools/jackin-xtask/src/arch.rs:40:    ("jackin-runtime-apple-container-supervisor-env", 2),
+crates/tools/jackin-xtask/src/arch.rs:41:    ("jackin-runtime-apple-container-wait", 4),
+
+## Build/package/test inventory references
+.github/workflows/ci.yml:98:    runs-on: macos-26
+.github/workflows/ci.yml:145:    runs-on: macos-26
+crates/tools/jackin-xtask/src/arch.rs:31:    ("jackin-runtime-apple-container-activate-entry", 3),
+crates/tools/jackin-xtask/src/arch.rs:32:    ("jackin-runtime-apple-container-attach", 4),
+crates/tools/jackin-xtask/src/arch.rs:33:    ("jackin-runtime-apple-container-attach-outcome", 9),
+crates/tools/jackin-xtask/src/arch.rs:34:    ("jackin-runtime-apple-container-check-dns", 4),
+crates/tools/jackin-xtask/src/arch.rs:35:    ("jackin-runtime-apple-container-client", 4),
+crates/tools/jackin-xtask/src/arch.rs:36:    ("jackin-runtime-apple-container-probe-version", 2),
+crates/tools/jackin-xtask/src/arch.rs:37:    ("jackin-runtime-apple-container-running", 5),
+crates/tools/jackin-xtask/src/arch.rs:38:    ("jackin-runtime-apple-container-session-contract", 5),
+crates/tools/jackin-xtask/src/arch.rs:39:    ("jackin-runtime-apple-container-stop", 5),
+crates/tools/jackin-xtask/src/arch.rs:40:    ("jackin-runtime-apple-container-supervisor-env", 2),
+crates/tools/jackin-xtask/src/arch.rs:41:    ("jackin-runtime-apple-container-wait", 4),
+crates/services/jackin-runtime/Cargo.toml:34:jackin-runtime-apple-container-activate-entry = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:35:jackin-runtime-apple-container-attach = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:36:jackin-runtime-apple-container-attach-outcome = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:37:jackin-runtime-apple-container-check-dns = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:38:jackin-runtime-apple-container-client = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:39:jackin-runtime-apple-container-probe-version = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:40:jackin-runtime-apple-container-running = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:41:jackin-runtime-apple-container-session-contract = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:42:jackin-runtime-apple-container-stop = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:43:jackin-runtime-apple-container-supervisor-env = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:44:jackin-runtime-apple-container-wait = { workspace = true }
+crates/services/jackin-runtime/Cargo.toml:127:jackin-runtime-apple-container-client = { workspace = true, features = ["test-support"] }
+Cargo.toml:32:    "crates/services/jackin-runtime-apple-container-activate-entry",
+Cargo.toml:33:    "crates/services/jackin-runtime-apple-container-attach",
+Cargo.toml:34:    "crates/services/jackin-runtime-apple-container-attach-outcome",
+Cargo.toml:35:    "crates/services/jackin-runtime-apple-container-check-dns",
+Cargo.toml:36:    "crates/services/jackin-runtime-apple-container-client",
+Cargo.toml:37:    "crates/services/jackin-runtime-apple-container-probe-version",
+Cargo.toml:38:    "crates/services/jackin-runtime-apple-container-running",
+Cargo.toml:39:    "crates/services/jackin-runtime-apple-container-session-contract",
+Cargo.toml:40:    "crates/services/jackin-runtime-apple-container-stop",
+Cargo.toml:41:    "crates/services/jackin-runtime-apple-container-supervisor-env",
+Cargo.toml:42:    "crates/services/jackin-runtime-apple-container-wait",
+Cargo.toml:221:jackin-runtime-apple-container-activate-entry = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-activate-entry" }
+Cargo.toml:222:jackin-runtime-apple-container-attach = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-attach" }
+Cargo.toml:223:jackin-runtime-apple-container-attach-outcome = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-attach-outcome" }
+Cargo.toml:224:jackin-runtime-apple-container-check-dns = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-check-dns" }
+Cargo.toml:225:jackin-runtime-apple-container-client = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-client" }
+Cargo.toml:226:jackin-runtime-apple-container-probe-version = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-probe-version" }
+Cargo.toml:227:jackin-runtime-apple-container-running = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-running" }
+Cargo.toml:228:jackin-runtime-apple-container-session-contract = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-session-contract" }
+Cargo.toml:229:jackin-runtime-apple-container-stop = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-stop" }
+Cargo.toml:230:jackin-runtime-apple-container-supervisor-env = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-supervisor-env" }
+Cargo.toml:231:jackin-runtime-apple-container-wait = { version = "0.6.4", path = "crates/services/jackin-runtime-apple-container-wait" }
+
+## Independent caller audit: full readback, grant comparison, and source checkpoint capture
+
+The exact symbol searches below include test hits, so definition-only/test-only matches remain visible.
+
+$ rg -n "inspect_full_container_by_id\\(" crates --glob "*.rs"
+crates/adapters/jackin-docker/src/docker_client.rs:974:    async fn inspect_full_container_by_id(
+crates/core/jackin-core/src/docker.rs:253:    async fn inspect_full_container_by_id(
+
+$ rg -n "compare_grant_vs_actual\\(" crates --glob "*.rs"
+crates/services/jackin-runtime-docker-profile/src/docker_profile/workflow_grant.rs:212:pub fn compare_grant_vs_actual(
+crates/services/jackin-runtime-docker-profile/src/docker_profile/workflow_grant/tests.rs:121:    let mismatches = compare_grant_vs_actual(&grants, &WorkflowGrant::default(), &actual);
+crates/services/jackin-runtime-docker-profile/src/docker_profile/workflow_grant/tests.rs:134:    let mismatches = compare_grant_vs_actual(&grants, &WorkflowGrant::default(), &actual);
+crates/services/jackin-runtime-docker-profile/src/docker_profile/workflow_grant/tests.rs:140:    let mismatches = compare_grant_vs_actual(&grants, &WorkflowGrant::default(), &actual);
+crates/services/jackin-runtime-docker-profile/src/docker_profile/workflow_grant/tests.rs:149:    let mismatches = compare_grant_vs_actual(&grants, &workflow, &actual);
+crates/services/jackin-runtime-docker-profile/src/docker_profile/workflow_grant/tests.rs:160:    let mismatches = compare_grant_vs_actual(&grants, &WorkflowGrant::default(), &actual);
+
+$ rg -n "capture_checkpoint\\(" crates --glob "*.rs"
+crates/services/jackin-isolation/src/capture.rs:450:pub async fn capture_checkpoint(
+crates/services/jackin-isolation/src/capture/tests.rs:166:    let checkpoint = capture_checkpoint(
+crates/services/jackin-isolation/src/capture/tests.rs:241:    let err = capture_checkpoint(
+
+$ rg -n "workflow_grant:" crates/services/jackin-runtime/src --glob "*.rs"
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases.rs:66:    pub workflow_grant: Option<&'a WorkflowGrant>,
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_core/orchestrate/initialize.rs:68:            workflow_grant: None,
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases/tests/case_02.rs:43:        workflow_grant: Some(&clamp),
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases/tests/case_02.rs:92:        workflow_grant: None,
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases/tests/case_01.rs:38:        workflow_grant: None,
+crates/services/jackin-runtime/src/runtime/launch/launch_pipeline/launch_phases/tests/case_01.rs:282:        workflow_grant: None,
+
+$ rg -n "record_checkpoint\\(" host daemon/workflow production sources
+crates/services/jackin-workflow/src/service.rs:209:    fn record_checkpoint(
+crates/services/jackin-workflow/src/service.rs:600:    pub fn record_checkpoint(
+crates/services/jackin-workflow/src/service.rs:661:        self.store.record_checkpoint(&CheckpointRecord {
+crates/services/jackin-workflow/src/service.rs:1012:        self.store.record_checkpoint(&CheckpointRecord {
+crates/services/jackin-workflow/src/service.rs:1339:            self.store.record_checkpoint(&CheckpointRecord {
+crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1606:            workflow.record_checkpoint(
+
+## Darwin reaper target guard (guest-specific applicability)
+crates/apps/jackin-capsule/src/main.rs:38:        #[cfg(target_os = "macos")]
+crates/apps/jackin-capsule/src/main.rs:39:        jackin_capsule::pid1::prepare_darwin_reaper()?;
+crates/apps/jackin-capsule/src/main.rs:46:        #[cfg(target_os = "macos")]
+crates/apps/jackin-capsule/src/main.rs:47:        jackin_capsule::pid1::activate_darwin_reaper();
+crates/apps/jackin-capsule/src/daemon/boot.rs:74:    #[cfg(target_os = "macos")]
+
+Independent caller audit correction (source revision 6e266406b49da2ab3c55355f3b7d33d1643ee6cd)
+- crates/services/jackin-runtime/src/runtime/apple_container.rs:333 remove -> 341 remove_with -> 346 client.remove_container
+- crates/services/jackin-runtime-apple-container-client/src/apple_container_client.rs:179-190 implements remove_container as CLI rm
+- Repository-wide production caller search: no production call to remove or remove_with found. Tests of wrappers do not establish production workflow.
+- Active lifecycle calls backend stop (runtime/backend.rs:154); eject routes through stop; purge guard enumerates exact container presence (cleanup/purge_absent.rs). Therefore Apple CLI rm is implemented foundation, not active removal behavior.

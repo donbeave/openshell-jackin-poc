@@ -1,0 +1,12 @@
+{
+  "patch_test": ["mise", "exec", "--", "cargo", "test", "-p", "openshell-driver-docker"],
+  "patched_gateway_build": ["mise", "exec", "--", "cargo", "build", "-p", "openshell-gateway"],
+  "patch_format_check": ["mise", "exec", "--", "cargo", "fmt", "--all", "--", "--check"],
+  "p10_image_build": ["docker", "build", "--pull=false", "--progress=plain", "-t", "jfr-20261024-verify-worker:patch-policy-final", "-f", "experiments/full-refactor-20261024/verification-worker/patch-tmpfs/Dockerfile", "experiments/full-refactor-20261024/verification-worker"],
+  "p11_image_build": ["docker", "build", "--pull=false", "--progress=plain", "-t", "jfr-20261024-verify-worker:patch-confined", "-f", "experiments/full-refactor-20261024/verification-worker/patch-tmpfs/Dockerfile-confined", "experiments/full-refactor-20261024/verification-worker"],
+  "p10_worker": ["experiments/full-refactor-20261024/verification-worker/patch-tmpfs/capture-worker.sh", "jfrv-20261024-p10", "jfr-20261024-verify-worker:patch-policy-final"],
+  "p11_worker": ["experiments/full-refactor-20261024/verification-worker/patch-tmpfs/capture-worker.sh", "jfrv-20261024-p11", "jfr-20261024-verify-worker:patch-confined"],
+  "p12_worker": ["experiments/full-refactor-20261024/verification-worker/patch-tmpfs/capture-worker.sh", "jfrv-20261024-p12", "jfr-20261024-verify-worker:patch-confined"],
+  "p13_worker": ["experiments/full-refactor-20261024/verification-worker/patch-tmpfs/capture-worker.sh", "jfrv-20261024-p13", "jfr-20261024-verify-worker:patch-confined"],
+  "patch_gateway": "https://localhost:28631, identity jfr-20261024-vpatch, mTLS files in ignored experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/private; values omitted"
+}

@@ -1,0 +1,13 @@
+[
+    {
+        "CreatedAt": "2026-10-24T09:14:12+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-verification-worker"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24verify-untrusted/_data",
+        "Name": "jfr24verify-untrusted",
+        "Options": null,
+        "Scope": "local"
+    }
+]

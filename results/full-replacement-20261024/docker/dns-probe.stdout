@@ -1,0 +1,9 @@
+Server:		127.0.0.53
+Address:	127.0.0.53:53
+
+Non-authoritative answer:
+Name:	host.docker.internal
+Address: 198.18.0.2
+
+Non-authoritative answer:
+

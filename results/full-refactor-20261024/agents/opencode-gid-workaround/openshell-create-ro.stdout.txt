@@ -1,0 +1,8 @@
+
+Created sandbox: jfr24-openc-ro
+
+  [0.0s] Requesting compute...
+[0.0s] Sandbox allocated
+[0.0s] Pulling image jfr24-openc-gid1000:fixture
+[0.0s] Image already present
+[0.3s] Starting sandbox Container created

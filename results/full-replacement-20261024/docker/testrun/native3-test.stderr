@@ -1,0 +1,33 @@
+   Compiling ring v0.17.14
+   Compiling runtime-probe v0.1.0 (/workspace/rust-project)
+   Compiling rustls v0.23.46
+   Compiling rustls-webpki v0.103.16
+   Compiling tokio-rustls v0.26.6
+   Compiling hyper-rustls v0.27.10
+   Compiling bollard v0.21.1
+   Compiling testcontainers v0.28.0
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.07s
+────────────
+ Nextest run ID 34f3c87c-ce75-4acd-81ee-d941a948632c with nextest profile: default
+    Starting 2 tests across 4 binaries
+        PASS [   0.006s] (1/2) runtime-probe::native_tcp executable_can_open_a_local_tcp_connection
+  stdout ───
+
+    running 1 test
+    test executable_can_open_a_local_tcp_connection ... ok
+
+    test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+        PASS [   0.866s] (2/2) runtime-probe::redis_container testcontainers_starts_redis_and_exchanges_data
+  stdout ───
+
+    running 1 test
+    Docker reported host=host.docker.internal port=30003; test endpoint=host.docker.internal:30003
+    test testcontainers_starts_redis_and_exchanges_data ... ok
+
+    test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.86s
+
+
+────────────
+     Summary [   0.866s] 2 tests run: 2 passed, 0 skipped

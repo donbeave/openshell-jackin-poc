@@ -1,0 +1,27 @@
+{
+  "command": [
+    "docker",
+    "buildx",
+    "build",
+    "--load",
+    "--progress=plain",
+    "--platform",
+    "linux/arm64",
+    "--label",
+    "org.jackin.poc.id=jfr-20261024-role-01",
+    "--tag",
+    "jfr-20261024-architect-base:7b72b38",
+    "context"
+  ],
+  "started_utc": "2026-10-24T01:12:13.173677+00:00",
+  "duration_seconds": 0.904,
+  "exit_status": 0,
+  "stdout_file": "image-build-warm.stdout.txt",
+  "stderr_file": "image-build-warm.stderr.txt",
+  "docker_context": "orbstack",
+  "host_platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "context_sha256": "8dee0239d0955155de1e9410fe51331acdfbe8fe985439ef188c8fafd28f78a7",
+  "image_inspect_exit": 0,
+  "image_inspect": "sha256:e7655072c6d511250b183e9511ca1f701e635766ec0d190a68bfe470745df63a linux/arm64 6133969953",
+  "image_inspect_stderr": ""
+}

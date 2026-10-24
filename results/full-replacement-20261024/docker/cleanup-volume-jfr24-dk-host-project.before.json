@@ -1,0 +1,20 @@
+[
+    {
+        "CreatedAt": "2026-10-24T08:19:21+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-docker",
+            "ojp.owner": "followup-docker-engine",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "default"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24-dk-host-project/_data",
+        "Name": "jfr24-dk-host-project",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/docker/host-source",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    }
+]

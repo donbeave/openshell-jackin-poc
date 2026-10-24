@@ -1,0 +1,27 @@
+
+Created sandbox: jfr24-ca-paths
+
+  [0.0s] Requesting compute...
+[0.0s] Sandbox allocated
+[0.0s] Pulling image sha256:1d4bd013fbc63139a9f1b487845ba4519a625666042d4ca5a4836ca7ae72c64f
+[0.0s] Image already present
+[1.5s] Starting sandbox Container created
+ls: cannot access '/jackin/default-home/.amp': No such file or directory
+drwxrwxr-x 1   501 root 340 Oct 24 02:26 /home/agent
+drwxrwxr-x 1   501 root  26 Oct 24 01:11 /home/agent/.local
+drwxrwxr-x 1   501 root  16 Oct 24 01:11 /home/agent/.local/bin
+drwxr-xr-x 1 agent root  10 Oct 24 02:26 /jackin/default-home
+drwxrwxr-x 1 agent root  94 Oct 24 02:26 /jackin/default-home/.grok
+200007994      0 drwxrwxr-x   1 501      root            0 Oct 24 01:07 /home/agent/.cache/amp
+200011725      0 drwxrwxr-x   1 501      root           18 Oct 24 01:10 /home/agent/.config/amp
+find: ‘/home/agent/.config/opencode’: Permission denied
+find: ‘/home/agent/.local/share/rtk’: Permission denied
+200007761      4 lrwxrwxrwx   1 agent     root           31 Oct 24 02:26 /jackin/default-home/.grok/bin/grok -> ../downloads/grok-linux-aarch64
+ABSENT /home/agent/.local/bin/amp
+ABSENT /home/agent/.local/bin/grok
+ABSENT /home/agent/.amp/bin/amp
+ABSENT /home/agent/.grok/bin/grok
+ABSENT /jackin/default-home/.amp/bin/amp
+FOUND /jackin/default-home/.grok/bin/grok
+grok 1.0.70 (f50904eaee6c)
+EXIT=0

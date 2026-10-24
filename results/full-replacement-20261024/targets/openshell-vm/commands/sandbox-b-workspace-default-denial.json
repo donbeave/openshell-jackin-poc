@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm/client.sh",
+    "sandbox",
+    "exec",
+    "jfr-20261024-vm-b",
+    "--",
+    "sh",
+    "-c",
+    "cat /workspace/role-marker; printf edit-ok > /workspace/edited"
+  ],
+  "exit_status": 2,
+  "wall_seconds": 0.082,
+  "stdout": "",
+  "stderr": "cat: /workspace/role-marker: Permission denied\nsh: 1: cannot create /workspace/edited: Permission denied\n"
+}

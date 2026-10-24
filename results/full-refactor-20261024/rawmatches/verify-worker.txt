@@ -1,0 +1,151 @@
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/model.rs:97:/// per-file manifest beside [`VerificationPolicy::test_bundle_digest`]
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/model.rs:122:    pub test_bundle_digest: String,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/model.rs:124:    pub test_bundle_files: Vec<TestBundleFile>,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/resolve.rs:48:    pub test_bundle_digest: String,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/resolve.rs:174:    let test_bundle_digest = bundle_manifest_digest(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/resolve.rs:184:        test_bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:558:            test_bundle_digest: inputs.test_bundle_digest.clone(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:559:            test_bundle_files: inputs
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/core/jackin-workflow-spec/src/rules.rs:650:        inputs.test_bundle_digest.clone(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:111:        check_script: String,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:112:        bundle_digest: String,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1344:    check_script: &str,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1345:    bundle_digest: &str,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1362:        check_script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1363:        bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1367:    Ok(plan.verification.test_bundle_files.clone())
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1374:    check_script: &str,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1375:    bundle_digest: &str,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1395:        || !Path::new(check_script).ends_with(logical_path)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1398:            "supplied check script path `{check_script}` does not match frozen bundle path `{}`",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1404:        .test_bundle_files
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1417:    let supplied_bytes = fs::read(check_script).map_err(|error| {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1419:            "cannot read supplied check script `{check_script}`: {error}"
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1434:    if verification.test_bundle_digest != bundle_digest {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1624:            check_script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1625:            bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1636:                &check_script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1637:                &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1646:                        check_script: Path::new(&check_script),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon.rs:1647:                        bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:276:    let bundle_digest = bundle_manifest_digest(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:324:            test_bundle_digest: bundle_digest.clone(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:325:            test_bundle_files: bundle_files.to_vec(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:374:    (hash, bundle_digest)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:438:    let (plan_hash, bundle_digest) = store_test_plan(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:457:        &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:469:            &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:482:            &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:495:            &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:646:        ("sh".to_owned(), bundle_digest.clone(), 120),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:648:        ("python3".to_owned(), bundle_digest.clone(), 7),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:658:                check_script: script.display().to_string(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:659:                bundle_digest: digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:680:            check_script: foreign.display().to_string(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:681:            bundle_digest: bundle_digest.clone(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:699:            check_script: script.display().to_string(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:700:            bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:938:            check_script: script.display().to_string(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-runtime-host-daemon/src/host_daemon/tests/case_03.rs:939:            bundle_digest: "digest".to_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/lib.rs:37:    TestPolicy, TestResult, TestWorkerSpec, VerificationOutcome, admit_repair_delivery,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/lib.rs:38:    build_feedback, correction_allowed, decide_candidate, persist_test_output, prepare_test_worker,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/lib.rs:39:    read_review_bytes, record_review_evidence, record_test_evidence, review_acceptable,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/lib.rs:40:    run_test_command, stage_repair_feedback, summarize_test_failure, validate_review,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:32:    TestPolicy, TestResult, TestWorkerSpec, VerificationOutcome, decide_candidate,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:33:    persist_test_output, prepare_test_worker, read_review_bytes, record_review_evidence,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:34:    record_test_evidence, review_acceptable, run_git, run_test_command, validate_review,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:463:/// must recompute to `bundle_digest` (the manifest digest the daemon
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:469:    pub check_script: &'a Path,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:470:    pub bundle_digest: &'a str,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:760:        let script_bytes = std::fs::read(params.check_script).map_err(|err| {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:763:                params.check_script.display()
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:784:        if manifest_digest != params.bundle_digest {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:792:        let policy = TestPolicy::freeze(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:795:                params.check_script.to_string_lossy().into_owned(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:800:        let spec = TestWorkerSpec::new(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:813:        let worker = match prepare_test_worker(&repo, &spec, params.scratch) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:820:        let execution = match run_test_command(&policy, &worker, params.bundle_files) {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:829:        record_test_evidence(&self.store, run_id, &result, &artifact)?;
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/service.rs:833:            "test_completed",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:15:    Severity, TestPolicy, TestWorkerSpec, VerificationOutcome, admit_repair_delivery,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:16:    build_feedback, decide_candidate, persist_test_output, prepare_test_worker, read_review_bytes,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:17:    record_review_evidence, record_test_evidence, review_acceptable, run_test_command,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:98:fn policy_for(bundle_check: &Path, work_dir: &Path) -> TestPolicy {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:99:    TestPolicy::freeze(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:131:    TestWorkerSpec,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:132:    TestPolicy,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:138:    let spec = TestWorkerSpec::new(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:152:    let worker = prepare_test_worker(repo, &spec, scratch).expect("prepare k5 test worker");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:156:    let execution = run_test_command(&policy, &worker, &bundle_manifest_for(bundle_check))
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:354:    record_test_evidence(service.store(), &run.run_id, &result, &digest)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:464:fn spec_expectation(spec: &TestWorkerSpec) -> ReviewExpectation<'_> {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:545:    let policy = TestPolicy::freeze(vec!["python3".to_owned(), "check.py".to_owned()], 120)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:549:    let again = TestPolicy::freeze(vec!["python3".to_owned(), "check.py".to_owned()], 120)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:556:    let other = TestPolicy::freeze(vec!["python3".to_owned(), "other.py".to_owned()], 120)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:569:            TestPolicy::freeze(argv, 120).is_err(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:574:        TestPolicy::freeze(vec!["python3".to_owned()], 0).expect_err("zero timeout is rejected");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:575:    let _rejected = TestPolicy::freeze(vec!["python3".to_owned()], 3_601)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:578:    let spec = TestWorkerSpec::new(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:595:            TestWorkerSpec::new(run, 0, candidate, "commit-1", "tree-1", &policy).is_err(),
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:711:    let policy = TestPolicy::freeze(vec!["python3".to_owned(), "check_add.py".to_owned()], 120)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:981:    record_test_evidence(service.store(), &run.run_id, &result, &digest)
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:1344:    let policy = TestPolicy::freeze(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:1356:    let spec = TestWorkerSpec::new(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:1366:    let worker = prepare_test_worker(&repo, &spec, &scratch).expect("prepare bytecode worker");
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k5.rs:1367:    let execution = run_test_command(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:353:    let (bundle_files, bundle_digest) = bundle_binding(&script);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:385:            check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:386:            bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:429:            check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:430:            bundle_digest: "deadbeef",
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:448:                check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:449:                bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:470:            check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:471:            bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:508:    bundle_digest: String,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:519:    let (bundle_files, bundle_digest) = bundle_binding(&script);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:561:        bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:578:            check_script: &foreign,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:579:            bundle_digest: &stage.bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:609:        recomputed, stage.bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:617:            check_script: &stage.script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:618:            bundle_digest: &stage.bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:656:                check_script: &stage.script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:657:                bundle_digest: &manifest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:677:            check_script: &stage.script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:678:            bundle_digest: &stage.bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:762:    let (bundle_files, bundle_digest) = bundle_binding(&script);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:802:                check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:803:                bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1006:    let (bundle_files, bundle_digest) = bundle_binding(&script);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1080:                check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1081:                bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1146:    let (bundle_files, bundle_digest) = bundle_binding(&script);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1186:                check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1187:                bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1259:    let (bundle_files, bundle_digest) = bundle_binding(&script);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1315:                check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1316:                bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1400:    let (bundle_files, bundle_digest) = bundle_binding(&script);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1474:        check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1475:        bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1541:    let (bundle_files, bundle_digest) = bundle_binding(&script);
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1583:                check_script: &script,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/tests/case_k7.rs:1584:                bundle_digest: &bundle_digest,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:52:pub struct TestPolicy {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:58:impl TestPolicy {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:136:pub struct TestWorkerSpec {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:146:impl TestWorkerSpec {
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:156:        policy: &TestPolicy,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:288:pub fn prepare_test_worker(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:290:    spec: &TestWorkerSpec,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:431:pub fn run_test_command(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:432:    policy: &TestPolicy,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:473:    let mut command = docker_sandbox_command(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:758:fn docker_sandbox_command(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:759:    policy: &TestPolicy,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:883:    /// mapping: they return as errors from [`run_test_command`].
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:886:        spec: &TestWorkerSpec,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:887:        policy: &TestPolicy,
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:970:pub fn record_test_evidence(
+6e266406b49da2ab3c55355f3b7d33d1643ee6cd:crates/services/jackin-workflow/src/verify.rs:1352:    policy: &TestPolicy,

@@ -1,0 +1,8 @@
+worktree __POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source
+HEAD 30ac5218d0b44565616ab9417905a61bf02ca276
+branch refs/heads/main
+
+worktree __POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/worktree
+HEAD 202827e99b11e506ec1ec59cccc08a46649474c6
+branch refs/heads/jfr/jfr-20261024-ws
+

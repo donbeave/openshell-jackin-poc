@@ -1,0 +1,9 @@
+{
+  "old_clone_delete": 0,
+  "old_worktree_delete": 0,
+  "clone_recreate": 0,
+  "worktree_recreate": 0,
+  "clone_read": 0,
+  "worktree_read": 0,
+  "worktree_list_metadata": 0
+}

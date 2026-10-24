@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "docker",
+    "image",
+    "rm",
+    "sha256:2374eefdb4849a3dabd4f6f0ce03691d6083a8b1e53ff9dfa2f2d9e3eda55f14",
+    "sha256:6d86b745f663786c7bba1ca8e1d5cc35e584f002874303d154cef24d75afb5c9"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 1.631,
+  "stdout": "Untagged: jfr-20261024-vm/probe:0.1.5\nDeleted: sha256:2374eefdb4849a3dabd4f6f0ce03691d6083a8b1e53ff9dfa2f2d9e3eda55f14\nUntagged: jfr-20261024-vm/probe:forced\nDeleted: sha256:6d86b745f663786c7bba1ca8e1d5cc35e584f002874303d154cef24d75afb5c9\n",
+  "stderr": ""
+}

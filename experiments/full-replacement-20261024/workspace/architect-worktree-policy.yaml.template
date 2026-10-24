@@ -1,0 +1,18 @@
+version: 1
+process:
+  run_as_user: "1000"
+  run_as_group: "1000"
+filesystem_policy:
+  include_workdir: true
+  read_only: [/usr, /usr/local, /lib, /lib64, /etc, /proc, /sys, /dev/urandom, /opt]
+  read_write:
+    - /workspace
+    - /sandbox
+    - /tmp
+    - /home
+    - /dev/null
+    - __FIXTURE_ROOT__/worktree
+    - __FIXTURE_ROOT__/host-source/.git
+landlock:
+  compatibility: best_effort
+network_policies: {}

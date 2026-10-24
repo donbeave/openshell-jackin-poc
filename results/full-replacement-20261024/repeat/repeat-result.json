@@ -1,0 +1,313 @@
+{
+  "test_id": "jfr-20261024-repeat",
+  "release": "OpenShell v0.1.5",
+  "commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+  "platform": "macOS ARM64 + OrbStack Linux ARM64 Docker",
+  "gateway": {
+    "name": "jfr-20261024-c",
+    "endpoint": "https://localhost:28472",
+    "sandbox_label": "jfr-20261024-c",
+    "resource_admission_enabled": true,
+    "enable_bind_mounts": true
+  },
+  "workspace": "jfr-ws-repeat24",
+  "image": {
+    "ref": "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+    "id": "sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+    "platform": "linux/arm64",
+    "cache": "warm; image already present on host engine"
+  },
+  "source_path": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/repeat/source",
+  "sandbox_id": "21acc0ed-20bd-4087-b2c4-951247bd9050",
+  "volume_resource_identity": {
+    "docker_volume_name": "jfr24repeat-host-rw",
+    "docker_volume_id_field": "not provided by Docker inspect; name plus exact Labels/Driver/Options recorded",
+    "driver": "local",
+    "options": {
+      "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/repeat/source",
+      "o": "bind",
+      "type": "none"
+    },
+    "labels": {
+      "jackin.fixture": "jfr-20261024-repeat",
+      "openshell.ai/sandbox-attachable": "true",
+      "openshell.ai/sandbox-attachable-workspace": "jfr-ws-repeat24"
+    },
+    "mountpoint_redacted": "present; exact host path only in local private run"
+  },
+  "observations": {
+    "raw_host_bind": {
+      "result": "FAIL as expected",
+      "mechanism": "CONFIGURATION",
+      "exit_status": 1,
+      "error": "host bind or image mount cannot be attached while resource admission is enabled: no trusted label resolver",
+      "evidence": "rawbind-negative.json"
+    },
+    "approved_named_volume_live_host_source": {
+      "result": "PASS",
+      "mechanism": "EXTERNAL FIXTURE + CONFIGURATION",
+      "agent_write_exit": 0,
+      "host_observed": "sandbox-to-host",
+      "host_atomic_replace_sha256_before": "e03d63fde03e2f3074dc9fd7c1cbbb734b471388198cba2bd57fd0df9660f5a9",
+      "host_atomic_replace_sha256_after": "5500aed19ef90af9c9656b043c328c42baa906bb573f794998d2fb8ad14eb5da",
+      "agent_read_after_replace": "host-atomic-new",
+      "sandbox_id": "21acc0ed-20bd-4087-b2c4-951247bd9050"
+    },
+    "read_only_attach": {
+      "create_exit": 0,
+      "read_exit": 0,
+      "read_stdout": "host-atomic-new",
+      "write_exit": 2,
+      "write_stderr": "/bin/sh: 1: cannot create /workspace/jfr-repeat24/project/denied.txt: Read-only file system",
+      "result": "PASS"
+    },
+    "workspace_scope_denial": {
+      "result": "PASS negative",
+      "exit_status": 1,
+      "stderr": "Error:   \u00d7 code: 'The system is not in a state required for the operation's\n  \u2502 execution', message: \"docker volume 'jfr24repeat-wrong-workspace':\n  \u2502 external resource not admitted by required labels\""
+    },
+    "symlink_sibling_canary": {
+      "host_canary": "canary-jfr-repeat",
+      "sandbox_read_exit": 1,
+      "sandbox_stderr": "/bin/cat: /workspace/jfr-repeat24/project/canary-link: No such file or directory",
+      "result": "PASS negative"
+    },
+    "volume_owner_precleanup_inspection": {
+      "correct_volume_name": "jfr24repeat-host-rw",
+      "driver": "local",
+      "opts": {
+        "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/repeat/source",
+        "o": "bind",
+        "type": "none"
+      },
+      "labels": {
+        "jackin.fixture": "jfr-20261024-repeat",
+        "openshell.ai/sandbox-attachable": "true",
+        "openshell.ai/sandbox-attachable-workspace": "jfr-ws-repeat24"
+      },
+      "wrong_workspace_name": "jfr24repeat-wrong-workspace",
+      "wrong_workspace_labels": {
+        "jackin.fixture": "jfr-20261024-repeat",
+        "openshell.ai/sandbox-attachable": "true",
+        "openshell.ai/sandbox-attachable-workspace": "jfr-ws-other24"
+      }
+    }
+  },
+  "commands": [
+    {
+      "name": "create-positive-sandbox",
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "create",
+        "--name",
+        "jfr24volpos",
+        "--from",
+        "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+        "--detach",
+        "--policy",
+        "experiments/denied.yaml",
+        "--driver-config-json",
+        "{\"docker\": {\"mounts\": [{\"type\": \"volume\", \"source\": \"jfr24repeat-host-rw\", \"target\": \"/workspace/jfr-repeat24/project\", \"read_only\": false}]}}",
+        "--",
+        "/bin/sh",
+        "-c",
+        "sleep infinity",
+        "-o",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "Created sandbox: jfr24volpos\nSandbox allocated\nImage already present\nStarting sandbox Container created\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "list",
+        "-o",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"next_page_token\": \"\",\n  \"sandboxes\": [\n    {\n      \"annotations\": {\n        \"internal.openshell.ai/auth-epoch\": \"1\",\n        \"internal.openshell.ai/gateway-token-id\": \"5bc94354-e2d4-40b2-a194-21ae26e7af39\",\n        \"internal.openshell.ai/isolation-backend\": \"openshell-sandbox\",\n        \"internal.openshell.ai/runtime-generation\": \"73ea480c-c9e6-4adc-819e-0aaa4e44d554\"\n      },\n      \"conditions\": [\n        {\n          \"last_transition_time\": \"\",\n          \"message\": \"Supervisor session connected\",\n          \"reason\": \"DependenciesReady\",\n          \"status\": \"True\",\n          \"type\": \"Ready\"\n        },\n        {\n          \"last_transition_time\": \"\",\n          \"message\": \"\",\n          \"reason\": \"ConfigurationAccepted\",\n          \"status\": \"True\",\n          \"type\": \"ConfigurationReady\"\n        }\n      ],\n      \"configuration_admission\": {\n        \"config_revision\": 12871555518196103027,\n        \"error\": \"\",\n        \"policy_hash\": \"d54fe3e6f7f6d28dcfb4196aca10517159b81035806677e243a3a3e9aba2094a\",\n        \"policy_version\": 1,\n        \"provider_env_revision\": 3176606324465211593,\n        \"state\": \"accepted\"\n      },\n      \"created_at\": \"2026-10-24 01:17:15\",\n      \"created_from_workload_template\": null,\n      \"current_policy_version\": 1,\n      \"endpoint_statuses\": [],\n      \"exit_code\": null,\n      \"host_key_fingerprint\": \"SHA256:kpAad0Ycvrl9VvEg+mLgsOrnqEXipugryke7BDXEiss\",\n      \"id\": \"21acc0ed-20bd-4087-b2c4-951247bd9050\",\n      \"labels\": {},\n      \"last_token_grant_failure\": null,\n      \"name\": \"jfr24volpos\",\n      \"phase\": \"Ready\",\n      \"provisioning\": {\n        \"admission_start_time\": \"2026-10-24T01:17:25.509Z\",\n        \"attempt_id\": \"570ebe2c-d398-47d3-9dbc-2b80f100bf5d\",\n        \"cleanup_completed_time\": null,\n        \"cleanup_error\": \"\",\n        \"cleanup_retry_time\": null,\n        \"configuration_change_id\": \"c51a4753b1e008515925c5e4f2a0b74a8427785393fbffc0037876a07a139679\",\n        \"configuration_change_time\": \"2026-10-24T01:17:15.555Z\",\n        \"deadline\": null,\n        \"driver_operation_id\": \"19da2d83-dc73-45af-a87b-ad249117cdd2\",\n        \"driver_operation_pending\": false,\n        \"first_rejection_time\": null,\n        \"phase\": \"ready\",\n        \"preparation_deadline\": \"2026-10-24T01:47:15.555Z\",\n        \"timeout_time\": null\n      },\n      \"resource_version\": 15,\n      \"workspace\": \"jfr-ws-repeat24\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfr24volpos",
+        "--",
+        "/bin/sh",
+        "-c",
+        "printf \"sandbox-to-host\\n\" > /workspace/jfr-repeat24/project/from-agent.txt"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfr24volpos",
+        "--",
+        "/bin/cat",
+        "/workspace/jfr-repeat24/project/hello.txt"
+      ],
+      "exit_status": 0,
+      "stdout": "host-atomic-new\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfr24volpos",
+        "--",
+        "/bin/cat",
+        "/workspace/jfr-repeat24/project/canary-link"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "/bin/cat: /workspace/jfr-repeat24/project/canary-link: No such file or directory\n"
+    },
+    {
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "create",
+        "--name",
+        "jfr24volro",
+        "--from",
+        "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+        "--detach",
+        "--policy",
+        "experiments/denied.yaml",
+        "--driver-config-json",
+        "{\"docker\": {\"mounts\": [{\"type\": \"volume\", \"source\": \"jfr24repeat-host-rw\", \"target\": \"/workspace/jfr-repeat24/project\", \"read_only\": true}]}}",
+        "--",
+        "/bin/sh",
+        "-c",
+        "sleep infinity"
+      ],
+      "exit_status": 0,
+      "stdout": "\nCreated sandbox: jfr24volro\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686\n[0.0s] Image already present\n[4.3s] Starting sandbox Container created\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfr24volro",
+        "--",
+        "/bin/cat",
+        "/workspace/jfr-repeat24/project/hello.txt"
+      ],
+      "exit_status": 0,
+      "stdout": "host-atomic-new\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "exec",
+        "--no-login-shell",
+        "--no-tty",
+        "jfr24volro",
+        "--",
+        "/bin/sh",
+        "-c",
+        "printf no > /workspace/jfr-repeat24/project/denied.txt"
+      ],
+      "exit_status": 2,
+      "stdout": "",
+      "stderr": "/bin/sh: 1: cannot create /workspace/jfr-repeat24/project/denied.txt: Read-only file system\n"
+    },
+    {
+      "argv": [
+        "sh",
+        "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-c/client.sh",
+        "--workspace",
+        "jfr-ws-repeat24",
+        "sandbox",
+        "create",
+        "--name",
+        "jfr24badws",
+        "--from",
+        "nvcr.io/nvidia/base/ubuntu@sha256:7e0f726d635d440d28a7f18e6498d3bdb76c7038bd4c90a090c21eb7c9f40686",
+        "--no-keep",
+        "--policy",
+        "experiments/denied.yaml",
+        "--driver-config-json",
+        "{\"docker\": {\"mounts\": [{\"type\": \"volume\", \"source\": \"jfr24repeat-wrong-workspace\", \"target\": \"/workspace/jfr-repeat24/project\", \"read_only\": true}]}}",
+        "--",
+        "/bin/true"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Error:   \u00d7 code: 'The system is not in a state required for the operation's\n  \u2502 execution', message: \"docker volume 'jfr24repeat-wrong-workspace':\n  \u2502 external resource not admitted by required labels\"\n\n"
+    }
+  ],
+  "limits": "Primitive repeat only. Not Architect role, Jackin controller, Git mode, Capsule, or combined full journey. Local host/OrbStack Docker target only; no remote/VM/Kubernetes inference.",
+  "timings": {
+    "sandbox_ready_seconds": {
+      "positive": 10.2,
+      "readonly": "approximately 10 seconds; CLI reported allocation/start; list then showed Ready",
+      "measurement": "positive wall time from command tool; gateway log shows CreateSandbox at 01:17:15 and supervisor ready at 01:17:25"
+    },
+    "image_build_seconds": "NOT APPLICABLE; no image build",
+    "engine_readiness": "NOT APPLICABLE; no optional Docker engine fixture",
+    "first_successful_host_share_probe_seconds": "after sandbox Ready; no isolated duration",
+    "resource_usage": "NOT MEASURED; this primitive probe did not collect host/supervisor/agent memory"
+  },
+  "cleanup": {
+    "result": "PASS",
+    "script": "experiments/full-replacement-20261024/repeat/cleanup-owned-fixture.py",
+    "evidence": "cleanup-actions.json",
+    "resources": [
+      "two sandbox UUIDs recorded above",
+      "two exact label/options-checked Docker volumes",
+      "workspace jfr-ws-repeat24"
+    ],
+    "retained_fixture": "source-export.tar and byte-exact manifest retained",
+    "mutation_limit": "OpenShell sandbox delete API is name based; ID checked immediately before delete, not atomic. Docker local volumes have no separate immutable volume ID; exact options/labels checked before removal."
+  }
+}

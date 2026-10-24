@@ -1,0 +1,43 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.rust-docker-tools
+#1 transferring dockerfile: 889B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/jfr-20261024-architect-base:7b72b38@sha256:e7655072c6d511250b183e9511ca1f701e635766ec0d190a68bfe470745df63a
+#2 DONE 0.1s
+
+#3 [stage-1 2/7] ADD --checksum=sha256:3a3c72376687ba21a588d0f5a2c88c76f483fb6cdece7b0fc43d5e3132b08a52 https://github.com/jdx/mise/releases/download/v2026.10.18/mise-v2026.10.18-linux-arm64 /usr/local/bin/mise
+#3 CACHED
+
+#4 [stage-1 3/7] ADD --checksum=sha256:8a1aaf0a495e455d2ea09430c92c59169eef6a29a140c6b21a6d1581fe252f86 https://github.com/jdx/mr-boxington/releases/download/v1.27.0/mbx-aarch64-unknown-linux-gnu.tar.gz /tmp/mbx.tar.gz
+#4 CACHED
+
+#5 [stage-1 1/7] FROM docker.io/library/jfr-20261024-architect-base:7b72b38@sha256:e7655072c6d511250b183e9511ca1f701e635766ec0d190a68bfe470745df63a
+#5 resolve docker.io/library/jfr-20261024-architect-base:7b72b38@sha256:e7655072c6d511250b183e9511ca1f701e635766ec0d190a68bfe470745df63a 0.1s done
+#5 DONE 0.5s
+
+#6 [stage-1 2/7] ADD --checksum=sha256:3a3c72376687ba21a588d0f5a2c88c76f483fb6cdece7b0fc43d5e3132b08a52 https://github.com/jdx/mise/releases/download/v2026.10.18/mise-v2026.10.18-linux-arm64 /usr/local/bin/mise
+#6 DONE 0.4s
+
+#7 [stage-1 3/7] ADD --checksum=sha256:8a1aaf0a495e455d2ea09430c92c59169eef6a29a140c6b21a6d1581fe252f86 https://github.com/jdx/mr-boxington/releases/download/v1.27.0/mbx-aarch64-unknown-linux-gnu.tar.gz /tmp/mbx.tar.gz
+#7 DONE 0.1s
+
+#8 [internal] load .dockerignore
+#8 transferring context: 2B done
+#8 DONE 0.1s
+
+#9 [4/4] RUN groupadd --gid 1000 sandbox && usermod --gid sandbox agent && chmod 0755 /usr/local/bin/mise && tar -xzf /tmp/mbx.tar.gz -C /usr/local/bin mbx && chmod 0755 /usr/local/bin/mbx && mkdir -p /workspace /home/agent/.cargo && chown -R agent:1000 /workspace /home/agent/.cargo && rm /tmp/mbx.tar.gz
+#9 DONE 4.1s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 62.9s done
+#10 exporting manifest sha256:8dfb562b71244543ffa69b8e2f50afa66c1a952829d9ebed6b8ffd90586bcdf8 0.0s done
+#10 exporting config sha256:c54ce145ac9205e5ec4303a2a531f4275beb618d1bfb76ea1061c44cc9600644 0.0s done
+#10 exporting attestation manifest sha256:47e4aa27dc1e96de37714535efed27eb48eeda12457bda2817a44846fadce90d 0.0s done
+#10 exporting manifest list sha256:db4bc2b50ccb48f25a8563ee4156953e6dfdbe4f3ad4c1bb138c6cefd0926239 0.0s done
+#10 naming to docker.io/library/jfr-20261024-architect-docker-tools:7b72b38 done
+#10 unpacking to docker.io/library/jfr-20261024-architect-docker-tools:7b72b38
+#10 unpacking to docker.io/library/jfr-20261024-architect-docker-tools:7b72b38 25.0s done
+#10 DONE 88.0s

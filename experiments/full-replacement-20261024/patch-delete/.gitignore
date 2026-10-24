@@ -1,0 +1,6 @@
+# Source clone and generated secrets/state are local execution fixtures.
+openshell/
+gateway/certs/
+gateway/config/
+gateway/state/
+gateway/gateway.toml

@@ -1,0 +1,8 @@
+{
+  "observation": "Hashed unowned host inventories changed during the cleanup window. We made no commands that remove host containers or images except the two exact experiment-owned derived image IDs; Docker container inventory is not stable across adjacent reads.",
+  "unowned_orb_machine_inventory": "unchanged, zero rows before/after; the only OrbStack machine was the exact jfr fixture and is recorded separately.",
+  "host_docker_containers": "90 rows before, 88 after first read, 78 after immediate repeat; digest changed. This indicates concurrent/dynamic host engine inventory. No unrelated container IDs were inspected, stopped, or deleted.",
+  "host_docker_images": "138 rows before, 137 after; digest changed. Two exact experiment-owned `jfr-20261024-vm/probe` image IDs were removed. Remaining image inventory may also have changed concurrently; no unrelated images were removed or pruned.",
+  "host_processes": "Hash/count changed; process inventory is naturally dynamic. Only the two owned gateway PIDs verified by exact config path and listen port received SIGINT.",
+  "limitation": "Hash drift prevents asserting the shared host Docker inventory stayed byte-identical. No attempt was made to attribute or repair unrelated changes."
+}

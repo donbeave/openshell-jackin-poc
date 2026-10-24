@@ -1,0 +1,2 @@
+CONTAINER ID                                                       IMAGE                                                                            COMMAND                                          CREATED       STATUS                   PORTS     NAMES
+f05cde27924fd33aa4354a30b38f777188b269fa84f52fbe445d150c6b88ba33   alpine@sha256:24bb3511a0db7b5114a4aee033c65a8a4148f39b7b80a398e548546db967a36f   "/bin/sh -c 'echo jfr-child-ready; sleep 120'"   2 hours ago   Exited (0) 2 hours ago             jfr24-dk-child

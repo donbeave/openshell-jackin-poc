@@ -1,0 +1,13 @@
+IDENTITY
+uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+NoNewPrivs:	1
+HOME=/sandbox PWD=/sandbox
+SEEDED_AGENT=present
+HOOK_BEGIN
+[architect-preflight] CONTEXT7_API_KEY unset — skipping Context7 MCP for grok
+Added stdio MCP server 'headroom' with command: headroom mcp serve to user config
+File modified: ~/.grok/config.toml
+HOOK_DONE
+grok 1.0.70 (f50904eaee6c)

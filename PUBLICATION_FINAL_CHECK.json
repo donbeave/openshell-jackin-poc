@@ -1,0 +1,50 @@
+{
+  "checked_utc": "2026-10-24T03:56:40.250477+00:00",
+  "baseline": "2315e6a278231854b3139b1ca32402777ff3cd01",
+  "manifest_sha256": "6d6082707d51f8f6fb8f1c938217aa0f76acfaa05fe558e80b1acabbbeb472e6",
+  "manifest_file_count": 1765,
+  "manifest_hashes_match": true,
+  "baseline_files_unchanged": true,
+  "directory_scan_command": "GITLEAKS_CONFIG= GITLEAKS_CONFIG_TOML= gitleaks dir . --redact=100 --ignore-gitleaks-allow --gitleaks-ignore-path /dev/null --no-banner --no-color --report-format json --report-path <outside-publication-tree>/gitleaks.json",
+  "directory_scan_exit": 1,
+  "directory_scan_report_sha256": "fb87c61208ef7a34c74c9391fc0002c64dc8b7c2347087e70ffbeb12cce2c3e0",
+  "findings": [
+    {
+      "file": "experiments/full-refactor-20261024/verification-worker/results/image-inspect.json",
+      "line": 1,
+      "rule": "generic-api-key"
+    },
+    {
+      "file": "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/docker-inspect.json",
+      "line": 154,
+      "rule": "generic-api-key"
+    },
+    {
+      "file": "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/inspect.json",
+      "line": 154,
+      "rule": "generic-api-key"
+    },
+    {
+      "file": "results/full-replacement-20261024/control/tls-wrong-ou.stdout.json",
+      "line": 7,
+      "rule": "generic-api-key"
+    },
+    {
+      "file": "results/full-replacement-20261024/docker/managed-engine-research.md",
+      "line": 25,
+      "rule": "generic-api-key"
+    }
+  ],
+  "disposition": "The same five independently reviewed non-secret findings: three public signing-key IDs, one synthetic mTLS subject, and one prose match. No allowlist suppression. See security-publication-review.md. The earlier Git-history scan covered baseline only; no clean-history claim for the new commit.",
+  "scope": "Final manifest supersedes earlier staging counts in the independent review. This receipt, the manifest, publication notes and refresh helper are publication scaffolding rather than source evidence.",
+  "manifest_total_bytes": 12181174,
+  "final_reconciliation": "Twelve reviewed files recopied with final narrow redaction and inventoried; three empty excluded scan reports moved outside candidate. Final rescan has exactly the same five independently reviewed non-secret findings. Final manifest supersedes earlier staging counts.",
+  "independent_reconciliation_review": {
+    "reviewer": "replacement_docker",
+    "approved": true,
+    "source_files": 12,
+    "full_redacted_content_mismatches": 0,
+    "manifest_hash_mismatches": 0,
+    "note": "Reviewer independently reapplied the final narrow redactor to all restored raw source files and compared complete output."
+  }
+}

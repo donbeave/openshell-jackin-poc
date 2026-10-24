@@ -1,0 +1,10 @@
+[package]
+name = "pdel-cleanup-owned"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+openshell-sdk = { path = "../openshell/crates/openshell-sdk" }
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
+tonic = { version = "0.14", features = ["tls-native-roots"] }
+uuid = { version = "1", features = ["v4"] }

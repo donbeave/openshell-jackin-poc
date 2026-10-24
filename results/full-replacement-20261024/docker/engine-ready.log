@@ -1,0 +1,10 @@
+time="2026-10-24T01:09:51.512225668Z" level=info msg="Deleting nftables IPv4 rules" error="failed to find nft tool: exec: \"nft\": executable file not found in $PATH"
+time="2026-10-24T01:09:51.512235709Z" level=info msg="Deleting nftables IPv6 rules" error="failed to find nft tool: exec: \"nft\": executable file not found in $PATH"
+time="2026-10-24T01:09:52.233358425Z" level=info msg="Loading containers: done."
+time="2026-10-24T01:09:52.275049469Z" level=info msg="Docker daemon" commit=8af9fe3 containerd-snapshotter=true storage-driver=overlayfs version=29.8.2
+time="2026-10-24T01:09:52.275183803Z" level=info msg="Initializing buildkit"
+time="2026-10-24T01:09:52.535795110Z" level=info msg="Completed buildkit initialization"
+time="2026-10-24T01:09:52.538521079Z" level=info msg="Daemon has completed initialization"
+time="2026-10-24T01:09:52.538836955Z" level=info msg="API listen on /var/run/docker.sock"
+time="2026-10-24T01:09:52.538869455Z" level=info msg="API listen on [::]:2376"
+2026/10/24 01:10:00 http: TLS handshake error from 192.168.215.0:60521: EOF

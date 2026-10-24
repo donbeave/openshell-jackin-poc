@@ -1,0 +1,37 @@
+{
+  "test_id": "jfr-20261024-ws-bind-negative",
+  "sandbox_name": "jfrws24-bindneg",
+  "gateway": "jfr-20261024-a",
+  "release": "OpenShell 0.1.5",
+  "image": "openshell-agent-preview:20261024",
+  "image_id": "b905bf162c20",
+  "mount_source": "__POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source",
+  "mount_target": "/workspace/jfr-20261024-ws",
+  "mount_read_only": false,
+  "driver_config": {
+    "enable_bind_mounts": "unset/default false",
+    "resource_admission": "unchanged; enabled"
+  },
+  "command": [
+    "sh",
+    "experiments/full-replacement-20261024/gateway-a/client.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "jfrws24-bindneg",
+    "--from",
+    "openshell-agent-preview:20261024",
+    "--no-keep",
+    "--driver-config-json",
+    "{\"docker\": {\"mounts\": [{\"type\": \"bind\", \"source\": \"__POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source\", \"target\": \"/workspace/jfr-20261024-ws\", \"read_only\": false}]}}",
+    "--",
+    "/bin/sh",
+    "-lc",
+    "test -f /workspace/jfr-20261024-ws/README.md"
+  ],
+  "exit_status": 1,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 code: 'The system is not in a state required for the operation's\n  \u2502 execution', message: \"docker bind mounts require enable_bind_mounts = true\n  \u2502 in [openshell.drivers.docker]\"\n\n",
+  "expected": "Create rejected by driver admission; no host path attached",
+  "classification": "DIRECT HOST-BIND ADMISSION TEST; disposable source path only"
+}

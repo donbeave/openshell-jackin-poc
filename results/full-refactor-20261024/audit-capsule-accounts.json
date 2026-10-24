@@ -1,0 +1,221 @@
+{
+  "audit": "Capsule, sessions, accounts, credentials, and host integration source audit",
+  "source": {
+    "repository": "jackin-project/jackin",
+    "commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+    "tree": "11c7af3812dd9ba0be27f6ae33fc078fa40ff85c",
+    "snapshot": "experiments/full-refactor-20261024/source/jackin",
+    "kind": "source audit only; no runtime PASS results"
+  },
+  "candidate": {
+    "selection": "B preferred for experiment, not proven",
+    "description": "Trusted Jackin control remains outside workloads; use a separate OpenShell sandbox for each account/security domain and a separate shell domain. Jackin keeps logical instance/session UX, authorization, provider usage logic, and host desktop actions.",
+    "unresolved": [
+      "session transport and reconnect semantics",
+      "coherent logical instance over multiple sandbox identities",
+      "account and generic shell isolation",
+      "effective aggregate limits and lifecycle",
+      "approved credential path",
+      "all admitted agent installation/authentication/startup paths",
+      "Capsule single-multiplexer semantics across per-domain sandboxes: persistent session identity, focus/control ownership, event history, PTY resize/signal, disconnect/reconnect"
+    ],
+    "challenge": "One Capsule multiplexer currently owns a shared local session table, focus/tabs, PTY children and attach socket. Candidate B moves those to multiple remote sandboxes; OpenShell process streams must be proven to reconnect to a running child and preserve stable session identity. Minimum POC: two deterministic PTYs plus one actual supported agent in two account sandboxes and a separate shell sandbox; disconnect/reconnect, focus/send/take/release, resize, interrupt one while verifying the other remains alive, restart one sandbox, preserve private homes and share only project data. If unavailable, requires a small Jackin session adaptation or supported OpenShell persistent-session API. NOT TESTED."
+  },
+  "call_sites": [
+    {
+      "source": "crates/apps/jackin-capsule/src/main.rs::main; argv.rs::{forced_daemon_mode,exec_invocation}",
+      "caller": "Capsule image entrypoint and client subcommands",
+      "classification": "active, runtime untested",
+      "current_owner": "Capsule; PID1/forced-daemon classification and daemon lifecycle",
+      "replacement": "OpenShell owns workload lifecycle; Jackin invokes explicit startup and authenticated client operations",
+      "needed": "Remove implicit PID1 container assumption; prove daemon starts once and client commands never start another sandbox"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/process_isolation.rs::{run_isolated_command,admitted_identity}; process_isolation/linux.rs; linux/enforce.rs",
+      "caller": "main::__isolated-exec via session spawn",
+      "classification": "active, untested under OpenShell",
+      "current_owner": "Capsule root wrapper; per-instance/shell UID/GID admission, identity change, Landlock and no-new-privileges",
+      "replacement": "Separate OpenShell sandboxes per account/security domain and shell domain; Jackin host-side authorization",
+      "needed": "Prove UID/GID/groups/capabilities/filesystem boundaries and cross-domain denial; do not weaken UID0 or profile restrictions"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/daemon/session_lifecycle/*; daemon/supervisor.rs; daemon/session_events.rs; daemon/control_dispatch.rs",
+      "caller": "daemon boot and terminal/control commands",
+      "classification": "active, source path; runtime untested",
+      "current_owner": "Capsule owns agent children, session state, events, exit status and mux",
+      "replacement": "Jackin retains logical session model; OpenShell owns sandbox process lifetime",
+      "needed": "Map session to target/sandbox/generation/domain; prove parallel sessions, interruption, reconnect, restart and cleanup"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/client/attach.rs; crates/services/jackin-runtime-attach-transport/src/transport.rs",
+      "caller": "TUI attach transport",
+      "classification": "active, untested replacement",
+      "current_owner": "Capsule Unix socket/raw proxy; Docker exec fallback",
+      "replacement": "Jackin protocol client over authenticated OpenShell Rust control/session stream",
+      "needed": "Binary-safe bidirectional stream, split/NUL frames, backpressure, EOF, cancellation, reconnect, separate diagnostics"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/client/session_cmds.rs; client/status.rs; daemon/control_dispatch.rs",
+      "caller": "TUI focus/input/status/snapshot",
+      "classification": "active, runtime untested",
+      "current_owner": "Capsule control protocol and authorization",
+      "replacement": "Jackin retains session permissions and UX; OpenShell transports exact process input/control",
+      "needed": "Positive/negative ownership checks and immutable sandbox generation binding"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/attach_protocol/*; daemon/attach_accept.rs; attach_context.rs",
+      "caller": "Attach handshake and proxy subprocess",
+      "classification": "active, runtime untested protocol; OpenShell path untested",
+      "current_owner": "Capsule socket protocol",
+      "replacement": "Retain app frames; adapt transport to OpenShell authenticated stream or proven persistent session interface",
+      "needed": "Protocol negotiation, resumability, stream loss recovery; no human-readable output parsing"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/{exec.rs,exec/command.rs,exec/picker.rs}; client_dispatch.rs",
+      "caller": "jackin-exec / approved credential command",
+      "classification": "active, runtime untested guard; runtime auth untested",
+      "current_owner": "Capsule binds request to session/instance/account and approval",
+      "replacement": "Jackin retains approval and account authorization; narrow credential injection to selected sandbox process",
+      "needed": "Test approved, refused, cancelled, timeout, wrong domain, wrong identity; prove recipient process and ordinary-agent denial"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/mcp_server.rs; client_dispatch.rs",
+      "caller": "Agent local MCP stdio server",
+      "classification": "active for configured local MCP path; remote path separate",
+      "current_owner": "Capsule MCP server and scoped credential request",
+      "replacement": "Jackin retains MCP policy/protocol; request scoped to matching sandbox/domain",
+      "needed": "Real authenticated wrong-session/domain negatives, missing capability denial, redaction, cancellation; test remote MCP separately"
+    },
+    {
+      "source": "crates/services/jackin-instance-agents/src/{agent_auth.rs,account_sources.rs,claude.rs,codex.rs,amp.rs,kimi.rs,opencode.rs,grok.rs}; jackin-instance-credentials/src/auth_directory/*",
+      "caller": "launch account selection, staging, and agent config",
+      "classification": "active, runtime untested",
+      "current_owner": "Jackin account source and staged private config/auth files or env",
+      "replacement": "Jackin stores account revisions; per-domain durable private mounts/config, OpenShell boundary",
+      "needed": "Keep API keys, profile sync, Claude OAuth, GitHub, provider URL/model/effort distinct; transaction failure and cross-domain tests"
+    },
+    {
+      "source": "crates/services/jackin-runtime-launch-account-identity/src/account_identity.rs; jackin-runtime-attach-admission/src/admission.rs; launch/attach hardline/reconnect/finalize callers",
+      "caller": "load/restore/attach/reconnect",
+      "classification": "active admission checks; revocation effects untested",
+      "current_owner": "Jackin account revision lease and attach admission",
+      "replacement": "Host authorization keyed by target + immutable sandbox ID + generation + domain/account revision",
+      "needed": "Test races, stale identity, revision refresh and live revocation separately; no immediate termination guarantee inferred"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/runtime_setup/{agent_auth.rs,agents.rs,claude.rs,commands.rs}; crates/core/jackin-core/src/agent.rs",
+      "caller": "sandbox setup and selected agent startup",
+      "classification": "active agent-specific source paths; end-to-end auth untested",
+      "current_owner": "Capsule setup dispatch plus agent adapters",
+      "replacement": "Derived image installs selected agent; explicit OpenShell startup command; Jackin retains agent config/account selection",
+      "needed": "Verify role admission, install, launch and auth separately for each actual supported agent; real authenticated coding task"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/usage_relay_proxy.rs; crates/services/jackin-runtime-usage-relay/src/usage_relay.rs",
+      "caller": "usage reporting and host account usage collection",
+      "classification": "active scoped relay surfaces; OpenShell transport untested",
+      "current_owner": "Jackin provider adapters and Capsule relay",
+      "replacement": "Jackin keeps provider and account policy; transport scoped to domain",
+      "needed": "Real auth, cross-account denial, unavailable state and cancellation; transport is not billing correctness"
+    },
+    {
+      "source": "crates/services/jackin-runtime-snapshot/src/snapshot.rs::fetch_usage_accounts; crates/apps/jackin/src/cli/usage.rs; cli/usage/verify.rs",
+      "caller": "jackin usage CLI and verification",
+      "classification": "active; direct Docker snapshot path",
+      "current_owner": "Docker exec snapshot retrieval",
+      "replacement": "Scoped OpenShell read/session operation; Jackin keeps presentation/provider logic",
+      "needed": "Remove Docker read path; prove authorization, errors, empty/unavailable distinction"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/clipboard.rs; daemon/control/frames.rs; daemon/construct.rs",
+      "caller": "desktop clipboard image paste into selected agent",
+      "classification": "active, runtime untested local framing; remote untested",
+      "current_owner": "Jackin desktop client reads clipboard; Capsule validates/chunks/stages private temp path",
+      "replacement": "Host client retains clipboard access; explicit bounded transfer to selected domain sandbox",
+      "needed": "Origin/session binding, interruption, limit/hash, path visibility and cleanup"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/daemon/file_export.rs; crates/core/jackin-protocol/src/attach.rs FileExport*",
+      "caller": "terminal/file export through console",
+      "classification": "active protocol implementation",
+      "current_owner": "Capsule emits chunks; trusted host chooses/writes destination",
+      "replacement": "Retain host destination and frames over OpenShell transport",
+      "needed": "Byte-exact interrupted transfer, wrong-client denial, completion/error behavior"
+    },
+    {
+      "source": "crates/core/jackin-protocol/src/attach.rs HostOpenUrl/HostRevealPath; capsule daemon frame creation and host TUI dispatch",
+      "caller": "session requests host open/reveal",
+      "classification": "active host affordance path; cross-target origin auth untested",
+      "current_owner": "Trusted desktop client executes host action",
+      "replacement": "Jackin host validates origin/target/session/consent and executes locally",
+      "needed": "Wrong-domain and remote-target routing proof; never grant sandbox direct desktop authority"
+    },
+    {
+      "source": "crates/apps/jackin-capsule/src/pid1.rs; main.rs Darwin prepare/activate",
+      "caller": "Capsule when process itself runs as PID1 on macOS",
+      "classification": "active platform-specific code; runtime untested",
+      "current_owner": "Capsule reaps orphaned children and coordinates SIGCHLD",
+      "replacement": "OpenShell driver owns sandbox process cleanup; retain only needed session child ownership",
+      "needed": "Darwin test must run process on macOS; Linux VM on Mac does not execute Darwin path; recheck changed 6e code against prior evidence"
+    }
+  ],
+  "agents": {
+    "enum_count": 12,
+    "agents": [
+      "claude",
+      "codex",
+      "amp",
+      "kimi",
+      "opencode",
+      "grok",
+      "antigravity",
+      "gemini",
+      "cursor",
+      "muse",
+      "omp",
+      "hermes"
+    ],
+    "source_note": "The enum has 12 agents. runtime_setup/agents.rs has setup/state handlers beyond the launch dispatcher. docker/runtime/entrypoint.sh remains unchanged at 6e and only dispatches initial and sibling PTY child launch for Claude, Codex, Amp, Kimi, OpenCode, Grok. Call chain: argv::resolve_initial_agent -> attach_protocol::initial_spawn_requests (initial plus configured siblings) -> daemon/session_lifecycle::spawn -> agent_spawn::spawn_session -> session/agent_cmd::build_agent_command -> /runtime/entrypoint.sh with JACKIN_AGENT. Six-agent launch limitation remains. Role admission, image installation, and each agent authentication path still require tracing/proof.",
+    "distinct_auth_paths": [
+      "API key",
+      "profile synchronization",
+      "Claude OAuth token",
+      "GitHub authentication",
+      "custom provider URL/model/effort",
+      "local MCP",
+      "remote MCP"
+    ],
+    "launch_dispatch": {
+      "initial": "docker/runtime/entrypoint.sh supports Claude, Codex, Amp, Kimi, OpenCode, Grok only",
+      "siblings": "argv::resolve_initial_agent -> attach_protocol::initial_spawn_requests -> daemon/run_loop -> daemon/session_lifecycle/spawn -> agent_spawn::spawn_session -> session/agent_cmd::build_agent_command -> /runtime/entrypoint.sh with JACKIN_AGENT; same six-case dispatch applies",
+      "setup_note": "runtime_setup/agents.rs extra state/setup handlers do not establish executable launch support",
+      "status": "Six-agent launch limitation remains at pinned 6e; join role admission and image installation before declaring any one supported end-to-end"
+    }
+  },
+  "classification_notes": [
+    "Source and unit tests are not runtime proof.",
+    "Host clipboard, URL, reveal, and export remain Jackin host responsibilities.",
+    "Admission/revision checks do not imply immediate termination/revocation of active connections.",
+    "Current Jackin 6e differs significantly from historical 41bad Capsule; Darwin reaper only applies when Capsule process runs on macOS.",
+    "Source tests and code paths establish intended behavior only; all Capsule call-site rows are runtime untested unless explicitly supported by separate applicable execution evidence."
+  ],
+  "result": "NOT TESTED",
+  "mechanism": "RETAINED HOST LOGIC proposed; OpenShell execution/transport needs live proof",
+  "readiness": "This feature area does not yet meet full-refactor research acceptance.",
+  "version_diff_41bad_to_6e": {
+    "capsule_scope": "12 files, +5889/-144",
+    "changed_behavior": [
+      "PID1 reaper implementation and tests expanded",
+      "main.rs prepares/activates Darwin reaper when Capsule process target is macOS",
+      "daemon/boot.rs requires active Darwin reaper on macOS and installs SIGCHLD reaper on non-macOS",
+      "session/spawn.rs registers child ownership before/after PTY spawn and transfers uncertain wait outcomes to reaper",
+      "util.rs and pr_context.rs change child polling and handle drop/wait ordering",
+      "process telemetry changes"
+    ],
+    "unchanged_relevant_sources": [
+      "docker/runtime/entrypoint.sh",
+      "crates/apps/jackin-capsule/src/runtime_setup/agents.rs"
+    ],
+    "compatibility": "Historical runtime evidence on changed Capsule child lifecycle, spawn/wait, or reaper paths must be rerun. Source findings on unchanged entrypoint/setup files remain applicable. Darwin-specific behavior only runs when Capsule process itself is macOS; macOS host plus Linux guest is not Darwin execution."
+  }
+}

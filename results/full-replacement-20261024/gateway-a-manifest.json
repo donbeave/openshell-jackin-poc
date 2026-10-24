@@ -1,0 +1,27 @@
+{
+  "test_id": "jfr-20261024-a",
+  "owner": "root experiment",
+  "namespace": "jfr-20261024-a",
+  "endpoint": "https://localhost:28470",
+  "execution_system": "OpenShell 0.1.5 Docker driver",
+  "gateway_config": "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/gateway-a/gateway.toml",
+  "resource_admission": "default enabled; not disabled",
+  "bind_mounts": "default disabled",
+  "resource_authority": "experiment-local gateway and XDG only; host engine used by trusted gateway",
+  "process_query": {
+    "command": [
+      "lsof",
+      "-nP",
+      "-iTCP:28470",
+      "-sTCP:LISTEN",
+      "-Fpc"
+    ],
+    "exit": 0,
+    "stdout": "p65583\ncopenshell-gateway\nf22\n",
+    "stderr": ""
+  },
+  "config_sha256": "dcf3efd712d88e6dd9cf9b534acd07de16b3d0daca263ac6ea50e0742f2adba8",
+  "retained_data": "only disposable experiment state",
+  "cleanup": "after deleting exact sandbox IDs, terminate recorded gateway PID only after executable/listener validation; remove only owned private fixture paths",
+  "created_utc": "2026-10-24T01:10:58.351776+00:00"
+}

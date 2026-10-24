@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "orbctl",
+    "info",
+    "01M5NQEC7J2BYG95SH85TRZHXW"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.058,
+  "stdout": "ID: 01M5NQEC7J2BYG95SH85TRZHXW\nName: jfr-20261024-linux\nState: running\n\nDistro: ubuntu\nImage version: noble\nArchitecture: arm64\nOS: Ubuntu 24.04.5 LTS\n\nDisk usage: 2.0 GB\n\nIPv4: 192.168.139.147\nIPv6: fd07:b51a:cc66:0:38f6:54ff:fe90:173e\n\n",
+  "stderr": ""
+}

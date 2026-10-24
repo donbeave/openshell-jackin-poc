@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "orbctl",
+    "info",
+    "01M5NQEC7J2BYG95SH85TRZHXW"
+  ],
+  "exit_status": 1,
+  "wall_seconds": 0.025,
+  "stdout": "",
+  "stderr": "[-32098] machine not found: '01M5NQEC7J2BYG95SH85TRZHXW'\n"
+}

@@ -1,0 +1,19 @@
+[
+    {
+        "CreatedAt": "2026-10-24T08:16:48+07:00",
+        "Driver": "local",
+        "Labels": {
+            "jackin.fixture": "jfr-20261024-repeat",
+            "openshell.ai/sandbox-attachable": "true",
+            "openshell.ai/sandbox-attachable-workspace": "jfr-ws-repeat24"
+        },
+        "Mountpoint": "/var/lib/docker/volumes/jfr24repeat-host-rw/_data",
+        "Name": "jfr24repeat-host-rw",
+        "Options": {
+            "device": "/Users/example/openshell-jackin-public/results/full-replacement-20261024/repeat/source",
+            "o": "bind",
+            "type": "none"
+        },
+        "Scope": "local"
+    }
+]

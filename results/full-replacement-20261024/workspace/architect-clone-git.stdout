@@ -1,0 +1,8 @@
+## main...origin/main [ahead 1]
+ clone-sandbox.txt | 1 +
+ 1 file changed, 1 insertion(+)
+[main 38ae5af] fixture clone sandbox commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 clone-sandbox.txt
+## main...origin/main [ahead 2]
+38ae5af14bcbd673347a2ff4581e72473a135e0f fixture clone sandbox commit

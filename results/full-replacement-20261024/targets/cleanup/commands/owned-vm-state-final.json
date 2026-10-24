@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "sh",
+    "-c",
+    "test ! -e /tmp/jfr-20261024-vm && test ! -e /tmp/jfr-20261024-vmbind && test ! -e experiments/full-replacement-20261024/targets/openshell-vm/state && test ! -e experiments/full-replacement-20261024/targets/openshell-vm/config && test ! -e experiments/full-replacement-20261024/targets/openshell-vm/certs && test ! -e experiments/full-replacement-20261024/targets/openshell-vm-bind/state && test ! -e experiments/full-replacement-20261024/targets/openshell-vm-bind/config && test ! -e experiments/full-replacement-20261024/targets/openshell-vm-bind/certs && echo all-owned-state-absent"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.007,
+  "stdout": "all-owned-state-absent\n",
+  "stderr": ""
+}

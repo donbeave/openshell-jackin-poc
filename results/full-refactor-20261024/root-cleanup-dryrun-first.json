@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python3",
+    "experiments/full-refactor-20261024/cleanup-gateway-a.py"
+  ],
+  "exit_status": 1,
+  "error": "AssertionError: listener identity mismatch",
+  "expected": "validate exact listener before effects",
+  "observed": "lsof includes non-PID fields; original equality assertion rejected them",
+  "effects": "none; failed in dry run before SIGTERM or private-file cleanup",
+  "correction": "compare parsed PID fields only; retain exact process/config/port checks"
+}

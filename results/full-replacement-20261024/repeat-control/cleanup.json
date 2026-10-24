@@ -1,0 +1,57 @@
+{
+  "result": "PASS",
+  "mechanism": "CONFIGURATION",
+  "inventory_before_cleanup": {
+    "argv": [
+      "sh",
+      "experiments/full-replacement-20261024/repeat-control/gateway-rctl/client.sh",
+      "sandbox",
+      "list",
+      "-o",
+      "json"
+    ],
+    "exit_status": 0,
+    "stdout": "{\n  \"next_page_token\": \"\",\n  \"sandboxes\": []\n}\n",
+    "stderr": ""
+  },
+  "docker_containers_before_cleanup": {
+    "argv": [
+      "docker",
+      "ps",
+      "-a",
+      "--filter",
+      "label=openshell.ai/sandbox-namespace=jfr-20261024-rctl",
+      "--format",
+      "{{json .}}"
+    ],
+    "exit_status": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "listener_check": {
+    "argv": [
+      "lsof",
+      "-nP",
+      "-iTCP:28600",
+      "-sTCP:LISTEN"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "removed_exact_paths": [
+    "experiments/full-replacement-20261024/repeat-control/gateway-rctl/gateway.toml"
+  ],
+  "already_absent_paths": [
+    "experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs",
+    "experiments/full-replacement-20261024/repeat-control/gateway-rctl/config",
+    "experiments/full-replacement-20261024/repeat-control/gateway-rctl/state",
+    "experiments/full-replacement-20261024/repeat-control/private"
+  ],
+  "retained": [
+    "Rust source/build files",
+    "gateway reproduction scripts",
+    "raw result JSON and logs",
+    "pinned image cache"
+  ]
+}

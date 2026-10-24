@@ -1,0 +1,389 @@
+{
+  "next_page_token": "",
+  "sandboxes": [
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "b1f7bb90-3045-4626-84e9-3113f7023a1b"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 11936503598888845510,
+        "error": "",
+        "policy_hash": "e30d0f5ac99c158639a2574a9e8266e510bb3bce7b09ce2c062f86846ebae3c8",
+        "policy_version": 5,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:31:04",
+      "created_from_workload_template": null,
+      "current_policy_version": 5,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:KHzxbOL/nhKV+JFmcsN2cs9ZOs9nrrcP0YeEa0AM+fk",
+      "id": "fe768974-c7fb-4f60-86cc-0e53a7eb5101",
+      "labels": {
+        "ojp.owner": "followup-docker-rust",
+        "ojp.test-id": "jfr-20261024-docker"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfr24-rust-b",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:31:05.535Z",
+        "attempt_id": "98e81bfe-8a6e-4062-9244-4915d8a39b73",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "453e7b1456a192dd16a8b99a4a20afab640a2feec465e8a604a5b8584a7997fd",
+        "configuration_change_time": "2026-10-24T01:31:05.540Z",
+        "deadline": null,
+        "driver_operation_id": "8c761f42-88f6-4877-8bbb-22985b4a34c8",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:01:04.930Z",
+        "timeout_time": null
+      },
+      "resource_version": 104,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "c7b9d459-028f-4053-91a3-620cfd597daf"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 5234277578120178566,
+        "error": "",
+        "policy_hash": "66a1adbb6c5cee42b5245c5585b7abf8ca294e1e6a5ceec0a9f7903aadb48f45",
+        "policy_version": 3,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:34:43",
+      "created_from_workload_template": null,
+      "current_policy_version": 3,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:FqmnlEwVnUuyi/g8EgBTURuzvwy6HN9CYd8iHUDAaok",
+      "id": "93103eaf-ffb8-4af5-9bce-b12de618f35c",
+      "labels": {
+        "ojp.owner": "followup-docker-native-tc",
+        "ojp.test-id": "jfr-20261024-docker"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfr24-native-tc",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:34:45.512Z",
+        "attempt_id": "3ec57c3e-d2f1-4d61-b85b-5be0be6cdc66",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "8f971cd003fd7551bd5664686a083281470e87eecf50a43bf2468197476d501b",
+        "configuration_change_time": "2026-10-24T01:34:45.519Z",
+        "deadline": null,
+        "driver_operation_id": "c4d20956-c36f-435b-8a2b-ae358d7cb0a9",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:04:43.856Z",
+        "timeout_time": null
+      },
+      "resource_version": 94,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "1c901aca-928a-4305-902b-1b2d5c370cb9"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 8573396917822381451,
+        "error": "",
+        "policy_hash": "bf39f32b64ed77119c3fbc2bc06e6dce691c400fff54ec2c8f9f806ecf0a8b9f",
+        "policy_version": 4,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:36:46",
+      "created_from_workload_template": null,
+      "current_policy_version": 4,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:2EiqIu8EtIuElgqUjZt3okOS3x9uNN+QijP8kxmURBc",
+      "id": "e747683e-b7c2-4125-b656-5f7bac3be975",
+      "labels": {
+        "ojp.owner": "followup-docker-native2",
+        "ojp.test-id": "jfr-20261024-docker"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfr24-native2",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:36:52.427Z",
+        "attempt_id": "bec72a42-f7d9-4395-9652-86fa3ce81603",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "f6fa57084c832aca686fca8313c4804e5a090bd419dfd6fe23e56294f544b0ad",
+        "configuration_change_time": "2026-10-24T01:36:52.439Z",
+        "deadline": null,
+        "driver_operation_id": "dd355549-41d0-4055-9dc8-5d10e309d71f",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:06:46.569Z",
+        "timeout_time": null
+      },
+      "resource_version": 95,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "2",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "1e126b21-6d30-472b-959e-b4648d5b232e"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Supervisor session connected",
+          "reason": "DependenciesReady",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 10414488574348306489,
+        "error": "",
+        "policy_hash": "427b84a504cdccadde1211464357912431fe36ae68aa67f94f6c8507f8e2df26",
+        "policy_version": 2,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:41:34",
+      "created_from_workload_template": null,
+      "current_policy_version": 2,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:ymdA3ntYAH2x96c7gtd6R/IsglsYFgPIFM7d65f9CmE",
+      "id": "e146946e-666f-44b9-94f2-ebd1f3882b77",
+      "labels": {
+        "ojp.owner": "followup-docker-native3",
+        "ojp.test-id": "jfr-20261024-docker"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfr24-native3",
+      "phase": "Ready",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:46:26.222Z",
+        "attempt_id": "f4ea89b1-6bf3-4707-a25c-8bb412d7cb1d",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "41e7b45b4fcf47a3ac71bd709b7b07fb2186cb176fa2981304abbfc95edd000c",
+        "configuration_change_time": "2026-10-24T01:46:25.289Z",
+        "deadline": null,
+        "driver_operation_id": "10116997-1af5-4510-858b-4a4610a710ea",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "ready",
+        "preparation_deadline": "2026-10-24T02:16:25.289Z",
+        "timeout_time": null
+      },
+      "resource_version": 102,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "ec0a363b-a771-47f5-a365-0cbed9b20134"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Docker supervisor exited before becoming ready; log tail: [truncated] 7.510Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]\n2026-10-24T01:50:17.523Z INFO openshell_supervisor: Isolation boundary attached\n2026-10-24T01:50:17.523Z INFO openshell_supervisor: Isolation boundary enforcement confirmed\n2026-10-24T01:50:17.524Z OCSF CONFIG:ENABLED [INFO] TLS termination enabled: ephemeral CA generated\n2026-10-24T01:50:17.524Z OCSF CONFIG:READY [INFO] Policy DNS connected to isolation boundary\n2026-10-24T01:50:17.524Z OCSF NET:LISTEN [INFO] 127.0.0.1:3128\n2026-10-24T01:50:17.524Z WARN openshell_supervisor_network::proxy: host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF exemption disabled\nError:   × process error: boundary process leaf: start process supervisor leaf:   ×\n  │ spawn delegated workload process\n  │   ├─▶ failed to spawn sandbox entrypoint process '/usr/local/bin/dockerd-\n  │   │   entrypoint.sh'\n  │   ╰─▶ Permission denied (os error 13)\n  │",
+          "reason": "ControlSupervisorStartFailed",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 12871555518196103027,
+        "error": "",
+        "policy_hash": "d54fe3e6f7f6d28dcfb4196aca10517159b81035806677e243a3a3e9aba2094a",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:50:16",
+      "created_from_workload_template": null,
+      "current_policy_version": 0,
+      "endpoint_statuses": [],
+      "exit_code": null,
+      "host_key_fingerprint": "SHA256:kOuzKeqBdvMK7T9KyRbmiG+3TZOEB0fgzJamW6g+MyQ",
+      "id": "bde30230-40d1-40e9-82fd-6ffcdf910c70",
+      "labels": {
+        "ojp.owner": "followup-docker-rootless",
+        "ojp.test-id": "jfr-20261024-docker-rootless"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfr24rootless2",
+      "phase": "Error",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:50:17.505Z",
+        "attempt_id": "130ecd33-66eb-47d4-9056-6339786daf14",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "c51a4753b1e008515925c5e4f2a0b74a8427785393fbffc0037876a07a139679",
+        "configuration_change_time": "2026-10-24T01:50:16.825Z",
+        "deadline": "2026-10-24T01:55:17.505Z",
+        "driver_operation_id": "4fa1c11f-d652-4f6d-8637-aff91c3254f2",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "admission",
+        "preparation_deadline": "2026-10-24T02:20:16.825Z",
+        "timeout_time": null
+      },
+      "resource_version": 72,
+      "workspace": "default"
+    },
+    {
+      "annotations": {
+        "internal.openshell.ai/auth-epoch": "1",
+        "internal.openshell.ai/gateway-token-id": "00000000-0000-0000-0000-000000000000",
+        "internal.openshell.ai/isolation-backend": "openshell-sandbox",
+        "internal.openshell.ai/runtime-generation": "2f626ea3-cdc4-494e-bce0-0ef0c214ebd9"
+      },
+      "conditions": [
+        {
+          "last_transition_time": "",
+          "message": "Canonical main process exited with status 1",
+          "reason": "MainProcessFailed",
+          "status": "False",
+          "type": "Ready"
+        },
+        {
+          "last_transition_time": "",
+          "message": "",
+          "reason": "ConfigurationAccepted",
+          "status": "True",
+          "type": "ConfigurationReady"
+        }
+      ],
+      "configuration_admission": {
+        "config_revision": 7962441389727433512,
+        "error": "",
+        "policy_hash": "41f3d24be33f83af0968f9b4aaa5c0af28a57ec913c45b560a2c4c9de2f93462",
+        "policy_version": 1,
+        "provider_env_revision": 3176606324465211593,
+        "state": "accepted"
+      },
+      "created_at": "2026-10-24 01:51:49",
+      "created_from_workload_template": null,
+      "current_policy_version": 1,
+      "endpoint_statuses": [],
+      "exit_code": 1,
+      "host_key_fingerprint": "SHA256:ZGhVHAHvNUvHtV3rMCL7NXiOc7gfMiXmrU6ELlyRtcg",
+      "id": "8a756d2b-615e-4013-94c3-8cd4590c916a",
+      "labels": {
+        "ojp.owner": "followup-docker-rootless-corrected",
+        "ojp.test-id": "jfr-20261024-docker-rootless"
+      },
+      "last_token_grant_failure": null,
+      "name": "jfr24rootless3",
+      "phase": "Error",
+      "provisioning": {
+        "admission_start_time": "2026-10-24T01:51:54.494Z",
+        "attempt_id": "ddfc923d-f98e-403d-b24a-9f818d26e3db",
+        "cleanup_completed_time": null,
+        "cleanup_error": "",
+        "cleanup_retry_time": null,
+        "configuration_change_id": "4d5810d649abdde80df7d9d6a23e0f8f67099bde8c8cce8bd818e3cf9839d519",
+        "configuration_change_time": "2026-10-24T01:51:49.080Z",
+        "deadline": "2026-10-24T01:56:54.494Z",
+        "driver_operation_id": "7ef05cf3-671f-4b3d-9f2c-13bd06b722ee",
+        "driver_operation_pending": false,
+        "first_rejection_time": null,
+        "phase": "admission",
+        "preparation_deadline": "2026-10-24T02:21:49.080Z",
+        "timeout_time": null
+      },
+      "resource_version": 74,
+      "workspace": "default"
+    }
+  ]
+}

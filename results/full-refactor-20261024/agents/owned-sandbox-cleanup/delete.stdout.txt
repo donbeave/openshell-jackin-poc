@@ -1,0 +1,15 @@
+✓ Sandbox jfr24-openc-01 deletion accepted; cleanup is pending
+✓ Sandbox jfr24-openc-gid deletion accepted; cleanup is pending
+✓ Sandbox jfr24-openc-ro deletion accepted; cleanup is pending
+✓ Sandbox jfr24-amp-gid deletion accepted; cleanup is pending
+✓ Sandbox jfr24-kimi-gid deletion accepted; cleanup is pending
+✓ Sandbox jfr24-grok-gid deletion accepted; cleanup is pending
+✓ Sandbox jfr24-cap-bld-01 deletion accepted; cleanup is pending
+✓ Sandbox jfr24-cap-bld-02 deletion accepted; cleanup is pending
+✓ Sandbox jfr24-cap-build-03 deletion accepted; cleanup is pending
+✓ Sandbox jfr24-cap-6e-01 deletion accepted; cleanup is pending
+✓ Sandbox jfr24-cap-root-6e deletion accepted; cleanup is pending
+✓ Sandbox jfr24-pty-candb deletion accepted; cleanup is pending
+✓ Sandbox jfr24-pty-a-01 deletion accepted; cleanup is pending
+✓ Sandbox jfr24-pty-shell01 deletion accepted; cleanup is pending
+✓ Sandbox jfr24-pty-b-01 deletion accepted; cleanup is pending

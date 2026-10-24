@@ -1,0 +1,11 @@
+uid=1000(agent) gid=1000 groups=1000
+/workspace/jfr-20261024-ws/worktree
+__POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source/.git/worktrees/worktree
+## jfr/jfr-20261024-ws
+ worktree-sandbox.txt | 1 +
+ 1 file changed, 1 insertion(+)
+[jfr/jfr-20261024-ws 202827e] fixture worktree sandbox commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 worktree-sandbox.txt
+## jfr/jfr-20261024-ws
+202827e99b11e506ec1ec59cccc08a46649474c6 fixture worktree sandbox commit

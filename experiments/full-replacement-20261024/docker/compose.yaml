@@ -1,0 +1,25 @@
+services:
+  database:
+    image: redis:7.4-alpine
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+  app:
+    image: nginx:1.29.3-alpine
+    depends_on:
+      database:
+        condition: service_healthy
+    command:
+      - /bin/sh
+      - -ec
+      - >-
+        test "$(cat /usr/share/nginx/html/index.html)" = "host-created-before-sandbox";
+        printf 'PING\r\n' | nc -w 2 database 6379 | grep -q '+PONG';
+        exec nginx -g 'daemon off;'
+    volumes:
+      - ./host-marker.txt:/usr/share/nginx/html/index.html:ro
+    ports:
+      - "30080:80"
+      - "80"

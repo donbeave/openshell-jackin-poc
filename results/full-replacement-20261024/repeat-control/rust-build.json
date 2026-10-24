@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "/Users/example/.local/bin/rust-build-guard",
+    "--",
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "build",
+    "--locked"
+  ],
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "rust build guard: allowed; checked 1 filesystem(s)\n    Finished `dev` profile [unoptimized + debuginfo] target(s) in 1.16s\nmbx[savings]: 19.7 TiB logical of old files removed to date. the broom sends its regards.\n",
+  "binary_sha256": "25b1b1e7fec73efd39670bfc6d6d765a87f4885a59e1a4c6561d83ef84453d79",
+  "target_condition": "fresh target build completed earlier in 28.68s using warm mbx compiler cache; this capture is immediate warm confirmation",
+  "dependencies": {
+    "openshell_sdk_revision": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+    "tonic": "0.14.6 per Cargo.lock",
+    "rust": "1.99.1",
+    "mise": "2026.10.18",
+    "mbx": "1.27.0"
+  }
+}

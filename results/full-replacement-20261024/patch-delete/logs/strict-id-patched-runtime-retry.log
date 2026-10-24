@@ -1,0 +1,41 @@
+   Compiling openshell-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-core)
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-core/src/policy.rs:165:26
+    |
+165 |               otherwise => miette::bail!(
+    |  __________________________^
+166 | |                 "invalid landlock.compatibility {:?}; accepted: {}",
+167 | |                 otherwise,
+168 | |                 LANDLOCK_COMPATIBILITY_VALUES.join(", ")
+169 | |             ),
+    | |_____________^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling openshell-sdk v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-sdk)
+warning: `openshell-core` (lib) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.07s
+     Running tests/delete_by_id_integration.rs (target/debug/deps/delete_by_id_integration-2f0946da5babd519)
+
+running 1 test
+owned_sandbox_id=19194dd2-7e0a-47d5-8d88-766bd7099a73 test_label=pn809681496488000
+owned_sandbox_id=5dda188b-2e41-4c34-91c7-dda4c2b1bee7 test_label=pn809681496488000
+
+thread 'patched_server_replays_id_delete_after_removal_and_name_reuse' (91973936) panicked at crates/openshell-sdk/tests/delete_by_id_integration.rs:251:9:
+assertion failed: mismatch.message().contains("REQUEST_ID_PAYLOAD_MISMATCH")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test patched_server_replays_id_delete_after_removal_and_name_reuse ... FAILED
+
+failures:
+
+failures:
+    patched_server_replays_id_delete_after_removal_and_name_reuse
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 1 filtered out; finished in 4.21s
+
+error: test failed, to rerun pass `-p openshell-sdk --test delete_by_id_integration`
+mbx[cache]: 3 hits, 1 misses; 0 B downloaded, 0 B uploaded, 17.7 MiB stored locally
+mbx[savings]: 27d 11h unspent across 97746 builds. compounding, in a sense.

@@ -1,0 +1,207 @@
+version: 1
+filesystem_policy:
+  include_workdir: true
+  read_only: [/bin, /sbin, /usr, /usr/local, /lib, /lib64, /etc, /proc, /sys, /dev/urandom, /opt]
+  read_write: [/workspace, /sandbox, /tmp, /home, /dev/null]
+landlock:
+  compatibility: best_effort
+network_policies:
+  engine:
+    endpoints:
+      - host: host.docker.internal
+        port: 28481
+        protocol: tcp
+        tls: skip
+        allowed_ips: [127.0.0.1/32]
+    binaries:
+      - path: /bin/sh
+      - path: /bin/bash
+      - path: /usr/bin/docker
+      - path: /usr/libexec/docker/cli-plugins/docker-compose
+      - path: /workspace/rust-project/**
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/native_tcp-*
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/redis_container-67af663ee057eb45
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/redis_container-bfe37d7068280b00
+  services:
+    endpoints:
+      - host: host.docker.internal
+        port: 30000
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30001
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30002
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30003
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30004
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30005
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30006
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30007
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30008
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30009
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30010
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30011
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30012
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30013
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30014
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30015
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30016
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30017
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30018
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30019
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30020
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30021
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30022
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30023
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30024
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30025
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30026
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30027
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30028
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30029
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30030
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30031
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+      - host: host.docker.internal
+        port: 30080
+        protocol: tcp
+        allowed_ips: [127.0.0.1/32]
+    binaries:
+      - path: /bin/sh
+      - path: /bin/bash
+      - path: /usr/bin/curl
+      - path: /usr/bin/docker
+      - path: /usr/libexec/docker/cli-plugins/docker-compose
+      - path: /workspace/rust-project/**
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/native_tcp-*
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/redis_container-67af663ee057eb45
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/redis_container-bfe37d7068280b00
+  crates:
+    endpoints:
+      - host: crates.io
+        port: 443
+        protocol: tcp
+      - host: index.crates.io
+        port: 443
+        protocol: tcp
+      - host: static.crates.io
+        port: 443
+        protocol: tcp
+      - host: mise-versions.jdx.dev
+        port: 443
+        protocol: tcp
+      - host: mise.jdx.dev
+        port: 443
+        protocol: tcp
+      - host: api.github.com
+        port: 443
+        protocol: tcp
+      - host: github.com
+        port: 443
+        protocol: tcp
+      - host: static.rust-lang.org
+        port: 443
+        protocol: tcp
+    binaries:
+      - path: /usr/bin/curl
+      - path: /usr/local/bin/mise
+      - path: /usr/local/bin/mbx
+      - path: /usr/local/cargo/bin/rustup
+      - path: /home/agent/.local/share/mise/installs/aqua-nextest-rs-nextest-cargo-nextest/**
+      - path: /home/agent/.local/share/mise/shims/cargo
+      - path: /home/agent/.local/share/mise/shims/cargo-nextest
+      - path: /home/agent/.local/share/mise/installs/**
+      - path: /workspace/rust-project/**
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/native_tcp-*
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/redis_container-67af663ee057eb45
+      - path: /workspace/.cache/mbx/targets/v1/b069cdf17e65025febc454c34b29c308ee910d2341e33c83200c9e24e8c2cd38/debug/deps/redis_container-bfe37d7068280b00

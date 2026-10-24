@@ -1,0 +1,15 @@
+[
+  {
+    "operation": "verification_negative",
+    "ok": true,
+    "detail": {
+      "accepted_sandbox_id": null,
+      "case": "wrong-volume-labels",
+      "create_status": "FailedPrecondition: docker volume 'jfr24verify-untrusted': external resource not admitted by required labels",
+      "readiness_error": null,
+      "request_id": "0e848491-f6f4-4163-b8de-2d0a212bd95d",
+      "result": "PASS",
+      "sandbox_absent_after_cleanup": true
+    }
+  }
+]

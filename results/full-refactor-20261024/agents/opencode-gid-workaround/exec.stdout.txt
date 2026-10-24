@@ -1,0 +1,7 @@
+IDENTITY
+uid=1000(agent) gid=1000(sandbox) groups=1000(sandbox)
+CapEff:	0000000000000000
+CapBnd:	0000000000000000
+NoNewPrivs:	1
+HOME=/sandbox PWD=/sandbox
+HOOK_BEGIN

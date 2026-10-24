@@ -1,0 +1,2 @@
+/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/private/certs/server/tls.crt: OK
+/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/private/certs/client/tls.crt: OK

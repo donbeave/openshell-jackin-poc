@@ -1,0 +1,391 @@
+[
+  {
+    "operation": "verification_worker",
+    "ok": false,
+    "detail": {
+      "cleanup": {
+        "confirmed": true,
+        "outcome": "Accepted",
+        "sandbox_id": "92786547-b153-41db-8d42-ca7d92fc675a"
+      },
+      "journey": {
+        "candidate_commit": "aa24614607f52a98fd4894a1b02d355b219a9edc",
+        "candidate_tree": "20aa242142b7099eac398f15fe79cb105f22838a",
+        "cases": [
+          {
+            "environment_allowlist": [
+              "PYTHONDONTWRITEBYTECODE=1"
+            ],
+            "gateway_pid_limit": 64,
+            "image": "jfr-20261024-verify-worker:patch-policy-baseline",
+            "inspect_contains_same_id": true,
+            "list_contains_id": true,
+            "mounts": [
+              {
+                "read_only": true,
+                "source": "jfr24verify-candidate",
+                "target": "/sandbox/repo"
+              },
+              {
+                "read_only": true,
+                "source": "jfr24verify-bundle",
+                "target": "/sandbox/checks"
+              },
+              {
+                "options": [
+                  "noexec",
+                  "nosuid"
+                ],
+                "size_bytes": 67108864,
+                "target": "/tmp"
+              },
+              {
+                "options": [
+                  "nosuid"
+                ],
+                "size_bytes": 268435456,
+                "target": "/build"
+              }
+            ],
+            "operation": "create_list_inspect",
+            "phase": "Ready",
+            "provider_count": 0,
+            "request_id": "ae047fc2-7ec3-4e89-8de2-dff20e20eb4b",
+            "resource_request": {
+              "cpu_limit": "1",
+              "memory_limit": "512Mi"
+            },
+            "result": "PASS",
+            "sandbox_id": "92786547-b153-41db-8d42-ca7d92fc675a"
+          },
+          {
+            "error": "root mount is not read-only",
+            "operation": "frozen_policy_success_and_boundaries",
+            "result": "FAIL"
+          },
+          {
+            "details": {
+              "mountinfo": {
+                "NoNewPrivs": "1",
+                "mounts": {
+                  "/build": {
+                    "fs_type": "tmpfs",
+                    "mount_options": [
+                      "rw",
+                      "nosuid",
+                      "nodev",
+                      "noexec",
+                      "relatime"
+                    ],
+                    "super_options": [
+                      "rw",
+                      "size=262144k"
+                    ]
+                  },
+                  "/tmp": {
+                    "fs_type": "tmpfs",
+                    "mount_options": [
+                      "rw",
+                      "nosuid",
+                      "nodev",
+                      "noexec",
+                      "relatime"
+                    ],
+                    "super_options": [
+                      "rw",
+                      "size=65536k"
+                    ]
+                  }
+                }
+              },
+              "noexec": "functional negative tested separately by executing a disposable /tmp file and observing EACCES",
+              "nosuid": "mount flag observed in mountinfo; functional setuid negative NOT TESTED because NoNewPrivs=1 also prevents setuid transitions and this experiment does not disable that boundary"
+            },
+            "operation": "tmpfs_mount_flags_and_nnp_context",
+            "result": "PASS"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "python3",
+                "/sandbox/checks/fail.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 7,
+              "expected_exit_code": 7,
+              "frozen_host_argv": [
+                "python3",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/fail.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mode": "fail",
+              "policy_hash_receipt": "165ef5d7e442e0c3c8d159d8432bd851c1b84af31b2d30b719744fda4e3a837c",
+              "production_result_record": false,
+              "stderr_base64": "aW50ZW50aW9uYWwgdmVyaWZpY2F0aW9uIGZhaWx1cmUK",
+              "stderr_bytes_total": 33,
+              "stderr_retained_bytes": 33,
+              "stderr_truncated": false,
+              "stdout_base64": "ZmFpbHVyZS1tYXJrZXIK",
+              "stdout_bytes_total": 15,
+              "stdout_retained_bytes": 15,
+              "stdout_truncated": false,
+              "verification_report": null
+            },
+            "operation": "nonzero_result_and_separate_streams",
+            "result": "PASS"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "/jfr/no-such-runtime",
+                "/sandbox/checks/missing-runtime.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 125,
+              "expected_exit_code": 125,
+              "frozen_host_argv": [
+                "/jfr/no-such-runtime",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/missing-runtime.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mode": "missing-runtime",
+              "policy_hash_receipt": "fcc74c7458b74e78745c088a8bf63f2656ed05315d981fda9c5989f2c2e4c762",
+              "production_result_record": false,
+              "stderr_base64": "W0Vycm5vIDJdIE5vIHN1Y2ggZmlsZSBvciBkaXJlY3Rvcnk6ICcvamZyL25vLXN1Y2gtcnVudGltZScK",
+              "stderr_bytes_total": 60,
+              "stderr_retained_bytes": 60,
+              "stderr_truncated": false,
+              "stdout_base64": "",
+              "stdout_bytes_total": 0,
+              "stdout_retained_bytes": 0,
+              "stdout_truncated": false,
+              "verification_report": null
+            },
+            "operation": "missing_runtime",
+            "result": "PASS"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "python3",
+                "/sandbox/checks/abnormal-child.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 250,
+              "expected_exit_code": 250,
+              "frozen_host_argv": [
+                "python3",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/abnormal-child.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mode": "abnormal-child",
+              "policy_hash_receipt": "d413c5e490f47aef858808f10f52ab216e38a182e13c5e9a70402af76320ee41",
+              "production_result_record": false,
+              "stderr_base64": "",
+              "stderr_bytes_total": 0,
+              "stderr_retained_bytes": 0,
+              "stderr_truncated": false,
+              "stdout_base64": "",
+              "stdout_bytes_total": 0,
+              "stdout_retained_bytes": 0,
+              "stdout_truncated": false,
+              "verification_report": null
+            },
+            "operation": "abnormal_exit",
+            "result": "PASS"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "python3",
+                "/sandbox/checks/timeout-child.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 124,
+              "expected_exit_code": 124,
+              "frozen_host_argv": [
+                "python3",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/timeout-child.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mode": "timeout-child",
+              "policy_hash_receipt": "c85489171d20bcd655c25df5a81b399d695d731b3143585d1db2cbf1bd6ef36e",
+              "production_result_record": false,
+              "stderr_base64": "",
+              "stderr_bytes_total": 0,
+              "stderr_retained_bytes": 0,
+              "stderr_truncated": false,
+              "stdout_base64": "",
+              "stdout_bytes_total": 0,
+              "stdout_retained_bytes": 0,
+              "stdout_truncated": false,
+              "verification_report": null
+            },
+            "operation": "timeout_and_process_group",
+            "result": "PASS"
+          },
+          {
+            "after": "Condition failed: `response.exit_code == 0` (1 vs 0)",
+            "before": "Condition failed: `response.exit_code == 0` (1 vs 0)",
+            "error": "pids-fill: expected exit 0, observed 1; stdout_base64= stderr_base64=VHJhY2ViYWNrIChtb3N0IHJlY2VudCBjYWxsIGxhc3QpOgogIEZpbGUgIi9zYW5kYm94L2NoZWNrcy9waWRzLWZpbGwucHkiLCBsaW5lIDEzMywgaW4gPG1vZHVsZT4KICAgIHJlcG9ydC51cGRhdGUoeyJjaGlsZHJlbl9jcmVhdGVkIjogbGVuKGNoaWxkcmVuKSwgInNwYXduX2RlbmlhbHMiOiBmYWlsdXJlcywgInBpZHNfbWF4IjogcGF0aGxpYi5QYXRoKCIvc3lzL2ZzL2Nncm91cC9waWRzLm1heCIpLnJlYWRfdGV4dCgpLnN0cmlwKCl9KQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBeXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl4KICBGaWxlICIvdXNyL2xvY2FsL2xpYi9weXRob24zLjEyL3BhdGhsaWIucHkiLCBsaW5lIDEwMjcsIGluIHJlYWRfdGV4dAogICAgd2l0aCBzZWxmLm9wZW4obW9kZT0ncicsIGVuY29kaW5nPWVuY29kaW5nLCBlcnJvcnM9ZXJyb3JzKSBhcyBmOgogICAgICAgICBeXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXgogIEZpbGUgIi91c3IvbG9jYWwvbGliL3B5dGhvbjMuMTIvcGF0aGxpYi5weSIsIGxpbmUgMTAxMywgaW4gb3BlbgogICAgcmV0dXJuIGlvLm9wZW4oc2VsZiwgbW9kZSwgYnVmZmVyaW5nLCBlbmNvZGluZywgZXJyb3JzLCBuZXdsaW5lKQogICAgICAgICAgIF5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXgpQZXJtaXNzaW9uRXJyb3I6IFtFcnJubyAxM10gUGVybWlzc2lvbiBkZW5pZWQ6ICcvc3lzL2ZzL2Nncm91cC9waWRzLm1heCcK",
+            "operation": "pids_limit",
+            "result": "FAIL"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "python3",
+                "/sandbox/checks/tmpfs-fill-tmp.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "frozen_host_argv": [
+                "python3",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/tmpfs-fill-tmp.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mode": "tmpfs-fill-tmp",
+              "policy_hash_receipt": "65ad99a444b7306ca8820bb117284e2e821d24b3f4a4b6b4cb0b9480a658737b",
+              "production_result_record": false,
+              "stderr_base64": "",
+              "stderr_bytes_total": 0,
+              "stderr_retained_bytes": 0,
+              "stderr_truncated": false,
+              "stdout_base64": "eyJhbGxvY2F0ZWRfYnl0ZXMiOiA2NjA2MDI4OCwgImVycm5vIjogMjgsICJleHBlY3RlZF9lbm9zcGMiOiB0cnVlLCAiZ2lkIjogMTAwMCwgIm1vZGUiOiAidG1wZnMtZmlsbC10bXAiLCAidWlkIjogMTAwMH0K",
+              "stdout_bytes_total": 120,
+              "stdout_retained_bytes": 120,
+              "stdout_truncated": false,
+              "verification_report": null
+            },
+            "operation": "tmpfs-fill-tmp",
+            "result": "PASS"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "python3",
+                "/sandbox/checks/tmpfs-fill-build.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "frozen_host_argv": [
+                "python3",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/tmpfs-fill-build.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mode": "tmpfs-fill-build",
+              "policy_hash_receipt": "9f7a84daa4df5b46042941fa667b6c169f3d19c1f355afbd64e347d4570f6a08",
+              "production_result_record": false,
+              "stderr_base64": "",
+              "stderr_bytes_total": 0,
+              "stderr_retained_bytes": 0,
+              "stderr_truncated": false,
+              "stdout_base64": "eyJhbGxvY2F0ZWRfYnl0ZXMiOiAyNjczODY4ODAsICJlcnJubyI6IDI4LCAiZXhwZWN0ZWRfZW5vc3BjIjogdHJ1ZSwgImdpZCI6IDEwMDAsICJtb2RlIjogInRtcGZzLWZpbGwtYnVpbGQiLCAidWlkIjogMTAwMH0K",
+              "stdout_bytes_total": 123,
+              "stdout_retained_bytes": 123,
+              "stdout_truncated": false,
+              "verification_report": null
+            },
+            "operation": "tmpfs-fill-build",
+            "result": "PASS"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "python3",
+                "/sandbox/checks/output.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 0,
+              "frozen_host_argv": [
+                "python3",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/output.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mechanism": "bounded client collector (Jackin-retained result logic)",
+              "per_stream_cap": 65536,
+              "stderr_retained_bytes": 65536,
+              "stderr_total": 131072,
+              "stderr_truncated": true,
+              "stdout_marker": "\n[truncated]",
+              "stdout_retained_bytes": 65536,
+              "stdout_total": 131072,
+              "stdout_truncated": true
+            },
+            "operation": "bounded_output_truncation",
+            "result": "PASS"
+          },
+          {
+            "details": {
+              "container_argv": [
+                "python3",
+                "/sandbox/checks/cpu-load.py",
+                "/sandbox/repo"
+              ],
+              "exit_code": 0,
+              "expected_exit_code": 0,
+              "frozen_host_argv": [
+                "python3",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/cpu-load.py",
+                "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+              ],
+              "mode": "cpu-load",
+              "policy_hash_receipt": "813cd5bb3eb18c2c1c874e61d624692c28515ba283fac176ee8e99fa0b865497",
+              "production_result_record": false,
+              "stderr_base64": "",
+              "stderr_bytes_total": 0,
+              "stderr_retained_bytes": 0,
+              "stderr_truncated": false,
+              "stdout_base64": "eyJjaGlsZF9jcHVfc2Vjb25kcyI6IDMuMDM1NTE2LCAiZXhpdF9jb2RlcyI6IFswLCAwXSwgImdpZCI6IDEwMDAsICJtb2RlIjogImNwdS1sb2FkIiwgInVpZCI6IDEwMDAsICJ3YWxsX3NlY29uZHMiOiAzLjA2MTA5MzQxMzAwOTA3NTR9Cg==",
+              "stdout_bytes_total": 136,
+              "stdout_retained_bytes": 136,
+              "stdout_truncated": false,
+              "verification_report": null
+            },
+            "operation": "cpu_limit_bounded_load",
+            "result": "PASS"
+          },
+          {
+            "error": "memory-limit: expected exit 0, observed 247; stdout_base64= stderr_base64=",
+            "operation": "memory_limit_bounded_load",
+            "result": "FAIL"
+          },
+          {
+            "details": {
+              "client_dropped_exec_stream": true,
+              "completed_after_disconnect": false,
+              "meaning": "disconnect is observation loss; no assumption it cancels the remote child",
+              "stream_disconnected_after_start": true
+            },
+            "operation": "exec_disconnect",
+            "result": "OBSERVED"
+          }
+        ],
+        "commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+        "endpoint": "https://localhost:28631",
+        "experimental_patch": "docker HostConfig.Tmpfs routing",
+        "gateway": "jfr-20261024-vpatch",
+        "policy_receipt": {
+          "argv": [
+            "python3",
+            "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/success.py",
+            "/Users/example/openshell-jackin-public/experiments/full-refactor-20261024/verification-worker/fixture/candidate"
+          ],
+          "image": "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+          "policy_hash": "0dc072c0a7d5c2f274b1b71e684d7efb6d5d34ea36979c171d6ab833923e1ddf",
+          "provenance": "same byte-concatenation constants as Jackin TestPolicy::freeze at 6e266; receipt only, not a production run record",
+          "timeout_seconds": 30
+        },
+        "release": "OpenShell v0.1.5",
+        "test_id": "jfr-20261024-verification-worker-patch",
+        "trusted_bundle_hashes": "5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/abnormal-child.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/cpu-load.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/fail.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/interrupt-child.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/memory-limit.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/missing-runtime.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/output.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/pids-fill.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/success.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/timeout-child.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/tmpfs-fill-build.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/tmpfs-fill-tmp.py\n5e98d30a07b9c1ed9ebed2fd27419c217e6af656dd2760e221ad856386f72ee3  experiments/full-refactor-20261024/verification-worker/fixture/trusted-bundle/verify.py\n"
+      },
+      "request_id": "ae047fc2-7ec3-4e89-8de2-dff20e20eb4b",
+      "result": "FAIL",
+      "sandbox_id": "92786547-b153-41db-8d42-ca7d92fc675a"
+    },
+    "error": "verification worker did not meet its execution contract"
+  }
+]

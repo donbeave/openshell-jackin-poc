@@ -1,0 +1,27 @@
+{
+  "command": [
+    "mise",
+    "exec",
+    "--",
+    "cargo",
+    "zigbuild",
+    "--locked",
+    "--release",
+    "--target",
+    "aarch64-unknown-linux-gnu",
+    "--target-dir",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/role/capsule-build/target",
+    "-p",
+    "jackin-capsule"
+  ],
+  "cwd": "/Users/example/Projects/jackin-project/jackin",
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "started_utc": "2026-10-24T01:13:05.241051+00:00",
+  "duration_seconds": 2.88,
+  "exit_status": 101,
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargo": "cargo 1.99.1 (5f94df478 2026-08-27) (Homebrew)",
+  "cargo_zigbuild": "cargo-zigbuild 0.24.0",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "binary": null
+}

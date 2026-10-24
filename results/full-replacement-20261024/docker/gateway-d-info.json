@@ -1,0 +1,57 @@
+{
+  "auth": null,
+  "compute_drivers": [
+    {
+      "capabilities": {
+        "driver_name": "docker",
+        "driver_version": "0.1.5"
+      },
+      "name": "docker"
+    }
+  ],
+  "extensions": [
+    {
+      "configured_name": "docker",
+      "implementation_name": "openshell/docker",
+      "implementation_version": "0.1.5",
+      "kind": "compute-driver",
+      "protocol_version": "1.0",
+      "required_capabilities": [
+        "openshell.compute.contract"
+      ],
+      "supported_capabilities": [
+        "openshell.compute.contract"
+      ]
+    },
+    {
+      "configured_name": "openshell-driver-db-credstore",
+      "implementation_name": "openshell/openshell-driver-db-credstore",
+      "implementation_version": "0.1.5",
+      "kind": "credential-driver",
+      "protocol_version": "1.0",
+      "required_capabilities": [
+        "openshell.credentials.contract"
+      ],
+      "supported_capabilities": [
+        "openshell.credentials.contract"
+      ]
+    },
+    {
+      "configured_name": "openshell/regex",
+      "implementation_name": "openshell/regex",
+      "implementation_version": "0.1.5",
+      "kind": "supervisor-middleware",
+      "protocol_version": "1.0",
+      "required_capabilities": [
+        "openshell.supervisor-middleware.contract"
+      ],
+      "supported_capabilities": [
+        "openshell.supervisor-middleware.contract"
+      ]
+    }
+  ],
+  "gateway": "jfr-20261024-d",
+  "server": "https://localhost:28610",
+  "status": "healthy",
+  "version": "0.1.5"
+}

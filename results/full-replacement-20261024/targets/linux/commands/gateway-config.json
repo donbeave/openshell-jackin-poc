@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "cat",
+    "/var/lib/jfr-20261024-linux/gateway.toml"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.025,
+  "stdout": "[openshell]\nversion = 2\n[openshell.gateway]\nname = \"jfr-20261024-linux\"\nbind_address = \"192.168.139.147:18470\"\ncompute_driver = \"docker\"\nguest_tls_ca = \"/var/lib/jfr-20261024-linux/certs/ca.crt\"\n[openshell.drivers.docker]\nallow_driver_config = true\nsandbox_label = \"jfr-20261024-linux\"\ngrpc_endpoint = \"https://192.168.139.147:18470\"\n[openshell.gateway.tls]\ncert_path = \"/var/lib/jfr-20261024-linux/certs/server/tls.crt\"\nkey_path = \"/var/lib/jfr-20261024-linux/certs/server/tls.key\"\nclient_ca_path = \"/var/lib/jfr-20261024-linux/certs/ca.crt\"\n[openshell.gateway.gateway_jwt]\nsigning_key_path = \"/var/lib/jfr-20261024-linux/certs/jwt/signing.pem\"\npublic_key_path = \"/var/lib/jfr-20261024-linux/certs/jwt/public.pem\"\nkid_path = \"/var/lib/jfr-20261024-linux/certs/jwt/kid\"\ngateway_id = \"jfr-20261024-linux\"\n",
+  "stderr": ""
+}

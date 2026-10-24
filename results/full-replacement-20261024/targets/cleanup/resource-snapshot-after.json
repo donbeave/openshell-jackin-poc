@@ -1,0 +1,39 @@
+{
+  "snapshot_kind": "after scoped fixture cleanup",
+  "openshell": {
+    "linux_gateway": "sandbox list confirmed empty before guest deletion",
+    "packaged_vm_gateway": "sandbox list confirmed empty before gateway state removal",
+    "bind_probe_gateway": "sandbox list empty before state removal",
+    "gateway_processes": [
+      {"pid": 37318, "config": "/var/lib/jfr-20261024-linux/gateway.toml", "listener": "192.168.139.147:18470", "stop": "SIGINT after exact command and listener verification"},
+      {"pid": 50560, "config": "experiments/full-replacement-20261024/targets/openshell-vm/gateway.toml", "listener": "127.0.0.1:28472", "stop": "SIGINT after exact command and listener verification"},
+      {"pid": 51205, "config": "experiments/full-replacement-20261024/targets/openshell-vm-bind/gateway.toml", "listener": "127.0.0.1:28473", "stop": "SIGINT after exact command and listener verification"}
+    ],
+    "listeners_28472_28473": "none",
+    "owned_vm_processes": "none"
+  },
+  "linux_guest": {
+    "machine_id": "01M5NQEC7J2BYG95SH85TRZHXW",
+    "machine_id_lookup": "orbctl info returned machine not found",
+    "orbctl_list": "empty",
+    "guest_docker_daemon_images_volumes": "removed with this disposable guest; no shared engine cache pruned"
+  },
+  "packaged_vm_fixture": {
+    "temporary_state_dirs": ["/tmp/jfr-20261024-vm", "/tmp/jfr-20261024-vmbind"],
+    "removed_bytes_reported_before_delete": "982 MiB for the primary VM state runtime; bind profile empty",
+    "gateway_state_config_certs": "both experiment-owned profile sets removed after gateway exit; scripts/config templates/results preserved"
+  },
+  "host_derived_images": {
+    "removed_ids": [
+      "sha256:2374eefdb4849a3dabd4f6f0ce03691d6083a8b1e53ff9dfa2f2d9e3eda55f14",
+      "sha256:6d86b745f663786c7bba1ca8e1d5cc35e584f002874303d154cef24d75afb5c9"
+    ],
+    "verification": "docker image inspect returned exit 1 for both experiment tags after removal; shared base images/caches retained"
+  },
+  "owners_and_outcomes": {
+    "OpenShell_removed": "8 sandbox records plus associated Linux Docker containers/supervisors and their OpenShell channel/supervisor volumes; both VM gateways reported empty sandboxes.",
+    "fixture_cleanup_removed": "2 named Linux volumes, 2 host-derived images, disposable OrbStack guest with its dedicated Docker daemon/cache, packaged VM runtime disks/prepared images, gateway XDG state/config/certs.",
+    "not_removed": "shared host Docker base images/caches, unrelated containers, historical gateway/profile state, source scripts and raw results."
+  },
+  "readiness_effect": "Cleanup evidence only; does not add runtime contract PASS or change target/full-replacement readiness."
+}

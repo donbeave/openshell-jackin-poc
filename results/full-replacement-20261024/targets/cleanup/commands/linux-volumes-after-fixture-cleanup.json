@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "orb",
+    "-m",
+    "jfr-20261024-linux",
+    "sudo",
+    "docker",
+    "volume",
+    "ls",
+    "--format",
+    "{{.Name}}"
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.141,
+  "stdout": "",
+  "stderr": ""
+}

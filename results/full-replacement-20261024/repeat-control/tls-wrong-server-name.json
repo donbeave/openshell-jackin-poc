@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/target/debug/openshell-control-probe",
+    "tls",
+    "--endpoint",
+    "https://localhost:28600",
+    "--server-name",
+    "wrong.example",
+    "--ca",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/ca.crt",
+    "--cert",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/client/tls.crt",
+    "--key",
+    "/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/repeat-control/gateway-rctl/certs/client/tls.key",
+    "--expect",
+    "deny"
+  ],
+  "exit_status": 0,
+  "stdout": "[\n  {\n    \"operation\": \"verified_mtls_and_gateway_identity\",\n    \"ok\": true,\n    \"detail\": {\n      \"denied_at\": \"verified_mtls_handshake\",\n      \"reason\": \"verified mTLS connection: transport error: invalid peer certificate: certificate not valid for name \\\"wrong.example\\\"; certificate is only valid for DnsName(\\\"localhost\\\") or IpAddress(127.0.0.1): invalid peer certificate: certificate not valid for name \\\"wrong.example\\\"; certificate is only valid for DnsName(\\\"localhost\\\") or IpAddress(127.0.0.1)\"\n    }\n  }\n]\n",
+  "stderr": "",
+  "expected": "TLS/authentication rejection with verification enabled",
+  "expected_outcome_observed": true
+}

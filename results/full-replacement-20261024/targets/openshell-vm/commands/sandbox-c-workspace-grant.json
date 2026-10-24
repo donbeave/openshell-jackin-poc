@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm/client.sh",
+    "sandbox",
+    "exec",
+    "jfr-20261024-vm-c",
+    "--workdir",
+    "/workspace",
+    "--",
+    "sh",
+    "-c",
+    "pwd; id; cat role-marker; printf edit-ok > edited && sha256sum role-marker edited; nproc; awk \"/MemTotal/ {print}\" /proc/meminfo; cat /proc/self/status | grep -E \"^(Uid|Gid|Groups|CapEff|NoNewPrivs):\""
+  ],
+  "exit_status": 0,
+  "wall_seconds": 0.07,
+  "stdout": "/workspace\nuid=1000(ubuntu) gid=1000(ubuntu) groups=1000(ubuntu)\nbuilt-before-vm-sandbox\n45cda88fb0ec284b8195580044c8b5d5d905943d918f7dad347ab2286f88f7d9  role-marker\n8a91a914243c1ac5e40dccceca76b3cf809987cce3da2e8a045c11522862526e  edited\n2\nMemTotal:        2036904 kB\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nGroups:\t \nCapEff:\t0000000000000000\nNoNewPrivs:\t1\n",
+  "stderr": ""
+}

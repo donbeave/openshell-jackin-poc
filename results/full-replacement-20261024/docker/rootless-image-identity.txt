@@ -1,0 +1,1 @@
+sha256:c652fa9cebdaa3d655c33c6389c3c409f9a0fea6449c7d7c56c486fe71af0591 linux/arm64 "rootless" ["dockerd-entrypoint.sh"] {"/home/rootless/.local/share/docker":{},"/var/lib/docker":{}}

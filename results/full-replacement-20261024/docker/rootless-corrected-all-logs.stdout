@@ -1,0 +1,21 @@
+[1792806709.116] [gateway] [INFO ] [openshell_server::grpc::sandbox] CreateSandbox request completed successfully
+[1792806712.471] [gateway] [INFO ] [openshell_driver_docker] Selected Docker supervisor networking
+[1792806714.385] [sandbox] [INFO ] [openshell_supervisor] Starting sandbox supervision command=["/usr/local/bin/dockerd-entrypoint.sh"]
+[1792806714.512] [gateway] [INFO ] [openshell_server::grpc::policy] GetSandboxProviderEnvironment request completed successfully
+[1792806714.577] [gateway] [INFO ] [openshell_server::supervisor_session] supervisor session: accepted
+[1792806714.581] [gateway] [INFO ] [openshell_server::grpc::policy] sandbox reported policy load result
+[1792806714.475] [sandbox] [INFO ] [openshell_supervisor] Fetching sandbox policy via gRPC endpoint=https://127.0.0.1:28610 sandbox=jfr24rootless3 sandbox_id=8a756d2b-615e-4013-94c3-8cd4590c916a
+[1792806714.513] [sandbox] [INFO ] [openshell_supervisor_network::opa] Configured OPA runtime binary identity mode require_binary_identity=true source=proto
+[1792806714.513] [sandbox] [OCSF ] [ocsf] CONFIG:CONFIGURED [INFO] OPA runtime binary identity mode configured [source:proto require_binary_identity:true] [source:proto]
+[1792806714.542] [sandbox] [INFO ] [openshell_supervisor] Isolation boundary attached backend=openshell-sandbox
+[1792806714.545] [sandbox] [INFO ] [openshell_supervisor] Isolation boundary enforcement confirmed backend=openshell-sandbox
+[1792806714.547] [sandbox] [OCSF ] [ocsf] CONFIG:ENABLED [INFO] TLS termination enabled: ephemeral CA generated
+[1792806714.547] [sandbox] [OCSF ] [ocsf] CONFIG:READY [INFO] Policy DNS connected to isolation boundary
+[1792806714.547] [sandbox] [OCSF ] [ocsf] NET:LISTEN [INFO] 127.0.0.1:3128
+[1792806714.547] [sandbox] [WARN ] [openshell_supervisor_network::proxy] host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF exemption disabled ip=127.0.0.1
+[1792806714.562] [sandbox] [INFO ] [openshell_supervisor] Isolation boundary agent started backend=openshell-sandbox
+[1792806714.563] [sandbox] [OCSF ] [ocsf] SSH:LISTEN [INFO]
+[1792806714.563] [sandbox] [INFO ] [openshell_supervisor] Control-mode access plane started backend=openshell-sandbox
+[1792806714.580] [sandbox] [OCSF ] [ocsf] NET:OPEN [INFO] 127.0.0.1:28610
+[1792806714.583] [sandbox] [OCSF ] [ocsf] CONFIG:LOADED [INFO] Acknowledged initial policy revision as loaded [version:1] [hash:41f3d24be33f83af0968f9b4aaa5c0af28a57ec913c45b560a2c4c9de2f93462]
+[1792806714.590] [sandbox] [INFO ] [openshell_supervisor] Canonical process exited; retaining control-mode access plane backend=openshell-sandbox

@@ -1,0 +1,39 @@
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 635B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/4] FROM docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4
+#4 resolve docker.io/library/python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 76B done
+#5 DONE 0.0s
+
+#6 [2/4] RUN printf 'jackin-test:x:1000:1000:Jackin test worker:/home/jackin-test:/bin/sh\n' >> /etc/passwd     && printf 'jackin-test:x:1000:\n' >> /etc/group     && mkdir -p /home/jackin-test /work/repo /jackin/checks /tmp /build     && chmod 0755 /home/jackin-test /work /work/repo /jackin /jackin/checks /tmp /build     && chown 1000:1000 /work/repo     && mkdir -p /etc/openshell
+#6 CACHED
+
+#7 [3/4] COPY patch-tmpfs/policy.yaml /etc/openshell/policy.yaml
+#7 CACHED
+
+#8 [4/4] WORKDIR /work/repo
+#8 CACHED
+
+#9 exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:02d62d0f326bcc10d86d8e8db212d38b94e240be063434090bf9c0bce659ac58 done
+#9 exporting config sha256:d286168db32b35327ce2a676d17346f6a0815dcddecb3f1c3945124482366461 done
+#9 exporting attestation manifest sha256:058f59a55f3d74b28e8b6fa0f4db51c093d828744eb8042f7e7692ff1bbf0f71 0.0s done
+#9 exporting manifest list sha256:9e1738c8e074ed986a86d0d1fc24aac4b18f0687afc853fa55e5a0db4ec1d7b6 0.0s done
+#9 naming to docker.io/library/jfr-20261024-verify-worker:patch-policy-final done
+#9 unpacking to docker.io/library/jfr-20261024-verify-worker:patch-policy-final done
+#9 DONE 0.1s

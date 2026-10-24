@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "sh",
+    "experiments/full-replacement-20261024/targets/openshell-vm-bind/client.sh",
+    "sandbox",
+    "list",
+    "-o",
+    "json"
+  ],
+  "exit_status": 1,
+  "wall_seconds": 0.09,
+  "stdout": "",
+  "stderr": "Error:   \u00d7 transport error\n  \u251c\u2500\u25b6 tcp connect error\n  \u251c\u2500\u25b6 tcp connect error\n  \u2570\u2500\u25b6 Connection refused (os error 61)\n\n"
+}

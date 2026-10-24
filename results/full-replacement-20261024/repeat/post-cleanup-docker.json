@@ -1,0 +1,28 @@
+[
+  {
+    "sandbox_id": "21acc0ed-20bd-4087-b2c4-951247bd9050",
+    "docker_container_ids_after_cleanup": [],
+    "exit_status": 0,
+    "stderr": ""
+  },
+  {
+    "sandbox_id": "224e4791-1267-44f9-ba75-592ebf9b14be",
+    "docker_container_ids_after_cleanup": [],
+    "exit_status": 0,
+    "stderr": ""
+  },
+  {
+    "volume": "jfr24repeat-host-rw",
+    "present": false,
+    "exit_status": 1,
+    "stdout": "[]\n",
+    "stderr": "Error response from daemon: get jfr24repeat-host-rw: no such volume\n"
+  },
+  {
+    "volume": "jfr24repeat-wrong-workspace",
+    "present": false,
+    "exit_status": 1,
+    "stdout": "[]\n",
+    "stderr": "Error response from daemon: get jfr24repeat-wrong-workspace: no such volume\n"
+  }
+]

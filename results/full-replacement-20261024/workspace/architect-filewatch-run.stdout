@@ -1,0 +1,38 @@
+{
+  "fixture_id": "jfr-20261024-ws",
+  "classification": "OpenShell sandbox host-checkout watcher probe",
+  "watch_setup": {
+    "ready": true,
+    "watched_path": "__POC_ROOT__/results/full-replacement-20261024/workspace/jfr-20261024-ws/host-source/src",
+    "watcher": "macOS kqueue vnode"
+  },
+  "watch_event": {
+    "events": [
+      "WRITE"
+    ],
+    "event_count": 1
+  },
+  "sandbox_command": [
+    "sh",
+    "__POC_ROOT__/experiments/full-replacement-20261024/gateway-b/client.sh",
+    "--workspace",
+    "jfr-ws-20261024",
+    "sandbox",
+    "exec",
+    "--no-login-shell",
+    "--no-tty",
+    "jfrws24-recreat",
+    "--",
+    "/bin/sh",
+    "-c",
+    "printf \"agent-dirwatch-official-v1\\n\" > /workspace/jfr-20261024-ws/host-source/src/agent-dirwatch-created-official.txt"
+  ],
+  "exit_status": 0,
+  "stdout": "",
+  "stderr": "",
+  "watcher_stderr": "",
+  "host_file_after": "pub fn fixture_value() -> &'static str { \"host-atomic-1792804891476233000\" }\n",
+  "host_created_file": "agent-dirwatch-official-v1\n",
+  "created_path_was_absent_before_probe": true,
+  "result": "PASS"
+}

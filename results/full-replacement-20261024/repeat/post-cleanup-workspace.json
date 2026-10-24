@@ -1,0 +1,13 @@
+{
+  "command": [
+    "sh",
+    "experiments/full-replacement-20261024/gateway-c/client.sh",
+    "--workspace",
+    "jfr-ws-repeat24",
+    "workspace",
+    "get",
+    "jfr-ws-repeat24"
+  ],
+  "exit_status": 1,
+  "stderr": "workspace 'jfr-ws-repeat24' not found; expected after workspace deletion"
+}

@@ -1,0 +1,42 @@
+   Compiling openshell-core v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-core)
+mbx[warning]: incremental state was not reused: compiler environment input changed: OPENSHELL_GIT_VERSION
+warning: trailing semicolon in macro used in expression position
+   --> crates/openshell-core/src/policy.rs:165:26
+    |
+165 |               otherwise => miette::bail!(
+    |  __________________________^
+166 | |                 "invalid landlock.compatibility {:?}; accepted: {}",
+167 | |                 otherwise,
+168 | |                 LANDLOCK_COMPATIBILITY_VALUES.join(", ")
+169 | |             ),
+    | |_____________^
+    |
+    = warning: this was previously accepted by the compiler but is being phased out; it will become a hard error in a future release!
+    = note: for more information, see issue #79813 <https://github.com/rust-lang/rust/issues/79813>
+    = note: `#[warn(semicolon_in_expressions_from_non_local_macros)]` (part of `#[warn(future_incompatible)]`) on by default
+    = note: this warning originates in the macro `miette::bail` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+   Compiling openshell-sdk v0.0.0 (/Users/example/openshell-jackin-public/experiments/full-replacement-20261024/patch-delete/openshell/crates/openshell-sdk)
+warning: `openshell-core` (lib) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.58s
+     Running tests/delete_by_id_integration.rs (target/debug/deps/delete_by_id_integration-2f0946da5babd519)
+
+running 1 test
+owned_sandbox_id=95c7c454-c247-430c-9391-9889f2bdaa16 test_label=pn809868201717000
+mbx[progress]: 15s elapsed; 0 hits, 4 misses, 0 bypassed, 0 not looked up; ~0s compiler work saved
+owned_sandbox_id=468b60f6-8ac0-40f2-b683-4fe4adf8a558 test_label=pn809868201717000
+same_request_different_id_reason=REQUEST_ID_PAYLOAD_MISMATCH
+original_id=95c7c454-c247-430c-9391-9889f2bdaa16
+replacement_id=468b60f6-8ac0-40f2-b683-4fe4adf8a558
+delete_outcome=2
+same_request_replayed=true
+same_request_different_id_status=The system is not in a state required for the operation's execution
+foreign_and_absent_status=Some requested entity was not found
+allow_missing_foreign_and_absent_status=Client specified an invalid argument
+replacement_survived=true
+test patched_server_replays_id_delete_after_removal_and_name_reuse ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 4.86s
+
+mbx[cache]: 0 hits, 4 misses; 0 B downloaded, 0 B uploaded, 94.3 MiB stored locally
+mbx[savings]: 27d 11h refunded over 97751 builds. no receipt necessary.

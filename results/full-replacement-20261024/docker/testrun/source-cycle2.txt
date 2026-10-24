@@ -1,0 +1,18 @@
+12b8b4a67bfed7d962130b8eaca70b6fa3d5db6e4106f61a0200c4a0021fb757  tests/redis_container.rs
+54ad70b8c4543791a454282606f31f7864ca4faae30fd51099c2664f5a3e3ca8  tests/redis_container.rs
+diff --git a/tests/redis_container.rs b/tests/redis_container.rs
+index 7923bb7..8ef7516 100644
+--- a/tests/redis_container.rs
++++ b/tests/redis_container.rs
+@@ -16,9 +16,9 @@ async fn testcontainers_starts_redis_and_exchanges_data() {
+     println!("Docker reported host={host} port={port}; test endpoint={endpoint}");
+     let client = redis::Client::open(format!("redis://{endpoint}/")).unwrap();
+     let mut connection = client.get_multiplexed_async_connection().await.unwrap();
+-    let _: () = connection.set("ojp-probe", "round-trip").await.unwrap();
++    let _: () = connection.set("ojp-probe", "round-trip-cycle2").await.unwrap();
+     let value: String = connection.get("ojp-probe").await.unwrap();
+-    assert_eq!(value, "round-trip");
++    assert_eq!(value, "round-trip-cycle2");
+     drop(connection);
+     drop(client);
+     if std::env::var_os("OJP_TEST_FAILURE").is_some() {

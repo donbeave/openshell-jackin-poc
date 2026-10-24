@@ -1,0 +1,14 @@
+
+  [1m[48;2;0;255;65m[38;2;0;0;0m jackin[38;2;255;255;255m❯[38;2;0;0;0m [0m
+prewarm
+
+  [32m✓[39m  capsule  /Users/example/openshell-jackin-public/results/full-refactor-20261024/agents/capsule-build-6e/jackin-capsule-linux-arm64
+  [33m![39m  amp      resolving latest amp binary
+
+sidecar
+  [32m✓[39m  docker:29-dind present
+
+images for jfr24/architect
+  [32m✓[39m  amp      built  jk_jfr24_architect:93a46c2
+
+[33m![39m  1 agent binary prewarm(s) failed; Docker builds can still use fallback installers
