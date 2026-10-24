@@ -1,0 +1,14 @@
+[
+  {
+    "command": "rust-build-guard -- mise exec -- cargo check --locked -p jackin-capsule --target aarch64-unknown-linux-gnu",
+    "result": "FAIL",
+    "exit_status": 101,
+    "observation": "Homebrew Rust sysroot lacked the aarch64-unknown-linux-gnu target libraries. Existing rustup installation reported that target, but cargo was using the Homebrew sysroot."
+  },
+  {
+    "command": "rust-build-guard -- mise exec -- cargo build --locked -p jackin-capsule --bin jackin-capsule --release --target aarch64-unknown-linux-gnu with rustup rustc and Zig linker",
+    "result": "NOT TESTED",
+    "exit_status": 130,
+    "observation": "Build began. Guard reported free space 2,199,709,171,712 bytes, below 2.2 TB low-water. Build was stopped before completion. No binary produced."
+  }
+]

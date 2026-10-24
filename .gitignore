@@ -1,0 +1,9 @@
+# Reproducible Python caches.
+__pycache__/
+*.py[cod]
+
+# Regenerated inputs and private POC state are not research publication artifacts.
+/research/independent-audit-20261024/sources/
+/research/independent-audit-20261024/experiments/**/certs/
+/research/independent-audit-20261024/experiments/**/state/
+/research/independent-audit-20261024/experiments/**/config/

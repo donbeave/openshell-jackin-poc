@@ -1,0 +1,47 @@
+{
+  "recorded_at_utc": "2026-10-24T01:50:15.130357+00:00",
+  "mechanism": "OpenShell released sandbox exec stream plus Jackin's trusted process-group timeout wrapper semantics",
+  "expected": "wrapper returns 124; grandchild marker absent after its 8-second delay",
+  "sandbox_name": "jrr24-worker-pass4",
+  "immutable_sandbox_id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+  "runtime_generation": "2c9cd0a4-5702-4ede-a6f5-e334c23d4221",
+  "timeout_seconds_from_request": 2.0,
+  "elapsed_seconds": 30.361424832983175,
+  "exec_command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "exec",
+    "jrr24-worker-pass4",
+    "--no-tty",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "/jackin/checks/wrapper.py",
+    "1792806577.647765",
+    "/usr/local/bin/python3.12",
+    "/jackin/checks/timeout_child.py"
+  ],
+  "wrapper_result": {
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"/jackin/checks/wrapper.py\", line 18, in <module>\n    code = child.wait(timeout=remaining)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/subprocess.py\", line 1264, in wait\n    return self._wait(timeout=timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/subprocess.py\", line 2045, in _wait\n    raise TimeoutExpired(self.args, timeout)\nsubprocess.TimeoutExpired: Command '['/usr/local/bin/python3.12', '/jackin/checks/timeout_child.py']' timed out after 1.8061482906341553 seconds\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/jackin/checks/wrapper.py\", line 21, in <module>\n    os.killpg(child.pid, signal.SIGKILL)\nPermissionError: [Errno 1] Operation not permitted\n"
+  },
+  "marker_check_command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "exec",
+    "jrr24-worker-pass4",
+    "--no-tty",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "from pathlib import Path; print(Path('/tmp/jackin-worker-grandchild-marker').exists())"
+  ],
+  "marker_check": {
+    "exit_status": 0,
+    "stdout": "True\n",
+    "stderr": ""
+  },
+  "initial_marker_cleanup_status": 0
+}

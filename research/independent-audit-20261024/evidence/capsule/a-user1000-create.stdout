@@ -1,0 +1,9 @@
+
+Created sandbox: jrr24-user-a
+
+  [0.0s] Requesting compute...
+[0.0s] Sandbox allocated
+[0.0s] Pulling image alpine@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f
+[0.1s] Image already present
+[0.5s] Starting sandbox Container created
+✓ Sandbox jrr24-user-a deletion accepted; cleanup is pending

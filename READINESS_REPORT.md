@@ -54,3 +54,7 @@ The next decisive sequence is: qualify the missing identity/session/credential a
 - Missing credentials, protocols, platforms, dimensions and measurements remain BLOCKED or NOT TESTED. Existing failures, overwritten-raw evidence limitation, fixture mistakes and procedural deviations remain disclosed in [POC_RESULTS.md](POC_RESULTS.md).
 
 This is a readiness decision for the complete refactor. It does not claim production readiness or substitute a narrower readiness verdict.
+
+## Merged independent audit
+
+The [independent audit bundle](research/independent-audit-20261024/README.md) and its 207-record source inventory are now included alongside this later execution follow-up. Its workload-side process-group timeout and CLI cancellation negative cases remain valid for their recorded configuration. Its inconclusive PTY replay and earlier untested Rust/storage statements do not erase this report's later successful primitives. Conversely, the later primitives do not establish the complete domain/account/credential journey or erase a failed native operation. [RESEARCH_INDEX.md](RESEARCH_INDEX.md) records the comparison, patch boundaries and publication provenance. The full-replacement verdict remains NOT READY.

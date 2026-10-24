@@ -1,0 +1,10 @@
+{
+  "command": [
+    "gh",
+    "api",
+    "repos/jackin-project/jackin-the-architect/releases?per_page=100"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "response": []
+}

@@ -1,0 +1,41 @@
+{
+  "resource": "jrr24-architect-claude:2.1.310-hookproof",
+  "captured_before_cleanup_utc": "2026-10-24T01:56:44Z",
+  "owner": "role_poc Docker builder experiment",
+  "resource_class": "reduced workaround image; two Architect marketplaces/plugins omitted; not a full role image",
+  "immutable_image_id": "sha256:ac55b56367b1197b3df0eb6fda0d4a64966c1229c76a9f3cc364af3253b98de7",
+  "size_bytes": 7537972620,
+  "labels": {
+    "org.jackin.poc.agent": "claude",
+    "org.jackin.poc.agent.version": "2.1.310",
+    "org.jackin.poc.role.content.sha": "99e10ee3007bd3fd13b91aac0a172c614cde3f572dd2f2323a9dd3c35070f28f",
+    "org.jackin.poc.role.revision": "7b72b38fe1d66e35c0931899c53bf3719592bbcc"
+  },
+  "consumer_check": {
+    "command": "docker ps -a --no-trunc --quiet --filter ancestor=jrr24-architect-claude:2.1.310-hookproof",
+    "result": "empty"
+  },
+  "sandbox_consumer_check": {
+    "source": "parent capsule_poc confirmation received before cleanup",
+    "result": "no live Capsule POC sandbox references any Architect tag; prior create failed before workload create and inventory was empty"
+  },
+  "other_owned_tags_retained": [
+    "jrr24-architect-claude:2.1.310-hookproof-agent",
+    "jrr24-architect-claude:2.1.309-hookproof-agent",
+    "jrr24-architect-claude:2.1.310",
+    "jrr24-architect-role-base:7b72b38fe1d6"
+  ],
+  "shared_build_cache_or_base_removed": false,
+  "cleanup_action": "docker image rm jrr24-architect-claude:2.1.310-hookproof; output: Untagged and Deleted for exact recorded image ID",
+  "captured_after_cleanup_utc": "2026-10-24T01:56:58Z",
+  "verification": {
+    "docker image inspect exit status": 1,
+    "remaining experiment tags checked": [
+      "jrr24-architect-claude:2.1.309-hookproof-agent",
+      "jrr24-architect-claude:2.1.310-hookproof-agent",
+      "jrr24-architect-claude:2.1.310",
+      "jrr24-architect-role-base:7b72b38fe1d6"
+    ],
+    "result": "selected tag absent; listed tags remain; shared base and BuildKit cache untouched"
+  }
+}

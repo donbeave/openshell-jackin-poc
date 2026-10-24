@@ -1,0 +1,313 @@
+ .agents/skills/create-github-pr/SKILL.md           |    4 +-
+ .agents/skills/helm-dev-environment/SKILL.md       |   50 +-
+ .agents/skills/release-captain/SKILL.md            |  228 ++
+ .agents/skills/sync-agent-infra/SKILL.md           |    3 +-
+ .agents/skills/test-release-canary/SKILL.md        |    2 +-
+ .agents/skills/watch-github-actions/SKILL.md       |    6 +-
+ .github/PULL_REQUEST_TEMPLATE.md                   |    2 +-
+ .github/actions/build-rust-binary/action.yml       |    4 +-
+ .github/actions/check-latest-release/action.yml    |   30 +-
+ .github/actions/setup-buildx/action.yml            |    2 +-
+ .github/actions/setup-rust/action.yml              |    6 +
+ .github/prompts/compatibility-review.md            |   11 +
+ .github/workflows/branch-checks.yml                |    3 +
+ .github/workflows/release-canary.yml               |    4 +-
+ .github/workflows/release-prerelease.yml           |    2 +
+ .github/workflows/release-publish.yml              |   53 +-
+ .github/workflows/release.yml                      |   28 +
+ .github/workflows/rust-cache.yml                   |   67 +
+ .github/workflows/snap-publish.yml                 |    9 +-
+ .gitignore                                         |    2 +-
+ AGENTS.md                                          |    5 +-
+ CI.md                                              |   19 +-
+ CONTRIBUTING.md                                    |    8 +-
+ Cargo.lock                                         |   61 +-
+ TESTING.md                                         |   34 +-
+ crates/openshell-cli/Cargo.toml                    |    5 -
+ crates/openshell-cli/src/completers.rs             |   19 +-
+ crates/openshell-cli/src/edge_tunnel.rs            |  261 --
+ crates/openshell-cli/src/lib.rs                    |    1 -
+ crates/openshell-cli/src/main.rs                   |   33 +
+ crates/openshell-cli/src/tls.rs                    |  291 +-
+ .../openshell-cli/tests/fixtures/fake_forward.rs   |   11 +-
+ .../tests/sandbox_create_lifecycle_integration.rs  |   64 +-
+ crates/openshell-core/src/grpc_client.rs           |  530 ++-
+ .../openshell-core/src/isolation_registration.rs   |    3 +-
+ crates/openshell-core/src/jwt.rs                   |  429 +-
+ crates/openshell-core/src/lib.rs                   |    2 +-
+ crates/openshell-core/src/paths.rs                 |   47 +-
+ crates/openshell-core/src/proto/mod.rs             |    5 +
+ crates/openshell-driver-docker/README.md           |    8 +-
+ crates/openshell-driver-docker/src/isolation.rs    |    4 +-
+ crates/openshell-driver-docker/src/lib.rs          |  211 +-
+ crates/openshell-driver-docker/src/tests.rs        |   11 +-
+ crates/openshell-driver-kubernetes/Cargo.toml      |   13 +-
+ crates/openshell-driver-kubernetes/README.md       |  142 +-
+ crates/openshell-driver-kubernetes/src/config.rs   |  224 +-
+ crates/openshell-driver-kubernetes/src/driver.rs   | 2197 +++++++---
+ .../openshell-driver-kubernetes/src/isolation.rs   |  344 +-
+ crates/openshell-driver-kubernetes/src/lib.rs      |    6 +-
+ .../src/lifecycle_tests.rs                         |   18 +
+ crates/openshell-driver-kubernetes/src/main.rs     |    2 +
+ .../src/sandbox_runtime.rs                         |  183 +-
+ .../src/shared_supervisor.rs                       |  221 +
+ crates/openshell-driver-mxc/src/driver.rs          |    2 +-
+ crates/openshell-driver-podman/README.md           |    7 +
+ crates/openshell-driver-podman/src/client.rs       |    2 +-
+ crates/openshell-driver-podman/src/container.rs    |   13 +-
+ crates/openshell-driver-podman/src/driver.rs       |   60 +-
+ crates/openshell-driver-podman/src/grpc.rs         |    3 +-
+ crates/openshell-driver-podman/src/isolation.rs    |   51 +-
+ crates/openshell-driver-vm/README.md               |    8 +
+ .../scripts/openshell-vm-sandbox-init.sh           |   35 +
+ crates/openshell-driver-vm/src/driver.rs           |  114 +-
+ crates/openshell-driver-vm/src/isolation/mod.rs    |   20 +-
+ crates/openshell-driver-vm/src/main.rs             |    5 +-
+ .../src/registry_cache_tests.rs                    |   60 +
+ crates/openshell-driver-vm/src/rootfs.rs           |   97 +
+ crates/openshell-driver-vm/src/runtime.rs          |    4 +-
+ crates/openshell-gateway/src/lib.rs                |   22 +-
+ crates/openshell-ocsf/schemas/ocsf/README.md       |    5 +-
+ .../ocsf/v1.8.0/objects/resource_details.json      |  291 ++
+ crates/openshell-ocsf/src/builders/api_activity.rs |  238 +-
+ .../openshell-ocsf/src/builders/authentication.rs  |    8 +-
+ crates/openshell-ocsf/src/builders/base.rs         |    8 +-
+ crates/openshell-ocsf/src/builders/config.rs       |    8 +-
+ crates/openshell-ocsf/src/builders/finding.rs      |   67 +-
+ crates/openshell-ocsf/src/builders/http.rs         |   10 +-
+ crates/openshell-ocsf/src/builders/lifecycle.rs    |    8 +-
+ crates/openshell-ocsf/src/builders/mod.rs          |   59 +-
+ crates/openshell-ocsf/src/builders/network.rs      |   10 +-
+ crates/openshell-ocsf/src/builders/process.rs      |    8 +-
+ crates/openshell-ocsf/src/builders/ssh.rs          |    8 +-
+ crates/openshell-ocsf/src/ctx.rs                   |   43 +-
+ crates/openshell-ocsf/src/events/api_activity.rs   |   12 +-
+ .../openshell-ocsf/src/events/process_activity.rs  |    4 +-
+ crates/openshell-ocsf/src/format/shorthand.rs      |  139 +-
+ crates/openshell-ocsf/src/lib.rs                   |    9 +-
+ crates/openshell-ocsf/src/objects/api.rs           |    6 +
+ crates/openshell-ocsf/src/objects/mod.rs           |    2 +
+ crates/openshell-ocsf/src/objects/process.rs       |   45 +-
+ crates/openshell-ocsf/src/objects/resource.rs      |   67 +
+ crates/openshell-ocsf/src/test_support.rs          |   14 +
+ .../src/tracing_layers/jsonl_layer.rs              |   33 +-
+ crates/openshell-ocsf/src/tracing_layers/mod.rs    |    2 +-
+ crates/openshell-otel/src/lib.rs                   |    2 +-
+ crates/openshell-otel/src/propagation.rs           |   32 +-
+ crates/openshell-sandbox-backend/Cargo.toml        |    2 -
+ crates/openshell-sandbox-backend/README.md         |   46 +-
+ .../src/boundary_protocol.rs                       |  117 +-
+ crates/openshell-sandbox-backend/src/delegated.rs  |    8 +-
+ crates/openshell-sandbox-backend/src/lib.rs        |    3 +
+ crates/openshell-sandbox-backend/src/runtime.rs    |  201 +-
+ .../src/runtime/test_support.rs                    |    4 +-
+ .../src/runtime_initiated.rs                       |  309 ++
+ .../src/runtime_routed.rs                          |  497 +++
+ crates/openshell-sandbox/README.md                 |    9 +
+ crates/openshell-sandbox/src/boundary_server.rs    |  366 +-
+ crates/openshell-sandbox/src/delegated.rs          |    2 +-
+ crates/openshell-sdk/README.md                     |    5 +-
+ crates/openshell-sdk/src/config.rs                 |   38 +-
+ crates/openshell-sdk/src/lib.rs                    |    2 +-
+ crates/openshell-sdk/src/transport.rs              |   16 +-
+ crates/openshell-server-macros/Cargo.toml          |   18 -
+ crates/openshell-server-macros/src/lib.rs          |  326 --
+ crates/openshell-server/Cargo.toml                 |    3 +-
+ crates/openshell-server/src/auth/audit.rs          |  631 ++-
+ .../src/auth/audit/test_support.rs                 |  122 +
+ crates/openshell-server/src/auth/authenticator.rs  |   65 +-
+ crates/openshell-server/src/auth/authz.rs          |   59 +-
+ .../openshell-server/src/auth/descriptor_authz.rs  |    3 +-
+ crates/openshell-server/src/auth/guard.rs          |   60 +-
+ crates/openshell-server/src/auth/launch_signing.rs |    1 +
+ crates/openshell-server/src/auth/method_authz.rs   |   30 +-
+ crates/openshell-server/src/auth/mod.rs            |    1 +
+ crates/openshell-server/src/auth/principal.rs      |   43 +
+ crates/openshell-server/src/auth/sandbox_jwt.rs    |   56 +-
+ .../openshell-server/src/auth/supervisor_token.rs  |  187 +
+ .../openshell-server/src/auth/workspace_authz.rs   |  128 +-
+ crates/openshell-server/src/compute/mod.rs         |  289 +-
+ .../openshell-server/src/compute/mutation_guard.rs |   11 +-
+ .../src/compute/provisioning_deadline.rs           |   43 +-
+ crates/openshell-server/src/gateway_metrics.rs     |   31 +
+ crates/openshell-server/src/grpc/auth_rpc.rs       |  452 ++-
+ crates/openshell-server/src/grpc/mod.rs            |    1 +
+ .../openshell-server/src/grpc/mutation_replay.rs   |   10 +-
+ .../src/grpc/mutation_replay/tests.rs              |   90 +
+ crates/openshell-server/src/grpc/policy.rs         |   86 +-
+ crates/openshell-server/src/grpc/provider.rs       |    3 +-
+ crates/openshell-server/src/grpc/sandbox.rs        |  366 +-
+ .../openshell-server/src/grpc/supervisor_host.rs   |   65 +
+ crates/openshell-server/src/grpc/workspace.rs      |   16 +-
+ crates/openshell-server/src/lib.rs                 |  111 +-
+ crates/openshell-server/src/multiplex.rs           |  967 ++++-
+ .../src/persistence/mutation_lock.rs               |    2 +-
+ crates/openshell-server/src/persistence/tests.rs   |    3 +-
+ crates/openshell-server/src/storage_proto.rs       |   18 +-
+ crates/openshell-supervisor-control/Cargo.toml     |   27 +
+ crates/openshell-supervisor-control/README.md      |   65 +
+ .../openshell-supervisor-control/src/controller.rs |  853 ++++
+ .../src/coordinator.rs                             |  390 ++
+ .../openshell-supervisor-control/src/credential.rs |   66 +
+ crates/openshell-supervisor-control/src/lib.rs     |   52 +
+ .../src/registration.rs                            |  257 ++
+ crates/openshell-supervisor-control/src/status.rs  |  145 +
+ crates/openshell-supervisor-network/README.md      |   12 +
+ crates/openshell-supervisor-network/src/host.rs    |    7 +-
+ .../src/l7/middleware.rs                           |    4 +-
+ .../openshell-supervisor-network/src/l7/relay.rs   |    4 +-
+ .../src/l7/token_grant_injection.rs                |   28 +-
+ .../src/policy_local.rs                            |  169 +-
+ crates/openshell-supervisor-network/src/proxy.rs   |   16 +-
+ .../src/proxy/relay.rs                             |    9 +-
+ crates/openshell-supervisor-network/src/run.rs     |  110 +-
+ .../src/token_grant.rs                             |  411 +-
+ crates/openshell-supervisor-process/Cargo.toml     |    2 +-
+ .../openshell-supervisor-process/src/debug_rpc.rs  |    7 +-
+ .../openshell-supervisor-process/src/delegated.rs  |   29 +-
+ .../openshell-supervisor-process/src/log_push.rs   |  169 +-
+ .../src/supervisor_session.rs                      |   52 +-
+ crates/openshell-supervisor/Cargo.toml             |   10 +-
+ crates/openshell-supervisor/README.md              |  131 +-
+ crates/openshell-supervisor/src/backend_setup.rs   |   95 +-
+ .../src/backend_setup/tests.rs                     |   57 +-
+ crates/openshell-supervisor/src/config_runtime.rs  |   21 +-
+ .../src/legacy_startup_regression_tests.rs         |   63 +-
+ crates/openshell-supervisor/src/lib.rs             |  634 ++-
+ crates/openshell-supervisor/src/main.rs            |  150 +-
+ .../openshell-supervisor/src/provider_readiness.rs |    8 +-
+ .../src/sandbox_instance_host.rs                   | 1225 ++++++
+ crates/openshell-supervisor/src/shared.rs          |  152 +
+ crates/openshell-supervisor/src/shared_host.rs     |  724 ++++
+ deploy/helm/openshell/README.md                    |    6 +
+ deploy/helm/openshell/ci/values-openshift-scc.yaml |    8 +
+ deploy/helm/openshell/ci/values-supervisor.yaml    |    9 +
+ .../helm/openshell/templates/_gateway-workload.tpl |    3 +
+ deploy/helm/openshell/templates/_helpers.tpl       |   86 +
+ deploy/helm/openshell/templates/peer-role.yaml     |   23 +
+ deploy/helm/openshell/templates/supervisor.yaml    |  208 +
+ .../helm/openshell/tests/gateway_config_test.yaml  |   41 +
+ deploy/helm/openshell/tests/supervisor_test.yaml   |  314 ++
+ .../openshell/tests/supervisor_wiring_test.yaml    |  106 +
+ deploy/helm/openshell/values.yaml                  |   19 +
+ docs/about/installation.mdx                        |   17 +-
+ docs/about/support-matrix.mdx                      |    5 +-
+ docs/extensibility/drivers.mdx                     |   32 +-
+ docs/how-it-works/gateways/configuration.mdx       |   12 +
+ docs/how-it-works/policies/prover.mdx              |   11 +-
+ docs/how-it-works/sandboxes/overview.mdx           |    5 +-
+ docs/how-it-works/sandboxes/runtimes.mdx           |    4 +-
+ docs/observability/gateway-metrics.mdx             |    3 +
+ docs/observability/logging.mdx                     |   16 +-
+ docs/observability/ocsf-json-export.mdx            |   22 +-
+ docs/sdk/python.mdx                                |   17 +
+ docs/tutorials/run-pi-with-openrouter.mdx          |   10 +-
+ e2e/rust/Cargo.lock                                |   12 +-
+ e2e/rust/Cargo.toml                                |    2 +
+ e2e/rust/tests/kubernetes_runtime_reconcile.rs     |  135 +
+ e2e/rust/tests/kubernetes_shared_supervisor.rs     |  742 ++++
+ e2e/with-kube-gateway.sh                           |   15 -
+ examples/bring-your-own-container/Dockerfile       |    6 +-
+ examples/bring-your-own-container/README.md        |   11 +-
+ examples/governance-interceptor/Cargo.lock         |   12 +-
+ examples/isolation-backend-v8/Cargo.lock           |   12 +-
+ examples/multi-agent-notepad/demo.sh               |    3 +
+ .../supervisor-middleware-content-guard/Cargo.lock |   12 +-
+ flake.nix                                          |    6 +-
+ install.sh                                         |   23 +-
+ proto/README.md                                    |   14 +
+ proto/supervisor_host.proto                        |  129 +
+ providers/openrouter.yaml                          |    4 +-
+ python/credential_driver_proto_test.py             |   58 +
+ python/generate_python_proto_test.py               |   59 +
+ python/wheel_verifier_test.py                      |   19 +-
+ scripts/lint-mermaid/package-lock.json             |  124 +-
+ scripts/lint-mermaid/package.json                  |    4 +-
+ sdk/go/openshell/v1/gateway/paths.go               |   59 +-
+ sdk/go/openshell/v1/gateway/paths_test.go          |   84 +-
+ sdk/typescript/package-lock.json                   |   10 +-
+ skills/debug-openshell-cluster/SKILL.md            |   63 +-
+ skills/openshell-cli/SKILL.md                      |    1 -
+ snapcraft.yaml                                     |    6 +-
+ tasks/gateway.toml                                 |    2 +-
+ tasks/rust.toml                                    |    3 +
+ tasks/scripts/build-env.sh                         |   32 +-
+ tasks/scripts/codex_compatibility.py               |    2 +-
+ tasks/scripts/gateway-docker.sh                    |    3 +
+ tasks/scripts/gateway-vm.sh                        |    3 +
+ tasks/scripts/generate_python_proto.py             |   78 +-
+ tasks/scripts/select-release-candidate.py          |    1 +
+ tasks/scripts/test-build-env.sh                    |   22 +-
+ tasks/scripts/test-install-sh.sh                   |  116 +
+ tasks/scripts/test-packaging-assets.sh             |   25 +-
+ tasks/scripts/verify-python-wheel.py               |    9 +-
+ tasks/test.toml                                    |    7 +
+ tests/suites/features/Cargo.lock                   |   12 +-
+ tests/testkit/Cargo.lock                           | 4268 ++++++++++++++++++++
+ tests/testkit/Cargo.toml                           |    8 +
+ tests/testkit/README.md                            |  101 +
+ tests/testkit/testkit-macros/Cargo.toml            |   21 +
+ tests/testkit/testkit-macros/src/lib.rs            |  174 +
+ tests/testkit/testkit/Cargo.toml                   |   26 +
+ tests/testkit/testkit/src/bin/testkit-ready.rs     |   56 +
+ tests/testkit/testkit/src/cli.rs                   |  162 +
+ tests/testkit/testkit/src/context.rs               |  525 +++
+ tests/testkit/testkit/src/error.rs                 |   94 +
+ tests/testkit/testkit/src/gateway.rs               |  268 ++
+ tests/testkit/testkit/src/lib.rs                   |   47 +
+ tests/testkit/testkit/src/poll.rs                  |   40 +
+ tests/testkit/testkit/src/run.rs                   |   62 +
+ tests/{ => tmachine}/ansible/ansible.cfg           |    0
+ tests/{ => tmachine}/ansible/inventory.ini         |    0
+ .../ansible/playbooks/conformance/cli.yaml         |    0
+ .../ansible/playbooks/conformance/k3s-ready.yaml   |    0
+ .../playbooks/conformance/policy-advisor.yaml      |    0
+ tests/{ => tmachine}/ansible/playbooks/docker.yaml |    0
+ .../drivers/podman/default-userns-baseline.yaml    |    0
+ .../ansible/playbooks/drivers/podman/e2e.yaml      |    0
+ .../ansible/playbooks/drivers/podman/tests.yaml    |    0
+ .../playbooks/drivers/podman/userns-auto.yaml      |    0
+ .../playbooks/drivers/podman/userns-keep-id.yaml   |    0
+ .../playbooks/drivers/podman/userns-private.yaml   |    0
+ .../playbooks/drivers/podman/userns-profile.yaml   |    0
+ .../ansible/playbooks/features/oci-image.yaml      |    0
+ .../features/provider-refresh/keycloak.yaml        |    0
+ .../{ => tmachine}/ansible/playbooks/gateway.yaml  |    0
+ tests/{ => tmachine}/ansible/playbooks/k3s.yaml    |    0
+ .../{ => tmachine}/ansible/playbooks/nextest.yaml  |    0
+ .../ansible/playbooks/openshell-deb.yaml           |    0
+ .../ansible/playbooks/openshell-k3s-ha.yaml        |    0
+ .../ansible/playbooks/openshell-k3s.yaml           |    0
+ .../ansible/playbooks/openshell-rpm.yaml           |    0
+ .../ansible/playbooks/openshell.yaml               |    0
+ .../ansible/playbooks/podman-rootful.yaml          |    0
+ .../ansible/playbooks/podman-rootless.yaml         |    0
+ .../{ => tmachine}/ansible/playbooks/selinux.yaml  |    0
+ tests/{ => tmachine}/ansible/playbooks/shell.yaml  |    0
+ tests/{ => tmachine}/ansible/requirements.yaml     |    0
+ .../ansible/roles/keycloak/defaults/main.yaml      |    0
+ .../ansible/roles/keycloak/tasks/main.yaml         |    0
+ .../ansible/roles/openshell_client/tasks/main.yaml |    0
+ .../openshell_diagnostics/files/collect-k3s.sh     |    0
+ .../roles/openshell_diagnostics/tasks/main.yaml    |    2 +-
+ .../roles/openshell_gateway/tasks/detect.yaml      |    0
+ .../roles/openshell_gateway/tasks/docker.yaml      |    0
+ .../roles/openshell_gateway/tasks/main.yaml        |    0
+ .../roles/openshell_gateway/tasks/podman.yaml      |    0
+ .../templates/gateway-docker.service.j2            |    0
+ .../templates/gateway-docker.toml.j2               |    0
+ .../templates/gateway-podman.service.j2            |    0
+ .../templates/gateway-podman.toml.j2               |    0
+ .../openshell_gateway/templates/gateway.service.j2 |    0
+ .../openshell_gateway/templates/gateway.toml.j2    |    0
+ .../openshell_packaged_gateway/tasks/main.yaml     |    0
+ .../tmachine_container_runtime/tasks/main.yaml     |    0
+ .../roles/tmachine_user_manager/tasks/main.yaml    |    0
+ tests/{ => tmachine}/artifacts.nix                 |    2 +-
+ tests/{ => tmachine}/cloud-init/meta-data          |    0
+ tests/{ => tmachine}/cloud-init/user-data          |    0
+ tests/{ => tmachine}/config.nix                    |   60 +-
+ tests/tmachine/default.nix                         |   11 +-
+ tests/{ => tmachine}/images.nix                    |    0
+ uv.lock                                            |    6 +-
+ 312 files changed, 24919 insertions(+), 3576 deletions(-)

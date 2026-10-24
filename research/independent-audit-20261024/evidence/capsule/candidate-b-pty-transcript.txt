@@ -1,0 +1,13 @@
+Command: ./research/full-refactor/experiments/capsule/client.sh sandbox connect jrr24-b-agent
+PTY output: ~ $
+Input: printf 'candidate-b-session\n'
+PTY output: candidate-b-session
+PTY output: ~ $
+Input: Ctrl-D
+Result: client disconnected with exit 0; canonical sandbox remained Ready.
+Reconnect: same command.
+PTY output began with previous command and output:
+printf 'candidate-b-session\n'
+candidate-b-session
+~ $
+Input: none after reconnect. Client left connected only for transcript; resource then deleted.

@@ -1,0 +1,105 @@
+{
+  "captured_utc": "2026-10-24T01:55:29Z",
+  "requirement": "Build actual Architect role image; preserve tool/hook configuration; selected agent installed in build image.",
+  "sources": [
+    {
+      "name": "Architect",
+      "url": "https://github.com/jackin-project/jackin-the-architect",
+      "revision": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+      "role_manifest": "jackin.role.toml",
+      "dockerfile": "Dockerfile",
+      "hook": "hooks/preflight.sh"
+    },
+    {
+      "name": "Jackin image recipe and Claude installer",
+      "url": "https://github.com/jackin-project/jackin",
+      "revision": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+      "paths": [
+        "crates/adapters/jackin-image/src/derived_image.rs",
+        "crates/core/jackin-core/src/agent/adapters/claude.rs",
+        "crates/services/jackin-runtime-image/src/image/version.rs"
+      ]
+    },
+    {
+      "name": "Claude Code 2.1.310 manifest",
+      "url": "https://downloads.claude.ai/claude-code-releases/2.1.310/manifest.json",
+      "platform": "linux-arm64",
+      "binary_sha256": "9c64d9a7442436b65fcd7cc02c1aa0051bb5a7041e7788576ed3b5f29c447d54",
+      "manifest_sha256": "895e85ce24c3df3fdb77ac1006bdb2b66f1c42dd557000e65ced1e4aad847e74",
+      "binary_url": "https://downloads.claude.ai/claude-code-releases/2.1.310/linux-arm64/claude",
+      "manifest_url": "https://downloads.claude.ai/claude-code-releases/2.1.310/manifest.json"
+    },
+    {
+      "name": "Claude Code 2.1.309 manifest",
+      "url": "https://downloads.claude.ai/claude-code-releases/2.1.309/manifest.json",
+      "platform": "linux-arm64",
+      "binary_sha256": "9796dd26899337f687739a0b39a7353b639f062a3436a7b941fcf19a1b757a9b",
+      "manifest_sha256": "8504633c7837099cefd2a995a433502717c360c155287b1ba92e6ec4d230093b",
+      "binary_url": "https://downloads.claude.ai/claude-code-releases/2.1.309/linux-arm64/claude",
+      "manifest_url": "https://downloads.claude.ai/claude-code-releases/2.1.309/manifest.json"
+    },
+    {
+      "name": "Tailrocks Rust skills marketplace source",
+      "url": "https://github.com/tailrocks/tailrocks-rust-skills",
+      "revision": "18467d1531760a017d425509ce461569a306895e",
+      "found_plugin_manifest": "/.claude-plugin/plugin.json",
+      "plugin_manifest_sha256": "50ca9faa5620bef343e563ed075d5073a7542819a32f88ba9fb8a63987e632bd",
+      "required_cli_file": "/.claude-plugin/marketplace.json",
+      "required_cli_file_present": false
+    },
+    {
+      "name": "Tailrocks roadmap skills marketplace source",
+      "url": "https://github.com/tailrocks/tailrocks-roadmap-skills",
+      "revision": "51d058af8e800a7f39a850a51728461525f3c9d2",
+      "found_plugin_manifest": "/.claude-plugin/plugin.json",
+      "plugin_manifest_sha256": "d0df2083d3297792cc406b9bfbcdeb9850ed9e2023220abbd293222c46aecfbb",
+      "required_cli_file": "/.claude-plugin/marketplace.json",
+      "required_cli_file_present": false
+    },
+    {
+      "name": "OpenShell version for parent runtime fixture",
+      "url": "https://github.com/NVIDIA/OpenShell/releases/tag/v0.1.5",
+      "version": "v0.1.5",
+      "revision": "bdb956f2cd65a635f1294fccf1d138d263bf650f"
+    }
+  ],
+  "evidence_mechanisms": [
+    {
+      "finding": "Architect base Dockerfile layer build",
+      "result": "PASS",
+      "mechanism": "Configuration",
+      "builder": "Docker Buildx; BuildKit; actual pinned Architect Dockerfile; cache hit reported in retained historical evidence",
+      "scope": "PASS (warm cache only)"
+    },
+    {
+      "finding": "Full role Claude marketplace generation",
+      "result": "FAIL",
+      "mechanism": "Jackin-side adaptation",
+      "sha256": "d34b1d106ba3dae26357af52a6f5c107b223ba4249b8fbabe06b47acaeb6ca49",
+      "retained_dockerfile": "research/full-refactor/experiments/role/Dockerfile.full-role-failing",
+      "dockerfile_sha256": "d34b1d106ba3dae26357af52a6f5c107b223ba4249b8fbabe06b47acaeb6ca49",
+      "provenance": "Matches ROLE_CONTENT_SHA recorded in the failing Buildx command/log."
+    },
+    {
+      "finding": "Claude native installer exact-version behavior",
+      "result": "FAIL",
+      "mechanism": "Jackin-side adaptation",
+      "input_version": "2.1.309",
+      "build_observed_version": "2.1.310"
+    },
+    {
+      "finding": "Reduced role image with two marketplaces/plugins omitted",
+      "result": "PASS",
+      "mechanism": "Workaround",
+      "not_full_role": true,
+      "scope": "PASS (reduced fixture only; not full role)"
+    },
+    {
+      "finding": "Cache reuse repeat with raw output",
+      "result": "FAIL",
+      "mechanism": "Workaround",
+      "log": "warm-repeat-build.log",
+      "reason": "Buildx could not calculate COPY cache key because coordinated cleanup removed the downloaded binary input; prior unretained warm-repeat observation is not independently reproducible evidence."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "recorded_at_utc": "2026-10-24T02:01:08.295970+00:00",
+  "scope": {
+    "gateway": "jrr24-worker",
+    "endpoint": "127.0.0.1:18818",
+    "namespace": "jrr24-worker-poc"
+  },
+  "gateway_process": {
+    "pid": 4083,
+    "state_at_script_observation": "already_absent",
+    "command_matched_owned_config": false,
+    "term_requested_by_script": false,
+    "stopped_by_script": false,
+    "ps_output_captured_by_script": "no command output was saved in this historical receipt"
+  },
+  "port_observation": {
+    "status": "NOT TESTED",
+    "reason": "The historical script hard-coded the curl failure string instead of storing the command, exit status, stdout, and stderr. Its port claim is invalid evidence."
+  },
+  "original_inferred_claim": {
+    "stopped": true,
+    "post_stop_health_check": "curl to 127.0.0.1:18818 failed to connect",
+    "evidence_validity": "INVALID"
+  },
+  "historical_claim_validity": {
+    "status": "NOT TESTED",
+    "evidence_validity": "INVALID",
+    "reason": "The script saw no process command for PID 4083, but still asserted stopped=true and a curl failure without capturing that curl invocation. The receipt supports only that the gateway was already absent when the script checked and that the three listed owned paths were removed."
+  },
+  "removed_owned_paths": [
+    {
+      "path": "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/state",
+      "files": 4,
+      "bytes": 4275736
+    },
+    {
+      "path": "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/config",
+      "files": 5,
+      "bytes": 1478
+    },
+    {
+      "path": "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/certs",
+      "files": 21,
+      "bytes": 5863
+    }
+  ],
+  "remaining_owned_paths": [],
+  "foreign_resources": "not inspected or modified by this teardown"
+}

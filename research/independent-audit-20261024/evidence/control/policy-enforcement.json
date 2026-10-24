@@ -1,0 +1,41 @@
+{
+  "status": "BLOCKED",
+  "mechanism": "released OpenShell 0.1.5 Docker driver plus local policy and explicit driver configuration",
+  "target": {
+    "gateway": "jrr24-worker",
+    "endpoint": "https://127.0.0.1:18818",
+    "workspace": "default",
+    "image": "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+    "architecture": "linux/arm64"
+  },
+  "policy": {
+    "landlock": "hard_requirement",
+    "uid": 1000,
+    "gid": 1000,
+    "readonly_paths": ["/usr", "/bin", "/lib", "/lib64", "/etc", "/proc", "/dev/urandom", "/workspace", "/jackin"],
+    "writable_paths": ["/tmp", "/build", "/dev/null"],
+    "network_rules": []
+  },
+  "gateway_driver_deviation": {
+    "enable_bind_mounts": true,
+    "resource_admission_enabled": false,
+    "reason": "OpenShell 0.1.5 CLI --upload cannot accompany a trailing main command, and sandbox upload cannot populate policy-read-only workspace/check paths. Host bind mounts were used for fixture source and checks.",
+    "equivalent_to_admitted_storage": false
+  },
+  "observations": {
+    "candidate_and_checks_bind_mounts": {"status": "PASS", "evidence_type": "runtime observation", "access": "read-only Docker bind mounts"},
+    "landlock_denies_write_to_posix_writable_outside_path": {"status": "PASS", "evidence_type": "runtime observation", "path": "/var/tmp", "mode": "0777", "observed": "PermissionError"},
+    "scratch_write_positive_control": {"status": "PASS", "evidence_type": "runtime observation", "paths": ["/tmp", "/build"]},
+    "network_denial": {"status": "PASS", "evidence_type": "runtime observation", "destination": "example.com:443", "observed": "PermissionError [Errno 13] Permission denied"},
+    "network_positive_control": {"status": "PASS", "evidence_type": "runtime observation", "same_endpoint_with_explicit_process_allow_rule": true, "observed": "TCP connection succeeded"},
+    "container_resource_fields": {"status": "NOT TESTED", "evidence_type": "configuration observation only; enforcement not tested", "observed_configuration": {"memory_bytes": 536870912, "nano_cpus": 1000000000, "pids_limit": 64, "network_mode": "none", "readonly_rootfs": false, "tmpfs": {"/tmp": "67108864 bytes, noexec", "/build": "268435456 bytes"}}},
+    "resource_overrun_enforcement": {"status": "NOT TESTED", "evidence_type": "no stress experiment", "limits": ["CPU", "memory", "PIDs"]},
+    "literal_read_only_root": {"status": "NOT TESTED", "evidence_type": "configuration observation", "reason": "Docker HostConfig.ReadonlyRootfs=false; Landlock path denial does not establish a read-only root mount"},
+    "strict_no_network_for_all_processes": {"status": "NOT TESTED", "evidence_type": "partial runtime observation", "reason": "tested one process/destination with a positive control; not an exhaustive protocol/DNS/IPv4/IPv6 matrix"}
+  },
+  "worker_result_binding": {
+    "status": "PASS",
+    "method": "immutable fixture directories plus before/after SHA-256 hashes of candidate/check files and policy/driver JSON",
+    "git_commit_or_tree_binding": {"status": "NOT TESTED", "evidence_type": "not exercised"}
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "recorded_at_utc": "2026-10-24T01:55:02.557794+00:00",
+  "mechanism": "released OpenShell sandbox Delete requested by trusted host after observing live canonical main process; not agent-requested exec cancellation",
+  "expected": "live workload/descendants disappear after complete Delete; no worker process remains under sandbox UUID",
+  "sandbox_name": "jrr24-wtime01",
+  "sandbox_id": "ca69004d-1db6-42f2-a9e6-d478dc06784f",
+  "runtime_generation": "c087c32f-0a80-4aaf-938e-10a176320067",
+  "main_process_instance_id": "97e01cb9-c127-4201-8ddf-1b7d407316b0",
+  "live_phase_before_delete": "Ready",
+  "exit_code_before_delete": null,
+  "create_command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "jrr24-wtime01",
+    "--from",
+    "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+    "--cpu",
+    "1",
+    "--memory",
+    "512Mi",
+    "--policy",
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/worker-policy.yaml",
+    "--driver-config-json",
+    "{\"docker\":{\"mounts\":[{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/inputs/timeout/candidate\",\"target\":\"/workspace\",\"read_only\":true},{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/inputs/timeout/checks\",\"target\":\"/jackin/checks\",\"read_only\":true},{\"type\":\"tmpfs\",\"target\":\"/tmp\",\"size_bytes\":67108864,\"mode\":1023,\"options\":[\"noexec\"]},{\"type\":\"tmpfs\",\"target\":\"/build\",\"size_bytes\":268435456,\"mode\":1023}]}}",
+    "--no-tty",
+    "--",
+    "python3",
+    "/jackin/checks/timeout_child.py"
+  ],
+  "observations_before_timeout_delete": [
+    {
+      "exit_status": 1,
+      "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+    },
+    {
+      "phase": "Provisioning",
+      "id": "ca69004d-1db6-42f2-a9e6-d478dc06784f",
+      "exit_code": null
+    },
+    {
+      "phase": "Provisioning",
+      "id": "ca69004d-1db6-42f2-a9e6-d478dc06784f",
+      "exit_code": null
+    },
+    {
+      "phase": "Provisioning",
+      "id": "ca69004d-1db6-42f2-a9e6-d478dc06784f",
+      "exit_code": null
+    },
+    {
+      "phase": "Ready",
+      "id": "ca69004d-1db6-42f2-a9e6-d478dc06784f",
+      "exit_code": null
+    }
+  ],
+  "docker_owned_inventory_before": "d927cbbcaba2 openshell-default--jrr24-wtime01-ca69004d-1db6-42f2-a9e6-d478dc06784f-supervisor running\n9229f597fdec openshell-default--jrr24-wtime01-ca69004d-1db6-42f2-a9e6-d478dc06784f running\n",
+  "delete_result": {
+    "exit_status": 0,
+    "stdout": "\u2713 Sandbox jrr24-wtime01 deletion accepted; cleanup is pending\n",
+    "stderr": ""
+  },
+  "confirmed_absence_observations": [
+    {
+      "exit_status": 1,
+      "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+    }
+  ],
+  "docker_owned_inventory_after": "",
+  "create_attach_result_after_delete": {
+    "exit_status": 255,
+    "stdout": "\nCreated sandbox: jrr24-wtime01\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4\n[0.0s] Image already present\n[0.7s] Starting sandbox Container created\n",
+    "stderr": "Connection to sandbox closed by remote host.\r\nclient_loop: send disconnect: Broken pipe\r\n"
+  },
+  "candidate_hashes": {
+    "candidate.py": "5afb5fb2b6e36a21a0b2514972eda38ff0fefe8e30cd619ad234747743bb64bd"
+  },
+  "check_hashes": {
+    "timeout_child.py": "feb23692a064bc2c1c9d07af67f49ceac24d9b9eb924ea20096e51afa51f1749",
+    "wrapper.py": "f0f35017422722818e7d71d7eb7fef50b70bf5d82dc4c2bf973f04b13dfd0322"
+  },
+  "policy_sha256": "d8de88d9a2ba827d0e215db99a51b3f3d8f2384981bec33a0c0f5d92345a83d4",
+  "limitations": [
+    "OpenShell Delete removed the process boundary, but no process-level exit code was observed for the interrupted task.",
+    "A later sandbox get reports not found; do not interpret it as an execution result or as sufficient authority to purge retained host data.",
+    "Runtime client timeout and killpg continue to fail independently in exec-cancellation.json and timeout-process-group.json."
+  ]
+}

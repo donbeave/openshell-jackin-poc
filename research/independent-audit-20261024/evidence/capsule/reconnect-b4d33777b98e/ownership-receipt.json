@@ -1,0 +1,37 @@
+{
+  "run_id": "b4d33777b98e",
+  "gateway": {
+    "name": "jrr24-capsule-reconnect-poc",
+    "endpoint": "https://127.0.0.1:18823",
+    "version": "0.1.5",
+    "workspace": "default"
+  },
+  "namespace": "jrr24-capsule-reconnect-poc",
+  "image": "alpine@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f",
+  "sandbox": {
+    "name": "jrr-b4d33777b98e",
+    "uuid": "5c9a1995-7ba3-450b-b283-09a214680d6a",
+    "runtime_generation": "d0edc016-b456-447d-980a-04e4fd4f124c",
+    "main_process_instance_id": "6ea69f45-581e-4e8a-a478-fa96c519b141",
+    "phase": "Ready",
+    "state": "deleted-and-confirmed"
+  },
+  "cleanup": {
+    "delete_exit": 0,
+    "polls": [
+      {
+        "attempt": 1,
+        "matching_api": 0,
+        "matching_driver": 0,
+        "foreign_namespace_resources": 0,
+        "api_scope": "gateway + default workspace",
+        "driver_scope": "jrr24-capsule-reconnect-poc"
+      }
+    ],
+    "status": "confirmed-empty"
+  },
+  "limitations": [
+    "One generic shell fixture only; no real account authorization or Jackin multiplexing claim.",
+    "Delete is name-based and not atomic with the UUID observation; this run uses a high-entropy name and one owner with no concurrent creator."
+  ]
+}

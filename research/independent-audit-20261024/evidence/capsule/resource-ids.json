@@ -1,0 +1,24 @@
+{
+  "agent_domain": {
+    "name": "jrr24-b-agent",
+    "sandbox_id": "c6fdaa20-802d-4ed1-9431-64605ff8350c",
+    "runtime_generation": "f09261e9-c626-48a3-ab28-d5ff55667b88"
+  },
+  "shell_domain": {
+    "name": "jrr24-b-shell",
+    "sandbox_id": "4ecafe66-c787-4cd2-98e2-dc9cd7b6692a",
+    "runtime_generation": "3aa04390-81fd-457b-b7cf-7c327a94d8b7"
+  },
+  "failed_role_image_attempt": {
+    "name": "jrr24-b-agent-role",
+    "sandbox_id": "72124161-3e7c-469b-8bd7-807ee5a4bc2a",
+    "result": "IdentityResolutionFailed",
+    "detail": "Docker responded with status code 404: No such image: sha256:45a358b219709bcc3bfcb378f7f29118205d1c148e93b1a5843f4c06466de2bb"
+  },
+  "cleanup": {
+    "openshell_list_after_delete": "empty",
+    "docker_containers_by_namespace_after_delete": "empty",
+    "gateway_process": "stopped",
+    "generated_keys": "removed after shutdown"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "command": [
+    "gh",
+    "api",
+    "repos/NVIDIA/OpenShell/commits/main"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "response": {
+    "sha": "f571c8e99c185804c39e837a2b70692e957de327",
+    "node_id": "C_kwDORYG5ftoAKGY1NzFjOGU5OWMxODU4MDRjMzllODM3YTJiNzA2OTJlOTU3ZGUzMjc",
+    "commit": {
+      "author": {
+        "name": "Jim Meyer",
+        "email": "jimeyer@nvidia.com",
+        "date": "2026-10-23T22:27:25Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-23T22:27:25Z"
+      },
+      "message": "docs(agents): ban AI attribution in PR descriptions and issues (#4890)\n\nThe rule against mentioning Claude or other AI agents covered only commits, so harness defaults could still add \"Generated with\" footers to PR descriptions. Extend it to PR descriptions and issues.\n\nSigned-off-by: Jim Meyer <jimeyer@nvidia.com>",
+      "tree": {
+        "sha": "ef96ebbd8d98b0e6bbd8c66675089a2507557844",
+        "url": "https://api.github.com/repos/NVIDIA/OpenShell/git/trees/ef96ebbd8d98b0e6bbd8c66675089a2507557844"
+      },
+      "url": "https://api.github.com/repos/NVIDIA/OpenShell/git/commits/f571c8e99c185804c39e837a2b70692e957de327",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJq299dCRC1aQ7uu5UhlAAA27AQAA/m6kf2Td0FCXFmXZkZCJZ9\niDJDar6hoRqs0tifQQ+FbcfpYMCC38T8gMmvNvxXKN/DVAIysxLcna9iX+KWNIp3\np+Dm8EQridGvSkLNQeu9hzGk34Zt1hDyVzbbGdvD32ZHL+tl6+jhte/kATEGmGQu\nsH0O8mkSUSw/tkuganmFu6hcZC2btJE+CEtHevXSNXsKaWVuGTiLCI5C7Ni0mt/6\nK5Nf/eTz2K7hgdR5vIpZA5vZeVMPmWv13tyC/GooHmPyj7i59RFKmseNrV6uKQPz\ntKU05WnX+MXMDBrY4j9zv+ZuL/25CS8k6DWv4jgzYJDcNpuWfXGQ7u9Q6ghQSPmK\nHAhMjnEryhwYc0bQyNeMPLR2TKeAYOs0/Pen2pq4dILUUYNzsrLpFP7MGLf3Qja3\n/oMw7ltBeJHxj1UDQCbGZeYkFQSB4MjcRKcH2ZoisRE9m2TXplZBMEVCLiKWFZkz\nBlQSOdecf/SYcc3tbF1TTrmjoktF5Qxjo9oKFz2PPKq2VsLkKifsQ3mtpIxTR5T/\nDh1x9ZLKA1isUhFFgSFVSjuhapd1fipzvY6TYxrip4tlYPDceVY8IaqXM0XGSZ9O\nqlM8y244dfTa+C9yD42BrsX+iNd0VNkT+I3/7EpXPTF0InxdevnXcKmy0sIe+5+5\n5YJ8TtNT3uhJejSsqNVP\n=+MPW\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree ef96ebbd8d98b0e6bbd8c66675089a2507557844\nparent 16250df21070116248cee3d2f3d854944650ac3a\nauthor Jim Meyer <jimeyer@nvidia.com> 1792794445 +0000\ncommitter GitHub <noreply@github.com> 1792794445 +0000\n\ndocs(agents): ban AI attribution in PR descriptions and issues (#4890)\n\nThe rule against mentioning Claude or other AI agents covered only commits, so harness defaults could still add \"Generated with\" footers to PR descriptions. Extend it to PR descriptions and issues.\n\nSigned-off-by: Jim Meyer <jimeyer@nvidia.com>",
+        "verified_at": "2026-10-23T22:27:42Z"
+      }
+    },
+    "url": "https://api.github.com/repos/NVIDIA/OpenShell/commits/f571c8e99c185804c39e837a2b70692e957de327",
+    "html_url": "https://github.com/NVIDIA/OpenShell/commit/f571c8e99c185804c39e837a2b70692e957de327",
+    "comments_url": "https://api.github.com/repos/NVIDIA/OpenShell/commits/f571c8e99c185804c39e837a2b70692e957de327/comments",
+    "author": {
+      "login": "purp",
+      "id": 4093,
+      "node_id": "MDQ6VXNlcjQwOTM=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4093?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/purp",
+      "html_url": "https://github.com/purp",
+      "followers_url": "https://api.github.com/users/purp/followers",
+      "following_url": "https://api.github.com/users/purp/following{/other_user}",
+      "gists_url": "https://api.github.com/users/purp/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/purp/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/purp/subscriptions",
+      "organizations_url": "https://api.github.com/users/purp/orgs",
+      "repos_url": "https://api.github.com/users/purp/repos",
+      "events_url": "https://api.github.com/users/purp/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/purp/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "16250df21070116248cee3d2f3d854944650ac3a",
+        "url": "https://api.github.com/repos/NVIDIA/OpenShell/commits/16250df21070116248cee3d2f3d854944650ac3a",
+        "html_url": "https://github.com/NVIDIA/OpenShell/commit/16250df21070116248cee3d2f3d854944650ac3a"
+      }
+    ],
+    "stats": {
+      "total": 2,
+      "additions": 1,
+      "deletions": 1
+    },
+    "files": [
+      {
+        "sha": "c82fa39ec058584aa55e084cacca7034fbb4e426",
+        "filename": "AGENTS.md",
+        "status": "modified",
+        "additions": 1,
+        "deletions": 1,
+        "changes": 2,
+        "blob_url": "https://github.com/NVIDIA/OpenShell/blob/f571c8e99c185804c39e837a2b70692e957de327/AGENTS.md",
+        "raw_url": "https://github.com/NVIDIA/OpenShell/raw/f571c8e99c185804c39e837a2b70692e957de327/AGENTS.md",
+        "contents_url": "https://api.github.com/repos/NVIDIA/OpenShell/contents/AGENTS.md?ref=f571c8e99c185804c39e837a2b70692e957de327",
+        "patch": "@@ -186,7 +186,7 @@ Follow `CONTRIBUTING.md` and `create-github-pr`. Authors without target-reposito\n - Format: `<type>(<scope>): <description>` (scope is optional)\n - Common types: `feat`, `fix`, `docs`, `chore`, `refactor`, `test`, `ci`, `perf`\n - Sign off on each commit for DCO compliance. Use the `--signoff` option to `git commit` to add the `Signed-off-by` footer to ensure the user's configured email address is used.\n-- Never mention Claude or any AI agent in commits (no author attribution, no Co-Authored-By, no references in commit messages)\n+- Never mention Claude or any AI agent in commits, PR descriptions, or issues (no author attribution, no Co-Authored-By, no \"Generated with\" footers)\n \n ## Go SDK (`sdk/go/`)\n "
+      }
+    ]
+  }
+}

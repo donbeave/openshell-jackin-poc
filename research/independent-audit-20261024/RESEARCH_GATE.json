@@ -1,0 +1,89 @@
+{
+  "utc": "2026-10-24T02:38:07.475353+00:00",
+  "verdict": "NOT READY TO START THE FULL OPENSHELL REFACTOR",
+  "research_gate_passed": false,
+  "scope": "Full Docker and Apple execution replacement; no legacy execution fallback",
+  "jackin_refactored": false,
+  "checks": [
+    {
+      "requirement": "source_inventory",
+      "result": "PASS",
+      "reason": "Static inventory and independent source review",
+      "evidence": "audits/source-inventory.json"
+    },
+    {
+      "requirement": "workflow_contract",
+      "result": "PASS",
+      "reason": "Source-traced contract; current-pin full live baseline remains untested",
+      "evidence": "WORKFLOW_CONTRACT.md"
+    },
+    {
+      "requirement": "accepted_complete_architecture",
+      "result": "BLOCKED",
+      "reason": "Root Capsule path fails; domain authority/session and managed Docker designs unproved",
+      "evidence": "ARCHITECTURE.md"
+    },
+    {
+      "requirement": "images_roles_agent_setup",
+      "result": "FAIL",
+      "reason": "Full role plugin recipe and selected native version installation fail",
+      "evidence": "evidence/role/ROLE_POC_RESULTS.md"
+    },
+    {
+      "requirement": "rust_control_identity",
+      "result": "FAIL",
+      "reason": "CLI identity/cancellation/output limits fail; selected generated-RPC route untested",
+      "evidence": "evidence/control/summary.md"
+    },
+    {
+      "requirement": "sessions_accounts_credentials",
+      "result": "BLOCKED",
+      "reason": "No two real admitted account domains/approved credential transport; fresh PTY replay inconclusive",
+      "evidence": "evidence/capsule/RESULTS.md"
+    },
+    {
+      "requirement": "storage_policy_lifecycle",
+      "result": "BLOCKED",
+      "reason": "Admitted durable project/private stores, full profiles and fault/recovery matrix unproved",
+      "evidence": "POC_RESULTS.md"
+    },
+    {
+      "requirement": "optional_managed_docker",
+      "result": "BLOCKED",
+      "reason": "External forwarding is not a tested managed ownership capability",
+      "evidence": "ARCHITECTURE.md"
+    },
+    {
+      "requirement": "verification_worker",
+      "result": "FAIL",
+      "reason": "Group timeout fails; whole sandbox deletion lacks worker exit status; isolation remains unqualified",
+      "evidence": "evidence/control/summary.md"
+    },
+    {
+      "requirement": "required_target_types",
+      "result": "BLOCKED",
+      "reason": "Required remote, Kubernetes, alternate desktop and full VM rows unqualified",
+      "evidence": "TARGET_MATRIX.md"
+    },
+    {
+      "requirement": "critical_combined_experiment_and_replay",
+      "result": "BLOCKED",
+      "reason": "Required mechanisms never passed together; no authenticated combined fresh replay",
+      "evidence": "POC_RESULTS.md"
+    },
+    {
+      "requirement": "refactor_release_plan",
+      "result": "PASS",
+      "reason": "Concrete staged plan and 43 future release cases, not unwritten product test results",
+      "evidence": "REFACTOR_PLAN.md"
+    },
+    {
+      "requirement": "independent_decision_review",
+      "result": "PASS",
+      "reason": "Separate source and authority/storage/cleanup reviews completed and support the negative decision; no full-integration approval.",
+      "evidence": "audits/INDEPENDENT_AUDITS.md"
+    }
+  ],
+  "status_is_gate_assessment_not_new_execution": true,
+  "future_release_suite_passed": false
+}

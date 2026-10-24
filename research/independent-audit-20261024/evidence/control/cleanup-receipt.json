@@ -1,0 +1,300 @@
+{
+  "recorded_at_utc": "2026-10-24T01:56:25.276113+00:00",
+  "scope": {
+    "gateway": "jrr24-worker",
+    "workspace": "default",
+    "driver_namespace": "jrr24-worker-poc"
+  },
+  "gateway_list_status": 0,
+  "gateway_inventory_sanitized": [
+    {
+      "id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+      "name": "jrr24-worker-pass4",
+      "phase": "Ready",
+      "runtime_generation": "2c9cd0a4-5702-4ede-a6f5-e334c23d4221"
+    },
+    {
+      "id": "0afe308d-8b08-418a-a188-5e98801da02e",
+      "name": "jrr24-wpos01",
+      "phase": "Ready",
+      "runtime_generation": "054586ec-b18d-49ab-b2e8-82310bb470c8"
+    },
+    {
+      "id": "35e0166a-9495-464f-9fa2-3f0151f19842",
+      "name": "jrr24-wpass01",
+      "phase": "Completed",
+      "runtime_generation": "cc614510-345a-47ab-bbf3-48a0ed7f432e"
+    },
+    {
+      "id": "4cacab91-66eb-42c5-98c2-9a058b53735d",
+      "name": "jrr24-wfail02",
+      "phase": "Error",
+      "runtime_generation": "72930f59-338c-4576-b5e8-3d19159f898b"
+    },
+    {
+      "id": "ca508ea2-95d5-4b87-be56-65510bae9bab",
+      "name": "jrr24-wpass02",
+      "phase": "Completed",
+      "runtime_generation": "84b27691-629a-4592-98de-92617a99b011"
+    },
+    {
+      "id": "08446869-bd8f-412e-8ae7-bd856b29e464",
+      "name": "jrr24-wfail03",
+      "phase": "Error",
+      "runtime_generation": "f20b4717-a2df-4a35-ae97-fc41a3f730f7"
+    }
+  ],
+  "tested_sandbox_ids": [
+    "08446869-bd8f-412e-8ae7-bd856b29e464",
+    "4cacab91-66eb-42c5-98c2-9a058b53735d",
+    "81ebb74a-e15b-436e-a683-a46e0a14a4dc",
+    "ca508ea2-95d5-4b87-be56-65510bae9bab",
+    "ca69004d-1db6-42f2-a9e6-d478dc06784f",
+    "e95ee0ee-726b-4fae-abe8-9fae7ad561a2",
+    "f09bc76d-2120-455a-8544-a045bb9afd91"
+  ],
+  "uuid_scoped_compute_inventory_after_delete": [
+    {
+      "sandbox_id": "08446869-bd8f-412e-8ae7-bd856b29e464",
+      "resource_kind": "containers",
+      "command": [
+        "docker",
+        "ps",
+        "--all",
+        "--filter",
+        "label=openshell.ai/sandbox-id=08446869-bd8f-412e-8ae7-bd856b29e464",
+        "--format",
+        "{{.ID}} {{.Names}} {{.State}}"
+      ],
+      "exit_status": 0,
+      "owned_resources": [
+        "7abad8fa5afe openshell-default--jrr24-wfail03-08446869-bd8f-412e-8ae7-bd856b29e464-supervisor running",
+        "0416a2870dd6 openshell-default--jrr24-wfail03-08446869-bd8f-412e-8ae7-bd856b29e464 running"
+      ],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "08446869-bd8f-412e-8ae7-bd856b29e464",
+      "resource_kind": "volumes",
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--quiet",
+        "--filter",
+        "label=openshell.ai/sandbox-id=08446869-bd8f-412e-8ae7-bd856b29e464"
+      ],
+      "exit_status": 0,
+      "owned_resources": [
+        "openshell-channel-76c98e91861de4a83b2deffbc55d1d6f",
+        "openshell-supervisor-76c98e91861de4a83b2deffbc55d1d6f"
+      ],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "4cacab91-66eb-42c5-98c2-9a058b53735d",
+      "resource_kind": "containers",
+      "command": [
+        "docker",
+        "ps",
+        "--all",
+        "--filter",
+        "label=openshell.ai/sandbox-id=4cacab91-66eb-42c5-98c2-9a058b53735d",
+        "--format",
+        "{{.ID}} {{.Names}} {{.State}}"
+      ],
+      "exit_status": 0,
+      "owned_resources": [
+        "8ebcad1347ad openshell-default--jrr24-wfail02-4cacab91-66eb-42c5-98c2-9a058b53735d-supervisor running",
+        "564cc9061ae0 openshell-default--jrr24-wfail02-4cacab91-66eb-42c5-98c2-9a058b53735d running"
+      ],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "4cacab91-66eb-42c5-98c2-9a058b53735d",
+      "resource_kind": "volumes",
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--quiet",
+        "--filter",
+        "label=openshell.ai/sandbox-id=4cacab91-66eb-42c5-98c2-9a058b53735d"
+      ],
+      "exit_status": 0,
+      "owned_resources": [
+        "openshell-channel-03e9e328323528c78420c98f6478e68d",
+        "openshell-supervisor-03e9e328323528c78420c98f6478e68d"
+      ],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "81ebb74a-e15b-436e-a683-a46e0a14a4dc",
+      "resource_kind": "containers",
+      "command": [
+        "docker",
+        "ps",
+        "--all",
+        "--filter",
+        "label=openshell.ai/sandbox-id=81ebb74a-e15b-436e-a683-a46e0a14a4dc",
+        "--format",
+        "{{.ID}} {{.Names}} {{.State}}"
+      ],
+      "exit_status": 0,
+      "owned_resources": [],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "81ebb74a-e15b-436e-a683-a46e0a14a4dc",
+      "resource_kind": "volumes",
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--quiet",
+        "--filter",
+        "label=openshell.ai/sandbox-id=81ebb74a-e15b-436e-a683-a46e0a14a4dc"
+      ],
+      "exit_status": 0,
+      "owned_resources": [],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "ca508ea2-95d5-4b87-be56-65510bae9bab",
+      "resource_kind": "containers",
+      "command": [
+        "docker",
+        "ps",
+        "--all",
+        "--filter",
+        "label=openshell.ai/sandbox-id=ca508ea2-95d5-4b87-be56-65510bae9bab",
+        "--format",
+        "{{.ID}} {{.Names}} {{.State}}"
+      ],
+      "exit_status": 0,
+      "owned_resources": [
+        "fc3b325b3315 openshell-default--jrr24-wpass02-ca508ea2-95d5-4b87-be56-65510bae9bab-supervisor running",
+        "cc9fdca8b848 openshell-default--jrr24-wpass02-ca508ea2-95d5-4b87-be56-65510bae9bab running"
+      ],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "ca508ea2-95d5-4b87-be56-65510bae9bab",
+      "resource_kind": "volumes",
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--quiet",
+        "--filter",
+        "label=openshell.ai/sandbox-id=ca508ea2-95d5-4b87-be56-65510bae9bab"
+      ],
+      "exit_status": 0,
+      "owned_resources": [
+        "openshell-channel-925a1b1818578903fb4124fd4116a357",
+        "openshell-supervisor-925a1b1818578903fb4124fd4116a357"
+      ],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "ca69004d-1db6-42f2-a9e6-d478dc06784f",
+      "resource_kind": "containers",
+      "command": [
+        "docker",
+        "ps",
+        "--all",
+        "--filter",
+        "label=openshell.ai/sandbox-id=ca69004d-1db6-42f2-a9e6-d478dc06784f",
+        "--format",
+        "{{.ID}} {{.Names}} {{.State}}"
+      ],
+      "exit_status": 0,
+      "owned_resources": [],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "ca69004d-1db6-42f2-a9e6-d478dc06784f",
+      "resource_kind": "volumes",
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--quiet",
+        "--filter",
+        "label=openshell.ai/sandbox-id=ca69004d-1db6-42f2-a9e6-d478dc06784f"
+      ],
+      "exit_status": 0,
+      "owned_resources": [],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "e95ee0ee-726b-4fae-abe8-9fae7ad561a2",
+      "resource_kind": "containers",
+      "command": [
+        "docker",
+        "ps",
+        "--all",
+        "--filter",
+        "label=openshell.ai/sandbox-id=e95ee0ee-726b-4fae-abe8-9fae7ad561a2",
+        "--format",
+        "{{.ID}} {{.Names}} {{.State}}"
+      ],
+      "exit_status": 0,
+      "owned_resources": [],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "e95ee0ee-726b-4fae-abe8-9fae7ad561a2",
+      "resource_kind": "volumes",
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--quiet",
+        "--filter",
+        "label=openshell.ai/sandbox-id=e95ee0ee-726b-4fae-abe8-9fae7ad561a2"
+      ],
+      "exit_status": 0,
+      "owned_resources": [],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+      "resource_kind": "containers",
+      "command": [
+        "docker",
+        "ps",
+        "--all",
+        "--filter",
+        "label=openshell.ai/sandbox-id=f09bc76d-2120-455a-8544-a045bb9afd91",
+        "--format",
+        "{{.ID}} {{.Names}} {{.State}}"
+      ],
+      "exit_status": 0,
+      "owned_resources": [
+        "64c3f877d312 openshell-default--jrr24-worker-pass4-f09bc76d-2120-455a-8544-a045bb9afd91-supervisor running",
+        "5c565f5daff0 openshell-default--jrr24-worker-pass4-f09bc76d-2120-455a-8544-a045bb9afd91 running"
+      ],
+      "stderr": ""
+    },
+    {
+      "sandbox_id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+      "resource_kind": "volumes",
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--quiet",
+        "--filter",
+        "label=openshell.ai/sandbox-id=f09bc76d-2120-455a-8544-a045bb9afd91"
+      ],
+      "exit_status": 0,
+      "owned_resources": [
+        "openshell-channel-e18fb17e116c450c818374dec1338962",
+        "openshell-supervisor-e18fb17e116c450c818374dec1338962"
+      ],
+      "stderr": ""
+    }
+  ],
+  "conclusion": "Only these experiment-owned UUIDs were queried. Empty host inventory does not authorize deleting retained host project/account data."
+}

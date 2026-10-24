@@ -1,0 +1,40 @@
+[architect-preflight] caveman flag seeded: /home/agent/.claude/.caveman-active → ultra
+[architect-preflight] WARNING: rtk not on PATH — skipping
+[architect-preflight] CONTEXT7_API_KEY unset — skipping Context7 setup for claude
+Added stdio MCP server headroom with command: headroom mcp serve to local config
+File modified: /home/agent/.claude.json [project: /workspace]
+2.1.310 (Claude Code)
+rustc 1.98.1 (48a229cea 2026-09-01)
+cargo 1.98.1 (797e8a9bc 2026-08-05)
+cargo-nextest 0.9.140 (a9fef2964 2026-07-05)
+release: 0.9.140
+commit-hash: a9fef2964e34f64ed4fceeee7c0c3559ce560920
+commit-date: 2026-07-05
+host: aarch64-unknown-linux-gnu
+uv 0.12.15 (aarch64-unknown-linux-musl)
+v24.21.0
+mise gitleaks@8.30.1                     [1/3] install
+mise prek@0.5.3                          [1/3] install
+mise WARN  lockfile asset 'prek-aarch64-unknown-linux-gnu.tar.gz' doesn't match registry, refreshing
+mise WARN  GitHub rate limit exceeded. Resets at 2026-10-24 02:07:04 +00:00
+mise WARN  GitHub rate limit exceeded. Resets at 2026-10-24 02:07:04 +00:00
+mise gitleaks@8.30.1                     [1/3] download gitleaks_8.30.1_linux_arm64.tar.gz
+mise gitleaks@8.30.1                     [2/3] checksum gitleaks_8.30.1_linux_arm64.tar.gz
+mise gitleaks@8.30.1                     [3/3] extract gitleaks_8.30.1_linux_arm64.tar.gz
+mise gitleaks@8.30.1                   ✓ installed
+mise WARN  GitHub API returned a 403 Forbidden error. This is most commonly caused by exceeding the rate limit, though other causes (e.g. insufficient token permissions) are possible.
+mise WARN  No GitHub token was found, so mise is making unauthenticated requests to GitHub which have a much lower rate limit.
+Create a token at https://github.com/settings/tokens (no scopes required) and set it as GITHUB_TOKEN in your environment.
+See https://mise.en.dev/dev-tools/github-tokens.html for all supported token sources (env vars, gh CLI, credential_command, etc.).
+mise ERROR Failed to install aqua:j178/prek@0.5.3: HTTP status client error (403 Forbidden) for url (https://api.github.com/repos/j178/prek/releases/tags/0.5.3)
+github auth: no
+github rate limit: 0/60 (core), resets at 1792807624
+github response: {"message":"API rate limit exceeded for 172.236.144.127. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"}
+: HTTP status client error (403 Forbidden) for url (https://api.github.com/repos/j178/prek/releases/tags/v0.5.3)
+github auth: no
+github rate limit: 0/60 (core), resets at 1792807624
+github response: {"message":"API rate limit exceeded for 172.236.144.127. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"}
+
+mise ERROR Version: 2026.7.12 linux-arm64 (2026-07-23)
+mise ERROR Run with --verbose or MISE_VERBOSE=1 for more information
+exit=1

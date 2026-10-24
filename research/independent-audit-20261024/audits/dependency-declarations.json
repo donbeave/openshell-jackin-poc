@@ -1,0 +1,2481 @@
+{
+  "source_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "lockfile_packages": [
+    {
+      "name": "bollard",
+      "version": "0.21.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "dbe8358268799ebb3e4df23cb9d47f4c72bbc4f5247e2fa6a1bf7b6c0baea220"
+    },
+    {
+      "name": "bollard-stubs",
+      "version": "1.53.1-rc.29.3.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "ce412eb6f7096743011dc3cb5c674caeb24ced61d8c498fe07cf7998a4fea889"
+    },
+    {
+      "name": "hyper",
+      "version": "1.12.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "2c3e324da4c95177d6291d4c8730197c0d1822f8a9766814a4a44fa5ab797c9c"
+    },
+    {
+      "name": "hyper-util",
+      "version": "0.1.21",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "ddc03d96684f9226b8a787cdb71488417b53ab5ea8fdb1dac946cb9431cc8bff"
+    },
+    {
+      "name": "libc",
+      "version": "0.2.191",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "65cd87c9a6d60536580b316ad985726104730a5151c99845f2490428ef91240a"
+    },
+    {
+      "name": "nix",
+      "version": "0.28.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "ab2156c4fce2f8df6c499cc1c763e4394b7482525bf2a9701c9d79d215f519e4"
+    },
+    {
+      "name": "nix",
+      "version": "0.29.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "71e2746dc3a24dd78b3cfcb7be93368c6de9963d30f43a6a73998a9cf4b17b46"
+    },
+    {
+      "name": "nix",
+      "version": "0.31.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "cf20d2fde8ff38632c426f1165ed7436270b44f199fc55284c38276f9db47c3d"
+    },
+    {
+      "name": "portable-pty",
+      "version": "0.9.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "b4a596a2b3d2752d94f51fac2d4a96737b8705dddd311a32b9af47211f08671e"
+    },
+    {
+      "name": "rustls",
+      "version": "0.23.46",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "48e13bd8c0e9365c43cfa5c9e8f9ad49d3c8444926c9aac819e0e4dc503c8fdf"
+    },
+    {
+      "name": "tokio",
+      "version": "1.53.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "ce3335fa71841cda333a58d7615b03901380ecf09d59b3296d21f8bbac0dde4e"
+    },
+    {
+      "name": "tonic",
+      "version": "0.14.6",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "checksum": "ac2a5518c70fa84342385732db33fb3f44bc4cc748936eb5833d2df34d6445ef"
+    }
+  ],
+  "manifests": [
+    {
+      "manifest": "crates/services/jackin-runtime-attach-admission/Cargo.toml",
+      "package": "jackin-runtime-attach-admission",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-account-identity": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-activate-entry/Cargo.toml",
+      "package": "jackin-runtime-apple-container-activate-entry",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-universe-claims": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-usage-token-monitor/Cargo.toml",
+      "package": "jackin-usage-token-monitor",
+      "declared_dependencies": {
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt-multi-thread"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-sibling-auth-prewarm/Cargo.toml",
+      "package": "jackin-runtime-launch-sibling-auth-prewarm",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-capsule-setup": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-session-control/Cargo.toml",
+      "package": "jackin-runtime-session-control",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          },
+          "jackin-runtime-snapshot": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-host-attach/Cargo.toml",
+      "package": "jackin-runtime-host-attach",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-transport": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          },
+          "jackin-runtime-snapshot": {
+            "workspace": true
+          },
+          "nix": {
+            "workspace": true,
+            "features": [
+              "poll",
+              "socket"
+            ]
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "io-util",
+              "macros",
+              "net",
+              "rt",
+              "signal",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-running/Cargo.toml",
+      "package": "jackin-runtime-apple-container-running",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-apple-container-client": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-usage-snapshot-store/Cargo.toml",
+      "package": "jackin-usage-snapshot-store",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "sync",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-host-daemon/Cargo.toml",
+      "package": "jackin-runtime-host-daemon",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "rt-multi-thread",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-isolation/Cargo.toml",
+      "package": "jackin-isolation",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-process": {
+            "workspace": true
+          },
+          "nix": {
+            "workspace": true,
+            "features": [
+              "dir",
+              "fs",
+              "user"
+            ]
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "test-util",
+              "process"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-shared-runner/Cargo.toml",
+      "package": "jackin-runtime-shared-runner",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "sync"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-supported-agents/Cargo.toml",
+      "package": "jackin-runtime-launch-supported-agents",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-repo-cache": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-attach-outcome/Cargo.toml",
+      "package": "jackin-runtime-apple-container-attach-outcome",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-apple-container-client": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-running": {
+            "workspace": true
+          },
+          "jackin-runtime-isolation": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-attach-outcome": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-exit-summary/Cargo.toml",
+      "package": "jackin-runtime-exit-summary",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-exit-outro/Cargo.toml",
+      "package": "jackin-runtime-launch-exit-outro",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-exit-summary": {
+            "workspace": true
+          },
+          "jackin-runtime-progress": {
+            "workspace": true
+          },
+          "jackin-runtime-universe-claims": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-universe-claims/Cargo.toml",
+      "package": "jackin-runtime-universe-claims",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-coordination": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-prune-cache/Cargo.toml",
+      "package": "jackin-runtime-cleanup-prune-cache",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-cleanup-prune-dir": {
+            "workspace": true
+          },
+          "jackin-runtime-coordination": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-attach-exec-args/Cargo.toml",
+      "package": "jackin-runtime-attach-exec-args",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-prune-dir/Cargo.toml",
+      "package": "jackin-runtime-cleanup-prune-dir",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-cleanup-timing": {
+            "workspace": true
+          },
+          "jackin-runtime-isolation": {
+            "workspace": true
+          },
+          "jackin-runtime-prune-output": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-attach-inspect/Cargo.toml",
+      "package": "jackin-runtime-attach-inspect",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-isolation": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-admission": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-sessions": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-isolation/Cargo.toml",
+      "package": "jackin-runtime-isolation",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-isolation": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-load-options/Cargo.toml",
+      "package": "jackin-runtime-launch-load-options",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-docker-profile": {
+            "workspace": true
+          },
+          "jackin-runtime-universe-claims": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-dry-run/Cargo.toml",
+      "package": "jackin-runtime-launch-dry-run",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-launch-capsule-setup": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-telemetry/Cargo.toml",
+      "package": "jackin-telemetry",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "macros"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt-multi-thread"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-capsule-setup/Cargo.toml",
+      "package": "jackin-runtime-launch-capsule-setup",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-account-config": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-repo-cache/Cargo.toml",
+      "package": "jackin-runtime-repo-cache",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-instance-agents/Cargo.toml",
+      "package": "jackin-instance-agents",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-slot/Cargo.toml",
+      "package": "jackin-runtime-launch-slot",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-sessions": {
+            "workspace": true
+          },
+          "jackin-runtime-coordination": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-backend-selection/Cargo.toml",
+      "package": "jackin-runtime-backend-selection",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-host/Cargo.toml",
+      "package": "jackin-host",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-process": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "macros",
+              "fs",
+              "io-util",
+              "sync"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-snapshot/Cargo.toml",
+      "package": "jackin-runtime-snapshot",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-attach-transport/Cargo.toml",
+      "package": "jackin-runtime-attach-transport",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-attach-capsule-ready": {
+            "workspace": true
+          },
+          "jackin-runtime-snapshot": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-image-plan/Cargo.toml",
+      "package": "jackin-runtime-launch-image-plan",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-image": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-capsule-setup": {
+            "workspace": true
+          },
+          "jackin-runtime-naming": {
+            "workspace": true
+          },
+          "jackin-runtime-repo-cache": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-prune-roles/Cargo.toml",
+      "package": "jackin-runtime-cleanup-prune-roles",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-cleanup-prune-dir": {
+            "workspace": true
+          },
+          "jackin-runtime-coordination": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-exec-host/Cargo.toml",
+      "package": "jackin-runtime-exec-host",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "io-util",
+              "net"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt",
+              "rt-multi-thread"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-account-identity/Cargo.toml",
+      "package": "jackin-runtime-launch-account-identity",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-drift/Cargo.toml",
+      "package": "jackin-runtime-drift",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-discovery": {
+            "workspace": true
+          },
+          "jackin-runtime-isolation": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-image/Cargo.toml",
+      "package": "jackin-runtime-image",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-image": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-plan": {
+            "workspace": true
+          },
+          "jackin-runtime-naming": {
+            "workspace": true
+          },
+          "jackin-runtime-progress": {
+            "workspace": true
+          },
+          "jackin-runtime-repo-cache": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-trust/Cargo.toml",
+      "package": "jackin-runtime-launch-trust",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-attach-sessions/Cargo.toml",
+      "package": "jackin-runtime-attach-sessions",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-check-dns/Cargo.toml",
+      "package": "jackin-runtime-apple-container-check-dns",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-attach/Cargo.toml",
+      "package": "jackin-runtime-apple-container-attach",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-dind/Cargo.toml",
+      "package": "jackin-runtime-launch-dind",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-capsule-ready": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-resolve": {
+            "workspace": true
+          },
+          "jackin-runtime-coordination": {
+            "workspace": true
+          },
+          "jackin-runtime-docker-profile": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-plan": {
+            "workspace": true
+          },
+          "jackin-runtime-naming": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-prune-home/Cargo.toml",
+      "package": "jackin-runtime-cleanup-prune-home",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-cleanup-timing": {
+            "workspace": true
+          },
+          "jackin-runtime-coordination": {
+            "workspace": true
+          },
+          "jackin-runtime-isolation": {
+            "workspace": true
+          },
+          "jackin-runtime-prune-output": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-workflow/Cargo.toml",
+      "package": "jackin-workflow",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "time"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "jackin-isolation": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-usage-coordinator/Cargo.toml",
+      "package": "jackin-usage-coordinator",
+      "declared_dependencies": {
+        "dependencies": {
+          "nix": {
+            "workspace": true,
+            "features": [
+              "fs",
+              "user"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-spin-wait/Cargo.toml",
+      "package": "jackin-runtime-spin-wait",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "time"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt",
+              "time",
+              "test-util"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-restore/Cargo.toml",
+      "package": "jackin-runtime-launch-restore",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-sessions": {
+            "workspace": true
+          },
+          "jackin-runtime-isolation": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-account-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-attach-outcome": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-load-options": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-plan": {
+            "workspace": true
+          },
+          "jackin-runtime-progress": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-mounts/Cargo.toml",
+      "package": "jackin-runtime-launch-mounts",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-isolation": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-client": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-absent-guards/Cargo.toml",
+      "package": "jackin-runtime-cleanup-absent-guards",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-usage-broker/Cargo.toml",
+      "package": "jackin-usage-broker",
+      "declared_dependencies": {
+        "dependencies": {
+          "nix": {
+            "workspace": true,
+            "features": [
+              "fs",
+              "signal"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-usage-relay/Cargo.toml",
+      "package": "jackin-runtime-usage-relay",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-client": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "io-util",
+              "io-std",
+              "macros",
+              "rt",
+              "sync",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-dind-gc/Cargo.toml",
+      "package": "jackin-runtime-cleanup-dind-gc",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-timing": {
+            "workspace": true
+          },
+          "jackin-runtime-discovery": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-dind": {
+            "workspace": true
+          },
+          "jackin-runtime-naming": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-wait/Cargo.toml",
+      "package": "jackin-runtime-apple-container-wait",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-universe/Cargo.toml",
+      "package": "jackin-runtime-universe",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-coordination": {
+            "workspace": true
+          },
+          "jackin-runtime-discovery": {
+            "workspace": true
+          },
+          "jackin-runtime-universe-claims": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt",
+              "sync"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-eject-resources/Cargo.toml",
+      "package": "jackin-runtime-cleanup-eject-resources",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-socket-dir": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-diagnostics/Cargo.toml",
+      "package": "jackin-diagnostics",
+      "declared_dependencies": {
+        "dependencies": {
+          "hyper-util": {
+            "workspace": true
+          },
+          "rustls": {
+            "workspace": true,
+            "features": [
+              "ring",
+              "std"
+            ]
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "rt-multi-thread",
+              "process"
+            ]
+          },
+          "tonic": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-prune-images/Cargo.toml",
+      "package": "jackin-runtime-cleanup-prune-images",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-timing": {
+            "workspace": true
+          },
+          "jackin-runtime-naming": {
+            "workspace": true
+          },
+          "jackin-runtime-prune-output": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-discovery/Cargo.toml",
+      "package": "jackin-runtime-discovery",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-naming": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-attach-outcome/Cargo.toml",
+      "package": "jackin-runtime-launch-attach-outcome",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-isolation": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-stop/Cargo.toml",
+      "package": "jackin-runtime-apple-container-stop",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-apple-container-client": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-instance-credentials/Cargo.toml",
+      "package": "jackin-instance-credentials",
+      "declared_dependencies": {
+        "dependencies": {
+          "nix": {
+            "workspace": true,
+            "features": [
+              "dir",
+              "fs",
+              "user"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-resolve/Cargo.toml",
+      "package": "jackin-runtime-cleanup-resolve",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-usage-store-backend/Cargo.toml",
+      "package": "jackin-usage-store-backend",
+      "declared_dependencies": {
+        "dependencies": {
+          "nix": {
+            "workspace": true,
+            "features": [
+              "fs"
+            ]
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "sync"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "net",
+              "rt",
+              "rt-multi-thread",
+              "sync",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-exit-diagnosis/Cargo.toml",
+      "package": "jackin-runtime-launch-exit-diagnosis",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-isolation": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-session-contract/Cargo.toml",
+      "package": "jackin-runtime-apple-container-session-contract",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-apple-container-client": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-load-cleanup/Cargo.toml",
+      "package": "jackin-runtime-launch-load-cleanup",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-progress": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-prewarm-trigger/Cargo.toml",
+      "package": "jackin-runtime-prewarm-trigger",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-image": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-dind": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-cleanup-socket-dir/Cargo.toml",
+      "package": "jackin-runtime-cleanup-socket-dir",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-coordination": {
+            "workspace": true
+          },
+          "jackin-runtime-isolation": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-failure/Cargo.toml",
+      "package": "jackin-runtime-launch-failure",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-progress": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-git-pull/Cargo.toml",
+      "package": "jackin-runtime-launch-git-pull",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime/Cargo.toml",
+      "package": "jackin-runtime",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-image": {
+            "workspace": true
+          },
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-isolation": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-activate-entry": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-attach": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-attach-outcome": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-check-dns": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-client": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-probe-version": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-running": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-session-contract": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-stop": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-supervisor-env": {
+            "workspace": true
+          },
+          "jackin-runtime-apple-container-wait": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-admission": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-capsule-ready": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-exec-args": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-inspect": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-running-gate": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-sessions": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-transport": {
+            "workspace": true
+          },
+          "jackin-runtime-backend-selection": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-absent-guards": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-dind-gc": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-eject-resources": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-prune-cache": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-prune-dir": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-prune-home": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-prune-images": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-prune-roles": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-resolve": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-socket-dir": {
+            "workspace": true
+          },
+          "jackin-runtime-cleanup-timing": {
+            "workspace": true
+          },
+          "jackin-runtime-coordination": {
+            "workspace": true
+          },
+          "jackin-runtime-discovery": {
+            "workspace": true
+          },
+          "jackin-runtime-docker-profile": {
+            "workspace": true
+          },
+          "jackin-runtime-drift": {
+            "workspace": true
+          },
+          "jackin-runtime-exec-host": {
+            "workspace": true
+          },
+          "jackin-runtime-exit-summary": {
+            "workspace": true
+          },
+          "jackin-runtime-host-attach": {
+            "workspace": true
+          },
+          "jackin-runtime-host-daemon": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-image": {
+            "workspace": true
+          },
+          "jackin-runtime-isolation": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-account-config": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-account-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-attach-outcome": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-auth-error": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-capsule-setup": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-debug-envs": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-dind": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-dry-run": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-exit-diagnosis": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-exit-outro": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-failure": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-git-pull": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-image-plan": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-load-cleanup": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-load-options": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-mounts": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-plan": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-post-run-failure": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-programmatic-selection": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-progress-helpers": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-restore": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-run-envs": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-sibling-auth-prewarm": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-slot": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-supported-agents": {
+            "workspace": true
+          },
+          "jackin-runtime-launch-trust": {
+            "workspace": true
+          },
+          "jackin-runtime-naming": {
+            "workspace": true
+          },
+          "jackin-runtime-prewarm-trigger": {
+            "workspace": true
+          },
+          "jackin-runtime-progress": {
+            "workspace": true
+          },
+          "jackin-runtime-prune-output": {
+            "workspace": true
+          },
+          "jackin-runtime-reactive-daemon": {
+            "workspace": true
+          },
+          "jackin-runtime-repo-cache": {
+            "workspace": true
+          },
+          "jackin-runtime-session-control": {
+            "workspace": true
+          },
+          "jackin-runtime-snapshot": {
+            "workspace": true
+          },
+          "jackin-runtime-spin-wait": {
+            "workspace": true
+          },
+          "jackin-runtime-universe": {
+            "workspace": true
+          },
+          "jackin-runtime-usage-relay": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "process",
+              "io-util",
+              "io-std",
+              "net",
+              "signal",
+              "sync",
+              "macros",
+              "time",
+              "fs"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "jackin-runtime-apple-container-client": {
+            "workspace": true,
+            "features": [
+              "test-support"
+            ]
+          },
+          "jackin-runtime-identity": {
+            "workspace": true,
+            "features": [
+              "test-support"
+            ]
+          },
+          "jackin-runtime-image": {
+            "workspace": true,
+            "features": [
+              "test-support"
+            ]
+          },
+          "jackin-runtime-universe": {
+            "workspace": true,
+            "features": [
+              "test-support"
+            ]
+          },
+          "jackin-image": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt-multi-thread",
+              "test-util"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-naming/Cargo.toml",
+      "package": "jackin-runtime-naming",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-image": {
+            "workspace": true
+          },
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-attach-running-gate/Cargo.toml",
+      "package": "jackin-runtime-attach-running-gate",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-admission": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-inspect": {
+            "workspace": true
+          },
+          "jackin-runtime-attach-sessions": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-attach-capsule-ready/Cargo.toml",
+      "package": "jackin-runtime-attach-capsule-ready",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-runtime-snapshot": {
+            "workspace": true
+          },
+          "jackin-runtime-spin-wait": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-account-config/Cargo.toml",
+      "package": "jackin-runtime-launch-account-config",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-instance": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-process-telemetry/Cargo.toml",
+      "package": "jackin-runtime-process-telemetry",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "process"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-usage-broker-wire/Cargo.toml",
+      "package": "jackin-usage-broker-wire",
+      "declared_dependencies": {
+        "dependencies": {
+          "nix": {
+            "workspace": true,
+            "features": [
+              "fs",
+              "user"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-usage-capsule-telemetry/Cargo.toml",
+      "package": "jackin-usage-capsule-telemetry",
+      "declared_dependencies": {
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt-multi-thread"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-client/Cargo.toml",
+      "package": "jackin-runtime-apple-container-client",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-identity": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-apple-container-probe-version/Cargo.toml",
+      "package": "jackin-runtime-apple-container-probe-version",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-process-telemetry": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-runtime-launch-progress-helpers/Cargo.toml",
+      "package": "jackin-runtime-launch-progress-helpers",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-runtime-progress": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt",
+              "rt-multi-thread"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-instance-roles/Cargo.toml",
+      "package": "jackin-instance-roles",
+      "declared_dependencies": {
+        "dev-dependencies": {
+          "nix": {
+            "workspace": true,
+            "features": [
+              "dir",
+              "fs",
+              "user"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/services/jackin-usage-provider-core/Cargo.toml",
+      "package": "jackin-usage-provider-core",
+      "declared_dependencies": {
+        "dependencies": {
+          "nix": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt-multi-thread"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/apps/jackin/Cargo.toml",
+      "package": "jackin",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-image": {
+            "workspace": true
+          },
+          "jackin-runtime": {
+            "workspace": true
+          },
+          "jackin-process": {
+            "workspace": true
+          },
+          "jackin-runtime-session-control": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "process",
+              "io-util",
+              "sync",
+              "macros",
+              "time",
+              "fs"
+            ]
+          },
+          "rustls": {
+            "workspace": true,
+            "features": [
+              "aws_lc_rs"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "test-util"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/apps/jackin-capsule/Cargo.toml",
+      "package": "jackin-capsule",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "io-util",
+              "io-std",
+              "sync",
+              "macros",
+              "time",
+              "net",
+              "signal",
+              "process"
+            ]
+          },
+          "portable-pty": {
+            "workspace": true
+          },
+          "nix": {
+            "workspace": true,
+            "features": [
+              "term",
+              "signal",
+              "process",
+              "inotify",
+              "fs"
+            ]
+          },
+          "libc": {
+            "workspace": true
+          }
+        },
+        "dev-dependencies": {
+          "jackin-process": {
+            "workspace": true,
+            "features": [
+              "test-support"
+            ]
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt-multi-thread",
+              "test-util"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/adapters/jackin-image/Cargo.toml",
+      "package": "jackin-image",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-docker": {
+            "workspace": true
+          },
+          "jackin-process": {
+            "workspace": true
+          },
+          "nix": {
+            "workspace": true,
+            "features": [
+              "user"
+            ]
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "process",
+              "io-util",
+              "sync",
+              "macros",
+              "time",
+              "fs"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt-multi-thread",
+              "test-util"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/adapters/jackin-omp-store/Cargo.toml",
+      "package": "jackin-omp-store",
+      "declared_dependencies": {
+        "dependencies": {
+          "nix": {
+            "workspace": true,
+            "features": [
+              "dir",
+              "fs",
+              "user"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/adapters/jackin-oppicker/Cargo.toml",
+      "package": "jackin-oppicker",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "sync"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/adapters/jackin-docker/Cargo.toml",
+      "package": "jackin-docker",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process-directory": {
+            "workspace": true
+          },
+          "jackin-process": {
+            "workspace": true
+          },
+          "bollard": {
+            "version": "0.21",
+            "features": [
+              "aws-lc-rs"
+            ]
+          },
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "process",
+              "io-util",
+              "sync",
+              "macros",
+              "time",
+              "fs"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/testing/jackin-otlp-testbed/Cargo.toml",
+      "package": "jackin-otlp-testbed",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "sync",
+              "net",
+              "macros",
+              "time"
+            ]
+          },
+          "tonic": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/core/jackin-build-meta/Cargo.toml",
+      "package": "jackin-build-meta",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/core/jackin-workflow-spec/Cargo.toml",
+      "package": "jackin-workflow-spec",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/core/jackin-process/Cargo.toml",
+      "package": "jackin-process",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "process",
+              "time",
+              "io-util",
+              "rt",
+              "macros",
+              "sync"
+            ]
+          }
+        },
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt-multi-thread",
+              "macros",
+              "test-util"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/core/jackin-protocol/Cargo.toml",
+      "package": "jackin-protocol",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "io-util",
+              "net",
+              "rt",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/core/jackin-env/Cargo.toml",
+      "package": "jackin-env",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/core/jackin-process-directory/Cargo.toml",
+      "package": "jackin-process-directory",
+      "declared_dependencies": {
+        "dev-dependencies": {
+          "nix": {
+            "workspace": true,
+            "features": [
+              "process",
+              "signal"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/core/jackin-config/Cargo.toml",
+      "package": "jackin-config",
+      "declared_dependencies": {
+        "dev-dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt-multi-thread",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/tools/jackin-pr-trailers/Cargo.toml",
+      "package": "jackin-pr-trailers",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/tools/jackin-xtask/Cargo.toml",
+      "package": "jackin-xtask",
+      "declared_dependencies": {
+        "dependencies": {
+          "jackin-process": {
+            "workspace": true
+          },
+          "portable-pty": {
+            "workspace": true
+          },
+          "nix": {
+            "workspace": true,
+            "features": [
+              "dir",
+              "fs",
+              "user"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/ui/jackin-console/Cargo.toml",
+      "package": "jackin-console",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "rt",
+              "sync"
+            ]
+          },
+          "nix": {
+            "workspace": true,
+            "features": [
+              "term"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    },
+    {
+      "manifest": "crates/ui/jackin-launch/Cargo.toml",
+      "package": "jackin-launch",
+      "declared_dependencies": {
+        "dependencies": {
+          "tokio": {
+            "workspace": true,
+            "features": [
+              "macros",
+              "rt",
+              "time"
+            ]
+          }
+        }
+      },
+      "classification": "Dependency declaration only. Actual action/caller disposition is in source-inventory; crate name is not an execution classification."
+    }
+  ],
+  "test_or_build_dependency_sections_not_shipped_runtime_by_default": true
+}

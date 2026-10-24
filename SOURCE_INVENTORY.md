@@ -27,3 +27,7 @@ The broad search index is `results/full-refactor-20261024/runtime-search-all.txt
 - Treat uncalled grant readback, live checkpoint capture and normal preservation-hold producers as foundations unless the audited production call graph proves otherwise. Metadata checkpoint recording is different from live byte capture.
 
 All classifications based only on source are marked active but untested, implemented without a production caller, incomplete, or planned. A retained pure product function may use source evidence plus a future release test; changed runtime assumptions require live evidence. No source-only mapping is a runtime PASS.
+
+## Independent corroborating inventory
+
+A separately reviewed [statement-level inventory](research/independent-audit-20261024/audits/SOURCE_INVENTORY.md) adds 207 canonical direct records, 10 cross-cutting records, 19 infrastructure records and 1,266 reconciled broad matches at the same Jackin pin. Its [per-site JSON](research/independent-audit-20261024/audits/source-inventory.json) retains exact actions, caller traces, aliases, owners and replacement decisions. The inventories overlap and use different row granularity; do not add their counts. Both distinguish source coverage from execution proof. See the [integration comparison](RESEARCH_INDEX.md) before reusing results.

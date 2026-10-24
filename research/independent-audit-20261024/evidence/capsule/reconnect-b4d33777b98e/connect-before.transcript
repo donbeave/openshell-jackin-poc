@@ -1,0 +1,1 @@
+printf 'FIRST-PID:%s\n' "$$"; printf 'SESSION-MARKER:persistent-b4d33777b98e\n'; printf 'READY-BEFORE\n'

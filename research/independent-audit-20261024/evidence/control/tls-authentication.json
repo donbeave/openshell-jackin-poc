@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-10-24",
+  "status": "PASS for local gateway mTLS; remote auth NOT TESTED",
+  "mechanism": "released OpenShell v0.1.5 gateway TLS and client mTLS; certificate verification remained enabled",
+  "scope": {"gateway": "jrr24-worker", "endpoint": "https://127.0.0.1:18818", "workspace": "default"},
+  "tests": {
+    "trusted_client_certificate": {"status": "PASS", "observation": "gateway info succeeded with trusted local client certificate and server CA validation"},
+    "wrong_client_ca": {"status": "PASS", "observation": "TLS alert unknown ca; curl exit status 56"},
+    "client_certificate_rotation": {"status": "PASS", "observation": "new certificate signed by same experiment-owned CA replaced client cert; gateway info succeeded", "old_client_fingerprint": "97:0C:...:D6:3B", "new_client_fingerprint": "D7:BE:...:62:AF"},
+    "expired_or_revoked_certificate": {"status": "NOT TESTED"},
+    "remote_gateway_authentication_or_token_renewal": {"status": "NOT TESTED"}
+  },
+  "credential_handling": "Only experiment-owned credentials. This evidence contains no private key, certificate body, JWT, or bearer token."
+}

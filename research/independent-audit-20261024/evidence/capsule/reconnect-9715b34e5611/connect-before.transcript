@@ -1,0 +1,2 @@
+/bin/sh: can't access tty; job control turned off
+~ $ echo FIRST-PID=$$; echo SESSION-MARKER=persistent-9715b34e5611; echo READY-BEFORE

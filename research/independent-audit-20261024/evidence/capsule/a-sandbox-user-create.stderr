@@ -1,0 +1,3 @@
+Error:   × sandbox entered error phase while provisioning: IdentityResolutionFailed:
+  │ workload user 'sandbox' does not exist in the pinned image
+

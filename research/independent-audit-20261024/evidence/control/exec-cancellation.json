@@ -1,0 +1,45 @@
+{
+  "recorded_at_utc": "2026-10-24T01:52:43.096749+00:00",
+  "mechanism": "released OpenShell CLI remote exec timeout; sandbox exec on live canonical sleep process",
+  "expected": "CLI timeout kills remote child group; marker remains absent after 8-second delayed write",
+  "sandbox_name": "jrr24-worker-pass4",
+  "immutable_sandbox_id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+  "runtime_generation": "2c9cd0a4-5702-4ede-a6f5-e334c23d4221",
+  "timeout_command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "exec",
+    "jrr24-worker-pass4",
+    "--no-tty",
+    "--no-login-shell",
+    "--timeout",
+    "2",
+    "--",
+    "python3",
+    "/jackin/checks/timeout_child.py"
+  ],
+  "elapsed_seconds": 2.0649744590045884,
+  "timeout_result": {
+    "exit_status": 124,
+    "stdout": "",
+    "stderr": ""
+  },
+  "marker_check_command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "exec",
+    "jrr24-worker-pass4",
+    "--no-tty",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "from pathlib import Path; print(Path('/tmp/jackin-worker-grandchild-marker').exists())"
+  ],
+  "marker_check": {
+    "exit_status": 0,
+    "stdout": "True\n",
+    "stderr": ""
+  },
+  "initial_marker_cleanup_status": 0
+}

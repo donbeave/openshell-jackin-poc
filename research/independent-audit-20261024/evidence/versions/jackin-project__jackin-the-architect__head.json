@@ -1,0 +1,158 @@
+{
+  "command": [
+    "gh",
+    "api",
+    "repos/jackin-project/jackin-the-architect/commits/main"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "response": {
+    "sha": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+    "node_id": "C_kwDOR4S059oAKDdiNzJiMzhmZTFkNjZlMzVjMDkzMTg5OWM1M2JmMzcxOTU5MmJiY2M",
+    "commit": {
+      "author": {
+        "name": "Alexey Zhokhov",
+        "email": "alexey@zhokhov.com",
+        "date": "2026-10-05T04:10:06Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-10-05T04:10:06Z"
+      },
+      "message": "fix: migrate Architect manifest and skill marketplaces (#479)\n\n## Defect\n\nJackin v1alpha7 rejects six obsolete provider tables in the Architect\nv1alpha5 role manifest. The referenced `tailrocks-skills` repository no\nlonger publishes a marketplace manifest, so role validation returns HTTP\n404.\n\n## Change\n\n- Set the role manifest to `v1alpha7` and remove six unsupported\nprovider tables.\n- Replace the retired umbrella marketplace with current Rust and Roadmap\nskill packs.\n- Enforce exact `plugin@marketplace` matches and add suffix,\nmultiple-`@`, and unknown-source regression cases.\n- Document user-invoked proposal work through idea, research, and\nplanning skills without claiming historical parity.\n\n## Validation\n\n- `bash -n` passes for both marketplace audit scripts.\n- `scripts/marketplace-audit.test.sh` and `bash\nscripts/marketplace-audit.sh` pass.\n- The Jackin `role validate` command accepts this manifest and both\npublic marketplace sources.\n- The validator binary came from Jackin\n`0aa821a088e1bacf3d4d85a4c9faaa67faa85132`, built through Mise and MBX.\n- Actionlint, Plan, Required, DCO, and SonarCloud pass at\n`7db69b62f598a0971809ee4a006ad3f5477d0996`.\n- Publish baseline is skipped. The pre-commit executable is unavailable\nlocally; its scripts ran directly.\n\n---------\n\nSigned-off-by: OpenAI Codex <codex@openai.com>\nCo-authored-by: OpenAI Codex <codex@openai.com>",
+      "tree": {
+        "sha": "1870a9acd23f89accb128b6c2a237d1baf981e59",
+        "url": "https://api.github.com/repos/jackin-project/jackin-the-architect/git/trees/1870a9acd23f89accb128b6c2a237d1baf981e59"
+      },
+      "url": "https://api.github.com/repos/jackin-project/jackin-the-architect/git/commits/7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqwyMeCRC1aQ7uu5UhlAAAhRAQAAMZGvLG6ywxNT1r1r7qe3Wb\nTI606wQslxvpaU61+ysYpD25Hcxsd8XJuFQGUUqLRLdtTBmxCtGociSeOopnA3IO\nIG/wAPrm8pfYUt0xUcRaAoPO4Ed952ilDwp2bsTyfIrC/e68J7uTg2gxEduzkriG\nY9o5g3LXelE4BtmHCnT1iE9n117CazZCZkVCqxss47l5QKmQay7SnPF1tdAf4w2K\n/5vJ5qSn7A4GyU8hRoSwj9sgA1/g0Wml8G0h5/L8dHVj4LNNQCceUo7Yh+mI5o6o\nSWuBUOUw7McqKeluOxoGyOFYd2cUYo/MQYF4m0EE5wKhebf5aVvaWOdyHnhk8ay3\nlL4v6I4WvNg/1idiAoytUxv03e0sZNHanoqEyoeS3b/kprEnaXANNaBR1/DdO1uq\nLAaRf3IAxDwgQuswNuK5A+P9kNhfyYnQVtJbR3GemV+BBg04ASLBKU9mW3pzfMci\nZgSMYu9F39u161xYjQDhqzDdhA21sb/TxmQTFbTCo69FtfGFPVTp8d69dFTMMjFs\nYcFyd4ocyPzVmvkrZPzWJJ1JaF7XvPLklKSDOL+Z+3WxT2eE64zV1MziS21Saq6B\nbR8NkM6Mfu6kN3bXCurmMlV87bV/Bn1qu336YU4IMI5fuYRWp0tKVO0cuKh1SXyc\nB+uIeScHHnQeH2wpdjXj\n=u/z7\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree 1870a9acd23f89accb128b6c2a237d1baf981e59\nparent 2cf461e2fed1b95d9fd1e7ba74c10d4d8b1c685d\nauthor Alexey Zhokhov <alexey@zhokhov.com> 1791173406 +0700\ncommitter GitHub <noreply@github.com> 1791173406 +0700\n\nfix: migrate Architect manifest and skill marketplaces (#479)\n\n## Defect\n\nJackin v1alpha7 rejects six obsolete provider tables in the Architect\nv1alpha5 role manifest. The referenced `tailrocks-skills` repository no\nlonger publishes a marketplace manifest, so role validation returns HTTP\n404.\n\n## Change\n\n- Set the role manifest to `v1alpha7` and remove six unsupported\nprovider tables.\n- Replace the retired umbrella marketplace with current Rust and Roadmap\nskill packs.\n- Enforce exact `plugin@marketplace` matches and add suffix,\nmultiple-`@`, and unknown-source regression cases.\n- Document user-invoked proposal work through idea, research, and\nplanning skills without claiming historical parity.\n\n## Validation\n\n- `bash -n` passes for both marketplace audit scripts.\n- `scripts/marketplace-audit.test.sh` and `bash\nscripts/marketplace-audit.sh` pass.\n- The Jackin `role validate` command accepts this manifest and both\npublic marketplace sources.\n- The validator binary came from Jackin\n`0aa821a088e1bacf3d4d85a4c9faaa67faa85132`, built through Mise and MBX.\n- Actionlint, Plan, Required, DCO, and SonarCloud pass at\n`7db69b62f598a0971809ee4a006ad3f5477d0996`.\n- Publish baseline is skipped. The pre-commit executable is unavailable\nlocally; its scripts ran directly.\n\n---------\n\nSigned-off-by: OpenAI Codex <codex@openai.com>\nCo-authored-by: OpenAI Codex <codex@openai.com>",
+        "verified_at": "2026-10-05T04:10:07Z"
+      }
+    },
+    "url": "https://api.github.com/repos/jackin-project/jackin-the-architect/commits/7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+    "html_url": "https://github.com/jackin-project/jackin-the-architect/commit/7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+    "comments_url": "https://api.github.com/repos/jackin-project/jackin-the-architect/commits/7b72b38fe1d66e35c0931899c53bf3719592bbcc/comments",
+    "author": {
+      "login": "donbeave",
+      "id": 139017,
+      "node_id": "MDQ6VXNlcjEzOTAxNw==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/139017?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/donbeave",
+      "html_url": "https://github.com/donbeave",
+      "followers_url": "https://api.github.com/users/donbeave/followers",
+      "following_url": "https://api.github.com/users/donbeave/following{/other_user}",
+      "gists_url": "https://api.github.com/users/donbeave/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/donbeave/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/donbeave/subscriptions",
+      "organizations_url": "https://api.github.com/users/donbeave/orgs",
+      "repos_url": "https://api.github.com/users/donbeave/repos",
+      "events_url": "https://api.github.com/users/donbeave/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/donbeave/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "2cf461e2fed1b95d9fd1e7ba74c10d4d8b1c685d",
+        "url": "https://api.github.com/repos/jackin-project/jackin-the-architect/commits/2cf461e2fed1b95d9fd1e7ba74c10d4d8b1c685d",
+        "html_url": "https://github.com/jackin-project/jackin-the-architect/commit/2cf461e2fed1b95d9fd1e7ba74c10d4d8b1c685d"
+      }
+    ],
+    "stats": {
+      "total": 104,
+      "additions": 80,
+      "deletions": 24
+    },
+    "files": [
+      {
+        "sha": "9997aa8df69334554f3107d738d2a7b560059313",
+        "filename": ".pre-commit-config.yaml",
+        "status": "modified",
+        "additions": 7,
+        "deletions": 0,
+        "changes": 7,
+        "blob_url": "https://github.com/jackin-project/jackin-the-architect/blob/7b72b38fe1d66e35c0931899c53bf3719592bbcc/.pre-commit-config.yaml",
+        "raw_url": "https://github.com/jackin-project/jackin-the-architect/raw/7b72b38fe1d66e35c0931899c53bf3719592bbcc/.pre-commit-config.yaml",
+        "contents_url": "https://api.github.com/repos/jackin-project/jackin-the-architect/contents/.pre-commit-config.yaml?ref=7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+        "patch": "@@ -12,3 +12,10 @@ repos:\n         language: script\n         files: ^jackin\\.role\\.toml$\n         pass_filenames: false\n+\n+      - id: jackin-marketplace-audit-regression\n+        name: jackin.role.toml marketplace audit regression tests\n+        entry: scripts/marketplace-audit.test.sh\n+        language: script\n+        files: ^(jackin\\.role\\.toml|scripts/marketplace-audit(\\.test)?\\.sh)$\n+        pass_filenames: false"
+      },
+      {
+        "sha": "d737aa5b48e97e5aa63f95cceed7d15da145eec5",
+        "filename": "README.md",
+        "status": "modified",
+        "additions": 4,
+        "deletions": 1,
+        "changes": 5,
+        "blob_url": "https://github.com/jackin-project/jackin-the-architect/blob/7b72b38fe1d66e35c0931899c53bf3719592bbcc/README.md",
+        "raw_url": "https://github.com/jackin-project/jackin-the-architect/raw/7b72b38fe1d66e35c0931899c53bf3719592bbcc/README.md",
+        "contents_url": "https://api.github.com/repos/jackin-project/jackin-the-architect/contents/README.md?ref=7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+        "patch": "@@ -44,9 +44,12 @@ Shared shell/runtime tools come from `projectjackin/construct:trixie`.\n Declared in [`jackin.role.toml`](./jackin.role.toml) under `[claude].plugins` and bootstrapped at runtime by jackin. Marketplaces beyond `@claude-plugins-official`:\n \n - `@jackin-marketplace` \u2014 [jackin-project/jackin-marketplace](https://github.com/jackin-project/jackin-marketplace) (source of `jackin-dev`)\n-- `@tailrocks-skills` \u2014 [tailrocks/tailrocks-skills](https://github.com/tailrocks/tailrocks-skills) (source of `tailrocks-skills`, including Rust guidance, Rust project setup, proposal, and research skills)\n+- `@tailrocks-rust-skills` \u2014 [tailrocks/tailrocks-rust-skills](https://github.com/tailrocks/tailrocks-rust-skills) (Rust guidance, project setup, review, refactoring, and remediation)\n+- `@tailrocks-roadmap-skills` \u2014 [tailrocks/tailrocks-roadmap-skills](https://github.com/tailrocks/tailrocks-roadmap-skills) (research, brainstorming, planning, verification, and delivery)\n - `@caveman` \u2014 [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) (source of `caveman`; pinned to a tagged release via Dockerfile `CAVEMAN_VERSION`)\n \n+Invoke these skills explicitly; the Roadmap pack covers proposal work through idea capture, research, and planning skills.\n+\n Trust rationale: see [AGENTS.md \u00a7 Threat model](./AGENTS.md#threat-model).\n \n ## Skills"
+      },
+      {
+        "sha": "a1dde0b7a93b40a0b13a2340f6b64f99bb737114",
+        "filename": "jackin.role.toml",
+        "status": "modified",
+        "additions": 7,
+        "deletions": 21,
+        "changes": 28,
+        "blob_url": "https://github.com/jackin-project/jackin-the-architect/blob/7b72b38fe1d66e35c0931899c53bf3719592bbcc/jackin.role.toml",
+        "raw_url": "https://github.com/jackin-project/jackin-the-architect/raw/7b72b38fe1d66e35c0931899c53bf3719592bbcc/jackin.role.toml",
+        "contents_url": "https://api.github.com/repos/jackin-project/jackin-the-architect/contents/jackin.role.toml?ref=7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+        "patch": "@@ -1,7 +1,7 @@\n # SPDX-FileCopyrightText: 2026 Alexey Zhokhov\n # SPDX-License-Identifier: Apache-2.0\n \n-version = \"v1alpha5\"\n+version = \"v1alpha7\"\n dockerfile = \"Dockerfile\"\n published_image = \"docker.io/projectjackin/jackin-the-architect:latest\"\n agents = [\"claude\", \"codex\", \"amp\", \"opencode\", \"kimi\", \"grok\"]\n@@ -22,24 +22,19 @@ plugins = [\n   \"pr-review-toolkit@claude-plugins-official\",\n   \"rust-analyzer-lsp@claude-plugins-official\",\n   \"jackin-dev@jackin-marketplace\",\n-  \"tailrocks-skills@tailrocks-skills\",\n+  \"tailrocks-rust-skills@tailrocks-rust-skills\",\n+  \"tailrocks-roadmap-skills@tailrocks-roadmap-skills\",\n   \"caveman@caveman\",\n ]\n \n-[claude.providers.zai]\n-model = \"glm-5.2[1m]\"\n-\n-[claude.providers.minimax]\n-model = \"MiniMax-M3[1m]\"\n-\n-[claude.providers.kimi]\n-model = \"kimi-for-coding\"\n-\n [[claude.marketplaces]]\n source = \"jackin-project/jackin-marketplace\"\n \n [[claude.marketplaces]]\n-source = \"tailrocks/tailrocks-skills\"\n+source = \"tailrocks/tailrocks-rust-skills\"\n+\n+[[claude.marketplaces]]\n+source = \"tailrocks/tailrocks-roadmap-skills\"\n \n [[claude.marketplaces]]\n source = \"JuliusBrussee/caveman\"\n@@ -51,15 +46,6 @@ source = \"JuliusBrussee/caveman\"\n [opencode]\n model = \"zai/glm-5.2\"\n \n-[opencode.providers.zai]\n-model = \"zai/glm-5.2\"\n-\n-[opencode.providers.minimax]\n-model = \"minimax/MiniMax-M3\"\n-\n-[opencode.providers.kimi]\n-model = \"kimi/kimi-for-coding\"\n-\n [kimi]\n \n [grok]"
+      },
+      {
+        "sha": "54cc247d290a69d9fd20b2bf66ff983590b3b737",
+        "filename": "scripts/marketplace-audit.sh",
+        "status": "modified",
+        "additions": 2,
+        "deletions": 2,
+        "changes": 4,
+        "blob_url": "https://github.com/jackin-project/jackin-the-architect/blob/7b72b38fe1d66e35c0931899c53bf3719592bbcc/scripts%2Fmarketplace-audit.sh",
+        "raw_url": "https://github.com/jackin-project/jackin-the-architect/raw/7b72b38fe1d66e35c0931899c53bf3719592bbcc/scripts%2Fmarketplace-audit.sh",
+        "contents_url": "https://api.github.com/repos/jackin-project/jackin-the-architect/contents/scripts%2Fmarketplace-audit.sh?ref=7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+        "patch": "@@ -6,8 +6,8 @@\n # Fail commit if jackin.role.toml declares a plugin from a marketplace\n # outside the allow-list. Wired to .pre-commit-config.yaml.\n set -euo pipefail\n-ALLOW='@(claude-plugins-official|jackin-marketplace|tailrocks-skills|caveman)'\n-bad=$(grep -E '\"[^@]+@[^\"]+\"' jackin.role.toml | grep -Ev \"$ALLOW\" || true)\n+ALLOW='^\"[^\"@]+@(claude-plugins-official|jackin-marketplace|tailrocks-rust-skills|tailrocks-roadmap-skills|caveman)\"$'\n+bad=$(grep -Eo '\"[^\"@]+@[^\"]+\"' jackin.role.toml | grep -Ev \"$ALLOW\" || true)\n if [[ -n \"$bad\" ]]; then\n   echo \"Plugin from undocumented marketplace:\" >&2\n   echo \"$bad\" >&2"
+      },
+      {
+        "sha": "ad4b062e7aa71da1032a54f31954273e09994a38",
+        "filename": "scripts/marketplace-audit.test.sh",
+        "status": "added",
+        "additions": 60,
+        "deletions": 0,
+        "changes": 60,
+        "blob_url": "https://github.com/jackin-project/jackin-the-architect/blob/7b72b38fe1d66e35c0931899c53bf3719592bbcc/scripts%2Fmarketplace-audit.test.sh",
+        "raw_url": "https://github.com/jackin-project/jackin-the-architect/raw/7b72b38fe1d66e35c0931899c53bf3719592bbcc/scripts%2Fmarketplace-audit.test.sh",
+        "contents_url": "https://api.github.com/repos/jackin-project/jackin-the-architect/contents/scripts%2Fmarketplace-audit.test.sh?ref=7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+        "patch": "@@ -0,0 +1,60 @@\n+#!/usr/bin/env bash\n+\n+# SPDX-FileCopyrightText: 2026 OpenAI\n+# SPDX-License-Identifier: Apache-2.0\n+\n+set -euo pipefail\n+\n+repo_root=\"$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/..\" && pwd)\"\n+audit=\"$repo_root/scripts/marketplace-audit.sh\"\n+tmp_dir=\"$(mktemp -d)\"\n+trap 'rm -rf \"$tmp_dir\"' EXIT\n+\n+expect_pass() {\n+  local label=\"$1\"\n+  local fixture_dir=\"$tmp_dir/$label\"\n+  mkdir -p \"$fixture_dir\"\n+  cp \"$repo_root/jackin.role.toml\" \"$fixture_dir/jackin.role.toml\"\n+\n+  if ! (cd \"$fixture_dir\" && bash \"$audit\") >\"$tmp_dir/$label.log\" 2>&1; then\n+    echo \"Expected marketplace audit to accept $label fixture:\" >&2\n+    cat \"$tmp_dir/$label.log\" >&2\n+    return 1\n+  fi\n+}\n+\n+expect_reject() {\n+  local label=\"$1\"\n+  local expected_ref=\"$2\"\n+  local fixture_dir=\"$tmp_dir/$label\"\n+  mkdir -p \"$fixture_dir\"\n+\n+  if (cd \"$fixture_dir\" && bash \"$audit\") >\"$tmp_dir/$label.log\" 2>&1; then\n+    echo \"Expected marketplace audit to reject $label fixture.\" >&2\n+    return 1\n+  fi\n+  if ! grep -Fq \"$expected_ref\" \"$tmp_dir/$label.log\"; then\n+    echo \"Marketplace audit rejected $label for an unexpected reason:\" >&2\n+    cat \"$tmp_dir/$label.log\" >&2\n+    return 1\n+  fi\n+}\n+\n+expect_pass valid\n+\n+mkdir -p \"$tmp_dir/prefix-spoof\"\n+sed 's/@tailrocks-rust-skills\"/@tailrocks-rust-skills-untrusted\"/' \\\n+  \"$repo_root/jackin.role.toml\" >\"$tmp_dir/prefix-spoof/jackin.role.toml\"\n+expect_reject prefix-spoof 'tailrocks-rust-skills@tailrocks-rust-skills-untrusted'\n+\n+mkdir -p \"$tmp_dir/multiple-separators\"\n+sed 's/@tailrocks-rust-skills\"/@unknown@tailrocks-rust-skills\"/' \\\n+  \"$repo_root/jackin.role.toml\" >\"$tmp_dir/multiple-separators/jackin.role.toml\"\n+expect_reject multiple-separators 'tailrocks-rust-skills@unknown@tailrocks-rust-skills'\n+\n+mkdir -p \"$tmp_dir/unknown-marketplace\"\n+sed 's/@caveman\"/@unlisted-marketplace\"/' \\\n+  \"$repo_root/jackin.role.toml\" >\"$tmp_dir/unknown-marketplace/jackin.role.toml\"\n+expect_reject unknown-marketplace 'caveman@unlisted-marketplace'\n+\n+echo \"Marketplace audit regression tests passed.\""
+      }
+    ]
+  }
+}

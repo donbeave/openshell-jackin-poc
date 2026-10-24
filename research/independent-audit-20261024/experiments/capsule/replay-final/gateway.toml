@@ -1,0 +1,19 @@
+[openshell]
+version = 2
+[openshell.gateway]
+name = "jrr24-capsule-reconnect-poc"
+bind_address = "127.0.0.1:18823"
+compute_driver = "docker"
+guest_tls_ca = "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/capsule/replay-final/certs/ca.crt"
+[openshell.drivers.docker]
+allow_driver_config = false
+sandbox_label = "jrr24-capsule-reconnect-poc"
+[openshell.gateway.tls]
+cert_path = "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/capsule/replay-final/certs/server/tls.crt"
+key_path = "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/capsule/replay-final/certs/server/tls.key"
+client_ca_path = "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/capsule/replay-final/certs/ca.crt"
+[openshell.gateway.gateway_jwt]
+signing_key_path = "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/capsule/replay-final/certs/jwt/signing.pem"
+public_key_path = "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/capsule/replay-final/certs/jwt/public.pem"
+kid_path = "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/capsule/replay-final/certs/jwt/kid"
+gateway_id = "jrr24-capsule-reconnect-poc"

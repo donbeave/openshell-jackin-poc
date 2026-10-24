@@ -1,0 +1,85 @@
+{
+  "recorded_at_utc": "2026-10-24T01:57:43.579490+00:00",
+  "mechanism": "released OpenShell CLI exec with same Jackin production wrapper semantics, on fresh sandbox generation",
+  "status": "NOT TESTED",
+  "expected": "wrapper SIGKILLs the process group, returns 124, no grandchild writes delayed marker",
+  "sandbox_name": "jrr24-wgrp01",
+  "sandbox_id": "32fb700d-599e-41bd-a557-4117c55fa974",
+  "runtime_generation": "c148c078-8deb-4940-9eff-997597335c7a",
+  "main_process_instance_id": "74dcb44e-0f58-412a-9671-c3f8d5222ca3",
+  "create_command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "jrr24-wgrp01",
+    "--from",
+    "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+    "--policy",
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/worker-policy.yaml",
+    "--driver-config-json",
+    "{\"docker\":{\"mounts\":[{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/inputs/timeout/candidate\",\"target\":\"/workspace\",\"read_only\":true},{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/inputs/timeout/checks\",\"target\":\"/jackin/checks\",\"read_only\":true},{\"type\":\"tmpfs\",\"target\":\"/tmp\",\"size_bytes\":67108864,\"mode\":1023,\"options\":[\"noexec\"]},{\"type\":\"tmpfs\",\"target\":\"/build\",\"size_bytes\":268435456,\"mode\":1023}]}}",
+    "--no-tty",
+    "--detach",
+    "--",
+    "sleep",
+    "infinity"
+  ],
+  "create_exit_status": 0,
+  "exec_command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "exec",
+    "jrr24-wgrp01",
+    "--no-tty",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "/jackin/checks/wrapper.py",
+    "1792807057.401568",
+    "/usr/local/bin/python3.12",
+    "/jackin/checks/timeout_child_short.py"
+  ],
+  "elapsed_seconds": 0.23191562501597218,
+  "exec_result": {
+    "exit_status": 125,
+    "stdout": "",
+    "stderr": "[Errno 11] Resource temporarily unavailable\n"
+  },
+  "marker_check_command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "exec",
+    "jrr24-wgrp01",
+    "--no-tty",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "from pathlib import Path; print(Path('/tmp/jackin-worker-grandchild-short-marker').exists())"
+  ],
+  "marker_result": {
+    "exit_status": 0,
+    "stdout": "False\n",
+    "stderr": ""
+  },
+  "sandbox_after": {
+    "id": "32fb700d-599e-41bd-a557-4117c55fa974",
+    "phase": "Ready",
+    "exit_code": null,
+    "main_process_instance_id": "74dcb44e-0f58-412a-9671-c3f8d5222ca3",
+    "runtime_generation": "c148c078-8deb-4940-9eff-997597335c7a"
+  },
+  "input_hashes": {
+    "candidate": {
+      "candidate.py": "5afb5fb2b6e36a21a0b2514972eda38ff0fefe8e30cd619ad234747743bb64bd"
+    },
+    "checks": {
+      "timeout_child.py": "feb23692a064bc2c1c9d07af67f49ceac24d9b9eb924ea20096e51afa51f1749",
+      "timeout_child_short.py": "791efacf6f0d5a299136b7cc50eda15a36873205350a424a8f8cb61bc05242a7",
+      "wrapper.py": "f0f35017422722818e7d71d7eb7fef50b70bf5d82dc4c2bf973f04b13dfd0322"
+    }
+  },
+  "identity_capture": "queried OpenShell get before and after; one unchanged canonical ID/generation",
+  "limitation": "Resource exhaustion prevented subprocess creation and the CLI returned EAGAIN; no timeout conclusion is drawn from this attempt."
+}

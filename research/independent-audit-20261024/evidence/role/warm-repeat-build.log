@@ -1,0 +1,57 @@
+# Attempt metadata
+# command: /usr/bin/time -p docker buildx build --builder orbstack --platform linux/arm64 --load --tag jrr24-architect-claude:2.1.310-warm-repeat --build-arg CLAUDE_VERSION=2.1.310 --build-arg ROLE_CONTENT_SHA=99e10ee3007bd3fd13b91aac0a172c614cde3f572dd2f2323a9dd3c35070f28f research/full-refactor/experiments/role
+# started_utc: 2026-10-24T01:56:13Z
+# elapsed_seconds: 4.29
+# exit_status: 1 (Buildx failed before cache lookup for COPY because coordinated cleanup removed the downloaded COPY input.)
+# finished_utc: 2026-10-24T01:56:17Z (shell wrapper itself then hit zsh's readonly `status` variable; captured Buildx error above is authoritative)
+# classification: FAIL for this attempted repeat; no cache-reuse claim.
+#0 building with "orbstack" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 2.07kB 0.0s done
+#1 DONE 0.3s
+
+#2 [internal] load metadata for docker.io/library/jrr24-architect-role-base:7b72b38fe1d6
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B 0.0s done
+#3 DONE 0.5s
+
+#4 [internal] load build context
+#4 DONE 0.0s
+
+#5 [stage-0 1/7] FROM docker.io/library/jrr24-architect-role-base:7b72b38fe1d6@sha256:a010089b0f7c78be05a6998ce284c87ba18144b4da23e3c921795544fdf7ef36
+#5 ...
+
+#6 [internal] setting cache mount permissions
+#6 DONE 0.0s
+
+#5 [stage-0 1/7] FROM docker.io/library/jrr24-architect-role-base:7b72b38fe1d6@sha256:a010089b0f7c78be05a6998ce284c87ba18144b4da23e3c921795544fdf7ef36
+#5 resolve docker.io/library/jrr24-architect-role-base:7b72b38fe1d6@sha256:a010089b0f7c78be05a6998ce284c87ba18144b4da23e3c921795544fdf7ef36
+#5 resolve docker.io/library/jrr24-architect-role-base:7b72b38fe1d6@sha256:a010089b0f7c78be05a6998ce284c87ba18144b4da23e3c921795544fdf7ef36 0.3s done
+#5 DONE 0.3s
+
+#4 [internal] load build context
+#4 transferring context: 34B done
+#4 DONE 0.2s
+
+#7 [stage-0 2/7] COPY 2.1.310/claude /jackin/agent-binaries/claude
+#7 ERROR: failed to calculate checksum of ref rw4icfow74cc0c9bmmopmpfrv::0v0w9ev0q3wsy3335r5xlji48: "/2.1.310/claude": not found
+------
+ > [stage-0 2/7] COPY 2.1.310/claude /jackin/agent-binaries/claude:
+------
+Dockerfile:11
+--------------------
+   9 |           org.jackin.poc.agent.version=${CLAUDE_VERSION}
+  10 |     USER root
+  11 | >>> COPY ${CLAUDE_VERSION}/claude /jackin/agent-binaries/claude
+  12 |     COPY preflight.sh /jackin/runtime/hooks/preflight.sh
+  13 |     RUN chmod 0755 /jackin/agent-binaries/claude /jackin/runtime/hooks/preflight.sh
+--------------------
+ERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref rw4icfow74cc0c9bmmopmpfrv::0v0w9ev0q3wsy3335r5xlji48: "/2.1.310/claude": not found
+real 4.29
+user 0.06
+sys 0.10

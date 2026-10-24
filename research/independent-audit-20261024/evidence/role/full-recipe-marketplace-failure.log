@@ -1,0 +1,14 @@
+Pinned source: Architect 7b72b38fe1d66e35c0931899c53bf3719592bbcc
+Jackin renderer: 6e266406b49da2ab3c55355f3b7d33d1643ee6cd, crates/adapters/jackin-image/src/derived_image.rs:219-254
+Claude Code: 2.1.310
+
+Docker build command:
+docker buildx build --builder orbstack --platform linux/arm64 --load --tag jrr24-architect-claude:2.1.310 --build-arg CLAUDE_VERSION=2.1.310 --build-arg ROLE_CONTENT_SHA=d34b1d106ba3dae26357af52a6f5c107b223ba4249b8fbabe06b47acaeb6ca49 .
+
+Observed exit: 1, Dockerfile role-plugin layer.
+Exact error:
+✘ Failed to add marketplace: Marketplace file not found at /home/agent/.claude/plugins/marketplaces/tailrocks-tailrocks-rust-skills/.claude-plugin/marketplace.json
+
+The pinned role declares marketplaces tailrocks/tailrocks-rust-skills and tailrocks/tailrocks-roadmap-skills. The resolved repository trees expose `.claude-plugin/plugin.json`; neither tree has `.claude-plugin/marketplace.json` required by the generated `claude plugin marketplace add` invocation. The first marketplace addition failed, so later plugin installs did not run.
+
+A reduced-hook image was built afterward with those two source marketplaces and their associated plugin entries omitted. This image is a workaround fixture; not the actual Architect role and not a PASS for the full role image.

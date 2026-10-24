@@ -1,0 +1,108 @@
+{
+  "recorded_at_utc": "2026-10-24T01:54:21.772180+00:00",
+  "mechanism": "released OpenShell v0.1.5 Docker sandbox; Jackin CLI wrapper process policy",
+  "expected": {
+    "approved_argv": [
+      "/usr/local/bin/python3.12",
+      "/jackin/checks/test_check.py"
+    ],
+    "result": "exit 0 and worker-policy-pass",
+    "policy": {
+      "image": "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+      "cpu": "1",
+      "memory": "512Mi",
+      "pids": 64,
+      "network": "no network rules",
+      "candidate_mount": "/workspace:ro",
+      "trusted_check_mount": "/jackin/checks:ro",
+      "scratch": {
+        "/tmp": 67108864,
+        "/build": 268435456
+      },
+      "identity": "UID:GID 1000:1000"
+    }
+  },
+  "inputs_before": {
+    "candidate": {
+      "candidate.py": "5afb5fb2b6e36a21a0b2514972eda38ff0fefe8e30cd619ad234747743bb64bd"
+    },
+    "trusted_check_bundle": {
+      "test_check.py": "05c6d7d5ef6316c4377ed581ae2883465034d698bdf1b4fec3819833da6bcafe",
+      "wrapper.py": "f0f35017422722818e7d71d7eb7fef50b70bf5d82dc4c2bf973f04b13dfd0322"
+    },
+    "policy_sha256": "d8de88d9a2ba827d0e215db99a51b3f3d8f2384981bec33a0c0f5d92345a83d4",
+    "driver_config_sha256": "edd2f455d71aeddbedab6e38926c3158d74655184c616d908d1e88ffa1298785"
+  },
+  "command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "jrr24-wpass02",
+    "--from",
+    "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+    "--cpu",
+    "1",
+    "--memory",
+    "512Mi",
+    "--policy",
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/worker-policy.yaml",
+    "--driver-config-json",
+    "{\"docker\":{\"mounts\":[{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/inputs/pass/candidate\",\"target\":\"/workspace\",\"read_only\":true},{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/inputs/pass/checks\",\"target\":\"/jackin/checks\",\"read_only\":true},{\"type\":\"tmpfs\",\"target\":\"/tmp\",\"size_bytes\":67108864,\"mode\":1023,\"options\":[\"noexec\"]},{\"type\":\"tmpfs\",\"target\":\"/build\",\"size_bytes\":268435456,\"mode\":1023}]}}",
+    "--no-tty",
+    "--",
+    "python3",
+    "/jackin/checks/wrapper.py",
+    "1792806884.789419",
+    "/usr/local/bin/python3.12",
+    "/jackin/checks/test_check.py"
+  ],
+  "create_result": {
+    "exit_status": 0,
+    "stdout": "\nCreated sandbox: jrr24-wpass02\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4\n[0.0s] Image already present\n[2.1s] Starting sandbox Container created\nworker-policy-pass\n",
+    "stderr": "",
+    "stdout_hex": "0a437265617465642073616e64626f783a206a727232342d777061737330320a0a20205b302e30735d2052657175657374696e6720636f6d707574652e2e2e0a5b302e30735d2053616e64626f7820616c6c6f63617465640a5b302e30735d2050756c6c696e6720696d61676520707974686f6e407368613235363a316236363834323962333531316162343037643865303036343838393136333162306231613464376531356533636137306633386162356239316164346162340a5b302e30735d20496d61676520616c72656164792070726573656e740a5b322e31735d205374617274696e672073616e64626f7820436f6e7461696e657220637265617465640a776f726b65722d706f6c6963792d706173730a",
+    "stderr_hex": ""
+  },
+  "get_result": {
+    "exit_status": 0,
+    "stderr": "",
+    "phase": "Completed",
+    "exit_code": 0,
+    "sandbox_id": "ca508ea2-95d5-4b87-be56-65510bae9bab",
+    "runtime_generation": "84b27691-629a-4592-98de-92617a99b011",
+    "main_process_instance_id": "8c51c2d0-ad8d-4937-bfb1-132792dbb645",
+    "conditions": [
+      {
+        "last_transition_time": "",
+        "message": "Canonical main process completed successfully",
+        "reason": "MainProcessCompleted",
+        "status": "False",
+        "type": "Ready"
+      },
+      {
+        "last_transition_time": "",
+        "message": "",
+        "reason": "ConfigurationAccepted",
+        "status": "True",
+        "type": "ConfigurationReady"
+      }
+    ]
+  },
+  "inputs_after": {
+    "candidate": {
+      "candidate.py": "5afb5fb2b6e36a21a0b2514972eda38ff0fefe8e30cd619ad234747743bb64bd"
+    },
+    "trusted_check_bundle": {
+      "test_check.py": "05c6d7d5ef6316c4377ed581ae2883465034d698bdf1b4fec3819833da6bcafe",
+      "wrapper.py": "f0f35017422722818e7d71d7eb7fef50b70bf5d82dc4c2bf973f04b13dfd0322"
+    },
+    "policy_sha256": "d8de88d9a2ba827d0e215db99a51b3f3d8f2384981bec33a0c0f5d92345a83d4",
+    "driver_config_sha256": "edd2f455d71aeddbedab6e38926c3158d74655184c616d908d1e88ffa1298785"
+  },
+  "inputs_unchanged_during_trial": true,
+  "docker_inventory_for_owned_name": [
+    "fc3b325b3315 openshell-default--jrr24-wpass02-ca508ea2-95d5-4b87-be56-65510bae9bab-supervisor running",
+    "cc9fdca8b848 openshell-default--jrr24-wpass02-ca508ea2-95d5-4b87-be56-65510bae9bab running"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "utc": "2026-10-24T09:11:24.894332+00:00",
+  "base_commit": "a94bb70b83cb847f005dc2acde1e9d2fa9742689",
+  "source_snapshot_files": 361,
+  "new_bundle_files_checked": 365,
+  "existing_publication_files_compared": 1768,
+  "existing_redacted_content_mismatches": 0,
+  "additional_evidence_files": 5,
+  "format_link_provenance_failures": [],
+  "secret_scan": {
+    "command": [
+      "gitleaks",
+      "dir",
+      ".",
+      "--redact=100",
+      "--ignore-gitleaks-allow",
+      "--gitleaks-ignore-path",
+      "/dev/null",
+      "--no-banner",
+      "--no-color",
+      "--report-format",
+      "json",
+      "--report-path",
+      "<outside-publication-tree>/gitleaks.json"
+    ],
+    "exit_status": 1,
+    "report_sha256": "3052ccadf76a40bd53ffad9ea05324d3bae11458f4faabca36a4b08fdb8f8d44",
+    "allowlist_suppression": false,
+    "findings": [
+      {
+        "file": "experiments/full-refactor-20261024/verification-worker/results/image-inspect.json",
+        "line": 1,
+        "rule": "generic-api-key",
+        "disposition": "Official image public signing-key ID; prior independent publication review."
+      },
+      {
+        "file": "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/docker-inspect.json",
+        "line": 154,
+        "rule": "generic-api-key",
+        "disposition": "Official image public signing-key ID; prior independent publication review."
+      },
+      {
+        "file": "experiments/full-refactor-20261024/verification-worker/tmpfs-diagnostic/inspect.json",
+        "line": 154,
+        "rule": "generic-api-key",
+        "disposition": "Official image public signing-key ID; prior independent publication review."
+      },
+      {
+        "file": "research/independent-audit-20261024/evidence/capsule/RESULTS.md",
+        "line": 30,
+        "rule": "generic-api-key",
+        "disposition": "Plain prose about peer identity and reaping; complete sentence manually inspected, no credential value."
+      },
+      {
+        "file": "results/full-replacement-20261024/control/tls-wrong-ou.stdout.json",
+        "line": 7,
+        "rule": "generic-api-key",
+        "disposition": "Synthetic mTLS test subject; prior independent publication review."
+      },
+      {
+        "file": "results/full-replacement-20261024/docker/managed-engine-research.md",
+        "line": 25,
+        "rule": "generic-api-key",
+        "disposition": "Plain prose; prior independent publication review."
+      }
+    ]
+  },
+  "readiness": "NOT READY TO START THE FULL OPENSHELL REFACTOR",
+  "product_code_refactored": false,
+  "source_checkouts_keys_runtime_state_excluded": true,
+  "integration_manifest_sha256": "b2109a7d0b639d2540d69601bd1dadbdbda8a53774263c1a9288c62437e6328a",
+  "integration_manifest_file_count": 2732,
+  "public_bundle_manifest_sha256": "43552196bad46133ea53686dd58a70ed7087b16d09ae20eb05ec8b83ab8c055b"
+}

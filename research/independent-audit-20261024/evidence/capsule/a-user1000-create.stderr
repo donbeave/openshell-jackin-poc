@@ -1,0 +1,25 @@
+Error:   × sandbox entered error phase while provisioning:
+  │ ControlSupervisorStartFailed: Docker supervisor exited before becoming
+  │ ready; log tail: [truncated] time binary identity mode
+  │ 2026-10-24T01:48:38.829Z OCSF CONFIG:CONFIGURED [INFO] OPA runtime binary
+  │ identity mode configured [source:proto require_binary_identity:true]
+  │ [source:proto]
+  │ 2026-10-24T01:48:38.843Z INFO openshell_supervisor: Isolation boundary
+  │ attached
+  │ 2026-10-24T01:48:38.844Z INFO openshell_supervisor: Isolation boundary
+  │ enforcement confirmed
+  │ 2026-10-24T01:48:38.845Z OCSF CONFIG:ENABLED [INFO] TLS termination
+  │ enabled: ephemeral CA generated
+  │ 2026-10-24T01:48:38.845Z OCSF CONFIG:READY [INFO] Policy DNS connected to
+  │ isolation boundary
+  │ 2026-10-24T01:48:38.845Z OCSF NET:LISTEN [INFO] 127.0.0.1:3128
+  │ 2026-10-24T01:48:38.845Z WARN openshell_supervisor_network::proxy:
+  │ host.openshell.internal maps to a non-link-local IP; trusted-gateway SSRF
+  │ exemption disabled
+  │ Error:   × process error: boundary process leaf: start process supervisor
+  │ leaf:   ×
+  │   │ spawn delegated workload process
+  │   │   ├─▶ failed to spawn sandbox entrypoint process '/bin/sh'
+  │   │   ╰─▶ Permission denied (os error 13)
+  │   │
+

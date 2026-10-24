@@ -1,0 +1,30 @@
+{
+  "recorded_at_utc": "2026-10-24T01:53:15.562127+00:00",
+  "command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "exec",
+    "jrr24-worker-pass4",
+    "--no-tty",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "import sys; sys.stdout.write('x' * 100000)"
+  ],
+  "sandbox_name": "jrr24-worker-pass4",
+  "immutable_sandbox_id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+  "runtime_generation": "2c9cd0a4-5702-4ede-a6f5-e334c23d4221",
+  "expected": "host client enforces 64 KiB stream cap or records truncation",
+  "observed": {
+    "exit_status": 0,
+    "stdout_bytes": 100000,
+    "stderr_bytes": 0,
+    "stdout_sha256": "d69e68988157833272305aaf21f453c800346e8a3640db6578e260215542e5d4",
+    "stdout_first_16": "xxxxxxxxxxxxxxxx",
+    "stdout_last_16": "xxxxxxxxxxxxxxxx",
+    "stderr": "",
+    "truncation_marker": false
+  },
+  "conclusion": "Released CLI streams uncapped output; Jackin-side host wrapper must cap it."
+}

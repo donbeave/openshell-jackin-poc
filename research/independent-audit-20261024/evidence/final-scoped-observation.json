@@ -1,0 +1,139 @@
+{
+  "utc": "2026-10-24T02:07:34.320676+00:00",
+  "read_only": true,
+  "observations": [
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:18817",
+        "-sTCP:LISTEN"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "",
+      "interpretation": "No listener observed by this user now; does not establish earlier stopping actor."
+    },
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:18818",
+        "-sTCP:LISTEN"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "",
+      "interpretation": "No listener observed by this user now; does not establish earlier stopping actor."
+    },
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:18819",
+        "-sTCP:LISTEN"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "",
+      "interpretation": "No listener observed by this user now; does not establish earlier stopping actor."
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "jrr24-capsule-poc",
+      "resource_type": "container"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "jrr24-capsule-poc",
+      "resource_type": "volume"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-a2-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "jrr24-capsule-a2-poc",
+      "resource_type": "container"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-a2-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "jrr24-capsule-a2-poc",
+      "resource_type": "volume"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-worker-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "jrr24-worker-poc",
+      "resource_type": "container"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-worker-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "scope": "jrr24-worker-poc",
+      "resource_type": "volume"
+    }
+  ],
+  "no_stop_or_delete_command_issued": true
+}

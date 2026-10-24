@@ -1,0 +1,66 @@
+{
+  "recorded_at_utc": "2026-10-24T01:48:59.354866+00:00",
+  "expected": {
+    "approved_argv": [
+      "/usr/local/bin/python3.12",
+      "/jackin/checks/test_check.py"
+    ],
+    "result": "nonzero check result",
+    "policy": {
+      "image": "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+      "cpu": "1",
+      "memory": "512Mi",
+      "pids": 64,
+      "network": "no network rules",
+      "candidate_mount": "/workspace:ro",
+      "trusted_check_mount": "/jackin/checks:ro",
+      "scratch": {
+        "/tmp": 67108864,
+        "/build": 268435456
+      },
+      "identity": "UID:GID 1000:1000"
+    }
+  },
+  "command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "jrr24-wfail01",
+    "--from",
+    "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+    "--cpu",
+    "1",
+    "--memory",
+    "512Mi",
+    "--policy",
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/worker-policy.yaml",
+    "--driver-config-json",
+    "{\"docker\":{\"mounts\":[{\"type\":\"bind\",\"source\":\"research/full-refactor/experiments/control/fixture/candidate-fail\",\"target\":\"/workspace\",\"read_only\":true},{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/fixture/checks\",\"target\":\"/jackin/checks\",\"read_only\":true},{\"type\":\"tmpfs\",\"target\":\"/tmp\",\"size_bytes\":67108864,\"mode\":1023,\"options\":[\"noexec\"]},{\"type\":\"tmpfs\",\"target\":\"/build\",\"size_bytes\":268435456,\"mode\":1023}]}}",
+    "--no-tty",
+    "--",
+    "python3",
+    "/jackin/checks/wrapper.py",
+    "1792806569.210391",
+    "/usr/local/bin/python3.12",
+    "/jackin/checks/test_check.py"
+  ],
+  "create_result": {
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "Error:   \u00d7 code: 'The system is not in a state required for the operation's\n  \u2502 execution', message: \"bind source must be an absolute host path\"\n\n",
+    "stdout_hex": "",
+    "stderr_hex": "4572726f723a202020c39720636f64653a20275468652073797374656d206973206e6f7420696e206120737461746520726571756972656420666f7220746865206f7065726174696f6e27730a2020e2948220657865637574696f6e272c206d6573736167653a202262696e6420736f75726365206d75737420626520616e206162736f6c75746520686f73742070617468220a0a"
+  },
+  "get_result": {
+    "exit_status": 1,
+    "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n",
+    "phase": null,
+    "exit_code": null,
+    "sandbox_id": null,
+    "runtime_generation": null,
+    "main_process_instance_id": null,
+    "conditions": null
+  },
+  "docker_inventory_for_owned_name": []
+}

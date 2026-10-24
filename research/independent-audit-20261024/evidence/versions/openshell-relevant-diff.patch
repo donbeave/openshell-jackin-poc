@@ -1,0 +1,317 @@
+diff --git a/crates/openshell-driver-vm/src/driver.rs b/crates/openshell-driver-vm/src/driver.rs
+index 65c0c82..0a1176e 100644
+--- a/crates/openshell-driver-vm/src/driver.rs
++++ b/crates/openshell-driver-vm/src/driver.rs
+@@ -1636,14 +1636,20 @@ impl VmDriver {
+             trust_anchor_pem: channel_tls.trust_anchor_pem.clone(),
+         };
+         let transport = if plan.backend == VmBackend::Qemu {
+-            SandboxTransport::Vsock {
+-                guest_cid: plan.vsock_cid.ok_or_else(|| {
+-                    Status::internal("QEMU launch plan is missing a guest vsock CID")
+-                })?,
+-                port: VM_CONTROL_PORT,
++            let guest_cid = plan
++                .vsock_cid
++                .ok_or_else(|| Status::internal("QEMU launch plan is missing a guest vsock CID"))?;
++            SandboxTransport::RuntimeInitiatedVsock {
++                guest_cid,
++                // Each QEMU guest connects to a distinct host port. The CID
++                // allocator already guarantees uniqueness among live guests.
++                port: VM_CONTROL_PORT
++                    .checked_add(guest_cid)
++                    .filter(|port| *port != u32::MAX)
++                    .ok_or_else(|| Status::resource_exhausted("VM control port space exhausted"))?,
+             }
+         } else {
+-            SandboxTransport::Unix {
++            SandboxTransport::RuntimeInitiatedUnix {
+                 socket_path: control_socket.clone(),
+             }
+         };
+@@ -1733,6 +1739,7 @@ impl VmDriver {
+         } else {
+             let _ = tokio::fs::remove_file(&control_socket).await;
+             command
++                .arg("--vm-vsock-runtime-initiated")
+                 .arg("--vm-vsock-control-port")
+                 .arg(VM_CONTROL_PORT.to_string())
+                 .arg("--vm-vsock-control-socket")
+@@ -3304,6 +3311,43 @@ impl VmDriver {
+         )
+     }
+ 
++    fn publish_pulling_event(&self, sandbox_id: &str, image_ref: &str) {
++        self.publish_platform_event(
++            sandbox_id.to_string(),
++            platform_event(
++                "vm",
++                "Normal",
++                "Pulling",
++                format!("Pulling image \"{image_ref}\""),
++            ),
++        );
++    }
++
++    /// A registry-sourced root disk found in the cache: `Pulling`, the
++    /// `CacheHit` progress and `Pulled`, so the image step still advances.
++    async fn publish_registry_cache_hit(
++        &self,
++        sandbox_id: &str,
++        image_ref: &str,
++        image_identity: &str,
++        image_path: &Path,
++    ) {
++        self.publish_pulling_event(sandbox_id, image_ref);
++        self.publish_vm_progress(
++            sandbox_id,
++            "CacheHit",
++            format!("Using cached VM root disk for image \"{image_ref}\""),
++            HashMap::from([
++                ("image_ref".to_string(), image_ref.to_string()),
++                ("image_source".to_string(), "registry".to_string()),
++                ("cache_hit".to_string(), "true".to_string()),
++                ("image_identity".to_string(), image_identity.to_string()),
++            ]),
++        );
++        self.publish_pulled_event(sandbox_id, image_ref, image_path)
++            .await;
++    }
++
+     async fn ensure_cached_registry_rootfs_image(
+         &self,
+         sandbox_id: &str,
+@@ -3314,6 +3358,31 @@ impl VmDriver {
+         let span_status = openshell_otel::ErrorStatusGuard::current();
+         info!(image_ref = %image_ref, "vm driver: ensuring cached root disk image (registry)");
+         let reference = parse_registry_reference(image_ref)?;
++        // A digest pin already names the image's content, and a cached root
++        // disk is only published after its manifest was verified against
++        // that digest. On a hit the registry cannot add anything, so neither
++        // authenticate nor resolve: the sandbox boots from the cache without a
++        // network round trip, and keeps booting while the registry is down.
++        // Tags still resolve through the registry below.
++        if let Some(digest) = reference.digest() {
++            let image_identity = bootstrap_image_cache_identity(digest);
++            let image_path = image_cache_rootfs_image(&self.config.state_dir, &image_identity);
++            if tokio::fs::metadata(&image_path).await.is_ok() {
++                info!(
++                    image_identity = %image_identity,
++                    image_path = %image_path.display(),
++                    "vm driver: root disk image cache hit (digest-pinned, no registry call)"
++                );
++                self.publish_registry_cache_hit(
++                    sandbox_id,
++                    image_ref,
++                    &image_identity,
++                    &image_path,
++                )
++                .await;
++                return span_status.finish(Ok(image_identity));
++            }
++        }
+         info!(image_ref = %image_ref, "vm driver: authenticating with registry");
+         self.publish_vm_progress(
+             sandbox_id,
+@@ -3358,40 +3427,20 @@ impl VmDriver {
+         let image_identity = bootstrap_image_cache_identity(&source_image_identity);
+         let image_path = image_cache_rootfs_image(&self.config.state_dir, &image_identity);
+ 
+-        // Emit a driver progress hint for cache hits too and immediately
+-        // follow with `Pulled` so the image step still advances cleanly.
+-        self.publish_platform_event(
+-            sandbox_id.to_string(),
+-            platform_event(
+-                "vm",
+-                "Normal",
+-                "Pulling",
+-                format!("Pulling image \"{image_ref}\""),
+-            ),
+-        );
+-
+         if tokio::fs::metadata(&image_path).await.is_ok() {
+             info!(
+                 image_identity = %image_identity,
+                 image_path = %image_path.display(),
+                 "vm driver: root disk image cache hit (no build needed)"
+             );
+-            self.publish_vm_progress(
+-                sandbox_id,
+-                "CacheHit",
+-                format!("Using cached VM root disk for image \"{image_ref}\""),
+-                HashMap::from([
+-                    ("image_ref".to_string(), image_ref.to_string()),
+-                    ("image_source".to_string(), "registry".to_string()),
+-                    ("cache_hit".to_string(), "true".to_string()),
+-                    ("image_identity".to_string(), image_identity.clone()),
+-                ]),
+-            );
+-            self.publish_pulled_event(sandbox_id, image_ref, &image_path)
++            self.publish_registry_cache_hit(sandbox_id, image_ref, &image_identity, &image_path)
+                 .await;
+             return span_status.finish(Ok(image_identity));
+         }
+ 
++        // A driver progress hint before the build, so the image step advances.
++        self.publish_pulling_event(sandbox_id, image_ref);
++
+         info!(
+             image_identity = %image_identity,
+             "vm driver: root disk image cache miss, acquiring build lock"
+@@ -7118,7 +7167,10 @@ fn inject_guest_boundary_bundle(
+     let tls = match &config.listener {
+         BoundaryListener::Unix { tls, .. }
+         | BoundaryListener::TlsTcp { tls, .. }
+-        | BoundaryListener::Vsock { tls, .. } => tls.clone(),
++        | BoundaryListener::Vsock { tls, .. }
++        | BoundaryListener::RuntimeInitiatedTlsTcp { tls, .. }
++        | BoundaryListener::RuntimeInitiatedUnix { tls, .. }
++        | BoundaryListener::RuntimeInitiatedVsock { tls, .. } => tls.clone(),
+     };
+     let encoded_config = config
+         .encode()
+diff --git a/crates/openshell-sdk/src/config.rs b/crates/openshell-sdk/src/config.rs
+index bc4945c..14c318c 100644
+--- a/crates/openshell-sdk/src/config.rs
++++ b/crates/openshell-sdk/src/config.rs
+@@ -4,9 +4,9 @@
+ //! Public input types for the SDK: how callers describe a gateway and the
+ //! credentials used to talk to it.
+ //!
+-//! The CLI keeps its own filesystem-aware `TlsOptions` for transport plumbing
+-//! and reuses the SDK's OIDC refresh primitive. Other consumers describe the
+-//! complete transport with [`ClientConfig`].
++//! Filesystem-aware callers such as the CLI resolve certificate paths before
++//! constructing [`ClientConfig`]. The SDK accepts certificate contents so it
++//! remains independent of filesystem layout and gateway-name resolution.
+ 
+ use crate::refresh::Refresh;
+ use std::sync::Arc;
+@@ -54,10 +54,30 @@ impl AuthConfig {
+     }
+ }
+ 
++/// PEM-encoded client identity used for mutual TLS.
++///
++/// The certificate may contain a chain. The private key must be PKCS#1,
++/// PKCS#8, or SEC1 PEM as accepted by tonic/rustls.
++#[derive(Clone)]
++pub struct ClientIdentity {
++    pub certificate: Vec<u8>,
++    pub private_key: Vec<u8>,
++}
++
++impl ClientIdentity {
++    pub fn new(certificate: impl Into<Vec<u8>>, private_key: impl Into<Vec<u8>>) -> Self {
++        Self {
++            certificate: certificate.into(),
++            private_key: private_key.into(),
++        }
++    }
++}
++
+ /// Configuration for opening a gRPC channel to an `OpenShell` gateway.
+ ///
+-/// Consumed by `openshell_sdk::transport::grpc_client`. One `ClientConfig` per logical connection;
+-/// callers that want connection pooling cache the resulting `tonic::Channel`.
++/// Consumed by [`crate::OpenShellClient::connect`] and
++/// [`crate::transport::build_channel`]. Use one `ClientConfig` per logical
++/// connection; callers that want connection pooling cache the resulting client.
+ //
+ // NOTE:
+ // - `gateway` is a full URL (`http://...` or `https://...`) so the scheme
+@@ -65,9 +85,8 @@ impl AuthConfig {
+ //   today's CLI convention; matches the RFC's `pub gateway: String`.
+ // - `ca_cert` pins a private-CA certificate (PEM-encoded). `None` falls
+ //   back to the platform's system roots.
+-// - This SDK does not speak mTLS. Gateways requiring client certificates
+-//   are handled by `openshell-cli`'s legacy mTLS path until product
+-//   retires that auth method.
++// - `client_identity` carries already-resolved PEM bytes. The SDK deliberately
++//   does not know where a caller stores certificates.
+ // - `insecure_skip_verify` is a separate flag rather than a third
+ //   `AuthConfig` variant because it's a transport concern (cert
+ //   verification) that's orthogonal to auth.
+@@ -89,6 +108,9 @@ pub struct ClientConfig {
+     /// roots. Ignored for plaintext gateways and when
+     /// `insecure_skip_verify` is enabled.
+     pub ca_cert: Option<Vec<u8>>,
++    /// Client certificate and private key for mutual TLS. Ignored for
++    /// plaintext gateways, Cloudflare Access tunnels, and insecure TLS.
++    pub client_identity: Option<ClientIdentity>,
+     /// Bearer-token auth mode. `None` = anonymous TLS over HTTPS, or
+     /// plaintext when `gateway` is `http://`.
+     pub auth: Option<AuthConfig>,
+diff --git a/crates/openshell-sdk/src/transport.rs b/crates/openshell-sdk/src/transport.rs
+index 07ced55..9741637 100644
+--- a/crates/openshell-sdk/src/transport.rs
++++ b/crates/openshell-sdk/src/transport.rs
+@@ -2,10 +2,6 @@
+ // SPDX-License-Identifier: Apache-2.0
+ 
+ //! gRPC transport stack: channel construction and the insecure-TLS connector.
+-//!
+-//! mTLS is intentionally out of scope here. Gateways that require client
+-//! certificates are handled by `openshell-cli`'s legacy path until the auth
+-//! method is retired.
+ 
+ use crate::config::{AuthConfig, ClientConfig};
+ use crate::edge_tunnel;
+@@ -21,7 +17,7 @@ use std::net::SocketAddr;
+ use std::sync::OnceLock;
+ use std::time::Duration;
+ use tokio::sync::Mutex;
+-use tonic::transport::{Certificate, Channel, ClientTlsConfig, Endpoint};
++use tonic::transport::{Certificate, Channel, ClientTlsConfig, Endpoint, Identity};
+ use tracing::debug;
+ 
+ /// Standard endpoint settings used by every dialed connection.
+@@ -84,7 +80,7 @@ async fn edge_tunnel_addr(server: &str, token: &str) -> Result<SocketAddr> {
+ /// | `http://` | (any)  | (any) | plaintext, ignore tls |
+ /// | `https://` | `Some(EdgeJwt)` | (any) | tunnel proxy + plaintext to local proxy |
+ /// | `https://` | (any) | `true` | `InsecureTlsConnector`, no verification |
+-/// | `https://` | `Some(Oidc)` or `None` | `false` | tonic TLS, pin `ca_cert` if set, system roots otherwise |
++/// | `https://` | `Some(Oidc)` or `None` | `false` | tonic TLS, optionally pin `ca_cert` and present `client_identity` |
+ pub async fn build_channel(config: &ClientConfig) -> Result<Channel> {
+     let gateway = &config.gateway;
+ 
+@@ -131,10 +127,16 @@ pub async fn build_channel(config: &ClientConfig) -> Result<Channel> {
+     // is added by the gRPC interceptor at request time, not here —
+     // `build_channel` only owns the TLS layer.
+ 
+-    let tls_config = config.ca_cert.as_ref().map_or_else(
++    let mut tls_config = config.ca_cert.as_ref().map_or_else(
+         || ClientTlsConfig::new().with_enabled_roots(),
+         |ca_cert| ClientTlsConfig::new().ca_certificate(Certificate::from_pem(ca_cert)),
+     );
++    if let Some(identity) = &config.client_identity {
++        tls_config = tls_config.identity(Identity::from_pem(
++            identity.certificate.clone(),
++            identity.private_key.clone(),
++        ));
++    }
+     standard_endpoint(gateway.clone())?
+         .tls_config(tls_config)
+         .map_err(|e| SdkError::tls(format!("{e}")))?
+diff --git a/docs/how-it-works/sandboxes/runtimes.mdx b/docs/how-it-works/sandboxes/runtimes.mdx
+index f56d194..42c47f0 100644
+--- a/docs/how-it-works/sandboxes/runtimes.mdx
++++ b/docs/how-it-works/sandboxes/runtimes.mdx
+@@ -107,7 +107,7 @@ To pin specific GPUs, pass `cdi_devices` for Docker or Podman, or `gpu_device_id
+ 
+ ## Docker Driver
+ 
+-[Docker](https://www.docker.com/get-started/) runs sandboxes as containers on the Docker daemon host. The gateway accesses the daemon through its configured Unix socket. Docker is also required to build sandbox images from local directories or Dockerfiles.
++[Docker](https://www.docker.com/get-started/) runs sandboxes as containers on the Docker daemon host. The gateway accesses the daemon through its configured Unix socket.
+ 
+ ```toml
+ [openshell.gateway]
+@@ -362,7 +362,7 @@ On Docker and Podman, set `process.run_as_user` and `process.run_as_group` in th
+ 
+ | Driver | Default identity |
+ |---|---|
+-| Docker, Podman | The image's `USER`. Images without `USER` must set both fields in policy. |
++| Docker, Podman | The image's `USER`, otherwise `1000`. |
+ | Kubernetes | OpenShift SCC namespace annotations, otherwise `1000`. Override with `sandbox_uid` and `sandbox_gid`. |
+ | MicroVM | The image's `sandbox` account, otherwise `1000`. Override with `sandbox_uid` and `sandbox_gid`. |
+ 

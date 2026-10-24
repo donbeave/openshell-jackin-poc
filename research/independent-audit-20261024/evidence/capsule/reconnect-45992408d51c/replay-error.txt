@@ -1,0 +1,1 @@
+TimeoutExpired: Command '['/Users/example/openshell-jackin-poc/research/full-refactor/experiments/capsule/replay-final/client.sh', 'sandbox', 'connect', 'jrr-45992408d51c']' timed out after 3 seconds

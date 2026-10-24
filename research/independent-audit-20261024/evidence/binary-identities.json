@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/opt/homebrew/bin/openshell",
+    "resolved_path": "/opt/homebrew/Cellar/openshell/0.1.5/bin/openshell",
+    "bytes": 22583824,
+    "sha256": "96cbf2910fd670f9f49eb1cf7663c8dce5398ffa2617ee1c6ba8f5d9c9fa8302"
+  },
+  {
+    "path": "/opt/homebrew/opt/openshell/bin/openshell-gateway",
+    "resolved_path": "/opt/homebrew/Cellar/openshell/0.1.5/bin/openshell-gateway",
+    "bytes": 84849232,
+    "sha256": "60b562d2d78cab122bd998f14f6b5a22f1a20e4bb77943a25498caee8d041ec9"
+  },
+  {
+    "path": "/Users/example/.cargo/bin/jackin",
+    "resolved_path": "/Users/example/.cargo/bin/jackin",
+    "bytes": 50020288,
+    "sha256": "5999b6c48e40e820520c8444aed325ecaec2fb41269432ff66f8ca961ba798c8"
+  },
+  {
+    "path": "/Users/example/.cargo/bin/jackin-capsule",
+    "resolved_path": "/Users/example/.cargo/bin/jackin-capsule",
+    "bytes": 24907440,
+    "sha256": "70415a7a0d7945d090f39c1409e43962e59d90cf4a8b1d78038376e0a4d2ae67"
+  }
+]

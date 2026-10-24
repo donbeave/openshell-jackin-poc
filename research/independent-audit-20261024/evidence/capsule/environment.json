@@ -1,0 +1,19 @@
+{
+  "jackin_commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+  "architect_commit": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+  "openshell_version": "0.1.5",
+  "openshell_commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+  "host": "macOS arm64",
+  "compute": "OrbStack Linux arm64, kernel 7.2.9-orbstack-00391-g2b298d05fbd4",
+  "docker_client": "29.9.2",
+  "docker_engine": "29.8.2",
+  "gateway": "jrr24-capsule-poc",
+  "endpoint": "https://127.0.0.1:18817",
+  "tls_server_verification": true,
+  "client_certificate_authentication": true,
+  "sandbox_label": "jrr24-capsule-poc",
+  "fixture_image": "alpine@sha256:2e0b81d60597f449baa56dc25d355367869d2dca4cd57e866f1e2b52af3eb55f",
+  "fixture_image_platform": "linux/arm64",
+  "jackin_capsule_host_binary": "0.6.4+2b582a4, identity does not match pinned Jackin source",
+  "agent_credentials_used": false
+}

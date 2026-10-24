@@ -1,0 +1,31 @@
+{
+  "requirement": "Candidate A must preserve Jackin Linux per-session process isolation, which starts as root and then drops to the selected agent UID/GID.",
+  "jackin_source": {
+    "commit": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+    "wrapper": "crates/apps/jackin-capsule/src/process_isolation/linux.rs:51-56",
+    "privilege_drop": "crates/apps/jackin-capsule/src/process_isolation/linux/enforce.rs:129-160"
+  },
+  "openshell": {
+    "release": "v0.1.5",
+    "commit": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+    "gateway": "jrr24-capsule-a2-poc",
+    "endpoint": "https://127.0.0.1:18819",
+    "sandbox_label": "jrr24-capsule-a2-poc",
+    "authentication": "mTLS",
+    "tls_verification": true
+  },
+  "root_policy": {
+    "run_as_user": "0",
+    "run_as_group": "0",
+    "live_result": "FAIL",
+    "http_result": "Client specified an invalid argument",
+    "error": "sandbox policy validation failed; run_as_user must be 'sandbox' or a numeric UID/GID in range [1, 4294967294], got '0'; run_as_group must be 'sandbox' or a numeric UID/GID in range [1, 4294967294], got '0'",
+    "sandbox_created": false
+  },
+  "positive_control": {
+    "description": "Earlier separately scoped OpenShell v0.1.5 Alpine fixture ran UID/GID 1000. It is a same-release/container-driver control, not proof that the root-policy follow-up gateway executed the same workload.",
+    "candidate_b_evidence": "resource-ids.json and domain-a-process.txt",
+    "scope_limitation": "Root-policy validation failure occurred before sandbox creation. Separate positive control is not combined into a full Candidate A execution claim."
+  },
+  "scope": "Proves OpenShell v0.1.5 rejects the root process identity required by Jackin's current Linux isolated-exec path. Does not prove all Capsule architectures impossible."
+}

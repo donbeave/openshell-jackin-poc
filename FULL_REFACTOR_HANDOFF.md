@@ -19,3 +19,7 @@ Current Jackin pin6e supersedes the earlier41bad source group only through the r
 The original baseline commit2315e6 and its documents/results remain intact. Its earlier “focused prototype” conclusion is historical, not the verdict for this full-refactor task. Follow this handoff rather than using the old narrow verdict as full replacement approval.
 
 Do not execute old cleanup/restoration scripts. Read each current reproduction's ownership receipts, fresh unique namespace/PKI/port/path requirements and cleanup limitations. Generated checkouts, binaries, credentials, VM disks and build caches are not publication artifacts; source pins, patches, hashes and procedures reproduce them. Private raw local evidence is preserved separately from any public sanitization.
+
+## Integrated independent audit
+
+The [merged research index](RESEARCH_INDEX.md) reconciles the follow-up with the [independent audit](research/independent-audit-20261024/README.md). Preserve both source inventories and scoped negative cases. Later Rust, PTY and admitted-storage primitives supersede earlier untested statements only for the exact executed cases, not the missing complete account/session/credential architecture.

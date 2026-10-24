@@ -1,0 +1,84 @@
+{
+  "recorded_at_utc": "2026-10-24T01:49:04.234235+00:00",
+  "expected": {
+    "approved_argv": [
+      "/usr/local/bin/python3.12",
+      "/jackin/checks/test_check.py"
+    ],
+    "result": "nonzero check result",
+    "policy": {
+      "image": "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+      "cpu": "1",
+      "memory": "512Mi",
+      "pids": 64,
+      "network": "no network rules",
+      "candidate_mount": "/workspace:ro",
+      "trusted_check_mount": "/jackin/checks:ro",
+      "scratch": {
+        "/tmp": 67108864,
+        "/build": 268435456
+      },
+      "identity": "UID:GID 1000:1000"
+    }
+  },
+  "command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "create",
+    "--name",
+    "jrr24-wfail02",
+    "--from",
+    "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+    "--cpu",
+    "1",
+    "--memory",
+    "512Mi",
+    "--policy",
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/worker-policy.yaml",
+    "--driver-config-json",
+    "{\"docker\":{\"mounts\":[{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/fixture/candidate-fail\",\"target\":\"/workspace\",\"read_only\":true},{\"type\":\"bind\",\"source\":\"/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/fixture/checks\",\"target\":\"/jackin/checks\",\"read_only\":true},{\"type\":\"tmpfs\",\"target\":\"/tmp\",\"size_bytes\":67108864,\"mode\":1023,\"options\":[\"noexec\"]},{\"type\":\"tmpfs\",\"target\":\"/build\",\"size_bytes\":268435456,\"mode\":1023}]}}",
+    "--no-tty",
+    "--",
+    "python3",
+    "/jackin/checks/wrapper.py",
+    "1792806572.4439528",
+    "/usr/local/bin/python3.12",
+    "/jackin/checks/test_check.py"
+  ],
+  "create_result": {
+    "exit_status": 1,
+    "stdout": "\nCreated sandbox: jrr24-wfail02\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4\n[0.1s] Image already present\n[0.5s] Starting sandbox Container created\n",
+    "stderr": "Traceback (most recent call last):\n  File \"/jackin/checks/test_check.py\", line 5, in <module>\n    assert source.read_text() == 'def value():\\n    return \"approved\"\\n'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+    "stdout_hex": "0a437265617465642073616e64626f783a206a727232342d776661696c30320a0a20205b302e30735d2052657175657374696e6720636f6d707574652e2e2e0a5b302e30735d2053616e64626f7820616c6c6f63617465640a5b302e30735d2050756c6c696e6720696d61676520707974686f6e407368613235363a316236363834323962333531316162343037643865303036343838393136333162306231613464376531356533636137306633386162356239316164346162340a5b302e31735d20496d61676520616c72656164792070726573656e740a5b302e35735d205374617274696e672073616e64626f7820436f6e7461696e657220637265617465640a",
+    "stderr_hex": "54726163656261636b20286d6f737420726563656e742063616c6c206c617374293a0a202046696c6520222f6a61636b696e2f636865636b732f746573745f636865636b2e7079222c206c696e6520352c20696e203c6d6f64756c653e0a2020202061737365727420736f757263652e726561645f746578742829203d3d20276465662076616c756528293a5c6e2020202072657475726e2022617070726f766564225c6e270a20202020202020202020205e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e0a417373657274696f6e4572726f720a"
+  },
+  "get_result": {
+    "exit_status": 0,
+    "stderr": "",
+    "phase": "Error",
+    "exit_code": 1,
+    "sandbox_id": "4cacab91-66eb-42c5-98c2-9a058b53735d",
+    "runtime_generation": "72930f59-338c-4576-b5e8-3d19159f898b",
+    "main_process_instance_id": "69a59932-c9ac-4cdb-ae21-6abb0f323c78",
+    "conditions": [
+      {
+        "last_transition_time": "",
+        "message": "Canonical main process exited with status 1",
+        "reason": "MainProcessFailed",
+        "status": "False",
+        "type": "Ready"
+      },
+      {
+        "last_transition_time": "",
+        "message": "",
+        "reason": "ConfigurationAccepted",
+        "status": "True",
+        "type": "ConfigurationReady"
+      }
+    ]
+  },
+  "docker_inventory_for_owned_name": [
+    "8ebcad1347ad openshell-default--jrr24-wfail02-4cacab91-66eb-42c5-98c2-9a058b53735d-supervisor running",
+    "564cc9061ae0 openshell-default--jrr24-wfail02-4cacab91-66eb-42c5-98c2-9a058b53735d running"
+  ]
+}

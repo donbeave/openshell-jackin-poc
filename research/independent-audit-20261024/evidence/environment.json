@@ -1,0 +1,102 @@
+{
+  "utc": "2026-10-24T01:45:03.324165+00:00",
+  "commands": [
+    {
+      "command": [
+        "uname",
+        "-a"
+      ],
+      "exit_status": 0,
+      "stdout": "Darwin <HOST> 27.0.0 Darwin Kernel Version 27.0.0: Tue Aug 11 21:06:40 PDT 2026; root:xnu-13432.1.9~1/RELEASE_ARM64_T6050 arm64\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sw_vers"
+      ],
+      "exit_status": 0,
+      "stdout": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0.1\nBuildVersion:\t\t26A434\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sysctl",
+        "-n",
+        "hw.model",
+        "hw.ncpu",
+        "hw.memsize"
+      ],
+      "exit_status": 0,
+      "stdout": "Mac17,6\n18\n137438953472\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "version",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "{\"Client\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"29.9.2\",\"ApiVersion\":\"1.56\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"a82e528901\",\"GoVersion\":\"go1.27.3\",\"Os\":\"darwin\",\"Arch\":\"arm64\",\"BuildTime\":\"Tue Oct 20 11:24:07 2026\",\"Context\":\"orbstack\"},\"Server\":{\"Platform\":{\"Name\":\"Docker Engine - Community\"},\"Version\":\"29.8.2\",\"ApiVersion\":\"1.56\",\"MinAPIVersion\":\"1.40\",\"Os\":\"linux\",\"Arch\":\"arm64\",\"Components\":[{\"Name\":\"Engine\",\"Version\":\"29.8.2\",\"Details\":{\"ApiVersion\":\"1.56\",\"Arch\":\"arm64\",\"BuildTime\":\"Wed Sep 30 19:32:49 2026\",\"Experimental\":\"true\",\"GitCommit\":\"8af9fe3\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.2.9-orbstack-00391-g2b298d05fbd4\",\"MinAPIVersion\":\"1.40\",\"Module\":\"github.com/moby/moby/v2\",\"ModuleVersion\":\"v2.0.0+unknown\",\"Os\":\"linux\"}},{\"Name\":\"containerd\",\"Version\":\"v2.3.6\",\"Details\":{\"GitCommit\":\"ee2735368117d2eb259779949d5e75cdafec9761\"}},{\"Name\":\"runc\",\"Version\":\"1.5.2\",\"Details\":{\"GitCommit\":\"29dd3dc2b13b4123162e5fe132504bb4b15569f1\"}},{\"Name\":\"docker-init\",\"Version\":\"0.19.0\",\"Details\":{\"GitCommit\":\"de40ad0\"}}],\"GitCommit\":\"8af9fe3\",\"GoVersion\":\"go1.26.8\",\"KernelVersion\":\"7.2.9-orbstack-00391-g2b298d05fbd4\",\"Experimental\":true,\"BuildTime\":\"2026-09-30T19:32:49.000000000+00:00\"}}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "docker",
+        "context",
+        "show"
+      ],
+      "exit_status": 0,
+      "stdout": "orbstack\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "openshell",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stdout": "openshell 0.1.5\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "jackin",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stdout": "jackin 0.6.4\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "jackin-capsule",
+        "--version"
+      ],
+      "exit_status": 0,
+      "stdout": "jackin-capsule 0.6.4+2b582a4\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "df",
+        "-k",
+        "/System/Volumes/Data"
+      ],
+      "exit_status": 0,
+      "stdout": "Filesystem   1024-blocks       Used  Available Capacity  iused       ifree %iused  Mounted on\n/dev/disk3s5  3902614160 1729537776 2146143832    45% 21451496 21461438320    0%   /System/Volumes/Data\n",
+      "stderr": ""
+    }
+  ],
+  "tool_paths": {
+    "kubectl": "/Users/example/.local/share/mise/shims/kubectl",
+    "helm": "/Users/example/.local/share/mise/shims/helm",
+    "ssh": "/usr/bin/ssh",
+    "container": "/Users/example/.local/share/mise/shims/container",
+    "openshell": "/opt/homebrew/bin/openshell",
+    "docker": "/opt/homebrew/bin/docker"
+  },
+  "credentials_read": false,
+  "remote_targets_supplied": false
+}

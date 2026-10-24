@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-24T02:33:23.096549+00:00",
+  "read_only": true,
+  "network_target_mutations": false,
+  "observations": [
+    {
+      "command": [
+        "mise",
+        "which",
+        "kubectl"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "mise ERROR kubectl is a mise bin however it is not currently active. Use `mise use` to activate it in this directory.\nmise ERROR Version: 2026.10.18 macos-arm64 (2026-10-23)\nmise ERROR Run with --verbose or MISE_VERBOSE=1 for more information\n"
+    },
+    {
+      "command": [
+        "mise",
+        "which",
+        "helm"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "mise ERROR helm is a mise bin however it is not currently active. Use `mise use` to activate it in this directory.\nmise ERROR Version: 2026.10.18 macos-arm64 (2026-10-23)\nmise ERROR Run with --verbose or MISE_VERBOSE=1 for more information\n"
+    },
+    {
+      "command": [
+        "mise",
+        "which",
+        "container"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "mise ERROR container is a mise bin however it is not currently active. Use `mise use` to activate it in this directory.\nmise ERROR Version: 2026.10.18 macos-arm64 (2026-10-23)\nmise ERROR Run with --verbose or MISE_VERBOSE=1 for more information\n"
+    },
+    {
+      "command": [
+        "openshell",
+        "gateway",
+        "list",
+        "--output",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "[\n  {\n    \"active\": true,\n    \"auth\": \"mtls\",\n    \"endpoint\": \"https://localhost:17670\",\n    \"is_remote\": false,\n    \"name\": \"openshell\",\n    \"remote_host\": null,\n    \"resolved_host\": null,\n    \"source\": \"user\",\n    \"type\": \"local\"\n  },\n  {\n    \"active\": false,\n    \"auth\": \"mtls\",\n    \"endpoint\": \"https://localhost:17671\",\n    \"is_remote\": false,\n    \"name\": \"openshell-vm\",\n    \"remote_host\": null,\n    \"resolved_host\": null,\n    \"source\": \"user\",\n    \"type\": \"local\"\n  }\n]\n",
+      "stderr": ""
+    }
+  ]
+}

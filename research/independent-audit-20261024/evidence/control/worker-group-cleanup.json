@@ -1,0 +1,17 @@
+{
+  "recorded_at_utc": "2026-10-24T02:00:30Z",
+  "scope": {"gateway": "jrr24-worker", "workspace": "default", "sandbox_namespace": "jrr24-worker-poc"},
+  "resource": {
+    "name": "jrr24-wgrp01",
+    "sandbox_id": "32fb700d-599e-41bd-a557-4117c55fa974",
+    "runtime_generation": "c148c078-8deb-4940-9eff-997597335c7a",
+    "delete_requested": true,
+    "completion_observation": "sandbox get by canonical name returned gateway NOT_FOUND after deletion acceptance",
+    "docker_containers_by_sandbox_uuid": [],
+    "docker_volumes_by_sandbox_uuid": []
+  },
+  "gateway_inventory_after": [],
+  "namespace_container_inventory_after": [],
+  "namespace_volume_inventory_after": [],
+  "limitations": ["NOT_FOUND is a gateway database observation, not by itself authorization to delete retained host data.", "The gateway was shut down after this record; gateway state/certificate teardown is recorded separately."]
+}

@@ -1,0 +1,159 @@
+{
+  "existing_published_files_checked": 1768,
+  "existing_files_equal_after_same_publication_redactor": 1768,
+  "new_included": [
+    {
+      "source_path": "results/full-refactor-20261024/publication-remote-receipt.json",
+      "path": "results/full-refactor-20261024/publication-remote-receipt.json",
+      "source_sha256": "7269c75628165eb47a8b3b5c01105da1b1c9eadebe34785689bc27877cf58003",
+      "published_sha256": "7269c75628165eb47a8b3b5c01105da1b1c9eadebe34785689bc27877cf58003",
+      "bytes": 424,
+      "redactions": []
+    },
+    {
+      "source_path": "results/full-refactor-20261024/verification-worker/patch-tmpfs/jfrv-20261024-p12.docker-stats.txt",
+      "path": "results/full-refactor-20261024/verification-worker/patch-tmpfs/jfrv-20261024-p12.docker-stats.txt",
+      "source_sha256": "5b194ef1e1dc9d90a4e2b9817e449794a48ddd0f9b489624bbd552aff8c31414",
+      "published_sha256": "5b194ef1e1dc9d90a4e2b9817e449794a48ddd0f9b489624bbd552aff8c31414",
+      "bytes": 1342,
+      "redactions": []
+    },
+    {
+      "source_path": "results/full-refactor-20261024/verification-worker/patch-tmpfs/jfrv-20261024-p13.docker-stats.txt",
+      "path": "results/full-refactor-20261024/verification-worker/patch-tmpfs/jfrv-20261024-p13.docker-stats.txt",
+      "source_sha256": "e5db122ebbfc45b41ebafe5d37bc1d9a5084ed08e3c19516b4f66560f9db56b4",
+      "published_sha256": "e5db122ebbfc45b41ebafe5d37bc1d9a5084ed08e3c19516b4f66560f9db56b4",
+      "bytes": 1688,
+      "redactions": []
+    },
+    {
+      "source_path": "results/full-replacement-20261024/docker/child-stream.stdout",
+      "path": "results/full-replacement-20261024/docker/child-stream.stdout.escaped.txt",
+      "source_sha256": "7817f4e8af130949a774be60e8bc15854416c71d8204d4e07911d98a1e41a4c1",
+      "published_sha256": "bae4a7adf649220620805c92d2b12055cd74e9278e0238c175cdd9af7c088270",
+      "bytes": 30,
+      "redactions": [
+        "reversible-NUL-and-backslash-escaping"
+      ]
+    },
+    {
+      "source_path": "results/full-replacement-20261024/docker/gateway-d.log",
+      "path": "results/full-replacement-20261024/docker/gateway-d.log.escaped.txt",
+      "source_sha256": "f3ba33e2085bd49774a88a82ec9fd5917a219e17db27d2a80f7497261927a4f0",
+      "published_sha256": "df82827e20044a43a6ae34e0c4230436fd28e1a2534810e921eccb074122fd54",
+      "bytes": 415168,
+      "redactions": [
+        "reversible-NUL-and-backslash-escaping"
+      ]
+    }
+  ],
+  "remaining_excluded": [
+    {
+      "path": "experiments/full-refactor-20261024/agents/cache-agent-switch-confirm/jackin-config/config.lock",
+      "disposition": "excluded",
+      "reason": "private-or-generated-state-directory"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/agents/cache-agent-switch-confirm/jackin-config/config.toml",
+      "disposition": "excluded",
+      "reason": "private-or-generated-state-directory"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/agents/cache-agent-switch-confirm/jackin-home/data/jfr24_architect.locks/default.repo.lock",
+      "disposition": "excluded",
+      "reason": "private-or-generated-state-directory"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/fixture/candidate/",
+      "disposition": "excluded",
+      "reason": "symlink, nested fixture or nonregular file"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/gateway/gateway.log",
+      "disposition": "excluded",
+      "reason": "credential-or-environment-file"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/gateway/gateway.pid",
+      "disposition": "excluded",
+      "reason": "credential-or-environment-file"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/patch-tmpfs/fixture",
+      "disposition": "excluded",
+      "reason": "symlink, nested fixture or nonregular file"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/patch-tmpfs/gateway/gateway.log",
+      "disposition": "excluded",
+      "reason": "credential-or-environment-file"
+    },
+    {
+      "path": "experiments/full-refactor-20261024/verification-worker/patch-tmpfs/results",
+      "disposition": "excluded",
+      "reason": "symlink, nested fixture or nonregular file"
+    },
+    {
+      "path": "experiments/full-replacement-20261024/role/toolchain-fixture/Dockerfile",
+      "disposition": "excluded",
+      "reason": "source-checkout-or-build-tree"
+    },
+    {
+      "path": "results/full-refactor-20261024/security-publication-review/gitleaks-current-redacted.json",
+      "disposition": "excluded",
+      "reason": "raw-security-scan-diagnostic-withheld-metadata-only"
+    },
+    {
+      "path": "results/full-refactor-20261024/security-publication-review/gitleaks-dir-redacted.json",
+      "disposition": "excluded",
+      "reason": "raw-security-scan-diagnostic-withheld-metadata-only"
+    },
+    {
+      "path": "results/full-refactor-20261024/security-publication-review/gitleaks-dir-refresh-redacted.json",
+      "disposition": "excluded",
+      "reason": "raw-security-scan-diagnostic-withheld-metadata-only"
+    },
+    {
+      "path": "results/full-refactor-20261024/security-publication-review/gitleaks-final-redacted.json",
+      "disposition": "excluded",
+      "reason": "raw-security-scan-diagnostic-withheld-metadata-only"
+    },
+    {
+      "path": "results/full-refactor-20261024/security-publication-review/gitleaks-git-final-redacted.json",
+      "disposition": "excluded",
+      "reason": "raw-security-scan-diagnostic-withheld-metadata-only"
+    },
+    {
+      "path": "results/full-refactor-20261024/security-publication-review/gitleaks-git-redacted.json",
+      "disposition": "excluded",
+      "reason": "raw-security-scan-diagnostic-withheld-metadata-only"
+    },
+    {
+      "path": "results/full-refactor-20261024/security-publication-review/gitleaks-git-refresh-redacted.json",
+      "disposition": "excluded",
+      "reason": "raw-security-scan-diagnostic-withheld-metadata-only"
+    },
+    {
+      "path": "results/full-refactor-20261024/verification-worker/patch-tmpfs/jfrv-20261024-p09.pids_limit.stderr_base64.bin",
+      "disposition": "excluded",
+      "reason": "binary-key-or-disk-artifact"
+    },
+    {
+      "path": "results/full-replacement-20261024/docker/host-source/",
+      "disposition": "excluded",
+      "reason": "symlink, nested fixture or nonregular file"
+    },
+    {
+      "path": "results/full-replacement-20261024/repeat/source/canary-link",
+      "disposition": "excluded",
+      "reason": "symlink, nested fixture or nonregular file"
+    },
+    {
+      "path": "results/full-replacement-20261024/workspace/retention-host-export.bin",
+      "disposition": "excluded",
+      "reason": "binary-key-or-disk-artifact"
+    }
+  ],
+  "exclusions_apply_before_content_access": true,
+  "note": "New evidence/receipt files omitted from prior staging are added; private/generated state, raw scanner diagnostics, nested fixtures and binary exports are not publication artifacts. Two NUL-bearing log streams are published as reversible escaped text (backslash doubled; NUL represented by backslash-zero), after privacy redaction. Original hashes remain source provenance, not public-byte equality."
+}

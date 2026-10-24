@@ -1,0 +1,1049 @@
+{
+  "utc": "2026-10-24T01:43:21.602960+00:00",
+  "repositories": {
+    "jackin-project/jackin": {
+      "reviewed": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+      "current_main": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+      "releases": [
+        {
+          "tag_name": "preview-41bad147b5ba9db09be99b07248531ce1bd867be",
+          "published_at": null,
+          "prerelease": true,
+          "draft": true,
+          "target_commitish": "41bad147b5ba9db09be99b07248531ce1bd867be"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.52",
+          "published_at": "2026-09-13T04:40:51Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.51",
+          "published_at": "2026-09-12T05:08:42Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.50",
+          "published_at": "2026-08-30T13:13:42Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.49",
+          "published_at": "2026-08-29T20:34:33Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.44",
+          "published_at": "2026-08-12T23:23:00Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.43",
+          "published_at": "2026-08-12T21:55:04Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.42",
+          "published_at": "2026-08-12T20:52:49Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.40",
+          "published_at": "2026-08-12T15:26:58Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.39",
+          "published_at": "2026-08-12T04:47:49Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.38",
+          "published_at": "2026-08-08T23:46:46Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.37",
+          "published_at": "2026-08-08T16:49:43Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.34",
+          "published_at": "2026-07-18T18:06:51Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.33",
+          "published_at": "2026-07-16T23:28:50Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.32",
+          "published_at": "2026-07-16T19:22:26Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.31",
+          "published_at": "2026-07-16T17:37:29Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.30",
+          "published_at": "2026-07-16T05:35:18Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.29",
+          "published_at": "2026-07-16T02:10:00Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.28",
+          "published_at": "2026-07-16T01:47:37Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.27",
+          "published_at": "2026-07-16T01:28:14Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.26",
+          "published_at": "2026-07-15T23:16:23Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.25",
+          "published_at": "2026-07-15T23:00:20Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.24",
+          "published_at": "2026-07-15T22:08:38Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.23",
+          "published_at": "2026-07-15T14:30:51Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.22",
+          "published_at": "2026-07-13T19:04:39Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.21",
+          "published_at": "2026-07-13T18:38:01Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.20",
+          "published_at": "2026-07-13T12:22:27Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.19",
+          "published_at": "2026-07-09T11:10:24Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.17",
+          "published_at": "2026-07-09T09:42:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.16",
+          "published_at": "2026-07-06T12:07:32Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.15",
+          "published_at": "2026-07-06T02:43:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.14",
+          "published_at": "2026-07-05T01:33:37Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.13",
+          "published_at": "2026-07-02T18:11:32Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.12",
+          "published_at": "2026-06-28T19:46:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.11",
+          "published_at": "2026-06-28T18:07:05Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.10",
+          "published_at": "2026-06-28T02:52:32Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.9",
+          "published_at": "2026-06-26T22:22:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.8",
+          "published_at": "2026-06-26T18:35:01Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.7",
+          "published_at": "2026-06-26T14:38:03Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.6",
+          "published_at": "2026-06-26T13:35:12Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.4",
+          "published_at": "2026-06-25T20:23:20Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.3",
+          "published_at": "2026-06-23T10:17:49Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "c0ae269d48e542ca59a5414adffd91a466daf860"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.2",
+          "published_at": "2026-06-23T07:13:00Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "b01e315ea93315daf22ab2fe45fadd428064ddb0"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.1",
+          "published_at": "2026-06-23T04:09:05Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "6c8a08435a34e7142f298e47c0bc2130bb67f949"
+        },
+        {
+          "tag_name": "jackin-dev-v0.1.0",
+          "published_at": "2026-06-22T17:45:29Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "preview",
+          "published_at": "2026-05-23T20:25:31Z",
+          "prerelease": true,
+          "draft": false,
+          "target_commitish": "a506eee0581ef7add4f615281dbb90d828d5a657"
+        }
+      ]
+    },
+    "jackin-project/jackin-the-architect": {
+      "reviewed": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+      "current_main": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+      "releases": []
+    },
+    "NVIDIA/OpenShell": {
+      "reviewed": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+      "current_main": "f571c8e99c185804c39e837a2b70692e957de327",
+      "releases": [
+        {
+          "tag_name": "dev",
+          "published_at": "2026-03-18T21:11:50Z",
+          "prerelease": true,
+          "draft": false,
+          "target_commitish": "229382e51dc7b0af26d5e2a845a65b3a074b6aa7"
+        },
+        {
+          "tag_name": "v0.1.5",
+          "published_at": "2026-10-20T17:28:32Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.1.4",
+          "published_at": "2026-10-13T20:48:39Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.1.3",
+          "published_at": "2026-10-09T15:22:35Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.1.2",
+          "published_at": "2026-09-28T03:58:00Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.1.1",
+          "published_at": "2026-09-26T03:45:16Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.1.0",
+          "published_at": "2026-09-25T21:49:01Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "vm-runtime",
+          "published_at": "2026-05-06T05:44:03Z",
+          "prerelease": true,
+          "draft": false,
+          "target_commitish": "96c08f111b7ccf3d048a876c23e724014babb585"
+        },
+        {
+          "tag_name": "v0.0.116",
+          "published_at": "2026-08-28T09:10:23Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.115",
+          "published_at": "2026-08-27T18:03:17Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.113",
+          "published_at": "2026-08-25T15:04:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.111",
+          "published_at": "2026-08-21T18:49:57Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.110",
+          "published_at": "2026-08-20T19:05:48Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.109",
+          "published_at": "2026-08-19T14:53:09Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.106",
+          "published_at": "2026-08-14T18:47:08Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.105",
+          "published_at": "2026-08-13T15:02:32Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.104",
+          "published_at": "2026-08-12T15:02:17Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.103",
+          "published_at": "2026-08-11T15:07:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.102",
+          "published_at": "2026-08-10T15:05:42Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.101",
+          "published_at": "2026-08-07T14:59:45Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.99",
+          "published_at": "2026-08-05T15:33:04Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.98",
+          "published_at": "2026-08-04T23:16:57Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.97",
+          "published_at": "2026-08-03T15:38:07Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.96",
+          "published_at": "2026-07-31T17:55:05Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.92",
+          "published_at": "2026-07-27T15:32:25Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.91",
+          "published_at": "2026-07-24T15:06:36Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.90",
+          "published_at": "2026-07-23T15:17:32Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.89",
+          "published_at": "2026-07-22T17:54:40Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.88",
+          "published_at": "2026-07-21T15:18:26Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.86",
+          "published_at": "2026-07-17T15:07:03Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.85",
+          "published_at": "2026-07-16T15:12:41Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.83",
+          "published_at": "2026-07-14T16:49:41Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.82",
+          "published_at": "2026-07-13T15:33:45Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.80",
+          "published_at": "2026-07-09T15:35:27Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.79",
+          "published_at": "2026-07-08T15:21:34Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.78",
+          "published_at": "2026-07-07T15:36:22Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.77",
+          "published_at": "2026-07-06T15:36:59Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.76",
+          "published_at": "2026-07-03T15:20:17Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.75",
+          "published_at": "2026-07-02T15:17:46Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.74",
+          "published_at": "2026-07-01T15:32:28Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.73",
+          "published_at": "2026-06-30T15:31:01Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.72",
+          "published_at": "2026-06-29T15:42:02Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.71",
+          "published_at": "2026-06-26T15:25:00Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.70",
+          "published_at": "2026-06-25T15:33:20Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.69",
+          "published_at": "2026-06-24T15:28:37Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.68",
+          "published_at": "2026-06-23T15:34:40Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.67",
+          "published_at": "2026-06-22T16:19:08Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.66",
+          "published_at": "2026-06-18T15:35:06Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.65",
+          "published_at": "2026-06-17T15:39:55Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.63",
+          "published_at": "2026-06-15T16:31:58Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.62",
+          "published_at": "2026-06-12T15:35:56Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.59",
+          "published_at": "2026-06-09T20:07:17Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.58",
+          "published_at": "2026-06-08T15:39:54Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.57",
+          "published_at": "2026-06-05T15:35:45Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.56",
+          "published_at": "2026-06-04T17:30:16Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.55",
+          "published_at": "2026-06-03T16:04:14Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.54",
+          "published_at": "2026-06-02T15:56:01Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.53",
+          "published_at": "2026-06-01T21:16:57Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.52",
+          "published_at": "2026-05-29T17:03:54Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.51",
+          "published_at": "2026-05-28T15:32:57Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.50",
+          "published_at": "2026-05-27T15:34:36Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.49",
+          "published_at": "2026-05-26T15:32:41Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.48",
+          "published_at": "2026-05-25T21:20:40Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.47",
+          "published_at": "2026-05-22T15:29:19Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.46",
+          "published_at": "2026-05-21T15:30:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.45",
+          "published_at": "2026-05-20T15:56:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.44",
+          "published_at": "2026-05-19T17:17:19Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.43",
+          "published_at": "2026-05-18T15:30:31Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.42",
+          "published_at": "2026-05-15T15:12:46Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.41",
+          "published_at": "2026-05-14T15:15:16Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.40",
+          "published_at": "2026-05-13T15:26:51Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.39",
+          "published_at": "2026-05-12T15:22:11Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.38",
+          "published_at": "2026-05-11T15:32:57Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.37",
+          "published_at": "2026-05-08T22:42:32Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.36",
+          "published_at": "2026-04-23T15:18:15Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.35",
+          "published_at": "2026-04-22T15:04:42Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.34",
+          "published_at": "2026-04-21T15:00:52Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.33",
+          "published_at": "2026-04-20T15:14:10Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.32",
+          "published_at": "2026-04-17T14:52:10Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.31",
+          "published_at": "2026-04-16T15:04:37Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.30",
+          "published_at": "2026-04-15T15:01:57Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.29",
+          "published_at": "2026-04-14T17:12:54Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.28",
+          "published_at": "2026-04-13T15:36:36Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.26",
+          "published_at": "2026-04-09T15:08:08Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.25",
+          "published_at": "2026-04-08T15:02:01Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.24",
+          "published_at": "2026-04-07T15:02:35Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.23",
+          "published_at": "2026-04-06T14:44:12Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.22",
+          "published_at": "2026-04-03T14:47:08Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.21",
+          "published_at": "2026-04-02T14:50:36Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.20",
+          "published_at": "2026-04-01T15:00:04Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.19",
+          "published_at": "2026-03-31T14:54:33Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.16",
+          "published_at": "2026-03-25T14:57:10Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.15",
+          "published_at": "2026-03-24T14:50:58Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.14",
+          "published_at": "2026-03-23T14:47:19Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.13",
+          "published_at": "2026-03-21T18:41:57Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.12",
+          "published_at": "2026-03-20T14:30:26Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.11",
+          "published_at": "2026-03-19T14:32:44Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.10",
+          "published_at": "2026-03-18T04:05:32Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.9",
+          "published_at": "2026-03-17T21:57:41Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        },
+        {
+          "tag_name": "v0.0.8",
+          "published_at": "2026-03-17T04:01:30Z",
+          "prerelease": false,
+          "draft": false,
+          "target_commitish": "main"
+        }
+      ]
+    },
+    "donbeave/openshell-jackin-poc": {
+      "reviewed": "2315e6a278231854b3139b1ca32402777ff3cd01",
+      "current_main": "2315e6a278231854b3139b1ca32402777ff3cd01",
+      "releases": []
+    }
+  }
+}

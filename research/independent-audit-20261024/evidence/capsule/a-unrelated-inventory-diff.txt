@@ -1,0 +1,44 @@
+--- research/full-refactor/evidence/capsule/a-docker-before.txt	2026-10-24 08:48:07
++++ research/full-refactor/evidence/capsule/a-docker-after.txt	2026-10-24 08:49:39
+@@ -1,12 +1,10 @@
+ 022dc831edac
+ 03a1eb33e5aa
+ 063da6002a0c
+-072a50c1d622
+ 085e867395b8
+ 09d478a75995
+ 10f59097823a
+ 12e7817bcd50
+-1d173f32fe90
+ 22a4bceba07c
+ 22b28d042569
+ 248170d2b43a
+@@ -20,6 +18,7 @@
+ 4f221a28d47b
+ 507e979c087e
+ 55fc5216e79b
++564cc9061ae0
+ 56975e5d9d07
+ 58c938d60ccf
+ 5b9d3f89e0f2
+@@ -38,9 +37,12 @@
+ 7991860f6f01
+ 808d93854031
+ 87938700e21e
++8e42b73aee26
++8ebcad1347ad
+ 8fc261859eba
+ 8fed03a8ebb5
+ 94e9ba2f5a28
++97240875536c
+ 9a8229a05eb6
+ 9b0da17c9506
+ 9b6c46c6387d
+@@ -53,6 +55,7 @@
+ b2b088e4f95b
+ b2b391991e99
+ bf8869d3acc6
++c30a65dee92b
+ c3ef1d69b318
+ cb5a2718b8ea
+ cbe0179b24f9

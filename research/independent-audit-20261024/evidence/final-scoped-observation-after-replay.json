@@ -1,0 +1,183 @@
+{
+  "utc": "2026-10-24T02:40:30.644480+00:00",
+  "read_only": true,
+  "observations": [
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:18817",
+        "-sTCP:LISTEN"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "",
+      "scope": "current user listener observation; no earlier stopping actor inferred"
+    },
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:18818",
+        "-sTCP:LISTEN"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "",
+      "scope": "current user listener observation; no earlier stopping actor inferred"
+    },
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:18819",
+        "-sTCP:LISTEN"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "",
+      "scope": "current user listener observation; no earlier stopping actor inferred"
+    },
+    {
+      "command": [
+        "lsof",
+        "-nP",
+        "-iTCP:18823",
+        "-sTCP:LISTEN"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "",
+      "scope": "current user listener observation; no earlier stopping actor inferred"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "namespace": "jrr24-capsule-poc",
+      "kind": "containers"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "namespace": "jrr24-capsule-poc",
+      "kind": "volumes"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-a2-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "namespace": "jrr24-capsule-a2-poc",
+      "kind": "containers"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-a2-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "namespace": "jrr24-capsule-a2-poc",
+      "kind": "volumes"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-worker-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "namespace": "jrr24-worker-poc",
+      "kind": "containers"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-worker-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "namespace": "jrr24-worker-poc",
+      "kind": "volumes"
+    },
+    {
+      "command": [
+        "docker",
+        "ps",
+        "-a",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-reconnect-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "namespace": "jrr24-capsule-reconnect-poc",
+      "kind": "containers"
+    },
+    {
+      "command": [
+        "docker",
+        "volume",
+        "ls",
+        "--filter",
+        "label=openshell.ai/sandbox-namespace=jrr24-capsule-reconnect-poc",
+        "--format",
+        "{{json .}}"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "namespace": "jrr24-capsule-reconnect-poc",
+      "kind": "volumes"
+    }
+  ],
+  "no_mutation_issued": true
+}

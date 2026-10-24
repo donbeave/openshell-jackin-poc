@@ -1,3 +1,9 @@
+> **Current full-refactor verdict: NOT READY TO START THE FULL OPENSHELL REFACTOR.**
+>
+> Start with the [merged research index](RESEARCH_INDEX.md) and [current readiness report](READINESS_REPORT.md). The independent audit, raw POCs, refactor plans and later execution follow-up are integrated below. Earlier prototype conclusions in this historical README are not full-replacement approval.
+
+---
+
 # OpenShell runtime proofs of concept for Jackin
 
 **Start here:** [Agent handoff](AGENT_HANDOFF.md) · [Rewrite readiness](JACKIN_REWRITE_READINESS.md) · [Public-copy provenance](PUBLICATION.md)

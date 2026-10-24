@@ -1,0 +1,195 @@
+{
+  "recorded_at_utc": "2026-10-24T01:57:00.591836+00:00",
+  "scope": {
+    "gateway": "jrr24-worker",
+    "workspace": "default",
+    "compute_driver": "docker",
+    "sandbox_namespace": "jrr24-worker-poc"
+  },
+  "only_delete_allowlist": [
+    "jrr24-wfail02",
+    "jrr24-wfail03",
+    "jrr24-worker-pass4",
+    "jrr24-wpass01",
+    "jrr24-wpass02",
+    "jrr24-wpos01"
+  ],
+  "owned_sandboxes_before_cleanup": [
+    {
+      "name": "jrr24-worker-pass4",
+      "id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+      "phase": "Ready",
+      "runtime_generation": "2c9cd0a4-5702-4ede-a6f5-e334c23d4221"
+    },
+    {
+      "name": "jrr24-wpos01",
+      "id": "0afe308d-8b08-418a-a188-5e98801da02e",
+      "phase": "Ready",
+      "runtime_generation": "054586ec-b18d-49ab-b2e8-82310bb470c8"
+    },
+    {
+      "name": "jrr24-wpass01",
+      "id": "35e0166a-9495-464f-9fa2-3f0151f19842",
+      "phase": "Completed",
+      "runtime_generation": "cc614510-345a-47ab-bbf3-48a0ed7f432e"
+    },
+    {
+      "name": "jrr24-wfail02",
+      "id": "4cacab91-66eb-42c5-98c2-9a058b53735d",
+      "phase": "Error",
+      "runtime_generation": "72930f59-338c-4576-b5e8-3d19159f898b"
+    },
+    {
+      "name": "jrr24-wpass02",
+      "id": "ca508ea2-95d5-4b87-be56-65510bae9bab",
+      "phase": "Completed",
+      "runtime_generation": "84b27691-629a-4592-98de-92617a99b011"
+    },
+    {
+      "name": "jrr24-wfail03",
+      "id": "08446869-bd8f-412e-8ae7-bd856b29e464",
+      "phase": "Error",
+      "runtime_generation": "f20b4717-a2df-4a35-ae97-fc41a3f730f7"
+    }
+  ],
+  "owned_cleanup_results": [
+    {
+      "name": "jrr24-worker-pass4",
+      "sandbox_id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+      "runtime_generation": "2c9cd0a4-5702-4ede-a6f5-e334c23d4221",
+      "delete_result": {
+        "exit_status": 0,
+        "stdout": "\u2713 Sandbox jrr24-worker-pass4 deletion accepted; cleanup is pending\n",
+        "stderr": ""
+      },
+      "delete_completion_observations": [
+        {
+          "exit_status": 1,
+          "error": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+        }
+      ],
+      "get_not_found": true,
+      "docker_containers_by_sandbox_uuid_after": [],
+      "docker_volumes_by_sandbox_uuid_after": []
+    },
+    {
+      "name": "jrr24-wpos01",
+      "sandbox_id": "0afe308d-8b08-418a-a188-5e98801da02e",
+      "runtime_generation": "054586ec-b18d-49ab-b2e8-82310bb470c8",
+      "delete_result": {
+        "exit_status": 0,
+        "stdout": "\u2713 Sandbox jrr24-wpos01 deletion accepted; cleanup is pending\n",
+        "stderr": ""
+      },
+      "delete_completion_observations": [
+        {
+          "exit_status": 1,
+          "error": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+        }
+      ],
+      "get_not_found": true,
+      "docker_containers_by_sandbox_uuid_after": [],
+      "docker_volumes_by_sandbox_uuid_after": []
+    },
+    {
+      "name": "jrr24-wpass01",
+      "sandbox_id": "35e0166a-9495-464f-9fa2-3f0151f19842",
+      "runtime_generation": "cc614510-345a-47ab-bbf3-48a0ed7f432e",
+      "delete_result": {
+        "exit_status": 0,
+        "stdout": "\u2713 Sandbox jrr24-wpass01 deletion accepted; cleanup is pending\n",
+        "stderr": ""
+      },
+      "delete_completion_observations": [
+        {
+          "exit_status": 1,
+          "error": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+        }
+      ],
+      "get_not_found": true,
+      "docker_containers_by_sandbox_uuid_after": [],
+      "docker_volumes_by_sandbox_uuid_after": []
+    },
+    {
+      "name": "jrr24-wfail02",
+      "sandbox_id": "4cacab91-66eb-42c5-98c2-9a058b53735d",
+      "runtime_generation": "72930f59-338c-4576-b5e8-3d19159f898b",
+      "delete_result": {
+        "exit_status": 0,
+        "stdout": "\u2713 Sandbox jrr24-wfail02 deletion accepted; cleanup is pending\n",
+        "stderr": ""
+      },
+      "delete_completion_observations": [
+        {
+          "exit_status": 1,
+          "error": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+        }
+      ],
+      "get_not_found": true,
+      "docker_containers_by_sandbox_uuid_after": [],
+      "docker_volumes_by_sandbox_uuid_after": []
+    },
+    {
+      "name": "jrr24-wpass02",
+      "sandbox_id": "ca508ea2-95d5-4b87-be56-65510bae9bab",
+      "runtime_generation": "84b27691-629a-4592-98de-92617a99b011",
+      "delete_result": {
+        "exit_status": 0,
+        "stdout": "\u2713 Sandbox jrr24-wpass02 deletion accepted; cleanup is pending\n",
+        "stderr": ""
+      },
+      "delete_completion_observations": [
+        {
+          "exit_status": 1,
+          "error": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+        }
+      ],
+      "get_not_found": true,
+      "docker_containers_by_sandbox_uuid_after": [],
+      "docker_volumes_by_sandbox_uuid_after": []
+    },
+    {
+      "name": "jrr24-wfail03",
+      "sandbox_id": "08446869-bd8f-412e-8ae7-bd856b29e464",
+      "runtime_generation": "f20b4717-a2df-4a35-ae97-fc41a3f730f7",
+      "delete_result": {
+        "exit_status": 0,
+        "stdout": "\u2713 Sandbox jrr24-wfail03 deletion accepted; cleanup is pending\n",
+        "stderr": ""
+      },
+      "delete_completion_observations": [
+        {
+          "exit_status": 1,
+          "error": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+        }
+      ],
+      "get_not_found": true,
+      "docker_containers_by_sandbox_uuid_after": [],
+      "docker_volumes_by_sandbox_uuid_after": []
+    }
+  ],
+  "owned_sandboxes_remaining_in_gateway_inventory": [],
+  "owned_compute_before": [
+    "7abad8fa5afe openshell.ai/isolation-role=supervisor,openshell.ai/managed-by=openshell,openshell.ai/sandbox-id=08446869-bd8f-412e-8ae7-bd856b29e464,openshell.ai/sandbox-name=jrr24-wfail03,openshell.ai/sandbox-namespace=jrr24-worker-poc",
+    "0416a2870dd6 openshell.ai/caller-driver-config-used=true,openshell.ai/isolation-backend=openshell-sandbox,openshell.ai/isolation-role=sandbox,openshell.ai/managed-by=openshell,openshell.ai/private-image-volume-targets=[],openshell.ai/resource-admission-identities={},openshell.ai/sandbox-id=08446869-bd8f-412e-8ae7-bd856b29e464,openshell.ai/sandbox-name=jrr24-wfail03,openshell.ai/sandbox-namespace=jrr24-worker-poc,openshell.ai/sandbox-workspace=default",
+    "fc3b325b3315 openshell.ai/isolation-role=supervisor,openshell.ai/managed-by=openshell,openshell.ai/sandbox-id=ca508ea2-95d5-4b87-be56-65510bae9bab,openshell.ai/sandbox-name=jrr24-wpass02,openshell.ai/sandbox-namespace=jrr24-worker-poc",
+    "cc9fdca8b848 openshell.ai/caller-driver-config-used=true,openshell.ai/isolation-backend=openshell-sandbox,openshell.ai/isolation-role=sandbox,openshell.ai/managed-by=openshell,openshell.ai/private-image-volume-targets=[],openshell.ai/resource-admission-identities={},openshell.ai/sandbox-id=ca508ea2-95d5-4b87-be56-65510bae9bab,openshell.ai/sandbox-name=jrr24-wpass02,openshell.ai/sandbox-namespace=jrr24-worker-poc,openshell.ai/sandbox-workspace=default",
+    "8ebcad1347ad openshell.ai/isolation-role=supervisor,openshell.ai/managed-by=openshell,openshell.ai/sandbox-id=4cacab91-66eb-42c5-98c2-9a058b53735d,openshell.ai/sandbox-name=jrr24-wfail02,openshell.ai/sandbox-namespace=jrr24-worker-poc",
+    "564cc9061ae0 openshell.ai/caller-driver-config-used=true,openshell.ai/isolation-backend=openshell-sandbox,openshell.ai/isolation-role=sandbox,openshell.ai/managed-by=openshell,openshell.ai/private-image-volume-targets=[],openshell.ai/resource-admission-identities={},openshell.ai/sandbox-id=4cacab91-66eb-42c5-98c2-9a058b53735d,openshell.ai/sandbox-name=jrr24-wfail02,openshell.ai/sandbox-namespace=jrr24-worker-poc,openshell.ai/sandbox-workspace=default",
+    "97240875536c openshell.ai/isolation-role=supervisor,openshell.ai/managed-by=openshell,openshell.ai/sandbox-id=35e0166a-9495-464f-9fa2-3f0151f19842,openshell.ai/sandbox-name=jrr24-wpass01,openshell.ai/sandbox-namespace=jrr24-worker-poc",
+    "8e42b73aee26 openshell.ai/caller-driver-config-used=true,openshell.ai/isolation-backend=openshell-sandbox,openshell.ai/isolation-role=sandbox,openshell.ai/managed-by=openshell,openshell.ai/private-image-volume-targets=[],openshell.ai/resource-admission-identities={},openshell.ai/sandbox-id=35e0166a-9495-464f-9fa2-3f0151f19842,openshell.ai/sandbox-name=jrr24-wpass01,openshell.ai/sandbox-namespace=jrr24-worker-poc,openshell.ai/sandbox-workspace=default",
+    "790a5da399a1 openshell.ai/isolation-role=supervisor,openshell.ai/managed-by=openshell,openshell.ai/sandbox-id=0afe308d-8b08-418a-a188-5e98801da02e,openshell.ai/sandbox-name=jrr24-wpos01,openshell.ai/sandbox-namespace=jrr24-worker-poc",
+    "248170d2b43a openshell.ai/caller-driver-config-used=true,openshell.ai/isolation-backend=openshell-sandbox,openshell.ai/isolation-role=sandbox,openshell.ai/managed-by=openshell,openshell.ai/private-image-volume-targets=[],openshell.ai/resource-admission-identities={},openshell.ai/sandbox-id=0afe308d-8b08-418a-a188-5e98801da02e,openshell.ai/sandbox-name=jrr24-wpos01,openshell.ai/sandbox-namespace=jrr24-worker-poc,openshell.ai/sandbox-workspace=default",
+    "64c3f877d312 openshell.ai/isolation-role=supervisor,openshell.ai/managed-by=openshell,openshell.ai/sandbox-id=f09bc76d-2120-455a-8544-a045bb9afd91,openshell.ai/sandbox-name=jrr24-worker-pass4,openshell.ai/sandbox-namespace=jrr24-worker-poc",
+    "5c565f5daff0 openshell.ai/caller-driver-config-used=true,openshell.ai/isolation-backend=openshell-sandbox,openshell.ai/isolation-role=sandbox,openshell.ai/managed-by=openshell,openshell.ai/private-image-volume-targets=[],openshell.ai/resource-admission-identities={},openshell.ai/sandbox-id=f09bc76d-2120-455a-8544-a045bb9afd91,openshell.ai/sandbox-name=jrr24-worker-pass4,openshell.ai/sandbox-namespace=jrr24-worker-poc,openshell.ai/sandbox-workspace=default"
+  ],
+  "owned_compute_after": [],
+  "unrelated_engine_inventory_comparison": {
+    "before_count": 121,
+    "before_sha256": "e6a54f95fba82f17f1a944c72dbad600ea600d06b90b9a19cdcf267a739994d1",
+    "after_count": 122,
+    "after_sha256": "cbaad87462ac41f65c6119a2cb748a023fbfe498054184c1d7c32ec748da2ddd",
+    "same": false,
+    "scope": "immediately before/after this cleanup only; no baseline was captured before the earlier POC runs"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "utc": "2026-10-24T02:41:42.106200+00:00",
+  "result": "PASS",
+  "scope": "Artifact/source integrity and syntax only; no product or runtime acceptance tests.",
+  "checks": {
+    "json_python_shell_files_checked": 351,
+    "source_checkouts": {
+      "jackin": {
+        "expected": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+        "actual": "6e266406b49da2ab3c55355f3b7d33d1643ee6cd",
+        "worktree_changes": ""
+      },
+      "architect": {
+        "expected": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+        "actual": "7b72b38fe1d66e35c0931899c53bf3719592bbcc",
+        "worktree_changes": ""
+      },
+      "openshell": {
+        "expected": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+        "actual": "bdb956f2cd65a635f1294fccf1d138d263bf650f",
+        "worktree_changes": ""
+      }
+    },
+    "inventory": {
+      "direct_rows": 207,
+      "unique_base_reviewed_direct_rows": 196,
+      "base_correction_records": 199,
+      "deduplicated_source_representations": 3,
+      "supplemental_direct_rows": 11,
+      "direct_rows_source_action_reviewed": 207,
+      "direct_rows_caller_route_or_no_caller_verified": 207,
+      "direct_rows_source_review_complete": 207,
+      "direct_rows_replacement_execution_proved": 0,
+      "cross_cutting_rows": 10,
+      "cross_cutting_rows_independently_reviewed": 10,
+      "build_test_infrastructure_rows": 19,
+      "build_test_infrastructure_rows_independently_reviewed": 19,
+      "source_behavior_exception_rows": 1,
+      "raw_matches": 329,
+      "raw_matches_unresolved": 0,
+      "excluded_support_matches": 344,
+      "independent_correction_rows": 199,
+      "independent_correction_rows_unmatched": 0
+    },
+    "broad_match_count": 1266,
+    "retained_experiment_key_paths": []
+  },
+  "failures": []
+}

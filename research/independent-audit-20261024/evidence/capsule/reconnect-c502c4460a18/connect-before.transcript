@@ -1,0 +1,2 @@
+/bin/sh: can't access tty; job control turned off
+~ $ printf 'FIRST-PID:%s\n' "$$"; printf 'SESSION-MARKER:persistent-c502c4460a18\n'; printf 'READY-BEFORE\n'

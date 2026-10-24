@@ -1,0 +1,79 @@
+{
+  "recorded_at_utc": "2026-10-24T01:51:25.337164+00:00",
+  "tool": "OpenShell Rust CLI 0.1.5",
+  "target": {
+    "gateway": "jrr24-worker",
+    "endpoint": "https://127.0.0.1:18818",
+    "sandbox_name": "jrr24-worker-pass4",
+    "immutable_sandbox_id": "f09bc76d-2120-455a-8544-a045bb9afd91",
+    "runtime_generation": "2c9cd0a4-5702-4ede-a6f5-e334c23d4221",
+    "image": "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4"
+  },
+  "tests": {
+    "separate_stdout_stderr_exit": {
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "exec",
+        "jrr24-worker-pass4",
+        "--no-tty",
+        "--no-login-shell",
+        "--",
+        "python3",
+        "-c",
+        "import sys; print('OUT:ready'); print('ERR:diagnostic', file=sys.stderr); raise SystemExit(23)"
+      ],
+      "exit_status": 23,
+      "stdout_utf8": "OUT:ready\n",
+      "stdout_hex": "4f55543a72656164790a",
+      "stderr_utf8": "ERR:diagnostic\n",
+      "stderr_hex": "4552523a646961676e6f737469630a",
+      "stdin_hex": null
+    },
+    "exact_arguments": {
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "exec",
+        "jrr24-worker-pass4",
+        "--no-tty",
+        "--no-login-shell",
+        "--",
+        "python3",
+        "-c",
+        "import json,sys; print(json.dumps(sys.argv[1:]))",
+        "space value",
+        "semi;colon",
+        "$(printf hacked)",
+        "quote'\"mix",
+        "wild*card"
+      ],
+      "exit_status": 0,
+      "stdout_utf8": "[\"space value\", \"semi;colon\", \"$(printf hacked)\", \"quote'\\\"mix\", \"wild*card\"]\n",
+      "stdout_hex": "5b2273706163652076616c7565222c202273656d693b636f6c6f6e222c202224287072696e7466206861636b656429222c202271756f7465275c226d6978222c202277696c642a63617264225d0a",
+      "stderr_utf8": "",
+      "stderr_hex": "",
+      "stdin_hex": null
+    },
+    "binary_stdin": {
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "exec",
+        "jrr24-worker-pass4",
+        "--no-tty",
+        "--no-login-shell",
+        "--",
+        "python3",
+        "-c",
+        "import sys; sys.stdout.write(sys.stdin.buffer.read().hex())"
+      ],
+      "exit_status": 0,
+      "stdout_utf8": "707265666978006d6964646c653b24286e6f742d7368656c6c29ff737566666978",
+      "stdout_hex": "373037323635363636393738303036643639363436343663363533623234323836653666373432643733363836353663366332396666373337353636363636393738",
+      "stderr_utf8": "",
+      "stderr_hex": "",
+      "stdin_hex": "707265666978006d6964646c653b24286e6f742d7368656c6c29ff737566666978"
+    }
+  }
+}

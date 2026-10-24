@@ -1,0 +1,13 @@
+{
+  "repository": "https://github.com/donbeave/openshell-jackin-poc",
+  "commit": "a94bb70b83cb847f005dc2acde1e9d2fa9742689",
+  "tree": "02b7e1ecf7ad4586e40217ec47b12b44cb901c9f",
+  "remote_refs": [
+    "main",
+    "research/full-openshell-refactor-20261024"
+  ],
+  "verified_matching_remote_refs": true,
+  "baseline_parent": "2315e6a278231854b3139b1ca32402777ff3cd01",
+  "baseline_files_modified": 0,
+  "new_files": 1769
+}

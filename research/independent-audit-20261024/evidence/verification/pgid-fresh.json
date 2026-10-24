@@ -1,0 +1,33 @@
+{
+  "recorded_at_utc": "2026-10-24T01:58:52.074328+00:00",
+  "mechanism": "OpenShell v0.1.5 Docker sandbox with process UID/GID 1000 and Jackin verification policy",
+  "target": {
+    "gateway": "jrr24-worker",
+    "workspace": "default",
+    "sandbox_name": "jrr24-wgrp01",
+    "sandbox_id": "32fb700d-599e-41bd-a557-4117c55fa974",
+    "runtime_generation": "c148c078-8deb-4940-9eff-997597335c7a",
+    "main_process_instance_id": "74dcb44e-0f58-412a-9671-c3f8d5222ca3"
+  },
+  "command": [
+    "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+    "sandbox",
+    "exec",
+    "jrr24-wgrp01",
+    "--timeout",
+    "10",
+    "--no-tty",
+    "--no-login-shell",
+    "--",
+    "python3",
+    "-c",
+    "import os,subprocess\np=subprocess.Popen([\"sleep\",\"30\"],start_new_session=True)\nprint(\"child_pid\",p.pid,\"pgid\",os.getpgid(p.pid),\"sid\",os.getsid(p.pid))\ntry:\n os.killpg(p.pid,9)\n p.wait(timeout=2)\n print(\"process_group_signal\",\"success\")\nexcept Exception as error:\n print(\"process_group_signal\",type(error).__name__,str(error))\n p.kill()\n p.wait(timeout=2)\nq=subprocess.Popen([\"sleep\",\"30\"],start_new_session=True)\ntry:\n os.kill(q.pid,9)\n q.wait(timeout=2)\n print(\"single_pid_signal\",\"success\")\nexcept Exception as error:\n print(\"single_pid_signal\",type(error).__name__,str(error))\n q.kill()\n q.wait(timeout=2)\n"
+  ],
+  "result": {
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 2, in <module>\n  File \"/usr/local/lib/python3.12/subprocess.py\", line 1026, in __init__\n    self._execute_child(args, executable, preexec_fn, close_fds,\n  File \"/usr/local/lib/python3.12/subprocess.py\", line 1885, in _execute_child\n    self.pid = _fork_exec(\n               ^^^^^^^^^^^\nBlockingIOError: [Errno 11] Resource temporarily unavailable\n"
+  },
+  "status": "NOT TESTED",
+  "interpretation": "The fresh retry could not spawn even its first child because the runtime returned EAGAIN (resource temporarily unavailable). This run provides no signal or process-group evidence. See timeout-process-group.json for the earlier complete wrapper failure on a separately captured identity."
+}

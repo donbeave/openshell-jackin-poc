@@ -1,0 +1,494 @@
+{
+  "recorded_at_utc": "2026-10-24T01:56:09.765934+00:00",
+  "tool": "OpenShell Rust CLI 0.1.5 with verified TLS and experiment-owned local client certificate",
+  "target_scope": {
+    "gateway": "jrr24-worker",
+    "endpoint": "https://127.0.0.1:18818",
+    "workspace": "default"
+  },
+  "identity_test": {
+    "sandbox_name": "jrr24-idprobe",
+    "first": {
+      "id": "81ebb74a-e15b-436e-a683-a46e0a14a4dc",
+      "runtime_generation": "530ace3d-50df-42f3-ae7d-bef1c3a0b03c"
+    },
+    "second": {
+      "id": "e95ee0ee-726b-4fae-abe8-9fae7ad561a2",
+      "runtime_generation": "b4236a46-9691-4d72-bef3-93d2e10968c2"
+    },
+    "replacement_changed_id": true,
+    "replacement_changed_generation": true,
+    "stale_name_stop_targeted_second_generation": true,
+    "authority": "gateway-wide mTLS client certificate owner; same isolated POC gateway/workspace",
+    "limitation": "Name-based stop has no expected-sandbox-id or expected-generation precondition. Read-then-act is not atomic."
+  },
+  "async_delete": {
+    "first_delete": {
+      "key": "delete_first_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "delete",
+        "jrr24-idprobe"
+      ],
+      "exit_status": 0,
+      "stdout": "\u2713 Sandbox jrr24-idprobe deletion accepted; cleanup is pending\n",
+      "stderr": "",
+      "json": null
+    },
+    "first_get_not_found_observations": [
+      {
+        "exit_status": 1,
+        "phase": null,
+        "id": null,
+        "error": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+      }
+    ],
+    "second_delete": {
+      "key": "delete_second_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "delete",
+        "jrr24-idprobe"
+      ],
+      "exit_status": 0,
+      "stdout": "\u2713 Sandbox jrr24-idprobe deletion accepted; cleanup is pending\n",
+      "stderr": "",
+      "json": null
+    },
+    "second_get_not_found_observations": [
+      {
+        "exit_status": 1,
+        "phase": null,
+        "id": null,
+        "error": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n"
+      }
+    ],
+    "get_reports_not_found": true,
+    "resource_cleanup_completion": "NOT TESTED by this script; see UUID-scoped Docker inventory receipt before inferring no compute resources remain",
+    "missing_resource_control": {
+      "key": "missing_resource_before",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-no-such",
+        "--output",
+        "json"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n",
+      "json": null
+    }
+  },
+  "unavailable_target_control": {
+    "key": "unavailable_target",
+    "argv": [
+      "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+      "sandbox",
+      "get",
+      "jrr24-no-such",
+      "--output",
+      "json",
+      "--gateway-endpoint",
+      "https://127.0.0.1:18819"
+    ],
+    "exit_status": 1,
+    "stdout": "",
+    "stderr": "Error:   \u00d7 transport error\n  \u251c\u2500\u25b6 tcp connect error\n  \u251c\u2500\u25b6 tcp connect error\n  \u2570\u2500\u25b6 Connection refused (os error 61)\n\n",
+    "json": null
+  },
+  "calls": [
+    {
+      "key": "preexisting_owned_fixture_cleanup_check",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-idprobe",
+        "--output",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"id\": \"7f58401e-4dc9-412e-a3bb-45fbf3258f85\",\n  \"name\": \"jrr24-idprobe\",\n  \"phase\": \"Ready\",\n  \"exit_code\": null,\n  \"main_process_instance_id\": \"04f4d1c1-c2a1-49b2-823d-df2b1b4f94a0\",\n  \"conditions\": [\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"Supervisor session connected\",\n      \"reason\": \"DependenciesReady\",\n      \"status\": \"True\",\n      \"type\": \"Ready\"\n    },\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"\",\n      \"reason\": \"ConfigurationAccepted\",\n      \"status\": \"True\",\n      \"type\": \"ConfigurationReady\"\n    }\n  ],\n  \"workspace\": \"default\",\n  \"revision\": 1,\n  \"resource_version\": 15,\n  \"runtime_generation\": \"6e8e43a1-1564-418f-9baf-13ba3487d513\"\n}\n",
+      "stderr": "",
+      "json": {
+        "id": "7f58401e-4dc9-412e-a3bb-45fbf3258f85",
+        "name": "jrr24-idprobe",
+        "phase": "Ready",
+        "exit_code": null,
+        "main_process_instance_id": "04f4d1c1-c2a1-49b2-823d-df2b1b4f94a0",
+        "conditions": [
+          {
+            "last_transition_time": "",
+            "message": "Supervisor session connected",
+            "reason": "DependenciesReady",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "last_transition_time": "",
+            "message": "",
+            "reason": "ConfigurationAccepted",
+            "status": "True",
+            "type": "ConfigurationReady"
+          }
+        ],
+        "workspace": "default",
+        "revision": 1,
+        "resource_version": 15,
+        "runtime_generation": "6e8e43a1-1564-418f-9baf-13ba3487d513"
+      }
+    },
+    {
+      "key": "cleanup_preexisting_owned_fixture",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "delete",
+        "jrr24-idprobe"
+      ],
+      "exit_status": 0,
+      "stdout": "\u2713 Sandbox jrr24-idprobe deletion accepted; cleanup is pending\n",
+      "stderr": "",
+      "json": null
+    },
+    {
+      "key": "wait_preexisting_owned_fixture_cleanup",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-idprobe",
+        "--output",
+        "json"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n",
+      "json": null
+    },
+    {
+      "key": "missing_resource_before",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-no-such",
+        "--output",
+        "json"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n",
+      "json": null
+    },
+    {
+      "key": "create_first_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "create",
+        "--name",
+        "jrr24-idprobe",
+        "--from",
+        "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+        "--no-tty",
+        "--detach",
+        "--",
+        "sleep",
+        "infinity"
+      ],
+      "exit_status": 0,
+      "stdout": "\nCreated sandbox: jrr24-idprobe\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4\n[0.9s] Image already present\n[4.1s] Starting sandbox Container created\n",
+      "stderr": "",
+      "json": null
+    },
+    {
+      "key": "observe_first_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-idprobe",
+        "--output",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"id\": \"81ebb74a-e15b-436e-a683-a46e0a14a4dc\",\n  \"name\": \"jrr24-idprobe\",\n  \"phase\": \"Ready\",\n  \"exit_code\": null,\n  \"main_process_instance_id\": \"5537e070-05b1-48e2-9996-14c7969a691a\",\n  \"conditions\": [\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"Supervisor session connected\",\n      \"reason\": \"DependenciesReady\",\n      \"status\": \"True\",\n      \"type\": \"Ready\"\n    },\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"\",\n      \"reason\": \"ConfigurationAccepted\",\n      \"status\": \"True\",\n      \"type\": \"ConfigurationReady\"\n    }\n  ],\n  \"workspace\": \"default\",\n  \"revision\": 1,\n  \"resource_version\": 12,\n  \"runtime_generation\": \"530ace3d-50df-42f3-ae7d-bef1c3a0b03c\"\n}\n",
+      "stderr": "",
+      "json": {
+        "id": "81ebb74a-e15b-436e-a683-a46e0a14a4dc",
+        "name": "jrr24-idprobe",
+        "phase": "Ready",
+        "exit_code": null,
+        "main_process_instance_id": "5537e070-05b1-48e2-9996-14c7969a691a",
+        "conditions": [
+          {
+            "last_transition_time": "",
+            "message": "Supervisor session connected",
+            "reason": "DependenciesReady",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "last_transition_time": "",
+            "message": "",
+            "reason": "ConfigurationAccepted",
+            "status": "True",
+            "type": "ConfigurationReady"
+          }
+        ],
+        "workspace": "default",
+        "revision": 1,
+        "resource_version": 12,
+        "runtime_generation": "530ace3d-50df-42f3-ae7d-bef1c3a0b03c"
+      }
+    },
+    {
+      "key": "delete_first_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "delete",
+        "jrr24-idprobe"
+      ],
+      "exit_status": 0,
+      "stdout": "\u2713 Sandbox jrr24-idprobe deletion accepted; cleanup is pending\n",
+      "stderr": "",
+      "json": null
+    },
+    {
+      "key": "wait_first_generation_deleted",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-idprobe",
+        "--output",
+        "json"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n",
+      "json": null
+    },
+    {
+      "key": "create_same_name_second_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "create",
+        "--name",
+        "jrr24-idprobe",
+        "--from",
+        "python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4",
+        "--no-tty",
+        "--detach",
+        "--",
+        "sleep",
+        "infinity"
+      ],
+      "exit_status": 0,
+      "stdout": "\nCreated sandbox: jrr24-idprobe\n\n  [0.0s] Requesting compute...\n[0.0s] Sandbox allocated\n[0.0s] Pulling image python@sha256:1b668429b3511ab407d8e00648891631b0b1a4d7e15e3ca70f38ab5b91ad4ab4\n[0.6s] Image already present\n[3.1s] Starting sandbox Container created\n",
+      "stderr": "",
+      "json": null
+    },
+    {
+      "key": "observe_second_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-idprobe",
+        "--output",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"id\": \"e95ee0ee-726b-4fae-abe8-9fae7ad561a2\",\n  \"name\": \"jrr24-idprobe\",\n  \"phase\": \"Ready\",\n  \"exit_code\": null,\n  \"main_process_instance_id\": \"c908fcb2-027e-4447-a286-b08abbb7297b\",\n  \"conditions\": [\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"Supervisor session connected\",\n      \"reason\": \"DependenciesReady\",\n      \"status\": \"True\",\n      \"type\": \"Ready\"\n    },\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"\",\n      \"reason\": \"ConfigurationAccepted\",\n      \"status\": \"True\",\n      \"type\": \"ConfigurationReady\"\n    }\n  ],\n  \"workspace\": \"default\",\n  \"revision\": 1,\n  \"resource_version\": 12,\n  \"runtime_generation\": \"b4236a46-9691-4d72-bef3-93d2e10968c2\"\n}\n",
+      "stderr": "",
+      "json": {
+        "id": "e95ee0ee-726b-4fae-abe8-9fae7ad561a2",
+        "name": "jrr24-idprobe",
+        "phase": "Ready",
+        "exit_code": null,
+        "main_process_instance_id": "c908fcb2-027e-4447-a286-b08abbb7297b",
+        "conditions": [
+          {
+            "last_transition_time": "",
+            "message": "Supervisor session connected",
+            "reason": "DependenciesReady",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "last_transition_time": "",
+            "message": "",
+            "reason": "ConfigurationAccepted",
+            "status": "True",
+            "type": "ConfigurationReady"
+          }
+        ],
+        "workspace": "default",
+        "revision": 1,
+        "resource_version": 12,
+        "runtime_generation": "b4236a46-9691-4d72-bef3-93d2e10968c2"
+      }
+    },
+    {
+      "key": "stale_name_stop_after_replacement",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "stop",
+        "jrr24-idprobe"
+      ],
+      "exit_status": 0,
+      "stdout": "\u2713 Stopped sandbox jrr24-idprobe\n",
+      "stderr": "",
+      "json": null
+    },
+    {
+      "key": "observe_state_after_stale_name_stop",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-idprobe",
+        "--output",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"id\": \"e95ee0ee-726b-4fae-abe8-9fae7ad561a2\",\n  \"name\": \"jrr24-idprobe\",\n  \"phase\": \"Stopped\",\n  \"exit_code\": null,\n  \"main_process_instance_id\": \"c908fcb2-027e-4447-a286-b08abbb7297b\",\n  \"conditions\": [\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"Backend ready; waiting for supervisor session\",\n      \"reason\": \"SupervisorNotConnected\",\n      \"status\": \"False\",\n      \"type\": \"Ready\"\n    },\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"\",\n      \"reason\": \"ConfigurationAccepted\",\n      \"status\": \"True\",\n      \"type\": \"ConfigurationReady\"\n    }\n  ],\n  \"workspace\": \"default\",\n  \"revision\": 1,\n  \"resource_version\": 17,\n  \"runtime_generation\": \"b4236a46-9691-4d72-bef3-93d2e10968c2\"\n}\n",
+      "stderr": "",
+      "json": {
+        "id": "e95ee0ee-726b-4fae-abe8-9fae7ad561a2",
+        "name": "jrr24-idprobe",
+        "phase": "Stopped",
+        "exit_code": null,
+        "main_process_instance_id": "c908fcb2-027e-4447-a286-b08abbb7297b",
+        "conditions": [
+          {
+            "last_transition_time": "",
+            "message": "Backend ready; waiting for supervisor session",
+            "reason": "SupervisorNotConnected",
+            "status": "False",
+            "type": "Ready"
+          },
+          {
+            "last_transition_time": "",
+            "message": "",
+            "reason": "ConfigurationAccepted",
+            "status": "True",
+            "type": "ConfigurationReady"
+          }
+        ],
+        "workspace": "default",
+        "revision": 1,
+        "resource_version": 17,
+        "runtime_generation": "b4236a46-9691-4d72-bef3-93d2e10968c2"
+      }
+    },
+    {
+      "key": "start_second_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "start",
+        "jrr24-idprobe"
+      ],
+      "exit_status": 0,
+      "stdout": "\u2713 Started sandbox jrr24-idprobe\n",
+      "stderr": "",
+      "json": null
+    },
+    {
+      "key": "observe_second_generation_started",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-idprobe",
+        "--output",
+        "json"
+      ],
+      "exit_status": 0,
+      "stdout": "{\n  \"id\": \"e95ee0ee-726b-4fae-abe8-9fae7ad561a2\",\n  \"name\": \"jrr24-idprobe\",\n  \"phase\": \"Ready\",\n  \"exit_code\": null,\n  \"main_process_instance_id\": \"d6416292-8294-487b-8380-08c6fd56fc47\",\n  \"conditions\": [\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"Supervisor session connected\",\n      \"reason\": \"DependenciesReady\",\n      \"status\": \"True\",\n      \"type\": \"Ready\"\n    },\n    {\n      \"last_transition_time\": \"\",\n      \"message\": \"\",\n      \"reason\": \"ConfigurationAccepted\",\n      \"status\": \"True\",\n      \"type\": \"ConfigurationReady\"\n    }\n  ],\n  \"workspace\": \"default\",\n  \"revision\": 1,\n  \"resource_version\": 27,\n  \"runtime_generation\": \"43ce3b98-3013-47ee-9416-7db0bb0a7d94\"\n}\n",
+      "stderr": "",
+      "json": {
+        "id": "e95ee0ee-726b-4fae-abe8-9fae7ad561a2",
+        "name": "jrr24-idprobe",
+        "phase": "Ready",
+        "exit_code": null,
+        "main_process_instance_id": "d6416292-8294-487b-8380-08c6fd56fc47",
+        "conditions": [
+          {
+            "last_transition_time": "",
+            "message": "Supervisor session connected",
+            "reason": "DependenciesReady",
+            "status": "True",
+            "type": "Ready"
+          },
+          {
+            "last_transition_time": "",
+            "message": "",
+            "reason": "ConfigurationAccepted",
+            "status": "True",
+            "type": "ConfigurationReady"
+          }
+        ],
+        "workspace": "default",
+        "revision": 1,
+        "resource_version": 27,
+        "runtime_generation": "43ce3b98-3013-47ee-9416-7db0bb0a7d94"
+      }
+    },
+    {
+      "key": "delete_second_generation",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "delete",
+        "jrr24-idprobe"
+      ],
+      "exit_status": 0,
+      "stdout": "\u2713 Sandbox jrr24-idprobe deletion accepted; cleanup is pending\n",
+      "stderr": "",
+      "json": null
+    },
+    {
+      "key": "wait_second_generation_deleted",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-idprobe",
+        "--output",
+        "json"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Error:   \u00d7 code: 'Some requested entity was not found', message: \"sandbox not found\"\n\n",
+      "json": null
+    },
+    {
+      "key": "unavailable_target",
+      "argv": [
+        "/Users/example/openshell-jackin-poc/research/full-refactor/experiments/control/client.sh",
+        "sandbox",
+        "get",
+        "jrr24-no-such",
+        "--output",
+        "json",
+        "--gateway-endpoint",
+        "https://127.0.0.1:18819"
+      ],
+      "exit_status": 1,
+      "stdout": "",
+      "stderr": "Error:   \u00d7 transport error\n  \u251c\u2500\u25b6 tcp connect error\n  \u251c\u2500\u25b6 tcp connect error\n  \u2570\u2500\u25b6 Connection refused (os error 61)\n\n",
+      "json": null
+    }
+  ]
+}
